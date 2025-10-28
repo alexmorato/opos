@@ -752,6 +752,7 @@
       // Añadir al principio del historial (más nuevo primero)
       historialFallos.unshift(pregunta);
       actualizarTextareaHistorial();
+      localStorage.setItem('oposTest_historialFallos', JSON.stringify(historialFallos));
     }
 
     // Guardar duda actual (independiente de si es correcta o no)
@@ -782,6 +783,7 @@
             pregunta.user_guid = user_guid;
             historialFallos.unshift(pregunta);
             actualizarTextareaHistorial();
+             localStorage.setItem('oposTest_historialFallos', JSON.stringify(historialFallos));
           }
         }
       }
@@ -790,52 +792,26 @@
     // Eliminar pregunta actual del historial de fallos
     function eliminarDelHistorial() {
       if (!canRemoveFromHistory || !isRepassingErrors) return;
-      
-        // Encontrar la pregunta actual en el historial original
-        const preguntaActual = preguntes[currentQuestion];
-        
-        // Recargar historial actual del localStorage
-        const historialActual = localStorage.getItem('oposTest_historialFallos');
-        if (historialActual) {
-          historialFallos = JSON.parse(historialActual);
-          
-          // Buscar y eliminar la pregunta que coincida
-          const index = historialFallos.findIndex(p => 
-            p.pregunta === preguntaActual.pregunta || 
-            p.question === preguntaActual.question
-          );
-          
-          if (index !== -1) {
-            historialFallos.splice(index, 1);
-            localStorage.setItem('oposTest_historialFallos', JSON.stringify(historialFallos));
-            actualizarTextareaHistorial();
-            
-            // Eliminar también de la lista actual
-            preguntes.splice(currentQuestion, 1);
-            answers.splice(currentQuestion, 1);
-            
-            // Ajustar índice actual
-            if (currentQuestion >= preguntes.length && preguntes.length > 0) {
-              currentQuestion = preguntes.length - 1;
-            }
-            
-            // Si no quedan preguntas, mostrar mensaje
-            if (preguntes.length === 0) {
-              document.getElementById('questionContainer').innerHTML = 
-                '<div class="question-card"><div class="question-text">¡Genial! Has eliminat tots els errors del historial.</div></div>';
-              document.querySelector('.navigation').style.display = 'none';
-              return;
-            }
-            
-            // Mostrar siguiente pregunta
-            showQuestion(currentQuestion);
-          }
+      // Encontrar la pregunta actual en el historial original
+      const preguntaActual = preguntes[currentQuestion];
+      const guid = preguntaActual.user_guid || preguntaActual.guid || preguntaActual._id;
+      // Recargar historial actual del localStorage
+      const historialActual = localStorage.getItem('oposTest_historialFallos');
+      if (historialActual) {
+        historialFallos = JSON.parse(historialActual);
+        // Eliminar todas las preguntas que coincidan con el guid
+        if (guid) {
+          historialFallos = historialFallos.filter(p => (p.user_guid || p.guid || p._id) !== guid);
+        } else {
+          // Si no hay guid, eliminar por pregunta/question como antes
+          historialFallos = historialFallos.filter(p => !(p.pregunta === preguntaActual.pregunta || p.question === preguntaActual.question));
         }
-        
-        // Desactivar botón después de usar
-        canRemoveFromHistory = false;
-        document.getElementById('removeFromHistoryBtn').disabled = true;
-      
+        localStorage.setItem('oposTest_historialFallos', JSON.stringify(historialFallos));
+        actualizarTextareaHistorial();
+      }
+      // Desactivar botón después de usar
+      canRemoveFromHistory = false;
+      document.getElementById('removeFromHistoryBtn').disabled = true;
     }
 
     // Borrar historial de fallos
@@ -893,11 +869,6 @@
       } catch (e) {
         console.warn('Error cargando historial previo:', e);
       }
-    });
-
-    // Guardar historial en localStorage antes de salir
-    window.addEventListener('beforeunload', function() {
-      localStorage.setItem('oposTest_historialFallos', JSON.stringify(historialFallos));
     });
 
     // Toast visual reutilizable
