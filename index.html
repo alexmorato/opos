@@ -39,6 +39,23 @@
           document.getElementById('headerTitle').textContent = cfg.headerTitle;
         }
       });
+
+    // Login automático si ya hay user/pass y no relogin=1
+    document.addEventListener('DOMContentLoaded', function() {
+      const params = new URLSearchParams(window.location.search);
+      const relogin = params.get('relogin');
+      const user = localStorage.getItem('oposTest_user');
+      const pass = localStorage.getItem('user_pass');
+      if (user && pass && relogin !== '1') {
+        // Simular login automático rellenando y enviando el formulario
+        document.getElementById('username').value = user;
+        document.getElementById('password').value = pass;
+        setTimeout(() => {
+          document.getElementById('loginForm').dispatchEvent(new Event('submit', {cancelable: true, bubbles: true}));
+        }, 100);
+      }
+    });
+
     function togglePasswordVisibility() {
       const pwd = document.getElementById('password');
       const eye = document.getElementById('eyeIcon');
