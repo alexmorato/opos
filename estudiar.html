@@ -256,7 +256,26 @@
 </head>
 <body>
   <div class="container">
-    <div class="header">☕ Estic d'opos ☕</div>
+  <div class="header" id="headerTitle">☕ Estic d'opos ☕</div>
+  <script>
+    // Cargar headerTitle dinámicamente desde config.json, igual que en index.html
+    fetch('assets/config.json')
+      .then(r => r.json())
+      .then(cfg => {
+        if (cfg.headerTitle) {
+          let title = cfg.headerTitle;
+          if (cfg.headerTitleSectionText) {
+            let section = '';
+            const params = new URLSearchParams(window.location.search);
+            if (params.has('section')) {
+              section = params.get('section');
+            }
+            title = title.replace(cfg.headerTitleSectionText, section);
+          }
+          document.getElementById('headerTitle').textContent = title;
+        }
+      });
+  </script>
     
     <div class="progress-bar">
       <div class="progress-fill" id="progressFill"></div>
