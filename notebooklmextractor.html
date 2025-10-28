@@ -57,8 +57,30 @@
     <select id="temaSelect" style="min-width:220px;"></select>
   </div>
   <div style="margin-bottom:1px;">
-    <label>
+    <label style="display:inline-flex;align-items:center;gap:10px;">
       <input type="checkbox" id="flashcardsCheckbox"> Flashcards
+      <span style="font-size:0.98em;">Dificultat:</span>
+      <select id="difficultySelect" style="min-width:80px;">
+      </select>
+  <script>
+    // Rellenar selector de dificultad desde assets/difficulty.json
+    window.addEventListener('DOMContentLoaded', function() {
+      fetch('assets/difficulty.json')
+        .then(r => r.json())
+        .then(arr => {
+          const sel = document.getElementById('difficultySelect');
+          if (!sel) return;
+          sel.innerHTML = '';
+          arr.forEach(d => {
+            const opt = document.createElement('option');
+            opt.value = d.id;
+            opt.textContent = d.text;
+            sel.appendChild(opt);
+          });
+        });
+    });
+  </script>
+      </select>
     </label>
   </div>
   <p>Pega aquí el texto crudo del response (con <code>\\n</code>, <code>\\u0026quot;</code>, etc.):</p>
@@ -280,12 +302,14 @@
           // Formato quiz original
           const temaSel = document.getElementById('temaSelect');
           const tema = temaSel ? temaSel.value : '';
+          const diffSel = document.getElementById('difficultySelect');
+          const dificultadElegida = diffSel ? Number(diffSel.value) : 0;
           const result = jsonData.quiz.map(q => ({
             guid: guid(),
             subjectId : tema,
             origin: 'notebooklm',
             type: 'test',
-            difficulty: q.difficulty || '', //siempre sera nulo o vacio
+            difficulty: typeof q.difficulty === 'number' ? q.difficulty : dificultadElegida,
             question: q.question,
             answerOptions: q.answerOptions.map(opt => ({
               text: opt.text,
