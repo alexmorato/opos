@@ -286,7 +286,11 @@
 
   <div id="hintArea" class="hint-area" onclick="mostrarHint()">pista</div>
 
-  <div class="navigation">
+  <div style="text-align:center;margin:10px 0;">
+      <button class="historial-btn remove-btn" id="removeFromHistoryBtn" onclick="eliminarDelHistorial()" disabled>✅ Eliminar encertada</button>
+    </div>
+
+    <div class="navigation">
       <button class="nav-btn secondary" id="prevBtn" onclick="previousQuestion()">← Anterior</button>
       <span id="questionCounter"></span>
       <button class="nav-btn" id="nextBtn" onclick="nextQuestion()">Següent →</button>
@@ -298,7 +302,6 @@
         <button class="historial-btn" onclick="copiarHistorial()">📋 Copia</button>
         <button class="historial-btn" onclick="baixarHistorial()">💾 Baixa</button>
         <button class="historial-btn" onclick="guardarDubte()">❓ Guardar dubte</button>
-        <button class="historial-btn remove-btn" id="removeFromHistoryBtn" onclick="eliminarDelHistorial()" disabled>✅ Eliminar encertada</button>
         <button class="historial-btn" onclick="esborrarHistorial()">🗑️ Esborrar tot</button>
       </div>
       <textarea class="historial-textarea" id="historialFallos" readonly placeholder="Aquí apareixeran les preguntes fallades..."></textarea>
