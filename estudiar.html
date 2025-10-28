@@ -318,6 +318,23 @@
     // Cargar preguntas o flashcards del localStorage
     function loadQuestions() {
       try {
+        // Si repassarErrores=1 en la URL, cargar solo historial de fallos
+        const params = new URLSearchParams(window.location.search);
+        if (params.get('repassarErrores') === '1') {
+          isFlashcardsMode = false;
+          const historial = localStorage.getItem('oposTest_historialFallos');
+          preguntes = historial ? JSON.parse(historial) : [];
+          preguntes = preguntes.sort(() => Math.random() - 0.5);
+          if (!preguntes.length) {
+            document.getElementById('questionContainer').innerHTML = 
+              '<div class="question-card"><div class="question-text">No hi ha errors guardats per repassar.</div></div>';
+            return false;
+          }
+          answers = new Array(preguntes.length).fill(null);
+          document.getElementById('hintArea').style.display = 'block';
+          return true;
+        }
+
         // Prioridad: flashcards > preguntas
         const flashcardsJson = localStorage.getItem('oposTest_flashcards');
         if (flashcardsJson) {
