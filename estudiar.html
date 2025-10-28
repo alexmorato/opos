@@ -198,6 +198,20 @@
       background: #2a3554;
       border-color: #6ae0a7;
     }
+    .historial-btn.remove-btn {
+      background: #4a2727;
+      border-color: #6b4040;
+    }
+    .historial-btn.remove-btn:hover {
+      background: #6b4040;
+      border-color: #ff6b6b;
+      color: #ff6b6b;
+    }
+    .historial-btn:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+      pointer-events: none;
+    }
     .historial-textarea {
       width: 100%;
       min-height: 200px;
@@ -265,7 +279,8 @@
         <button class="historial-btn" onclick="copiarHistorial()">📋 Copia</button>
         <button class="historial-btn" onclick="baixarHistorial()">💾 Baixa</button>
         <button class="historial-btn" onclick="guardarDubte()">❓ Guardar dubte</button>
-        <button class="historial-btn" onclick="esborrarHistorial()">🗑️ Esborrar</button>
+        <button class="historial-btn remove-btn" id="removeFromHistoryBtn" onclick="eliminarDelHistorial()" disabled>✅ Eliminar encertada</button>
+        <button class="historial-btn" onclick="esborrarHistorial()">🗑️ Esborrar tot</button>
       </div>
       <textarea class="historial-textarea" id="historialFallos" readonly placeholder="Aquí apareixeran les preguntes fallades..."></textarea>
     </div>
@@ -283,6 +298,8 @@
     let answers = [];
     let showingResults = false;
     let historialFallos = [];
+    let isRepassingErrors = false;
+    let canRemoveFromHistory = false;
 
     // Mostrar y ocultar hint
     function mostrarHint() {
@@ -321,6 +338,7 @@
         // Si repassarErrores=1 en la URL, cargar solo historial de fallos
         const params = new URLSearchParams(window.location.search);
         if (params.get('repassarErrores') === '1') {
+          isRepassingErrors = true;
           isFlashcardsMode = false;
           const historial = localStorage.getItem('oposTest_historialFallos');
           preguntes = historial ? JSON.parse(historial) : [];
@@ -497,10 +515,22 @@
       
       answers[currentQuestion] = optionIndex;
       
-      // Verificar si la respuesta es incorrecta y guardar en historial
+      // Verificar si la respuesta es correcta o incorrecta
       const opciones = shuffledOptions[currentQuestion] || preguntes[currentQuestion].answerOptions || [];
       const selectedOption = opciones[optionIndex];
-      if (selectedOption && !selectedOption.isCorrect) {
+      
+      if (selectedOption && selectedOption.isCorrect && isRepassingErrors) {
+        // Si acertamos en modo repaso de errores, activar botón para eliminar
+        canRemoveFromHistory = true;
+        document.getElementById('removeFromHistoryBtn').disabled = false;
+      } else {
+        // Desactivar botón si no es correcto o no estamos en modo repaso
+        canRemoveFromHistory = false;
+        document.getElementById('removeFromHistoryBtn').disabled = true;
+      }
+      
+      if (selectedOption && !selectedOption.isCorrect && !isRepassingErrors) {
+        // Solo guardar en historial si NO estamos repasando errores
         guardarFalloEnHistorial(currentQuestion, optionIndex);
       }
       
@@ -511,6 +541,8 @@
     function previousQuestion() {
       if (currentQuestion > 0) {
         currentQuestion--;
+        canRemoveFromHistory = false;
+        document.getElementById('removeFromHistoryBtn').disabled = true;
         showQuestion(currentQuestion);
       }
     }
@@ -519,6 +551,8 @@
     function nextQuestion() {
       if (currentQuestion < preguntes.length - 1) {
         currentQuestion++;
+        canRemoveFromHistory = false;
+        document.getElementById('removeFromHistoryBtn').disabled = true;
         showQuestion(currentQuestion);
       } else {
         showResults();
@@ -731,6 +765,58 @@
             actualizarTextareaHistorial();
           }
         }
+      }
+    }
+
+    // Eliminar pregunta actual del historial de fallos
+    function eliminarDelHistorial() {
+      if (!canRemoveFromHistory || !isRepassingErrors) return;
+      
+      if (confirm('Segur que vols eliminar aquesta pregunta del historial de fallos?')) {
+        // Encontrar la pregunta actual en el historial original
+        const preguntaActual = preguntes[currentQuestion];
+        
+        // Recargar historial actual del localStorage
+        const historialActual = localStorage.getItem('oposTest_historialFallos');
+        if (historialActual) {
+          historialFallos = JSON.parse(historialActual);
+          
+          // Buscar y eliminar la pregunta que coincida
+          const index = historialFallos.findIndex(p => 
+            p.pregunta === preguntaActual.pregunta || 
+            p.question === preguntaActual.question
+          );
+          
+          if (index !== -1) {
+            historialFallos.splice(index, 1);
+            localStorage.setItem('oposTest_historialFallos', JSON.stringify(historialFallos));
+            actualizarTextareaHistorial();
+            
+            // Eliminar también de la lista actual
+            preguntes.splice(currentQuestion, 1);
+            answers.splice(currentQuestion, 1);
+            
+            // Ajustar índice actual
+            if (currentQuestion >= preguntes.length && preguntes.length > 0) {
+              currentQuestion = preguntes.length - 1;
+            }
+            
+            // Si no quedan preguntas, mostrar mensaje
+            if (preguntes.length === 0) {
+              document.getElementById('questionContainer').innerHTML = 
+                '<div class="question-card"><div class="question-text">¡Genial! Has eliminat tots els errors del historial.</div></div>';
+              document.querySelector('.navigation').style.display = 'none';
+              return;
+            }
+            
+            // Mostrar siguiente pregunta
+            showQuestion(currentQuestion);
+          }
+        }
+        
+        // Desactivar botón después de usar
+        canRemoveFromHistory = false;
+        document.getElementById('removeFromHistoryBtn').disabled = true;
       }
     }
 
