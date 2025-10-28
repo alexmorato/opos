@@ -286,9 +286,10 @@
 
   <div id="hintArea" class="hint-area" onclick="mostrarHint()">pista</div>
 
-  <div style="text-align:center;margin:10px 0;">
-      <button class="historial-btn remove-btn" id="removeFromHistoryBtn" onclick="eliminarDelHistorial()" disabled>✅ Eliminar encertada</button>
-    </div>
+
+  <div id="removeFromHistoryContainer" style="text-align:center;margin:10px 0; display:none;">
+    <button class="historial-btn remove-btn" id="removeFromHistoryBtn" onclick="eliminarDelHistorial()" disabled>✅ Eliminar encertada</button>
+  </div>
 
     <div class="navigation">
       <button class="nav-btn secondary" id="prevBtn" onclick="previousQuestion()">← Anterior</button>
@@ -354,8 +355,8 @@
       return difficultyMap[difficulty] || 'D?';
     }
 
-    // Cargar preguntas o flashcards del localStorage
-    function loadQuestions() {
+  // Cargar preguntas o flashcards del localStorage
+  function loadQuestions() {
       try {
         // Si repassarErrores=1 en la URL, cargar solo historial de fallos
         const params = new URLSearchParams(window.location.search);
@@ -368,11 +369,16 @@
           if (!preguntes.length) {
             document.getElementById('questionContainer').innerHTML = 
               '<div class="question-card"><div class="question-text">No hi ha errors guardats per repassar.</div></div>';
+            document.getElementById('removeFromHistoryContainer').style.display = 'none';
             return false;
           }
           answers = new Array(preguntes.length).fill(null);
           document.getElementById('hintArea').style.display = 'block';
+          document.getElementById('removeFromHistoryContainer').style.display = 'block';
           return true;
+        } else {
+          isRepassingErrors = false;
+          document.getElementById('removeFromHistoryContainer').style.display = 'none';
         }
 
         // Prioridad: flashcards > preguntas
@@ -797,14 +803,14 @@
       if (!canRemoveFromHistory || !isRepassingErrors) return;
       // Encontrar la pregunta actual en el historial original
       const preguntaActual = preguntes[currentQuestion];
-      const guid = preguntaActual.user_guid || preguntaActual.guid || preguntaActual._id;
+      const guid = preguntaActual.guid;
       // Recargar historial actual del localStorage
       const historialActual = localStorage.getItem('oposTest_historialFallos');
       if (historialActual) {
         historialFallos = JSON.parse(historialActual);
         // Eliminar todas las preguntas que coincidan con el guid
         if (guid) {
-          historialFallos = historialFallos.filter(p => (p.user_guid || p.guid || p._id) !== guid);
+          historialFallos = historialFallos.filter(p => p.guid !== guid);
         } else {
           // Si no hay guid, eliminar por pregunta/question como antes
           historialFallos = historialFallos.filter(p => !(p.pregunta === preguntaActual.pregunta || p.question === preguntaActual.question));
@@ -871,6 +877,10 @@
         }
       } catch (e) {
         console.warn('Error cargando historial previo:', e);
+      }
+      // Ocultar el botón de eliminar encertada por defecto
+      if (!isRepassingErrors) {
+        document.getElementById('removeFromHistoryContainer').style.display = 'none';
       }
     });
 
