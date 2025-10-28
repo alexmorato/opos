@@ -67,7 +67,7 @@
       margin-top: 30px;
     }
     @media (max-width: 600px) {
-      h1 { font-size: 1.6rem; margin: 20px 0; }
+      h1 { font-size: 2rem; margin: 20px 0; }
       .container { margin: 0 10px; padding: 20px 16px; }
       .menu-grid { grid-template-columns: 1fr; gap: 16px; }
       .menu-btn { font-size: 1.5rem; padding: 16px; }
@@ -75,7 +75,26 @@
   </style>
 </head>
 <body>
-  <h1>☕ Estic d'opos - Menú ☕</h1>
+  <h1 id="headerTitle">☕ Estic d'opos - Menú ☕</h1>
+  <script>
+    // Cargar headerTitle dinámicamente desde config.json, igual que en index.html
+    fetch('assets/config.json')
+      .then(r => r.json())
+      .then(cfg => {
+        if (cfg.headerTitle) {
+          let title = cfg.headerTitle;
+          if (cfg.headerTitleSectionText) {
+            let section = '';
+            const params = new URLSearchParams(window.location.search);
+            if (params.has('section')) {
+              section = params.get('section');
+            }
+            title = title.replace(cfg.headerTitleSectionText, section);
+          }
+          document.getElementById('headerTitle').textContent = title;
+        }
+      });
+  </script>
   
   <div class="container">
     <div class="menu-grid">
@@ -88,7 +107,11 @@
       </button>
       
       <button class="menu-btn" onclick="window.location.href='estudiar.html?repassarErrores=1'" title="Repasa només les preguntes fallades">
-        🔄 Repeteix errors
+        🔄 Estudiar errors
+      </button>
+
+      <button class="menu-btn" onclick="window.location.href='cargarErrores.html'" title="Repasa només les preguntes fallades">
+        🔄✂️ Estudiar errors CopyPaste
       </button>
       
       <button class="menu-btn" onclick="window.location.href='notebooklmextractor.html'">
