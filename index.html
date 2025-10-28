@@ -17,7 +17,7 @@
   </style>
 </head>
 <body>
-  <h1>☕ Estic d'opos ☕</h1>
+  <h1 id="headerTitle">...</h1>
   <div class="container">
     <form id="loginForm" autocomplete="off">
   <label for="username">Introduce tu nombre:</label>
@@ -31,6 +31,14 @@
     </svg>
   </span>
   <script>
+    // Cargar headerTitle dinámicamente desde config.json
+    fetch('assets/config.json')
+      .then(r => r.json())
+      .then(cfg => {
+        if (cfg.headerTitle) {
+          document.getElementById('headerTitle').textContent = cfg.headerTitle;
+        }
+      });
     function togglePasswordVisibility() {
       const pwd = document.getElementById('password');
       const eye = document.getElementById('eyeIcon');
@@ -48,7 +56,7 @@
     </form>
   </div>
   <script>
-    document.getElementById('loginForm').onsubmit = async function(e) {
+  document.getElementById('loginForm').onsubmit = async function(e) {
       e.preventDefault();
       const name = document.getElementById('username').value.trim();
       const pass = document.getElementById('password').value;
@@ -133,4 +141,33 @@
     };
   </script>
 </body>
+  <footer id="footerVersion" style="text-align:center;color:#9fb0ff;font-size:0.98rem;margin-top:40px;opacity:0.7;"></footer>
+  <script>
+    // Mostrar versión y fecha de última modificación de config.json
+    let footerText = '';
+    fetch('assets/config.json')
+      .then(r => r.json())
+      .then(cfg => {
+        if (cfg.appVersion) {
+          footerText = 'Versió: ' + cfg.appVersion;
+        }
+      });
+    // Obtener fecha de última modificación usando HEAD
+    fetch('assets/config.json', { method: 'HEAD' })
+      .then(res => {
+        const lastMod = res.headers.get('Last-Modified');
+        if (lastMod) {
+          // Solo la fecha (sin hora)
+          const dateStr = new Date(lastMod).toLocaleDateString('ca-ES');
+          setTimeout(() => {
+            document.getElementById('footerVersion').textContent =
+              footerText + (footerText ? ' · ' : '') + dateStr;
+          }, 100);
+        } else {
+          setTimeout(() => {
+            document.getElementById('footerVersion').textContent = footerText;
+          }, 100);
+        }
+      });
+  </script>
 </html>
