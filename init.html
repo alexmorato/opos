@@ -22,6 +22,12 @@
       <option value="">Totes</option>
     </select>
 
+
+    <label for="dificultat">Dificultat:</label>
+    <select id="dificultat">
+      <option value="">Tots</option>
+    </select>
+
     <label for="ambito">Àmbit:</label>
     <select id="ambito">
       <option value="">Tots</option>
@@ -115,28 +121,56 @@
       localStorage.setItem('oposTest_' + key, JSON.stringify(value));
     }
 
-    // Elementos  
-    const tipoPreguntaSel = document.getElementById('tipoPregunta');
-    const ambitoSel = document.getElementById('ambito');
-    const temasBotones = document.getElementById('temasBotones');
 
-    let tipusPregunta = [];
-    let ambits = [];
-    let temes = [];
+  // Elementos  
+  const tipoPreguntaSel = document.getElementById('tipoPregunta');
+  const dificultatSel = document.getElementById('dificultat');
+  const ambitoSel = document.getElementById('ambito');
+  const temasBotones = document.getElementById('temasBotones');
+
+
+  let tipusPregunta = [];
+  let ambits = [];
+  let temes = [];
+  let dificultats = [];
+
 
     // Cargar los JSON
     Promise.all([
       fetch('assets/opos24_tipusPregunta.json').then(r => r.json()),
       fetch('assets/opos24_ambits.json').then(r => r.json()),
-      fetch('assets/opos24_temes.json').then(r => r.json())
-    ]).then(([tipusPreguntaData, ambitsData, temesData]) => {
+      fetch('assets/opos24_temes.json').then(r => r.json()),
+      fetch('assets/difficulty.json').then(r => r.json())
+    ]).then(([tipusPreguntaData, ambitsData, temesData, dificultatsData]) => {
       tipusPregunta = tipusPreguntaData;
       ambits = ambitsData;
       temes = temesData;
+      dificultats = dificultatsData;
       cargarTipoPregunta();
+      cargarDificultat();
       cargarAmbitos();
       cargarTemas();
     });
+
+    function cargarDificultat() {
+      dificultats.forEach(dif => {
+        const opt = document.createElement('option');
+        opt.value = dif.id;
+        opt.textContent = dif.text;
+        dificultatSel.appendChild(opt);
+      });
+      // Seleccionar el valor guardado en localStorage si existe
+      let lastDif = null;
+      try {
+        lastDif = localStorage.getItem('oposTest_dificultat');
+        if (lastDif && typeof lastDif === 'string') {
+          lastDif = lastDif.replace(/^"|"$/g, '');
+        }
+      } catch (e) { lastDif = null; }
+      if (lastDif) {
+        dificultatSel.value = lastDif;
+      }
+    }
 
     function cargarTipoPregunta() {
       tipusPregunta.forEach(tp => {
@@ -165,6 +199,17 @@
         opt.textContent = a.id + ' - ' + a.nom || a.id || a;
         ambitoSel.appendChild(opt);
       });
+      // Seleccionar el valor guardado en localStorage si existe
+      let lastAmbit = null;
+      try {
+        lastAmbit = localStorage.getItem('oposTest_ambito');
+        if (lastAmbit && typeof lastAmbit === 'string') {
+          lastAmbit = lastAmbit.replace(/^"|"$/g, '');
+        }
+      } catch (e) { lastAmbit = null; }
+      if (lastAmbit) {
+        ambitoSel.value = lastAmbit;
+      }
     }
 
     function cargarTemas() {
@@ -225,10 +270,15 @@
     // Inicialitza l'estat del text quan es carrega la pàgina
     document.addEventListener('DOMContentLoaded', actualitzaSeleccioInfo);
 
+
     // Guardar selección en localStorage cada vez que cambia
     tipoPreguntaSel.addEventListener('change', function() {
       saveOposTest('tipoPregunta', this.value);
     });
+    dificultatSel.addEventListener('change', function() {
+      saveOposTest('dificultat', this.value);
+    });
+
     ambitoSel.addEventListener('change', function() {
       saveOposTest('ambito', this.value);
       cargarTemas();

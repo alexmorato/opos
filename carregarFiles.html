@@ -226,16 +226,22 @@
       }
       let preguntesTot = [];
       let filesLoaded = 0;
-      // Leer tipoPregunta del localStorage
+
+      // Leer tipoPregunta y dificultat del localStorage
       let tipoPregunta = null;
+      let dificultat = null;
       try {
         tipoPregunta = localStorage.getItem('oposTest_tipoPregunta');
         if (tipoPregunta && typeof tipoPregunta === 'string') {
-          // Eliminar comillas extra si las hay
           tipoPregunta = tipoPregunta.replace(/^"|"$/g, '');
         }
         if (tipoPregunta === '' || tipoPregunta === null || tipoPregunta === undefined) tipoPregunta = null;
-      } catch (e) { tipoPregunta = null; }
+        dificultat = localStorage.getItem('oposTest_dificultat');
+        if (dificultat && typeof dificultat === 'string') {
+          dificultat = dificultat.replace(/^"|"$/g, '');
+        }
+        if (dificultat === '' || dificultat === null || dificultat === undefined) dificultat = null;
+      } catch (e) { tipoPregunta = null; dificultat = null; }
 
       fitxers.forEach(fitxer => {
         fetch('testfiles/' + fitxer)
@@ -250,6 +256,10 @@
             // Filtrar por tipoPregunta si está definido y no nulo
             if (tipoPregunta) {
               preguntas = preguntas.filter(q => (q.type || '') === tipoPregunta);
+            }
+            // Filtrar por dificultad si está definida y no nula
+            if (dificultat) {
+              preguntas = preguntas.filter(q => String(q.difficulty) === String(dificultat));
             }
             preguntesTot = preguntesTot.concat(preguntas);
             filesLoaded++;
