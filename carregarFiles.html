@@ -100,6 +100,15 @@
       log('No hi ha temes seleccionats.');
     } else {
       log('Temes seleccionats: ' + temas.join(', '));
+      // Mostrar tipo de test seleccionado
+      let tipoTestLog = null;
+      try {
+        tipoTestLog = localStorage.getItem('oposTest_tipoPregunta');
+        if (tipoTestLog && typeof tipoTestLog === 'string') {
+          tipoTestLog = tipoTestLog.replace(/^"|"$/g, '');
+        }
+      } catch (e) { tipoTestLog = null; }
+      log('Tipus de test seleccionat: ' + (tipoTestLog ? tipoTestLog : 'Tots'));
       // Cargar manifest.json y buscar ficheros que empiecen por los temas seleccionats
       fetch('testfiles/manifest.json')
         .then(r => r.json())
@@ -217,15 +226,32 @@
       }
       let preguntesTot = [];
       let filesLoaded = 0;
+      // Leer tipoPregunta del localStorage
+      let tipoPregunta = null;
+      try {
+        tipoPregunta = localStorage.getItem('oposTest_tipoPregunta');
+        if (tipoPregunta && typeof tipoPregunta === 'string') {
+          // Eliminar comillas extra si las hay
+          tipoPregunta = tipoPregunta.replace(/^"|"$/g, '');
+        }
+        if (tipoPregunta === '' || tipoPregunta === null || tipoPregunta === undefined) tipoPregunta = null;
+      } catch (e) { tipoPregunta = null; }
+
       fitxers.forEach(fitxer => {
         fetch('testfiles/' + fitxer)
           .then(r => r.json())
           .then(data => {
+            let preguntas = [];
             if (Array.isArray(data)) {
-              preguntesTot = preguntesTot.concat(data);
+              preguntas = data;
             } else if (Array.isArray(data.preguntes)) {
-              preguntesTot = preguntesTot.concat(data.preguntes);
+              preguntas = data.preguntes;
             }
+            // Filtrar por tipoPregunta si está definido y no nulo
+            if (tipoPregunta) {
+              preguntas = preguntas.filter(q => (q.type || '') === tipoPregunta);
+            }
+            preguntesTot = preguntesTot.concat(preguntas);
             filesLoaded++;
             if (filesLoaded === fitxers.length) {
               // Guardar preguntas concatenadas y navegar

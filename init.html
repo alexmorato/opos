@@ -145,6 +145,17 @@
         opt.textContent = tp.nom || tp.id || tp;
         tipoPreguntaSel.appendChild(opt);
       });
+      // Seleccionar el valor guardado en localStorage si existe
+      let lastTipo = null;
+      try {
+        lastTipo = localStorage.getItem('oposTest_tipoPregunta');
+        if (lastTipo && typeof lastTipo === 'string') {
+          lastTipo = lastTipo.replace(/^"|"$/g, '');
+        }
+      } catch (e) { lastTipo = null; }
+      if (lastTipo) {
+        tipoPreguntaSel.value = lastTipo;
+      }
     }
 
     function cargarAmbitos() {
