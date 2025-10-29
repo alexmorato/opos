@@ -285,19 +285,35 @@
         const isFlashcards = document.getElementById('flashcardsCheckbox').checked;
         
         if (isFlashcards && jsonData && Array.isArray(jsonData.flashcards)) {
-          // Formato flashcards
+          // Formato flashcards: generar array de QuestionContract
           const temaSel = document.getElementById('temaSelect');
           const tema = temaSel ? temaSel.value : '';
-          const result = {
+          const diffSel = document.getElementById('difficultySelect');
+          const dificultadElegida = diffSel ? Number(diffSel.value) : 0;
+          const origin = 'notebooklm';
+          const result = jsonData.flashcards.map(card => ({
+            guid: guid(),
             subjectId: tema,
-            origin: 'notebooklm',
-            flashcards: jsonData.flashcards.map(card => ({
-              f: card.f,
-              b: card.b
-            }))
-          };
+            difficulty: dificultadElegida,
+            origin: origin,
+            type: 'flashcard',
+            question: card.f,
+            answerOptions: [
+              {
+                text: 'Me la sé ✅',
+                isCorrect: true,
+                rationale: card.b
+              },
+              {
+                text: '🤔 Ara no recordo',
+                isCorrect: false,
+                rationale: 'C ada intent suma experiència!'
+              }
+            ],
+            hint: card.hint || ''
+          }));
           output.textContent = JSON.stringify(result, null, 2);
-          status.textContent = `✅ ${result.flashcards.length} flashcards convertidas.`;
+          status.textContent = `✅ ${result.length} flashcards convertidas (QuestionContract).`;
         } else if (!isFlashcards && jsonData && Array.isArray(jsonData.quiz)) {
           // Formato quiz original
           const temaSel = document.getElementById('temaSelect');
