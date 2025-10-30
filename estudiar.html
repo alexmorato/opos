@@ -258,6 +258,19 @@
   <div class="container">
   <div class="header" id="headerTitle">☕ Estic d'opos ☕</div>
   <script>
+    // Fullscreen toggle al clicar el header
+    document.addEventListener('DOMContentLoaded', function() {
+      const header = document.getElementById('headerTitle');
+      header.style.cursor = 'pointer';
+      header.title = 'Clica per a pantalla completa';
+      header.addEventListener('click', function() {
+        if (!document.fullscreenElement) {
+          document.documentElement.requestFullscreen();
+        } else {
+          document.exitFullscreen();
+        }
+      });
+    });
     // Cargar headerTitle dinámicamente desde config.json, igual que en index.html
     fetch('assets/config.json')
       .then(r => r.json())
@@ -479,22 +492,28 @@
         opciones.forEach((option, i) => {
           const isSelected = answers[index] === i;
           let optionClass = 'answer-option';
-          
+          let extraOnClick = '';
           if (userAnswered) {
             if (option.isCorrect) {
               optionClass += ' correct';
+              extraOnClick = `onclick=\"nextQuestion()\"`;
             } else if (isSelected && !option.isCorrect) {
               optionClass += ' incorrect';
+              extraOnClick = `onclick=\"nextQuestion()\"`;
+            } else {
+              extraOnClick = '';
             }
           } else if (isSelected) {
             optionClass += ' selected';
           }
-          
+          // Si no está respondida, sigue usando selectAnswer
+          if (!userAnswered) {
+            extraOnClick = `onclick=\"selectAnswer(${i})\"`;
+          }
           html += `
-            <div class="${optionClass}" onclick="selectAnswer(${i})">
+            <div class="${optionClass}" ${extraOnClick}>
               <div class="option-content">
                 <div class="option-text">${option.text}</div>`;
-          
           // Mostrar feedback si ya se respondió
           if (userAnswered) {
             if (option.isCorrect) {
@@ -507,7 +526,6 @@
                 <div class="rationale">${option.rationale || ''}</div>`;
             }
           }
-          
           html += `
               </div>
             </div>
