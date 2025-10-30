@@ -23,6 +23,12 @@
     </select>
 
 
+
+    <label for="origin">Origen:</label>
+    <select id="origin">
+      <option value="">Tots</option>
+    </select>
+
     <label for="dificultat">Dificultat:</label>
     <select id="dificultat">
       <option value="">Tots</option>
@@ -124,6 +130,7 @@
 
   // Elementos  
   const tipoPreguntaSel = document.getElementById('tipoPregunta');
+  const originSel = document.getElementById('origin');
   const dificultatSel = document.getElementById('dificultat');
   const ambitoSel = document.getElementById('ambito');
   const temasBotones = document.getElementById('temasBotones');
@@ -133,6 +140,7 @@
   let ambits = [];
   let temes = [];
   let dificultats = [];
+  let origins = [];
 
 
     // Cargar los JSON
@@ -140,17 +148,40 @@
       fetch('assets/opos24_tipusPregunta.json').then(r => r.json()),
       fetch('assets/opos24_ambits.json').then(r => r.json()),
       fetch('assets/opos24_temes.json').then(r => r.json()),
-      fetch('assets/difficulty.json').then(r => r.json())
-    ]).then(([tipusPreguntaData, ambitsData, temesData, dificultatsData]) => {
+      fetch('assets/difficulty.json').then(r => r.json()),
+      fetch('assets/opos24_origin.json').then(r => r.json())
+    ]).then(([tipusPreguntaData, ambitsData, temesData, dificultatsData, originsData]) => {
       tipusPregunta = tipusPreguntaData;
       ambits = ambitsData;
       temes = temesData;
       dificultats = dificultatsData;
+      origins = originsData;
       cargarTipoPregunta();
+      cargarOrigin();
       cargarDificultat();
       cargarAmbitos();
       cargarTemas();
     });
+
+    function cargarOrigin() {
+      origins.forEach(o => {
+        const opt = document.createElement('option');
+        opt.value = o.id || o.nom || o;
+        opt.textContent = o.nom || o.id || o;
+        originSel.appendChild(opt);
+      });
+      // Seleccionar el valor guardado en localStorage si existe
+      let lastOrigin = null;
+      try {
+        lastOrigin = localStorage.getItem('oposTest_origin');
+        if (lastOrigin && typeof lastOrigin === 'string') {
+          lastOrigin = lastOrigin.replace(/^"|"$/g, '');
+        }
+      } catch (e) { lastOrigin = null; }
+      if (lastOrigin) {
+        originSel.value = lastOrigin;
+      }
+    }
 
     function cargarDificultat() {
       dificultats.forEach(dif => {
@@ -277,6 +308,9 @@
     });
     dificultatSel.addEventListener('change', function() {
       saveOposTest('dificultat', this.value);
+    });
+    originSel.addEventListener('change', function() {
+      saveOposTest('origin', this.value);
     });
 
     ambitoSel.addEventListener('change', function() {
