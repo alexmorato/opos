@@ -226,12 +226,23 @@
         .then(temes => {
           const select = document.getElementById('temaSelect');
           select.innerHTML = '';
+          // Leer tema guardado en localStorage
+          const temaGuardado = localStorage.getItem('notebooklmextractor_tema');
+          let temaSeleccionado = false;
           temes.forEach(t => {
             const opt = document.createElement('option');
             opt.value = t.tema;
             opt.textContent = t.tema + ' - ' + t.titol;
+            if (temaGuardado && t.tema === temaGuardado) {
+              opt.selected = true;
+              temaSeleccionado = true;
+            }
             select.appendChild(opt);
           });
+          // Si no se encontró el tema guardado, seleccionar el primero
+          if (!temaSeleccionado && select.options.length > 0) {
+            select.selectedIndex = 0;
+          }
         })
         .catch(() => {
           const select = document.getElementById('temaSelect');
@@ -281,12 +292,16 @@
     const downloadBtn = document.getElementById('downloadBtn');
     document.getElementById("convertBtn").addEventListener("click", () => {
       try {
+        // Guardar tema seleccionado en localStorage
+        const temaSel = document.getElementById('temaSelect');
+        if (temaSel) {
+          localStorage.setItem('notebooklmextractor_tema', temaSel.value);
+        }
         const jsonData = unescapeAndParse(input.value);
         const isFlashcards = document.getElementById('flashcardsCheckbox').checked;
         
         if (isFlashcards && jsonData && Array.isArray(jsonData.flashcards)) {
           // Formato flashcards: generar array de QuestionContract
-          const temaSel = document.getElementById('temaSelect');
           const tema = temaSel ? temaSel.value : '';
           const diffSel = document.getElementById('difficultySelect');
           const dificultadElegida = diffSel ? Number(diffSel.value) : 0;
@@ -316,7 +331,6 @@
           status.textContent = `✅ ${result.length} flashcards convertidas (QuestionContract).`;
         } else if (!isFlashcards && jsonData && Array.isArray(jsonData.quiz)) {
           // Formato quiz original
-          const temaSel = document.getElementById('temaSelect');
           const tema = temaSel ? temaSel.value : '';
           const diffSel = document.getElementById('difficultySelect');
           const dificultadElegida = diffSel ? Number(diffSel.value) : 0;
