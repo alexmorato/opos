@@ -863,10 +863,28 @@
     function actualizarTextareaHistorial() {
       const textarea = document.getElementById('historialFallos');
       textarea.value = JSON.stringify(historialFallos, null, 2);
-      // Actualizar contador de fallos
+      // Actualizar contador de fallos con desglose por tema y tipo
       const fallosCount = document.getElementById('fallosCount');
       if (fallosCount) {
-        fallosCount.textContent = `(${historialFallos.length})`;
+        const total = historialFallos.length;
+        // Agrupar solo por subjectId y fallo.type
+        const temas = {};
+        historialFallos.forEach(fallo => {
+          const tema = fallo.subjectId || '??';
+          const tipo = fallo.type || '??';
+          if (!temas[tema]) temas[tema] = {};
+          if (!temas[tema][tipo]) temas[tema][tipo] = 0;
+          temas[tema][tipo]++;
+        });
+        // Construir string de desglose
+        const desglose = Object.entries(temas).map(([tema, tipos]) => {
+          const sumaTema = Object.values(tipos).reduce((a,b) => a+b, 0);
+          const tiposStr = Object.entries(tipos)
+            .map(([tipo, n]) => `${tipo}:${n}`)
+            .join(', ');
+          return `${tema}:${sumaTema} <${tiposStr}>`;
+        }).join(', ');
+        fallosCount.textContent = `(${total}${desglose ? ', ' + desglose : ''})`;
       }
     }
 
