@@ -251,9 +251,9 @@
       let preguntesTot = [];
       let filesLoaded = 0;
 
-      // Leer tipoPregunta, dificultat y origen del localStorage
+      // Leer tipoPregunta, dificultat (array) y origen del localStorage
       let tipoPregunta = null;
-      let dificultat = null;
+      let dificultatsArr = null;
       let origen = null;
       try {
         tipoPregunta = localStorage.getItem('oposTest_tipoPregunta');
@@ -261,17 +261,19 @@
           tipoPregunta = tipoPregunta.replace(/^"|"$/g, '');
         }
         if (tipoPregunta === '' || tipoPregunta === null || tipoPregunta === undefined) tipoPregunta = null;
-        dificultat = localStorage.getItem('oposTest_dificultat');
-        if (dificultat && typeof dificultat === 'string') {
-          dificultat = dificultat.replace(/^"|"$/g, '');
+        let dificultatRaw = localStorage.getItem('oposTest_dificultat');
+        try {
+          dificultatsArr = JSON.parse(dificultatRaw);
+        } catch (e) {
+          dificultatsArr = null;
         }
-        if (dificultat === '' || dificultat === null || dificultat === undefined) dificultat = null;
+        if (!Array.isArray(dificultatsArr)) dificultatsArr = [];
         origen = localStorage.getItem('oposTest_origin');
         if (origen && typeof origen === 'string') {
           origen = origen.replace(/^"|"$/g, '');
         }
         if (origen === '' || origen === null || origen === undefined) origen = null;
-      } catch (e) { tipoPregunta = null; dificultat = null; origen = null; }
+      } catch (e) { tipoPregunta = null; dificultatsArr = []; origen = null; }
 
       fitxers.forEach(fitxer => {
         fetch('testfiles/' + fitxer)
@@ -287,9 +289,9 @@
             if (tipoPregunta) {
               preguntas = preguntas.filter(q => (q.type || '') === tipoPregunta);
             }
-            // Filtrar por dificultad si está definida y no nula
-            if (dificultat) {
-              preguntas = preguntas.filter(q => String(q.difficulty) === String(dificultat));
+            // Filtrar por dificultad: si el array está vacío, no se filtra; si tiene valores, solo se incluyen las dificultades del array
+            if (Array.isArray(dificultatsArr) && dificultatsArr.length > 0) {
+              preguntas = preguntas.filter(q => dificultatsArr.includes(q.difficulty));
             }
             // Filtrar por origen si está definido y no nulo
             if (origen) {
