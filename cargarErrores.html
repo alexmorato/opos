@@ -84,6 +84,7 @@
       margin-top: 30px;
     }
   </style>
+  <script src="assets/js/toast.js"></script>
 </head>
 <body>
   <div class="container">
@@ -93,6 +94,9 @@
       <button onclick="borrarTextarea()">🗑️ Esborrar</button>
     </div>
     <textarea id="historialTextarea" placeholder="Aquí apareixerà el JSON del historial de fallos..."></textarea>
+    <div style="color:#9fb0ff;font-size:0.98em;margin-bottom:10px;text-align:right;">
+      <span id="contadorErrores"></span>
+    </div>
     <div class="btn-row">
   <button class="main-btn" id="estudiarBtn" onclick="guardarYEstudiar()" >Estudiar errors</button>
       <button onclick="window.location.href='menu.html'">⬅️ Tornar al menú</button>
@@ -101,25 +105,51 @@
   <script>
     // Mostrar historial actual al cargar y controlar el estado del botón
     document.addEventListener('DOMContentLoaded', function() {
-      const historial = localStorage.getItem('oposTest_historialFallos');
+  const historial = localStorage.getItem('oposTest_historialFallos');
+  const textarea = document.getElementById('historialTextarea');
+  const btn = document.getElementById('estudiarBtn');
+  textarea.value = historial ? JSON.stringify(JSON.parse(historial), null, 2) : '';
+  btn.disabled = textarea.value.trim() === '';
+  actualizarContadorErrores();
+  textarea.addEventListener('input', actualizarContadorErrores);
+    function actualizarContadorErrores() {
       const textarea = document.getElementById('historialTextarea');
-      const btn = document.getElementById('estudiarBtn');
-      textarea.value = historial ? JSON.stringify(JSON.parse(historial), null, 2) : '';
-      btn.disabled = textarea.value.trim() === '';
+      const contador = document.getElementById('contadorErrores');
+      let n = 0;
+      let temas = {};
+      try {
+        const arr = JSON.parse(textarea.value);
+        if (Array.isArray(arr)) {
+          n = arr.length;
+          arr.forEach(e => {
+            let tema = e.subjectId || '??';
+            temas[tema] = (temas[tema] || 0) + 1;
+          });
+        }
+      } catch {}
+      let desglose = Object.entries(temas)
+        .map(([tema, count]) => `${tema}: ${count}`)
+        .join(', ');
+      contador.textContent = `Errores: ${n}` + (desglose ? ` (${desglose})` : '');
+    }
     });
 
     function copiarAlPortapapeles() {
       const textarea = document.getElementById('historialTextarea');
       textarea.select();
       document.execCommand('copy');
-      mostrarToast('Copiat al portapapers!');
+      toast.showToast('Copiat al portapapers!');
     }
 
     function borrarTextarea() {
       const textarea = document.getElementById('historialTextarea');
       textarea.value = '';
-      const btn = document.getElementById('estudiarBtn');
-      btn.disabled = true;
+      // Forzar evento input para que el contador se actualice correctamente
+      if (typeof Event === 'function') {
+        textarea.dispatchEvent(new Event('input', { bubbles: true }));
+      } else {
+        actualizarContadorErrores();
+      }
     }
 
     function guardarYEstudiar() {
@@ -129,41 +159,21 @@
         nuevoHistorial = JSON.parse(textarea.value);
         if (!Array.isArray(nuevoHistorial)) throw new Error('El JSON ha de ser un array.');
       } catch (e) {
-        mostrarToast('JSON invàlid: ' + e.message);
+        toast.showToast('JSON invàlid: ' + e.message);
+        return;
+      }
+      if (!nuevoHistorial.length) {
+        toast.showToast('No hay errores para estudiar.');
         return;
       }
       localStorage.setItem('oposTest_historialFallos', JSON.stringify(nuevoHistorial));
-      mostrarToast('Historial guardat! Redirigint...');
+      toast.showToast('Historial guardat! Redirigint...');
       setTimeout(function() {
         window.location.href = 'estudiar.html?repassarErrores=1';
       }, 900);
+      actualizarContadorErrores();
     }
-
-    // Toast visual reutilizable
-    function mostrarToast(msg) {
-      let toast = document.getElementById('toastMsg');
-      if (!toast) {
-        toast = document.createElement('div');
-        toast.id = 'toastMsg';
-        toast.style.position = 'fixed';
-        toast.style.bottom = '32px';
-        toast.style.left = '50%';
-        toast.style.transform = 'translateX(-50%)';
-        toast.style.background = '#232b45';
-        toast.style.color = '#e7ecff';
-        toast.style.padding = '16px 32px';
-        toast.style.borderRadius = '10px';
-        toast.style.fontSize = '1.1rem';
-        toast.style.boxShadow = '0 4px 16px rgba(0,0,0,0.18)';
-        toast.style.zIndex = 9999;
-        toast.style.opacity = 0;
-        toast.style.transition = 'opacity 0.3s';
-        document.body.appendChild(toast);
-      }
-      toast.textContent = msg;
-      toast.style.opacity = 1;
-      setTimeout(() => { toast.style.opacity = 0; }, 1800);
-    }
+    
   </script>
 </body>
 </html>
