@@ -319,7 +319,7 @@
     </div>
 
     <div class="historial-section">
-      <div class="historial-title">Historial fallos</div>
+  <div class="historial-title">Historial fallos <span id="fallosCount" style="color:#9fb0ff;font-weight:normal;font-size:0.98em;"></span></div>
       <div class="historial-buttons">
         <button class="historial-btn" onclick="copiarHistorial()">📋 Copia</button>
         <button class="historial-btn" onclick="baixarHistorial()">💾 Baixa</button>
@@ -862,6 +862,11 @@
     function actualizarTextareaHistorial() {
       const textarea = document.getElementById('historialFallos');
       textarea.value = JSON.stringify(historialFallos, null, 2);
+      // Actualizar contador de fallos
+      const fallosCount = document.getElementById('fallosCount');
+      if (fallosCount) {
+        fallosCount.textContent = `(${historialFallos.length})`;
+      }
     }
 
     // Copiar historial al portapapeles
@@ -900,6 +905,10 @@
         if (historialGuardado) {
           historialFallos = JSON.parse(historialGuardado);
           actualizarTextareaHistorial();
+        } else {
+          // Si no hay historial, actualizar el contador a 0
+          const fallosCount = document.getElementById('fallosCount');
+          if (fallosCount) fallosCount.textContent = '(0)';
         }
       } catch (e) {
         console.warn('Error cargando historial previo:', e);
