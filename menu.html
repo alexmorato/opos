@@ -13,24 +13,8 @@
   <link rel="icon" type="image/png" sizes="192x192" href="images/icons/android-chrome-192x192.png">
   <link rel="icon" type="image/png" sizes="512x512" href="images/icons/android-chrome-512x512.png">
 
+  <link rel="stylesheet" href="assets/styles_lite.css">
   <style>
-    body {
-      font-family: system-ui, sans-serif;
-      background: #0b1020;
-      color: #e7ecff;
-      margin: 0;
-      padding: 20px;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    h1 {
-      text-align: center;
-      color: #6ae0a7;
-      margin: 40px 0 32px 0;
-      font-size: 2.1rem;
-    }
     .container {
       max-width: 800px;
       width: 100%;
@@ -84,27 +68,7 @@
   </style>
 </head>
 <body>
-  <h1 id="headerTitle">☕ Estic d'opos - Menú ☕</h1>
-  <script>
-    // Cargar headerTitle dinámicamente desde config.json, igual que en index.html
-    fetch('assets/config.json')
-      .then(r => r.json())
-      .then(cfg => {
-        if (cfg.headerTitle) {
-          let title = cfg.headerTitle;
-          if (cfg.headerTitleSectionText) {
-            let section = '';
-            const params = new URLSearchParams(window.location.search);
-            if (params.has('section')) {
-              section = params.get('section');
-            }
-            title = title.replace(cfg.headerTitleSectionText, section);
-          }
-          document.getElementById('headerTitle').textContent = title;
-        }
-      });
-  </script>
-  
+  <h1 id="headerTitle">☕ Estic d'opos - Menú ☕</h1>  
   <div class="container">
     <div class="menu-grid">
       <button class="menu-btn" onclick="window.location.href='init.html'">
@@ -134,8 +98,40 @@
       <button class="menu-btn" onclick="window.location.href='index.html?relogin=1'">
         🙋🏻‍♂️ Tornar al login
       </button>
+
+      <button class="menu-btn" id="testToastBtn" type="button">
+        🧪 Test Toast
+      </button>
     </div>
   </div>
+  <script src="assets/toast.js"></script>
+  <script>
+    // Cargar headerTitle dinámicamente desde config.json, igual que en index.html
+    fetch('assets/config.json')
+      .then(r => r.json())
+      .then(cfg => {
+        if (cfg.headerTitle) {
+          let title = cfg.headerTitle;
+          if (cfg.headerTitleSectionText) {
+            let section = '';
+            const params = new URLSearchParams(window.location.search);
+            if (params.has('section')) {
+              section = params.get('section');
+            }
+            title = title.replace(cfg.headerTitleSectionText, section);
+          }
+          document.getElementById('headerTitle').textContent = title;
+        }
+      });
+
+    document.getElementById('testToastBtn').onclick = function() {
+      if (window.toast && toast.showToast) {
+        toast.showToast('Test Toast OK!');
+      } else {
+        alert('toast.js no cargado');
+      }
+    };
+  </script>
   
 </body>
 </html>
