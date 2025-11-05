@@ -60,11 +60,17 @@
       margin-top: 30px;
     }
     @media (max-width: 600px) {
-      h1 { font-size: 2rem; margin: 20px 0; }
-      .container { margin: 0 10px; padding: 20px 16px; }
-      .menu-grid { grid-template-columns: 1fr; gap: 16px; }
-      .menu-btn { font-size: 1.5rem; padding: 16px; }
+      .container { margin: 0 10px; padding: 20px 6px; }
+      .menu-grid { grid-template-columns: 1fr; gap: 6px; }
+      .menu-btn { font-size: 1.3rem; padding: 6px; }
     }
+
+    @media (max-height: 480px) {
+      .container { margin: 0 10px; padding: 10px 6px; }
+      .menu-grid { gap: 6px; }
+      .menu-btn { font-size: 1.3rem; padding: 6px; }
+    }
+
   </style>
 </head>
 <body>
@@ -104,7 +110,7 @@
       </button>
     </div>
   </div>
-  <script src="assets/toast.js"></script>
+  <script src="assets/js/toast.js"></script>
   <script>
     // Cargar headerTitle dinámicamente desde config.json, igual que en index.html
     fetch('assets/config.json')
