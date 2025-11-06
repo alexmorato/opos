@@ -133,19 +133,22 @@
   let origins = [];
 
 
-    // Cargar los JSON
+    // Cargar los JSON y el manifest
+    let manifestFiles = [];
     Promise.all([
       fetch('assets/opos24_tipusPregunta.json').then(r => r.json()),
       fetch('assets/opos24_ambits.json').then(r => r.json()),
       fetch('assets/opos24_temes.json').then(r => r.json()),
       fetch('assets/difficulty.json').then(r => r.json()),
-      fetch('assets/opos24_origin.json').then(r => r.json())
-    ]).then(([tipusPreguntaData, ambitsData, temesData, dificultatsData, originsData]) => {
+      fetch('assets/opos24_origin.json').then(r => r.json()),
+      fetch('testfiles/manifest.json').then(r => r.json())
+    ]).then(([tipusPreguntaData, ambitsData, temesData, dificultatsData, originsData, manifestData]) => {
       tipusPregunta = tipusPreguntaData;
       ambits = ambitsData;
       temes = temesData;
       dificultats = dificultatsData;
       origins = originsData;
+      manifestFiles = Array.isArray(manifestData) ? manifestData : (manifestData.files || []);
       cargarTipoPregunta();
       cargarOrigin();
       cargarDificultat();
@@ -322,24 +325,34 @@
       temasFiltrados.forEach(t => {
         const id = t.tema || t.id || t;
         const label = t.titol || t.nom || t.tema || t.id || t;
+        // Comprobar si hay algún fichero en el manifest que empiece por el tema
+        const disponible = manifestFiles.some(f => f.startsWith(id));
         const btn = document.createElement('button');
         btn.type = 'button';
         btn.textContent = id + ' - ' + label;
         btn.value = id;
         btn.style.marginBottom = '4px';
-        btn.style.background = '#1b223a';
-        btn.style.color = '#e7ecff';
-        btn.style.border = '1px solid #2a3554';
         btn.style.borderRadius = '8px';
         btn.style.padding = '8px 14px';
-        btn.style.cursor = 'pointer';
+        btn.style.cursor = disponible ? 'pointer' : 'not-allowed';
         btn.style.transition = 'all 0.15s';
         btn.className = 'tema-btn';
-        if (temasGuardados.includes(id)) btn.classList.add('selected');
-        btn.addEventListener('click', function() {
-          btn.classList.toggle('selected');
-          guardarTemasSeleccionados();
-        });
+        if (disponible) {
+          btn.style.background = '#1b223a';
+          btn.style.color = '#e7ecff';
+          btn.style.border = '1px solid #2a3554';
+          if (temasGuardados.includes(id)) btn.classList.add('selected');
+          btn.addEventListener('click', function() {
+            btn.classList.toggle('selected');
+            guardarTemasSeleccionados();
+          });
+        } else {
+          btn.disabled = true;
+          btn.style.background = '#ffb3b3';
+          btn.style.color = '#a00';
+          btn.style.border = '2px solid #ffb3b3';
+          btn.title = 'No hi ha fitxers per a aquest tema';
+        }
         temasBotones.appendChild(btn);
       });
     }
