@@ -101,11 +101,11 @@
     };
     
     document.getElementById('seleccionaTotsBtn').onclick = function() {
-        // Selecciona tots els botons de tema visibles
-        Array.from(document.querySelectorAll('#temasBotones .tema-btn')).forEach(btn => {
-        if (!btn.classList.contains('selected')) btn.classList.add('selected');
-        });
-        guardarTemasSeleccionados();
+      // Selecciona només els botons de tema disponibles (no deshabilitats)
+      Array.from(document.querySelectorAll('#temasBotones .tema-btn')).forEach(btn => {
+        if (!btn.disabled && !btn.classList.contains('selected')) btn.classList.add('selected');
+      });
+      guardarTemasSeleccionados();
     };
 
     document.getElementById('comencarBtn').onclick = function() {
