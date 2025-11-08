@@ -252,15 +252,17 @@
       let filesLoaded = 0;
 
       // Leer tipoPregunta, dificultat (array) y origen del localStorage
-      let tipoPregunta = null;
+      let tipusPreguntaArr = null;
       let dificultatsArr = null;
       let origen = null;
       try {
-        tipoPregunta = localStorage.getItem('oposTest_tipoPregunta');
-        if (tipoPregunta && typeof tipoPregunta === 'string') {
-          tipoPregunta = tipoPregunta.replace(/^"|"$/g, '');
+        let tipusPreguntaRaw = localStorage.getItem('oposTest_tipoPregunta');
+        try {
+          tipusPreguntaArr = JSON.parse(tipusPreguntaRaw);
+        } catch (e) {
+          tipusPreguntaArr = null;
         }
-        if (tipoPregunta === '' || tipoPregunta === null || tipoPregunta === undefined) tipoPregunta = null;
+        if (!Array.isArray(tipusPreguntaArr)) tipusPreguntaArr = [];
         let dificultatRaw = localStorage.getItem('oposTest_dificultat');
         try {
           dificultatsArr = JSON.parse(dificultatRaw);
@@ -273,7 +275,7 @@
           origen = origen.replace(/^"|"$/g, '');
         }
         if (origen === '' || origen === null || origen === undefined) origen = null;
-      } catch (e) { tipoPregunta = null; dificultatsArr = []; origen = null; }
+      } catch (e) { tipusPreguntaArr = []; dificultatsArr = []; origen = null; }
 
       fitxers.forEach(fitxer => {
         fetch('testfiles/' + fitxer)
@@ -286,8 +288,8 @@
               preguntas = data.preguntes;
             }
             // Filtrar por tipoPregunta si está definido y no nulo
-            if (tipoPregunta) {
-              preguntas = preguntas.filter(q => (q.type || '') === tipoPregunta);
+            if (Array.isArray(tipusPreguntaArr) && tipusPreguntaArr.length > 0) {
+              preguntas = preguntas.filter(q => tipusPreguntaArr.includes(q.type));
             }
             // Filtrar por dificultad: si el array está vacío, no se filtra; si tiene valores, solo se incluyen las dificultades del array
             if (Array.isArray(dificultatsArr) && dificultatsArr.length > 0) {

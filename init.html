@@ -147,14 +147,25 @@
     // Ejecutar al cargar
     // Usar la función checkUserAuth desde login.js como login.checkUserAuth
     document.addEventListener('DOMContentLoaded', login.checkUserAuth, {once:true});
-    // --- Lógica para ?tema=... en la URL ---
-    function getTemaFromURL() {
-      const params = new URLSearchParams(window.location.search);
-      return params.get('tema');
-    }
 
+    // --- Lógica para ?dificutats=... & tipus=... & tema=... en la URL ---
     document.addEventListener('DOMContentLoaded', function() {
-      const temaParam = getTemaFromURL();
+      const params = new URLSearchParams(window.location.search);
+      // Si existen, guardar dificultats y tipus en localStorage como arrays
+      if (params.has('dificultats')) {
+        const difsArr = params.get('dificultats').split(',').map(x => x.trim()).filter(x => x !== '');
+        saveOposTest('dificultat', difsArr.map(Number));
+      }
+      if (params.has('tipus')) {
+        const tipusArr = params.get('tipus').split(',').map(x => x.trim()).filter(x => x !== '');
+        saveOposTest('tipoPregunta', tipusArr);
+      }
+      if (params.has('origin')) {
+        const originVal = params.get('origin').trim();
+        if (originVal !== '') saveOposTest('origin', originVal);
+      }
+      const temaParam = params.get('tema');
+
       if (temaParam) {
         // Guardar el tema en localStorage como selección única
         saveOposTest('temas', [temaParam]);
