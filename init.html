@@ -13,6 +13,7 @@
   <link rel="icon" type="image/png" sizes="192x192" href="images/icons/android-chrome-192x192.png">
   <link rel="icon" type="image/png" sizes="512x512" href="images/icons/android-chrome-512x512.png">
 
+  <link rel="stylesheet" href="assets/styles/loading.css">
   <style>
     body { font-family: system-ui, sans-serif; background: #0b1020; color: #e7ecff; margin: 0; padding: 20px; }
     h1 { text-align: center; color: #6ae0a7; margin: 0 0 20px 0; }
@@ -100,6 +101,7 @@
     .tema-btn.selected { background: #2aebad; color: #032217; border: 2.5px solid #1aff4b; box-shadow: 0 0 0 2px #1aff4b55; font-weight: bold; }
   </style>
   <script src="assets/js/login.js"></script>
+  <script src="assets/js/loading.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bcryptjs@2.4.3/dist/bcrypt.min.js"></script>
 </head>
 <body>
@@ -219,6 +221,7 @@
 
     // Cargar los JSON y el manifest
     let manifestFiles = [];
+    if (typeof showLoadingSpinner === 'function') showLoadingSpinner('Carregant dades...');
     Promise.all([
       fetch('assets/opos24_tipusPregunta.json').then(r => r.json()),
       fetch('assets/opos24_ambits.json').then(r => r.json()),
@@ -234,6 +237,8 @@
       origins = originsData;
       manifestFiles = Array.isArray(manifestData) ? manifestData : (manifestData.files || []);
       renderSelectors();
+      actualitzaSeleccioInfo();
+      if (typeof hideLoadingSpinner === 'function') hideLoadingSpinner();
     });
 
     function renderSelectors() {

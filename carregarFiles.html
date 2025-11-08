@@ -13,6 +13,7 @@
   <link rel="icon" type="image/png" sizes="192x192" href="images/icons/android-chrome-192x192.png">
   <link rel="icon" type="image/png" sizes="512x512" href="images/icons/android-chrome-512x512.png">
 
+  <link rel="stylesheet" href="assets/styles/loading.css">
   <style>
     body { font-family: system-ui, sans-serif; background: #0b1020; color: #e7ecff; margin: 0; padding: 0; }
     .center { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; }
@@ -50,6 +51,9 @@
 
     /* mini-btn styles moved to the correct place above. */
   </style>
+  <script src="assets/js/loading.js"></script>
+  <script src="assets/js/login.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bcryptjs@2.4.3/dist/bcrypt.min.js"></script>
 </head>
 <body>
     <h1>👨‍💻 Selecció fitxers</h1>
@@ -59,40 +63,11 @@
     <button id="tornarBtn">⬅️ Tornar</button>
   </div>
   <script>
-    // --- Comprobación de usuario con bcryptjs ---
-    async function checkUserAuth() {
-      const user_guid = localStorage.getItem('user_guid');
-      const user_pass = localStorage.getItem('user_pass');
-      if (!user_guid || !user_pass) {
-        window.location.href = 'index.html';
-        return;
-      }
-      try {
-        // Buscar usuario en users.json
-        const usersData = await fetch('assets/users.json').then(r => r.json());
-        if (!usersData || !Array.isArray(usersData.users)) throw new Error('No users');
-        const user = usersData.users.find(u => u.guid === user_guid);
-        if (!user) throw new Error('No user');
-        // Esperar a que bcryptjs esté disponible
-        function waitForBcrypt() {
-          return new Promise(resolve => {
-            (function check() {
-              if (window.dcodeIO && window.dcodeIO.bcrypt) resolve(window.dcodeIO.bcrypt);
-              else if (window.bcryptjs) resolve(window.bcryptjs);
-              else if (window.bcrypt) resolve(window.bcrypt);
-              else setTimeout(check, 50);
-            })();
-          });
-        }
-        const bcrypt = await waitForBcrypt();
-        if (!bcrypt.compareSync(user_pass, user.password_hash)) throw new Error('Bad pass');
-      } catch (e) {
-        window.location.href = 'index.html';
-      }
-    }
-    // Ejecutar al cargar
-    document.addEventListener('DOMContentLoaded', checkUserAuth, {once:true});
-    // (Animació de puntets eliminada)
+    // Mostrar spinner hasta que se cargue el manifest
+    if (typeof showLoadingSpinner === 'function') showLoadingSpinner('Carregant fitxers...');
+
+    // Usar la función checkUserAuth desde login.js como login.checkUserAuth
+    document.addEventListener('DOMContentLoaded', login.checkUserAuth, {once:true});
 
     // Log helper
     const logbox = document.getElementById('logbox');
@@ -140,6 +115,7 @@
           let files = Array.isArray(manifest) ? manifest : manifest.files;
           if (!Array.isArray(files)) {
             log('Manifest incorrecte.');
+            if (typeof hideLoadingSpinner === 'function') hideLoadingSpinner();
             return;
           }
           // Buscar ficheros que empiecen por algún tema
@@ -153,6 +129,7 @@
             log('No s\'ha trobat cap fitxer per als temes seleccionats.');
             document.getElementById('comencarBtn').disabled = true;
             document.getElementById('tornarBtn').style.display = 'block';
+            if (typeof hideLoadingSpinner === 'function') hideLoadingSpinner();
             return;
           }
           log('Fitxers trobats: ' + encontrados.length);
@@ -228,9 +205,11 @@
             localStorage.setItem('oposTest_fitxer', JSON.stringify(seleccionats));
             document.getElementById('comencarBtn').disabled = true;
           };
+          if (typeof hideLoadingSpinner === 'function') hideLoadingSpinner();
         })
         .catch(() => {
           log('No s\'ha pogut carregar el manifest de fitxers.');
+          if (typeof hideLoadingSpinner === 'function') hideLoadingSpinner();
         });
     }
 
