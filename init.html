@@ -23,6 +23,81 @@
     .selectors-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 10px; }
     .selector-item { width: 100%; }
     .footer { text-align: center; font-size: 13px; color: #9fb0ff; margin-top: 40px; }
+    /* Modal styles */
+    .custom-modal-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0,0,0,0.45);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+    }
+    .custom-modal {
+      background: #141a2a;
+      padding: 28px 24px 18px 24px;
+      border-radius: 16px;
+      box-shadow: 0 8px 32px #0008;
+      min-width: 260px;
+      max-width: 90vw;
+      max-height: 90vh;
+      overflow: auto;
+    }
+    .custom-modal-title {
+      font-size: 1.2rem;
+      color: #6ae0a7;
+      margin-bottom: 18px;
+      text-align: center;
+    }
+    .custom-modal-btns {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 12px;
+      justify-content: center;
+      margin-bottom: 18px;
+    }
+    .custom-modal-actions {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+    }
+    .custom-modal-accept {
+      background: #2aebad;
+      color: #032217;
+      font-weight: bold;
+      padding: 8px 22px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+    }
+    .custom-modal-cancel {
+      background: #27304a;
+      color: #e7ecff;
+      padding: 8px 22px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+    }
+    .dif-btn, .tp-btn {
+      border-radius: 8px;
+      padding: 8px 14px;
+      cursor: pointer;
+      transition: all 0.15s;
+      font-weight: normal;
+      background: #1b223a;
+      color: #e7ecff;
+      border: 1px solid #2a3554;
+    }
+    .dif-btn.selected, .tp-btn.selected {
+      background: #2aebad;
+      color: #032217;
+      border: 2.5px solid #1aff4b;
+      font-weight: bold;
+    }
+    .tema-btn.selected { background: #2aebad; color: #032217; border: 2.5px solid #1aff4b; box-shadow: 0 0 0 2px #1aff4b55; font-weight: bold; }
   </style>
   <script src="assets/js/login.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bcryptjs@2.4.3/dist/bcrypt.min.js"></script>
@@ -32,10 +107,8 @@
   <div class="container">
     <div class="selectors-grid">
       <div class="selector-item">
-        <label for="tipoPregunta">Preguntes:</label>
-        <select id="tipoPregunta">
-          <option value="">Totes</option>
-        </select>
+        <label for="tipoPreguntaBtn">Preguntes:</label>
+        <button id="tipoPreguntaBtn" type="button" style="width:100%">Selecciona tipus</button>
       </div>
       
       <div class="selector-item">
@@ -119,9 +192,9 @@
 
 
   // Elementos  
-  const tipoPreguntaSel = document.getElementById('tipoPregunta');
+  const tipoPreguntaBtn = document.getElementById('tipoPreguntaBtn');
   const originSel = document.getElementById('origin');
-  const dificultatSel = document.getElementById('dificultat');
+  const dificultatSel = document.getElementById('dificultatBtn');
   const ambitoSel = document.getElementById('ambito');
   const temasBotones = document.getElementById('temasBotones');
 
@@ -208,23 +281,14 @@
       } catch (e) { difs = []; }
       const modal = document.createElement('div');
       modal.id = 'dificultatModal';
-      modal.style.position = 'fixed';
-      modal.style.top = '0';
-      modal.style.left = '0';
-      modal.style.width = '100vw';
-      modal.style.height = '100vh';
-      modal.style.background = 'rgba(0,0,0,0.45)';
-      modal.style.display = 'flex';
-      modal.style.alignItems = 'center';
-      modal.style.justifyContent = 'center';
-      modal.style.zIndex = '9999';
+      modal.className = 'custom-modal-bg';
       modal.innerHTML = `
-        <div style="background:#141a2a;padding:28px 24px 18px 24px;border-radius:16px;box-shadow:0 8px 32px #0008;min-width:260px;max-width:90vw;max-height:90vh;overflow:auto;">
-          <div style="font-size:1.2rem;color:#6ae0a7;margin-bottom:18px;text-align:center;">Selecciona dificultats</div>
-          <div id="dificultatBtns" style="display:flex;flex-wrap:wrap;gap:10px 12px;justify-content:center;margin-bottom:18px;"></div>
-          <div style="display:flex;gap:16px;justify-content:center;">
-            <button id="difAceptarBtn" style="background:#2aebad;color:#032217;font-weight:bold;padding:8px 22px;border-radius:8px;border:none;cursor:pointer;">Aceptar</button>
-            <button id="difCancelarBtn" style="background:#27304a;color:#e7ecff;padding:8px 22px;border-radius:8px;border:none;cursor:pointer;">Cancelar</button>
+        <div class="custom-modal">
+          <div class="custom-modal-title">Selecciona dificultats</div>
+          <div id="dificultatBtns" class="custom-modal-btns"></div>
+          <div class="custom-modal-actions">
+            <button id="difAceptarBtn" class="custom-modal-accept">Aceptar</button>
+            <button id="difCancelarBtn" class="custom-modal-cancel">Cancelar</button>
           </div>
         </div>
       `;
@@ -236,29 +300,10 @@
         btn.type = 'button';
         btn.textContent = dif.text;
         btn.value = dif.id;
-        btn.style.background = difs.includes(dif.id) ? '#2aebad' : '#1b223a';
-        btn.style.color = difs.includes(dif.id) ? '#032217' : '#e7ecff';
-        btn.style.border = difs.includes(dif.id) ? '2.5px solid #1aff4b' : '1px solid #2a3554';
-        btn.style.borderRadius = '8px';
-        btn.style.padding = '8px 14px';
-        btn.style.cursor = 'pointer';
-        btn.style.fontWeight = difs.includes(dif.id) ? 'bold' : 'normal';
-        btn.style.transition = 'all 0.15s';
         btn.className = 'dif-btn';
         if (difs.includes(dif.id)) btn.classList.add('selected');
         btn.addEventListener('click', function() {
           btn.classList.toggle('selected');
-          if (btn.classList.contains('selected')) {
-            btn.style.background = '#2aebad';
-            btn.style.color = '#032217';
-            btn.style.border = '2.5px solid #1aff4b';
-            btn.style.fontWeight = 'bold';
-          } else {
-            btn.style.background = '#1b223a';
-            btn.style.color = '#e7ecff';
-            btn.style.border = '1px solid #2a3554';
-            btn.style.fontWeight = 'normal';
-          }
         });
         btnsDiv.appendChild(btn);
       });
@@ -276,23 +321,70 @@
     }
 
     function cargarTipoPregunta() {
-      tipusPregunta.forEach(tp => {
-        const opt = document.createElement('option');
-        opt.value = tp.id || tp.nom || tp;
-        opt.textContent = tp.nom || tp.id || tp;
-        tipoPreguntaSel.appendChild(opt);
-      });
-      // Seleccionar el valor guardado en localStorage si existe
-      let lastTipo = null;
+      actualizarTextoTipoPreguntaBtn();
+    }
+
+    function actualizarTextoTipoPreguntaBtn() {
+      const btn = tipoPreguntaBtn;
+      let tipos = [];
       try {
-        lastTipo = localStorage.getItem('oposTest_tipoPregunta');
-        if (lastTipo && typeof lastTipo === 'string') {
-          lastTipo = lastTipo.replace(/^"|"$/g, '');
-        }
-      } catch (e) { lastTipo = null; }
-      if (lastTipo) {
-        tipoPreguntaSel.value = lastTipo;
+        tipos = JSON.parse(localStorage.getItem('oposTest_tipoPregunta') || '[]');
+      } catch (e) { tipos = []; }
+      if (!tipos.length) {
+        btn.textContent = 'Selecciona tipus';
+      } else if (tipos.length === 1) {
+        const tpObj = tipusPregunta.find(tp => tp.id === tipos[0]);
+        btn.textContent = tpObj ? tpObj.nom || tpObj.id : tipos[0];
+      } else {
+        btn.textContent = tipos.length + ' tipus';
       }
+    }
+
+    function showTipoPreguntaModal() {
+      if (document.getElementById('tipoPreguntaModal')) return;
+      let tipos = [];
+      try {
+        tipos = JSON.parse(localStorage.getItem('oposTest_tipoPregunta') || '[]');
+      } catch (e) { tipos = []; }
+      const modal = document.createElement('div');
+      modal.id = 'tipoPreguntaModal';
+      modal.className = 'custom-modal-bg';
+      modal.innerHTML = `
+        <div class="custom-modal">
+          <div class="custom-modal-title">Selecciona tipus de pregunta</div>
+          <div id="tipoPreguntaBtns" class="custom-modal-btns"></div>
+          <div class="custom-modal-actions">
+            <button id="tpAceptarBtn" class="custom-modal-accept">Aceptar</button>
+            <button id="tpCancelarBtn" class="custom-modal-cancel">Cancelar</button>
+          </div>
+        </div>
+      `;
+      document.body.appendChild(modal);
+      // Botones de tipoPregunta
+      const btnsDiv = modal.querySelector('#tipoPreguntaBtns');
+      tipusPregunta.forEach(tp => {
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.textContent = tp.nom || tp.id || tp;
+        btn.value = tp.id;
+        btn.className = 'tp-btn';
+        if (tipos.includes(tp.id)) btn.classList.add('selected');
+        btn.addEventListener('click', function() {
+          btn.classList.toggle('selected');
+        });
+        btnsDiv.appendChild(btn);
+      });
+      // Botón aceptar
+      modal.querySelector('#tpAceptarBtn').onclick = function() {
+        const seleccionadas = Array.from(btnsDiv.querySelectorAll('button.selected')).map(b => b.value);
+        localStorage.setItem('oposTest_tipoPregunta', JSON.stringify(seleccionadas));
+        actualizarTextoTipoPreguntaBtn();
+        document.body.removeChild(modal);
+      };
+      // Botón cancelar
+      modal.querySelector('#tpCancelarBtn').onclick = function() {
+        document.body.removeChild(modal);
+      };
     }
 
     function cargarAmbitos() {
@@ -385,12 +477,11 @@
 
 
     // Guardar selección en localStorage cada vez que cambia
-    tipoPreguntaSel.addEventListener('change', function() {
-      saveOposTest('tipoPregunta', this.value);
-    });
+    tipoPreguntaBtn.addEventListener('click', showTipoPreguntaModal);
 
     // Botón para abrir el modal de dificultad
-    document.getElementById('dificultatBtn').addEventListener('click', showDificultatModal);
+    dificultatSel.addEventListener('click', showDificultatModal);
+
     originSel.addEventListener('change', function() {
       saveOposTest('origin', this.value);
     });
