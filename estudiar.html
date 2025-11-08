@@ -260,6 +260,25 @@
       color: #e7ecff;
       font-weight: bold;
     }
+    #cronometroAnchor {
+      position: fixed;
+      right: 12px;
+      bottom: 12px;
+      z-index: 9999;
+    }
+    #cronometroBox {
+      background: #ffe066;
+      color: #27304a;
+      border-radius: 18px;
+      padding: 6px 8px;
+      font-size: 1.5rem;
+      font-weight: bold;
+      box-shadow: 0 4px 18px #0005;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+      border: 2.5px solid #27304a;
+      user-select: none;
+    }
   </style>
   <script src="assets/js/toast.js"></script>
 </head>
@@ -312,6 +331,10 @@
   <div id="removeFromHistoryContainer" style="text-align:center;margin:10px 0; display:none;">
     <button class="historial-btn remove-btn" id="removeFromHistoryBtn" onclick="eliminarDelHistorial()" disabled>✅ Eliminar encertada</button>
   </div>
+  <!-- Cronómetro anclado -->
+  <div id="cronometroAnchor">
+    <div id="cronometroBox">00:00</div>
+  </div>
 
     <div class="navigation">
       <button class="nav-btn secondary" id="prevBtn" onclick="previousQuestion()">← Anterior</button>
@@ -336,6 +359,59 @@
   </div>
 
   <script>
+    // --- Cronómetro anclado ---
+    let cronometroInterval = null;
+    let cronometroStart = null;
+    let cronometroElapsed = 0;
+    let cronometroRunning = false;
+    const cronometroBox = document.getElementById('cronometroBox');
+    function formatTime(ms) {
+      const totalSec = Math.floor(ms / 1000);
+      const min = Math.floor(totalSec / 60);
+      const sec = totalSec % 60;
+      return (min < 10 ? '0' : '') + min + ':' + (sec < 10 ? '0' : '') + sec;
+    }
+    function updateCronometroDisplay() {
+      let ms = cronometroElapsed;
+      if (cronometroRunning && cronometroStart) {
+        ms += Date.now() - cronometroStart;
+      }
+      cronometroBox.textContent = formatTime(ms);
+      if (cronometroRunning) {
+        cronometroBox.style.background = 'linear-gradient(90deg,#6ae0a7,#2aebad)';
+        cronometroBox.style.color = '#032217';
+        cronometroBox.style.borderColor = '#21c08d';
+        cronometroBox.style.boxShadow = '0 4px 18px #21c08d55';
+      } else {
+        cronometroBox.style.background = '#ffe066';
+        cronometroBox.style.color = '#27304a';
+        cronometroBox.style.borderColor = '#27304a';
+        cronometroBox.style.boxShadow = '0 4px 18px #0005';
+      }
+    }
+    function startCronometro() {
+      if (cronometroRunning) return;
+      cronometroRunning = true;
+      cronometroStart = Date.now();
+      cronometroInterval = setInterval(updateCronometroDisplay, 500);
+      updateCronometroDisplay();
+    }
+    function stopCronometro() {
+      if (!cronometroRunning) return;
+      cronometroRunning = false;
+      cronometroElapsed += Date.now() - cronometroStart;
+      cronometroStart = null;
+      clearInterval(cronometroInterval);
+      updateCronometroDisplay();
+    }
+    cronometroBox.addEventListener('click', function() {
+      if (cronometroRunning) {
+        stopCronometro();
+      } else {
+        startCronometro();
+      }
+    });
+    updateCronometroDisplay();
     let preguntes = [];
     let flashcardsData = null;
     let isFlashcardsMode = false;
@@ -915,6 +991,7 @@
 
     // Inicializar al cargar la página
     document.addEventListener('DOMContentLoaded', function() {
+      updateCronometroDisplay();
       if (loadQuestions()) {
         showQuestion(0);
       }
