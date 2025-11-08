@@ -207,6 +207,9 @@
             btnMap[fichero] = btn;
           });
           logbox.appendChild(btnsDiv);
+          // Guardar selección inicial y habilitar botón
+          localStorage.setItem('oposTest_fitxer', JSON.stringify(seleccionats));
+          document.getElementById('comencarBtn').disabled = seleccionats.length === 0;
           // Funcionalidad seleccionar todos
           btnSelectAll.onclick = function() {
             seleccionats = [...encontrados];
@@ -225,8 +228,6 @@
             localStorage.setItem('oposTest_fitxer', JSON.stringify(seleccionats));
             document.getElementById('comencarBtn').disabled = true;
           };
-          // Deshabilitar comenzar hasta que se seleccione al menos un fichero
-          document.getElementById('comencarBtn').disabled = true;
         })
         .catch(() => {
           log('No s\'ha pogut carregar el manifest de fitxers.');

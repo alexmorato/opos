@@ -233,12 +233,16 @@
       dificultats = dificultatsData;
       origins = originsData;
       manifestFiles = Array.isArray(manifestData) ? manifestData : (manifestData.files || []);
+      renderSelectors();
+    });
+
+    function renderSelectors() {
       cargarTipoPregunta();
       cargarOrigin();
       cargarDificultat();
       cargarAmbitos();
       cargarTemas();
-    });
+    }
 
     function cargarOrigin() {
       origins.forEach(o => {
@@ -498,7 +502,7 @@
           return t ? (t.nom || t.id) : tid;
         }).join(', ');
       } else {
-        tiposText = 'Tipus: TOTES';
+        tiposText = 'Tipus: TOTS';
       }
       let originText = '';
       if (origin) {
