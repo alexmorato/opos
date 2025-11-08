@@ -847,10 +847,9 @@
       const pregunta = JSON.parse(JSON.stringify(preguntes[questionIndex])); // Deep copy
       const opciones = shuffledOptions[questionIndex] || pregunta.answerOptions || [];
       const user_guid = localStorage.getItem('user_guid') || localStorage.getItem('user_id') || 'unknown';
-      
-      // Añadir user_guid a la pregunta
+      // Añadir user_guid y fecha a la pregunta
       pregunta.user_guid = user_guid;
-      
+      pregunta.fecha = new Date().toISOString();
       // Marcar la opción seleccionada por el usuario
       if (pregunta.answerOptions) {
         pregunta.answerOptions.forEach((option, i) => {
@@ -860,7 +859,6 @@
           }
         });
       }
-      
       // Añadir al principio del historial (más nuevo primero)
       historialFallos.unshift(pregunta);
       actualizarTextareaHistorial();
@@ -880,7 +878,8 @@
             origin: flashcard.origin,
             question: flashcard.question,
             answer: flashcard.answer,
-            type: 'flashcard'
+            type: 'flashcard',
+            fecha: new Date().toISOString()
           };
           historialFallos.unshift(flashcardForHistory);
           actualizarTextareaHistorial();
@@ -893,9 +892,10 @@
             const pregunta = JSON.parse(JSON.stringify(preguntes[currentQuestion]));
             const user_guid = localStorage.getItem('user_guid') || localStorage.getItem('user_id') || 'unknown';
             pregunta.user_guid = user_guid;
+            pregunta.fecha = new Date().toISOString();
             historialFallos.unshift(pregunta);
             actualizarTextareaHistorial();
-             localStorage.setItem('oposTest_historialFallos', JSON.stringify(historialFallos));
+            localStorage.setItem('oposTest_historialFallos', JSON.stringify(historialFallos));
           }
         }
       }
