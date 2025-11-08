@@ -309,10 +309,11 @@
       });
       // Botón aceptar
       modal.querySelector('#difAceptarBtn').onclick = function() {
-  const seleccionadas = Array.from(btnsDiv.querySelectorAll('button.selected')).map(b => Number(b.value));
-  localStorage.setItem('oposTest_dificultat', JSON.stringify(seleccionadas));
-  actualizarTextoDificultatBtn();
-  document.body.removeChild(modal);
+      const seleccionadas = Array.from(btnsDiv.querySelectorAll('button.selected')).map(b => Number(b.value));
+      localStorage.setItem('oposTest_dificultat', JSON.stringify(seleccionadas));
+      actualizarTextoDificultatBtn();
+      actualitzaSeleccioInfo();
+      document.body.removeChild(modal);
       };
       // Botón cancelar
       modal.querySelector('#difCancelarBtn').onclick = function() {
@@ -379,6 +380,7 @@
         const seleccionadas = Array.from(btnsDiv.querySelectorAll('button.selected')).map(b => b.value);
         localStorage.setItem('oposTest_tipoPregunta', JSON.stringify(seleccionadas));
         actualizarTextoTipoPreguntaBtn();
+        actualitzaSeleccioInfo();
         document.body.removeChild(modal);
       };
       // Botón cancelar
@@ -459,13 +461,57 @@
       const seleccionats = JSON.parse(localStorage.getItem('oposTest_temas') || '[]');
       const infoDiv = document.getElementById('seleccioInfo');
       const comencarBtn = document.getElementById('comencarBtn');
+      // Dificultades
+      let difs = [];
+      try { difs = JSON.parse(localStorage.getItem('oposTest_dificultat') || '[]'); } catch (e) { difs = []; }
+      // Tipos de pregunta
+      let tipos = [];
+      try { tipos = JSON.parse(localStorage.getItem('oposTest_tipoPregunta') || '[]'); } catch (e) { tipos = []; }
+      // Origen
+      let origin = localStorage.getItem('oposTest_origin') || '';
+      origin = origin.replace(/^"|"$/g, '');
+      // Mostrar nombres legibles
+      let difsText = '';
+      if (difs.length) {
+        difsText = 'Dificultats: ' + difs.map(did => {
+          const d = typeof dificultats !== 'undefined' ? dificultats.find(x => x.id === did) : null;
+          return d ? d.text : did;
+        }).join(', ');
+      } else {
+        difsText = 'Dificultats: TOTES';
+      }
+      let tiposText = '';
+      if (tipos.length) {
+        tiposText = 'Tipus: ' + tipos.map(tid => {
+          const t = typeof tipusPregunta !== 'undefined' ? tipusPregunta.find(x => x.id === tid) : null;
+          return t ? (t.nom || t.id) : tid;
+        }).join(', ');
+      } else {
+        tiposText = 'Tipus: TOTES';
+      }
+      let originText = '';
+      if (origin) {
+        const o = typeof origins !== 'undefined' ? origins.find(x => (x.id || x.nom || x) === origin) : null;
+        originText = 'Origen: ' + (o ? (o.nom || o.id || o) : origin);
+      } else {
+        originText = 'Origen: TOTS';
+      }
+      let temasText = '';
       if (seleccionats.length) {
-        infoDiv.textContent = 'Selecció: ' + seleccionats.join(', ');
+        temasText = 'Temes: ' + seleccionats.join(', ');
+      }
+      // Construir info
+      let infoArr = [];
+      if (temasText) infoArr.push(temasText);
+      if (difsText) infoArr.push(difsText);
+      if (tiposText) infoArr.push(tiposText);
+      if (originText) infoArr.push(originText);
+  infoDiv.innerHTML = infoArr.map(x => `<div>${x}</div>`).join('');
+      if (seleccionats.length) {
         comencarBtn.disabled = false;
         comencarBtn.style.opacity = '1';
         comencarBtn.style.pointerEvents = 'auto';
       } else {
-        infoDiv.textContent = '';
         comencarBtn.disabled = true;
         comencarBtn.style.opacity = '0.5';
         comencarBtn.style.pointerEvents = 'none';
@@ -484,6 +530,7 @@
 
     originSel.addEventListener('change', function() {
       saveOposTest('origin', this.value);
+      actualitzaSeleccioInfo();
     });
 
     ambitoSel.addEventListener('change', function() {
