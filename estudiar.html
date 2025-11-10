@@ -574,7 +574,10 @@
       document.getElementById('questionCounter').textContent = `${index + 1} / ${preguntes.length}`;
       const progressPercent = ((index + 1) / preguntes.length) * 100;
       document.getElementById('progressFill').style.width = progressPercent + '%';
-      
+
+      // Guardar el índice de la pregunta actual en localStorage
+      localStorage.setItem('opostext_preguntaPosition', index);
+
       // Actualizar botones de navegación
       document.getElementById('prevBtn').disabled = index === 0;
       document.getElementById('nextBtn').textContent = 
@@ -902,10 +905,44 @@
     // Inicializar al cargar la página
     document.addEventListener('DOMContentLoaded', function() {
       updateCronometroDisplay();
-      if (loadQuestions()) {
-        showQuestion(0);
+
+      // Check if there is a saved question position and preloaded questions
+      const savedPosition = localStorage.getItem('opostext_preguntaPosition');
+      const preloadedQuestions = localStorage.getItem('oposTest_preguntesBarrejades');
+
+      if (savedPosition !== null && preloadedQuestions) {
+        const userChoice = confirm('Vols continuar des de la pregunta guardada o començar de nou?\nPrem "Acceptar" per continuar o "Cancel·lar" per reiniciar.');
+
+        if (userChoice) {
+          try {
+            // Use preloaded questions and set the current question index
+            preguntes = JSON.parse(preloadedQuestions);
+            currentQuestion = parseInt(savedPosition, 10) || 0;
+            answers = new Array(preguntes.length).fill(null); // Initialize answers array
+            showQuestion(currentQuestion); // Resume from the saved question
+          } catch (e) {
+            console.error('Error loading saved state:', e);
+            // Fallback to loading questions normally
+            if (loadQuestions()) {
+              showQuestion(0);
+            }
+          }
+        } else {
+          // Clear saved state and restart
+          localStorage.removeItem('opostext_preguntaPosition');
+          localStorage.removeItem('oposTest_preguntesBarrejades');
+          if (loadQuestions()) {
+            showQuestion(0);
+          }
+        }
+      } else {
+        // Load questions normally if no saved state exists
+        if (loadQuestions()) {
+          showQuestion(0);
+        }
       }
-      // Cargar historial previo si existe
+
+      // Load previous error history if it exists
       try {
         const historialGuardado = localStorage.getItem('oposTest_historialFallos');
         if (historialGuardado) {
