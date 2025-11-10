@@ -365,6 +365,8 @@
     let cronometroElapsed = 0;
     let cronometroRunning = false;
     const cronometroBox = document.getElementById('cronometroBox');
+    let cronometroSaveInterval = null;
+
     function formatTime(ms) {
       const totalSec = Math.floor(ms / 1000);
       const min = Math.floor(totalSec / 60);
@@ -389,11 +391,21 @@
         cronometroBox.style.boxShadow = '0 4px 18px #0005';
       }
     }
+    function saveCronometroToLocalStorage() {
+      let ms = cronometroElapsed;
+      if (cronometroRunning && cronometroStart) {
+        ms += Date.now() - cronometroStart;
+      }
+      localStorage.setItem('oposTest_cronometro', ms);
+    }
     function startCronometro() {
       if (cronometroRunning) return;
       cronometroRunning = true;
       cronometroStart = Date.now();
       cronometroInterval = setInterval(updateCronometroDisplay, 500);
+      // Save every 20 seconds
+      if (cronometroSaveInterval) clearInterval(cronometroSaveInterval);
+      cronometroSaveInterval = setInterval(saveCronometroToLocalStorage, 20000);
       updateCronometroDisplay();
     }
     function stopCronometro() {
@@ -402,6 +414,8 @@
       cronometroElapsed += Date.now() - cronometroStart;
       cronometroStart = null;
       clearInterval(cronometroInterval);
+      if (cronometroSaveInterval) clearInterval(cronometroSaveInterval);
+      saveCronometroToLocalStorage();
       updateCronometroDisplay();
     }
     cronometroBox.addEventListener('click', function() {
@@ -610,6 +624,11 @@
         guardarFalloEnHistorial(currentQuestion, optionIndex);
       }
       
+      // Iniciar el cronómetro si está parado
+      if (!cronometroRunning) {
+        startCronometro();
+      }
+
       showQuestion(currentQuestion);
     }
 
@@ -904,8 +923,12 @@
 
     // Inicializar al cargar la página
     document.addEventListener('DOMContentLoaded', function() {
-      updateCronometroDisplay();
-
+      // Restaurar cronometro si existe en localStorage
+      const savedCronometro = localStorage.getItem('oposTest_cronometro');
+      if (savedCronometro && !isNaN(savedCronometro)) {
+        cronometroElapsed = parseInt(savedCronometro, 10);
+        updateCronometroDisplay();
+      }
       // Check if there is a saved question position and preloaded questions
       const savedPosition = localStorage.getItem('opostext_preguntaPosition');
       const preloadedQuestions = localStorage.getItem('oposTest_preguntesBarrejades');
@@ -920,25 +943,35 @@
             currentQuestion = parseInt(savedPosition, 10) || 0;
             answers = new Array(preguntes.length).fill(null); // Initialize answers array
             showQuestion(currentQuestion); // Resume from the saved question
+            // Iniciar cronometro si hay valor guardado
+            if (cronometroElapsed > 0) {
+              startCronometro();
+            }
           } catch (e) {
             console.error('Error loading saved state:', e);
             // Fallback to loading questions normally
             if (loadQuestions()) {
               showQuestion(0);
+              startCronometro();
             }
           }
         } else {
           // Clear saved state and restart
           localStorage.removeItem('opostext_preguntaPosition');
           localStorage.removeItem('oposTest_preguntesBarrejades');
+          localStorage.removeItem('oposTest_cronometro');
+          cronometroElapsed = 0;
+          updateCronometroDisplay();
           if (loadQuestions()) {
             showQuestion(0);
+            startCronometro();
           }
         }
       } else {
         // Load questions normally if no saved state exists
         if (loadQuestions()) {
           showQuestion(0);
+          startCronometro();
         }
       }
 
