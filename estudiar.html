@@ -413,8 +413,6 @@
     });
     updateCronometroDisplay();
     let preguntes = [];
-    let flashcardsData = null;
-    let isFlashcardsMode = false;
     let currentQuestion = 0;
     let answers = [];
     let showingResults = false;
@@ -424,8 +422,6 @@
 
     // Mostrar y ocultar hint
     function mostrarHint() {
-      if (isFlashcardsMode) return; // No hay hints en modo flashcards
-      
       const hintDiv = document.getElementById('hintArea');
       if (!hintDiv.classList.contains('mostrando')) {
         const pregunta = preguntes[currentQuestion];
@@ -460,60 +456,34 @@
         const params = new URLSearchParams(window.location.search);
         if (params.get('repassarErrores') === '1') {
           isRepassingErrors = true;
-          isFlashcardsMode = false;
-          const historial = localStorage.getItem('oposTest_historialFallos');
-          preguntes = historial ? JSON.parse(historial) : [];
-          preguntes = preguntes.sort(() => Math.random() - 0.5);
-          if (!preguntes.length) {
-            document.getElementById('questionContainer').innerHTML = 
-              '<div class="question-card"><div class="question-text">No hi ha errors guardats per repassar.</div></div>';
-            document.getElementById('removeFromHistoryContainer').style.display = 'none';
-            return false;
-          }
-          answers = new Array(preguntes.length).fill(null);
-          document.getElementById('hintArea').style.display = 'block';
+          preguntes = JSON.parse(localStorage.getItem('oposTest_historialFallos'));
           document.getElementById('removeFromHistoryContainer').style.display = 'block';
-          return true;
         } else {
           isRepassingErrors = false;
+          preguntes = JSON.parse(localStorage.getItem('oposTest_preguntes') || '[]');
+          // Si no estamos en modo repaso de errores, desactivar el botón de eliminar del historial
           document.getElementById('removeFromHistoryContainer').style.display = 'none';
         }
 
-        // Prioridad: flashcards > preguntas
-        const flashcardsJson = localStorage.getItem('oposTest_flashcards');
-        if (flashcardsJson) {
-          flashcardsData = JSON.parse(flashcardsJson);
-          if (flashcardsData && flashcardsData.flashcards && flashcardsData.flashcards.length > 0) {
-            isFlashcardsMode = true;
-            preguntes = flashcardsData.flashcards.map((card, index) => ({
-              id: index,
-              question: card.f,
-              answer: card.b,
-              subjectId: flashcardsData.subjectId,
-              origin: flashcardsData.origin
-            }));
-            // Reordenar aleatoriamente
-            preguntes = preguntes.sort(() => Math.random() - 0.5);
-            answers = new Array(preguntes.length).fill(null);
-            // Ocultar hint area en modo flashcards
-            document.getElementById('hintArea').style.display = 'none';
-            return true;
-          }
-        }
-        
-        // Cargar preguntas normales
-        isFlashcardsMode = false;
-        preguntes = JSON.parse(localStorage.getItem('oposTest_preguntes') || '[]');
-        preguntes = preguntes.sort(() => Math.random() - 0.5);
-        
         if (!preguntes.length) {
+          let msg;
+          if (isRepassingErrors) {
+            msg = 'No hi ha errors guardats per repassar.';
+          } else {
+            msg = 'No hi ha preguntes o flashcards carregades.';
+          }
           document.getElementById('questionContainer').innerHTML = 
-            '<div class="question-card"><div class="question-text">No hi ha preguntes o flashcards carregades.</div></div>';
+            `<div class="question-card"><div class="question-text">${msg}</div></div>`;
+          document.getElementById('removeFromHistoryContainer').style.display = 'none';
           return false;
         }
-        
+
+        // Inicializar el array de respuestas
         answers = new Array(preguntes.length).fill(null);
-        document.getElementById('hintArea').style.display = 'block';
+        // ordenar aleatoriamente las preguntas
+        preguntes = preguntes.sort(() => Math.random() - 0.5);                
+        // Guardar las preguntas barrejades en localStorage
+        localStorage.setItem('oposTest_preguntesBarrejades', JSON.stringify(preguntes));
         return true;
       } catch (e) {
         document.getElementById('questionContainer').innerHTML = 
@@ -534,92 +504,72 @@
 
       ocultarHint();
       
-      if (isFlashcardsMode) {
-        // Modo flashcards
-        const isRevealed = answers[index] !== null;
-        
-        let html = `
-          <div class="question-card">
-            <div class="question-info">
-              ${(pregunta.subjectId || '??') + '-' + (pregunta.origin || '??')}
-            </div>
-            <div class="question-text">${pregunta.question}</div>
-            <div class="answer-option flashcard-${isRevealed ? 'revealed' : 'hidden'}" onclick="revealFlashcard(${index})">
-              <div class="option-content">
-                <div class="option-text ${isRevealed ? '' : 'hidden'}">${isRevealed ? pregunta.answer : 'Clic per veure la resposta'}</div>
-              </div>
+      // Modo preguntas normal
+      let html = `
+        <div class="question-card">
+          <div class="question-info">
+            ${(pregunta.subjectId || '??') + '-' + (pregunta.origin || '??') + '-' + getDifficultyText(pregunta.difficulty)}
+          </div>
+          <div class="question-text">${pregunta.pregunta || pregunta.question || 'Pregunta no disponible'}</div>
+      `;
+
+      // Obtener opciones de respuesta (answerOptions)
+      const answerOptions = pregunta.answerOptions || [];
+      
+      // Si no tenemos el orden aleatorio para esta pregunta, crearlo
+      if (!shuffledOptions[index]) {
+        shuffledOptions[index] = [...answerOptions].sort(() => Math.random() - 0.5);
+      }
+      
+      const opciones = shuffledOptions[index];
+      const userAnswered = answers[index] !== null;
+
+      opciones.forEach((option, i) => {
+        const isSelected = answers[index] === i;
+        let optionClass = 'answer-option';
+        let extraOnClick = '';
+        if (userAnswered) {
+          if (option.isCorrect) {
+            optionClass += ' correct';
+            extraOnClick = `onclick=\"nextQuestion()\"`;
+          } else if (isSelected && !option.isCorrect) {
+            optionClass += ' incorrect';
+            extraOnClick = `onclick=\"nextQuestion()\"`;
+          } else {
+            extraOnClick = '';
+          }
+        } else if (isSelected) {
+          optionClass += ' selected';
+        }
+        // Si no está respondida, sigue usando selectAnswer
+        if (!userAnswered) {
+          extraOnClick = `onclick=\"selectAnswer(${i})\"`;
+        }
+        html += `
+          <div class="${optionClass}" ${extraOnClick}>
+            <div class="option-content">
+              <div class="option-text">${option.text}</div>`;
+        // Mostrar feedback si ya se respondió
+        if (userAnswered) {
+          if (option.isCorrect) {
+            html += `
+              <div class="feedback correct-feedback">✔️ Resposta correcta</div>
+              <div class="rationale">${option.rationale || ''}</div>`;
+          } else if (isSelected && !option.isCorrect) {
+            html += `
+              <div class="feedback incorrect-feedback">❌ Resposta incorrecta</div>
+              <div class="rationale">${option.rationale || ''}</div>`;
+          }
+        }
+        html += `
             </div>
           </div>
         `;
-        
-        container.innerHTML = html;
-      } else {
-        // Modo preguntas normal
-        let html = `
-          <div class="question-card">
-            <div class="question-info">
-              ${(pregunta.subjectId || '??') + '-' + (pregunta.origin || '??') + '-' + getDifficultyText(pregunta.difficulty)}
-            </div>
-            <div class="question-text">${pregunta.pregunta || pregunta.question || 'Pregunta no disponible'}</div>
-        `;
+      });
 
-        // Obtener opciones de respuesta (answerOptions)
-        const answerOptions = pregunta.answerOptions || [];
-        
-        // Si no tenemos el orden aleatorio para esta pregunta, crearlo
-        if (!shuffledOptions[index]) {
-          shuffledOptions[index] = [...answerOptions].sort(() => Math.random() - 0.5);
-        }
-        
-        const opciones = shuffledOptions[index];
-        const userAnswered = answers[index] !== null;
-
-        opciones.forEach((option, i) => {
-          const isSelected = answers[index] === i;
-          let optionClass = 'answer-option';
-          let extraOnClick = '';
-          if (userAnswered) {
-            if (option.isCorrect) {
-              optionClass += ' correct';
-              extraOnClick = `onclick=\"nextQuestion()\"`;
-            } else if (isSelected && !option.isCorrect) {
-              optionClass += ' incorrect';
-              extraOnClick = `onclick=\"nextQuestion()\"`;
-            } else {
-              extraOnClick = '';
-            }
-          } else if (isSelected) {
-            optionClass += ' selected';
-          }
-          // Si no está respondida, sigue usando selectAnswer
-          if (!userAnswered) {
-            extraOnClick = `onclick=\"selectAnswer(${i})\"`;
-          }
-          html += `
-            <div class="${optionClass}" ${extraOnClick}>
-              <div class="option-content">
-                <div class="option-text">${option.text}</div>`;
-          // Mostrar feedback si ya se respondió
-          if (userAnswered) {
-            if (option.isCorrect) {
-              html += `
-                <div class="feedback correct-feedback">✔️ Resposta correcta</div>
-                <div class="rationale">${option.rationale || ''}</div>`;
-            } else if (isSelected && !option.isCorrect) {
-              html += `
-                <div class="feedback incorrect-feedback">❌ Resposta incorrecta</div>
-                <div class="rationale">${option.rationale || ''}</div>`;
-            }
-          }
-          html += `
-              </div>
-            </div>
-          `;
-        });
-
-        html += '</div>';
-        container.innerHTML = html;
-      }      
+      html += '</div>';
+      container.innerHTML = html;
+          
       // Actualizar contador y progreso
       document.getElementById('questionCounter').textContent = `${index + 1} / ${preguntes.length}`;
       const progressPercent = ((index + 1) / preguntes.length) * 100;
@@ -631,17 +581,9 @@
         index === preguntes.length - 1 ? 'Finalitzar' : 'Següent →';
     }
 
-    // Revelar flashcard
-    function revealFlashcard(index) {
-      if (!isFlashcardsMode || answers[index] !== null) return;
-      
-      answers[index] = 0; // Marcar como vista
-      showQuestion(index);
-    }
-
     // Seleccionar respuesta
     function selectAnswer(optionIndex) {
-      if (showingResults || isFlashcardsMode) return;
+      if (showingResults) return;
       if (answers[currentQuestion] !== null) return; // No permitir cambiar respuesta
       
       answers[currentQuestion] = optionIndex;
@@ -694,44 +636,29 @@
     function showResults() {
       showingResults = true;
       
-      if (isFlashcardsMode) {
-        const reviewedCards = answers.filter(a => a !== null).length;
-        const container = document.getElementById('questionContainer');
-        container.innerHTML = `
-          <div class="question-card results">
-            <div class="score">${reviewedCards}/${preguntes.length}</div>
-            <div class="score-text">
-              Has revisat ${reviewedCards} de ${preguntes.length} flashcards
-            </div>
-            <button class="nav-btn" onclick="reviewAnswers()">Revisar flashcards</button>
-            <button class="nav-btn secondary" onclick="restartTest()" style="margin-left: 15px;">Tornar a començar</button>
+      let correctAnswers = 0;
+      
+      preguntes.forEach((pregunta, index) => {
+        const opciones = shuffledOptions[index] || pregunta.answerOptions || [];
+        const selectedOption = opciones[answers[index]];
+        if (selectedOption && selectedOption.isCorrect) {
+          correctAnswers++;
+        }
+      });
+      
+      const percentage = Math.round((correctAnswers / preguntes.length) * 100);
+      
+      const container = document.getElementById('questionContainer');
+      container.innerHTML = `
+        <div class="question-card results">
+          <div class="score">${percentage}%</div>
+          <div class="score-text">
+            Has encertat ${correctAnswers} de ${preguntes.length} preguntes
           </div>
-        `;
-      } else {
-        let correctAnswers = 0;
-        
-        preguntes.forEach((pregunta, index) => {
-          const opciones = shuffledOptions[index] || pregunta.answerOptions || [];
-          const selectedOption = opciones[answers[index]];
-          if (selectedOption && selectedOption.isCorrect) {
-            correctAnswers++;
-          }
-        });
-        
-        const percentage = Math.round((correctAnswers / preguntes.length) * 100);
-        
-        const container = document.getElementById('questionContainer');
-        container.innerHTML = `
-          <div class="question-card results">
-            <div class="score">${percentage}%</div>
-            <div class="score-text">
-              Has encertat ${correctAnswers} de ${preguntes.length} preguntes
-            </div>
-            <button class="nav-btn" onclick="reviewAnswers()">Revisar respostes</button>
-            <button class="nav-btn secondary" onclick="restartTest()" style="margin-left: 15px;">Tornar a començar</button>
-          </div>
-        `;
-      }
+          <button class="nav-btn" onclick="reviewAnswers()">Revisar respostes</button>
+          <button class="nav-btn secondary" onclick="restartTest()" style="margin-left: 15px;">Tornar a començar</button>
+        </div>
+      `;
       
       // Ocultar navegación
       document.querySelector('.navigation').style.display = 'none';
@@ -868,35 +795,18 @@
     // Guardar duda actual (independiente de si es correcta o no)
     function guardarDubte() {
       if (currentQuestion >= 0 && currentQuestion < preguntes.length) {
-        if (isFlashcardsMode) {
-          // Para flashcards, guardar la flashcard actual
-          const flashcard = preguntes[currentQuestion];
-          const user_guid = localStorage.getItem('user_guid') || localStorage.getItem('user_id') || 'unknown';
-          const flashcardForHistory = {
-            user_guid: user_guid,
-            subjectId: flashcard.subjectId,
-            origin: flashcard.origin,
-            question: flashcard.question,
-            answer: flashcard.answer,
-            type: 'flashcard',
-            fecha: new Date().toISOString()
-          };
-          historialFallos.unshift(flashcardForHistory);
-          actualizarTextareaHistorial();
+        // Lógica original para preguntas
+        const userAnswer = answers[currentQuestion];
+        if (userAnswer !== null) {
+          guardarFalloEnHistorial(currentQuestion, userAnswer);
         } else {
-          // Lógica original para preguntas
-          const userAnswer = answers[currentQuestion];
-          if (userAnswer !== null) {
-            guardarFalloEnHistorial(currentQuestion, userAnswer);
-          } else {
-            const pregunta = JSON.parse(JSON.stringify(preguntes[currentQuestion]));
-            const user_guid = localStorage.getItem('user_guid') || localStorage.getItem('user_id') || 'unknown';
-            pregunta.user_guid = user_guid;
-            pregunta.fecha = new Date().toISOString();
-            historialFallos.unshift(pregunta);
-            actualizarTextareaHistorial();
-            localStorage.setItem('oposTest_historialFallos', JSON.stringify(historialFallos));
-          }
+          const pregunta = JSON.parse(JSON.stringify(preguntes[currentQuestion]));
+          const user_guid = localStorage.getItem('user_guid') || localStorage.getItem('user_id') || 'unknown';
+          pregunta.user_guid = user_guid;
+          pregunta.fecha = new Date().toISOString();
+          historialFallos.unshift(pregunta);
+          actualizarTextareaHistorial();
+          localStorage.setItem('oposTest_historialFallos', JSON.stringify(historialFallos));
         }
       }
     }
