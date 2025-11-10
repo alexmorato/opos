@@ -38,40 +38,19 @@
   <button id="comencarBtn" disabled>començar!</button>
   <button id="tornarBtn">⬅️ Tornar</button>
   </div>
+
+  <script src="assets/js/login.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bcryptjs@2.4.3/dist/bcrypt.min.js"></script>
+  <script src="assets/js/localstorage-utils.js"></script>
+
   <script>
-    // --- Comprobación de usuario con bcryptjs ---
-    async function checkUserAuth() {
-      const user_guid = localStorage.getItem('user_guid');
-      const user_pass = localStorage.getItem('user_pass');
-      if (!user_guid || !user_pass) {
-        window.location.href = 'index.html';
-        return;
-      }
-      try {
-        // Buscar usuario en users.json
-        const usersData = await fetch('assets/users.json').then(r => r.json());
-        if (!usersData || !Array.isArray(usersData.users)) throw new Error('No users');
-        const user = usersData.users.find(u => u.guid === user_guid);
-        if (!user) throw new Error('No user');
-        // Esperar a que bcryptjs esté disponible
-        function waitForBcrypt() {
-          return new Promise(resolve => {
-            (function check() {
-              if (window.dcodeIO && window.dcodeIO.bcrypt) resolve(window.dcodeIO.bcrypt);
-              else if (window.bcryptjs) resolve(window.bcryptjs);
-              else if (window.bcrypt) resolve(window.bcrypt);
-              else setTimeout(check, 50);
-            })();
-          });
-        }
-        const bcrypt = await waitForBcrypt();
-        if (!bcrypt.compareSync(user_pass, user.password_hash)) throw new Error('Bad pass');
-      } catch (e) {
-        window.location.href = 'index.html';
-      }
-    }
-    // Ejecutar al cargar
-    document.addEventListener('DOMContentLoaded', checkUserAuth, {once:true});
+    // Usar la función checkUserAuth desde login.js
+    document.addEventListener('DOMContentLoaded', function() {
+      const userName = localStorage.getItem(LS_KEYS.USER_NAME);
+      const userPass = localStorage.getItem(LS_KEYS.USER_PASS);
+      login.checkUserAuth(userName, userPass);
+    }, {once:true});
+
     // Animació de 3 puntets
     var dots = '';
     var count = 0;

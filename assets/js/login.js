@@ -2,10 +2,8 @@
 // Centraliza la lógica de comprobación de usuario con bcryptjs para reutilización
 
 const login = {
-  async checkUserAuth() {
-    const user_guid = localStorage.getItem('user_guid');
-    const user_pass = localStorage.getItem('user_pass');
-    if (!user_guid || !user_pass) {
+  async checkUserAuth(user_name, user_pass) {
+    if (!user_name || !user_pass) {
       window.location.href = 'index.html';
       return;
     }
@@ -13,7 +11,7 @@ const login = {
       // Buscar usuario en users.json
       const usersData = await fetch('assets/users.json').then(r => r.json());
       if (!usersData || !Array.isArray(usersData.users)) throw new Error('No users');
-      const user = usersData.users.find(u => u.guid === user_guid);
+      const user = usersData.users.find(u => u.name === user_name);
       if (!user) throw new Error('No user');
       // Esperar a que bcryptjs esté disponible
       function waitForBcrypt() {

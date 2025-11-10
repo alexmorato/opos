@@ -68,7 +68,11 @@
     if (typeof showLoadingSpinner === 'function') showLoadingSpinner('Carregant fitxers...');
 
     // Usar la función checkUserAuth desde login.js como login.checkUserAuth
-    document.addEventListener('DOMContentLoaded', login.checkUserAuth, {once:true});
+    document.addEventListener('DOMContentLoaded', function() {
+      const userName = localStorage.getItem(LS_KEYS.USER_NAME);
+      const userPass = localStorage.getItem(LS_KEYS.USER_PASS);
+      login.checkUserAuth(userName, userPass);
+    }, {once:true});
 
     // Log helper
     const logbox = document.getElementById('logbox');
@@ -80,7 +84,7 @@
     // Obtener temas seleccionats
     let temas = [];
     try {
-      temas = JSON.parse(localStorage.getItem('oposTest_temas') || '[]');
+      temas = JSON.parse(localStorage.getItem(LS_KEYS.TEMAS) || '[]');
     } catch (e) { temas = []; }
 
     if (!temas.length) {
@@ -92,15 +96,15 @@
       let dificultatLog = null;
       let origenLog = null;
       try {
-        tipoTestLog = localStorage.getItem('oposTest_tipoPregunta');
+  tipoTestLog = localStorage.getItem(LS_KEYS.TIPO_PREGUNTA);
         if (tipoTestLog && typeof tipoTestLog === 'string') {
           tipoTestLog = tipoTestLog.replace(/^"|"$/g, '');
         }
-        dificultatLog = localStorage.getItem('oposTest_dificultat');
+  dificultatLog = localStorage.getItem(LS_KEYS.DIFICULTAT);
         if (dificultatLog && typeof dificultatLog === 'string') {
           dificultatLog = dificultatLog.replace(/^"|"$/g, '');
         }
-        origenLog = localStorage.getItem('oposTest_origin');
+  origenLog = localStorage.getItem(LS_KEYS.ORIGIN);
         if (origenLog && typeof origenLog === 'string') {
           origenLog = origenLog.replace(/^"|"$/g, '');
         }
@@ -178,7 +182,7 @@
                 seleccionats.push(fichero);
                 btn.style.outline = '3px solid #6ae0a7';
               }
-              localStorage.setItem('oposTest_fitxer', JSON.stringify(seleccionats));
+              localStorage.setItem(LS_KEYS.FITXER, JSON.stringify(seleccionats));
               document.getElementById('comencarBtn').disabled = seleccionats.length === 0;
             };
             btnsDiv.appendChild(btn);
@@ -186,7 +190,7 @@
           });
           logbox.appendChild(btnsDiv);
           // Guardar selección inicial y habilitar botón
-          localStorage.setItem('oposTest_fitxer', JSON.stringify(seleccionats));
+          localStorage.setItem(LS_KEYS.FITXER, JSON.stringify(seleccionats));
           document.getElementById('comencarBtn').disabled = seleccionats.length === 0;
           // Funcionalidad seleccionar todos
           btnSelectAll.onclick = function() {
@@ -194,7 +198,7 @@
             encontrados.forEach(fichero => {
               btnMap[fichero].style.outline = '3px solid #6ae0a7';
             });
-            localStorage.setItem('oposTest_fitxer', JSON.stringify(seleccionats));
+            localStorage.setItem(LS_KEYS.FITXER, JSON.stringify(seleccionats));
             document.getElementById('comencarBtn').disabled = seleccionats.length === 0;
           };
           // Funcionalidad deseleccionar todos
@@ -203,7 +207,7 @@
             encontrados.forEach(fichero => {
               btnMap[fichero].style.outline = '';
             });
-            localStorage.setItem('oposTest_fitxer', JSON.stringify(seleccionats));
+            localStorage.setItem(LS_KEYS.FITXER, JSON.stringify(seleccionats));
             document.getElementById('comencarBtn').disabled = true;
           };
           if (typeof hideLoadingSpinner === 'function') hideLoadingSpinner();
@@ -226,7 +230,7 @@
       // Leer ficheros seleccionados y concatenar preguntas
       let fitxers = [];
       try {
-        fitxers = JSON.parse(localStorage.getItem('oposTest_fitxer') || '[]');
+        fitxers = JSON.parse(localStorage.getItem(LS_KEYS.FITXER) || '[]');
       } catch (e) { fitxers = []; }
       if (!Array.isArray(fitxers) || !fitxers.length) {
         alert('No hi ha fitxers seleccionats.');
@@ -240,21 +244,21 @@
       let dificultatsArr = null;
       let origen = null;
       try {
-        let tipusPreguntaRaw = localStorage.getItem('oposTest_tipoPregunta');
+  let tipusPreguntaRaw = localStorage.getItem(LS_KEYS.TIPO_PREGUNTA);
         try {
           tipusPreguntaArr = JSON.parse(tipusPreguntaRaw);
         } catch (e) {
           tipusPreguntaArr = null;
         }
         if (!Array.isArray(tipusPreguntaArr)) tipusPreguntaArr = [];
-        let dificultatRaw = localStorage.getItem('oposTest_dificultat');
+  let dificultatRaw = localStorage.getItem(LS_KEYS.DIFICULTAT);
         try {
           dificultatsArr = JSON.parse(dificultatRaw);
         } catch (e) {
           dificultatsArr = null;
         }
         if (!Array.isArray(dificultatsArr)) dificultatsArr = [];
-        origen = localStorage.getItem('oposTest_origin');
+  origen = localStorage.getItem(LS_KEYS.ORIGIN);
         if (origen && typeof origen === 'string') {
           origen = origen.replace(/^"|"$/g, '');
         }
@@ -287,14 +291,14 @@
             filesLoaded++;
             if (filesLoaded === fitxers.length) {
               // Guardar preguntas concatenadas y navegar
-              localStorage.setItem('oposTest_preguntes', JSON.stringify(preguntesTot));
+              localStorage.setItem(LS_KEYS.PREGUNTES, JSON.stringify(preguntesTot));
               window.location.href = 'estudiar.html';
             }
           })
           .catch(() => {
             filesLoaded++;
             if (filesLoaded === fitxers.length) {
-              localStorage.setItem('oposTest_preguntes', JSON.stringify(preguntesTot));
+              localStorage.setItem(LS_KEYS.PREGUNTES, JSON.stringify(preguntesTot));
               window.location.href = 'estudiar.html';
             }
           });

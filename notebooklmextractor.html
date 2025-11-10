@@ -62,7 +62,33 @@
       <span style="font-size:0.98em;">Dificultat:</span>
       <select id="difficultySelect" style="min-width:80px;">
       </select>
+      </select>
+    </label>
+  </div>
+  <p>Pega aquí el texto crudo del response (con <code>\\n</code>, <code>\\u0026quot;</code>, etc.):</p>
+  <textarea id="input"></textarea>
+  <div class="buttons">
+  <button id="convertBtn">Convertir a JSON</button>
+  <button id="copyBtn">📋 Copiar JSON</button>
+  <button id="downloadBtn">📁 Descargar fichero .json</button>
+  <button id="saveBtn">💾 API</button>
+  <span id="status"></span>
+  </div>
+  <h2>Resultado:</h2>
+  <pre id="output"></pre>
+
+  <script src="assets/js/login.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bcryptjs@2.4.3/dist/bcrypt.min.js"></script>
+  <script src="assets/js/localstorage-utils.js"></script>
+
   <script>
+    // Usar la función checkUserAuth desde login.js
+    document.addEventListener('DOMContentLoaded', function() {
+      const userName = localStorage.getItem(LS_KEYS.USER_NAME);
+      const userPass = localStorage.getItem(LS_KEYS.USER_PASS);
+      login.checkUserAuth(userName, userPass);
+    }, {once:true});
+
     // Rellenar selector de dificultad desde assets/difficulty.json
     window.addEventListener('DOMContentLoaded', function() {
       fetch('assets/difficulty.json')
@@ -79,56 +105,8 @@
           });
         });
     });
-  </script>
-      </select>
-    </label>
-  </div>
-  <p>Pega aquí el texto crudo del response (con <code>\\n</code>, <code>\\u0026quot;</code>, etc.):</p>
-  <textarea id="input"></textarea>
-  <div class="buttons">
-  <button id="convertBtn">Convertir a JSON</button>
-  <button id="copyBtn">📋 Copiar JSON</button>
-  <button id="downloadBtn">📁 Descargar fichero .json</button>
-  <button id="saveBtn">💾 API</button>
-  <span id="status"></span>
-  </div>
-  <h2>Resultado:</h2>
-  <pre id="output"></pre>
 
-  <script>
-    // --- Comprobación de usuario con bcryptjs ---
-    async function checkUserAuth() {
-      const user_guid = localStorage.getItem('user_guid');
-      const user_pass = localStorage.getItem('user_pass');
-      if (!user_guid || !user_pass) {
-        window.location.href = 'index.html';
-        return;
-      }
-      try {
-        // Buscar usuario en users.json
-        const usersData = await fetch('assets/users.json').then(r => r.json());
-        if (!usersData || !Array.isArray(usersData.users)) throw new Error('No users');
-        const user = usersData.users.find(u => u.guid === user_guid);
-        if (!user) throw new Error('No user');
-        // Esperar a que bcryptjs esté disponible
-        function waitForBcrypt() {
-          return new Promise(resolve => {
-            (function check() {
-              if (window.dcodeIO && window.dcodeIO.bcrypt) resolve(window.dcodeIO.bcrypt);
-              else if (window.bcryptjs) resolve(window.bcryptjs);
-              else if (window.bcrypt) resolve(window.bcrypt);
-              else setTimeout(check, 50);
-            })();
-          });
-        }
-        const bcrypt = await waitForBcrypt();
-        if (!bcrypt.compareSync(user_pass, user.password_hash)) throw new Error('Bad pass');
-      } catch (e) {
-        window.location.href = 'index.html';
-      }
-    }
-    // Ejecutar al cargar
-    document.addEventListener('DOMContentLoaded', checkUserAuth, {once:true});
+
     // Utilidad para obtener el año actual
     function getCurrentYear() {
       return new Date().getFullYear();

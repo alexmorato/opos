@@ -799,9 +799,9 @@
     function guardarFalloEnHistorial(questionIndex, selectedOptionIndex) {
       const pregunta = JSON.parse(JSON.stringify(preguntes[questionIndex])); // Deep copy
       const opciones = shuffledOptions[questionIndex] || pregunta.answerOptions || [];
-      const user_guid = localStorage.getItem('user_guid') || localStorage.getItem('user_id') || 'unknown';
-      // Añadir user_guid y fecha a la pregunta
-      pregunta.user_guid = user_guid;
+      const username = localStorage.getItem(LS_KEYS.USER_NAME) || 'unknown';
+      // Añadir username y fecha a la pregunta
+      pregunta.username = username;
       pregunta.fecha = new Date().toISOString();
       // Marcar la opción seleccionada por el usuario
       if (pregunta.answerOptions) {
@@ -827,8 +827,8 @@
           guardarFalloEnHistorial(currentQuestion, userAnswer);
         } else {
           const pregunta = JSON.parse(JSON.stringify(preguntes[currentQuestion]));
-          const user_guid = localStorage.getItem('user_guid') || localStorage.getItem('user_id') || 'unknown';
-          pregunta.user_guid = user_guid;
+          const username = localStorage.getItem(LS_KEYS.USER_NAME) || 'unknown';
+          pregunta.username = username;
           pregunta.fecha = new Date().toISOString();
           historialFallos.unshift(pregunta);
           actualizarTextareaHistorial();
@@ -910,7 +910,7 @@
 
     // Descargar historial como archivo JSON
     function baixarHistorial() {
-      const username = localStorage.getItem('oposTest_user') || 'usuario';
+      const username = localStorage.getItem(LS_KEYS.USER_NAME) || 'usuario';
       const timestamp = new Date().toISOString().replace(/[:.]/g, '-').slice(0, -5);
       const filename = `Errores_${username}_${timestamp}.json`;
       

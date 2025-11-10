@@ -14,6 +14,7 @@
   <link rel="icon" type="image/png" sizes="512x512" href="images/icons/android-chrome-512x512.png">
 
   <script src="https://cdn.jsdelivr.net/npm/bcryptjs@2.4.3/dist/bcrypt.min.js"></script>
+  <script src="assets/js/localstorage-utils.js"></script>
   <style>
     body { font-family: system-ui, sans-serif; background: #0b1020; color: #e7ecff; margin: 0; padding: 20px; }
     h1 { text-align: center; color: #6ae0a7; }
@@ -53,8 +54,8 @@
     document.addEventListener('DOMContentLoaded', function() {
       const params = new URLSearchParams(window.location.search);
       const relogin = params.get('relogin');
-      const user = localStorage.getItem('oposTest_user');
-      const pass = localStorage.getItem('user_pass');
+      const user = localStorage.getItem(LS_KEYS.USER_NAME);
+      const pass = localStorage.getItem(LS_KEYS.USER_PASS);
       if (user && pass && relogin !== '1') {
         // Simular login automático rellenando y enviando el formulario
         document.getElementById('username').value = user;
@@ -145,18 +146,8 @@
           console.info('Hash de la contraseña introducida:', hash);
         }
         if (bcrypt && bcrypt.compareSync(pass, user.password_hash)) {
-          localStorage.setItem('oposTest_user', name);
-          if (user._id) {
-            localStorage.setItem('user_id', user._id);
-          }
-          else if (user.guid) {
-            localStorage.setItem('user_guid', user.guid);
-            localStorage.setItem('user_pass', pass);
-          }
-          else {
-            msgDiv.textContent = 'Id de usuario no encontrado.';
-            return;
-          }
+          localStorage.setItem(LS_KEYS.USER_NAME, name);
+          localStorage.setItem(LS_KEYS.USER_PASS, pass);
           window.location.href = 'menu.html';
         } else {
           msgDiv.textContent = 'Contraseña incorrecta.';

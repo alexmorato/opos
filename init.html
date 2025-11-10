@@ -103,6 +103,7 @@
   <script src="assets/js/login.js"></script>
   <script src="assets/js/loading.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bcryptjs@2.4.3/dist/bcrypt.min.js"></script>
+  <script src="assets/js/localstorage-utils.js"></script>
 </head>
 <body>
   <h1>👨‍💻 sTIC d'opos ☕</h1>
@@ -144,11 +145,12 @@
   <div id="seleccioInfo" style="margin:16px 0 8px 0; color:#9fb0ff; font-size:1.05rem;"></div>
   <button id="comencarBtn" style="width:100%;margin-top:8px;background:linear-gradient(180deg,#2aebad,#21c08d);color:#032217;font-weight:bold;font-size:1.1rem;padding:14px 0;border-radius:12px;border:none;cursor:pointer;opacity:0.5;pointer-events:none;" disabled>Començar</button>
     <script>
-    // --- Comprobación de usuario centralizada ---
-    // La función checkUserAuth está en assets/login.js
-    // Ejecutar al cargar
-    // Usar la función checkUserAuth desde login.js como login.checkUserAuth
-    document.addEventListener('DOMContentLoaded', login.checkUserAuth, {once:true});
+    // Usar la función checkUserAuth desde login.js
+    document.addEventListener('DOMContentLoaded', function() {
+      const userName = localStorage.getItem(LS_KEYS.USER_NAME);
+      const userPass = localStorage.getItem(LS_KEYS.USER_PASS);
+      login.checkUserAuth(userName, userPass);
+    }, {once:true});
 
     // --- Lógica para ?dificutats=... & tipus=... & tema=... en la URL ---
     document.addEventListener('DOMContentLoaded', function() {
@@ -156,21 +158,21 @@
       // Si existen, guardar dificultats y tipus en localStorage como arrays
       if (params.has('dificultats')) {
         const difsArr = params.get('dificultats').split(',').map(x => x.trim()).filter(x => x !== '');
-        saveOposTest('dificultat', difsArr.map(Number));
+        localStorage.setItem(LS_KEYS.DIFICULTAT, JSON.stringify(difsArr.map(Number)));
       }
       if (params.has('tipus')) {
         const tipusArr = params.get('tipus').split(',').map(x => x.trim()).filter(x => x !== '');
-        saveOposTest('tipoPregunta', tipusArr);
+        localStorage.setItem(LS_KEYS.TIPO_PREGUNTA, JSON.stringify(tipusArr));
       }
       if (params.has('origin')) {
         const originVal = params.get('origin').trim();
-        if (originVal !== '') saveOposTest('origin', originVal);
+        if (originVal !== '') localStorage.setItem(LS_KEYS.ORIGIN, JSON.stringify(originVal));
       }
       const temaParam = params.get('tema');
 
       if (temaParam) {
         // Guardar el tema en localStorage como selección única
-        saveOposTest('temas', [temaParam]);
+        localStorage.setItem(LS_KEYS.TEMAS, JSON.stringify([temaParam]));
         actualitzaSeleccioInfo();
         // Redirigir como si se hubiera pulsado Començar
         setTimeout(function() {
@@ -197,11 +199,6 @@
     document.getElementById('comencarBtn').onclick = function() {
         window.location.href = 'carregarFiles.html';
     };
-
-    // Utilidades para guardar en localStorage con prefijo
-    function saveOposTest(key, value) {
-      localStorage.setItem('oposTest_' + key, JSON.stringify(value));
-    }
 
 
   // Elementos  
@@ -259,7 +256,7 @@
       // Seleccionar el valor guardado en localStorage si existe
       let lastOrigin = null;
       try {
-        lastOrigin = localStorage.getItem('oposTest_origin');
+        lastOrigin = localStorage.getItem(LS_KEYS.ORIGIN);
         if (lastOrigin && typeof lastOrigin === 'string') {
           lastOrigin = lastOrigin.replace(/^"|"$/g, '');
         }
@@ -279,7 +276,7 @@
       const btn = document.getElementById('dificultatBtn');
       let difs = [];
       try {
-        difs = JSON.parse(localStorage.getItem('oposTest_dificultat') || '[]');
+        difs = JSON.parse(localStorage.getItem(LS_KEYS.DIFICULTAT) || '[]');
       } catch (e) { difs = []; }
       if (!difs.length) {
         btn.textContent = 'Selecciona dificultats';
@@ -297,7 +294,7 @@
       if (document.getElementById('dificultatModal')) return;
       let difs = [];
       try {
-        difs = JSON.parse(localStorage.getItem('oposTest_dificultat') || '[]');
+        difs = JSON.parse(localStorage.getItem(LS_KEYS.DIFICULTAT) || '[]');
       } catch (e) { difs = []; }
       const modal = document.createElement('div');
       modal.id = 'dificultatModal';
@@ -330,7 +327,7 @@
       // Botón aceptar
       modal.querySelector('#difAceptarBtn').onclick = function() {
       const seleccionadas = Array.from(btnsDiv.querySelectorAll('button.selected')).map(b => Number(b.value));
-      localStorage.setItem('oposTest_dificultat', JSON.stringify(seleccionadas));
+      localStorage.setItem(LS_KEYS.DIFICULTAT, JSON.stringify(seleccionadas));
       actualizarTextoDificultatBtn();
       actualitzaSeleccioInfo();
       document.body.removeChild(modal);
@@ -349,7 +346,7 @@
       const btn = tipoPreguntaBtn;
       let tipos = [];
       try {
-        tipos = JSON.parse(localStorage.getItem('oposTest_tipoPregunta') || '[]');
+        tipos = JSON.parse(localStorage.getItem(LS_KEYS.TIPO_PREGUNTA) || '[]');
       } catch (e) { tipos = []; }
       if (!tipos.length) {
         btn.textContent = 'Selecciona tipus';
@@ -365,7 +362,7 @@
       if (document.getElementById('tipoPreguntaModal')) return;
       let tipos = [];
       try {
-        tipos = JSON.parse(localStorage.getItem('oposTest_tipoPregunta') || '[]');
+        tipos = JSON.parse(localStorage.getItem(LS_KEYS.TIPO_PREGUNTA) || '[]');
       } catch (e) { tipos = []; }
       const modal = document.createElement('div');
       modal.id = 'tipoPreguntaModal';
@@ -398,7 +395,7 @@
       // Botón aceptar
       modal.querySelector('#tpAceptarBtn').onclick = function() {
         const seleccionadas = Array.from(btnsDiv.querySelectorAll('button.selected')).map(b => b.value);
-        localStorage.setItem('oposTest_tipoPregunta', JSON.stringify(seleccionadas));
+        localStorage.setItem(LS_KEYS.TIPO_PREGUNTA, JSON.stringify(seleccionadas));
         actualizarTextoTipoPreguntaBtn();
         actualitzaSeleccioInfo();
         document.body.removeChild(modal);
@@ -419,7 +416,7 @@
       // Seleccionar el valor guardado en localStorage si existe
       let lastAmbit = null;
       try {
-        lastAmbit = localStorage.getItem('oposTest_ambito');
+        lastAmbit = localStorage.getItem(LS_KEYS.AMBITO);
         if (lastAmbit && typeof lastAmbit === 'string') {
           lastAmbit = lastAmbit.replace(/^"|"$/g, '');
         }
@@ -435,7 +432,7 @@
       let temasFiltrados = ambito
         ? temes.filter(t => Array.isArray(t.ambit) && t.ambit.map(String).includes(ambito))
         : temes;
-      const temasGuardados = JSON.parse(localStorage.getItem('oposTest_temas') || '[]');
+      const temasGuardados = JSON.parse(localStorage.getItem(LS_KEYS.TEMAS) || '[]');
       temasFiltrados.forEach(t => {
         const id = t.tema || t.id || t;
         const label = t.titol || t.nom || t.tema || t.id || t;
@@ -473,22 +470,22 @@
 
     function guardarTemasSeleccionados() {
       const seleccionados = Array.from(temasBotones.querySelectorAll('button.selected')).map(b => b.value);
-      saveOposTest('temas', seleccionados);
+      localStorage.setItem(LS_KEYS.TEMAS, JSON.stringify(seleccionados));
       actualitzaSeleccioInfo();
     }
 
     function actualitzaSeleccioInfo() {
-      const seleccionats = JSON.parse(localStorage.getItem('oposTest_temas') || '[]');
+      const seleccionats = JSON.parse(localStorage.getItem(LS_KEYS.TEMAS) || '[]');
       const infoDiv = document.getElementById('seleccioInfo');
       const comencarBtn = document.getElementById('comencarBtn');
       // Dificultades
       let difs = [];
-      try { difs = JSON.parse(localStorage.getItem('oposTest_dificultat') || '[]'); } catch (e) { difs = []; }
+      try { difs = JSON.parse(localStorage.getItem(LS_KEYS.DIFICULTAT) || '[]'); } catch (e) { difs = []; }
       // Tipos de pregunta
       let tipos = [];
-      try { tipos = JSON.parse(localStorage.getItem('oposTest_tipoPregunta') || '[]'); } catch (e) { tipos = []; }
+      try { tipos = JSON.parse(localStorage.getItem(LS_KEYS.TIPO_PREGUNTA) || '[]'); } catch (e) { tipos = []; }
       // Origen
-      let origin = localStorage.getItem('oposTest_origin') || '';
+      let origin = localStorage.getItem(LS_KEYS.ORIGIN) || '';
       origin = origin.replace(/^"|"$/g, '');
       // Mostrar nombres legibles
       let difsText = '';
@@ -549,22 +546,22 @@
     dificultatSel.addEventListener('click', showDificultatModal);
 
     originSel.addEventListener('change', function() {
-      saveOposTest('origin', this.value);
+      localStorage.setItem(LS_KEYS.ORIGIN, this.value);
       actualitzaSeleccioInfo();
     });
 
     ambitoSel.addEventListener('change', function() {
-      saveOposTest('ambito', this.value);
+      localStorage.setItem(LS_KEYS.AMBITO, this.value);
       cargarTemas();
       guardarTemasSeleccionados();
     });
 
     // Guardar selección inicial (por si hay valores por defecto)
     tipoPreguntaSel.addEventListener('change', function() {
-      saveOposTest('tipoPregunta', this.value);
+      localStorage.setItem(LS_KEYS.TIPO_PREGUNTA, this.value);
     });
     ambitoSel.addEventListener('change', function() {
-      saveOposTest('ambito', this.value);
+      localStorage.setItem(LS_KEYS.AMBITO, this.value);
     });
     // El evento de selección de temas ahora se gestiona con los botones
   // Estilos para botón seleccionado
