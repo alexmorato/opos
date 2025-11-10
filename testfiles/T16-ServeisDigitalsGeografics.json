@@ -60,5 +60,2698 @@
       }
     ],
     "hint": "Recorda que formats com GeoJSON, KMZ o GeoPackage són geoespacials. MKV és un contenidor de vídeo."
+  },
+
+  {
+    "guid": "57cba6b4-1d86-4a72-bc67-44252cb46cda",
+    "subjectId": "T16",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Un analista de dades municipal necessita descarregar les geometries i atributs de les parcel·les cadastrals d'un districte per realitzar una anàlisi de densitat. Quin servei, segons els estàndards de l'OGC, hauria de consumir?",
+    "answerOptions": [
+      {
+        "text": "WMS (Web Map Service)",
+        "isCorrect": false,
+        "rationale": "Aquest servei genera una representació visual de les dades en format d'imatge (com PNG o JPEG), però no permet l'accés a les dades vectorials subjacents per a la seva anàlisi o edició."
+      },
+      {
+        "text": "WFS (Web Feature Service)",
+        "isCorrect": true,
+        "rationale": "Aquest estàndard està dissenyat específicament per a la consulta, descàrrega i edició de dades geogràfiques vectorials ('features'), incloent-hi tant la geometria com els atributs associats."
+      },
+      {
+        "text": "CSW (Catalogue Service for the Web)",
+        "isCorrect": false,
+        "rationale": "Aquest servei s'utilitza per cercar i recuperar metadades, és a dir, informació descriptiva sobre els conjunts de dades, però no per accedir a les dades geogràfiques en si."
+      },
+      {
+        "text": "WCS (Web Coverage Service)",
+        "isCorrect": false,
+        "rationale": "Aquest servei proporciona accés a dades de tipus ràster o 'coverage', com ortofotos o models digitals d'elevacions, que representen fenòmens continus, no objectes discrets com les parcel·les."
+      }
+    ],
+    "hint": "Pensa en la diferència entre visualitzar un mapa com una imatge i obtenir les dades vectorials originals per poder manipular-les."
+  },
+  {
+    "guid": "db6cc074-584a-4bef-b667-6385e29f9ded",
+    "subjectId": "T16",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "En un projecte de gestió ambiental, es vol representar la distribució contínua de la temperatura de la superfície a tota Catalunya. Quin model de dades geogràfiques seria el més adequat per a aquesta finalitat?",
+    "answerOptions": [
+      {
+        "text": "Vectorial de polígons",
+        "isCorrect": false,
+        "rationale": "Encara que es podrien crear polígons per a zones de temperatura (isolinies), aquest model representa objectes discrets amb límits definits i no és eficient per a fenòmens que varien contínuament a l'espai."
+      },
+      {
+        "text": "Ràster",
+        "isCorrect": true,
+        "rationale": "Aquest model representa el territori com una malla de cel·les, on cada cel·la té un valor associat (en aquest cas, la temperatura), la qual cosa és ideal per a representar superfícies i fenòmens continus."
+      },
+      {
+        "text": "Vectorial de punts",
+        "isCorrect": false,
+        "rationale": "Aquest model podria representar les lectures de temperatura en estacions meteorològiques individuals, però no la distribució contínua de la temperatura a tota la superfície."
+      },
+      {
+        "text": "Alfanumèric",
+        "isCorrect": false,
+        "rationale": "Les dades alfanumèriques descriuen els atributs dels objectes geogràfics (com el nom d'un municipi), però no representen la distribució espacial d'un fenomen per si mateixes."
+      }
+    ],
+    "hint": "Considera si el fenomen a representar té límits clars i discrets o si varia gradualment a través del territori."
+  },
+  {
+    "guid": "ac162216-b16a-47de-a959-1d8a750649ab",
+    "subjectId": "T16",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Un tècnic està treballant amb un conjunt de dades geogràfiques les coordenades del qual s'expressen com 'X=431500, Y=4582000, Zona 31T'. A quin sistema de coordenades corresponen aquestes xifres i quines unitats utilitzen?",
+    "answerOptions": [
+      {
+        "text": "Latitud/Longitud, en graus decimals.",
+        "isCorrect": false,
+        "rationale": "Les coordenades geogràfiques de latitud i longitud s'expressen en graus i representen posicions sobre un el·lipsoide, no distàncies planes com les que mostren els valors."
+      },
+      {
+        "text": "UTM (Universal Transverse Mercator), en metres.",
+        "isCorrect": true,
+        "rationale": "El sistema UTM utilitza una projecció plana per dividir la Terra en zones (com la '31T') i expressa les coordenades com distàncies en metres des d'un origen definit, coincidint amb el format de l'exemple."
+      },
+      {
+        "text": "Projecció esfèrica, en metres.",
+        "isCorrect": false,
+        "rationale": "Les projeccions esfèriques com la de latitud/longitud utilitzen unitats angulars (graus), no lineals (metres), per definir la posició."
+      },
+      {
+        "text": "UTM (Universal Transverse Mercator), en graus.",
+        "isCorrect": false,
+        "rationale": "Aquesta opció barreja conceptes; el sistema UTM es basa en una projecció plana i les seves unitats de mesura són mètriques, no angulars com els graus."
+      }
+    ],
+    "hint": "Aquest sistema de projecció és pla i s'utilitza sovint en cartografia local o regional per la seva precisió en distàncies."
+  },
+  {
+    "guid": "9885f16e-e854-4992-84b4-8884c7536e84",
+    "subjectId": "T16",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Quin dels següents formats és un estàndard obert de l'OGC, basat en SQLite, que té la capacitat d'emmagatzemar tant dades vectorials com ràster en un únic fitxer?",
+    "answerOptions": [
+      {
+        "text": "SHP (Shapefile)",
+        "isCorrect": false,
+        "rationale": "El format Shapefile és un estàndard de facto per a dades vectorials, però es compon de múltiples fitxers i no pot contenir dades ràster de forma nativa."
+      },
+      {
+        "text": "GeoJSON",
+        "isCorrect": false,
+        "rationale": "GeoJSON és un format lleuger i obert basat en JSON, àmpliament utilitzat en aplicacions web, però està dissenyat exclusivament per a dades de tipus vectorial."
+      },
+      {
+        "text": "GeoPackage (GPKG)",
+        "isCorrect": true,
+        "rationale": "Aquest format modern va ser dissenyat per l'OGC com un contenidor versàtil basat en una base de dades SQLite, capaç d'emmagatzemar eficientment diferents tipus de dades geogràfiques."
+      },
+      {
+        "text": "KMZ",
+        "isCorrect": false,
+        "rationale": "Un fitxer KMZ és un fitxer KML (vectorial, basat en XML) comprimit juntament amb altres recursos com imatges, però no és una base de dades integrada per a dades vectorials i ràster."
+      }
+    ],
+    "hint": "Busca el format més modern i versàtil de la llista, dissenyat per superar les limitacions dels formats més antics."
+  },
+  {
+    "guid": "fdcc5795-5a47-4259-be09-41d77c81692f",
+    "subjectId": "T16",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "La directiva INSPIRE (2007/2/CE) és un marc normatiu fonamental en l'àmbit dels serveis digitals geogràfics. Quin és el seu objectiu principal?",
+    "answerOptions": [
+      {
+        "text": "Definir els estàndards tècnics per a serveis web com WMS i WFS.",
+        "isCorrect": false,
+        "rationale": "Encara que INSPIRE fa ús d'aquests estàndards, la seva definició és responsabilitat de l'OGC (Open Geospatial Consortium). INSPIRE se centra en l'harmonització de les dades i l'estructura de la infraestructura."
+      },
+      {
+        "text": "Crear una infraestructura de dades espacials a nivell europeu per facilitar la interoperabilitat entre administracions públiques.",
+        "isCorrect": true,
+        "rationale": "Aquesta directiva estableix les regles comunes per a la publicació i l'intercanvi d'informació geogràfica entre els estats membres de la UE, abordant aspectes legals i organitzatius."
+      },
+      {
+        "text": "Regular l'ús de formats de dades geogràfiques propietaris com el SHP a Espanya.",
+        "isCorrect": false,
+        "rationale": "INSPIRE és una directiva d'àmbit europeu i promou l'ús d'estàndards oberts i models de dades comuns, en lloc de regular formats específics d'un sol país."
+      },
+      {
+        "text": "Establir el model de dades per a OpenStreetMap a nivell mundial.",
+        "isCorrect": false,
+        "rationale": "OpenStreetMap és un projecte col·laboratiu global amb el seu propi model de dades, independent de la legislació europea per a les administracions públiques."
+      }
+    ],
+    "hint": "Pensa en l'àmbit geogràfic i administratiu d'aquesta directiva. El seu nom complet és 'Infrastructure for Spatial Information in Europe'."
+  },
+  {
+    "guid": "bdaf9641-4d80-49a2-ba6e-51b0d7b388de",
+    "subjectId": "T16",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Un usuari vol executar una anàlisi espacial remota, com el càlcul d'una àrea d'influència (buffer) al voltant d'una sèrie de punts, sense descarregar les dades ni executar el procés al seu propi ordinador. Quin tipus de servei OGC li ofereix aquesta funcionalitat?",
+    "answerOptions": [
+      {
+        "text": "WPS (Web Processing Service)",
+        "isCorrect": true,
+        "rationale": "Aquest servei està dissenyat específicament per oferir capacitats de geoprocessament i anàlisi espacial com un servei web, permetent executar càlculs al servidor."
+      },
+      {
+        "text": "WFS-T (Web Feature Service Transactional)",
+        "isCorrect": false,
+        "rationale": "La versió transaccional del WFS (WFS-T) permet la creació, modificació i eliminació de 'features' (dades vectorials), però no l'execució de processos d'anàlisi complexos."
+      },
+      {
+        "text": "WMS (Web Map Service)",
+        "isCorrect": false,
+        "rationale": "El servei WMS es limita a generar i servir mapes en format d'imatge, sense oferir cap capacitat d'anàlisi o processament de les dades subjacents."
+      },
+      {
+        "text": "Gazetteer Service",
+        "isCorrect": false,
+        "rationale": "Un servei de nomenclàtor o 'Gazetteer' s'especialitza a convertir noms de llocs (topònims) en coordenades geogràfiques (geocodificació) i viceversa, no en realitzar anàlisis espacials."
+      }
+    ],
+    "hint": "El nom d'aquest servei inclou la paraula clau que descriu la seva funció principal: executar operacions i càlculs."
+  },
+  {
+    "guid": "5b28bd1f-2888-4e88-90d7-214ec53d943d",
+    "subjectId": "T16",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Quina afirmació descriu correctament la naturalesa del format KML?",
+    "answerOptions": [
+      {
+        "text": "És un format ràster utilitzat principalment per a ortofotos en serveis com Google Earth.",
+        "isCorrect": false,
+        "rationale": "Aquesta afirmació és incorrecta; el KML està dissenyat per a dades vectorials. Encara que pot enllaçar imatges, la seva estructura es basa en la representació d'objectes discrets."
+      },
+      {
+        "text": "És un format vectorial basat en XML, que representa elements puntuals, lineals o poligonals.",
+        "isCorrect": true,
+        "rationale": "Efectivament, el KML (Keyhole Markup Language) utilitza una estructura XML per descriure geometries vectorials i els seus estils, sent un estàndard obert de l'OGC."
+      },
+      {
+        "text": "És un format propietari i tancat d'ESRI per intercanviar capes entre ArcGIS i altres sistemes.",
+        "isCorrect": false,
+        "rationale": "El format propietari d'ESRI més conegut és el Shapefile (SHP). El KML, tot i que popularitzat per Google, és un estàndard obert de l'OGC."
+      },
+      {
+        "text": "És un format tabular que emmagatzema coordenades en un fitxer de text separat per comes (CSV).",
+        "isCorrect": false,
+        "rationale": "Encara que un CSV pot contenir coordenades, el KML té una estructura jeràrquica basada en etiquetes XML, molt més complexa i específica per a dades geogràfiques."
+      }
+    ],
+    "hint": "Pensa en l'estructura d'un fitxer XML i en com es representen els objectes en aplicacions com Google Earth."
+  },
+  {
+    "guid": "2d880cc7-aba3-45eb-9bb0-eedce0157e0a",
+    "subjectId": "T16",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Una Infraestructura de Dades Espacials (IDE), com IDEBarcelona o IDEE, es defineix com:",
+    "answerOptions": [
+      {
+        "text": "Un geoportal web on els usuaris poden visualitzar mapes predefinits per l'administració.",
+        "isCorrect": false,
+        "rationale": "El geoportal és només un dels components d'una IDE, la part visible per a l'usuari final, però la infraestructura completa és molt més àmplia."
+      },
+      {
+        "text": "Una base de dades geoespacial centralitzada que emmagatzema tota la cartografia d'una organització.",
+        "isCorrect": false,
+        "rationale": "Les dades són un component clau, però una IDE no és només un repositori, sinó un sistema que integra tecnologia, polítiques i acords per compartir-les."
+      },
+      {
+        "text": "El conjunt de programari GIS d'escriptori (com QGIS o ArcGIS) utilitzat pels tècnics municipals.",
+        "isCorrect": false,
+        "rationale": "El programari GIS són les eines client que poden consumir els serveis d'una IDE, però no constitueixen la infraestructura en si mateixa."
+      },
+      {
+        "text": "Un sistema integrat de tecnologies, dades, metadades, polítiques i acords institucionals per compartir informació geogràfica de forma interoperable.",
+        "isCorrect": true,
+        "rationale": "Aquesta definició és la més completa, ja que inclou no només els components tecnològics (dades, serveis) sinó també el marc organitzatiu i normatiu que permet el seu funcionament."
+      }
+    ],
+    "hint": "Una IDE és més que la suma de les seves parts tecnològiques; inclou també l'element humà i organitzatiu."
+  },
+  {
+    "guid": "0d68c363-47d3-47d8-8a27-b7a6d2cb0371",
+    "subjectId": "T16",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Segons l'Esquema Nacional d'Interoperabilitat (ENI) i l'Esquema Nacional de Seguretat (ENS) en el context dels serveis geogràfics, quina és la seva funció principal?",
+    "answerOptions": [
+      {
+        "text": "Definir les 34 àrees temàtiques de dades que han de publicar les administracions públiques.",
+        "isCorrect": false,
+        "rationale": "La definició de les àrees temàtiques de dades espacials és una especificació de la directiva europea INSPIRE, no dels esquemes nacionals ENI i ENS."
+      },
+      {
+        "text": "Establir les projeccions cartogràfiques oficials i sistemes de coordenades per a Espanya.",
+        "isCorrect": false,
+        "rationale": "Aquesta funció recau en organismes cartogràfics nacionals. L'ENI i l'ENS se centren en aspectes més generals de l'administració electrònica."
+      },
+      {
+        "text": "Proporcionar un marc per garantir l'accés segur i l'intercanvi interoperable de dades entre administracions públiques.",
+        "isCorrect": true,
+        "rationale": "L'ENI estableix les condicions per a la interoperabilitat (formats, metadades) i l'ENS les mesures per garantir la seguretat (confidencialitat, integritat, disponibilitat) de tota la informació del sector públic, inclosa la geogràfica."
+      },
+      {
+        "text": "Crear el catàleg de metadades per a la Infraestructura de Dades Espacials d'Espanya (IDEE).",
+        "isCorrect": false,
+        "rationale": "L'ENI i l'ENS són marcs normatius generals. La creació i gestió del catàleg de la IDEE és una tasca específica duta a terme pels organismes responsables de la infraestructura."
+      }
+    ],
+    "hint": "Pensa en la funció d'aquests dos 'Esquemes Nacionals' en el context general de l'administració electrònica, no només en el geogràfic."
+  },
+  {
+    "guid": "cb2ac10f-5e46-40ce-a699-279c2e05c5f7",
+    "subjectId": "T16",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Quina és la diferència fonamental entre les metadades (seguint l'estàndard ISO 19115) i les dades alfanumèriques associades a un objecte geogràfic?",
+    "answerOptions": [
+      {
+        "text": "Les metadades són sempre en format XML, mentre que les dades alfanumèriques estan en una base de dades relacional.",
+        "isCorrect": false,
+        "rationale": "Encara que les metadades es distribueixen sovint en XML (ISO 19139), poden existir en altres formats. La diferència clau no és el format, sinó el contingut i el propòsit."
+      },
+      {
+        "text": "Les metadades descriuen el conjunt de dades en general (origen, autor, escala), mentre que les dades alfanumèriques descriuen les propietats d'un objecte espacial concret (nom d'un carrer, codi postal).",
+        "isCorrect": true,
+        "rationale": "Aquesta opció distingeix correctament el propòsit: les metadades són 'dades sobre les dades' a nivell de conjunt, i els atributs alfanumèrics són les característiques de cada element individual dins d'aquest conjunt."
+      },
+      {
+        "text": "No hi ha cap diferència, són dos termes per referir-se a la informació descriptiva.",
+        "isCorrect": false,
+        "rationale": "Aquesta afirmació és incorrecta. Són conceptes diferents amb funcions clarament definides en la gestió de la informació geogràfica."
+      },
+      {
+        "text": "Les metadades contenen la informació geomètrica (coordenades), i les dades alfanumèriques la informació textual.",
+        "isCorrect": false,
+        "rationale": "La informació geomètrica forma part de les dades espacials pròpiament dites, no de les metadades. Les metadades descriuen aquesta geometria, però no la contenen."
+      }
+    ],
+    "hint": "Pensa a dues escales: una descriu la 'caixa' sencera que conté les dades, i l'altra descriu cada 'peça' que hi ha a dins."
+  },
+
+
+  {
+    "guid": "7502fe2c-6531-4623-bc01-859d8e4e3405",
+    "subjectId": "T16",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Un ajuntament vol oferir un servei web que permeti als ciutadans visualitzar el mapa de districtes en format d'imatge, sense permetre la descàrrega de les dades geomètriques. Quin servei OGC seria l'adequat per a aquesta finalitat?",
+    "answerOptions": [
+      {
+        "text": "WFS (Web Feature Service)",
+        "isCorrect": false,
+        "rationale": "Aquest servei està dissenyat per a la consulta, descàrrega i edició de dades vectorials, no només per a la seva visualització com a imatge."
+      },
+      {
+        "text": "WMS (Web Map Service)",
+        "isCorrect": true,
+        "rationale": "Aquest servei genera mapes en format d'imatge (com PNG o JPEG) a partir de dades geogràfiques, complint exactament el requisit de només visualització."
+      },
+      {
+        "text": "WCS (Web Coverage Service)",
+        "isCorrect": false,
+        "rationale": "Aquest servei s'utilitza per accedir a dades de tipus ràster o de cobertura contínua, com ortofotos o models d'elevació, no principalment per a capes vectorials simples com districtes."
+      },
+      {
+        "text": "CSW (Catalogue Service for the Web)",
+        "isCorrect": false,
+        "rationale": "Aquest servei no mostra mapes; la seva funció és permetre la cerca i recuperació de metadades sobre conjunts de dades geogràfiques."
+      }
+    ],
+    "hint": "Pensa en la diferència entre visualitzar un mapa com una foto i accedir a les dades subjacents que el componen."
+  },
+  {
+    "guid": "a22a3638-e5c3-4e75-8374-ac956073a481",
+    "subjectId": "T16",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Quin tipus de model de dades geogràfiques és més apropiat per representar un mapa de temperatures o una ortofoto aèria?",
+    "answerOptions": [
+      {
+        "text": "Model vectorial",
+        "isCorrect": false,
+        "rationale": "El model vectorial representa elements discrets amb coordenades (punts, línies, polígons), la qual cosa no és eficient per a superfícies contínues com la temperatura."
+      },
+      {
+        "text": "Model alfanumèric",
+        "isCorrect": false,
+        "rationale": "Les dades alfanumèriques són atributs o descripcions associades a elements geogràfics, no el model que representa la superfície en si."
+      },
+      {
+        "text": "Model ràster",
+        "isCorrect": true,
+        "rationale": "El model ràster representa el territori com una malla de cel·les o píxels, on cada cel·la té un valor, ideal per a representar dades contínues com temperatures o imatges."
+      },
+      {
+        "text": "Model GeoJSON",
+        "isCorrect": false,
+        "rationale": "GeoJSON és un format d'arxiu basat en el model vectorial, no un model de dades fonamental per a superfícies contínues."
+      }
+    ],
+    "hint": "Considera si la informació a representar és un conjunt d'objectes definits o una superfície contínua."
+  },
+  {
+    "guid": "522a25e8-bdb5-4f57-bfc5-52c94316069c",
+    "subjectId": "T16",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Les coordenades en el sistema UTM (Universal Transverse Mercator) s'expressen en quines unitats?",
+    "answerOptions": [
+      {
+        "text": "Graus, minuts i segons",
+        "isCorrect": false,
+        "rationale": "Aquestes unitats corresponen a coordenades geogràfiques esfèriques (latitud i longitud), no a un sistema de projecció plana com l'UTM."
+      },
+      {
+        "text": "Metres",
+        "isCorrect": true,
+        "rationale": "El sistema UTM utilitza una projecció plana i expressa les posicions com a distàncies en metres des d'un punt d'origen, la qual cosa facilita el càlcul de distàncies i àrees."
+      },
+      {
+        "text": "Píxels",
+        "isCorrect": false,
+        "rationale": "Els píxels són les unitats d'una imatge digital o dades ràster, però no són una unitat de mesura d'un sistema de coordenades geogràfiques."
+      },
+      {
+        "text": "Radians",
+        "isCorrect": false,
+        "rationale": "Els radians són una unitat de mesura d'angles, utilitzada en matemàtiques, però no són la unitat estàndard per a les coordenades UTM."
+      }
+    ],
+    "hint": "Aquest sistema de coordenades es basa en una projecció plana, dissenyada per facilitar càlculs de distància a escala local o regional."
+  },
+  {
+    "guid": "6edad73a-43cd-418d-9fb8-6827ea8278f2",
+    "subjectId": "T16",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Quina de les següents afirmacions descriu correctament la naturalesa del format KML?",
+    "answerOptions": [
+      {
+        "text": "És un format ràster utilitzat principalment per a ortofotos.",
+        "isCorrect": false,
+        "rationale": "Aquesta afirmació és incorrecta; el KML està dissenyat per a representar elements geogràfics discrets, no dades ràster com les ortofotos."
+      },
+      {
+        "text": "És un format vectorial basat en XML per representar punts, línies i polígons.",
+        "isCorrect": true,
+        "rationale": "Aquesta descripció és precisa. El KML (Keyhole Markup Language) utilitza una estructura XML per definir geometria vectorial i és un estàndard de l'OGC."
+      },
+      {
+        "text": "És un format propietari i tancat exclusiu de Google Earth.",
+        "isCorrect": false,
+        "rationale": "Encara que va ser popularitzat per Google Earth, el KML és un estàndard obert mantingut per l'Open Geospatial Consortium (OGC)."
+      },
+      {
+        "text": "És un format lleuger basat en JSON per a aplicacions web.",
+        "isCorrect": false,
+        "rationale": "Aquesta descripció correspon al format GeoJSON, no al KML, que es basa en XML."
+      }
+    ],
+    "hint": "Recorda la tecnologia subjacent d'aquest format i el tipus d'elements que pot representar en visors com Google Earth."
+  },
+  {
+    "guid": "40dbdb6d-46c3-42c1-b277-018f4357d08f",
+    "subjectId": "T16",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "La Directiva INSPIRE (2007/2/CE) té com a principal objectiu:",
+    "answerOptions": [
+      {
+        "text": "Definir els estàndards tècnics per a serveis web com WMS i WFS.",
+        "isCorrect": false,
+        "rationale": "La definició d'aquests estàndards tècnics és responsabilitat de l'OGC (Open Geospatial Consortium), no directament d'INSPIRE, tot i que la directiva promou el seu ús."
+      },
+      {
+        "text": "Crear un mapa topogràfic únic i centralitzat per a tot Europa.",
+        "isCorrect": false,
+        "rationale": "L'objectiu no és crear un producte cartogràfic únic, sinó establir un marc perquè les dades existents de diferents països puguin ser compartides i utilitzades conjuntament."
+      },
+      {
+        "text": "Establir una infraestructura de dades espacials per facilitar la interoperabilitat entre les administracions públiques europees.",
+        "isCorrect": true,
+        "rationale": "Aquest és el propòsit fonamental d'INSPIRE: crear un marc legal i tècnic comú per compartir informació geogràfica a tota la Unió Europea."
+      },
+      {
+        "text": "Regular l'ús de drons per a la captura de dades geogràfiques a Espanya.",
+        "isCorrect": false,
+        "rationale": "INSPIRE és una directiva d'àmbit europeu i se centra en la infraestructura de dades, no en la regulació específica de mètodes de captura com els drons."
+      }
+    ],
+    "hint": "Pensa en l'àmbit d'aplicació geogràfic d'aquesta directiva i el seu enfocament en la col·laboració entre diferents organismes."
+  },
+  {
+    "guid": "480bcab7-1b9f-4ed6-9892-3952ebc81afa",
+    "subjectId": "T16",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Si un analista necessita descarregar les dades vectorials completes (geometria i atributs) d'una xarxa de carrers per fer una anàlisi de rutes, quin servei OGC hauria d'utilitzar?",
+    "answerOptions": [
+      {
+        "text": "WPS (Web Processing Service)",
+        "isCorrect": false,
+        "rationale": "El WPS s'utilitza per executar processos d'anàlisi de forma remota, però no és el servei dissenyat per a la descàrrega de les dades en si."
+      },
+      {
+        "text": "WMS (Web Map Service)",
+        "isCorrect": false,
+        "rationale": "El WMS només retornaria una imatge dels carrers, no les dades vectorials necessàries per a una anàlisi de xarxa."
+      },
+      {
+        "text": "WFS (Web Feature Service)",
+        "isCorrect": true,
+        "rationale": "El WFS està dissenyat específicament per permetre l'accés, consulta i descàrrega de les dades vectorials completes ('features'), incloent geometria i atributs."
+      },
+      {
+        "text": "CSW (Catalogue Service for the Web)",
+        "isCorrect": false,
+        "rationale": "El CSW ajudaria a trobar on es troba el servei de dades dels carrers (a través de les metadades), però no proporciona les dades directament."
+      }
+    ],
+    "hint": "Quin servei se centra en les 'característiques' o 'features' geogràfiques individuals en lloc d'un mapa complet?"
+  },
+  {
+    "guid": "9b9d7f2a-038b-4013-b933-d404d24ed2fe",
+    "subjectId": "T16",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Quina és la funció principal de les metadades en el context dels serveis geogràfics?",
+    "answerOptions": [
+      {
+        "text": "Emmagatzemar les coordenades geogràfiques dels objectes.",
+        "isCorrect": false,
+        "rationale": "Les coordenades són part de les dades geogràfiques en si, no de les metadades que les descriuen."
+      },
+      {
+        "text": "Descriure les dades geogràfiques: origen, escala, data d'actualització i precisió.",
+        "isCorrect": true,
+        "rationale": "Les metadades actuen com el 'document d'identitat' de les dades, proporcionant informació crucial sobre el seu context, qualitat i característiques."
+      },
+      {
+        "text": "Visualitzar mapes en un navegador web.",
+        "isCorrect": false,
+        "rationale": "La visualització de mapes és una funció dels serveis (com WMS) i les aplicacions client, no de les metadades."
+      },
+      {
+        "text": "Convertir dades del model ràster al model vectorial.",
+        "isCorrect": false,
+        "rationale": "La conversió de formats és un procés d'anàlisi o transformació, no la funció de les metadades."
+      }
+    ],
+    "hint": "Pensa en les metadades com l'etiqueta d'un producte, que no és el producte en si, sinó que informa sobre ell."
+  },
+  {
+    "guid": "9c966977-c747-4346-b0da-87dec7046c5b",
+    "subjectId": "T16",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Quina organització internacional és la principal responsable de definir i mantenir els estàndards oberts per a serveis web geoespacials com WMS, WFS i WCS?",
+    "answerOptions": [
+      {
+        "text": "ISO (International Organization for Standardization)",
+        "isCorrect": false,
+        "rationale": "La família ISO 19100 defineix models de dades i metadades, però l'especificació dels serveis web és el domini principal d'una altra organització."
+      },
+      {
+        "text": "INSPIRE",
+        "isCorrect": false,
+        "rationale": "INSPIRE és una directiva de la UE que obliga a l'ús d'estàndards per a la interoperabilitat, però no és l'organisme que crea aquests estàndards tècnics."
+      },
+      {
+        "text": "ICGC (Institut Cartogràfic i Geològic de Catalunya)",
+        "isCorrect": false,
+        "rationale": "L'ICGC és un productor i proveïdor de dades i serveis geogràfics, però no una organització d'estandardització internacional."
+      },
+      {
+        "text": "OGC (Open Geospatial Consortium)",
+        "isCorrect": true,
+        "rationale": "L'OGC és el consorci internacional format per empreses, agències governamentals i universitats que desenvolupa i promou els estàndards oberts per a la interoperabilitat geoespacial."
+      }
+    ],
+    "hint": "Busca l'organisme que té la paraula 'geoespacial' al seu nom i se centra en la creació d'estàndards tècnics."
+  },
+  {
+    "guid": "fb068ad1-e2e7-4ecd-b160-eb7d595c2137",
+    "subjectId": "T16",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "El format GeoPackage (GPKG) ofereix un avantatge significatiu respecte a formats més antics com el Shapefile (SHP). Quin és?",
+    "answerOptions": [
+      {
+        "text": "És l'únic format que pot ser llegit per programari GIS d'escriptori.",
+        "isCorrect": false,
+        "rationale": "El format Shapefile és un dels més àmpliament suportats per tot el programari GIS, de manera que aquesta afirmació és incorrecta."
+      },
+      {
+        "text": "Emmagatzema dades vectorials i ràster en un únic fitxer.",
+        "isCorrect": true,
+        "rationale": "Aquesta és una de les seves característiques clau; basat en una base de dades SQLite, un sol fitxer .gpkg pot contenir múltiples capes de diferents tipus, simplificant la gestió de dades."
+      },
+      {
+        "text": "Està basat en text pla (XML), la qual cosa el fa fàcilment editable manualment.",
+        "isCorrect": false,
+        "rationale": "GeoPackage és un format binari basat en SQLite, no en text pla. El format basat en XML és el KML."
+      },
+      {
+        "text": "Només permet emmagatzemar geometria de tipus puntual.",
+        "isCorrect": false,
+        "rationale": "GeoPackage pot emmagatzemar tot tipus de geometries vectorials (punts, línies, polígons), a més de dades ràster."
+      }
+    ],
+    "hint": "Pensa en la limitació del Shapefile, que requereix múltiples arxius per a una sola capa vectorial i no pot contenir imatges."
+  },
+  {
+    "guid": "d0262f06-91b8-45b4-9e7e-35101d707de5",
+    "subjectId": "T16",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Un servei de geocodificació (Gazetteer Service) realitza una funció essencial. Quina és?",
+    "answerOptions": [
+      {
+        "text": "Superposar diferents capes de mapes per a anàlisi visual.",
+        "isCorrect": false,
+        "rationale": "La superposició de capes és una funció bàsica d'un visor GIS o d'un servei WMS, no d'un servei de geocodificació."
+      },
+      {
+        "text": "Convertir noms de llocs o adreces en coordenades geogràfiques (i viceversa).",
+        "isCorrect": true,
+        "rationale": "Aquesta és la definició exacta de la geocodificació (adreça a coordenades) i la geocodificació inversa (coordenades a adreça)."
+      },
+      {
+        "text": "Comprimir fitxers KML en format KMZ per reduir la seva mida.",
+        "isCorrect": false,
+        "rationale": "La compressió de fitxers és una operació del sistema d'arxius, no la funció d'un servei geogràfic especialitzat com aquest."
+      },
+      {
+        "text": "Generar mapes de calor a partir de dades de densitat.",
+        "isCorrect": false,
+        "rationale": "La generació de mapes de calor és un procés d'anàlisi espacial, que podria ser ofert per un servei WPS."
+      }
+    ],
+    "hint": "Com transforma un sistema una adreça postal en un punt sobre un mapa?"
+  },
+  {
+    "guid": "87ca13e0-6d81-46a4-9c14-b49205789529",
+    "subjectId": "T16",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Una Infraestructura de Dades Espacials (IDE), com IDEBarcelona, és més que un simple portal de mapes perquè...",
+    "answerOptions": [
+      {
+        "text": "Només ofereix dades en format propietari com SHP.",
+        "isCorrect": false,
+        "rationale": "Al contrari, les IDE promouen l'ús d'estàndards i formats oberts per garantir la interoperabilitat."
+      },
+      {
+        "text": "Només permet l'accés a tècnics municipals, no a la ciutadania.",
+        "isCorrect": false,
+        "rationale": "Un dels objectius de les IDE és precisament facilitar l'accés obert a la informació geogràfica per a la ciutadania, fomentant la transparència."
+      },
+      {
+        "text": "Integra tecnologies, dades, metadades, usuaris i acords institucionals.",
+        "isCorrect": true,
+        "rationale": "Aquesta definició és completa. Una IDE és un sistema organitzat que va més enllà de la tecnologia i inclou polítiques, acords i usuaris per compartir informació de manera eficient."
+      },
+      {
+        "text": "Funciona exclusivament amb dades de tipus ràster.",
+        "isCorrect": false,
+        "rationale": "Les IDE gestionen i donen accés a tot tipus de dades geogràfiques, tant vectorials com ràster."
+      }
+    ],
+    "hint": "Considera tots els components, no només els tècnics, que són necessaris per a compartir informació geogràfica entre diferents organitzacions."
+  },
+  {
+    "guid": "0831169e-89b6-4036-b400-d06a228e8cf1",
+    "subjectId": "T16",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Dins del marc normatiu espanyol, l'Esquema Nacional d'Interoperabilitat (ENI) és rellevant per als serveis geogràfics perquè...",
+    "answerOptions": [
+      {
+        "text": "Estableix les mesures de seguretat per protegir la informació, com la confidencialitat i la integritat.",
+        "isCorrect": false,
+        "rationale": "Aquesta funció correspon a l'Esquema Nacional de Seguretat (ENS), no a l'ENI."
+      },
+      {
+        "text": "Defineix les 34 àrees temàtiques de dades espacials que han de ser compartides.",
+        "isCorrect": false,
+        "rationale": "Les àrees temàtiques de dades són una especificació de la Directiva Europea INSPIRE."
+      },
+      {
+        "text": "Estableix un marc general per a l'intercanvi de dades entre administracions, incloent l'ús de formats i metadades comuns.",
+        "isCorrect": true,
+        "rationale": "L'ENI busca garantir que els sistemes de les diferents administracions públiques puguin comunicar-se i compartir informació, la qual cosa és clau per a les IDE."
+      },
+      {
+        "text": "És la llei que regula específicament la creació de cartografia oficial a Catalunya.",
+        "isCorrect": false,
+        "rationale": "L'ENI és un Reial Decret d'àmbit estatal i de caràcter general per a tota l'administració electrònica, no una llei cartogràfica específica."
+      }
+    ],
+    "hint": "El nom d'aquest esquema nacional dona una pista clara sobre la seva funció principal en relació amb les dades."
+  },
+  {
+    "guid": "a47c108c-caee-4f80-bbf2-85a7d915868c",
+    "subjectId": "T16",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Quin dels següents exemples representa informació de tipus vectorial?",
+    "answerOptions": [
+      {
+        "text": "Un model digital d'elevacions del terreny.",
+        "isCorrect": false,
+        "rationale": "Un model d'elevacions representa una superfície contínua d'altitud, la qual cosa és un exemple clàssic de dades ràster."
+      },
+      {
+        "text": "La xarxa de línies de metro d'una ciutat.",
+        "isCorrect": true,
+        "rationale": "La xarxa de metro es representa com un conjunt de línies, que són un dels tres tipus d'elements geomètrics del model vectorial."
+      },
+      {
+        "text": "Una imatge de satèl·lit d'una regió.",
+        "isCorrect": false,
+        "rationale": "Una imatge de satèl·lit està composta per una malla de píxels, corresponent al model ràster."
+      },
+      {
+        "text": "Un mapa de distribució de la humitat del sòl.",
+        "isCorrect": false,
+        "rationale": "La humitat del sòl és una variable contínua que es representa millor mitjançant un model ràster."
+      }
+    ],
+    "hint": "Pensa en quins elements es poden representar com a punts, línies o polígons discrets."
+  },
+  {
+    "guid": "4cb7bc48-bf90-44b3-bace-60e056654cec",
+    "subjectId": "T16",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Si una aplicació web necessita consultar i mostrar dades geogràfiques de forma molt eficient i lleugera, quin format vectorial seria el més recomanable?",
+    "answerOptions": [
+      {
+        "text": "SHP (Shapefile)",
+        "isCorrect": false,
+        "rationale": "El Shapefile és un format multi-arxiu i binari, menys adequat per a la transferència directa a través d'APIs web en comparació amb formats basats en text."
+      },
+      {
+        "text": "TIFF / GeoTIFF",
+        "isCorrect": false,
+        "rationale": "GeoTIFF és un format per a dades ràster (imatges), no per a dades vectorials."
+      },
+      {
+        "text": "GeoJSON",
+        "isCorrect": true,
+        "rationale": "Basat en JSON, és un format de text lleuger, fàcil de processar per JavaScript en navegadors, i s'ha convertit en l'estàndard de facto per a APIs web geoespacials."
+      },
+      {
+        "text": "KMZ",
+        "isCorrect": false,
+        "rationale": "Encara que és un format comú, el KMZ és un fitxer comprimit que conté KML (basat en XML), que generalment és més verbós i menys directe de processar en entorns web que el GeoJSON."
+      }
+    ],
+    "hint": "Quina tecnologia és nativa dels navegadors web i serveix per a l'intercanvi de dades?"
+  },
+  {
+    "guid": "d34a747e-c20f-4175-99b6-082bea2f23b4",
+    "subjectId": "T16",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Quina és la diferència fonamental entre un servei WCS (Web Coverage Service) i un WFS (Web Feature Service)?",
+    "answerOptions": [
+      {
+        "text": "WCS és un estàndard europeu (INSPIRE) i WFS és un estàndard internacional (OGC).",
+        "isCorrect": false,
+        "rationale": "Tots dos són estàndards internacionals definits per l'OGC. INSPIRE promou l'ús de tots dos."
+      },
+      {
+        "text": "WCS dona accés a dades ràster o de cobertura, mentre que WFS dona accés a dades vectorials.",
+        "isCorrect": true,
+        "rationale": "Aquesta és la distinció clau: WCS per a dades contínues com imatges o elevacions ('coverages') i WFS per a objectes discrets com punts, línies o polígons ('features')."
+      },
+      {
+        "text": "WCS permet visualitzar mapes i WFS permet descarregar-los.",
+        "isCorrect": false,
+        "rationale": "Aquesta descripció confon WFS amb WMS. WMS és per visualitzar, mentre que tant WCS com WFS són per accedir a les dades brutes."
+      },
+      {
+        "text": "WCS només funciona amb bases de dades PostGIS i WFS amb Oracle Spatial.",
+        "isCorrect": false,
+        "rationale": "Aquests serveis són independents de la tecnologia de base de dades utilitzada en el servidor; estan dissenyats per ser interoperables."
+      }
+    ],
+    "hint": "Fixa't en les paraules clau: 'Coverage' (cobertura) versus 'Feature' (característica o element)."
+  },
+  {
+    "guid": "b9a753ae-49b2-49cd-83be-0ff7d0d94c9b",
+    "subjectId": "T16",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Si es vol realitzar una anàlisi geoespacial complexa de forma remota, com calcular la ruta òptima entre diversos punts evitant certes zones, quin servei OGC estaria dissenyat per a aquesta tasca?",
+    "answerOptions": [
+      {
+        "text": "WMS (Web Map Service)",
+        "isCorrect": false,
+        "rationale": "Aquest servei només genera una imatge del resultat, no realitza el càlcul en si mateix."
+      },
+      {
+        "text": "WFS (Web Feature Service)",
+        "isCorrect": false,
+        "rationale": "Aquest servei permetria obtenir les dades de carrers i zones, però no ofereix la capacitat de processament per calcular la ruta."
+      },
+      {
+        "text": "WPS (Web Processing Service)",
+        "isCorrect": true,
+        "rationale": "Aquest servei està dissenyat específicament per oferir processos i càlculs geoespacials com a servei web, permetent executar anàlisis remotes."
+      },
+      {
+        "text": "CSW (Catalogue Service for the Web)",
+        "isCorrect": false,
+        "rationale": "Aquest servei s'utilitza per cercar dades, no per processar-les o analitzar-les."
+      }
+    ],
+    "hint": "Quin servei se centra en el 'processament' o l'execució d'algorismes en lloc del lliurament de dades?"
+  },
+  {
+    "guid": "33ab62dd-d2e4-45fd-8389-4ec7c815b23f",
+    "subjectId": "T16",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "El projecte OpenStreetMap (OSM) es caracteritza principalment per ser:",
+    "answerOptions": [
+      {
+        "text": "Un servei comercial de mapes propietat de Google.",
+        "isCorrect": false,
+        "rationale": "Google Maps és el servei comercial de Google. OpenStreetMap és un projecte independent i no comercial."
+      },
+      {
+        "text": "La infraestructura de dades espacials oficial del govern d'Espanya.",
+        "isCorrect": false,
+        "rationale": "La infraestructura oficial d'Espanya és la IDEE (Infraestructura de Datos Espaciales de España)."
+      },
+      {
+        "text": "Un projecte col·laboratiu mundial per crear un mapa lliure i editable del món.",
+        "isCorrect": true,
+        "rationale": "Aquesta és la seva definició fonamental. És un projecte basat en la contribució voluntària d'usuaris (similar a la Wikipedia) per a crear dades geogràfiques obertes."
+      },
+      {
+        "text": "Un programari GIS d'escriptori per a l'anàlisi de dades.",
+        "isCorrect": false,
+        "rationale": "OSM és principalment un conjunt de dades i una comunitat. Programari GIS com QGIS pot utilitzar les dades d'OSM, però OSM no és el programari en si."
+      }
+    ],
+    "hint": "Pensa en el model de funcionament de la Wikipedia, però aplicat a la cartografia."
+  },
+  {
+    "guid": "c6a1729d-9a5e-4ee1-9181-39dc519fd964",
+    "subjectId": "T16",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Què descriu el concepte de georeferenciació?",
+    "answerOptions": [
+      {
+        "text": "El procés de dibuixar un mapa digital des de zero.",
+        "isCorrect": false,
+        "rationale": "Això es coneix com a digitalització o creació de cartografia, no georeferenciació."
+      },
+      {
+        "text": "L'assignació de coordenades geogràfiques a un objecte, com una imatge o un punt.",
+        "isCorrect": true,
+        "rationale": "Aquest procés vincula informació a una ubicació específica a la superfície de la Terra, permetent la seva correcta representació en un SIG."
+      },
+      {
+        "text": "La consulta d'informació alfanumèrica associada a un polígon.",
+        "isCorrect": false,
+        "rationale": "Això és una operació de consulta dins d'un SIG, que és possible un cop les dades ja estan georeferenciades."
+      },
+      {
+        "text": "La publicació d'un mapa a Internet mitjançant un servei WMS.",
+        "isCorrect": false,
+        "rationale": "La publicació és un pas posterior que requereix que les dades ja estiguin correctament ubicades geogràficament."
+      }
+    ],
+    "hint": "Com sap un sistema informàtic on col·locar un mapa antic o una foto aèria sobre un mapa base actual?"
+  },
+  {
+    "guid": "a37975cf-8a2e-49f7-addc-c385c0644ea9",
+    "subjectId": "T16",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "La família d'estàndards ISO 19100 és fonamental per a la informació geogràfica perquè estableix principalment les normes sobre:",
+    "answerOptions": [
+      {
+        "text": "La velocitat de transmissió de dades en xarxes de comunicacions.",
+        "isCorrect": false,
+        "rationale": "Els estàndards de xarxes de comunicacions pertanyen a altres organismes i comitès tècnics, no a la sèrie ISO 19100."
+      },
+      {
+        "text": "Models de dades, qualitat i, de forma destacada, l'estructura de les metadades (ISO 19115).",
+        "isCorrect": true,
+        "rationale": "Aquesta sèrie proporciona un marc conceptual abstracte per a la informació geogràfica, sent l'estàndard de metadades ISO 19115 un dels seus components més coneguts i utilitzats."
+      },
+      {
+        "text": "Els protocols de comunicació per a serveis web com WMS i WFS.",
+        "isCorrect": false,
+        "rationale": "Aquests protocols són especificacions tècniques definides per l'OGC, tot i que es basen en els models conceptuals de la ISO."
+      },
+      {
+        "text": "Els requisits de seguretat per a les bases de dades geoespacials.",
+        "isCorrect": false,
+        "rationale": "Els marcs de seguretat, com l'ENS a Espanya, aborden aquests requisits de manera més específica."
+      }
+    ],
+    "hint": "Pensa en el 'què' es descriu (el model de dades) en lloc del 'com' es transmet (el servei web)."
+  },
+  {
+    "guid": "4aced120-bd26-4f62-bd3b-9d8aac46a255",
+    "subjectId": "T16",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Dins d'una base de dades geoespacial, la informació sobre el nom d'un carrer, el seu codi postal o el tipus de via, a quin tipus de dades correspon?",
+    "answerOptions": [
+      {
+        "text": "Dades vectorials",
+        "isCorrect": false,
+        "rationale": "Les dades vectorials representen la geometria del carrer (la línia), però no la informació descriptiva textual."
+      },
+      {
+        "text": "Dades ràster",
+        "isCorrect": false,
+        "rationale": "Les dades ràster representen superfícies contínues i no són adequades per emmagatzemar atributs com el nom d'un carrer."
+      },
+      {
+        "text": "Dades alfanumèriques",
+        "isCorrect": true,
+        "rationale": "Aquesta és la informació descriptiva (text i números) que s'associa als objectes espacials. Es coneix comunament com a 'dades d'atributs'."
+      },
+      {
+        "text": "Metadades",
+        "isCorrect": false,
+        "rationale": "Les metadades descriuen el conjunt de dades en general (p. ex., qui va crear la capa de carrers), no els atributs de cada carrer individual."
+      }
+    ],
+    "hint": "Considera la informació que trobaries en una taula associada a la geometria del mapa."
+  },
+  {
+    "guid": "204dd6d0-8b0e-4c92-9d51-b61a4aa2213c",
+    "subjectId": "T16",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Quina afirmació sobre les projeccions cartogràfiques és correcta?",
+    "answerOptions": [
+      {
+        "text": "Totes les projeccions conserven la forma, l'àrea i la distància de la superfície terrestre sense distorsió.",
+        "isCorrect": false,
+        "rationale": "És impossible representar una esfera en un pla sense distorsionar almenys una d'aquestes propietats; cada projecció és un compromís."
+      },
+      {
+        "text": "La projecció UTM és de tipus esfèric i utilitza graus.",
+        "isCorrect": false,
+        "rationale": "La projecció UTM és de tipus pla (cilíndrica transversa) i utilitza metres, mentre que les coordenades geogràfiques (lat/long) són esfèriques i usen graus."
+      },
+      {
+        "text": "Una projecció és un mètode matemàtic per representar la superfície 3D de la Terra en un mapa 2D.",
+        "isCorrect": true,
+        "rationale": "Aquesta és la definició fonamental d'una projecció cartogràfica, que inevitablement implica algun tipus de distorsió."
+      },
+      {
+        "text": "La projecció de Mercator és ideal per a mapes de zones polars perquè no distorsiona les àrees.",
+        "isCorrect": false,
+        "rationale": "La projecció de Mercator distorsiona enormement les àrees a mesura que s'acosten als pols, fent-les semblar molt més grans del que són."
+      }
+    ],
+    "hint": "Pensa en la dificultat d'aplanar la pell d'una taronja sense trencar-la o estirar-la."
+  },
+  {
+    "guid": "f9bd72be-bdf9-448a-b28b-108e963793b4",
+    "subjectId": "T16",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "El concepte de 'Smart City' depèn fortament dels serveis digitals geogràfics perquè aquests permeten...",
+    "answerOptions": [
+      {
+        "text": "Emmagatzemar únicament documents administratius en format PDF.",
+        "isCorrect": false,
+        "rationale": "La gestió documental és una part de l'administració, però el nucli d'una Smart City es basa en la gestió de dades dinàmiques i contextualitzades."
+      },
+      {
+        "text": "Crear xarxes socials exclusives per a empleats municipals.",
+        "isCorrect": false,
+        "rationale": "La comunicació interna és important, però no és l'aplicació principal dels serveis geogràfics en aquest context."
+      },
+      {
+        "text": "Integrar dades de sensors (IoT) en mapes per a optimitzar la gestió urbana en temps real.",
+        "isCorrect": true,
+        "rationale": "La capacitat de localitzar i visualitzar dades de sensors (trànsit, qualitat de l'aire, contenidors plens) en un mapa és fonamental per a la presa de decisions i l'eficiència en una Smart City."
+      },
+      {
+        "text": "Substituir totes les bases de dades relacionals per bases de dades geoespacials.",
+        "isCorrect": false,
+        "rationale": "Els serveis geogràfics s'integren amb altres sistemes, no necessàriament els substitueixen. Molts sistemes corporatius continuen sent relacionals."
+      }
+    ],
+    "hint": "Com es pot donar sentit a les dades recollides per milers de sensors distribuïts per una ciutat?"
+  },
+  {
+    "guid": "caaeaced-44db-4a70-b5fe-a3bca1eaeb1c",
+    "subjectId": "T16",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Quina és la principal diferència entre els fitxers KML i KMZ?",
+    "answerOptions": [
+      {
+        "text": "KML és per a dades vectorials i KMZ per a dades ràster.",
+        "isCorrect": false,
+        "rationale": "Tots dos formats s'utilitzen principalment per a dades vectorials; la diferència no rau en el tipus de dades."
+      },
+      {
+        "text": "KMZ és simplement un fitxer KML que ha estat comprimit en format ZIP.",
+        "isCorrect": true,
+        "rationale": "Correcte. Un fitxer .kmz és un arxiu ZIP que conté un fitxer KML principal i, opcionalment, altres recursos com imatges o icones."
+      },
+      {
+        "text": "KML és un estàndard obert de l'OGC, mentre que KMZ és un format propietari de Google.",
+        "isCorrect": false,
+        "rationale": "Tots dos formen part del mateix estàndard de l'OGC. La Z simplement indica que està comprimit ('zipped')."
+      },
+      {
+        "text": "KML només pot contenir punts, mentre que KMZ pot contenir línies i polígons.",
+        "isCorrect": false,
+        "rationale": "El format KML pot contenir tots els tipus de geometries vectorials (punts, línies i polígons)."
+      }
+    ],
+    "hint": "La lletra 'Z' al final del nom del format dona una pista sobre la seva naturalesa."
+  },
+  {
+    "guid": "016c1ef2-8eec-4827-adfe-69a1eff25519",
+    "subjectId": "T16",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En el context dels serveis geogràfics, el concepte 'Open Data' es refereix a...",
+    "answerOptions": [
+      {
+        "text": "Dades geogràfiques que només es poden visualitzar però no descarregar.",
+        "isCorrect": false,
+        "rationale": "Les dades obertes han de ser accessibles i reutilitzables, la qual cosa implica normalment la capacitat de descarregar-les."
+      },
+      {
+        "text": "Programari de codi obert per a sistemes d'informació geogràfica, com QGIS.",
+        "isCorrect": false,
+        "rationale": "El programari de codi obert (Open Source) és un concepte relacionat però diferent de les dades obertes (Open Data), que es refereix a la informació en si."
+      },
+      {
+        "text": "Dades públiques, especialment de l'administració, disponibles en formats estàndard i reutilitzables per a qualsevol finalitat.",
+        "isCorrect": true,
+        "rationale": "Aquesta és la definició precisa, emfatitzant l'accés, la reutilització i l'ús de formats oberts per fomentar la transparència i la innovació."
+      },
+      {
+        "text": "Un servei que requereix una subscripció de pagament per accedir a la informació geogràfica.",
+        "isCorrect": false,
+        "rationale": "Les dades obertes, per definició, han de ser accessibles gratuïtament o a un cost marginal de reproducció."
+      }
+    ],
+    "hint": "Pensa en la filosofia de la transparència i la reutilització de la informació del sector públic."
+  },
+  {
+    "guid": "a580d5bb-ba65-4d2e-af68-cda0e2133215",
+    "subjectId": "T16",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Un usuari accedeix a un geoportal i veu una llista de conjunts de dades disponibles amb descripcions sobre el seu origen, autor i data d'actualització. Quin tipus de servei està utilitzant per obtenir aquesta llista?",
+    "answerOptions": [
+      {
+        "text": "WMS (Web Map Service)",
+        "isCorrect": false,
+        "rationale": "Un WMS li mostraria un mapa, no una llista descriptiva dels conjunts de dades que hi ha darrere."
+      },
+      {
+        "text": "WPS (Web Processing Service)",
+        "isCorrect": false,
+        "rationale": "Un WPS s'utilitza per a anàlisis i càlculs, no per a cercar i descriure dades."
+      },
+      {
+        "text": "CSW (Catalogue Service for the Web)",
+        "isCorrect": true,
+        "rationale": "La funció d'un servei de catàleg (CSW) és precisament permetre la cerca, descobriment i consulta de metadades sobre recursos geoespacials."
+      },
+      {
+        "text": "WFS (Web Feature Service)",
+        "isCorrect": false,
+        "rationale": "Un WFS li donaria accés a les dades vectorials en si, no al catàleg que les descriu."
+      }
+    ],
+    "hint": "Com es troba informació sobre la informació? Quin servei actua com una biblioteca o un índex?"
+  },
+  {
+    "guid": "85358eb2-49ec-4ddf-bacd-10f3ed6ebe08",
+    "subjectId": "T16",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Quina de les següents NO és una aplicació habitual dels serveis digitals geogràfics a l'administració pública?",
+    "answerOptions": [
+      {
+        "text": "Gestió de la nòmina dels empleats públics.",
+        "isCorrect": true,
+        "rationale": "La gestió de nòmines és una tasca purament administrativa i financera que generalment no té un component geoespacial directe."
+      },
+      {
+        "text": "Planificació urbana i gestió del territori.",
+        "isCorrect": false,
+        "rationale": "Aquesta és una de les aplicacions més importants, utilitzant mapes de sòl, infraestructures i normatives."
+      },
+      {
+        "text": "Gestió de serveis municipals com la recollida de residus.",
+        "isCorrect": false,
+        "rationale": "La planificació de rutes i la localització de contenidors són tasques eminentment geogràfiques."
+      },
+      {
+        "text": "Protecció civil i gestió d'emergències.",
+        "isCorrect": false,
+        "rationale": "Els mapes de zones de risc, la localització d'incidències i la coordinació d'equips són crucials en emergències i depenen de serveis geogràfics."
+      }
+    ],
+    "hint": "Pensa en quina tasca no requereix saber 'on' passen les coses per poder realitzar-se correctament."
+  },
+  {
+    "guid": "2c70fe97-7d97-4471-bd4b-21772e6f3b5f",
+    "subjectId": "T16",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "L'Esquema Nacional de Seguretat (ENS) s'aplica a la informació geogràfica per garantir principalment:",
+    "answerOptions": [
+      {
+        "text": "Que totes les dades estiguin en format GeoJSON.",
+        "isCorrect": false,
+        "rationale": "Els formats de dades són una qüestió d'interoperabilitat, que correspon més a l'àmbit de l'ENI."
+      },
+      {
+        "text": "La confidencialitat, integritat, disponibilitat, autenticitat i traçabilitat de la informació.",
+        "isCorrect": true,
+        "rationale": "L'ENS estableix els principis i requisits per a una protecció adequada de la informació en els sistemes del sector públic, inclosa la informació geogràfica."
+      },
+      {
+        "text": "Que els mapes siguin visualment atractius i fàcils d'entendre.",
+        "isCorrect": false,
+        "rationale": "La qualitat visual és una qüestió de disseny cartogràfic, no un requisit de seguretat de la informació."
+      },
+      {
+        "text": "La compatibilitat entre les diferents projeccions cartogràfiques.",
+        "isCorrect": false,
+        "rationale": "La gestió de projeccions és un aspecte tècnic de la informació geogràfica, però no l'objectiu principal d'un marc de seguretat."
+      }
+    ],
+    "hint": "Quin marc normatiu se centra en protegir la informació de possibles amenaces i garantir-ne un ús segur?"
+  },
+  {
+    "guid": "2e54eede-c647-418b-8fb6-0959339ad47b",
+    "subjectId": "T16",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "El model de dades ràster representa el territori com...",
+    "answerOptions": [
+      {
+        "text": "Un conjunt de coordenades que defineixen punts, línies i polígons.",
+        "isCorrect": false,
+        "rationale": "Aquesta és la descripció del model de dades vectorial."
+      },
+      {
+        "text": "Una malla de cel·les o píxels, cadascuna amb un valor associat.",
+        "isCorrect": true,
+        "rationale": "Aquesta estructura de graella és la base del model ràster, ideal per representar camps continus o imatges."
+      },
+      {
+        "text": "Una base de dades relacional amb taules d'atributs.",
+        "isCorrect": false,
+        "rationale": "Les taules d'atributs emmagatzemen informació alfanumèrica, que pot estar associada tant a dades ràster com vectorials, però no descriu el model espacial en si."
+      },
+      {
+        "text": "Un document XML amb etiquetes que descriuen la geometria.",
+        "isCorrect": false,
+        "rationale": "Aquesta descripció s'ajusta a formats basats en el model vectorial com KML o GML."
+      }
+    ],
+    "hint": "Pensa en com es representa una fotografia digital a nivell bàsic."
+  },
+  {
+    "guid": "68a3d594-96b6-466f-b8c5-8661675c14e7",
+    "subjectId": "T16",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Si descarregues un fitxer Shapefile (SHP), què t'esperes trobar?",
+    "answerOptions": [
+      {
+        "text": "Un únic fitxer amb extensió .shp que conté tota la informació.",
+        "isCorrect": false,
+        "rationale": "Un Shapefile és un format multi-arxiu; el fitxer .shp només conté la geometria i necessita altres fitxers (com .shx i .dbf) per funcionar correctament."
+      },
+      {
+        "text": "Un conjunt de fitxers (.shp, .shx, .dbf, etc.) que junts formen una única capa vectorial.",
+        "isCorrect": true,
+        "rationale": "Aquesta és la naturalesa del format Shapefile, on cada fitxer té una funció específica (geometria, índex, atributs)."
+      },
+      {
+        "text": "Un fitxer d'imatge georeferenciada en format TIFF.",
+        "isCorrect": false,
+        "rationale": "El Shapefile és un format vectorial, no ràster. Les imatges georeferenciades solen ser en format GeoTIFF."
+      },
+      {
+        "text": "Un fitxer de text en format JSON que descriu les característiques geogràfiques.",
+        "isCorrect": false,
+        "rationale": "Aquesta descripció correspon al format GeoJSON, no al Shapefile, que és un format binari."
+      }
+    ],
+    "hint": "Aquest format clàssic és conegut per la seva dependència de diversos fitxers auxiliars."
+  },
+  {
+    "guid": "0074d419-33d2-4a0a-a0c2-8510a809e3bf",
+    "subjectId": "T16",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "El Geoportal IDEE (Infraestructura de Datos Espaciales de España) és...",
+    "answerOptions": [
+      {
+        "text": "El visor de mapes exclusiu de l'Ajuntament de Barcelona.",
+        "isCorrect": false,
+        "rationale": "El geoportal de l'Ajuntament de Barcelona és IDEBarcelona."
+      },
+      {
+        "text": "Una empresa privada que ven dades cartogràfiques com Google Maps.",
+        "isCorrect": false,
+        "rationale": "IDEE és una iniciativa pública del govern d'Espanya, no una empresa privada."
+      },
+      {
+        "text": "El node nacional d'Espanya que integra dades i serveis geogràfics de diverses administracions dins del marc INSPIRE.",
+        "isCorrect": true,
+        "rationale": "Aquesta és la seva funció: actuar com a punt d'accés centralitzat a la informació geogràfica espanyola seguint les directrius europees."
+      },
+      {
+        "text": "Una base de dades col·laborativa de mapes oberts similar a OpenStreetMap.",
+        "isCorrect": false,
+        "rationale": "IDEE és un portal que dóna accés a dades oficials de les administracions, mentre que OpenStreetMap es basa en dades aportades per voluntaris."
+      }
+    ],
+    "hint": "Pensa en el seu nom i en com s'estructura la informació geogràfica a nivell estatal i europeu."
+  },
+  
+  {
+    "guid": "0e349555-2403-45d1-b44b-7970b632603d",
+    "subjectId": "T16",
+    "difficulty": 2,
+    "origin": "notebooklm",
+    "type": "flashcard",
+    "question": "¿Qué son los Serveis Digitals Geogràfics (SDG)?",
+    "answerOptions": [
+      {
+        "text": "Me la sé ✅",
+        "isCorrect": true,
+        "rationale": "Son servicios en línea que permiten capturar, almacenar, procesar, analizar y visualizar información geoespacial."
+      },
+      {
+        "text": "🤔 Ara no recordo",
+        "isCorrect": false,
+        "rationale": "Cada intent suma! 💪"
+      }
+    ],
+    "hint": ""
+  },
+  {
+    "guid": "ab232f88-8ef6-4e6d-b2e0-d9baf57232e3",
+    "subjectId": "T16",
+    "difficulty": 2,
+    "origin": "notebooklm",
+    "type": "flashcard",
+    "question": "Los SDG son la base de los Sistemas de Información Geográfica, también conocidos por las siglas _____ o _____.",
+    "answerOptions": [
+      {
+        "text": "Me la sé ✅",
+        "isCorrect": true,
+        "rationale": "SIG o GIS"
+      },
+      {
+        "text": "🤔 Ara no recordo",
+        "isCorrect": false,
+        "rationale": "Cada intent suma! 💪"
+      }
+    ],
+    "hint": ""
+  },
+  {
+    "guid": "9b9eaaba-bf8a-4c6e-944d-0dc2adc535e2",
+    "subjectId": "T16",
+    "difficulty": 2,
+    "origin": "notebooklm",
+    "type": "flashcard",
+    "question": "¿Cuál es uno de los objetivos principales de los SDG respecto al acceso a los datos?",
+    "answerOptions": [
+      {
+        "text": "Me la sé ✅",
+        "isCorrect": true,
+        "rationale": "Facilitar el acceso abierto e interoperable a datos geográficos."
+      },
+      {
+        "text": "🤔 Ara no recordo",
+        "isCorrect": false,
+        "rationale": "Cada intent suma! 💪"
+      }
+    ],
+    "hint": ""
+  },
+  {
+    "guid": "63478b46-e4c1-4ec9-8853-34e74bf3ed0e",
+    "subjectId": "T16",
+    "difficulty": 2,
+    "origin": "notebooklm",
+    "type": "flashcard",
+    "question": "Nombra los cinco componentes básicos de los servicios digitales geográficos.",
+    "answerOptions": [
+      {
+        "text": "Me la sé ✅",
+        "isCorrect": true,
+        "rationale": "Datos geográficos, metadatos, infraestructura tecnológica, servicios web geoespaciales y usuarios/aplicaciones cliente."
+      },
+      {
+        "text": "🤔 Ara no recordo",
+        "isCorrect": false,
+        "rationale": "Cada intent suma! 💪"
+      }
+    ],
+    "hint": ""
+  },
+  {
+    "guid": "8543815a-7580-429a-a59e-28abab4f311d",
+    "subjectId": "T16",
+    "difficulty": 2,
+    "origin": "notebooklm",
+    "type": "flashcard",
+    "question": "¿Qué tipo de datos geográficos representan elementos puntuales, lineales o poligonales?",
+    "answerOptions": [
+      {
+        "text": "Me la sé ✅",
+        "isCorrect": true,
+        "rationale": "Datos vectoriales."
+      },
+      {
+        "text": "🤔 Ara no recordo",
+        "isCorrect": false,
+        "rationale": "Cada intent suma! 💪"
+      }
+    ],
+    "hint": ""
+  },
+  {
+    "guid": "3523d78e-6ec3-4c88-a27a-bc95f0ad1847",
+    "subjectId": "T16",
+    "difficulty": 2,
+    "origin": "notebooklm",
+    "type": "flashcard",
+    "question": "Da un ejemplo de datos representados por el modelo vectorial.",
+    "answerOptions": [
+      {
+        "text": "Me la sé ✅",
+        "isCorrect": true,
+        "rationale": "Calles, edificios o distritos."
+      },
+      {
+        "text": "🤔 Ara no recordo",
+        "isCorrect": false,
+        "rationale": "Cada intent suma! 💪"
+      }
+    ],
+    "hint": ""
+  },
+  {
+    "guid": "57396e49-15c3-41d8-ba6f-766307389960",
+    "subjectId": "T16",
+    "difficulty": 2,
+    "origin": "notebooklm",
+    "type": "flashcard",
+    "question": "¿Qué tipo de datos geográficos representan el territorio como una malla de celdas o píxeles?",
+    "answerOptions": [
+      {
+        "text": "Me la sé ✅",
+        "isCorrect": true,
+        "rationale": "Datos ráster."
+      },
+      {
+        "text": "🤔 Ara no recordo",
+        "isCorrect": false,
+        "rationale": "Cada intent suma! 💪"
+      }
+    ],
+    "hint": ""
+  },
+  {
+    "guid": "d8636789-7262-46ad-a271-3e1d2171139a",
+    "subjectId": "T16",
+    "difficulty": 2,
+    "origin": "notebooklm",
+    "type": "flashcard",
+    "question": "Da un ejemplo de datos representados por el modelo ráster.",
+    "answerOptions": [
+      {
+        "text": "Me la sé ✅",
+        "isCorrect": true,
+        "rationale": "Mapas topográficos, ortofotos o mapas de calor."
+      },
+      {
+        "text": "🤔 Ara no recordo",
+        "isCorrect": false,
+        "rationale": "Cada intent suma! 💪"
+      }
+    ],
+    "hint": ""
+  },
+  {
+    "guid": "213e8dc7-cc22-4b9f-9dae-e13f33f81fdf",
+    "subjectId": "T16",
+    "difficulty": 2,
+    "origin": "notebooklm",
+    "type": "flashcard",
+    "question": "¿Qué son los datos alfanuméricos en el contexto de los SDG?",
+    "answerOptions": [
+      {
+        "text": "Me la sé ✅",
+        "isCorrect": true,
+        "rationale": "Es la información descriptiva asociada a objetos espaciales, como el nombre de una vía o un código postal."
+      },
+      {
+        "text": "🤔 Ara no recordo",
+        "isCorrect": false,
+        "rationale": "Cada intent suma! 💪"
+      }
+    ],
+    "hint": ""
+  },
+  {
+    "guid": "14c51852-8f98-4785-984a-131fde1c8f06",
+    "subjectId": "T16",
+    "difficulty": 2,
+    "origin": "notebooklm",
+    "type": "flashcard",
+    "question": "¿Qué función principal tiene un servicio WMS (Web Map Service) según el OGC?",
+    "answerOptions": [
+      {
+        "text": "Me la sé ✅",
+        "isCorrect": true,
+        "rationale": "Mostrar mapas en formato imagen a partir de datos geográficos."
+      },
+      {
+        "text": "🤔 Ara no recordo",
+        "isCorrect": false,
+        "rationale": "Cada intent suma! 💪"
+      }
+    ],
+    "hint": ""
+  },
+  {
+    "guid": "e3906afd-33c4-4b7b-8697-987c44b16538",
+    "subjectId": "T16",
+    "difficulty": 2,
+    "origin": "notebooklm",
+    "type": "flashcard",
+    "question": "¿Qué servicio OGC permite consultar y descargar datos vectoriales con sus atributos?",
+    "answerOptions": [
+      {
+        "text": "Me la sé ✅",
+        "isCorrect": true,
+        "rationale": "El servicio WFS (Web Feature Service)."
+      },
+      {
+        "text": "🤔 Ara no recordo",
+        "isCorrect": false,
+        "rationale": "Cada intent suma! 💪"
+      }
+    ],
+    "hint": ""
+  },
+  {
+    "guid": "0310e767-e816-43a4-8d1b-3e1a1778052a",
+    "subjectId": "T16",
+    "difficulty": 2,
+    "origin": "notebooklm",
+    "type": "flashcard",
+    "question": "El servicio _____ (Web Coverage Service) da acceso a datos continuos de tipo ráster como imágenes o elevaciones.",
+    "answerOptions": [
+      {
+        "text": "Me la sé ✅",
+        "isCorrect": true,
+        "rationale": "WCS"
+      },
+      {
+        "text": "🤔 Ara no recordo",
+        "isCorrect": false,
+        "rationale": "Cada intent suma! 💪"
+      }
+    ],
+    "hint": ""
+  },
+  {
+    "guid": "1ddfcb21-a2b6-4402-a0b8-316376acc587",
+    "subjectId": "T16",
+    "difficulty": 2,
+    "origin": "notebooklm",
+    "type": "flashcard",
+    "question": "¿Para qué sirve un servicio CSW (Catalogue Service for the Web)?",
+    "answerOptions": [
+      {
+        "text": "Me la sé ✅",
+        "isCorrect": true,
+        "rationale": "Permite buscar y recuperar metadatos de conjuntos de datos geográficos."
+      },
+      {
+        "text": "🤔 Ara no recordo",
+        "isCorrect": false,
+        "rationale": "Cada intent suma! 💪"
+      }
+    ],
+    "hint": ""
+  },
+  {
+    "guid": "f72e21a4-d29e-4efb-b0b0-7677f1318e39",
+    "subjectId": "T16",
+    "difficulty": 2,
+    "origin": "notebooklm",
+    "type": "flashcard",
+    "question": "En la lista de servicios OGC, ¿qué significan las siglas WPS?",
+    "answerOptions": [
+      {
+        "text": "Me la sé ✅",
+        "isCorrect": true,
+        "rationale": "WPS corresponde a Web Processing Service, que ofrece procesos geoespaciales como análisis o cálculos."
+      },
+      {
+        "text": "🤔 Ara no recordo",
+        "isCorrect": false,
+        "rationale": "Cada intent suma! 💪"
+      }
+    ],
+    "hint": ""
+  },
+  {
+    "guid": "3a161bbf-8c66-45c5-9c05-0f75cc65aa25",
+    "subjectId": "T16",
+    "difficulty": 2,
+    "origin": "notebooklm",
+    "type": "flashcard",
+    "question": "¿Qué organización internacional define los estándares abiertos para servicios web geoespaciales como WMS y WFS?",
+    "answerOptions": [
+      {
+        "text": "Me la sé ✅",
+        "isCorrect": true,
+        "rationale": "El OGC (Open Geospatial Consortium)."
+      },
+      {
+        "text": "🤔 Ara no recordo",
+        "isCorrect": false,
+        "rationale": "Cada intent suma! 💪"
+      }
+    ],
+    "hint": ""
+  },
+  {
+    "guid": "6a783539-33db-4982-a320-d55a52eb1cca",
+    "subjectId": "T16",
+    "difficulty": 2,
+    "origin": "notebooklm",
+    "type": "flashcard",
+    "question": "¿Qué es INSPIRE?",
+    "answerOptions": [
+      {
+        "text": "Me la sé ✅",
+        "isCorrect": true,
+        "rationale": "Es una directiva europea que establece una infraestructura común de datos espaciales para facilitar la interoperabilidad entre administraciones públicas."
+      },
+      {
+        "text": "🤔 Ara no recordo",
+        "isCorrect": false,
+        "rationale": "Cada intent suma! 💪"
+      }
+    ],
+    "hint": ""
+  },
+  {
+    "guid": "559b989a-91f5-4a9d-a1ee-ec2854c9c39f",
+    "subjectId": "T16",
+    "difficulty": 2,
+    "origin": "notebooklm",
+    "type": "flashcard",
+    "question": "La familia de estándares _____ define normas sobre información geográfica y metadatos.",
+    "answerOptions": [
+      {
+        "text": "Me la sé ✅",
+        "isCorrect": true,
+        "rationale": "ISO 19100"
+      },
+      {
+        "text": "🤔 Ara no recordo",
+        "isCorrect": false,
+        "rationale": "Cada intent suma! 💪"
+      }
+    ],
+    "hint": ""
+  },
+  {
+    "guid": "5c1b93d1-840e-458f-babd-9cdcebffec9e",
+    "subjectId": "T16",
+    "difficulty": 2,
+    "origin": "notebooklm",
+    "type": "flashcard",
+    "question": "¿Qué tipo de dato (vectorial o ráster) representa el formato KML/KMZ?",
+    "answerOptions": [
+      {
+        "text": "Me la sé ✅",
+        "isCorrect": true,
+        "rationale": "Es un formato vectorial basado en XML."
+      },
+      {
+        "text": "🤔 Ara no recordo",
+        "isCorrect": false,
+        "rationale": "Cada intent suma! 💪"
+      }
+    ],
+    "hint": ""
+  },
+  {
+    "guid": "33ca3b51-d833-4293-8836-bb5b78b7070d",
+    "subjectId": "T16",
+    "difficulty": 2,
+    "origin": "notebooklm",
+    "type": "flashcard",
+    "question": "¿Qué es el formato GeoJSON?",
+    "answerOptions": [
+      {
+        "text": "Me la sé ✅",
+        "isCorrect": true,
+        "rationale": "Es un formato vectorial ligero basado en JSON, muy usado en aplicaciones web."
+      },
+      {
+        "text": "🤔 Ara no recordo",
+        "isCorrect": false,
+        "rationale": "Cada intent suma! 💪"
+      }
+    ],
+    "hint": ""
+  },
+  {
+    "guid": "9f2b467f-5ad6-4ae2-b818-317da9ed2c56",
+    "subjectId": "T16",
+    "difficulty": 2,
+    "origin": "notebooklm",
+    "type": "flashcard",
+    "question": "¿Qué tipo de datos almacena el formato GeoTIFF?",
+    "answerOptions": [
+      {
+        "text": "Me la sé ✅",
+        "isCorrect": true,
+        "rationale": "Almacena datos de tipo ráster, concretamente imágenes georreferenciadas."
+      },
+      {
+        "text": "🤔 Ara no recordo",
+        "isCorrect": false,
+        "rationale": "Cada intent suma! 💪"
+      }
+    ],
+    "hint": ""
+  },
+  {
+    "guid": "15ea617b-5b8d-41b8-bef2-e82b7b8bdcdc",
+    "subjectId": "T16",
+    "difficulty": 2,
+    "origin": "notebooklm",
+    "type": "flashcard",
+    "question": "¿Qué formato abierto puede almacenar tanto datos vectoriales como ráster en una base de datos SQLite?",
+    "answerOptions": [
+      {
+        "text": "Me la sé ✅",
+        "isCorrect": true,
+        "rationale": "El formato GPKG (GeoPackage)."
+      },
+      {
+        "text": "🤔 Ara no recordo",
+        "isCorrect": false,
+        "rationale": "Cada intent suma! 💪"
+      }
+    ],
+    "hint": ""
+  },
+  {
+    "guid": "53adf24b-6da9-4529-a092-6251e54c7c74",
+    "subjectId": "T16",
+    "difficulty": 2,
+    "origin": "notebooklm",
+    "type": "flashcard",
+    "question": "¿Qué ley española sobre procedimiento administrativo impulsa el acceso electrónico y la reutilización de la información?",
+    "answerOptions": [
+      {
+        "text": "Me la sé ✅",
+        "isCorrect": true,
+        "rationale": "La Ley 39/2015 y 40/2015."
+      },
+      {
+        "text": "🤔 Ara no recordo",
+        "isCorrect": false,
+        "rationale": "Cada intent suma! 💪"
+      }
+    ],
+    "hint": ""
+  },
+  {
+    "guid": "88135d77-496c-49f9-91ca-c936620754b7",
+    "subjectId": "T16",
+    "difficulty": 2,
+    "origin": "notebooklm",
+    "type": "flashcard",
+    "question": "El _____ (ENS) y el _____ (ENI) regulan el acceso seguro e interoperable a los datos en la administración española.",
+    "answerOptions": [
+      {
+        "text": "Me la sé ✅",
+        "isCorrect": true,
+        "rationale": "Esquema Nacional de Seguridad (ENS) y Esquema Nacional de Interoperabilidad (ENI)"
+      },
+      {
+        "text": "🤔 Ara no recordo",
+        "isCorrect": false,
+        "rationale": "Cada intent suma! 💪"
+      }
+    ],
+    "hint": ""
+  },
+  {
+    "guid": "2b605617-9aa9-4f78-ad30-48fe95ca4a33",
+    "subjectId": "T16",
+    "difficulty": 2,
+    "origin": "notebooklm",
+    "type": "flashcard",
+    "question": "¿Qué son las Infraestructuras de Datos Espaciales (IDE)?",
+    "answerOptions": [
+      {
+        "text": "Me la sé ✅",
+        "isCorrect": true,
+        "rationale": "Son conjuntos de tecnologías, datos, metadatos y acuerdos que permiten compartir información geográfica interoperable."
+      },
+      {
+        "text": "🤔 Ara no recordo",
+        "isCorrect": false,
+        "rationale": "Cada intent suma! 💪"
+      }
+    ],
+    "hint": ""
+  },
+  {
+    "guid": "a19c4e6f-1cc8-4fcc-9ac4-ca76a6b1b5cf",
+    "subjectId": "T16",
+    "difficulty": 2,
+    "origin": "notebooklm",
+    "type": "flashcard",
+    "question": "En el contexto de los componentes de los servicios geográficos, ¿qué son las metadatos?",
+    "answerOptions": [
+      {
+        "text": "Me la sé ✅",
+        "isCorrect": true,
+        "rationale": "Son datos que describen los datos geográficos (origen, escala, actualización, autor, precisión)."
+      },
+      {
+        "text": "🤔 Ara no recordo",
+        "isCorrect": false,
+        "rationale": "Cada intent suma! 💪"
+      }
+    ],
+    "hint": ""
+  },
+  {
+    "guid": "e494e36d-8a23-4fe9-8b18-8ce5b0d536aa",
+    "subjectId": "T16",
+    "difficulty": 2,
+    "origin": "notebooklm",
+    "type": "flashcard",
+    "question": "¿Cuál es el estándar principal para metadatos geográficos mencionado en el temario?",
+    "answerOptions": [
+      {
+        "text": "Me la sé ✅",
+        "isCorrect": true,
+        "rationale": "El estándar ISO 19115."
+      },
+      {
+        "text": "🤔 Ara no recordo",
+        "isCorrect": false,
+        "rationale": "Cada intent suma! 💪"
+      }
+    ],
+    "hint": ""
+  },
+  {
+    "guid": "94a9fa5d-ba8f-45f0-855a-63fbc8171ed9",
+    "subjectId": "T16",
+    "difficulty": 2,
+    "origin": "notebooklm",
+    "type": "flashcard",
+    "question": "Nombra una plataforma de software habitual para servir servicios geográficos como GeoServer o MapServer.",
+    "answerOptions": [
+      {
+        "text": "Me la sé ✅",
+        "isCorrect": true,
+        "rationale": "GeoServer, MapServer o ArcGIS Server."
+      },
+      {
+        "text": "🤔 Ara no recordo",
+        "isCorrect": false,
+        "rationale": "Cada intent suma! 💪"
+      }
+    ],
+    "hint": ""
+  },
+  {
+    "guid": "a4c3d923-ddb8-489f-9116-adf9668e6eaa",
+    "subjectId": "T16",
+    "difficulty": 2,
+    "origin": "notebooklm",
+    "type": "flashcard",
+    "question": "El servicio de geocodificación o nomenclátor (Gazetteer Service) tiene una función principal. ¿Cuál es?",
+    "answerOptions": [
+      {
+        "text": "Me la sé ✅",
+        "isCorrect": true,
+        "rationale": "Convertir nombres de lugares o direcciones en coordenadas geográficas y viceversa."
+      },
+      {
+        "text": "🤔 Ara no recordo",
+        "isCorrect": false,
+        "rationale": "Cada intent suma! 💪"
+      }
+    ],
+    "hint": ""
+  },
+  {
+    "guid": "2a3db55c-2478-470c-9abf-a0301c827054",
+    "subjectId": "T16",
+    "difficulty": 2,
+    "origin": "notebooklm",
+    "type": "flashcard",
+    "question": "¿Cuál es la principal diferencia entre un modelo de datos vectorial y uno ráster?",
+    "answerOptions": [
+      {
+        "text": "Me la sé ✅",
+        "isCorrect": true,
+        "rationale": "El vectorial representa objetos discretos (puntos, líneas, polígonos) mientras que el ráster representa superficies continuas (malla de píxeles)."
+      },
+      {
+        "text": "🤔 Ara no recordo",
+        "isCorrect": false,
+        "rationale": "Cada intent suma! 💪"
+      }
+    ],
+    "hint": ""
+  },
+  {
+    "guid": "8b8bc4f0-20a4-4403-9e7b-071f7b305dff",
+    "subjectId": "T16",
+    "difficulty": 2,
+    "origin": "notebooklm",
+    "type": "flashcard",
+    "question": "Error común: ¿El formato KML se utiliza para información ráster?",
+    "answerOptions": [
+      {
+        "text": "Me la sé ✅",
+        "isCorrect": true,
+        "rationale": "Falso, el KML es un formato vectorial basado en XML para representar puntos, líneas y polígonos."
+      },
+      {
+        "text": "🤔 Ara no recordo",
+        "isCorrect": false,
+        "rationale": "Cada intent suma! 💪"
+      }
+    ],
+    "hint": ""
+  },
+  {
+    "guid": "ddfd881e-1c45-4bd3-be28-2b75d167bfe6",
+    "subjectId": "T16",
+    "difficulty": 2,
+    "origin": "notebooklm",
+    "type": "flashcard",
+    "question": "¿Cuál es la diferencia entre un fichero KML y un KMZ?",
+    "answerOptions": [
+      {
+        "text": "Me la sé ✅",
+        "isCorrect": true,
+        "rationale": "Un fichero KMZ es simplemente un fichero KML comprimido en formato .zip."
+      },
+      {
+        "text": "🤔 Ara no recordo",
+        "isCorrect": false,
+        "rationale": "Cada intent suma! 💪"
+      }
+    ],
+    "hint": ""
+  },
+  {
+    "guid": "57be16c8-d8f8-462f-8acf-928fe7f90abb",
+    "subjectId": "T16",
+    "difficulty": 2,
+    "origin": "notebooklm",
+    "type": "flashcard",
+    "question": "Error común: El modelo vectorial es el más adecuado para representar superficies continuas como la temperatura.",
+    "answerOptions": [
+      {
+        "text": "Me la sé ✅",
+        "isCorrect": true,
+        "rationale": "Falso, el modelo adecuado para superficies continuas es el ráster."
+      },
+      {
+        "text": "🤔 Ara no recordo",
+        "isCorrect": false,
+        "rationale": "Cada intent suma! 💪"
+      }
+    ],
+    "hint": ""
+  },
+  {
+    "guid": "4ba85f2d-227c-4d6c-8a60-4c27a1d50d51",
+    "subjectId": "T16",
+    "difficulty": 2,
+    "origin": "notebooklm",
+    "type": "flashcard",
+    "question": "Las coordenadas UTM (Universal Transverse Mercator) expresan distancias en _____, a diferencia de la latitud y longitud que usan grados.",
+    "answerOptions": [
+      {
+        "text": "Me la sé ✅",
+        "isCorrect": true,
+        "rationale": "Metros"
+      },
+      {
+        "text": "🤔 Ara no recordo",
+        "isCorrect": false,
+        "rationale": "Cada intent suma! 💪"
+      }
+    ],
+    "hint": ""
+  },
+  {
+    "guid": "e4a02e22-405c-4e04-8fa4-2a9d88a0e376",
+    "subjectId": "T16",
+    "difficulty": 2,
+    "origin": "notebooklm",
+    "type": "flashcard",
+    "question": "¿Qué tipo de proyección es UTM, esférica o plana?",
+    "answerOptions": [
+      {
+        "text": "Me la sé ✅",
+        "isCorrect": true,
+        "rationale": "Es una proyección plana."
+      },
+      {
+        "text": "🤔 Ara no recordo",
+        "isCorrect": false,
+        "rationale": "Cada intent suma! 💪"
+      }
+    ],
+    "hint": ""
+  },
+  {
+    "guid": "8a45951f-0a48-4bd5-a55c-08aef9675443",
+    "subjectId": "T16",
+    "difficulty": 2,
+    "origin": "notebooklm",
+    "type": "flashcard",
+    "question": "Error común: El servicio WMS permite descargar los datos geográficos originales.",
+    "answerOptions": [
+      {
+        "text": "Me la sé ✅",
+        "isCorrect": true,
+        "rationale": "Falso, el WMS solo permite visualizar los datos como una imagen renderizada (PNG, JPEG), no descargarlos."
+      },
+      {
+        "text": "🤔 Ara no recordo",
+        "isCorrect": false,
+        "rationale": "Cada intent suma! 💪"
+      }
+    ],
+    "hint": ""
+  },
+  {
+    "guid": "e8886c16-b17c-4947-b2b0-cf4f44c8887d",
+    "subjectId": "T16",
+    "difficulty": 2,
+    "origin": "notebooklm",
+    "type": "flashcard",
+    "question": "¿Qué servicio OGC se debe usar si se necesita acceder y editar los datos vectoriales originales?",
+    "answerOptions": [
+      {
+        "text": "Me la sé ✅",
+        "isCorrect": true,
+        "rationale": "El servicio WFS (Web Feature Service)."
+      },
+      {
+        "text": "🤔 Ara no recordo",
+        "isCorrect": false,
+        "rationale": "Cada intent suma! 💪"
+      }
+    ],
+    "hint": ""
+  },
+  {
+    "guid": "d01c9ed7-aa8b-49e1-b6ea-fe13d2f6ddd2",
+    "subjectId": "T16",
+    "difficulty": 2,
+    "origin": "notebooklm",
+    "type": "flashcard",
+    "question": "Error común: Un servicio WCS se utiliza para acceder a datos vectoriales como los límites de distritos.",
+    "answerOptions": [
+      {
+        "text": "Me la sé ✅",
+        "isCorrect": true,
+        "rationale": "Falso, un WCS da acceso a datos de tipo ráster o de cobertura, como modelos de elevación u ortofotos."
+      },
+      {
+        "text": "🤔 Ara no recordo",
+        "isCorrect": false,
+        "rationale": "Cada intent suma! 💪"
+      }
+    ],
+    "hint": ""
+  },
+  {
+    "guid": "7e206889-1017-47d7-a642-e72f896adf57",
+    "subjectId": "T16",
+    "difficulty": 2,
+    "origin": "notebooklm",
+    "type": "flashcard",
+    "question": "¿Qué es una base de datos geoespacial como PostGIS u Oracle Spatial?",
+    "answerOptions": [
+      {
+        "text": "Me la sé ✅",
+        "isCorrect": true,
+        "rationale": "Es una base de datos que incluye estructuras para almacenar y consultar geometrías y atributos espaciales."
+      },
+      {
+        "text": "🤔 Ara no recordo",
+        "isCorrect": false,
+        "rationale": "Cada intent suma! 💪"
+      }
+    ],
+    "hint": ""
+  },
+  {
+    "guid": "2f06ab40-1d0c-4f9c-ada0-b38b1cd5dcba",
+    "subjectId": "T16",
+    "difficulty": 2,
+    "origin": "notebooklm",
+    "type": "flashcard",
+    "question": "Error común: La directiva INSPIRE es una normativa exclusiva de España.",
+    "answerOptions": [
+      {
+        "text": "Me la sé ✅",
+        "isCorrect": true,
+        "rationale": "Falso, INSPIRE es una directiva europea (2007/2/CE) para la interoperabilidad de datos espaciales en toda la UE."
+      },
+      {
+        "text": "🤔 Ara no recordo",
+        "isCorrect": false,
+        "rationale": "Cada intent suma! 💪"
+      }
+    ],
+    "hint": ""
+  },
+  {
+    "guid": "f320c475-fb1b-49a3-8df7-e9580d8a743e",
+    "subjectId": "T16",
+    "difficulty": 2,
+    "origin": "notebooklm",
+    "type": "flashcard",
+    "question": "¿Qué organismo define los estándares técnicos de servicios (WMS, WFS) y qué organismo define los modelos de metadatos (ISO 19100)?",
+    "answerOptions": [
+      {
+        "text": "Me la sé ✅",
+        "isCorrect": true,
+        "rationale": "El OGC define los estándares de servicios y la ISO define los modelos de metadatos."
+      },
+      {
+        "text": "🤔 Ara no recordo",
+        "isCorrect": false,
+        "rationale": "Cada intent suma! 💪"
+      }
+    ],
+    "hint": ""
+  },
+  {
+    "guid": "1b64f067-d8f1-4e85-937e-f819e9cb931a",
+    "subjectId": "T16",
+    "difficulty": 2,
+    "origin": "notebooklm",
+    "type": "flashcard",
+    "question": "¿OpenStreetMap es un producto comercial como Google Maps?",
+    "answerOptions": [
+      {
+        "text": "Me la sé ✅",
+        "isCorrect": true,
+        "rationale": "No, es una plataforma colaborativa y de código obert."
+      },
+      {
+        "text": "🤔 Ara no recordo",
+        "isCorrect": false,
+        "rationale": "Cada intent suma! 💪"
+      }
+    ],
+    "hint": ""
+  },
+  {
+    "guid": "02c1d6c6-3cac-490a-ab8b-c6a9c796adaf",
+    "subjectId": "T16",
+    "difficulty": 2,
+    "origin": "notebooklm",
+    "type": "flashcard",
+    "question": "El Geoportal IDEE es el nodo de la infraestructura INSPIRE de _____, no de una comunidad autónoma específica.",
+    "answerOptions": [
+      {
+        "text": "Me la sé ✅",
+        "isCorrect": true,
+        "rationale": "España"
+      },
+      {
+        "text": "🤔 Ara no recordo",
+        "isCorrect": false,
+        "rationale": "Cada intent suma! 💪"
+      }
+    ],
+    "hint": ""
+  },
+  {
+    "guid": "9b80b2af-d0d5-4ea7-8756-12ca2d06310a",
+    "subjectId": "T16",
+    "difficulty": 2,
+    "origin": "notebooklm",
+    "type": "flashcard",
+    "question": "En una pregunta de examen, si se pide el servicio para obtener los datos vectoriales de las calles, la respuesta correcta sería _____ y no WMS.",
+    "answerOptions": [
+      {
+        "text": "Me la sé ✅",
+        "isCorrect": true,
+        "rationale": "WFS (Web Feature Service)"
+      },
+      {
+        "text": "🤔 Ara no recordo",
+        "isCorrect": false,
+        "rationale": "Cada intent suma! 💪"
+      }
+    ],
+    "hint": ""
+  },
+  {
+    "guid": "4496c6e5-23c0-4f62-9198-53e597b14a62",
+    "subjectId": "T16",
+    "difficulty": 2,
+    "origin": "notebooklm",
+    "type": "flashcard",
+    "question": "La georeferenciación es el proceso de asignar _____ a un punto o imagen.",
+    "answerOptions": [
+      {
+        "text": "Me la sé ✅",
+        "isCorrect": true,
+        "rationale": "Coordenadas geográficas"
+      },
+      {
+        "text": "🤔 Ara no recordo",
+        "isCorrect": false,
+        "rationale": "Cada intent suma! 💪"
+      }
+    ],
+    "hint": ""
+  },
+  {
+    "guid": "09ca34f4-1d0e-49e1-a293-f7ed9db7889e",
+    "subjectId": "T16",
+    "difficulty": 2,
+    "origin": "notebooklm",
+    "type": "flashcard",
+    "question": "Para representar la superficie terrestre (3D) en un plano (2D) se utiliza una _____.",
+    "answerOptions": [
+      {
+        "text": "Me la sé ✅",
+        "isCorrect": true,
+        "rationale": "Proyección cartográfica"
+      },
+      {
+        "text": "🤔 Ara no recordo",
+        "isCorrect": false,
+        "rationale": "Cada intent suma! 💪"
+      }
+    ],
+    "hint": ""
+  },
+  {
+    "guid": "e9eff80e-a3db-4b79-809e-6835fd91bab6",
+    "subjectId": "T16",
+    "difficulty": 2,
+    "origin": "notebooklm",
+    "type": "flashcard",
+    "question": "El formato SHP (Shapefile) es un formato vectorial originalmente desarrollado por la empresa _____.",
+    "answerOptions": [
+      {
+        "text": "Me la sé ✅",
+        "isCorrect": true,
+        "rationale": "ESRI"
+      },
+      {
+        "text": "🤔 Ara no recordo",
+        "isCorrect": false,
+        "rationale": "Cada intent suma! 💪"
+      }
+    ],
+    "hint": ""
+  },
+  {
+    "guid": "801b1fe2-86ec-49fb-be44-482d8f62b9fd",
+    "subjectId": "T16",
+    "difficulty": 2,
+    "origin": "notebooklm",
+    "type": "flashcard",
+    "question": "Nombra los tres componentes de una Infraestructura de Datos Espaciales (IDE).",
+    "answerOptions": [
+      {
+        "text": "Me la sé ✅",
+        "isCorrect": true,
+        "rationale": "Un nodo de servicios (servidores SIG), un catálogo de metadatos y un geoportal de acceso público."
+      },
+      {
+        "text": "🤔 Ara no recordo",
+        "isCorrect": false,
+        "rationale": "Cada intent suma! 💪"
+      }
+    ],
+    "hint": ""
+  },
+  {
+    "guid": "0abe1fce-7fa1-46e2-bc70-6186a399f883",
+    "subjectId": "T16",
+    "difficulty": 2,
+    "origin": "notebooklm",
+    "type": "flashcard",
+    "question": "¿En qué ámbito de la administración pública son especialmente útiles los SDG para la gestión de mapas de suelo e infraestructuras?",
+    "answerOptions": [
+      {
+        "text": "Me la sé ✅",
+        "isCorrect": true,
+        "rationale": "En urbanismo y planificación territorial."
+      },
+      {
+        "text": "🤔 Ara no recordo",
+        "isCorrect": false,
+        "rationale": "Cada intent suma! 💪"
+      }
+    ],
+    "hint": ""
+  },
+  {
+    "guid": "86f24893-6def-4cfc-a73e-640fabddf661",
+    "subjectId": "T16",
+    "difficulty": 2,
+    "origin": "notebooklm",
+    "type": "flashcard",
+    "question": "Los servicios geográficos son un componente esencial para el desarrollo de proyectos de _____, que integran sensores IoT y mapas de datos urbanos.",
+    "answerOptions": [
+      {
+        "text": "Me la sé ✅",
+        "isCorrect": true,
+        "rationale": "Smart Cities"
+      },
+      {
+        "text": "🤔 Ara no recordo",
+        "isCorrect": false,
+        "rationale": "Cada intent suma! 💪"
+      }
+    ],
+    "hint": ""
+  },
+  {
+    "guid": "17d727a6-359e-4c8a-a702-a438a96bbeeb",
+    "subjectId": "T16",
+    "difficulty": 2,
+    "origin": "notebooklm",
+    "type": "flashcard",
+    "question": "En el temario de OPOS 23, el tema de servicios geográficos también incluye explícitamente el sistema de coordenadas _____.",
+    "answerOptions": [
+      {
+        "text": "Me la sé ✅",
+        "isCorrect": true,
+        "rationale": "UTM (Universal Transverse Mercator)"
+      },
+      {
+        "text": "🤔 Ara no recordo",
+        "isCorrect": false,
+        "rationale": "Cada intent suma! 💪"
+      }
+    ],
+    "hint": ""
+  },
+  {
+    "guid": "829bce98-1dcc-42e9-bfe6-53d675a33e98",
+    "subjectId": "T16",
+    "difficulty": 2,
+    "origin": "notebooklm",
+    "type": "flashcard",
+    "question": "¿Qué tipo de datos son la calidad del aire o el tráfico, que registran la evolución de fenómenos en el tiempo?",
+    "answerOptions": [
+      {
+        "text": "Me la sé ✅",
+        "isCorrect": true,
+        "rationale": "Datos temporales."
+      },
+      {
+        "text": "🤔 Ara no recordo",
+        "isCorrect": false,
+        "rationale": "Cada intent suma! 💪"
+      }
+    ],
+    "hint": ""
+  },
+  {
+    "guid": "508735fd-1d4e-4745-8fde-183d59d6e8be",
+    "subjectId": "T16",
+    "difficulty": 2,
+    "origin": "notebooklm",
+    "type": "flashcard",
+    "question": "¿Cuál es la función del Esquema Nacional de Seguridad (ENS) en relación con la información geográfica?",
+    "answerOptions": [
+      {
+        "text": "Me la sé ✅",
+        "isCorrect": true,
+        "rationale": "Garantizar la protección de la información geográfica en términos de confidencialidad, integridad, autenticidad y disponibilidad."
+      },
+      {
+        "text": "🤔 Ara no recordo",
+        "isCorrect": false,
+        "rationale": "Cada intent suma! 💪"
+      }
+    ],
+    "hint": ""
+  },
+  {
+    "guid": "948eb3fe-1b2b-4919-8585-3dc333639050",
+    "subjectId": "T16",
+    "difficulty": 2,
+    "origin": "notebooklm",
+    "type": "flashcard",
+    "question": "Si un servicio web permite realizar un cálculo remoto de una zona de influencia, ¿qué tipo de servicio OGC sería?",
+    "answerOptions": [
+      {
+        "text": "Me la sé ✅",
+        "isCorrect": true,
+        "rationale": "Sería un WPS (Web Processing Service)."
+      },
+      {
+        "text": "🤔 Ara no recordo",
+        "isCorrect": false,
+        "rationale": "Cada intent suma! 💪"
+      }
+    ],
+    "hint": ""
+  },
+  {
+    "guid": "1a971a50-f228-4226-888c-ca2bb4d421ec",
+    "subjectId": "T16",
+    "difficulty": 2,
+    "origin": "notebooklm",
+    "type": "flashcard",
+    "question": "Un error típico es pensar que la precisión de los datos ráster es siempre menor que la de los vectoriales. ¿De qué depende realmente la precisión de los datos ráster?",
+    "answerOptions": [
+      {
+        "text": "Me la sé ✅",
+        "isCorrect": true,
+        "rationale": "Depende de la resolución de la malla (el tamaño del píxel), no del tipo de dato en sí."
+      },
+      {
+        "text": "🤔 Ara no recordo",
+        "isCorrect": false,
+        "rationale": "Cada intent suma! 💪"
+      }
+    ],
+    "hint": ""
+  },
+  {
+    "guid": "7a1ed81a-b63e-4c0d-8c02-42e663162666",
+    "subjectId": "T16",
+    "difficulty": 2,
+    "origin": "notebooklm",
+    "type": "flashcard",
+    "question": "¿Qué significa que el servicio WFS permite la 'edición' de datos?",
+    "answerOptions": [
+      {
+        "text": "Me la sé ✅",
+        "isCorrect": true,
+        "rationale": "Significa que, si está configurado para ello, permite a los usuarios autorizados modificar, crear o eliminar las geometrías y atributos de los datos vectoriales."
+      },
+      {
+        "text": "🤔 Ara no recordo",
+        "isCorrect": false,
+        "rationale": "Cada intent suma! 💪"
+      }
+    ],
+    "hint": ""
+  },
+  {
+    "guid": "df60f941-fec7-4bca-8b17-3d80735ce274",
+    "subjectId": "T16",
+    "difficulty": 2,
+    "origin": "notebooklm",
+    "type": "flashcard",
+    "question": "¿Para qué se usan las coordenadas de latitud y longitud principalmente?",
+    "answerOptions": [
+      {
+        "text": "Me la sé ✅",
+        "isCorrect": true,
+        "rationale": "Se usan para mapas globales, ya que representan una posición sobre la superficie esférica de la Tierra en grados."
+      },
+      {
+        "text": "🤔 Ara no recordo",
+        "isCorrect": false,
+        "rationale": "Cada intent suma! 💪"
+      }
+    ],
+    "hint": ""
+  },
+  {
+    "guid": "892fc995-c6a5-43ac-a3c1-0508f5964a59",
+    "subjectId": "T16",
+    "difficulty": 2,
+    "origin": "notebooklm",
+    "type": "flashcard",
+    "question": "¿Qué es IDEBarcelona?",
+    "answerOptions": [
+      {
+        "text": "Me la sé ✅",
+        "isCorrect": true,
+        "rationale": "Es la Infraestructura de Datos Espaciales del Ayuntamiento de Barcelona."
+      },
+      {
+        "text": "🤔 Ara no recordo",
+        "isCorrect": false,
+        "rationale": "Cada intent suma! 💪"
+      }
+    ],
+    "hint": ""
+  },
+  {
+    "guid": "b69f9881-b9f8-4389-bf50-6d5ca7c3c8d7",
+    "subjectId": "T16",
+    "difficulty": 2,
+    "origin": "notebooklm",
+    "type": "flashcard",
+    "question": "La afirmación 'Todas las proyecciones cartográficas mantienen la misma escala y forma' es...",
+    "answerOptions": [
+      {
+        "text": "Me la sé ✅",
+        "isCorrect": true,
+        "rationale": "Falsa, cada proyección preserva una propiedad diferente, como el área, la forma o la distancia, pero no todas a la vez."
+      },
+      {
+        "text": "🤔 Ara no recordo",
+        "isCorrect": false,
+        "rationale": "Cada intent suma! 💪"
+      }
+    ],
+    "hint": ""
+  },
+  {
+    "guid": "0d244d70-4a4a-4d60-b5bc-44a92a1fd879",
+    "subjectId": "T16",
+    "difficulty": 2,
+    "origin": "notebooklm",
+    "type": "flashcard",
+    "question": "¿Qué es el ICGC y qué tipo de servicios ofrece?",
+    "answerOptions": [
+      {
+        "text": "Me la sé ✅",
+        "isCorrect": true,
+        "rationale": "Es el Institut Cartogràfic i Geològic de Catalunya y ofrece servicios WMS/WFS de mapas topográficos y ortofotos."
+      },
+      {
+        "text": "🤔 Ara no recordo",
+        "isCorrect": false,
+        "rationale": "Cada intent suma! 💪"
+      }
+    ],
+    "hint": ""
+  },
+  {
+    "guid": "bf94c2a3-3db1-42ad-915c-56449a87b659",
+    "subjectId": "T16",
+    "difficulty": 2,
+    "origin": "notebooklm",
+    "type": "flashcard",
+    "question": "El formato de datos geográficos _____ está basado en JSON y es ideal para aplicaciones web.",
+    "answerOptions": [
+      {
+        "text": "Me la sé ✅",
+        "isCorrect": true,
+        "rationale": "GeoJSON"
+      },
+      {
+        "text": "🤔 Ara no recordo",
+        "isCorrect": false,
+        "rationale": "Cada intent suma! 💪"
+      }
+    ],
+    "hint": ""
+  },
+  {
+    "guid": "e8e71c85-e5f9-4851-b79b-bc155ddb1ee3",
+    "subjectId": "T16",
+    "difficulty": 2,
+    "origin": "notebooklm",
+    "type": "flashcard",
+    "question": "Un servicio _____ (Catalogue Service for the Web) es esencialmente un buscador de datos geográficos a través de sus metadatos.",
+    "answerOptions": [
+      {
+        "text": "Me la sé ✅",
+        "isCorrect": true,
+        "rationale": "CSW"
+      },
+      {
+        "text": "🤔 Ara no recordo",
+        "isCorrect": false,
+        "rationale": "Cada intent suma! 💪"
+      }
+    ],
+    "hint": ""
+  },
+  {
+    "guid": "5d3ed653-7f99-4067-9b7a-80ff559c46d0",
+    "subjectId": "T16",
+    "difficulty": 2,
+    "origin": "notebooklm",
+    "type": "flashcard",
+    "question": "¿Qué ley catalana regula la transparencia y el acceso a la información pública, incluyendo la territorial?",
+    "answerOptions": [
+      {
+        "text": "Me la sé ✅",
+        "isCorrect": true,
+        "rationale": "La Ley 19/2014."
+      },
+      {
+        "text": "🤔 Ara no recordo",
+        "isCorrect": false,
+        "rationale": "Cada intent suma! 💪"
+      }
+    ],
+    "hint": ""
+  },
+  {
+    "guid": "bd4c959e-ebd8-4fad-8fa0-764324196906",
+    "subjectId": "T16",
+    "difficulty": 2,
+    "origin": "notebooklm",
+    "type": "flashcard",
+    "question": "En el contexto de las IDE, ¿qué es un Geoportal?",
+    "answerOptions": [
+      {
+        "text": "Me la sé ✅",
+        "isCorrect": true,
+        "rationale": "Es un portal web que proporciona un punto de acceso centralizado a los servicios y datos geográficos de la infraestructura."
+      },
+      {
+        "text": "🤔 Ara no recordo",
+        "isCorrect": false,
+        "rationale": "Cada intent suma! 💪"
+      }
+    ],
+    "hint": ""
+  },
+  {
+    "guid": "f81dfe5c-c115-44a2-9dc3-25a89468fc30",
+    "subjectId": "T16",
+    "difficulty": 2,
+    "origin": "notebooklm",
+    "type": "flashcard",
+    "question": "Si necesitas los datos de elevación de un terreno en formato ráster, ¿qué servicio OGC deberías consultar?",
+    "answerOptions": [
+      {
+        "text": "Me la sé ✅",
+        "isCorrect": true,
+        "rationale": "Un WCS (Web Coverage Service)."
+      },
+      {
+        "text": "🤔 Ara no recordo",
+        "isCorrect": false,
+        "rationale": "Cada intent suma! 💪"
+      }
+    ],
+    "hint": ""
+  },
+  {
+    "guid": "11c9b80b-d047-4ed7-8c66-8c61145d5220",
+    "subjectId": "T16",
+    "difficulty": 2,
+    "origin": "notebooklm",
+    "type": "flashcard",
+    "question": "La principal ventaja de los SDG en la gestión de emergencias es que permiten una reacción más _____ y _____.",
+    "answerOptions": [
+      {
+        "text": "Me la sé ✅",
+        "isCorrect": true,
+        "rationale": "Rápida y coordinada."
+      },
+      {
+        "text": "🤔 Ara no recordo",
+        "isCorrect": false,
+        "rationale": "Cada intent suma! 💪"
+      }
+    ],
+    "hint": ""
+  },
+  {
+    "guid": "b04c41f4-7ae6-4307-bfd1-32cf45dc7cb8",
+    "subjectId": "T16",
+    "difficulty": 2,
+    "origin": "notebooklm",
+    "type": "flashcard",
+    "question": "Para qué sirve la cláusula de la Directiva INSPIRE sobre 'unidades administrativas'?",
+    "answerOptions": [
+      {
+        "text": "Me la sé ✅",
+        "isCorrect": true,
+        "rationale": "Establece un modelo de datos común para representar fronteras administrativas (municipios, provincias, etc.) de forma interoperable en toda Europa."
+      },
+      {
+        "text": "🤔 Ara no recordo",
+        "isCorrect": false,
+        "rationale": "Cada intent suma! 💪"
+      }
+    ],
+    "hint": ""
+  },
+  {
+    "guid": "059e68f2-3208-442b-9f96-b944f75e03e5",
+    "subjectId": "T16",
+    "difficulty": 2,
+    "origin": "notebooklm",
+    "type": "flashcard",
+    "question": "En el flujo de funcionamiento de un servicio geográfico municipal, ¿qué rol cumplen las metadatos ISO 19115?",
+    "answerOptions": [
+      {
+        "text": "Me la sé ✅",
+        "isCorrect": true,
+        "rationale": "Describen la información de la fuente, fecha y autor de los datos, garantizando su correcta interpretación y uso."
+      },
+      {
+        "text": "🤔 Ara no recordo",
+        "isCorrect": false,
+        "rationale": "Cada intent suma! 💪"
+      }
+    ],
+    "hint": ""
+  },
+  {
+    "guid": "77a6d918-ebc3-4641-a498-efe5a3fb4530",
+    "subjectId": "T16",
+    "difficulty": 2,
+    "origin": "notebooklm",
+    "type": "flashcard",
+    "question": "Compara la función de un WMS y un WFS en una sola frase.",
+    "answerOptions": [
+      {
+        "text": "Me la sé ✅",
+        "isCorrect": true,
+        "rationale": "WMS visualiza mapas como imágenes, mientras que WFS proporciona acceso a los datos vectoriales brutos para su descarga y análisis."
+      },
+      {
+        "text": "🤔 Ara no recordo",
+        "isCorrect": false,
+        "rationale": "Cada intent suma! 💪"
+      }
+    ],
+    "hint": ""
+  },
+  {
+    "guid": "9bc50c5d-ac26-4117-8561-d99beffd6721",
+    "subjectId": "T16",
+    "difficulty": 2,
+    "origin": "notebooklm",
+    "type": "flashcard",
+    "question": "Un fichero CSV con columnas de latitud y longitud se considera un formato de dato _____, aunque de tipo tabular.",
+    "answerOptions": [
+      {
+        "text": "Me la sé ✅",
+        "isCorrect": true,
+        "rationale": "Geoespacial"
+      },
+      {
+        "text": "🤔 Ara no recordo",
+        "isCorrect": false,
+        "rationale": "Cada intent suma! 💪"
+      }
+    ],
+    "hint": ""
   }
 ]
