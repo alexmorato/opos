@@ -54,6 +54,7 @@
   <script src="assets/js/loading.js"></script>
   <script src="assets/js/login.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bcryptjs@2.4.3/dist/bcrypt.min.js"></script>
+  <script src="assets/js/localstorage-utils.js"></script>
 </head>
 <body>
     <h1>👨‍💻 Selecció fitxers</h1>
@@ -219,6 +220,9 @@
     };
 
     document.getElementById('comencarBtn').onclick = function() {
+      // Borrar estado anterior de estudio
+      if (typeof borrarEstudioGuardado === 'function') borrarEstudioGuardado();
+
       // Leer ficheros seleccionados y concatenar preguntas
       let fitxers = [];
       try {

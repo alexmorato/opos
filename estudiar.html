@@ -281,6 +281,7 @@
     }
   </style>
   <script src="assets/js/toast.js"></script>
+  <script src="assets/js/localstorage-utils.js"></script>
 </head>
 <body>
   <div class="container">
@@ -396,7 +397,7 @@
       if (cronometroRunning && cronometroStart) {
         ms += Date.now() - cronometroStart;
       }
-      localStorage.setItem('oposTest_cronometro', ms);
+      localStorage.setItem(LS_KEYS.CRONOMETRO, ms);
     }
     function startCronometro() {
       if (cronometroRunning) return;
@@ -470,11 +471,11 @@
         const params = new URLSearchParams(window.location.search);
         if (params.get('repassarErrores') === '1') {
           isRepassingErrors = true;
-          preguntes = JSON.parse(localStorage.getItem('oposTest_historialFallos'));
+          preguntes = JSON.parse(localStorage.getItem(LS_KEYS.HISTORIAL_FALLOS));
           document.getElementById('removeFromHistoryContainer').style.display = 'block';
         } else {
           isRepassingErrors = false;
-          preguntes = JSON.parse(localStorage.getItem('oposTest_preguntes') || '[]');
+          preguntes = JSON.parse(localStorage.getItem(LS_KEYS.PREGUNTES) || '[]');
           // Si no estamos en modo repaso de errores, desactivar el botón de eliminar del historial
           document.getElementById('removeFromHistoryContainer').style.display = 'none';
         }
@@ -497,7 +498,7 @@
         // ordenar aleatoriamente las preguntas
         preguntes = preguntes.sort(() => Math.random() - 0.5);                
         // Guardar las preguntas barrejades en localStorage
-        localStorage.setItem('oposTest_preguntesBarrejades', JSON.stringify(preguntes));
+        localStorage.setItem(LS_KEYS.PREGUNTES_BARREJADES, JSON.stringify(preguntes));
         return true;
       } catch (e) {
         document.getElementById('questionContainer').innerHTML = 
@@ -590,7 +591,7 @@
       document.getElementById('progressFill').style.width = progressPercent + '%';
 
       // Guardar el índice de la pregunta actual en localStorage
-      localStorage.setItem('opostext_preguntaPosition', index);
+      localStorage.setItem(LS_KEYS.PREGUNTA_POSITION, index);
 
       // Actualizar botones de navegación
       document.getElementById('prevBtn').disabled = index === 0;
@@ -602,13 +603,16 @@
     function selectAnswer(optionIndex) {
       if (showingResults) return;
       if (answers[currentQuestion] !== null) return; // No permitir cambiar respuesta
-      
+
       answers[currentQuestion] = optionIndex;
-      
+
+      // Guardar respuestas en localStorage
+      localStorage.setItem(LS_KEYS.ANSWERS, JSON.stringify(answers));
+
       // Verificar si la respuesta es correcta o incorrecta
       const opciones = shuffledOptions[currentQuestion] || preguntes[currentQuestion].answerOptions || [];
       const selectedOption = opciones[optionIndex];
-      
+
       if (selectedOption && selectedOption.isCorrect && isRepassingErrors) {
         // Si acertamos en modo repaso de errores, activar botón para eliminar
         canRemoveFromHistory = true;
@@ -618,12 +622,12 @@
         canRemoveFromHistory = false;
         document.getElementById('removeFromHistoryBtn').disabled = true;
       }
-      
+
       if (selectedOption && !selectedOption.isCorrect && !isRepassingErrors) {
         // Solo guardar en historial si NO estamos repasando errores
         guardarFalloEnHistorial(currentQuestion, optionIndex);
       }
-      
+
       // Iniciar el cronómetro si está parado
       if (!cronometroRunning) {
         startCronometro();
@@ -811,7 +815,7 @@
       // Añadir al principio del historial (más nuevo primero)
       historialFallos.unshift(pregunta);
       actualizarTextareaHistorial();
-      localStorage.setItem('oposTest_historialFallos', JSON.stringify(historialFallos));
+      localStorage.setItem(LS_KEYS.HISTORIAL_FALLOS, JSON.stringify(historialFallos));
     }
 
     // Guardar duda actual (independiente de si es correcta o no)
@@ -828,7 +832,7 @@
           pregunta.fecha = new Date().toISOString();
           historialFallos.unshift(pregunta);
           actualizarTextareaHistorial();
-          localStorage.setItem('oposTest_historialFallos', JSON.stringify(historialFallos));
+          localStorage.setItem(LS_KEYS.HISTORIAL_FALLOS, JSON.stringify(historialFallos));
         }
       }
     }
@@ -840,7 +844,7 @@
       const preguntaActual = preguntes[currentQuestion];
       const guid = preguntaActual.guid;
       // Recargar historial actual del localStorage
-      const historialActual = localStorage.getItem('oposTest_historialFallos');
+      const historialActual = localStorage.getItem(LS_KEYS.HISTORIAL_FALLOS);
       if (historialActual) {
         historialFallos = JSON.parse(historialActual);
         // Eliminar todas las preguntas que coincidan con el guid
@@ -850,7 +854,7 @@
           // Si no hay guid, eliminar por pregunta/question como antes
           historialFallos = historialFallos.filter(p => !(p.pregunta === preguntaActual.pregunta || p.question === preguntaActual.question));
         }
-        localStorage.setItem('oposTest_historialFallos', JSON.stringify(historialFallos));
+        localStorage.setItem(LS_KEYS.HISTORIAL_FALLOS, JSON.stringify(historialFallos));
         actualizarTextareaHistorial();
       }
       // Desactivar botón después de usar
@@ -863,7 +867,7 @@
       if (confirm('Segur que vols esborrar tot l\'historial de fallos?')) {
         historialFallos = [];
         actualizarTextareaHistorial();
-        localStorage.removeItem('oposTest_historialFallos');
+        localStorage.removeItem(LS_KEYS.HISTORIAL_FALLOS);
       }
     }
 
@@ -924,14 +928,14 @@
     // Inicializar al cargar la página
     document.addEventListener('DOMContentLoaded', function() {
       // Restaurar cronometro si existe en localStorage
-      const savedCronometro = localStorage.getItem('oposTest_cronometro');
+      const savedCronometro = localStorage.getItem(LS_KEYS.CRONOMETRO);
       if (savedCronometro && !isNaN(savedCronometro)) {
         cronometroElapsed = parseInt(savedCronometro, 10);
         updateCronometroDisplay();
       }
       // Check if there is a saved question position and preloaded questions
-      const savedPosition = localStorage.getItem('opostext_preguntaPosition');
-      const preloadedQuestions = localStorage.getItem('oposTest_preguntesBarrejades');
+      const savedPosition = localStorage.getItem(LS_KEYS.PREGUNTA_POSITION);
+      const preloadedQuestions = localStorage.getItem(LS_KEYS.PREGUNTES_BARREJADES);
 
       if (savedPosition !== null && preloadedQuestions) {
         const userChoice = confirm('Vols continuar des de la pregunta guardada o començar de nou?\nPrem "Acceptar" per continuar o "Cancel·lar" per reiniciar.');
@@ -941,7 +945,8 @@
             // Use preloaded questions and set the current question index
             preguntes = JSON.parse(preloadedQuestions);
             currentQuestion = parseInt(savedPosition, 10) || 0;
-            answers = new Array(preguntes.length).fill(null); // Initialize answers array
+            answers = JSON.parse(localStorage.getItem(LS_KEYS.ANSWERS));
+            //answers = new Array(preguntes.length).fill(null); // Initialize answers array
             showQuestion(currentQuestion); // Resume from the saved question
             // Iniciar cronometro si hay valor guardado
             if (cronometroElapsed > 0) {
@@ -957,9 +962,9 @@
           }
         } else {
           // Clear saved state and restart
-          localStorage.removeItem('opostext_preguntaPosition');
-          localStorage.removeItem('oposTest_preguntesBarrejades');
-          localStorage.removeItem('oposTest_cronometro');
+          localStorage.removeItem(LS_KEYS.PREGUNTA_POSITION);
+          localStorage.removeItem(LS_KEYS.PREGUNTES_BARREJADES);
+          localStorage.removeItem(LS_KEYS.CRONOMETRO);
           cronometroElapsed = 0;
           updateCronometroDisplay();
           if (loadQuestions()) {
@@ -977,7 +982,7 @@
 
       // Load previous error history if it exists
       try {
-        const historialGuardado = localStorage.getItem('oposTest_historialFallos');
+        const historialGuardado = localStorage.getItem(LS_KEYS.HISTORIAL_FALLOS);
         if (historialGuardado) {
           historialFallos = JSON.parse(historialGuardado);
           actualizarTextareaHistorial();
