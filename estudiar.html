@@ -452,7 +452,18 @@
       const hintDiv = document.getElementById('hintArea');
       if (!hintDiv.classList.contains('mostrando')) {
         const pregunta = preguntes[currentQuestion];
-        const hint = pregunta && (pregunta.hint || pregunta.pista || pregunta.clue);
+        let hint = pregunta && (pregunta.hint || pregunta.pista || pregunta.clue);
+        // Si es tipo flashcard, ofuscar el rationale del answerOption correcto
+        if (pregunta && pregunta.type === 'flashcard' && Array.isArray(pregunta.answerOptions)) {
+          const correctOption = pregunta.answerOptions.find(opt => opt.isCorrect && opt.rationale);
+          if (correctOption && correctOption.rationale) {
+            hint = correctOption.rationale.replace(/(\w{2})(\w+)([\.,;:!?¿¡()\[\]{}"'`]*)/g, function(match, p1, p2, p3) {
+              return p1 + '*'.repeat(p2.length) + p3;
+            });
+          } else {
+            hint = '(No hi ha pista per aquesta pregunta)';
+          }
+        }
         hintDiv.textContent = hint ? hint : '(No hi ha pista per aquesta pregunta)';
         hintDiv.classList.add('mostrando');
       }
