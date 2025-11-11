@@ -434,6 +434,18 @@
     let historialFallos = [];
     let isRepassingErrors = false;
     let canRemoveFromHistory = false;
+    let inactivityTimeout = null;
+    const INACTIVITY_LIMIT_MS = 2 * 60 * 1000; // 2 minutes
+
+    function resetInactivityTimer() {
+      if (inactivityTimeout) clearTimeout(inactivityTimeout);
+      inactivityTimeout = setTimeout(() => {
+        if (cronometroRunning) {
+          stopCronometro();
+          toast && toast.showToast ? toast.showToast('Cronòmetre parat per inactivitat') : null;
+        }
+      }, INACTIVITY_LIMIT_MS);
+    }
 
     // Mostrar y ocultar hint
     function mostrarHint() {
@@ -597,6 +609,8 @@
       document.getElementById('prevBtn').disabled = index === 0;
       document.getElementById('nextBtn').textContent = 
         index === preguntes.length - 1 ? 'Finalitzar' : 'Següent →';
+
+      resetInactivityTimer();
     }
 
     // Seleccionar respuesta
@@ -644,6 +658,7 @@
         document.getElementById('removeFromHistoryBtn').disabled = true;
         showQuestion(currentQuestion);
       }
+      resetInactivityTimer();
     }
 
     // Navegar a siguiente pregunta o finalizar test
@@ -656,6 +671,7 @@
       } else {
         showResults();
       }
+      resetInactivityTimer();
     }
 
     // Mostrar resultados finals
@@ -704,7 +720,7 @@
       const pregunta = preguntes[index];
       const container = document.getElementById('questionContainer');
 
-  ocultarHint();
+      ocultarHint();
       const userAnswer = answers[index];
       
       let html = `
@@ -753,7 +769,8 @@
       document.getElementById('questionCounter').textContent = `${index + 1} / ${preguntes.length}`;
       document.getElementById('prevBtn').disabled = index === 0;
       document.getElementById('nextBtn').textContent = 
-        index === preguntes.length - 1 ? 'Tornar als resultats' : 'Següent →';
+      index === preguntes.length - 1 ? 'Tornar als resultats' : 'Següent →';
+      resetInactivityTimer();
     }
 
     // Reiniciar test
@@ -782,6 +799,7 @@
           showResults();
         }
       }
+      resetInactivityTimer();
     }
 
     function previousQuestion() {
@@ -793,6 +811,7 @@
           showQuestion(currentQuestion);
         }
       }
+      resetInactivityTimer();
     }
 
     // Guardar fallo en historial
@@ -998,6 +1017,7 @@
       if (!isRepassingErrors) {
         document.getElementById('removeFromHistoryContainer').style.display = 'none';
       }
+      resetInactivityTimer();
     });
 
   </script>
