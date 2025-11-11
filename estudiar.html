@@ -508,7 +508,13 @@
         // Inicializar el array de respuestas
         answers = new Array(preguntes.length).fill(null);
         // ordenar aleatoriamente las preguntas
-        preguntes = preguntes.sort(() => Math.random() - 0.5);                
+        preguntes = preguntes.sort(() => Math.random() - 0.5);
+        // Ordenar aleatoriamente las opciones de respuesta de cada pregunta
+        preguntes.forEach(q => {
+          if (Array.isArray(q.answerOptions)) {
+            q.answerOptions = q.answerOptions.sort(() => Math.random() - 0.5);
+          }
+        });
         // Guardar las preguntas barrejades en localStorage
         localStorage.setItem(LS_KEYS.PREGUNTES_BARREJADES, JSON.stringify(preguntes));
         return true;
@@ -518,9 +524,6 @@
         return false;
       }
     }
-
-    // Almacenar orden aleatorio de opciones por pregunta
-    let shuffledOptions = [];
 
     // Mostrar pregunta actual
     function showQuestion(index) {
@@ -542,13 +545,7 @@
 
       // Obtener opciones de respuesta (answerOptions)
       const answerOptions = pregunta.answerOptions || [];
-      
-      // Si no tenemos el orden aleatorio para esta pregunta, crearlo
-      if (!shuffledOptions[index]) {
-        shuffledOptions[index] = [...answerOptions].sort(() => Math.random() - 0.5);
-      }
-      
-      const opciones = shuffledOptions[index];
+      const opciones = answerOptions;
       const userAnswered = answers[index] !== null;
 
       opciones.forEach((option, i) => {
@@ -624,7 +621,7 @@
       localStorage.setItem(LS_KEYS.ANSWERS, JSON.stringify(answers));
 
       // Verificar si la respuesta es correcta o incorrecta
-      const opciones = shuffledOptions[currentQuestion] || preguntes[currentQuestion].answerOptions || [];
+      const opciones = preguntes[currentQuestion].answerOptions || [];
       const selectedOption = opciones[optionIndex];
 
       if (selectedOption && selectedOption.isCorrect && isRepassingErrors) {
@@ -658,7 +655,7 @@
       let correctAnswers = 0;
       
       preguntes.forEach((pregunta, index) => {
-        const opciones = shuffledOptions[index] || pregunta.answerOptions || [];
+        const opciones = pregunta.answerOptions || [];
         const selectedOption = opciones[answers[index]];
         if (selectedOption && selectedOption.isCorrect) {
           correctAnswers++;
@@ -727,7 +724,7 @@
     // Guardar fallo en historial
     function guardarFalloEnHistorial(questionIndex, selectedOptionIndex) {
       const pregunta = JSON.parse(JSON.stringify(preguntes[questionIndex])); // Deep copy
-      const opciones = shuffledOptions[questionIndex] || pregunta.answerOptions || [];
+      const opciones = pregunta.answerOptions || [];
       const username = localStorage.getItem(LS_KEYS.USER_NAME) || 'unknown';
       // Añadir username y fecha a la pregunta
       pregunta.username = username;
