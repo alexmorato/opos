@@ -650,29 +650,6 @@
       showQuestion(currentQuestion);
     }
 
-    // Navegar a pregunta anterior
-    function previousQuestion() {
-      if (currentQuestion > 0) {
-        currentQuestion--;
-        canRemoveFromHistory = false;
-        document.getElementById('removeFromHistoryBtn').disabled = true;
-        showQuestion(currentQuestion);
-      }
-      resetInactivityTimer();
-    }
-
-    // Navegar a siguiente pregunta o finalizar test
-    function nextQuestion() {
-      if (currentQuestion < preguntes.length - 1) {
-        currentQuestion++;
-        canRemoveFromHistory = false;
-        document.getElementById('removeFromHistoryBtn').disabled = true;
-        showQuestion(currentQuestion);
-      } else {
-        showResults();
-      }
-      resetInactivityTimer();
-    }
 
     // Mostrar resultados finals
     function showResults() {
@@ -710,67 +687,9 @@
     function reviewAnswers() {
       showingResults = false;
       currentQuestion = 0;
-      showQuestionWithAnswers(0);
+      showQuestion(0);
       document.querySelector('.navigation').style.display = 'flex';
       document.getElementById('nextBtn').textContent = 'Següent →';
-    }
-
-    // Mostrar pregunta con respuestas marcadas
-    function showQuestionWithAnswers(index) {
-      const pregunta = preguntes[index];
-      const container = document.getElementById('questionContainer');
-
-      ocultarHint();
-      const userAnswer = answers[index];
-      
-      let html = `
-        <div class="question-card">
-          <div class="question-info">
-            ${(pregunta.subjectId || '??') + '-' + (pregunta.origin || '??') + '-D' + getDifficultyText(pregunta.difficulty)}
-          </div>
-          <div class="question-text">${pregunta.pregunta || pregunta.question}</div>
-      `;
-
-      const opciones = shuffledOptions[index] || pregunta.answerOptions || [];
-      opciones.forEach((option, i) => {
-        let className = 'answer-option';
-        
-        if (option.isCorrect) {
-          className += ' correct';
-        } else if (i === userAnswer && !option.isCorrect) {
-          className += ' incorrect';
-        }
-        
-        html += `
-          <div class="${className}">
-            <div class="option-content">
-              <div class="option-text">${option.text}</div>`;
-        
-        // Mostrar feedback
-        if (option.isCorrect) {
-          html += `
-            <div class="feedback correct-feedback">✔️ Resposta correcta</div>
-            <div class="rationale">${option.rationale || ''}</div>`;
-        } else if (i === userAnswer && !option.isCorrect) {
-          html += `
-            <div class="feedback incorrect-feedback">❌ Resposta incorrecta</div>
-            <div class="rationale">${option.rationale || ''}</div>`;
-        }
-        
-        html += `
-            </div>
-          </div>
-        `;
-      });
-
-      html += '</div>';
-      container.innerHTML = html;
-      
-      document.getElementById('questionCounter').textContent = `${index + 1} / ${preguntes.length}`;
-      document.getElementById('prevBtn').disabled = index === 0;
-      document.getElementById('nextBtn').textContent = 
-      index === preguntes.length - 1 ? 'Tornar als resultats' : 'Següent →';
-      resetInactivityTimer();
     }
 
     // Reiniciar test
@@ -784,20 +703,11 @@
 
     // Navegación en modo revisión
     function nextQuestion() {
-      if (showingResults) {
-        if (currentQuestion < preguntes.length - 1) {
-          currentQuestion++;
-          showQuestionWithAnswers(currentQuestion);
-        } else {
-          showResults();
-        }
+      if (currentQuestion < preguntes.length - 1) {
+        currentQuestion++;
+        showQuestion(currentQuestion);
       } else {
-        if (currentQuestion < preguntes.length - 1) {
-          currentQuestion++;
-          showQuestion(currentQuestion);
-        } else {
-          showResults();
-        }
+        showResults();
       }
       resetInactivityTimer();
     }
