@@ -1,0 +1,1908 @@
+[
+  {
+    "guid": "d19c11f3-87fe-4f4c-952f-ad2b575c306c",
+    "subjectId": "T25",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "¿Cuál es la diferencia fundamental entre observabilidad y monitorización, según los conceptos modernos?",
+    "answerOptions": [
+      {
+        "text": "La monitorización se enfoca en métricas, mientras que la observabilidad solo se ocupa de los logs.",
+        "isCorrect": false,
+        "rationale": "La observabilidad integra métricas, logs y trazas, no se limita a un solo tipo de dato."
+      },
+      {
+        "text": "La monitorización permite saber 'qué' está fallando, mientras que la observabilidad ayuda a entender 'por qué' está fallando.",
+        "isCorrect": true,
+        "rationale": "Esta distinción captura la esencia de la observabilidad como una capacidad de diagnóstico más profunda que va más allá de la simple detección de fallos."
+      },
+      {
+        "text": "La observabilidad es un término antiguo que ha sido reemplazado por la monitorización en entornos cloud.",
+        "isCorrect": false,
+        "rationale": "El concepto de observabilidad es una evolución moderna de la monitorización, especialmente relevante en sistemas complejos como los microservicios."
+      },
+      {
+        "text": "La monitorización es proactiva y la observabilidad es reactiva.",
+        "isCorrect": false,
+        "rationale": "La observabilidad, especialmente con ML, permite un enfoque proactivo y predictivo, mientras que la monitorización tradicional suele ser más reactiva."
+      }
+    ],
+    "hint": "Piensa en la profundidad del análisis que permite cada concepto, uno detecta el síntoma y el otro busca la causa raíz."
+  },
+  {
+    "guid": "a8276945-e873-4bcf-a187-f38fd22dfb49",
+    "subjectId": "T25",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "En un entorno de microservicios, una solicitud de un usuario atraviesa múltiples servicios antes de completarse. ¿Qué componente de la observabilidad es crucial para seguir el recorrido de esta solicitud y detectar cuellos de botella?",
+    "answerOptions": [
+      {
+        "text": "Métricas",
+        "isCorrect": false,
+        "rationale": "Las métricas proporcionan valores numéricos sobre el rendimiento (como la CPU), pero no muestran el flujo de una petición entre diferentes componentes."
+      },
+      {
+        "text": "Logs",
+        "isCorrect": false,
+        "rationale": "Los logs registran eventos discretos en cada servicio, pero unirlos para reconstruir una petición completa requiere un esfuerzo de correlación adicional."
+      },
+      {
+        "text": "Trazas (Distributed Tracing)",
+        "isCorrect": true,
+        "rationale": "El propósito principal del trazado distribuido es precisamente visualizar el camino completo de una solicitud a través de un sistema distribuido, identificando la latencia en cada paso."
+      },
+      {
+        "text": "Dashboards",
+        "isCorrect": false,
+        "rationale": "Los dashboards visualizan datos, pero no son el componente que recoge la información del flujo de una petición de extremo a extremo."
+      }
+    ],
+    "hint": "Este componente actúa como un mapa que muestra cada parada y el tiempo empleado en un viaje a través de diferentes sistemas."
+  },
+  {
+    "guid": "8c10cfb8-7ce1-486e-ac02-a5769347793f",
+    "subjectId": "T25",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "¿Qué herramienta de código abierto se considera el estándar de facto para la recolección y almacenamiento de métricas en entornos Cloud Native y Kubernetes?",
+    "answerOptions": [
+      {
+        "text": "Kibana",
+        "isCorrect": false,
+        "rationale": "Kibana es una herramienta de visualización potente, pero su especialidad es la exploración de datos de logs almacenados en Elasticsearch."
+      },
+      {
+        "text": "Jaeger",
+        "isCorrect": false,
+        "rationale": "Jaeger es una solución de código abierto muy popular, pero su función principal es el trazado distribuido, no la recolección de métricas."
+      },
+      {
+        "text": "Prometheus",
+        "isCorrect": true,
+        "rationale": "Prometheus fue diseñado específicamente para la monitorización de métricas en series temporales y es una pieza central del ecosistema de monitorización de Kubernetes."
+      },
+      {
+        "text": "Logstash",
+        "isCorrect": false,
+        "rationale": "Logstash es un componente del stack ELK cuya función es la ingesta y procesamiento de logs desde diversas fuentes."
+      }
+    ],
+    "hint": "Busca la herramienta que utiliza un lenguaje de consulta propio llamado PromQL y se integra de forma nativa con Grafana."
+  },
+  {
+    "guid": "ed9dde43-c704-4417-8182-480682f85745",
+    "subjectId": "T25",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "Una plataforma de observabilidad debe ser capaz de procesar y almacenar terabytes de datos diarios en grandes organizaciones. ¿A qué característica principal se refiere esta necesidad?",
+    "answerOptions": [
+      {
+        "text": "Correlación y contexto",
+        "isCorrect": false,
+        "rationale": "La correlación se refiere a la capacidad de relacionar diferentes tipos de datos, no a la gestión de grandes volúmenes."
+      },
+      {
+        "text": "Tiempo real",
+        "isCorrect": false,
+        "rationale": "El tiempo real se centra en la inmediatez de la visualización de los datos, no en la capacidad de manejar su volumen."
+      },
+      {
+        "text": "Extensibilidad",
+        "isCorrect": false,
+        "rationale": "La extensibilidad es la capacidad de conectarse con diferentes fuentes de datos, lo cual es distinto a la capacidad de procesar el volumen de esos datos."
+      },
+      {
+        "text": "Escalabilidad",
+        "isCorrect": true,
+        "rationale": "La escalabilidad es la característica que permite a la plataforma crecer y manejar volúmenes masivos de datos sin degradar su rendimiento."
+      }
+    ],
+    "hint": "Piensa en la capacidad de la plataforma para crecer en recursos y soportar una carga de datos cada vez mayor."
+  },
+  {
+    "guid": "3e781147-6bfd-4bbb-8d7b-ceed483ef426",
+    "subjectId": "T25",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "El equipo de SRE del ayuntamiento ha detectado que se están creando demasiados tickets en su sistema ITSM por alertas de baja prioridad, lo que causa fatiga en el equipo de soporte. ¿Qué práctica recomendada ayuda a mitigar el 'alert fatigue'?",
+    "answerOptions": [
+      {
+        "text": "Aumentar el número de canales de notificación para cada alerta.",
+        "isCorrect": false,
+        "rationale": "Aumentar los canales de notificación probablemente incrementaría el ruido y la fatiga, en lugar de reducirla."
+      },
+      {
+        "text": "Integrar la plataforma con más fuentes de datos para generar más alertas.",
+        "isCorrect": false,
+        "rationale": "Generar más alertas sin un filtrado inteligente agravaría el problema del 'alert fatigue'."
+      },
+      {
+        "text": "Agrupar y correlacionar eventos para generar una única alerta significativa por problema.",
+        "isCorrect": true,
+        "rationale": "La agrupación y correlación permiten consolidar múltiples síntomas de un mismo problema en una sola alerta priorizada, reduciendo el ruido."
+      },
+      {
+        "text": "Desactivar todas las alertas y revisar los dashboards manualmente cada hora.",
+        "isCorrect": false,
+        "rationale": "Esta práctica eliminaría la capacidad de respuesta automática y proactiva, siendo un paso atrás en la gestión de incidentes."
+      }
+    ],
+    "hint": "La solución no es tener más o menos alertas, sino tener alertas más inteligentes y contextualizadas."
+  },
+  {
+    "guid": "fb6a52c1-9f84-48fe-9ec9-b4d52610b910",
+    "subjectId": "T25",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "¿Cuál de las siguientes plataformas comerciales es conocida por utilizar un motor de IA llamado 'Davis' para realizar análisis de causa raíz de forma automática?",
+    "answerOptions": [
+      {
+        "text": "Instana (IBM)",
+        "isCorrect": false,
+        "rationale": "Instana es conocida por sus 'Smart Alerts' basadas en ML y su fuerte enfoque en el tracing en tiempo real, pero su motor de IA no se llama 'Davis'."
+      },
+      {
+        "text": "Splunk Observability",
+        "isCorrect": false,
+        "rationale": "Splunk es extremadamente potente en la indexación y búsqueda masiva de logs, pero su motor de IA para análisis de causa raíz no es su característica más destacada con ese nombre."
+      },
+      {
+        "text": "Datadog",
+        "isCorrect": false,
+        "rationale": "Datadog ofrece una plataforma SaaS todo-en-uno con detección de anomalías, pero el motor de IA 'Davis' no es parte de su suite."
+      },
+      {
+        "text": "Dynatrace",
+        "isCorrect": true,
+        "rationale": "Dynatrace se diferencia en el mercado por su motor de IA, 'Davis', que está diseñado específicamente para automatizar el análisis de causa raíz."
+      }
+    ],
+    "hint": "Esta plataforma comercial promociona activamente su capacidad de análisis de causa raíz impulsada por inteligencia artificial con un nombre propio."
+  },
+  {
+    "guid": "e4396295-ca86-417b-bd14-a4a3264038f9",
+    "subjectId": "T25",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "Según la filosofía SRE (Site Reliability Engineering), después de resolver un incidente grave, ¿cuál es el siguiente paso fundamental para la mejora continua?",
+    "answerOptions": [
+      {
+        "text": "Identificar al miembro del equipo responsable del error para aplicar medidas disciplinarias.",
+        "isCorrect": false,
+        "rationale": "La cultura SRE promueve un enfoque sin culpas ('blameless') para centrarse en las fallas del sistema, no en las personas."
+      },
+      {
+        "text": "Realizar un 'blameless postmortem' para analizar la causa raíz basándose en los datos de observabilidad.",
+        "isCorrect": true,
+        "rationale": "Este proceso es central en la cultura SRE para aprender de los incidentes de manera objetiva y mejorar la fiabilidad del sistema."
+      },
+      {
+        "text": "Reducir los objetivos de nivel de servicio (SLO) para evitar futuros incumplimientos.",
+        "isCorrect": false,
+        "rationale": "Reducir los SLO sin un análisis previo sería admitir una menor calidad del servicio en lugar de trabajar para mejorarla."
+      },
+      {
+        "text": "Archivar el incidente rápidamente para centrarse en el desarrollo de nuevas funcionalidades.",
+        "isCorrect": false,
+        "rationale": "Ignorar la oportunidad de aprendizaje que ofrece un incidente va en contra de los principios de fiabilidad y mejora continua de SRE."
+      }
+    ],
+    "hint": "Esta práctica se centra en aprender del incidente sin buscar culpables, utilizando los datos como base para el análisis."
+  },
+  {
+    "guid": "94a728a6-fb13-4c5f-8b3b-0b8424717e28",
+    "subjectId": "T25",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "Si el objetivo es construir una plataforma de observabilidad utilizando únicamente herramientas de código abierto, ¿qué combinación de herramientas cubriría los tres pilares (logs, métricas y trazas)?",
+    "answerOptions": [
+      {
+        "text": "Datadog, New Relic y Dynatrace.",
+        "isCorrect": false,
+        "rationale": "Estas tres herramientas son soluciones comerciales integradas, no componentes de código abierto que se puedan combinar."
+      },
+      {
+        "text": "Prometheus para métricas, Grafana para dashboards y Jaeger para trazas.",
+        "isCorrect": false,
+        "rationale": "Esta combinación es muy potente, pero falta un componente clave para la gestión centralizada de logs."
+      },
+      {
+        "text": "ELK Stack para logs, Prometheus para métricas y Jaeger para trazas.",
+        "isCorrect": true,
+        "rationale": "Esta combinación utiliza las herramientas open-source más reconocidas para cada uno de los tres pilares fundamentales de la observabilidad."
+      },
+      {
+        "text": "Grafana para logs, Kibana para métricas y Prometheus para trazas.",
+        "isCorrect": false,
+        "rationale": "Esta opción asigna incorrectamente las funciones principales a cada herramienta; por ejemplo, Grafana es para visualización y Prometheus para métricas."
+      }
+    ],
+    "hint": "Cada pilar de la observabilidad tiene una herramienta open-source líder. Piensa en la herramienta para logs (E...), para métricas (P...) y para trazas (J...)."
+  },
+  {
+    "guid": "addc82c5-b0ab-4698-8cab-1c8e0f48131d",
+    "subjectId": "T25",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "¿Cuál de los siguientes es uno de los principales retos culturales al implantar una plataforma de observabilidad en una organización?",
+    "answerOptions": [
+      {
+        "text": "La dificultad para encontrar hardware compatible con las herramientas.",
+        "isCorrect": false,
+        "rationale": "Las herramientas modernas de observabilidad están diseñadas para funcionar en hardware estándar y entornos virtualizados o en la nube, por lo que la compatibilidad no es un reto principal."
+      },
+      {
+        "text": "La necesidad de transformar los procesos y fomentar la colaboración entre equipos de desarrollo y operaciones (DevOps/SRE).",
+        "isCorrect": true,
+        "rationale": "La observabilidad no es solo una herramienta, sino una práctica que requiere un cambio en la forma de trabajar, rompiendo silos y adoptando una cultura de datos."
+      },
+      {
+        "text": "La falta de herramientas comerciales disponibles en el mercado.",
+        "isCorrect": false,
+        "rationale": "El mercado ofrece una amplia variedad de potentes herramientas comerciales de observabilidad, como Datadog, Dynatrace o Instana."
+      },
+      {
+        "text": "La imposibilidad de aplicar la observabilidad en sistemas heredados (legacy).",
+        "isCorrect": false,
+        "rationale": "Aunque es más complejo, es posible integrar sistemas heredados en una plataforma de observabilidad mediante conectores y agentes específicos."
+      }
+    ],
+    "hint": "Este reto no tiene que ver con la tecnología en sí, sino con la forma en que las personas y los equipos trabajan juntos."
+  },
+  {
+    "guid": "8b962099-c5f9-423b-914b-fd29b67d57db",
+    "subjectId": "T25",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "En el contexto de la gestión de servicios de TI, ¿por qué es importante integrar el sistema de alertas de la plataforma de observabilidad con una herramienta ITSM como ServiceNow o JIRA Service Management?",
+    "answerOptions": [
+      {
+        "text": "Para reemplazar la necesidad de que los ingenieros revisen los dashboards.",
+        "isCorrect": false,
+        "rationale": "La integración complementa los dashboards, no los reemplaza. Los dashboards siguen siendo esenciales para el análisis visual y la investigación."
+      },
+      {
+        "text": "Para reducir los costes de licencia de la plataforma de observabilidad.",
+        "isCorrect": false,
+        "rationale": "La integración con ITSM no suele tener un impacto directo en los costes de licencia de la plataforma de observabilidad."
+      },
+      {
+        "text": "Para automatizar la creación de tickets y asegurar la trazabilidad y gestión formal de los incidentes.",
+        "isCorrect": true,
+        "rationale": "Esta integración conecta la detección técnica de un problema con el proceso organizativo formal para su resolución, seguimiento y auditoría."
+      },
+      {
+        "text": "Para permitir que la herramienta ITSM recolecte métricas directamente de las aplicaciones.",
+        "isCorrect": false,
+        "rationale": "La recolección de métricas es responsabilidad de la plataforma de observabilidad; la herramienta ITSM recibe las alertas generadas a partir de esos datos."
+      }
+    ],
+    "hint": "Piensa en cómo una alerta técnica se convierte en una tarea registrada y asignada dentro del flujo de trabajo de la organización."
+  },
+  {
+    "guid": "9e7030c5-509b-49b7-9c78-fc343a2fea64",
+    "subjectId": "T25",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "Un equipo utiliza Postman para ejecutar una serie de pruebas cada 5 minutos que verifican la disponibilidad y la respuesta correcta de varias APIs críticas. ¿Qué tipo de monitorización se está implementando?",
+    "answerOptions": [
+      {
+        "text": "Monitorización de logs",
+        "isCorrect": false,
+        "rationale": "Esta actividad no analiza registros de eventos pasados, sino que genera nuevas interacciones para probar el sistema."
+      },
+      {
+        "text": "Monitorización de anomalías",
+        "isCorrect": false,
+        "rationale": "La detección de anomalías se basa en algoritmos de ML para encontrar patrones inesperados, no en la ejecución de pruebas predefinidas."
+      },
+      {
+        "text": "Monitorización sintética",
+        "isCorrect": true,
+        "rationale": "La monitorización sintética implica simular las rutas y acciones de un usuario para probar la funcionalidad y el rendimiento de una aplicación de forma proactiva."
+      },
+      {
+        "text": "Monitorización de métricas de infraestructura",
+        "isCorrect": false,
+        "rationale": "Esta prueba verifica el comportamiento de la aplicación (API), no las métricas de bajo nivel como el uso de CPU o memoria del servidor."
+      }
+    ],
+    "hint": "Este enfoque simula el comportamiento de un usuario o cliente para verificar que los servicios funcionan como se espera."
+  },
+  {
+    "guid": "78e66d27-0a0c-467d-9d30-4aabc7a7a5b0",
+    "subjectId": "T25",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "¿Qué pilar de la observabilidad es más útil para una investigación forense tras un incidente de seguridad, como un intento de acceso no autorizado?",
+    "answerOptions": [
+      {
+        "text": "Métricas",
+        "isCorrect": false,
+        "rationale": "Las métricas podrían mostrar un pico de actividad, pero no proporcionarían los detalles específicos sobre quién intentó acceder y qué acciones realizó."
+      },
+      {
+        "text": "Trazas",
+        "isCorrect": false,
+        "rationale": "Las trazas son útiles para el rendimiento, pero los logs de auditoría y seguridad son el recurso principal para investigaciones de seguridad."
+      },
+      {
+        "text": "Logs",
+        "isCorrect": true,
+        "rationale": "Los logs, especialmente los de seguridad y auditoría, contienen registros cronológicos detallados de eventos como intentos de login, accesos y errores de permisos, que son cruciales para una investigación forense."
+      },
+      {
+        "text": "Alertas",
+        "isCorrect": false,
+        "rationale": "Una alerta notificaría el incidente, pero la investigación posterior requeriría analizar los datos subyacentes que la generaron."
+      }
+    ],
+    "hint": "Piensa en cuál de los tres pilares funciona como una 'caja negra' que registra cada evento que ocurre en el sistema."
+  },
+  {
+    "guid": "f9dd73fe-beb9-4d9c-8718-2abf2fca8301",
+    "subjectId": "T25",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "El concepto de 'error budget' en SRE está directamente relacionado con la gestión de:",
+    "answerOptions": [
+      {
+        "text": "El presupuesto financiero asignado al departamento de operaciones.",
+        "isCorrect": false,
+        "rationale": "El 'error budget' no es un concepto financiero, sino una métrica técnica para la gestión de la fiabilidad."
+      },
+      {
+        "text": "La cantidad de errores de código permitidos en cada despliegue.",
+        "isCorrect": false,
+        "rationale": "No se refiere a errores de programación, sino al tiempo de inactividad o degradación del servicio permitido."
+      },
+      {
+        "text": "El equilibrio entre la innovación (desplegar nuevas funciones) y la fiabilidad del servicio.",
+        "isCorrect": true,
+        "rationale": "El 'error budget' define el nivel aceptable de falta de fiabilidad. Mientras no se agote, se pueden lanzar nuevas versiones; si se agota, la prioridad pasa a ser la estabilización."
+      },
+      {
+        "text": "El número máximo de alertas que el equipo de guardia puede recibir por semana.",
+        "isCorrect": false,
+        "rationale": "Aunque relacionado con la carga de trabajo, el 'error budget' se mide en función de los objetivos de nivel de servicio (SLO), no del número de alertas."
+      }
+    ],
+    "hint": "Este concepto ayuda a los equipos a tomar decisiones basadas en datos sobre cuándo es seguro lanzar nuevas funcionalidades y cuándo deben centrarse en la estabilidad."
+  },
+  {
+    "guid": "f0eb31f8-e747-4480-a9a4-6ffc324a0098",
+    "subjectId": "T25",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "Un dashboard ejecutivo para un CIO o CTO debería centrarse principalmente en:",
+    "answerOptions": [
+      {
+        "text": "Métricas detalladas de CPU y memoria de cada pod en Kubernetes.",
+        "isCorrect": false,
+        "rationale": "Este nivel de detalle es apropiado para un dashboard técnico destinado a ingenieros de infraestructura, no para una vista ejecutiva."
+      },
+      {
+        "text": "Logs de errores detallados de las aplicaciones en tiempo real.",
+        "isCorrect": false,
+        "rationale": "Los logs en crudo son para análisis técnicos profundos, no para una vista de alto nivel sobre el estado del negocio o servicio."
+      },
+      {
+        "text": "Indicadores agregados de alto nivel como el cumplimiento de SLAs y KPIs de negocio.",
+        "isCorrect": true,
+        "rationale": "Los ejecutivos necesitan una visión resumida y estratégica que relacione el rendimiento técnico con los objetivos de negocio y los acuerdos de nivel de servicio."
+      },
+      {
+        "text": "Trazas distribuidas de las transacciones más lentas.",
+        "isCorrect": false,
+        "rationale": "El análisis de trazas individuales es una tarea de diagnóstico para los equipos de desarrollo o SRE, no una métrica para un dashboard ejecutivo."
+      }
+    ],
+    "hint": "Piensa en el tipo de información que necesita un líder para tomar decisiones estratégicas, no para resolver un problema técnico inmediato."
+  },
+  {
+    "guid": "67e6825c-7693-4b14-b83c-7c13791e4cda",
+    "subjectId": "T25",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "¿Cuál es la función principal de una herramienta como Grafana en un ecosistema de observabilidad?",
+    "answerOptions": [
+      {
+        "text": "Recoger y almacenar trazas distribuidas de microservicios.",
+        "isCorrect": false,
+        "rationale": "La recolección de trazas es la función de herramientas como Jaeger o Zipkin."
+      },
+      {
+        "text": "Indexar y permitir búsquedas avanzadas en grandes volúmenes de logs.",
+        "isCorrect": false,
+        "rationale": "Esta es la especialidad de motores como Elasticsearch, con Kibana como su interfaz de visualización."
+      },
+      {
+        "text": "Visualizar métricas y otros datos de múltiples fuentes en dashboards interactivos.",
+        "isCorrect": true,
+        "rationale": "Grafana es la plataforma líder para crear paneles de control que se conectan a diversas fuentes de datos (como Prometheus) para su representación gráfica."
+      },
+      {
+        "text": "Gestionar el ciclo de vida de los contenedores en un clúster de Kubernetes.",
+        "isCorrect": false,
+        "rationale": "La gestión de contenedores es realizada por el orquestador (Kubernetes/OpenShift), no por una herramienta de visualización."
+      }
+    ],
+    "hint": "Esta herramienta no genera los datos, sino que los presenta de una forma comprensible y personalizable."
+  },
+  {
+    "guid": "e49b7ef4-55f0-4ca2-afa0-d8e857fc5912",
+    "subjectId": "T25",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "El uso de Machine Learning en observabilidad permite pasar de un enfoque reactivo a uno más proactivo. ¿Cuál de las siguientes es una aplicación clave del ML en este campo?",
+    "answerOptions": [
+      {
+        "text": "La centralización de logs, métricas y trazas en un único repositorio.",
+        "isCorrect": false,
+        "rationale": "La centralización de datos es una característica fundamental de la plataforma, pero no requiere necesariamente de Machine Learning."
+      },
+      {
+        "text": "La creación manual de reglas de alerta basadas en umbrales estáticos.",
+        "isCorrect": false,
+        "rationale": "El ML busca superar las limitaciones de las reglas basadas en umbrales estáticos, que pueden generar falsos positivos o no detectar problemas sutiles."
+      },
+      {
+        "text": "La detección de anomalías y la predicción de fallos basada en patrones históricos.",
+        "isCorrect": true,
+        "rationale": "Los algoritmos de ML pueden aprender el comportamiento 'normal' de un sistema y alertar sobre desviaciones o predecir futuras saturaciones, lo que es una capacidad proactiva."
+      },
+      {
+        "text": "La visualización de datos en dashboards y gráficos de series temporales.",
+        "isCorrect": false,
+        "rationale": "La visualización es una función de herramientas como Grafana y, aunque puede mostrar predicciones de ML, no es la aplicación del ML en sí."
+      }
+    ],
+    "hint": "Piensa en cómo una máquina puede aprender del pasado para anticipar problemas en el futuro."
+  },
+  {
+    "guid": "29b1a651-4457-46fe-9370-9838255def51",
+    "subjectId": "T25",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "Según el material, ¿qué herramienta comercial de observabilidad utiliza el Ajuntament de Barcelona para analizar las llamadas entre servicios y el tracing distribuido?",
+    "answerOptions": [
+      {
+        "text": "Dynatrace",
+        "isCorrect": false,
+        "rationale": "Aunque Dynatrace es una plataforma de observabilidad líder, el texto especifica otra herramienta utilizada por el ayuntamiento."
+      },
+      {
+        "text": "Prometheus",
+        "isCorrect": false,
+        "rationale": "Prometheus es una herramienta de código abierto para métricas y es mencionada en el contexto general, pero no como la principal plataforma comercial para tracing en el ayuntamiento."
+      },
+      {
+        "text": "Splunk",
+        "isCorrect": false,
+        "rationale": "Splunk es una potente plataforma, especialmente para logs, pero el caso de estudio menciona una herramienta diferente para el análisis de trazas."
+      },
+      {
+        "text": "Instana (IBM)",
+        "isCorrect": true,
+        "rationale": "El texto indica explícitamente que el Ajuntament de Barcelona utiliza Instana como su plataforma principal para el análisis de llamadas entre servicios y el tracing."
+      }
+    ],
+    "hint": "Esta herramienta, propiedad de IBM, es mencionada varias veces en los ejemplos prácticos del Ajuntament de Barcelona."
+  },
+  {
+    "guid": "56710666-9ab6-4821-812d-2f427ce1e19d",
+    "subjectId": "T25",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "¿Qué representa un SLI (Service Level Indicator) en el contexto de SRE?",
+    "answerOptions": [
+      {
+        "text": "Un acuerdo contractual con el cliente que define las penalizaciones por incumplimiento.",
+        "isCorrect": false,
+        "rationale": "Esto describe un SLA (Service Level Agreement), que es un compromiso formal y a menudo legal."
+      },
+      {
+        "text": "Una métrica cuantitativa específica que mide un aspecto del nivel de servicio, como la latencia.",
+        "isCorrect": true,
+        "rationale": "Un SLI es la medición directa y técnica de la fiabilidad, como el tiempo de respuesta o la tasa de errores."
+      },
+      {
+        "text": "El objetivo interno que el equipo se propone alcanzar para un determinado SLI.",
+        "isCorrect": false,
+        "rationale": "Esto describe un SLO (Service Level Objective), que es la meta para un SLI (ej. 99.9% de disponibilidad)."
+      },
+      {
+        "text": "El proceso de análisis de un incidente para evitar que se repita.",
+        "isCorrect": false,
+        "rationale": "Este es el propósito de un postmortem, no de un indicador de nivel de servicio."
+      }
+    ],
+    "hint": "Es la 'medida' directa, no el 'objetivo' ni el 'contrato'."
+  },
+  {
+    "guid": "d6bbccdd-4d06-44b8-b1ca-b4d3481959fa",
+    "subjectId": "T25",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "Una de las propiedades de un log bien estructurado es el nivel de severidad. ¿Cuál de las siguientes opciones representa un nivel de severidad que indica un error crítico que impide el funcionamiento normal?",
+    "answerOptions": [
+      {
+        "text": "INFO",
+        "isCorrect": false,
+        "rationale": "El nivel INFO se utiliza para registrar eventos informativos sobre el funcionamiento normal del sistema."
+      },
+      {
+        "text": "DEBUG",
+        "isCorrect": false,
+        "rationale": "El nivel DEBUG proporciona información muy detallada útil para la depuración, no necesariamente para indicar errores."
+      },
+      {
+        "text": "WARNING",
+        "isCorrect": false,
+        "rationale": "El nivel WARNING indica una situación inesperada que podría causar problemas en el futuro, pero la aplicación sigue funcionando."
+      },
+      {
+        "text": "CRITICAL",
+        "isCorrect": true,
+        "rationale": "El nivel CRITICAL (o FATAL) se reserva para errores graves que probablemente provoquen la terminación de la aplicación o del servicio."
+      }
+    ],
+    "hint": "Busca el término que denota la máxima gravedad en la escala de errores de un registro."
+  },
+  {
+    "guid": "e46f262b-ca71-4a53-882a-23c6a1fb5470",
+    "subjectId": "T25",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "¿Cuál es un reto de seguridad y gobernanza clave al implantar una plataforma de observabilidad?",
+    "answerOptions": [
+      {
+        "text": "Evitar el 'alert fatigue' en los equipos técnicos.",
+        "isCorrect": false,
+        "rationale": "El 'alert fatigue' es un reto operativo y de correlación inteligente, no directamente de seguridad o gobernanza."
+      },
+      {
+        "text": "Asegurar que la plataforma sea resiliente y tenga alta disponibilidad.",
+        "isCorrect": false,
+        "rationale": "La resiliencia es una característica técnica importante, pero el reto de gobernanza se enfoca en los datos."
+      },
+      {
+        "text": "Proteger los datos sensibles que pueden contener los logs y cumplir con normativas como el RGPD.",
+        "isCorrect": true,
+        "rationale": "Los logs pueden capturar información personal o confidencial, por lo que su gestión debe cumplir estrictamente con las normativas de protección de datos."
+      },
+      {
+        "text": "Garantizar que los dashboards sean simples y claros.",
+        "isCorrect": false,
+        "rationale": "La claridad de los dashboards es un reto de usabilidad y visualización, no de seguridad."
+      }
+    ],
+    "hint": "Piensa en el tipo de información que pueden contener los logs y las leyes que regulan su tratamiento."
+  },
+  {
+    "guid": "0488fa22-3911-4aca-a85f-51566da89ba7",
+    "subjectId": "T25",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "En el stack ELK, ¿qué componente es el responsable de la ingesta y transformación de los datos de logs antes de almacenarlos?",
+    "answerOptions": [
+      {
+        "text": "Elasticsearch",
+        "isCorrect": false,
+        "rationale": "Elasticsearch es el motor de búsqueda e indexación, responsable de almacenar y permitir la consulta de los datos ya procesados."
+      },
+      {
+        "text": "Kibana",
+        "isCorrect": false,
+        "rationale": "Kibana es la capa de visualización y exploración de datos, es la interfaz de usuario para interactuar con los datos en Elasticsearch."
+      },
+      {
+        "text": "Logstash/Beats",
+        "isCorrect": true,
+        "rationale": "Logstash y la familia de agentes ligeros Beats son los encargados de recolectar, procesar, enriquecer y enviar los logs a Elasticsearch."
+      },
+      {
+        "text": "Grafana",
+        "isCorrect": false,
+        "rationale": "Grafana no es parte del stack ELK, es una herramienta de visualización externa que puede conectarse a Elasticsearch como fuente de datos."
+      }
+    ],
+    "hint": "Este componente actúa como una tubería (pipeline) que recoge los datos de diferentes fuentes y los prepara para su almacenamiento."
+  },
+  {
+    "guid": "1d2a6494-7bb2-49ba-ab99-02afeba8b006",
+    "subjectId": "T25",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "¿Qué beneficio principal aporta la observabilidad a un pipeline de CI/CD en un entorno DevOps?",
+    "answerOptions": [
+      {
+        "text": "Acelera la fase de compilación del código.",
+        "isCorrect": false,
+        "rationale": "La observabilidad no interviene directamente en el proceso de compilación, sino en la monitorización del software una vez desplegado."
+      },
+      {
+        "text": "Proporciona un feedback rápido sobre el impacto de un nuevo despliegue en el rendimiento y la estabilidad.",
+        "isCorrect": true,
+        "rationale": "Al monitorizar inmediatamente después de un despliegue, los equipos pueden detectar regresiones o problemas y reaccionar rápidamente, fortaleciendo el ciclo de feedback."
+      },
+      {
+        "text": "Elimina la necesidad de realizar pruebas de software antes del despliegue.",
+        "isCorrect": false,
+        "rationale": "La observabilidad complementa las pruebas (shift-left testing), no las elimina. Es crucial para monitorizar en producción, pero no sustituye las pruebas previas."
+      },
+      {
+        "text": "Reduce el coste del almacenamiento en la nube.",
+        "isCorrect": false,
+        "rationale": "La recolección masiva de datos de observabilidad suele incrementar los costes de almacenamiento, no reducirlos."
+      }
+    ],
+    "hint": "Piensa en cómo los equipos pueden saber si la nueva versión que acaban de lanzar funciona mejor o peor que la anterior."
+  },
+  {
+    "guid": "44883a6a-5867-4b97-b0d2-d66f17e3577d",
+    "subjectId": "T25",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "¿Cuál de las siguientes afirmaciones describe mejor una característica de las soluciones comerciales de observabilidad en comparación con las de código abierto?",
+    "answerOptions": [
+      {
+        "text": "Las soluciones comerciales siempre son menos potentes y escalables que las de código abierto.",
+        "isCorrect": false,
+        "rationale": "Las soluciones comerciales suelen ser muy potentes y están diseñadas para escalar a nivel empresarial, ofreciendo soporte y mantenimiento."
+      },
+      {
+        "text": "Las soluciones de código abierto no permiten la creación de dashboards ni alertas.",
+        "isCorrect": false,
+        "rationale": "Herramientas como Prometheus y Grafana son líderes en la creación de dashboards y alertas en el mundo del código abierto."
+      },
+      {
+        "text": "Las soluciones comerciales suelen ofrecer una plataforma integrada 'todo-en-uno' que cubre logs, métricas y trazas.",
+        "isCorrect": true,
+        "rationale": "Una de las principales ventajas de las herramientas comerciales es que proporcionan una experiencia unificada y correlacionada de los tres pilares sin necesidad de integrar múltiples herramientas diferentes."
+      },
+      {
+        "text": "Las soluciones comerciales no son compatibles con entornos Cloud Native como Kubernetes.",
+        "isCorrect": false,
+        "rationale": "Las principales plataformas comerciales tienen un fuerte enfoque e integración con Kubernetes y otros ecosistemas Cloud Native."
+      }
+    ],
+    "hint": "Considera la diferencia entre construir un sistema a partir de varias piezas separadas versus comprar una solución completa."
+  },
+  {
+    "guid": "3cc23d6e-21a1-4ce7-b944-39d22e31a96e",
+    "subjectId": "T25",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "Una característica clave de una plataforma de observabilidad es la 'Correlación y contexto'. ¿Qué permite esta capacidad?",
+    "answerOptions": [
+      {
+        "text": "Almacenar grandes volúmenes de datos de logs y métricas de forma eficiente.",
+        "isCorrect": false,
+        "rationale": "El almacenamiento eficiente se relaciona con la escalabilidad y la arquitectura de la base de datos, no con la correlación."
+      },
+      {
+        "text": "Relacionar datos de diferentes fuentes (logs, métricas, trazas) para encontrar la causa raíz de un problema.",
+        "isCorrect": true,
+        "rationale": "La correlación es lo que permite conectar un pico de CPU (métrica) con un error específico (log) dentro de una transacción lenta (traza), proporcionando una visión completa del problema."
+      },
+      {
+        "text": "Visualizar datos en tiempo real con una latencia mínima.",
+        "isCorrect": false,
+        "rationale": "La visualización inmediata es la característica de 'tiempo real', que es distinta de la capacidad de enlazar diferentes tipos de datos."
+      },
+      {
+        "text": "Integrar la plataforma con sistemas externos a través de conectores y APIs.",
+        "isCorrect": false,
+        "rationale": "La capacidad de integración con otros sistemas se conoce como 'extensibilidad'."
+      }
+    ],
+    "hint": "Esta capacidad ayuda a conectar los puntos entre diferentes tipos de telemetría para contar la historia completa de un incidente."
+  },
+  {
+    "guid": "2e872d24-a37d-4e5f-a4c2-b0a505574fd6",
+    "subjectId": "T25",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "Según el marco ITIL v3, ¿en qué fase del ciclo de vida del servicio se encuentra la actividad de 'Monitorización y Control'?",
+    "answerOptions": [
+      {
+        "text": "Estrategia del Servicio",
+        "isCorrect": false,
+        "rationale": "La fase de Estrategia se centra en definir la perspectiva, posición, planes y patrones que un proveedor de servicios necesita ejecutar."
+      },
+      {
+        "text": "Diseño del Servicio",
+        "isCorrect": false,
+        "rationale": "La fase de Diseño se enfoca en el diseño de nuevos servicios o la mejora de los existentes."
+      },
+      {
+        "text": "Operación del Servicio",
+        "isCorrect": true,
+        "rationale": "Esta fase se encarga de coordinar y llevar a cabo las actividades y procesos necesarios para entregar y gestionar los servicios a un nivel acordado, siendo la monitorización una actividad central."
+      },
+      {
+        "text": "Mejora Continua del Servicio",
+        "isCorrect": false,
+        "rationale": "La fase de Mejora Continua utiliza los datos de la monitorización para identificar oportunidades de mejora, pero la actividad de monitorizar en sí misma ocurre en la fase de Operación."
+      }
+    ],
+    "hint": "Piensa en la fase donde los servicios están activos y siendo utilizados por los clientes, y por lo tanto, deben ser vigilados."
+  },
+  {
+    "guid": "671a1db6-2e67-4e90-a8d7-212738b08234",
+    "subjectId": "T25",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Una plataforma de observabilidad detecta un aumento en la latencia de una API (métrica), lo correlaciona con mensajes de 'timeout' en la base de datos (logs) e identifica la consulta exacta que está causando el cuello de botella siguiendo una petición de usuario (traza). ¿Qué característica fundamental de la observabilidad se está demostrando?",
+    "answerOptions": [
+      {
+        "text": "Escalabilidad",
+        "isCorrect": false,
+        "rationale": "La escalabilidad se refiere a la capacidad de la plataforma para gestionar grandes volúmenes de datos, no a la capacidad de relacionar diferentes tipos de datos."
+      },
+      {
+        "text": "Correlación y contexto",
+        "isCorrect": true,
+        "rationale": "Esta capacidad permite conectar diferentes señales (logs, métricas, trazas) para entender no solo 'qué' falla, sino 'por qué' falla, proporcionando una visión completa de la causa raíz."
+      },
+      {
+        "text": "Extensibilidad",
+        "isCorrect": false,
+        "rationale": "La extensibilidad es la capacidad de integrarse con diversas fuentes de datos y sistemas, lo cual es necesario para obtener los datos, pero no describe el acto de relacionarlos entre sí."
+      },
+      {
+        "text": "Tiempo real",
+        "isCorrect": false,
+        "rationale": "Aunque la capacidad de procesar datos en tiempo real es importante, no describe específicamente el proceso de vincular y contextualizar diferentes tipos de datos para el diagnóstico."
+      }
+    ],
+    "hint": "Piensa en cómo la plataforma conecta los tres pilares de la observabilidad para contar una historia completa sobre un problema."
+  },
+  {
+    "guid": "85d91699-42af-42ac-b7e8-fe41b7ef51e1",
+    "subjectId": "T25",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "En el contexto de Site Reliability Engineering (SRE), ¿cómo apoya directamente la observabilidad al principio de 'blameless postmortem' (análisis de incidentes sin culpa)?",
+    "answerOptions": [
+      {
+        "text": "Automatizando la creación de tickets de incidencia en herramientas ITSM.",
+        "isCorrect": false,
+        "rationale": "La integración con ITSM formaliza la gestión de incidentes, pero el principio de 'blameless postmortem' se centra en el análisis posterior al incidente."
+      },
+      {
+        "text": "Proporcionando datos objetivos (logs, trazas, métricas) para analizar la causa raíz del sistema sin señalar a individuos.",
+        "isCorrect": true,
+        "rationale": "Al basar el análisis en evidencia empírica y datos concretos, se elimina la necesidad de buscar culpables y el foco se pone en mejorar la resiliencia del sistema."
+      },
+      {
+        "text": "Definiendo y midiendo los Objetivos de Nivel de Servicio (SLO).",
+        "isCorrect": false,
+        "rationale": "Los SLOs son cruciales para definir la fiabilidad, pero el 'blameless postmortem' es el proceso que se sigue cuando esos SLOs no se cumplen."
+      },
+      {
+        "text": "Permitiendo la implementación de 'auto-healing' para resolver problemas automáticamente.",
+        "isCorrect": false,
+        "rationale": "La auto-reparación es una respuesta a un problema, mientras que el postmortem es un análisis retrospectivo para aprender del mismo."
+      }
+    ],
+    "hint": "Considera cómo los datos pueden cambiar una conversación de 'quién lo hizo' a 'qué pasó en el sistema'."
+  },
+  {
+    "guid": "009a1da8-e6e2-48cc-a7f1-e9afc6b3f62f",
+    "subjectId": "T25",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Cuál es el propósito principal de implementar 'synthetic monitoring', como el uso de colecciones de Postman para probar APIs periódicamente, dentro de una estrategia de observabilidad?",
+    "answerOptions": [
+      {
+        "text": "Reemplazar la necesidad de recoger trazas distribuidas.",
+        "isCorrect": false,
+        "rationale": "Las pruebas sintéticas comprueban la disponibilidad y funcionalidad desde una perspectiva externa, mientras que las trazas analizan el flujo interno de una petición."
+      },
+      {
+        "text": "Simular el comportamiento del usuario para detectar problemas de forma proactiva, incluso antes de que los usuarios reales se vean afectados.",
+        "isCorrect": true,
+        "rationale": "Este tipo de monitorización actúa como un 'canario en la mina', verificando caminos críticos del servicio para anticipar fallos en la experiencia del usuario."
+      },
+      {
+        "text": "Analizar los logs de seguridad para detectar intentos de acceso no autorizados.",
+        "isCorrect": false,
+        "rationale": "El análisis de logs de seguridad es una función distinta, enfocada en la auditoría y detección de amenazas, no en la simulación de la funcionalidad del servicio."
+      },
+      {
+        "text": "Medir exclusivamente métricas de infraestructura como el uso de CPU y memoria.",
+        "isCorrect": false,
+        "rationale": "Las pruebas sintéticas se centran en la funcionalidad y el rendimiento de la aplicación (capa de servicio), no directamente en las métricas de la infraestructura subyacente."
+      }
+    ],
+    "hint": "Este tipo de monitorización no espera a que algo falle, sino que lo comprueba constantemente como lo haría un usuario."
+  },
+  {
+    "guid": "8c56a4cb-d328-483a-a31a-9fc4d7a6ec29",
+    "subjectId": "T25",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Un equipo de SRE define que el '99.5% de las peticiones a la API de registro deben tener una latencia inferior a 400ms'. ¿A qué concepto de gestión de servicios corresponde esta definición?",
+    "answerOptions": [
+      {
+        "text": "Service Level Indicator (SLI)",
+        "isCorrect": false,
+        "rationale": "El SLI es la métrica que se mide (por ejemplo, la latencia), pero no el objetivo en sí mismo."
+      },
+      {
+        "text": "Service Level Agreement (SLA)",
+        "isCorrect": false,
+        "rationale": "El SLA es un acuerdo contractual, a menudo con consecuencias financieras, que se basa en los SLOs pero es un concepto más formal y externo."
+      },
+      {
+        "text": "Error Budget",
+        "isCorrect": false,
+        "rationale": "El presupuesto de error es la cantidad de tiempo o peticiones que pueden fallar sin incumplir el SLO, derivado de este pero no es la definición del objetivo."
+      },
+      {
+        "text": "Service Level Objective (SLO)",
+        "isCorrect": true,
+        "rationale": "Un SLO es un objetivo interno, específico y medible para un indicador de nivel de servicio (SLI), que en este caso es la latencia de la API."
+      }
+    ],
+    "hint": "No se trata de la métrica en sí (el indicador), ni del contrato con el cliente, sino del objetivo interno que el equipo se compromete a cumplir."
+  },
+  {
+    "guid": "7f9fd79a-767b-4efc-bf53-a1a7122db826",
+    "subjectId": "T25",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Al aplicar Machine Learning en una plataforma de observabilidad como Instana o Dynatrace, ¿cuál es el beneficio principal que se busca obtener frente a las alertas tradicionales basadas en umbrales?",
+    "answerOptions": [
+      {
+        "text": "Reducir los costes de almacenamiento de logs mediante compresión inteligente.",
+        "isCorrect": false,
+        "rationale": "Aunque la gestión de costes es importante, el objetivo principal del ML en este contexto es mejorar la inteligencia del sistema de alertas, no la gestión del almacenamiento."
+      },
+      {
+        "text": "Pasar de una detección reactiva (CPU > 90%) a una predicción proactiva de fallos y detección de anomalías.",
+        "isCorrect": true,
+        "rationale": "El ML aprende los patrones de comportamiento normales del sistema para identificar desviaciones sutiles y predecir problemas antes de que se conviertan en incidentes críticos."
+      },
+      {
+        "text": "Generar dashboards más complejos con un mayor número de gráficos.",
+        "isCorrect": false,
+        "rationale": "El objetivo es obtener información más inteligente y accionable, no necesariamente una mayor cantidad de visualizaciones."
+      },
+      {
+        "text": "Garantizar el cumplimiento normativo de RGPD en todos los logs recogidos.",
+        "isCorrect": false,
+        "rationale": "El cumplimiento normativo es un requisito de gobernanza de datos, mientras que el ML se enfoca en el análisis del comportamiento del sistema."
+      }
+    ],
+    "hint": "Piensa en la diferencia entre reaccionar a un problema conocido y anticiparse a un problema desconocido."
+  },
+  {
+    "guid": "c24ba9c1-65a2-4469-920d-f7d6e57db6b4",
+    "subjectId": "T25",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Por qué las trazas (distributed tracing) son consideradas un pilar crítico en arquitecturas modernas de microservicios, a diferencia de las arquitecturas monolíticas?",
+    "answerOptions": [
+      {
+        "text": "Porque los microservicios generan un volumen de logs mucho menor que los monolitos.",
+        "isCorrect": false,
+        "rationale": "Generalmente, los sistemas distribuidos generan un volumen de logs mayor y más complejo, lo que hace más difícil el seguimiento de una transacción."
+      },
+      {
+        "text": "Porque una sola petición de usuario puede viajar a través de múltiples servicios, y las trazas permiten seguir ese recorrido para identificar cuellos de botella.",
+        "isCorrect": true,
+        "rationale": "En un monolito, el flujo de una petición es interno. En microservicios, una petición atraviesa la red para comunicarse con distintos servicios, y las trazas son esenciales para visualizar este flujo completo."
+      },
+      {
+        "text": "Porque en los microservicios no es posible recoger métricas de rendimiento como el uso de CPU.",
+        "isCorrect": false,
+        "rationale": "Las métricas de infraestructura y aplicación son tan importantes, o más, en entornos de microservicios y se recogen de manera habitual."
+      },
+      {
+        "text": "Porque las arquitecturas de microservicios no requieren sistemas de alertas.",
+        "isCorrect": false,
+        "rationale": "La complejidad de los microservicios hace que los sistemas de alerta inteligentes y bien configurados sean aún más necesarios para gestionar la operación."
+      }
+    ],
+    "hint": "Considera cómo cambia el camino que sigue una petición cuando se pasa de una única aplicación grande a muchas pequeñas que se comunican entre sí."
+  },
+  {
+    "guid": "bb9c1bac-353e-492e-8170-a4502f397917",
+    "subjectId": "T25",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Un equipo está construyendo su plataforma de observabilidad con herramientas Open Source. Ya han elegido Prometheus para las métricas y Jaeger para las trazas. ¿Qué componente del stack ELK utilizarían específicamente para la ingesta, transformación y envío de logs desde múltiples fuentes a un destino centralizado?",
+    "answerOptions": [
+      {
+        "text": "Elasticsearch",
+        "isCorrect": false,
+        "rationale": "Elasticsearch es el motor de búsqueda e indexación donde se almacenan los logs, pero no es responsable de la ingesta y el procesamiento inicial."
+      },
+      {
+        "text": "Kibana",
+        "isCorrect": false,
+        "rationale": "Kibana es la herramienta de visualización y creación de dashboards para los datos almacenados en Elasticsearch."
+      },
+      {
+        "text": "Logstash/Beats",
+        "isCorrect": true,
+        "rationale": "Logstash es un pipeline de procesamiento de datos del lado del servidor, y los Beats son agentes ligeros que se instalan en los sistemas para recolectar y enviar datos (como logs) a Logstash o Elasticsearch."
+      },
+      {
+        "text": "Grafana",
+        "isCorrect": false,
+        "rationale": "Grafana es una plataforma de visualización, pero no se encarga de la ingesta y procesamiento de logs en el pipeline de datos."
+      }
+    ],
+    "hint": "Busca el componente del stack que actúa como un 'pipeline' o 'transportista' de datos para los logs."
+  },
+  {
+    "guid": "4816f65c-3f08-4ffc-b39b-61285ade4667",
+    "subjectId": "T25",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "En el contexto de un organismo público, la característica de 'Seguridad y gobernanza' de una plataforma de observabilidad es fundamental. ¿Cuál de las siguientes acciones es una aplicación directa de este principio?",
+    "answerOptions": [
+      {
+        "text": "Configurar un clúster redundante para la plataforma para asegurar su alta disponibilidad.",
+        "isCorrect": false,
+        "rationale": "Esto corresponde a la característica de 'Resiliencia y alta disponibilidad', que asegura que la propia plataforma no falle."
+      },
+      {
+        "text": "Asegurar que los logs que puedan contener datos personales sean anonimizados o el acceso a ellos esté restringido según roles para cumplir con el RGPD.",
+        "isCorrect": true,
+        "rationale": "Esto aborda directamente la protección de datos sensibles, el control de acceso y el cumplimiento normativo, que son pilares de la seguridad y la gobernanza."
+      },
+      {
+        "text": "Utilizar conectores para integrar la plataforma con servicios en la nube como AWS y Azure.",
+        "isCorrect": false,
+        "rationale": "Esta es una manifestación de la 'Extensibilidad' de la plataforma, que le permite recopilar datos de diversos entornos."
+      },
+      {
+        "text": "Implementar reglas de auto-escalado de recursos basadas en las métricas de carga.",
+        "isCorrect": false,
+        "rationale": "Esto se relaciona con la 'Automatización' y la 'Escalabilidad', permitiendo que el sistema se adapte a la demanda de forma automática."
+      }
+    ],
+    "hint": "Piensa en las obligaciones legales y de protección de datos que tiene una administración al manejar información de los ciudadanos."
+  },
+  {
+    "guid": "65d9658f-89d5-4a3a-9f2c-6ebf4e2751fc",
+    "subjectId": "T25",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Un equipo DevOps nota que se generan demasiadas alertas de baja prioridad, causando 'alert fatigue'. Para solucionar esto, deciden que un ticket en su herramienta ITSM solo debe crearse si se cumplen simultáneamente tres condiciones: la latencia de la API supera los 2 segundos, el porcentaje de errores 500 es superior al 5% y el uso de CPU del pod está por encima del 90%. ¿Qué tipo de alerta están implementando?",
+    "answerOptions": [
+      {
+        "text": "Alerta basada en anomalías",
+        "isCorrect": false,
+        "rationale": "Una alerta de anomalías utiliza machine learning para detectar patrones inusuales, no se basa en reglas predefinidas que combinan umbrales."
+      },
+      {
+        "text": "Alerta sintética",
+        "isCorrect": false,
+        "rationale": "Una alerta sintética proviene de una prueba activa que simula una transacción de usuario, no de la observación pasiva de métricas del sistema."
+      },
+      {
+        "text": "Alerta compuesta/correlada",
+        "isCorrect": true,
+        "rationale": "Este tipo de alerta se dispara únicamente cuando se cumplen múltiples condiciones predefinidas, lo que ayuda a reducir el ruido y a señalar problemas más significativos."
+      },
+      {
+        "text": "Alerta basada en un único umbral",
+        "isCorrect": false,
+        "rationale": "Esta alerta no se basa en una sola métrica que cruza un umbral, sino en la combinación de varias de ellas."
+      }
+    ],
+    "hint": "La clave está en que la alerta no depende de un solo evento, sino de la combinación de varios para ser activada."
+  },
+  {
+    "guid": "317ef89f-7aee-4c9b-81e7-1546435289f4",
+    "subjectId": "T25",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "El paso de una estrategia de monitorización (OPOS 23) a una de observabilidad (OPOS 24) implica un cambio fundamental de enfoque. ¿Cuál de las siguientes afirmaciones describe mejor esta evolución?",
+    "answerOptions": [
+      {
+        "text": "Se pasa de usar herramientas comerciales a usar únicamente herramientas Open Source.",
+        "isCorrect": false,
+        "rationale": "La observabilidad puede implementarse con ambos tipos de herramientas; la elección depende de otros factores, no es el cambio conceptual principal."
+      },
+      {
+        "text": "Se enfoca exclusivamente en la monitorización de infraestructura on-premise en lugar de la nube.",
+        "isCorrect": false,
+        "rationale": "Al contrario, la observabilidad es especialmente relevante para los sistemas complejos nativos de la nube, aunque se aplica a ambos entornos."
+      },
+      {
+        "text": "Se pasa de recoger métricas predefinidas ('known unknowns') a tener la capacidad de explorar y entender fallos no previstos ('unknown unknowns') en sistemas complejos.",
+        "isCorrect": true,
+        "rationale": "La monitorización tradicional se centra en preguntas que ya sabes que tienes que hacer (¿está alta la CPU?), mientras que la observabilidad te da las herramientas para investigar problemas que nunca habías anticipado."
+      },
+      {
+        "text": "Se elimina la necesidad de tener dashboards y se confía únicamente en las alertas automáticas.",
+        "isCorrect": false,
+        "rationale": "Los dashboards siguen siendo una herramienta de visualización clave en la observabilidad, aunque se enriquecen con la correlación de logs, métricas y trazas."
+      }
+    ],
+    "hint": "Piensa en la diferencia entre revisar una lista de problemas conocidos y tener las herramientas para investigar un problema completamente nuevo."
+  },
+  {
+    "guid": "c46037d3-96c4-4880-96d8-2f1eae5adafe",
+    "subjectId": "T25",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "En el caso práctico del Ayuntamiento de Barcelona, se menciona que el API Manager (como API Connect) es una herramienta complementaria en su ecosistema de observabilidad. ¿Qué pilar de la observabilidad refuerza principalmente un API Manager?",
+    "answerOptions": [
+      {
+        "text": "Las métricas de infraestructura, como el uso de memoria de los pods de OpenShift.",
+        "isCorrect": false,
+        "rationale": "Un API Manager se enfoca en la capa de aplicación (APIs), no en las métricas de la infraestructura subyacente que las aloja."
+      },
+      {
+        "text": "Los logs detallados a nivel de sistema operativo de los servidores.",
+        "isCorrect": false,
+        "rationale": "Aunque puede generar logs de acceso, su fuerte no es el log de sistema, sino la visibilidad sobre el tráfico de las APIs."
+      },
+      {
+        "text": "La capacidad de predicción de fallos mediante Machine Learning.",
+        "isCorrect": false,
+        "rationale": "Si bien puede ofrecer analíticas, las capacidades avanzadas de predicción con IA/ML suelen estar en plataformas de observabilidad más completas."
+      },
+      {
+        "text": "Las trazas, al ofrecer visibilidad sobre las llamadas, los códigos de estado HTTP y los tiempos de respuesta en el punto de entrada de las APIs.",
+        "isCorrect": true,
+        "rationale": "Actúa como un punto de control central para el tráfico de APIs, proporcionando una vista detallada del 'primer salto' de muchas transacciones distribuidas, lo cual es un componente clave del tracing."
+      }
+    ],
+    "hint": "Esta herramienta se sitúa como una puerta de entrada para todas las peticiones a los servicios. ¿Qué tipo de información puede capturar en esa posición?"
+  },
+  {
+    "guid": "46010d38-5db0-451d-ab55-f814ece94a79",
+    "subjectId": "T25",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Cuando se afirma que la monitorización y control, según ITIL v3, se encuentra en la etapa de 'Operación del Servicio', ¿qué implica esto para una plataforma de observabilidad?",
+    "answerOptions": [
+      {
+        "text": "Que su principal objetivo es planificar la estrategia de nuevos servicios tecnológicos.",
+        "isCorrect": false,
+        "rationale": "La planificación de la estrategia corresponde a la fase de 'Estrategia del Servicio' en ITIL, no a la Operación."
+      },
+      {
+        "text": "Que la plataforma es una herramienta fundamental para las actividades del día a día que aseguran que los servicios se entreguen de manera efectiva y eficiente.",
+        "isCorrect": true,
+        "rationale": "La 'Operación del Servicio' se ocupa de mantener la estabilidad y el rendimiento de los servicios en producción, y la observabilidad es clave para esta tarea."
+      },
+      {
+        "text": "Que solo se utiliza durante la fase de diseño y transición de un nuevo servicio.",
+        "isCorrect": false,
+        "rationale": "Aunque la observabilidad debe diseñarse desde el principio ('shift-left'), su función principal se manifiesta cuando el servicio ya está operativo."
+      },
+      {
+        "text": "Que su único propósito es generar informes para la fase de 'Mejora Continua del Servicio'.",
+        "isCorrect": false,
+        "rationale": "Si bien los datos de la plataforma alimentan la mejora continua, su función principal y directa es soportar la operación en tiempo real."
+      }
+    ],
+    "hint": "Piensa en qué fase del ciclo de vida de un servicio se necesita vigilar constantemente su salud y rendimiento."
+  },
+  {
+    "guid": "84c24fca-773c-45f3-928b-c66e30136c06",
+    "subjectId": "T25",
+    "difficulty": 2,
+    "origin": "OPOS24_gpt",
+    "type": "test",
+    "question": "Quina afirmació descriu millor la diferència entre monitorització i observabilitat?",
+    "answerOptions": [
+      {
+        "text": "La monitorització mesura indicadors predefinits; l’observabilitat permet deduir causes internes correlant senyals.",
+        "isCorrect": true,
+        "rationale": "La monitorització respon sobretot al 'què'; l’observabilitat ajuda a arribar al 'per què' amb correlació de senyals."
+      },
+      {
+        "text": "La monitorització només funciona en entorns on‑premises; l’observabilitat només en núvol.",
+        "isCorrect": false,
+        "rationale": "Totes dues poden aplicar-se en entorns on‑premises i cloud."
+      },
+      {
+        "text": "L’observabilitat substitueix completament l’ITSM.",
+        "isCorrect": false,
+        "rationale": "ITSM gestiona el cicle de vida d’incidents/peticions; l’observabilitat aporta dades i alertes."
+      },
+      {
+        "text": "La monitorització es basa en traces; l’observabilitat només en logs.",
+        "isCorrect": false,
+        "rationale": "Observabilitat combina logs, mètriques i traces."
+      }
+    ],
+    "hint": "Pensa en 'què passa?' vs 'per què passa?'"
+  },
+  {
+    "guid": "4affdc85-2c9a-4edb-aea4-3f819bc68d7d",
+    "subjectId": "T25",
+    "difficulty": 1,
+    "origin": "OPOS24_gpt",
+    "type": "test",
+    "question": "Quins són els tres pilars clàssics de l’observabilitat?",
+    "answerOptions": [
+      {
+        "text": "Logs, mètriques i traces",
+        "isCorrect": true,
+        "rationale": "Són els tres senyals principals per entendre el comportament d’un sistema."
+      },
+      {
+        "text": "Dashboards, alertes i informes",
+        "isCorrect": false,
+        "rationale": "Això són components de presentació/gestió, no pilars."
+      },
+      {
+        "text": "CPU, RAM i disc",
+        "isCorrect": false,
+        "rationale": "Són mètriques concretes, no pilars."
+      },
+      {
+        "text": "CI/CD, IaC i ITSM",
+        "isCorrect": false,
+        "rationale": "Són pràctiques/eines d’operació i entrega, no pilars."
+      }
+    ]
+  },
+  {
+    "guid": "309a2678-60c2-4bb0-818a-3281ea4dafe6",
+    "subjectId": "T25",
+    "difficulty": 2,
+    "origin": "OPOS24_gpt",
+    "type": "test",
+    "question": "Quina informació aporta sobretot el pilar de 'traces distribuïdes'?",
+    "answerOptions": [
+      {
+        "text": "El recorregut d’una petició a través de múltiples serveis i el temps en cada pas (spans).",
+        "isCorrect": true,
+        "rationale": "Les traces permeten veure el flux end‑to‑end i localitzar colls d’ampolla."
+      },
+      {
+        "text": "Un resum numèric periòdic del consum de recursos.",
+        "isCorrect": false,
+        "rationale": "Això correspon a mètriques."
+      },
+      {
+        "text": "Missatges textuals d’esdeveniments i errors.",
+        "isCorrect": false,
+        "rationale": "Això correspon a logs."
+      },
+      {
+        "text": "La creació automàtica de tiquets a l’ITSM.",
+        "isCorrect": false,
+        "rationale": "Això és una integració de notificació/ITSM, no traces."
+      }
+    ],
+    "hint": "Pensa en microserveis i 'end‑to‑end'."
+  },
+  {
+    "guid": "7249ec8a-da33-4bfc-91ca-00fa2bf83346",
+    "subjectId": "T25",
+    "difficulty": 3,
+    "origin": "OPOS24_gpt",
+    "type": "test",
+    "question": "Quina és una conseqüència habitual d’una mala configuració d’alerting en entorns grans?",
+    "answerOptions": [
+      {
+        "text": "Alert fatigue: excés d’alertes amb poca priorització que acaben sent ignorades.",
+        "isCorrect": true,
+        "rationale": "Massa alertes redueixen l’eficàcia i poden fer perdre incidències crítiques."
+      },
+      {
+        "text": "Reducció automàtica del volum de logs emmagatzemats.",
+        "isCorrect": false,
+        "rationale": "L’alerting no redueix per si sol el volum de logs."
+      },
+      {
+        "text": "Increment garantit de la disponibilitat sense canviar res més.",
+        "isCorrect": false,
+        "rationale": "Les alertes no milloren la disponibilitat si no hi ha resposta i processos adequats."
+      },
+      {
+        "text": "Eliminació de la necessitat de dashboards.",
+        "isCorrect": false,
+        "rationale": "Dashboards continuen essent necessaris per diagnosi i seguiment."
+      }
+    ],
+    "hint": "Relaciona-ho amb soroll i saturació d’equips."
+  },
+  {
+    "guid": "84aecbff-3fb3-4c1a-89c2-278b7656ef9b",
+    "subjectId": "T25",
+    "difficulty": 2,
+    "origin": "OPOS24_gpt",
+    "type": "test",
+    "question": "En observabilitat, què vol dir 'correlació i context'?",
+    "answerOptions": [
+      {
+        "text": "Relacionar logs, mètriques i traces per identificar causa arrel i impacte entre components.",
+        "isCorrect": true,
+        "rationale": "La correlació connecta símptomes i ajuda a trobar el punt d’origen del problema."
+      },
+      {
+        "text": "Emmagatzemar dades en un únic disc per reduir costos.",
+        "isCorrect": false,
+        "rationale": "Això és una decisió d’emmagatzematge, no de correlació."
+      },
+      {
+        "text": "Mostrar dades únicament en temps real i descartar l’històric.",
+        "isCorrect": false,
+        "rationale": "El context sovint requereix històric per comparar comportaments."
+      },
+      {
+        "text": "Fer servir només llindars fixos per generar alertes.",
+        "isCorrect": false,
+        "rationale": "Això és alerting threshold-based, no correlació."
+      }
+    ]
+  },
+  {
+    "guid": "72eb137b-7235-4d5b-bb61-5f8b547d9637",
+    "subjectId": "T25",
+    "difficulty": 2,
+    "origin": "OPOS24_gpt",
+    "type": "test",
+    "question": "Quina combinació d’eines open source és típica per cobrir mètriques + dashboards + logs + traces?",
+    "answerOptions": [
+      {
+        "text": "Prometheus + Grafana + ELK + Jaeger/Zipkin",
+        "isCorrect": true,
+        "rationale": "Cobreix mètriques (Prometheus), visualització (Grafana), logs (ELK) i traces (Jaeger/Zipkin)."
+      },
+      {
+        "text": "Jenkins + Git + Maven + SonarQube",
+        "isCorrect": false,
+        "rationale": "Això és una cadena CI/CD i qualitat, no observabilitat completa."
+      },
+      {
+        "text": "Postman + Swagger + OpenAPI + YAML",
+        "isCorrect": false,
+        "rationale": "Això és documentació/test d’APIs, no plataforma d’observabilitat."
+      },
+      {
+        "text": "Nginx + Apache + IIS + Tomcat",
+        "isCorrect": false,
+        "rationale": "Són servidors web/app, no eines d’observabilitat."
+      }
+    ]
+  },
+  {
+    "guid": "b7571453-4eba-4f4a-aba6-1271ce3457e4",
+    "subjectId": "T25",
+    "difficulty": 3,
+    "origin": "OPOS24_gpt",
+    "type": "test",
+    "question": "Quina pràctica ajuda a evitar que una alerta menor generi un tiquet ITSM repetidament?",
+    "answerOptions": [
+      {
+        "text": "Aplicar deduplicació, agrupació i temporització (cooldown) segons severitat.",
+        "isCorrect": true,
+        "rationale": "Evita tiquets duplicats i controla la freqüència; redueix soroll i saturació."
+      },
+      {
+        "text": "Augmentar la granularitat de les mètriques a 1 segon sempre.",
+        "isCorrect": false,
+        "rationale": "Pot incrementar volum i soroll; no resol la repetició de tiquets."
+      },
+      {
+        "text": "Desactivar totes les alertes del servei afectat.",
+        "isCorrect": false,
+        "rationale": "És contraproduent; cal ajustar criteris i severitats."
+      },
+      {
+        "text": "Emmagatzemar menys traces distribuïdes.",
+        "isCorrect": false,
+        "rationale": "El volum de traces no resol per si sol la política de creació de tiquets."
+      }
+    ],
+    "hint": "Pensa en 'cooldown', agrupació i severitat."
+  },
+  {
+    "guid": "25252154-818a-438f-bdad-fb90b57c3d5a",
+    "subjectId": "T25",
+    "difficulty": 2,
+    "origin": "OPOS24_gpt",
+    "type": "test",
+    "question": "Quin és un risc típic dels logs en relació amb RGPD/ENS?",
+    "answerOptions": [
+      {
+        "text": "Que continguin dades personals o sensibles i requereixin control d’accés, xifrat i retenció limitada.",
+        "isCorrect": true,
+        "rationale": "Els logs poden exposar informació; cal governança i mesures de seguretat."
+      },
+      {
+        "text": "Que no es puguin indexar mai en cap motor de cerca.",
+        "isCorrect": false,
+        "rationale": "Es poden indexar, però amb mesures de seguretat i filtratge."
+      },
+      {
+        "text": "Que només es generin en aplicacions monolítiques.",
+        "isCorrect": false,
+        "rationale": "Es generen en qualsevol arquitectura."
+      },
+      {
+        "text": "Que substitueixin les mètriques en la detecció de latència.",
+        "isCorrect": false,
+        "rationale": "Logs complementen; la latència se sol veure millor amb mètriques i traces."
+      }
+    ]
+  },
+  {
+    "guid": "13b1dbef-9ebb-4a49-8fb8-10e38e0cddac",
+    "subjectId": "T25",
+    "difficulty": 2,
+    "origin": "OPOS24_gpt",
+    "type": "test",
+    "question": "Què descriu millor una mètrica amb labels (etiquetes)?",
+    "answerOptions": [
+      {
+        "text": "Una sèrie temporal segmentable per dimensions com servei, host, entorn o regió.",
+        "isCorrect": true,
+        "rationale": "Les labels permeten filtrar i agregar per diferents dimensions."
+      },
+      {
+        "text": "Un missatge d’error amb severitat i timestamp.",
+        "isCorrect": false,
+        "rationale": "Això és un log."
+      },
+      {
+        "text": "Un pas individual dins d’una trace.",
+        "isCorrect": false,
+        "rationale": "Això és un span."
+      },
+      {
+        "text": "Un document PDF amb informes mensuals.",
+        "isCorrect": false,
+        "rationale": "No és observabilitat operativa."
+      }
+    ]
+  },
+  {
+    "guid": "f1dad024-bfac-4960-8d6a-93d22b1957e1",
+    "subjectId": "T25",
+    "difficulty": 4,
+    "origin": "OPOS24_gpt",
+    "type": "test",
+    "question": "En sistemes de microserveis, quin enfocament és més robust per trobar causa arrel quan hi ha latència elevada?",
+    "answerOptions": [
+      {
+        "text": "Correlacionar traces distribuïdes amb mètriques de latència i logs d’errors dels serveis implicats.",
+        "isCorrect": true,
+        "rationale": "La combinació dels tres pilars aporta flux, símptomes i evidència d’error."
+      },
+      {
+        "text": "Mirar només l’ús de CPU del node on corre el gateway.",
+        "isCorrect": false,
+        "rationale": "Pot ser un símptoma parcial; no dona el flux end‑to‑end."
+      },
+      {
+        "text": "Reiniciar tots els pods i validar després.",
+        "isCorrect": false,
+        "rationale": "Pot restaurar temporalment però no identifica causa arrel i pot amagar el problema."
+      },
+      {
+        "text": "Desactivar el tracing per reduir sobrecàrrega i analitzar més tard.",
+        "isCorrect": false,
+        "rationale": "Pot reduir dades crítiques; cal sampling i governança, no desactivar-ho a cegues."
+      }
+    ],
+    "hint": "La resposta 'forta' combina els tres senyals."
+  },
+  {
+    "guid": "e20a2109-790e-43e8-905b-3195b68364e0",
+    "subjectId": "T25",
+    "difficulty": 3,
+    "origin": "OPOS24_gpt",
+    "type": "test",
+    "question": "Quina afirmació és correcta sobre 'sampling' en traces distribuïdes?",
+    "answerOptions": [
+      {
+        "text": "Redueix costos i volum guardant només una part de les traces, però pot perdre casos rars si no es dissenya bé.",
+        "isCorrect": true,
+        "rationale": "El sampling és necessari a escala, però s’ha d’ajustar per no perdre incidents crítics."
+      },
+      {
+        "text": "Elimina la necessitat de logs.",
+        "isCorrect": false,
+        "rationale": "Les traces no substitueixen logs; són complements."
+      },
+      {
+        "text": "Només s’utilitza en sistemes monolítics.",
+        "isCorrect": false,
+        "rationale": "És especialment útil en microserveis i alt trànsit."
+      },
+      {
+        "text": "Garantitza que cap error quedarà sense registrar.",
+        "isCorrect": false,
+        "rationale": "Si el sampling és agressiu, alguns errors poden no aparèixer."
+      }
+    ]
+  },
+  {
+    "guid": "bb54eb93-f17d-4f43-9c78-cb5967edf416",
+    "subjectId": "T25",
+    "difficulty": 2,
+    "origin": "OPOS24_gpt",
+    "type": "test",
+    "question": "Quina és la funció principal dels dashboards en observabilitat?",
+    "answerOptions": [
+      {
+        "text": "Presentar informació clau de salut/rendiment de forma clara per facilitar decisió i diagnosi.",
+        "isCorrect": true,
+        "rationale": "Dashboards ajuden a veure tendències, estats i KPIs de servei."
+      },
+      {
+        "text": "Indexar logs i permetre cerques full‑text.",
+        "isCorrect": false,
+        "rationale": "Això és funció d’un motor com Elasticsearch."
+      },
+      {
+        "text": "Executar automàticament canvis en producció.",
+        "isCorrect": false,
+        "rationale": "Això és automatització/operació, no visualització."
+      },
+      {
+        "text": "Gestionar el catàleg de serveis.",
+        "isCorrect": false,
+        "rationale": "Això és ITSM/gestió de serveis."
+      }
+    ]
+  },
+  {
+    "guid": "35d746a4-e36a-45d1-ad4c-5279ade295b6",
+    "subjectId": "T25",
+    "difficulty": 3,
+    "origin": "OPOS24_gpt",
+    "type": "test",
+    "question": "Quin és un criteri de disseny recomanable per dashboards operatius?",
+    "answerOptions": [
+      {
+        "text": "Mostrar pocs indicadors crítics, amb possibilitat de drill‑down i filtres per servei/entorn.",
+        "isCorrect": true,
+        "rationale": "Evita soroll i permet investigar quan cal."
+      },
+      {
+        "text": "Incloure totes les mètriques existents en un sol panell sense jerarquia.",
+        "isCorrect": false,
+        "rationale": "Això sol generar confusió i baixa utilitat."
+      },
+      {
+        "text": "Evitar tota agregació per no perdre detall.",
+        "isCorrect": false,
+        "rationale": "Cal agregació per visió global; el detall s’obté amb drill‑down."
+      },
+      {
+        "text": "Fer-los només per a perfils executius.",
+        "isCorrect": false,
+        "rationale": "Hi ha dashboards tècnics, de servei i executius."
+      }
+    ]
+  },
+  {
+    "guid": "bac24855-fd12-4655-a565-0b98f4192791",
+    "subjectId": "T25",
+    "difficulty": 4,
+    "origin": "OPOS24_gpt",
+    "type": "test",
+    "question": "Quin benefici aporta Analytics/ML sobre alertes basades només en llindars fixos?",
+    "answerOptions": [
+      {
+        "text": "Pot detectar anomalies sense conèixer prèviament el llindar, aprenent patrons normals i desviacions.",
+        "isCorrect": true,
+        "rationale": "El ML pot adaptar-se a estacionalitat i comportaments canviants."
+      },
+      {
+        "text": "Redueix a zero la necessitat de governança i qualitat de dades.",
+        "isCorrect": false,
+        "rationale": "El ML necessita dades de qualitat i governança."
+      },
+      {
+        "text": "Elimina totalment els falsos positius.",
+        "isCorrect": false,
+        "rationale": "Pot reduir-los, però no eliminar-los; cal calibratge."
+      },
+      {
+        "text": "Funciona igual de bé sense històric.",
+        "isCorrect": false,
+        "rationale": "Moltes tècniques requereixen històric per aprendre patrons."
+      }
+    ],
+    "hint": "Compara 'llindars' amb 'aprenentatge de patrons'."
+  },
+  {
+    "guid": "e127a0eb-664c-4cec-80a5-f1386d64ec46",
+    "subjectId": "T25",
+    "difficulty": 3,
+    "origin": "OPOS24_gpt",
+    "type": "test",
+    "question": "En integració amb DevOps/SRE, què descriu millor un SLI?",
+    "answerOptions": [
+      {
+        "text": "Una mètrica observable que indica el nivell de servei (ex. latència p95, % errors).",
+        "isCorrect": true,
+        "rationale": "Els SLIs són indicadors mesurables; alimenten SLOs i, eventualment, SLAs."
+      },
+      {
+        "text": "Un compromís contractual amb l’usuari final.",
+        "isCorrect": false,
+        "rationale": "Això és un SLA."
+      },
+      {
+        "text": "Un objectiu intern que defineix el nivell desitjat de servei.",
+        "isCorrect": false,
+        "rationale": "Això és un SLO."
+      },
+      {
+        "text": "Un informe mensual de disponibilitat.",
+        "isCorrect": false,
+        "rationale": "Pot contenir SLIs, però no és la definició."
+      }
+    ]
+  },
+  {
+    "guid": "2e4f29e2-2411-4411-9e17-668f737e1e6e",
+    "subjectId": "T25",
+    "difficulty": 4,
+    "origin": "OPOS24_gpt",
+    "type": "test",
+    "question": "Quina opció reflecteix millor l’ús de l’observabilitat en un pipeline CI/CD?",
+    "answerOptions": [
+      {
+        "text": "Fer verificació contínua: si els SLIs empitjoren després d’un desplegament, activar rollback o aturar la promoció.",
+        "isCorrect": true,
+        "rationale": "Això integra observabilitat amb entrega contínua per reduir risc."
+      },
+      {
+        "text": "Desplegar sempre sense monitoratge per reduir latència.",
+        "isCorrect": false,
+        "rationale": "Això augmenta risc i no és una pràctica recomanada."
+      },
+      {
+        "text": "Fer servir només logs per validar un desplegament.",
+        "isCorrect": false,
+        "rationale": "Calen mètriques/traces per validar rendiment i flux."
+      },
+      {
+        "text": "Enviar sempre totes les alertes a ITSM sense filtratge.",
+        "isCorrect": false,
+        "rationale": "Això incrementa soroll; cal severitat/correlació."
+      }
+    ]
+  },
+  {
+    "guid": "39cff152-6d99-4d52-9fc6-a11fcc7c8f4c",
+    "subjectId": "T25",
+    "difficulty": 2,
+    "origin": "OPOS24_gpt",
+    "type": "test",
+    "question": "Quina afirmació és correcta sobre resiliència/alta disponibilitat de la plataforma d’observabilitat?",
+    "answerOptions": [
+      {
+        "text": "Ha de ser tolerant a fallades perquè, si cau, els equips perden visibilitat del sistema.",
+        "isCorrect": true,
+        "rationale": "Una plataforma no disponible deixa 'cecs' els operadors i dificulta la resposta a incidents."
+      },
+      {
+        "text": "És prescindible si hi ha dashboards en local.",
+        "isCorrect": false,
+        "rationale": "Dashboards locals no substitueixen la plataforma ni la ingesta/consulta."
+      },
+      {
+        "text": "Només és important en entorns petits.",
+        "isCorrect": false,
+        "rationale": "En entorns grans és encara més crític."
+      },
+      {
+        "text": "Vol dir que no calen còpies redundants de dades.",
+        "isCorrect": false,
+        "rationale": "Justament implica redundància i disseny tolerant a fallades."
+      }
+    ]
+  },
+  {
+    "guid": "d616c191-d79b-4b12-af0b-7e2fb43efa11",
+    "subjectId": "T25",
+    "difficulty": 3,
+    "origin": "OPOS24_gpt",
+    "type": "test",
+    "question": "Quina és una pràctica correcta de seguretat i governança en observabilitat?",
+    "answerOptions": [
+      {
+        "text": "Control d’accés per rols, xifrat en trànsit i en repòs, i auditories de consultes sobre dades sensibles.",
+        "isCorrect": true,
+        "rationale": "Això limita exposició i assegura traçabilitat d’accessos."
+      },
+      {
+        "text": "Deixar tots els logs accessibles a qualsevol tècnic per agilitzar.",
+        "isCorrect": false,
+        "rationale": "És un risc de seguretat i compliment."
+      },
+      {
+        "text": "Guardar dades indefinidament per si algun dia fan falta.",
+        "isCorrect": false,
+        "rationale": "Cal retenció limitada i justificació; cost i RGPD/ENS."
+      },
+      {
+        "text": "Eliminar totes les traces per defecte.",
+        "isCorrect": false,
+        "rationale": "Cal governança i sampling, no supressió total."
+      }
+    ]
+  },
+  {
+    "guid": "1771bb5e-0b32-4989-9809-fa99177504ac",
+    "subjectId": "T25",
+    "difficulty": 2,
+    "origin": "OPOS24_gpt",
+    "type": "test",
+    "question": "Quina eina s’associa principalment amb logs i cerca/consulta avançada?",
+    "answerOptions": [
+      {
+        "text": "Elastic Stack (ELK)",
+        "isCorrect": true,
+        "rationale": "Elasticsearch indexa i Kibana permet consulta/visualització de logs."
+      },
+      {
+        "text": "Prometheus",
+        "isCorrect": false,
+        "rationale": "Prometheus és mètriques."
+      },
+      {
+        "text": "Jaeger",
+        "isCorrect": false,
+        "rationale": "Jaeger és traces."
+      },
+      {
+        "text": "ArgoCD",
+        "isCorrect": false,
+        "rationale": "ArgoCD és GitOps/CI-CD."
+      }
+    ]
+  },
+  {
+    "guid": "960ed21e-d7e8-4551-9788-0db850ad5b70",
+    "subjectId": "T25",
+    "difficulty": 3,
+    "origin": "OPOS24_gpt",
+    "type": "test",
+    "question": "Quina afirmació descriu millor una plataforma comercial tipus 'tot‑en‑un' (p. ex. Datadog/Dynatrace/Instana)?",
+    "answerOptions": [
+      {
+        "text": "Integra mètriques, logs, traces i analítica en un únic producte, sovint amb gestió simplificada.",
+        "isCorrect": true,
+        "rationale": "Aporta integració i capacitats avançades, a canvi de cost/licència."
+      },
+      {
+        "text": "Només és un visor de dashboards i no ingereix dades.",
+        "isCorrect": false,
+        "rationale": "Aquestes plataformes inclouen agents/ingesta i processament."
+      },
+      {
+        "text": "No pot integrar-se amb Kubernetes.",
+        "isCorrect": false,
+        "rationale": "Habitualment tenen integració forta amb Kubernetes."
+      },
+      {
+        "text": "És equivalent a un ITSM.",
+        "isCorrect": false,
+        "rationale": "Observabilitat ≠ ITSM; són complements."
+      }
+    ]
+  },
+  {
+    "guid": "4b88097f-277e-4c12-8bd2-1c0efff72d21",
+    "subjectId": "T25",
+    "difficulty": 4,
+    "origin": "OPOS24_gpt",
+    "type": "test",
+    "question": "En un entorn Kubernetes, quina combinació d’indicadors és més adequada per detectar degradació abans d’una caiguda?",
+    "answerOptions": [
+      {
+        "text": "Augment sostingut de latència (p95/p99) + errors 5xx + restarts de pods + saturació de recursos.",
+        "isCorrect": true,
+        "rationale": "Combina SLIs de servei amb símptomes d’infra i estabilitat de pods."
+      },
+      {
+        "text": "Només estat Ready/Running dels pods.",
+        "isCorrect": false,
+        "rationale": "Un pod pot estar 'Running' però degradat (latència alta, errors, cues)."
+      },
+      {
+        "text": "Només consum de disc del node.",
+        "isCorrect": false,
+        "rationale": "Pot ser rellevant, però no cobreix servei end‑to‑end."
+      },
+      {
+        "text": "Només volum de logs INFO.",
+        "isCorrect": false,
+        "rationale": "El volum d’INFO no és un indicador fiable de degradació."
+      }
+    ],
+    "hint": "Pensa en servei + infra + estabilitat."
+  },
+  {
+    "guid": "8fb8d344-2958-40d7-a9c0-6d494697bdc5",
+    "subjectId": "T25",
+    "difficulty": 2,
+    "origin": "OPOS24_gpt",
+    "type": "test",
+    "question": "Quin canal és més apropiat per assegurar traçabilitat formal d’una incidència crítica?",
+    "answerOptions": [
+      {
+        "text": "Integració amb ITSM (creació de tiquet) amb severitat P1 i assignació.",
+        "isCorrect": true,
+        "rationale": "Un ITSM assegura registre, SLA intern i seguiment d’incident."
+      },
+      {
+        "text": "Només un missatge en un xat d’equip.",
+        "isCorrect": false,
+        "rationale": "Pot ser útil, però no garanteix traçabilitat formal."
+      },
+      {
+        "text": "Només una alarma visual en un dashboard.",
+        "isCorrect": false,
+        "rationale": "Cal notificació i procés de gestió d’incidents."
+      },
+      {
+        "text": "Només un log ERROR sense alerta.",
+        "isCorrect": false,
+        "rationale": "Sense alerta/flux, pot passar desapercebut."
+      }
+    ]
+  },
+  {
+    "guid": "a96db1b6-c5c5-439b-85cb-ab32e0419ca1",
+    "subjectId": "T25",
+    "difficulty": 3,
+    "origin": "OPOS24_gpt",
+    "type": "test",
+    "question": "Quina opció descriu millor el rol d’un API Manager en observabilitat?",
+    "answerOptions": [
+      {
+        "text": "Aporta visibilitat a nivell d’API gateway: volum de crides, codis HTTP, latència i metadades de peticions.",
+        "isCorrect": true,
+        "rationale": "És especialment útil per detectar errors 4xx/5xx i problemes d’integració."
+      },
+      {
+        "text": "Substitueix el tracing distribuït entre microserveis.",
+        "isCorrect": false,
+        "rationale": "Pot aportar visibilitat a la capa gateway, però no substitueix traces end‑to‑end."
+      },
+      {
+        "text": "Només gestiona configuració de DNS.",
+        "isCorrect": false,
+        "rationale": "No és la seva funció."
+      },
+      {
+        "text": "És una eina exclusiva per generar col·leccions Postman.",
+        "isCorrect": false,
+        "rationale": "Postman és per proves; l’API manager governa/exposa/monitoritza APIs."
+      }
+    ],
+    "hint": "Fixa’t en codis HTTP i metadades."
+  },
+  {
+    "guid": "9979452e-c468-4657-8170-f9e71086aab5",
+    "subjectId": "T25",
+    "difficulty": 4,
+    "origin": "OPOS24_gpt",
+    "type": "test",
+    "question": "Quin és un argument correcte per justificar 'temps real' com a característica essencial?",
+    "answerOptions": [
+      {
+        "text": "Redueix el MTTD perquè permet detectar desviacions immediatament i activar resposta abans que l’impacte escali.",
+        "isCorrect": true,
+        "rationale": "Temps real accelera detecció i resposta, especialment en serveis crítics."
+      },
+      {
+        "text": "Permet eliminar la necessitat d’històric.",
+        "isCorrect": false,
+        "rationale": "L’històric és necessari per tendències, comparatives i ML."
+      },
+      {
+        "text": "Garanteix per si sol que no hi haurà incidents.",
+        "isCorrect": false,
+        "rationale": "Calen processos i accions; el temps real només aporta visibilitat."
+      },
+      {
+        "text": "És rellevant només per logs, no per mètriques.",
+        "isCorrect": false,
+        "rationale": "És rellevant per tots els senyals."
+      }
+    ]
+  },
+  {
+    "guid": "d2e7b9ac-0e2b-452b-bf5a-2dccdf882ab1",
+    "subjectId": "T25",
+    "difficulty": 3,
+    "origin": "OPOS24_gpt",
+    "type": "test",
+    "question": "Quina decisió és més adequada per equilibrar cost i utilitat en retenció de dades d’observabilitat?",
+    "answerOptions": [
+      {
+        "text": "Definir polítiques diferenciades: alta resolució a curt termini i agregació/arxiu a llarg termini segons necessitat i normativa.",
+        "isCorrect": true,
+        "rationale": "Permet diagnosi recent detallada i històric útil amb cost controlat."
+      },
+      {
+        "text": "Guardar tot a màxima resolució indefinidament.",
+        "isCorrect": false,
+        "rationale": "Cost molt alt i pot vulnerar polítiques de retenció/compliment."
+      },
+      {
+        "text": "Eliminar tota la informació passada una hora.",
+        "isCorrect": false,
+        "rationale": "Impedeix anàlisi d’incidents i tendències."
+      },
+      {
+        "text": "Només guardar dashboards, no les dades originals.",
+        "isCorrect": false,
+        "rationale": "Sense dades originals, no es pot investigar ni recalcular consultes."
+      }
+    ],
+    "hint": "Pensa en estratègies de retenció i agregació."
+  }
+]
