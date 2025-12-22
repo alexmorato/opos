@@ -1,0 +1,312 @@
+[
+  {
+    "guid": "940194d1-ab93-4e85-9da8-66eb23975321",
+    "subjectId": "T31",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "En la arquitectura de UC4/Automic Automation, ¿cuál es la función principal del componente 'Agent'?",
+    "answerOptions": [
+      {
+        "text": "Gestionar la planificación central de todos los procesos y decidir cuándo se ejecuta cada tarea.",
+        "isCorrect": false,
+        "rationale": "Esta describe la responsabilidad del 'Engine' o servidor central, no la del componente que actúa en los sistemas de destino."
+      },
+      {
+        "text": "Almacenar de forma persistente toda la configuración, los calendarios y los logs de auditoría.",
+        "isCorrect": false,
+        "rationale": "Esta función corresponde al repositorio central, que es la base de datos del sistema, no al componente de ejecución remota."
+      },
+      {
+        "text": "Ejecutar físicamente las tareas (jobs) en los servidores de destino, ya sean Windows, Linux o SAP.",
+        "isCorrect": true,
+        "rationale": "El Agent es el 'brazo ejecutor' que se instala en cada sistema remoto para llevar a cabo las órdenes que recibe del Engine."
+      },
+      {
+        "text": "Proporcionar la interfaz de usuario web (AWI) para que los operadores puedan monitorizar las ejecuciones.",
+        "isCorrect": false,
+        "rationale": "La interfaz de usuario es un componente cliente para la interacción humana, mientras que el Agent es un servicio que opera en segundo plano en los servidores."
+      }
+    ],
+    "hint": "Piense en quién realiza el trabajo directamente en la máquina remota, en contraposición a quién lo planifica."
+  },
+  {
+    "guid": "5f7e9f3d-d502-45f8-b00b-14c33d36cfd7",
+    "subjectId": "T31",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Un desarrollador necesita definir un proceso que primero extraiga datos de una base de datos (Job A) y solo si esa extracción es exitosa, transforme esos datos (Job B). ¿Qué componente de UC4 es el más adecuado para modelar esta secuencia con dependencia?",
+    "answerOptions": [
+      {
+        "text": "Un 'Schedule' (SCHED)",
+        "isCorrect": false,
+        "rationale": "Un Schedule define 'cuándo' se ejecuta algo (el calendario), pero no define la lógica de la secuencia ni las dependencias entre tareas."
+      },
+      {
+        "text": "Un 'Job' individual",
+        "isCorrect": false,
+        "rationale": "Un Job es una única unidad de trabajo. Para coordinar múltiples unidades se necesita un contenedor de nivel superior."
+      },
+      {
+        "text": "Un 'Workflow'",
+        "isCorrect": true,
+        "rationale": "El Workflow está diseñado específicamente para orquestar múltiples jobs, estableciendo el orden de ejecución y las condiciones entre ellos."
+      },
+      {
+        "text": "Una 'Alert'",
+        "isCorrect": false,
+        "rationale": "Una alerta es una notificación que se produce como resultado de un evento (como un fallo), no un componente para definir el flujo de ejecución."
+      }
+    ],
+    "hint": "Busque el componente que actúa como un contenedor o director de orquesta para varias tareas individuales."
+  },
+  {
+    "guid": "cbc37fa7-b1dd-470f-9e7b-fc296d25dba7",
+    "subjectId": "T31",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Cuál de las siguientes afirmaciones describe correctamente la diferencia fundamental entre UC4 y una herramienta como 'cron' de Linux?",
+    "answerOptions": [
+      {
+        "text": "'cron' permite ejecutar tareas en múltiples plataformas como Windows y Mainframe, mientras que UC4 solo funciona en Linux.",
+        "isCorrect": false,
+        "rationale": "Esta afirmación invierte las capacidades; UC4 es multi-plataforma, mientras que 'cron' es nativo de sistemas tipo Unix."
+      },
+      {
+        "text": "UC4 se limita a la planificación basada en tiempo, mientras que 'cron' puede gestionar dependencias complejas entre tareas.",
+        "isCorrect": false,
+        "rationale": "Es exactamente al revés: la fortaleza de UC4 reside en la gestión de dependencias, algo que 'cron' no puede hacer de forma nativa."
+      },
+      {
+        "text": "'cron' es una herramienta de monitorización en tiempo real, mientras que UC4 solo permite la ejecución de tareas.",
+        "isCorrect": false,
+        "rationale": "UC4 es una plataforma completa que incluye planificación, ejecución y monitorización, mientras que 'cron' es un simple planificador de tareas."
+      },
+      {
+        "text": "UC4 ofrece governanza, traçabilitat y gestión de dependencias, funcionalidades avanzadas que 'cron' no posee.",
+        "isCorrect": true,
+        "rationale": "Esta opción resume las ventajas clave de una plataforma de automatización empresarial como UC4 frente a un planificador básico del sistema operativo."
+      }
+    ],
+    "hint": "Considere las necesidades de una gran organización en términos de auditoría, control y relaciones entre procesos críticos."
+  },
+  {
+    "guid": "f46301d3-9c93-42aa-8548-3d5b34fbe07c",
+    "subjectId": "T31",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Dentro del ecosistema de UC4, ¿qué elemento es el responsable de almacenar de manera centralizada la configuración, los resultados de ejecuciones pasadas y los logs de auditoría?",
+    "answerOptions": [
+      {
+        "text": "El Engine",
+        "isCorrect": false,
+        "rationale": "El Engine utiliza la información almacenada, pero no es el repositorio en sí mismo; su función es la lógica de procesamiento y planificación."
+      },
+      {
+        "text": "La Base de dades",
+        "isCorrect": true,
+        "rationale": "La base de datos es el pilar de la persistencia en la arquitectura UC4, guardando todo el estado y el histórico del sistema."
+      },
+      {
+        "text": "El AWI (Automic Web Interface)",
+        "isCorrect": false,
+        "rationale": "El AWI es la capa de presentación que permite a los usuarios interactuar con los datos, pero no los almacena."
+      },
+      {
+        "text": "Cada Agent de forma individual",
+        "isCorrect": false,
+        "rationale": "Los Agents pueden generar logs locales, pero la información centralizada y consolidada para todo el sistema reside en un único repositorio."
+      }
+    ],
+    "hint": "Piense en el componente que debe ser persistente y servir como la 'fuente de la verdad' para toda la plataforma."
+  },
+  {
+    "guid": "1131d671-e7ee-4c01-adce-4a68e1a6b1d2",
+    "subjectId": "T31",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Un operador de sistemas detecta que un proceso batch nocturno ha fallado. Según los roles operativos definidos en UC4, ¿cuál es su principal responsabilidad?",
+    "answerOptions": [
+      {
+        "text": "Crear un nuevo workflow con una ruta alternativa para solucionar el problema permanentemente.",
+        "isCorrect": false,
+        "rationale": "La modificación o creación de workflows es una tarea del rol de 'Desenvolupador batch'."
+      },
+      {
+        "text": "Asignar nuevos permisos a un usuario para que pueda ejecutar el job manualmente.",
+        "isCorrect": false,
+        "rationale": "La gestión de usuarios y permisos es una función típica del 'Administrador' del sistema."
+      },
+      {
+        "text": "Supervisar la ejecución, analizar el error y, si procede, relanzar el proceso fallido.",
+        "isCorrect": true,
+        "rationale": "El rol de 'Operador' se centra en la monitorización diaria y la gestión de incidencias de primer nivel, como reintentar ejecuciones."
+      },
+      {
+        "text": "Consultar los informes de auditoría para verificar quién modificó el job por última vez.",
+        "isCorrect": false,
+        "rationale": "Aunque podría hacerlo, la consulta de logs con fines de auditoría es la función principal del 'Auditor'."
+      }
+    ],
+    "hint": "Concéntrese en la función más reactiva y de supervisión del día a día, en lugar de tareas de desarrollo o administración."
+  },
+  {
+    "guid": "8aeee58c-d185-49a3-8c7a-1f2a077da854",
+    "subjectId": "T31",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Qué representa un 'Job' en el contexto de UC4?",
+    "answerOptions": [
+      {
+        "text": "Un calendario que define los días y horas de ejecución de los procesos.",
+        "isCorrect": false,
+        "rationale": "Esta descripción corresponde a un 'Schedule', no a la unidad de ejecución."
+      },
+      {
+        "text": "La unidad mínima de ejecución, como un script, un programa o una orden SQL.",
+        "isCorrect": true,
+        "rationale": "Un Job es el bloque de construcción fundamental sobre el que se crean automatizaciones más complejas como los Workflows."
+      },
+      {
+        "text": "Un conjunto de jobs secuenciados que se ejecutan en paralelo o en serie.",
+        "isCorrect": false,
+        "rationale": "Esta definición corresponde a un 'Workflow', que agrupa y orquesta varios jobs."
+      },
+      {
+        "text": "Una notificación automática que se envía cuando un proceso termina con error.",
+        "isCorrect": false,
+        "rationale": "Esto describe la función de una 'Alerta', que es un sistema de notificación, no una tarea ejecutable."
+      }
+    ],
+    "hint": "Piense en el elemento más básico y atómico que se puede ejecutar en la plataforma."
+  },
+  {
+    "guid": "f4381637-1c56-41b7-ae9c-c72922e800dd",
+    "subjectId": "T31",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "En un caso de uso para una administración pública, se necesita ejecutar un proceso masivo de cálculo de impuestos que depende de la finalización previa de la carga de datos del padrón. ¿Qué beneficio clave de UC4 es más relevante para este escenario?",
+    "answerOptions": [
+      {
+        "text": "La interfaz web moderna y responsive (AWI).",
+        "isCorrect": false,
+        "rationale": "Aunque la AWI facilita la gestión, no es el beneficio funcional que resuelve el problema de la dependencia entre procesos."
+      },
+      {
+        "text": "La capacidad de orquestrar procesos con dependencias entre ellos.",
+        "isCorrect": true,
+        "rationale": "La gestión de dependencias es crucial para asegurar que el cálculo de impuestos no se inicie hasta que los datos de entrada estén listos, evitando errores y garantizando la fiabilidad."
+      },
+      {
+        "text": "La integración nativa y exclusiva con sistemas SAP.",
+        "isCorrect": false,
+        "rationale": "Aunque la integración con SAP es una característica importante, la clave en este escenario es la orquestación, y además UC4 no es exclusivo para SAP."
+      },
+      {
+        "text": "La posibilidad de ejecutar un job manualmente en cualquier momento.",
+        "isCorrect": false,
+        "rationale": "La ejecución manual es una funcionalidad útil, pero para un proceso automatizado y crítico como este, la gestión automática de dependencias es el beneficio principal."
+      }
+    ],
+    "hint": "Identifique la funcionalidad que asegura que un paso no comience hasta que el anterior haya terminado correctamente."
+  },
+  {
+    "guid": "bdcbbbcc-6c43-489f-beb3-f760d80435a9",
+    "subjectId": "T31",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Cuál de los siguientes componentes NO forma parte de la arquitectura principal de UC4?",
+    "answerOptions": [
+      {
+        "text": "Engine/Server",
+        "isCorrect": false,
+        "rationale": "El Engine es el cerebro del sistema, un componente central y esencial de la arquitectura."
+      },
+      {
+        "text": "Agent",
+        "isCorrect": false,
+        "rationale": "Los Agents son necesarios para ejecutar tareas en los sistemas de destino, por lo que son una parte fundamental."
+      },
+      {
+        "text": "Sistema de Ficheros de Logs (Log File System)",
+        "isCorrect": true,
+        "rationale": "Aunque se generan logs, la arquitectura se basa en una 'Base de Datos' central como repositorio, no en un sistema de ficheros como pilar principal de almacenamiento."
+      },
+      {
+        "text": "Base de dades",
+        "isCorrect": false,
+        "rationale": "La base de datos es un componente crítico que almacena toda la configuración y el estado del sistema."
+      }
+    ],
+    "hint": "Revise los cuatro pilares de la arquitectura descritos en el material: uno para la lógica, otro para la ejecución, otro para el almacenamiento y otro para la interacción."
+  },
+  {
+    "guid": "5c11595a-6bde-462c-ac9b-dd0f7410b4ce",
+    "subjectId": "T31",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Un administrador de UC4 necesita que un workflow se ejecute todos los últimos viernes de cada mes, excepto si es un día festivo nacional. ¿Qué componente de UC4 utilizaría para configurar esta lógica de planificación compleja?",
+    "answerOptions": [
+      {
+        "text": "Las 'Variables' y 'PromptSets' del workflow.",
+        "isCorrect": false,
+        "rationale": "Las variables sirven para parametrizar la ejecución (por ejemplo, pasar una fecha o una ruta), pero no para definir el calendario de cuándo se debe ejecutar."
+      },
+      {
+        "text": "Una 'Condition' dentro del workflow.",
+        "isCorrect": false,
+        "rationale": "Las condiciones dentro de un workflow controlan el flujo entre jobs (ej: si Job A acaba OK, lanza Job B), pero no el momento de inicio del propio workflow."
+      },
+      {
+        "text": "Un 'Schedule' (SCHED).",
+        "isCorrect": true,
+        "rationale": "Los Schedules son los componentes diseñados para definir calendarios de ejecución, incluyendo reglas complejas, excepciones y días festivos."
+      },
+      {
+        "text": "El propio 'Workflow'.",
+        "isCorrect": false,
+        "rationale": "El workflow define 'qué' se hace y 'en qué orden', pero es el Schedule el que define 'cuándo' se inicia todo el proceso."
+      }
+    ],
+    "hint": "Piense en la diferencia entre definir la secuencia de tareas y definir el calendario o el 'disparador' temporal de esa secuencia."
+  },
+  {
+    "guid": "ec5c8b4c-b4a7-4234-b660-29094eb313c1",
+    "subjectId": "T31",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Según el material, ¿cuál es el nombre actual del producto UC4 y a qué compañía pertenece?",
+    "answerOptions": [
+      {
+        "text": "UC4 Automation, perteneciente a SAP.",
+        "isCorrect": false,
+        "rationale": "Aunque UC4 se integra muy bien con SAP, no es un producto de esta compañía y su nombre actual es diferente."
+      },
+      {
+        "text": "Automic Workload Automation, perteneciente a IBM.",
+        "isCorrect": false,
+        "rationale": "Existen otras herramientas de automatización en el mercado, pero el nombre y la empresa propietaria de UC4 son específicos."
+      },
+      {
+        "text": "Automic Automation, perteneciente a Broadcom.",
+        "isCorrect": true,
+        "rationale": "El material indica explícitamente que UC4 ahora se llama Automic Automation y forma parte del portafolio de Broadcom."
+      },
+      {
+        "text": "Control-M, perteneciente a BMC.",
+        "isCorrect": false,
+        "rationale": "Control-M es una herramienta competidora en el ámbito de la automatización de procesos batch, pero no es la evolución de UC4."
+      }
+    ],
+    "hint": "El material de estudio menciona la historia y el estado actual de la herramienta al principio de varias secciones."
+  }
+]
