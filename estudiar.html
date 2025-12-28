@@ -436,6 +436,7 @@
     let canRemoveFromHistory = false;
     let inactivityTimeout = null;
     const INACTIVITY_LIMIT_MS = 2 * 60 * 1000; // 2 minutes
+    let expandedOptions = {}; // Para trackear opciones expandidas { questionIndex: [optionIndex1, optionIndex2, ...] }
 
     function resetInactivityTimer() {
       if (inactivityTimeout) clearTimeout(inactivityTimeout);
@@ -558,11 +559,14 @@
       const answerOptions = pregunta.answerOptions || [];
       const opciones = answerOptions;
       const userAnswered = answers[index] !== null;
+      const currentExpanded = expandedOptions[index] || [];
 
       opciones.forEach((option, i) => {
         const isSelected = answers[index] === i;
+        const isExpanded = currentExpanded.includes(i);
         let optionClass = 'answer-option';
         let extraOnClick = '';
+        
         if (userAnswered) {
           if (option.isCorrect) {
             optionClass += ' correct';
@@ -571,19 +575,26 @@
             optionClass += ' incorrect';
             extraOnClick = `onclick=\"nextQuestion()\"`;
           } else {
-            extraOnClick = '';
+            // Opción no seleccionada: permitir expandir/colapsar
+            extraOnClick = `onclick=\"toggleOptionRationale(${i})\"`;
+            if (isExpanded) {
+              optionClass += ' incorrect';
+            }
           }
         } else if (isSelected) {
           optionClass += ' selected';
         }
+        
         // Si no está respondida, sigue usando selectAnswer
         if (!userAnswered) {
           extraOnClick = `onclick=\"selectAnswer(${i})\"`;
         }
+        
         html += `
           <div class="${optionClass}" ${extraOnClick}>
             <div class="option-content">
               <div class="option-text">${option.text}</div>`;
+        
         // Mostrar feedback si ya se respondió
         if (userAnswered) {
           if (option.isCorrect) {
@@ -594,6 +605,11 @@
             html += `
               <div class="feedback incorrect-feedback">❌ Resposta incorrecta</div>
               <div class="rationale">${option.rationale || ''}</div>`;
+          } else if (isExpanded && option.rationale) {
+            // Mostrar rationale de opción expandida (no seleccionada)
+            html += `
+              <div class="feedback incorrect-feedback">ℹ️ Informació</div>
+              <div class="rationale">${option.rationale}</div>`;
           }
         }
         html += `
@@ -619,6 +635,23 @@
         index === preguntes.length - 1 ? 'Finalitzar' : 'Següent →';
 
       resetInactivityTimer();
+    }
+
+    // Expandir/colapsar rationale de una opción no seleccionada
+    function toggleOptionRationale(optionIndex) {
+      if (!expandedOptions[currentQuestion]) {
+        expandedOptions[currentQuestion] = [];
+      }
+      const index = expandedOptions[currentQuestion].indexOf(optionIndex);
+      if (index > -1) {
+        // Ya está expandida, colapsarla
+        expandedOptions[currentQuestion].splice(index, 1);
+      } else {
+        // Expandirla
+        expandedOptions[currentQuestion].push(optionIndex);
+      }
+      // Re-renderizar la pregunta actual
+      showQuestion(currentQuestion);
     }
 
     // Seleccionar respuesta
@@ -705,6 +738,7 @@
       currentQuestion = 0;
       answers = new Array(preguntes.length).fill(null);
       showingResults = false;
+      expandedOptions = {}; // Limpiar opciones expandidas
       showQuestion(0);
       document.querySelector('.navigation').style.display = 'flex';
     }
