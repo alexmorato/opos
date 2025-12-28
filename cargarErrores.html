@@ -73,9 +73,15 @@
       font-size: 1.1rem;
       border: none;
     }
-    .main-btn:hover {
+    .main-btn:hover:not(:disabled) {
       background: #6ae0a7;
       color: #032217;
+    }
+    .main-btn:disabled {
+      background: #27304a;
+      color: #6b7585;
+      cursor: not-allowed;
+      opacity: 0.5;
     }
     .footer {
       text-align: center;
@@ -99,7 +105,7 @@
       <span id="contadorErrores"></span>
     </div>
     <div class="btn-row">
-  <button class="main-btn" id="estudiarBtn" onclick="guardarYEstudiar()" >Estudiar errors</button>
+      <button class="main-btn" id="estudiarBtn" onclick="guardarYEstudiar()" >Estudiar errors</button>
       <button onclick="window.location.href='menu.html'">⬅️ Tornar al menú</button>
     </div>
   </div>
@@ -117,6 +123,7 @@
       function actualizarContadorErrores() {
         const textarea = document.getElementById('historialTextarea');
         const contador = document.getElementById('contadorErrores');
+        const btn = document.getElementById('estudiarBtn');
         let n = 0;
         let temas = {};
         try {
@@ -133,6 +140,7 @@
           .map(([tema, count]) => `${tema}: ${count}`)
           .join(', ');
         contador.textContent = `Errores: ${n}` + (desglose ? ` (${desglose})` : '');
+        btn.disabled = textarea.value.trim() === '';
       }
     });
 
