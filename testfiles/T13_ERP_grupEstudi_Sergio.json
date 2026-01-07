@@ -1,606 +1,895 @@
 [
   {
-    "guid": "7f0a3f6a-6c8b-4ed4-a256-cd0c1b7c9b01",
+    "guid": "f7c9a4d1-4d8a-4f7e-9a21-5a2f8c7d1b01",
     "subjectId": "T13",
-    "difficulty": 1,
+    "difficulty": 4,
     "origin": "OPOS24_gpt",
     "type": "test",
-    "question": "Quina és la funció principal d’un sistema ERP?",
+    "question": "En un procés Procure-to-Pay, quin mòdul d’ERP acostuma a ser el responsable de la comptabilització automàtica del passiu quan arriba la factura del proveïdor, assumint integració estàndard amb compres?",
     "answerOptions": [
-      { "text": "Crear pàgines web", "isCorrect": false, "rationale": "Això correspon a CMS o desenvolupament web, no a ERP." },
-      { "text": "Gestionar correus electrònics", "isCorrect": false, "rationale": "Això correspon a sistemes de correu/col·laboració, no a ERP." },
-      { "text": "Integrar i gestionar recursos empresarials", "isCorrect": true, "rationale": "Un ERP integra processos i dades clau de l’empresa (finances, compres, RH, etc.)." },
-      { "text": "Fer publicitat a xarxes socials", "isCorrect": false, "rationale": "Això correspon a màrqueting digital/CRM, no a ERP." }
+      { "text": "Finances (Comptes a pagar)", "isCorrect": true, "rationale": "L’assentament del passiu (AP) és funció de finances; compres alimenta la factura però la comptabilització la fa FI/AP." },
+      { "text": "Compres / Procurement", "isCorrect": false, "rationale": "Compres gestiona ordres i recepcions; la comptabilització del passiu és de finances." },
+      { "text": "Gestió d’inventari / Magatzem", "isCorrect": false, "rationale": "Magatzem reflecteix entrades/sortides; el passiu per factura es registra a FI/AP." },
+      { "text": "EPM", "isCorrect": false, "rationale": "EPM és planificació/pressupost, no comptabilització operativa." }
     ],
-    "hint": "Pensa en integració de processos i dades de l’empresa."
+    "hint": "Pensa en qui porta comptes a pagar i assentaments comptables."
   },
   {
-    "guid": "0b9ad0a4-9b6b-4e2a-9a13-2b43b3d2a102",
+    "guid": "a2a6b9f2-3e51-48c8-8c0a-01f9d4e2b502",
     "subjectId": "T13",
-    "difficulty": 1,
+    "difficulty": 4,
     "origin": "OPOS24_gpt",
     "type": "test",
-    "question": "Quin mòdul ERP s'encarrega de la gestió de nòmines?",
+    "question": "Una organització vol controlar disponibilitat de pressupost abans d’emetre una ordre de compra. Quin conjunt de mòduls cobreix millor aquesta necessitat de forma estàndard?",
     "answerOptions": [
-      { "text": "Producció", "isCorrect": false, "rationale": "Producció gestiona fabricació/operacions, no nòmines." },
-      { "text": "Recursos Humans", "isCorrect": true, "rationale": "El mòdul d’RH inclou nòmina, personal, absentisme i gestió laboral." },
-      { "text": "Vendes", "isCorrect": false, "rationale": "Vendes gestiona comandes, facturació comercial, etc." },
-      { "text": "Manteniment", "isCorrect": false, "rationale": "Manteniment tracta actius i ordres de manteniment, no nòmines." }
+      { "text": "Compres + EPM (pressupost/planificació) amb control de compromisos", "isCorrect": true, "rationale": "El control pressupostari (budget/commitments) s’encaixa típicament amb EPM o control pressupostari integrat, connectat a compres." },
+      { "text": "CRM + Vendes", "isCorrect": false, "rationale": "CRM/Vendes no governen compromisos pressupostaris de compra." },
+      { "text": "Qualitat + Producció", "isCorrect": false, "rationale": "Qualitat/Producció poden crear necessitats, però no fan control pressupostari de compra." },
+      { "text": "BI + DMS", "isCorrect": false, "rationale": "BI/DMS informen i documenten, però no executen control preventiu d’acceptació de despesa." }
     ],
-    "hint": "Nòmines = gestió de persones."
+    "hint": "‘Abans de comprar’ = control preventiu de compromís/pressupost."
   },
   {
-    "guid": "a3c8b4a8-8f2a-4e2a-9a67-5c74665a9f03",
+    "guid": "d8d8c8d3-2e16-4d0c-a1f1-2f6c0d1c0a03",
     "subjectId": "T13",
-    "difficulty": 1,
+    "difficulty": 4,
     "origin": "OPOS24_gpt",
     "type": "test",
-    "question": "Què significa ERP?",
+    "question": "Quina diferència és més precisa entre MDM i un mòdul de BI dins d’un ERP?",
     "answerOptions": [
-      { "text": "Enterprise Resource Planning", "isCorrect": true, "rationale": "És l’acrònim estàndard d’ERP." },
-      { "text": "Electronic Reporting Platform", "isCorrect": false, "rationale": "No és el significat d’ERP." },
-      { "text": "External Resource Provider", "isCorrect": false, "rationale": "No és el significat d’ERP." },
-      { "text": "Efficient Reporting Process", "isCorrect": false, "rationale": "No és el significat d’ERP." }
+      { "text": "MDM governa i manté dades mestres consistents; BI analitza i explota dades per informes i decisió", "isCorrect": true, "rationale": "MDM s’enfoca a qualitat/consistència de dades mestres; BI a analítica i reporting." },
+      { "text": "MDM només serveix per a dades de facturació; BI només per a dades de magatzem", "isCorrect": false, "rationale": "Ambdós són transversals; no estan limitats a un domini." },
+      { "text": "MDM substitueix completament el Product Backlog; BI substitueix la comptabilitat", "isCorrect": false, "rationale": "Concepte incorrecte." },
+      { "text": "BI crea dades mestres i les distribueix; MDM només fa dashboards", "isCorrect": false, "rationale": "És a l’inrevés." }
     ],
-    "hint": "És un acrònim molt conegut en gestió empresarial."
+    "hint": "MDM = veritat de dades mestres; BI = informes/analítica."
   },
   {
-    "guid": "c3b7d2e1-1b2c-4f1e-9a77-82c9c96f2a04",
+    "guid": "2a0d7b04-69a8-4f30-8f3b-6a1f6c2b7c04",
     "subjectId": "T13",
-    "difficulty": 1,
+    "difficulty": 4,
     "origin": "OPOS24_gpt",
     "type": "test",
-    "question": "Quin avantatge ofereix un ERP?",
+    "question": "En un Order-to-Cash, quin mòdul és el més directament responsable de la gestió de cobrament (accounts receivable) i conciliació de pagaments, sense entrar en la gestió comercial?",
     "answerOptions": [
-      { "text": "Més correus electrònics", "isCorrect": false, "rationale": "No és un objectiu d’ERP." },
-      { "text": "Més reunions", "isCorrect": false, "rationale": "No és un benefici intrínsec d’ERP." },
-      { "text": "Reducció de costos operacionals", "isCorrect": true, "rationale": "L’ERP redueix duplicitats, millora processos i pot reduir costos operatius." },
-      { "text": "Més impressió de documents", "isCorrect": false, "rationale": "No és un avantatge; sovint es busca digitalitzar." }
+      { "text": "Finances (Comptes a cobrar)", "isCorrect": true, "rationale": "AR gestiona cobrament, conciliació i deute; vendes gestiona comandes/factures comercials però la cartera és FI/AR." },
+      { "text": "CRM", "isCorrect": false, "rationale": "CRM gestiona relació i oportunitats; no és el mòdul comptable de cobrament." },
+      { "text": "Vendes i distribució", "isCorrect": false, "rationale": "SD inicia facturació i condicions, però AR porta el cobrament comptable." },
+      { "text": "BI", "isCorrect": false, "rationale": "BI analitza, però no executa cobrament." }
     ],
-    "hint": "Pensa en eficiència i eliminació de duplicitats."
+    "hint": "Cobrament i conciliació = cartera (AR)."
   },
   {
-    "guid": "0d15b4a9-5c35-4e63-8de1-b2e2b5b5d105",
+    "guid": "8a5d3c05-0d0c-4b2a-9d2a-6e6b8a9c3a05",
     "subjectId": "T13",
-    "difficulty": 1,
+    "difficulty": 4,
     "origin": "OPOS24_gpt",
     "type": "test",
-    "question": "Quin mòdul gestiona les compres i proveïdors?",
+    "question": "Una empresa vol traçabilitat obligatòria de lots i caducitats, amb bloqueig de lot en cas de no conformitat. Quin binomi de mòduls acostuma a resoldre-ho millor?",
     "answerOptions": [
-      { "text": "CRM", "isCorrect": false, "rationale": "CRM s’orienta a relació amb clients." },
-      { "text": "SCM", "isCorrect": false, "rationale": "SCM és cadena de subministrament global; compres i proveïdors s’associa més directament a SRM." },
-      { "text": "SRM", "isCorrect": true, "rationale": "SRM (Supplier Relationship Management) gestiona compres, proveïdors i relació amb subministradors." },
-      { "text": "EPM", "isCorrect": false, "rationale": "EPM és rendiment empresarial (planificació, pressupostos, etc.)." }
+      { "text": "Gestió de Magatzem/Inventari + Qualitat", "isCorrect": true, "rationale": "Lots/caducitats i traçabilitat es gestionen a inventari/magatzem; bloquejos per no conformitat s’encaixen amb Qualitat." },
+      { "text": "EPM + BI", "isCorrect": false, "rationale": "EPM/BI no controlen operativa de lots ni bloquejos transaccionals." },
+      { "text": "CRM + SRM", "isCorrect": false, "rationale": "Relació amb clients/proveïdors no implementa el control operatiu de lots." },
+      { "text": "Projectes + Tresoreria", "isCorrect": false, "rationale": "No és el domini." }
     ],
-    "hint": "Clients = CRM; proveïdors = ?"
+    "hint": "Lot/caducitat és operativa; bloqueig per qualitat és QM."
   },
   {
-    "guid": "e8b0f6c4-1a13-4b0d-93a6-6f0b7c1d9f06",
+    "guid": "b2cbbd06-11e9-4e25-bc67-3c7c4a9c4c06",
     "subjectId": "T13",
-    "difficulty": 1,
+    "difficulty": 4,
     "origin": "OPOS24_gpt",
     "type": "test",
-    "question": "Quin sistema ERP és una evolució que integra processos externs?",
+    "question": "Quin enunciat descriu millor la diferència pràctica entre CO (control de gestió) i EPM?",
     "answerOptions": [
-      { "text": "MRP I", "isCorrect": false, "rationale": "MRP I se centra en requeriments de materials, no en processos externs." },
-      { "text": "ERP II", "isCorrect": true, "rationale": "ERP II amplia l’ERP integrant processos i col·laboració externa (clients/proveïdors)." },
-      { "text": "BPM", "isCorrect": false, "rationale": "BPM és gestió de processos de negoci, no una evolució d’ERP com a etapa." },
-      { "text": "CRM", "isCorrect": false, "rationale": "CRM és relació amb clients; pot integrar-se amb ERP però no és l’evolució ERP II." }
+      { "text": "CO calcula costos i rendibilitat operativa; EPM planifica, pressuposta i fa seguiment executiu (forecast, consolidació, KPIs)", "isCorrect": true, "rationale": "CO és més transaccional/analític de costos; EPM és planificació i gestió del rendiment." },
+      { "text": "CO només és per a nòmines; EPM només per a compres", "isCorrect": false, "rationale": "Incorrecte." },
+      { "text": "EPM substitueix la comptabilitat general; CO és només reporting", "isCorrect": false, "rationale": "FI porta comptabilitat general; CO no és només reporting." },
+      { "text": "CO és un mòdul de CRM; EPM és un mòdul de magatzem", "isCorrect": false, "rationale": "Incorrecte." }
     ],
-    "hint": "ERP II = ERP + col·laboració externa."
+    "hint": "CO = costos; EPM = pressupost/forecast/KPIs."
   },
   {
-    "guid": "1b4a8a27-0d4a-4dc1-9f2d-6a1f0b9c8d07",
+    "guid": "0c8d1a07-9ed9-4d9c-9f2b-10e7f8e8d807",
     "subjectId": "T13",
-    "difficulty": 1,
+    "difficulty": 4,
     "origin": "OPOS24_gpt",
     "type": "test",
-    "question": "Quin mòdul s'encarrega de la gestió financera?",
+    "question": "En un ERP, quin mòdul és més probable que gestioni polítiques de segregació de funcions (SoD) i controls d’accés per risc d’auditoria?",
     "answerOptions": [
-      { "text": "Producció", "isCorrect": false, "rationale": "Producció tracta fabricació/operacions." },
-      { "text": "Vendes", "isCorrect": false, "rationale": "Vendes tracta activitat comercial." },
-      { "text": "Finances", "isCorrect": true, "rationale": "El mòdul financer cobreix comptabilitat, tancaments, tresoreria, etc." },
-      { "text": "Manteniment", "isCorrect": false, "rationale": "Manteniment tracta actius i ordres de treball." }
+      { "text": "GRC / Compliance", "isCorrect": true, "rationale": "GRC gestiona riscos, controls, SoD i evidències d’auditoria sobre accessos i processos." },
+      { "text": "Producció", "isCorrect": false, "rationale": "Producció no governa controls d’accés i SoD." },
+      { "text": "BI", "isCorrect": false, "rationale": "BI pot auditar/reportar, però SoD és governança i control." },
+      { "text": "CRM", "isCorrect": false, "rationale": "CRM no és el mòdul típic de controls SoD." }
     ],
-    "hint": "Comptabilitat i tresoreria."
+    "hint": "SoD i auditories = govern, risc i compliment."
   },
   {
-    "guid": "9c8d7e6f-5a4b-4c3d-9f2e-1a0b9c8d7e08",
+    "guid": "6f9d2a08-4f2c-4d9c-9b1b-12f0ce1f2a08",
     "subjectId": "T13",
-    "difficulty": 1,
+    "difficulty": 4,
     "origin": "OPOS24_gpt",
     "type": "test",
-    "question": "Quin tipus de dades utilitza un ERP?",
+    "question": "Un equip vol optimitzar picking, ubicacions, onades (waves) i rutes dins del magatzem. Quin mòdul és el més alineat?",
     "answerOptions": [
-      { "text": "Dades duplicades", "isCorrect": false, "rationale": "Un ERP busca evitar duplicats amb una font comuna." },
-      { "text": "Dades disperses", "isCorrect": false, "rationale": "Un ERP intenta unificar, no dispersar." },
-      { "text": "Dades centralitzades", "isCorrect": true, "rationale": "ERP tendeix a centralitzar dades i processos per coherència i integritat." },
-      { "text": "Dades fictícies", "isCorrect": false, "rationale": "No té sentit en un ERP corporatiu." }
+      { "text": "Gestió de Magatzem (WMS/WM)", "isCorrect": true, "rationale": "WMS/WM gestiona ubicacions, picking, waves, operativa detallada de magatzem." },
+      { "text": "Inventari (IM) només", "isCorrect": false, "rationale": "IM controla estoc; WMS afegeix operativa avançada de magatzem." },
+      { "text": "EAM/CMMS", "isCorrect": false, "rationale": "EAM és manteniment d’actius." },
+      { "text": "EPM", "isCorrect": false, "rationale": "EPM no opera magatzem." }
     ],
-    "hint": "Idea clau: una única base de dades o repositori coherent."
+    "hint": "Ubicacions i picking avançat = WMS."
   },
   {
-    "guid": "2a1f0b9c-8d7e-4c3d-9f2e-6b5a4f3e2d09",
+    "guid": "1b0c9f09-1a76-4c8c-8b8b-91fdf1c8c109",
     "subjectId": "T13",
-    "difficulty": 1,
+    "difficulty": 4,
     "origin": "OPOS24_gpt",
     "type": "test",
-    "question": "Quin benefici aporta la visió unificada de l’ERP?",
+    "question": "Quin mòdul és més idoni per gestionar el cicle de vida d’un actiu (alta, amortització, baixa) i el seu impacte comptable?",
     "answerOptions": [
-      { "text": "Més confusió", "isCorrect": false, "rationale": "La visió unificada busca precisament reduir confusió." },
-      { "text": "Millor col·laboració", "isCorrect": true, "rationale": "Compartir informació i processos en temps real facilita coordinació i col·laboració." },
-      { "text": "Més silos d’informació", "isCorrect": false, "rationale": "Un ERP elimina silos, no els crea." },
-      { "text": "Menys comunicació", "isCorrect": false, "rationale": "Habitualment millora la comunicació entre departaments." }
+      { "text": "Finances (Asset Accounting / immobilitzat)", "isCorrect": true, "rationale": "L’immobilitzat i amortitzacions són funció de finances (subledger d’actius) amb assentaments comptables." },
+      { "text": "EAM/CMMS", "isCorrect": false, "rationale": "EAM gestiona manteniment físic; l’impacte comptable d’amortització és FI." },
+      { "text": "Qualitat", "isCorrect": false, "rationale": "Qualitat no gestiona immobilitzat." },
+      { "text": "CRM", "isCorrect": false, "rationale": "CRM no aplica." }
     ],
-    "hint": "Silos vs dades compartides."
+    "hint": "Amortització i baixa = comptabilitat d’actius."
   },
   {
-    "guid": "6b5a4f3e-2d1c-4b0a-9c8d-7e6f5a4b3c10",
+    "guid": "d3b6a90a-2c6a-4d41-9dbd-8f0b7c1d1a0a",
     "subjectId": "T13",
-    "difficulty": 1,
+    "difficulty": 4,
     "origin": "OPOS24_gpt",
     "type": "test",
-    "question": "Quin sistema ERP és ideal per a PIMES amb flexibilitat?",
+    "question": "Quin escenari encaixa millor amb un mòdul BPM/Workflow integrat a ERP?",
     "answerOptions": [
-      { "text": "ERP on-premise", "isCorrect": false, "rationale": "Pot ser adequat, però acostuma a requerir més infraestructura i manteniment intern." },
-      { "text": "ERP II", "isCorrect": false, "rationale": "És una evolució d’abast, però no necessàriament la millor opció típica per PIMES per flexibilitat i costos inicials." },
-      { "text": "ERP Cloud", "isCorrect": true, "rationale": "Sovint aporta escalabilitat, accés i costos inicials més baixos, ideal per moltes PIMES." },
-      { "text": "MRP II", "isCorrect": false, "rationale": "MRP II és planificació de recursos de fabricació, no la resposta típica per PIMES." }
+      { "text": "Circuit d’aprovació d’una factura amb regles per import i centre de cost, generant traça i evidències", "isCorrect": true, "rationale": "BPM/Workflow automatitza processos d’aprovació amb regles, rols, traçabilitat i SLA." },
+      { "text": "Càlcul d’amortització mensual d’actius", "isCorrect": false, "rationale": "Això és funció de finances/immobilitzat." },
+      { "text": "Optimització de picking per rutes", "isCorrect": false, "rationale": "Això és WMS." },
+      { "text": "Predicció de demanda amb models estadístics", "isCorrect": false, "rationale": "Això s’associa a SCM/planificació i analítica avançada." }
     ],
-    "hint": "Cost inicial + escalabilitat + manteniment."
+    "hint": "Workflow = aprovacions i processos amb rols i traça."
   },
 
   {
-    "guid": "b7c6d5e4-f3a2-4b1c-9d8e-7f6a5b4c3d11",
+    "guid": "3f2b0c0b-3e1d-4af4-8d0e-1bb3b75e9b0b",
     "subjectId": "T13",
-    "difficulty": 2,
+    "difficulty": 4,
     "origin": "OPOS24_gpt",
     "type": "test",
-    "question": "Quina diferència principal hi ha entre ERP i ERP II?",
+    "question": "En un entorn públic, es requereix rastre d’auditoria complet de qui ha aprovat una despesa i en quin moment. Quin mòdul aporta millor la capa de traçabilitat de procés (més enllà del registre comptable)?",
     "answerOptions": [
-      { "text": "ERP II només gestiona finances", "isCorrect": false, "rationale": "ERP II no es limita a finances; amplia l’abast." },
-      { "text": "ERP II integra processos interns i externs", "isCorrect": true, "rationale": "ERP II amplia l’ERP incorporant integració/col·laboració amb entorn extern (clients/proveïdors)." },
-      { "text": "ERP II no utilitza bases de dades", "isCorrect": false, "rationale": "ERP II continua basant-se en dades integrades." },
-      { "text": "ERP II és exclusiu per a empreses petites", "isCorrect": false, "rationale": "No és exclusiu; aplica a diferents mides d’organització." }
+      { "text": "BPM/Workflow + DMS (registre d’aprovacions i evidències)", "isCorrect": true, "rationale": "Workflow registra passos i aprovacions; DMS guarda evidències/documentació; el registre comptable sol no capturar tota la traça de procés." },
+      { "text": "Tresoreria", "isCorrect": false, "rationale": "Tresoreria gestiona caixa/pagaments, no el circuit d’aprovació complet." },
+      { "text": "Producció", "isCorrect": false, "rationale": "No aplica." },
+      { "text": "CRM", "isCorrect": false, "rationale": "No és el domini d’aprovació de despesa." }
     ],
-    "hint": "Pensa en l’abast: dins vs dins+fora."
+    "hint": "Traça de 'qui aprova' = workflow; evidències = documental."
   },
   {
-    "guid": "d6e5f4a3-b2c1-4d8e-9f0a-1b2c3d4e5f12",
+    "guid": "9e0a1b0c-4a7b-4e61-8b19-3c2d1e0f1a0c",
     "subjectId": "T13",
-    "difficulty": 2,
+    "difficulty": 4,
     "origin": "OPOS24_gpt",
     "type": "test",
-    "question": "Quin dels següents mòduls ERP permet fer seguiment del rendiment dels empleats?",
+    "question": "Quina combinació és més típica per donar suport a planificació de demanda, reposició i planificació de subministrament?",
     "answerOptions": [
-      { "text": "Gestió de projectes", "isCorrect": false, "rationale": "Projectes pot mesurar productivitat de projectes, però el rendiment d’empleats s’emmarca a RH." },
-      { "text": "Gestió financera", "isCorrect": false, "rationale": "Finances tracta comptabilitat i tresoreria." },
-      { "text": "Recursos Humans", "isCorrect": true, "rationale": "RH inclou avaluació, desenvolupament, objectius i seguiment de rendiment." },
-      { "text": "CRM", "isCorrect": false, "rationale": "CRM tracta relació amb clients." }
+      { "text": "SCM + Inventari/Magatzem", "isCorrect": true, "rationale": "SCM cobreix planificació i flux; inventari/magatzem executa i reflecteix estoc i moviments." },
+      { "text": "CRM + Qualitat", "isCorrect": false, "rationale": "No és el focus principal per demanda i reposició." },
+      { "text": "EAM + Tresoreria", "isCorrect": false, "rationale": "No aplica." },
+      { "text": "DMS + GRC", "isCorrect": false, "rationale": "Governança i documents, no planificació de subministrament." }
     ],
-    "hint": "Rendiment de persones = HR/HRM/HCM."
+    "hint": "Demanda i reposició = supply chain."
   },
   {
-    "guid": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c13",
+    "guid": "4c1d2e0d-5b6c-4d7e-8f9a-0b1c2d3e4f0d",
     "subjectId": "T13",
-    "difficulty": 2,
+    "difficulty": 4,
     "origin": "OPOS24_gpt",
     "type": "test",
-    "question": "Quina característica defineix un ERP composable?",
+    "question": "En la gestió d’incidències de servei postvenda (tickets) i SLA amb clients, quin mòdul és més habitual?",
     "answerOptions": [
-      { "text": "És un sistema tancat i rígid", "isCorrect": false, "rationale": "Composable busca flexibilitat i modularitat, no rigidesa." },
-      { "text": "Està basat en microserveis i components intercanviables", "isCorrect": true, "rationale": "Composable ERP es basa en components (packaged business capabilities) i APIs per combinar mòduls." },
-      { "text": "Només funciona en entorns on-premise", "isCorrect": false, "rationale": "Pot desplegar-se en cloud/híbrid; no és exclusiu on-premise." },
-      { "text": "No permet personalització", "isCorrect": false, "rationale": "Permet configuració i modularitat; la clau és composar components." }
+      { "text": "CRM (Service/Customer Support)", "isCorrect": true, "rationale": "La gestió de casos/tickets i SLA amb clients s’inclou sovint a CRM o mòduls de servei." },
+      { "text": "Finances (AR)", "isCorrect": false, "rationale": "AR és cobrament, no tickets." },
+      { "text": "Producció (PP)", "isCorrect": false, "rationale": "No és el domini." },
+      { "text": "EPM", "isCorrect": false, "rationale": "EPM és planificació i rendiment, no suport operatiu." }
     ],
-    "hint": "Composable = peces intercanviables + APIs."
+    "hint": "Tickets i SLA amb client = servei al client."
   },
   {
-    "guid": "0e1f2a3b-4c5d-4e6f-8a9b-1c2d3e4f5a14",
+    "guid": "5a4b3c0e-1f2e-4a3b-9c2d-1e0f2a3b4c0e",
     "subjectId": "T13",
-    "difficulty": 2,
+    "difficulty": 4,
     "origin": "OPOS24_gpt",
     "type": "test",
-    "question": "Quin risc pot aparèixer si es personalitza massa un ERP?",
+    "question": "Quin mòdul gestiona habitualment el procés de 'closing' (tancament) i consolidació comptable mensual/anual?",
     "answerOptions": [
-      { "text": "Augment de la velocitat del sistema", "isCorrect": false, "rationale": "La personalització excessiva no garanteix velocitat; sovint complica." },
-      { "text": "Dificultat en el manteniment i actualitzacions", "isCorrect": true, "rationale": "Moltes customitzacions incrementen dependència, cost i dificulten upgrades." },
-      { "text": "Millora de la seguretat", "isCorrect": false, "rationale": "Pot introduir riscos i codi no estàndard; no és una millora automàtica." },
-      { "text": "Reducció de costos", "isCorrect": false, "rationale": "Normalment incrementa costos a mig/llarg termini." }
+      { "text": "Finances (GL i consolidació, si escau)", "isCorrect": true, "rationale": "El tancament comptable i consolidació s’executa a finances (GL) i eines de consolidació integrades." },
+      { "text": "BI", "isCorrect": false, "rationale": "BI pot reportar, però el tancament és transaccional i comptable." },
+      { "text": "WMS", "isCorrect": false, "rationale": "WMS opera magatzem." },
+      { "text": "EAM", "isCorrect": false, "rationale": "EAM manté actius i ordres, no tancaments comptables." }
+    ],
+    "hint": "Closing = comptabilitat general."
+  },
+  {
+    "guid": "6b5a4f0f-2d1c-4b0a-9c8d-7e6f5a4b3c0f",
+    "subjectId": "T13",
+    "difficulty": 4,
+    "origin": "OPOS24_gpt",
+    "type": "test",
+    "question": "Quina afirmació és més correcta sobre la relació entre DMS/ECM i un ERP?",
+    "answerOptions": [
+      { "text": "DMS/ECM gestiona versions, custòdia i flux documental; l’ERP referencia documents en processos (factures, contractes) però no sempre n’és el repositori principal", "isCorrect": true, "rationale": "ERP sovint integra amb ECM per arxiu, versions i govern documental." },
+      { "text": "DMS/ECM només serveix per substituir el mòdul de nòmina", "isCorrect": false, "rationale": "No és el seu propòsit." },
+      { "text": "L’ERP no pot integrar-se amb DMS perquè les dades són incompatibles", "isCorrect": false, "rationale": "La integració és habitual." },
+      { "text": "DMS/ECM és el mateix que BI", "isCorrect": false, "rationale": "Són dominis diferents." }
+    ],
+    "hint": "ERP = processos; ECM = documents i evidències."
+  },
+  {
+    "guid": "7c6d5b10-3f2e-4a1b-9c0d-8e7f6a5b4c10",
+    "subjectId": "T13",
+    "difficulty": 4,
+    "origin": "OPOS24_gpt",
+    "type": "test",
+    "question": "Quan es diu que un ERP és 'composable', quin risc tècnic/operatiu és més probable si no hi ha bona governança d’APIs?",
+    "answerOptions": [
+      { "text": "Proliferació d’integracions fràgils i trencaments en canvis de versions d’API", "isCorrect": true, "rationale": "Composable depèn d’APIs; sense governança es multipliquen dependències i es trenquen contractes." },
+      { "text": "Impossibilitat de fer reporting perquè no existeixen dades", "isCorrect": false, "rationale": "El reporting pot existir; el risc principal és integració i contractes." },
+      { "text": "Amortització incorrecta d’actius per definició", "isCorrect": false, "rationale": "No és inherent a composable." },
+      { "text": "Eliminació automàtica de controls SoD", "isCorrect": false, "rationale": "SoD és governança; no s’elimina per definició." }
+    ],
+    "hint": "Composable = moltes APIs = risc de contractes i versions."
+  },
+
+  {
+    "guid": "8d7e6f11-5a4b-4c3d-9f2e-1a0b9c8d7e11",
+    "subjectId": "T13",
+    "difficulty": 4,
+    "origin": "OPOS24_gpt",
+    "type": "test",
+    "question": "En un procés de fabricació, quin mòdul sol calcular necessitats de materials en base a llistes de materials (BOM) i ordres planificades?",
+    "answerOptions": [
+      { "text": "Producció / Planificació (MRP dins de Manufacturing/PP)", "isCorrect": true, "rationale": "El càlcul de necessitats (MRP) i planificació de producció és propi del domini de producció/planificació." },
+      { "text": "CRM", "isCorrect": false, "rationale": "CRM no fa MRP." },
+      { "text": "GRC", "isCorrect": false, "rationale": "GRC és controls i risc." },
+      { "text": "DMS", "isCorrect": false, "rationale": "DMS no planifica materials." }
+    ],
+    "hint": "BOM + ordres = MRP/planificació de producció."
+  },
+  {
+    "guid": "9f0a1b12-3d4e-4f5a-8b6c-7d8e9f0a1b12",
+    "subjectId": "T13",
+    "difficulty": 4,
+    "origin": "OPOS24_gpt",
+    "type": "test",
+    "question": "Quina és la millor ubicació funcional per controlar 'manteniment preventiu' basat en hores de funcionament i historial d’avaries?",
+    "answerOptions": [
+      { "text": "EAM/CMMS", "isCorrect": true, "rationale": "EAM/CMMS gestiona plans preventius, comptadors, historial i ordres de treball." },
+      { "text": "Finances (CO)", "isCorrect": false, "rationale": "CO pot imputar costos, però no gestiona plans de manteniment." },
+      { "text": "CRM", "isCorrect": false, "rationale": "No és el domini d’actius interns." },
+      { "text": "EPM", "isCorrect": false, "rationale": "EPM planifica pressupost, no ordres de manteniment." }
+    ],
+    "hint": "Preventiu i comptadors = manteniment d’actius."
+  },
+  {
+    "guid": "0a1b2c13-4e5f-4a6b-8c9d-0e1f2a3b4c13",
+    "subjectId": "T13",
+    "difficulty": 4,
+    "origin": "OPOS24_gpt",
+    "type": "test",
+    "question": "En un ERP, quin mòdul acostuma a ser el punt d’origen de les condicions comercials (descomptes, tarifes, promocions) que després afecten facturació?",
+    "answerOptions": [
+      { "text": "Vendes/Distribució", "isCorrect": true, "rationale": "Les condicions comercials se solen gestionar al domini de vendes; finances registra l’efecte comptable." },
+      { "text": "Tresoreria", "isCorrect": false, "rationale": "Tresoreria gestiona caixa i bancs." },
+      { "text": "Qualitat", "isCorrect": false, "rationale": "No aplica." },
+      { "text": "MDM", "isCorrect": false, "rationale": "MDM governa dades mestres; condicions comercials són regles comercials." }
+    ],
+    "hint": "Tarifes i descomptes = venda, no comptabilitat."
+  },
+  {
+    "guid": "b3c4d514-6e7f-4a8b-9c0d-1e2f3a4b5c14",
+    "subjectId": "T13",
+    "difficulty": 4,
+    "origin": "OPOS24_gpt",
+    "type": "test",
+    "question": "Quin enunciat descriu millor el rol de BI respecte a l’operativa d’un ERP?",
+    "answerOptions": [
+      { "text": "BI aporta explotació analítica i dashboards, però normalment no és el sistema de registre transaccional", "isCorrect": true, "rationale": "BI llegeix i analitza; l’ERP transaccional executa processos i registra transaccions." },
+      { "text": "BI substitueix el mòdul de compres i genera ordres de compra", "isCorrect": false, "rationale": "BI no acostuma a executar transaccions operatives." },
+      { "text": "BI és el mateix que SCM", "isCorrect": false, "rationale": "No; SCM gestiona supply chain." },
+      { "text": "BI és obligatori per poder fer tancaments comptables", "isCorrect": false, "rationale": "Tancament és FI; BI pot ajudar a analitzar." }
+    ],
+    "hint": "BI = lectura i anàlisi; ERP = transacció."
+  },
+  {
+    "guid": "c5d6e715-8f90-4b1c-9d2e-3f4a5b6c7d15",
+    "subjectId": "T13",
+    "difficulty": 4,
+    "origin": "OPOS24_gpt",
+    "type": "test",
+    "question": "En una auditoria es detecta que el mateix usuari pot crear proveïdors i executar pagaments. Quin mòdul o capa funcional hauria de donar la resposta més directa per mitigar el risc?",
+    "answerOptions": [
+      { "text": "GRC/Compliance amb controls SoD i revisió d’accessos", "isCorrect": true, "rationale": "SoD i controls d’accés són típicament governats per GRC i IAM/roles, evitant conflictes de funcions." },
+      { "text": "Producció", "isCorrect": false, "rationale": "No aplica." },
+      { "text": "Qualitat", "isCorrect": false, "rationale": "No és el domini." },
+      { "text": "WMS", "isCorrect": false, "rationale": "No governa pagaments ni proveïdors." }
+    ],
+    "hint": "Conflicte de funcions = SoD."
+  },
+  {
+    "guid": "d7e8f916-0a1b-4c2d-8e3f-4a5b6c7d8e16",
+    "subjectId": "T13",
+    "difficulty": 4,
+    "origin": "OPOS24_gpt",
+    "type": "test",
+    "question": "Quina situació és més pròpia d’un mòdul de Projectes dins d’un ERP que d’un mòdul EPM?",
+    "answerOptions": [
+      { "text": "Imputació d’hores i costos a WBS/tasques i seguiment d’execució del projecte", "isCorrect": true, "rationale": "Projectes gestiona estructures (WBS), execució i imputacions; EPM planifica pressupostos i rendiment agregat." },
+      { "text": "Pressupost anual corporatiu i forecast trimestral", "isCorrect": false, "rationale": "Això és propi d’EPM." },
+      { "text": "Consolidació financera multiempresa", "isCorrect": false, "rationale": "Això és finances/consolidació o EPM." },
+      { "text": "Quadres de comandament executius amb KPIs corporatius", "isCorrect": false, "rationale": "Això és BI/EPM." }
+    ],
+    "hint": "Projectes = execució i imputació a activitats."
+  },
+  {
+    "guid": "0b1c2d17-3e4f-4a5b-9c6d-7e8f9a0b1c17",
+    "subjectId": "T13",
+    "difficulty": 4,
+    "origin": "OPOS24_gpt",
+    "type": "test",
+    "question": "Una empresa vol gestionar contractes amb proveïdors, avaluacions i quadres de comandament de rendiment del proveïdor. Quin mòdul és més específic?",
+    "answerOptions": [
+      { "text": "SRM (gestió de relació amb proveïdors)", "isCorrect": true, "rationale": "SRM cobreix contractació, avaluació i relació amb proveïdors; procurement pot ser més transaccional." },
+      { "text": "CRM", "isCorrect": false, "rationale": "CRM és relació amb clients." },
+      { "text": "EAM", "isCorrect": false, "rationale": "EAM és actius i manteniment." },
+      { "text": "Qualitat", "isCorrect": false, "rationale": "Qualitat pot auditar proveïdors, però el mòdul de relació és SRM." }
+    ],
+    "hint": "Proveïdor i contractes = SRM."
+  },
+
+  {
+    "guid": "1c2d3e18-4f5a-4b6c-8d7e-9f0a1b2c3d18",
+    "subjectId": "T13",
+    "difficulty": 4,
+    "origin": "OPOS24_gpt",
+    "type": "test",
+    "question": "Quina és la responsabilitat més típica del mòdul de Tresoreria en un ERP modern, diferenciant-lo d’AP/AR?",
+    "answerOptions": [
+      { "text": "Gestió de posició de caixa, bancs i previsió de liquiditat", "isCorrect": true, "rationale": "Tresoreria gestiona caixa, bancs, previsió i riscos de liquiditat; AP/AR gestionen passius i cobraments." },
+      { "text": "Aprovació de factures de compra", "isCorrect": false, "rationale": "Aprovació és workflow; AP registra la factura." },
+      { "text": "Gestió de condicions comercials de venda", "isCorrect": false, "rationale": "Això és vendes." },
+      { "text": "Gestió de lots i caducitats", "isCorrect": false, "rationale": "Això és inventari/qualitat." }
+    ],
+    "hint": "Tresoreria = bancs + caixa + previsió."
+  },
+  {
+    "guid": "2d3e4f19-5a6b-4c7d-8e9f-0a1b2c3d4e19",
+    "subjectId": "T13",
+    "difficulty": 4,
+    "origin": "OPOS24_gpt",
+    "type": "test",
+    "question": "En un ERP, quin mòdul acostuma a ser el millor lloc per definir rols, permisos i matrius d’autorització (sense entrar en IAM extern)?",
+    "answerOptions": [
+      { "text": "Seguretat/Authorizations del nucli ERP (i sovint complementat amb GRC)", "isCorrect": true, "rationale": "La gestió de rols i autoritzacions es fa al core de seguretat del propi ERP; GRC afegeix controls i SoD." },
+      { "text": "BI", "isCorrect": false, "rationale": "BI pot tenir permisos, però no és el govern principal de rols ERP transaccionals." },
+      { "text": "Producció", "isCorrect": false, "rationale": "No governa permisos globals." },
+      { "text": "Qualitat", "isCorrect": false, "rationale": "No governa permisos globals." }
+    ],
+    "hint": "Autoritzacions = core ERP; GRC = controls."
+  },
+  {
+    "guid": "3e4f5a1a-6b7c-4d8e-9f0a-1b2c3d4e5f1a",
+    "subjectId": "T13",
+    "difficulty": 4,
+    "origin": "OPOS24_gpt",
+    "type": "test",
+    "question": "Quina afirmació és més precisa sobre SCM vs WMS?",
+    "answerOptions": [
+      { "text": "SCM cobreix planificació i orquestració de la cadena; WMS executa operativa detallada de magatzem", "isCorrect": true, "rationale": "SCM és més end-to-end (planificació/transport); WMS és execució intramagatzem (ubicacions, picking)." },
+      { "text": "WMS és només planificació de demanda; SCM és només inventari", "isCorrect": false, "rationale": "Incorrecte." },
+      { "text": "SCM i WMS són sinònims", "isCorrect": false, "rationale": "No ho són." },
+      { "text": "WMS substitueix la comptabilitat general", "isCorrect": false, "rationale": "No aplica." }
+    ],
+    "hint": "Planificar i orquestrar vs executar a magatzem."
+  },
+  {
+    "guid": "4f5a6b1b-7c8d-4e9f-0a1b-2c3d4e5f6a1b",
+    "subjectId": "T13",
+    "difficulty": 4,
+    "origin": "OPOS24_gpt",
+    "type": "test",
+    "question": "Es vol un KPI de 'cost per ordre de manteniment' i anàlisi de desviacions respecte pressupost. Quina combinació és més completa?",
+    "answerOptions": [
+      { "text": "EAM/CMMS + CO/EPM (costos i pressupost) + BI (visualització)", "isCorrect": true, "rationale": "EAM genera ordres; CO/EPM tracta costos i pressupost; BI mostra KPIs. En conjunt cobreix tot el cicle." },
+      { "text": "CRM + BI", "isCorrect": false, "rationale": "Falta la font operativa (EAM) i el control de costos." },
+      { "text": "Qualitat + DMS", "isCorrect": false, "rationale": "No cobreix costos ni ordres de manteniment." },
+      { "text": "WMS + Tresoreria", "isCorrect": false, "rationale": "No és el domini." }
+    ],
+    "hint": "Ordre (EAM) + cost (CO/EPM) + KPI (BI)."
+  },
+  {
+    "guid": "5a6b7c1c-8d9e-4f0a-1b2c-3d4e5f6a7b1c",
+    "subjectId": "T13",
+    "difficulty": 4,
+    "origin": "OPOS24_gpt",
+    "type": "test",
+    "question": "Un ERP requereix que 'Done' de la recepció de mercaderia actualitzi existències i generi assentament d’entrada a magatzem. Quins mòduls col·laboren típicament en aquesta transacció?",
+    "answerOptions": [
+      { "text": "Inventari/Magatzem + Finances (integració d’assentaments)", "isCorrect": true, "rationale": "La recepció actualitza estoc i pot generar assentaments (GR/IR, inventari) a finances." },
+      { "text": "CRM + Vendes", "isCorrect": false, "rationale": "No correspon a recepció de compra." },
+      { "text": "EPM + BI", "isCorrect": false, "rationale": "Planificació i analítica, no transacció operativa." },
+      { "text": "Qualitat + Projectes", "isCorrect": false, "rationale": "Qualitat pot inspeccionar, però l’actualització d’estoc i assentament és inventari+finances." }
+    ],
+    "hint": "Recepció = estoc + impacte comptable."
+  },
+  {
+    "guid": "6b7c8d1d-9e0f-4a1b-2c3d-4e5f6a7b8c1d",
+    "subjectId": "T13",
+    "difficulty": 4,
+    "origin": "OPOS24_gpt",
+    "type": "test",
+    "question": "Quin és el millor lloc (mòdul) per governar catàlegs de materials, unitats de mesura i atributs mestres perquè siguin coherents a compres, inventari i producció?",
+    "answerOptions": [
+      { "text": "MDM / Dades mestres (material master)", "isCorrect": true, "rationale": "La coherència transversal de mestres de material és govern de dades mestres/MDM." },
+      { "text": "BI", "isCorrect": false, "rationale": "BI explota dades; no governa mestres." },
+      { "text": "Tresoreria", "isCorrect": false, "rationale": "No aplica." },
+      { "text": "CRM", "isCorrect": false, "rationale": "CRM governa dades de clients, no materials transversalment." }
+    ],
+    "hint": "Coherència transversal de mestres = MDM."
+  },
+  {
+    "guid": "7c8d9e1e-0f1a-4b2c-3d4e-5f6a7b8c9d1e",
+    "subjectId": "T13",
+    "difficulty": 4,
+    "origin": "OPOS24_gpt",
+    "type": "test",
+    "question": "En un ERP, quin mòdul és més probable que implementi 'matching' entre comanda, recepció i factura per controlar discrepàncies?",
+    "answerOptions": [
+      { "text": "Procurement/Compres + Finances (AP) amb control de 2-way/3-way match", "isCorrect": true, "rationale": "El matching es dona en la intersecció compres-recepció-factura, habitualment dins P2P amb integració FI/AP." },
+      { "text": "CRM + Vendes", "isCorrect": false, "rationale": "No és el cicle de compra." },
+      { "text": "EAM + Qualitat", "isCorrect": false, "rationale": "No és el matching de factures." },
+      { "text": "BI", "isCorrect": false, "rationale": "BI pot detectar discrepàncies, però el control transaccional és P2P." }
+    ],
+    "hint": "3-way match = comanda + recepció + factura."
+  },
+
+  {
+    "guid": "8d9e0f1f-1a2b-4c3d-4e5f-6a7b8c9d0e1f",
+    "subjectId": "T13",
+    "difficulty": 4,
+    "origin": "OPOS24_gpt",
+    "type": "test",
+    "question": "Quina opció descriu millor una frontera típica entre CRM i ERP (mòdul de vendes)?",
+    "answerOptions": [
+      { "text": "CRM gestiona oportunitats i relació; ERP Vendes gestiona comandes, lliuraments i facturació operativa", "isCorrect": true, "rationale": "CRM és front-office; ERP vendes és back-office transaccional." },
+      { "text": "CRM només fa comptabilitat; ERP vendes només fa màrqueting", "isCorrect": false, "rationale": "Incorrecte." },
+      { "text": "CRM substitueix inventari i magatzem", "isCorrect": false, "rationale": "No." },
+      { "text": "ERP vendes no interactua amb finances", "isCorrect": false, "rationale": "Facturació i cobrament tenen integració amb FI/AR." }
+    ],
+    "hint": "Front-office vs back-office."
+  },
+  {
+    "guid": "9e0f1a20-2b3c-4d5e-8f9a-0b1c2d3e4f20",
+    "subjectId": "T13",
+    "difficulty": 4,
+    "origin": "OPOS24_gpt",
+    "type": "test",
+    "question": "Es vol reduir frau en pagaments: doble aprovació, límits per import, i traça immutable. Quin conjunt aporta millor cobertura?",
+    "answerOptions": [
+      { "text": "Workflow/BPM + GRC + Finances (pagaments)", "isCorrect": true, "rationale": "Workflow enforceix aprovacions; GRC governa controls i SoD; finances executa pagaments." },
+      { "text": "WMS + SCM", "isCorrect": false, "rationale": "No és el domini de pagaments." },
+      { "text": "Producció + Qualitat", "isCorrect": false, "rationale": "No aplica." },
+      { "text": "BI sol", "isCorrect": false, "rationale": "BI detecta, però no enforceix controls transaccionals." }
+    ],
+    "hint": "Frau = controls preventius + aprovacions + SoD."
+  },
+  {
+    "guid": "0f1a2b21-3c4d-4e5f-8a9b-1c2d3e4f5a21",
+    "subjectId": "T13",
+    "difficulty": 4,
+    "origin": "OPOS24_gpt",
+    "type": "test",
+    "question": "Quin mòdul és més probable que gestioni llistes de preus, condicions i impostos en el moment de facturar una venda (vista d’ERP)?",
+    "answerOptions": [
+      { "text": "Vendes/Distribució amb integració a Finances per impostos i assentaments", "isCorrect": true, "rationale": "La determinació de preu i condicions és de vendes; l’impacte fiscal i comptable s’integra a finances." },
+      { "text": "Tresoreria", "isCorrect": false, "rationale": "Tresoreria tracta bancs i caixa, no pricing." },
+      { "text": "MDM", "isCorrect": false, "rationale": "MDM governa mestres, no regles de pricing." },
+      { "text": "EAM", "isCorrect": false, "rationale": "No aplica." }
+    ],
+    "hint": "Pricing és comercial; assentament és financer."
+  },
+  {
+    "guid": "1a2b3c22-4d5e-4f6a-8b9c-0d1e2f3a4b22",
+    "subjectId": "T13",
+    "difficulty": 4,
+    "origin": "OPOS24_gpt",
+    "type": "test",
+    "question": "En un ERP, quin mòdul acostuma a portar la gestió de nòmines i obligacions laborals, i quina és la confusió típica a examen?",
+    "answerOptions": [
+      { "text": "Recursos Humans (HCM/HR); confondre-ho amb finances perquè hi ha assentaments comptables", "isCorrect": true, "rationale": "La nòmina es calcula a RH; després pot generar assentaments a FI, cosa que confon." },
+      { "text": "Finances; confondre-ho amb magatzem perquè hi ha lots", "isCorrect": false, "rationale": "Finances registra l’efecte, però la nòmina és RH; lots és inventari." },
+      { "text": "Qualitat; confondre-ho amb EAM perquè hi ha ordres", "isCorrect": false, "rationale": "Incorrecte." },
+      { "text": "CRM; confondre-ho amb vendes perquè hi ha comandes", "isCorrect": false, "rationale": "Incorrecte." }
+    ],
+    "hint": "Nòmina es calcula a HR, però es comptabilitza a FI."
+  },
+  {
+    "guid": "2b3c4d23-5e6f-4a7b-8c9d-1e2f3a4b5c23",
+    "subjectId": "T13",
+    "difficulty": 4,
+    "origin": "OPOS24_gpt",
+    "type": "test",
+    "question": "Una empresa vol 'single source of truth' per clients i proveïdors i evitar duplicats entre CRM i ERP. Quin enfocament és més robust?",
+    "answerOptions": [
+      { "text": "MDM amb processos de golden record i sincronització cap a ERP/CRM", "isCorrect": true, "rationale": "MDM consolida i governa el registre mestre (golden record) i distribueix als sistemes." },
+      { "text": "Fer-ho només amb BI consolidant dades en informes", "isCorrect": false, "rationale": "BI consolida per analítica, però no evita duplicats en origen." },
+      { "text": "Permetre duplicats i corregir-los manualment cada mes", "isCorrect": false, "rationale": "No és robust ni escalable." },
+      { "text": "Eliminar el CRM i fer servir només fulls de càlcul", "isCorrect": false, "rationale": "No és una solució ERP/CRM seriosa." }
+    ],
+    "hint": "Golden record i govern de dades mestres."
+  },
+  {
+    "guid": "3c4d5e24-6f70-4b81-9c0d-2e3f4a5b6c24",
+    "subjectId": "T13",
+    "difficulty": 4,
+    "origin": "OPOS24_gpt",
+    "type": "test",
+    "question": "Quin és el punt més delicat d’integració entre ERP i DMS/ECM en processos de facturació de proveïdors?",
+    "answerOptions": [
+      { "text": "Enllaçar document (imatge/PDF), metadades i estat d’aprovació amb la transacció comptable, preservant traçabilitat i retenció", "isCorrect": true, "rationale": "La dificultat és mantenir vincle robust document-transacció i requisits d’arxiu/auditoria." },
+      { "text": "Fer que el DMS substitueixi completament la comptabilitat general", "isCorrect": false, "rationale": "No és el rol del DMS." },
+      { "text": "Evitar metadades perquè compliquen la cerca", "isCorrect": false, "rationale": "Metadades són clau per recuperació i compliment." },
+      { "text": "Eliminar el workflow per accelerar el pagament", "isCorrect": false, "rationale": "Treure controls augmenta risc." }
+    ],
+    "hint": "Document + transacció + auditoria + retenció."
+  },
+
+  {
+    "guid": "4d5e6f25-7081-4c92-8d0e-3f4a5b6c7d25",
+    "subjectId": "T13",
+    "difficulty": 4,
+    "origin": "OPOS24_gpt",
+    "type": "test",
+    "question": "Un ERP intel·ligent incorpora IoT per manteniment predictiu. Quin mòdul rep habitualment els esdeveniments de sensor i desencadena ordres de treball?",
+    "answerOptions": [
+      { "text": "EAM/CMMS (amb integració IoT)", "isCorrect": true, "rationale": "Els senyals IoT alimenten manteniment; EAM/CMMS crea ordres i plans." },
+      { "text": "Finances (GL)", "isCorrect": false, "rationale": "GL no crea ordres de treball." },
+      { "text": "CRM", "isCorrect": false, "rationale": "No és manteniment d’actius interns." },
+      { "text": "EPM", "isCorrect": false, "rationale": "Planificació, no execució de manteniment." }
+    ],
+    "hint": "IoT + manteniment = ordres a EAM."
+  },
+  {
+    "guid": "5e6f7026-8192-4da3-9e1f-4a5b6c7d8e26",
+    "subjectId": "T13",
+    "difficulty": 4,
+    "origin": "OPOS24_gpt",
+    "type": "test",
+    "question": "Quin mòdul és més probable que gestioni rutes de fabricació, centres de treball i capacitat productiva?",
+    "answerOptions": [
+      { "text": "Producció/Fabricació (Manufacturing)", "isCorrect": true, "rationale": "Rutes, centres de treball i capacitat són conceptes típics de producció/PP." },
+      { "text": "SRM", "isCorrect": false, "rationale": "SRM és relació amb proveïdors." },
+      { "text": "Tresoreria", "isCorrect": false, "rationale": "No aplica." },
+      { "text": "GRC", "isCorrect": false, "rationale": "No aplica." }
+    ],
+    "hint": "Rutes i capacitat = planta de producció."
+  },
+  {
+    "guid": "6f708127-92a3-4eb4-8f2a-5b6c7d8e9f27",
+    "subjectId": "T13",
+    "difficulty": 4,
+    "origin": "OPOS24_gpt",
+    "type": "test",
+    "question": "En un cas d’ús d’ERP, quina és la millor assignació per 'gestionar incidències de qualitat de proveïdor que bloquegen recepcions futures'?",
+    "answerOptions": [
+      { "text": "Qualitat + Compres/SRM (accions correctives i bloqueig de proveïdor/material)", "isCorrect": true, "rationale": "Qualitat registra no conformitat i accions; compres/SRM governa relació i possibles bloquejos." },
+      { "text": "CRM + Vendes", "isCorrect": false, "rationale": "No és relació amb clients." },
+      { "text": "EPM + BI", "isCorrect": false, "rationale": "No executen bloquejos operatius." },
+      { "text": "Projectes + Tresoreria", "isCorrect": false, "rationale": "No aplica." }
+    ],
+    "hint": "No conformitat de proveïdor = QM + relació amb proveïdor."
+  },
+  {
+    "guid": "70819228-a3b4-4fc5-9a3b-6c7d8e9f0a28",
+    "subjectId": "T13",
+    "difficulty": 4,
+    "origin": "OPOS24_gpt",
+    "type": "test",
+    "question": "Quina parella de mòduls és més coherent per 'gestió de comandes de venda' i 'planificació d’entrega' (promesa de data) amb visibilitat d’estoc?",
+    "answerOptions": [
+      { "text": "Vendes/Distribució + Inventari/SCM", "isCorrect": true, "rationale": "Vendes gestiona comanda; inventari/SCM dóna disponibilitat i planifica entregues." },
+      { "text": "Tresoreria + GRC", "isCorrect": false, "rationale": "No és el domini." },
+      { "text": "EAM + Qualitat", "isCorrect": false, "rationale": "No correspon a venda-entrega." },
+      { "text": "DMS + BI", "isCorrect": false, "rationale": "Documents i informes, no execució de promeses d’entrega." }
+    ],
+    "hint": "Comanda i entrega = vendes; disponibilitat = inventari/SCM."
+  },
+  {
+    "guid": "8192a329-b4c5-4ad6-8b4c-7d8e9f0a1b29",
+    "subjectId": "T13",
+    "difficulty": 4,
+    "origin": "OPOS24_gpt",
+    "type": "test",
+    "question": "Un error típic d’examen: confondre 'control de lots' amb 'control de costos'. Quin mòdul correspon principalment a cada concepte?",
+    "answerOptions": [
+      { "text": "Lots: Inventari/Magatzem; Costos: CO/Controlling", "isCorrect": true, "rationale": "Lots és traçabilitat operativa; costos és control de gestió." },
+      { "text": "Lots: EPM; Costos: WMS", "isCorrect": false, "rationale": "Invertit i incorrecte." },
+      { "text": "Lots: CRM; Costos: SRM", "isCorrect": false, "rationale": "Incorrecte." },
+      { "text": "Lots: Tresoreria; Costos: Qualitat", "isCorrect": false, "rationale": "Incorrecte." }
+    ],
+    "hint": "Traçabilitat vs imputació econòmica."
+  },
+  {
+    "guid": "92a3b42a-c5d6-4be7-9c5d-8e9f0a1b2c2a",
+    "subjectId": "T13",
+    "difficulty": 4,
+    "origin": "OPOS24_gpt",
+    "type": "test",
+    "question": "Quin és el risc més habitual quan es fa 'customització extrema' en mòduls core (FI/MM/SD) d’un ERP?",
+    "answerOptions": [
+      { "text": "Dificultat d’actualitzacions i manteniment, incrementant cost total de propietat", "isCorrect": true, "rationale": "Customitzacions fortes creen dependències i compliquen upgrades i suport." },
+      { "text": "Millora automàtica de seguretat i rendiment", "isCorrect": false, "rationale": "No és automàtic; pot empitjorar." },
+      { "text": "Eliminació de la necessitat de dades mestres", "isCorrect": false, "rationale": "No té relació." },
+      { "text": "Reducció de la necessitat de governs SoD", "isCorrect": false, "rationale": "No elimina controls." }
     ],
     "hint": "Customitzar molt = upgrades dolorosos."
   },
+
   {
-    "guid": "5a6b7c8d-9e0f-4a1b-8c2d-3e4f5a6b7c15",
+    "guid": "a3b4c52b-d6e7-4cf8-8d6e-9f0a1b2c3d2b",
     "subjectId": "T13",
-    "difficulty": 2,
+    "difficulty": 4,
     "origin": "OPOS24_gpt",
     "type": "test",
-    "question": "Quina és una estratègia per mitigar la resistència al canvi durant la implantació d’un ERP?",
+    "question": "En gestió d’actius, quina separació és més correcta entre EAM i Asset Accounting?",
     "answerOptions": [
-      { "text": "Reduir la formació", "isCorrect": false, "rationale": "La formació és clau per adopció; reduir-la empitjora resistència." },
-      { "text": "No comunicar els canvis", "isCorrect": false, "rationale": "La manca de comunicació incrementa resistència i rumors." },
-      { "text": "Implicar els usuaris des del principi", "isCorrect": true, "rationale": "Participació, comunicació i formació redueixen resistència i milloren adopció." },
-      { "text": "Evitar la participació dels directius", "isCorrect": false, "rationale": "El patrocini executiu és crític per desbloquejar i impulsar el canvi." }
+      { "text": "EAM gestiona manteniment i ordres; Asset Accounting gestiona amortitzacions i valor comptable", "isCorrect": true, "rationale": "EAM és operatiu; Asset Accounting és financer." },
+      { "text": "Asset Accounting crea ordres de treball; EAM fa tancament comptable", "isCorrect": false, "rationale": "Invertit." },
+      { "text": "EAM és només BI; Asset Accounting és MDM", "isCorrect": false, "rationale": "Incorrecte." },
+      { "text": "No hi ha diferència; són el mateix", "isCorrect": false, "rationale": "No ho són." }
     ],
-    "hint": "Gestió del canvi: comunicació + participació + formació."
+    "hint": "Operatiu (manteniment) vs financer (amortització)."
   },
   {
-    "guid": "9e0f1a2b-3c4d-4e5f-8a9b-0c1d2e3f4a16",
+    "guid": "b4c5d62c-e7f8-4d09-9e7f-0a1b2c3d4e2c",
     "subjectId": "T13",
-    "difficulty": 2,
+    "difficulty": 4,
     "origin": "OPOS24_gpt",
     "type": "test",
-    "question": "Quina funcionalitat ofereix el mòdul de Gestió del Rendiment Empresarial (EPM)?",
+    "question": "Quina afirmació és més correcta sobre 'refinament' de dades (data quality) dins d’un ERP corporatiu?",
     "answerOptions": [
-      { "text": "Control de qualitat", "isCorrect": false, "rationale": "Control de qualitat pot existir en altres mòduls o sistemes." },
-      { "text": "Planificació i pressupostos", "isCorrect": true, "rationale": "EPM cobreix planificació, pressupostació, consolidació i seguiment del rendiment." },
-      { "text": "Gestió de nòmines", "isCorrect": false, "rationale": "Nòmines és típicamente RH." },
-      { "text": "Gestió de compres", "isCorrect": false, "rationale": "Compres és SRM/Procurement." }
+      { "text": "És principalment responsabilitat de governança/MDM amb processos i rols (data owners/stewards), no només de TI", "isCorrect": true, "rationale": "La qualitat de dades requereix governança i responsabilitats de negoci; TI dona suport." },
+      { "text": "És responsabilitat exclusiva del mòdul de producció", "isCorrect": false, "rationale": "Incorrecte." },
+      { "text": "Es resol només afegint més dashboards de BI", "isCorrect": false, "rationale": "Dashboards no arreglen l’origen de dades." },
+      { "text": "No cal perquè l’ERP ja garanteix dades perfectes per definició", "isCorrect": false, "rationale": "Els errors humans i processos poden degradar dades." }
     ],
-    "hint": "EPM = planificar i controlar rendiment (budget/forecast)."
+    "hint": "Qualitat de dades = procés + rols + governança."
   },
   {
-    "guid": "1a2b3c4d-5e6f-4a7b-8c9d-1e2f3a4b5c17",
+    "guid": "c5d6e72d-f809-4e1a-8f80-1b2c3d4e5f2d",
     "subjectId": "T13",
-    "difficulty": 2,
+    "difficulty": 4,
     "origin": "OPOS24_gpt",
     "type": "test",
-    "question": "Quina és una característica clau dels sistemes ERP moderns?",
+    "question": "Quina combinació és més idònia per detectar 'fuga de marge' per descomptes no autoritzats en vendes?",
     "answerOptions": [
-      { "text": "Funcionament exclusivament offline", "isCorrect": false, "rationale": "Els ERP moderns acostumen a estar connectats i integrats." },
-      { "text": "Interfície complexa i poc intuïtiva", "isCorrect": false, "rationale": "La tendència és UX millor i autoservei, no complexitat." },
-      { "text": "Automatització de processos i visió per processos", "isCorrect": true, "rationale": "ERP modern automatitza fluxos end-to-end i dona visió transversal." },
-      { "text": "Ús de múltiples bases de dades independents", "isCorrect": false, "rationale": "Tendeix a una font integrada; múltiples BD independents creen silos." }
+      { "text": "Vendes/Distribució + CO (marge) + BI (alertes/anàlisi)", "isCorrect": true, "rationale": "Vendes registra condicions; CO calcula marge; BI ajuda a detectar patrons i alertar." },
+      { "text": "EAM + Qualitat", "isCorrect": false, "rationale": "No és el domini." },
+      { "text": "Tresoreria + WMS", "isCorrect": false, "rationale": "No és el domini." },
+      { "text": "DMS sol", "isCorrect": false, "rationale": "DMS guarda documents, però no calcula marge." }
     ],
-    "hint": "Modern = processos end-to-end + automatització."
+    "hint": "Marge = controlling; descompte = vendes."
   },
   {
-    "guid": "2f3a4b5c-6d7e-4f8a-9b0c-1d2e3f4a5b18",
+    "guid": "d6e7f82e-091a-4f2b-9a91-2c3d4e5f6a2e",
     "subjectId": "T13",
-    "difficulty": 2,
+    "difficulty": 4,
     "origin": "OPOS24_gpt",
     "type": "test",
-    "question": "Quin avantatge ofereix un ERP Cloud respecte a un ERP on-premise?",
+    "question": "En un flux de 'devolució de client' amb reingrés a estoc i nota de crèdit, quins dominis s’activen més directament?",
     "answerOptions": [
-      { "text": "Major necessitat de manteniment intern", "isCorrect": false, "rationale": "Normalment el manteniment d’infra és menor a cloud." },
-      { "text": "Menor escalabilitat", "isCorrect": false, "rationale": "Cloud acostuma a escalar millor." },
-      { "text": "Costos inicials més baixos", "isCorrect": true, "rationale": "Sovint redueix CAPEX inicial i passa a un model OPEX/subscripció." },
-      { "text": "Menor accessibilitat", "isCorrect": false, "rationale": "Cloud sol millorar accés remot i disponibilitat." }
+      { "text": "Vendes/Distribució + Inventari/Magatzem + Finances", "isCorrect": true, "rationale": "La devolució afecta comanda/facturació, moviment d’estoc i assentaments/notas de crèdit." },
+      { "text": "EPM + BI", "isCorrect": false, "rationale": "No executa la devolució." },
+      { "text": "GRC + MDM", "isCorrect": false, "rationale": "Són capes de governança, no el flux principal." },
+      { "text": "Producció + Qualitat només", "isCorrect": false, "rationale": "Qualitat pot inspeccionar, però cal vendes, inventari i finances." }
     ],
-    "hint": "Cloud: menys CAPEX inicial i més escalabilitat."
+    "hint": "Devolució = comercial + estoc + comptabilitat."
   },
   {
-    "guid": "7d8e9f0a-1b2c-4d3e-8f9a-0b1c2d3e4f19",
+    "guid": "e7f8092f-1a2b-4c3d-8b02-3d4e5f6a7b2f",
     "subjectId": "T13",
-    "difficulty": 2,
+    "difficulty": 4,
     "origin": "OPOS24_gpt",
     "type": "test",
-    "question": "Quin mòdul ERP s'encarrega de la traçabilitat i control de lots en la indústria alimentària?",
+    "question": "Quin indicador és més 'natural' per a WMS que per a EPM?",
     "answerOptions": [
-      { "text": "CRM", "isCorrect": false, "rationale": "CRM és relació amb clients." },
-      { "text": "SCM", "isCorrect": true, "rationale": "SCM/logística/traçabilitat cobreix lots, cadena de subministrament i rastreig." },
-      { "text": "EPM", "isCorrect": false, "rationale": "EPM és rendiment i planificació." },
-      { "text": "PRM", "isCorrect": false, "rationale": "PRM és Partner Relationship Management, no traçabilitat de lots." }
+      { "text": "Temps de picking per línia i productivitat d’operaris de magatzem", "isCorrect": true, "rationale": "És una mètrica operativa de magatzem; EPM mira rendiment corporatiu i planificació." },
+      { "text": "Forecast de despesa anual per centre de cost", "isCorrect": false, "rationale": "Això és EPM/pressupost." },
+      { "text": "Consolidació multiempresa", "isCorrect": false, "rationale": "És finances/EPM." },
+      { "text": "Risc SoD per rol", "isCorrect": false, "rationale": "És GRC." }
     ],
-    "hint": "Lots i traçabilitat = supply chain."
-  },
-  {
-    "guid": "0b1c2d3e-4f5a-4b6c-8d7e-9f0a1b2c3d20",
-    "subjectId": "T13",
-    "difficulty": 2,
-    "origin": "OPOS24_gpt",
-    "type": "test",
-    "question": "Quina és una de les funcions del mòdul de Business Intelligence dins d’un ERP?",
-    "answerOptions": [
-      { "text": "Gestió de nòmines", "isCorrect": false, "rationale": "Nòmines és RH." },
-      { "text": "Quadres de comandament i anàlisi en temps real", "isCorrect": true, "rationale": "BI aporta analítica, KPIs i quadres de comandament per decisió." },
-      { "text": "Gestió de compres", "isCorrect": false, "rationale": "Compres és procurement/SRM." },
-      { "text": "Control de manteniment preventiu", "isCorrect": false, "rationale": "Manteniment preventiu és EAM/CMMS." }
-    ],
-    "hint": "BI = informes, KPIs i dashboards."
+    "hint": "Operativa de magatzem vs planificació corporativa."
   },
 
   {
-    "guid": "4e3d2c1b-0a9f-4c8d-7e6f-5a4b3c2d1e21",
+    "guid": "f8091a30-2b3c-4d5e-9c13-4e5f6a7b8c30",
     "subjectId": "T13",
-    "difficulty": 3,
+    "difficulty": 4,
     "origin": "OPOS24_gpt",
     "type": "test",
-    "question": "Quina és una de les principals diferències entre un ERP tradicional i un ERP intel·ligent?",
+    "question": "Quina afirmació és més correcta sobre 'una única font de veritat' en un ERP real?",
     "answerOptions": [
-      { "text": "L’ERP intel·ligent només s’utilitza en grans empreses", "isCorrect": false, "rationale": "No és una condició; depèn del producte i del cas d’ús." },
-      { "text": "L’ERP tradicional no permet la gestió de recursos humans", "isCorrect": false, "rationale": "ERP tradicional sol incloure RH." },
-      { "text": "L’ERP intel·ligent incorpora IA, IoT i analítica avançada per optimitzar processos", "isCorrect": true, "rationale": "L’ERP intel·ligent amplia capacitats amb automatització i analítica avançada." },
-      { "text": "L’ERP tradicional és més segur que l’ERP intel·ligent", "isCorrect": false, "rationale": "La seguretat depèn de disseny i controls, no del concepte 'intel·ligent' per se." }
+      { "text": "És un objectiu: reduir duplicats i inconsistències; però sovint requereix governança (MDM) i integració amb altres sistemes", "isCorrect": true, "rationale": "ERP pot ser el core, però l’ecosistema obliga a governar dades i integracions." },
+      { "text": "Significa que ja no calen integracions mai més", "isCorrect": false, "rationale": "Les integracions continuen existint." },
+      { "text": "Significa que no es pot usar BI", "isCorrect": false, "rationale": "BI segueix sent útil." },
+      { "text": "Significa que totes les dades s’emmagatzemen en documents PDF", "isCorrect": false, "rationale": "No té sentit." }
     ],
-    "hint": "Intel·ligent = IA/analítica/automatització."
+    "hint": "És un ideal: ERP core + governança + integració."
   },
   {
-    "guid": "9a8b7c6d-5e4f-4c3d-9e2f-1a0b9c8d7e22",
+    "guid": "1a2b3c31-4d5e-4f6a-8b9c-0d1e2f3a4b31",
     "subjectId": "T13",
-    "difficulty": 3,
+    "difficulty": 4,
     "origin": "OPOS24_gpt",
     "type": "test",
-    "question": "Quin risc pot provocar el bloqueig del proveïdor (vendor lock-in) en sistemes ERP híbrids?",
+    "question": "Una licitació pública requereix control d’expedient (documents, versions, aprovacions) i execució pressupostària. Quina combinació és més completa?",
     "answerOptions": [
-      { "text": "Pèrdua de dades", "isCorrect": false, "rationale": "Pot ser un risc indirecte, però el concepte principal és dependència del proveïdor." },
-      { "text": "Dependència excessiva d’un únic proveïdor", "isCorrect": true, "rationale": "Vendor lock-in implica dificultat de canvi per dependència tecnològica/contractual." },
-      { "text": "Reducció de costos", "isCorrect": false, "rationale": "Sovint pot incrementar costos a mig termini." },
-      { "text": "Millora de la interoperabilitat", "isCorrect": false, "rationale": "Normalment el lock-in empitjora la llibertat d’integració i canvi." }
+      { "text": "DMS/ECM + Workflow/BPM + EPM/pressupost + Compres", "isCorrect": true, "rationale": "Documentació i aprovacions (ECM+BPM) i execució de despesa (pressupost+compres)." },
+      { "text": "WMS + Producció", "isCorrect": false, "rationale": "No aplica." },
+      { "text": "CRM + SCM", "isCorrect": false, "rationale": "No cobreix expedient ni pressupost formal." },
+      { "text": "BI sol", "isCorrect": false, "rationale": "BI no executa ni controla expedients." }
     ],
-    "hint": "Lock-in = difícil sortir/canviar."
+    "hint": "Expedient = documental + workflow; despesa = pressupost + compres."
   },
   {
-    "guid": "1b2c3d4e-5f6a-4b7c-8d9e-0f1a2b3c4d23",
+    "guid": "2b3c4d32-5e6f-4a7b-8c9d-1e2f3a4b5c32",
     "subjectId": "T13",
-    "difficulty": 3,
+    "difficulty": 4,
     "origin": "OPOS24_gpt",
     "type": "test",
-    "question": "Quina és una característica clau de l’arquitectura “API-first” en ERP composable?",
+    "question": "Quina és la millor resposta si et pregunten on va 'gestió de temps i assistència' dels empleats?",
     "answerOptions": [
-      { "text": "No permet integració amb altres sistemes", "isCorrect": false, "rationale": "API-first facilita integració, no la impedeix." },
-      { "text": "Prioritza la comunicació entre mòduls mitjançant APIs", "isCorrect": true, "rationale": "API-first implica dissenyar serveis i integracions des de l’API com a contracte principal." },
-      { "text": "Utilitza bases de dades separades per cada mòdul", "isCorrect": false, "rationale": "Pot passar en microserveis, però no és la definició d’API-first." },
-      { "text": "Requereix instal·lació local obligatòria", "isCorrect": false, "rationale": "No és una exigència d’API-first." }
+      { "text": "Recursos Humans (HCM/HR), sovint integrat amb nòmina", "isCorrect": true, "rationale": "Time & attendance és un subdomini clàssic d’HR, integrat amb nòmina." },
+      { "text": "Finances (GL)", "isCorrect": false, "rationale": "GL registra assentaments; no gestiona presència." },
+      { "text": "WMS", "isCorrect": false, "rationale": "WMS gestiona magatzem." },
+      { "text": "Qualitat", "isCorrect": false, "rationale": "No aplica." }
     ],
-    "hint": "API-first = integració per contractes d’API."
+    "hint": "Temps i presència = HR."
   },
   {
-    "guid": "5f6a7b8c-9d0e-4f1a-8b2c-3d4e5f6a7b24",
+    "guid": "3c4d5e33-6f70-4b81-9c0d-2e3f4a5b6c33",
     "subjectId": "T13",
-    "difficulty": 3,
+    "difficulty": 4,
     "origin": "OPOS24_gpt",
     "type": "test",
-    "question": "Quin avantatge ofereix la consolidació de dades en una “única font de veritat”?",
+    "question": "En un entorn multiempresa, quin mòdul o capacitat és més crítica per assegurar coherència de reporting financer agregat?",
     "answerOptions": [
-      { "text": "Redueix la seguretat", "isCorrect": false, "rationale": "No necessàriament; la seguretat depèn de controls i govern." },
-      { "text": "Duplica la informació", "isCorrect": false, "rationale": "Una font de veritat busca evitar duplicats." },
-      { "text": "Millora la qualitat de les dades i la presa de decisions", "isCorrect": true, "rationale": "Dades coherents i integrades milloren reporting, traçabilitat i decisions." },
-      { "text": "Limita l’accés a la informació", "isCorrect": false, "rationale": "L’objectiu sol ser facilitar accés controlat i consistent." }
+      { "text": "Consolidació financera (FI/EPM) amb regles d’eliminació i harmonització de plans comptables", "isCorrect": true, "rationale": "La consolidació requereix eliminacions intercompany, harmonització i regles de consolidació." },
+      { "text": "WMS amb ubicacions compartides", "isCorrect": false, "rationale": "No és reporting financer." },
+      { "text": "EAM amb plans preventius globals", "isCorrect": false, "rationale": "No és consolidació." },
+      { "text": "CRM amb oportunitats agregades", "isCorrect": false, "rationale": "No és consolidació financera." }
     ],
-    "hint": "Single source of truth = menys inconsistències."
+    "hint": "Multiempresa = consolidació + eliminacions."
   },
   {
-    "guid": "9d0e1f2a-3b4c-4d5e-8f9a-0b1c2d3e4f25",
+    "guid": "4d5e6f34-7081-4c92-8d0e-3f4a5b6c7d34",
     "subjectId": "T13",
-    "difficulty": 3,
+    "difficulty": 4,
     "origin": "OPOS24_gpt",
     "type": "test",
-    "question": "Quina tendència emergent en ERP permet una personalització extrema i modularitat?",
+    "question": "Quin mòdul és més probable que gestioni 'catàleg de proveïdors homologats' i bloquejos per risc/compliance?",
     "answerOptions": [
-      { "text": "ERP Cloud", "isCorrect": false, "rationale": "Cloud facilita desplegament, però la modularitat extrema s’associa més a composable." },
-      { "text": "ERP composable", "isCorrect": true, "rationale": "Composable ERP promou modularitat i composició de capacitats de negoci." },
-      { "text": "ERP II", "isCorrect": false, "rationale": "ERP II amplia abast, però no defineix modularitat extrema." },
-      { "text": "ERP on-premise", "isCorrect": false, "rationale": "On-premise és un model de desplegament, no una tendència de modularitat." }
+      { "text": "SRM/Procurement amb suport de GRC/Compliance", "isCorrect": true, "rationale": "Homologació és domini de proveïdors; compliance i riscos reforcen controls." },
+      { "text": "Producció", "isCorrect": false, "rationale": "No governa proveïdors." },
+      { "text": "Tresoreria", "isCorrect": false, "rationale": "No governa homologació." },
+      { "text": "Qualitat només", "isCorrect": false, "rationale": "Qualitat pot auditar, però homologació i bloqueig de proveïdor és procurement/SRM (amb compliance)." }
     ],
-    "hint": "Modularitat extrema = peces intercanviables."
+    "hint": "Proveïdor homologat = SRM; risc = GRC."
   },
   {
-    "guid": "3b4c5d6e-7f8a-4b9c-8d0e-1f2a3b4c5d26",
+    "guid": "5e6f7035-8192-4da3-9e1f-4a5b6c7d8e35",
     "subjectId": "T13",
-    "difficulty": 3,
+    "difficulty": 4,
     "origin": "OPOS24_gpt",
     "type": "test",
-    "question": "Quin mòdul ERP és clau per a la gestió de manteniment preventiu i actius físics?",
+    "question": "Quin cas encaixa millor amb 'mòdul de Qualitat' en un ERP (no amb BI)?",
     "answerOptions": [
-      { "text": "EPM", "isCorrect": false, "rationale": "EPM és planificació i rendiment, no manteniment d’actius." },
-      { "text": "CMMS / EAM", "isCorrect": true, "rationale": "CMMS/EAM gestiona actius, ordres de treball i manteniment preventiu/predictiu." },
-      { "text": "SCM", "isCorrect": false, "rationale": "SCM gestiona cadena de subministrament, no actius físics." },
-      { "text": "CRM", "isCorrect": false, "rationale": "CRM gestiona clients." }
+      { "text": "Registrar no conformitats, gestionar CAPA (accions correctives/preventives) i decisions d’alliberament/bloqueig", "isCorrect": true, "rationale": "QM tracta no conformitats, CAPA i controls d’alliberament." },
+      { "text": "Fer dashboards de defectes sense impacte operatiu", "isCorrect": false, "rationale": "Això és analítica; QM executa el procés i controls." },
+      { "text": "Gestionar bancs i pagaments", "isCorrect": false, "rationale": "És tresoreria." },
+      { "text": "Gestionar oportunitats de venda", "isCorrect": false, "rationale": "És CRM." }
     ],
-    "hint": "Actius + manteniment = EAM/CMMS."
+    "hint": "QM fa controls i decisions, no només informes."
   },
   {
-    "guid": "7f8a9b0c-1d2e-4f3a-8b4c-5d6e7f8a9b27",
+    "guid": "6f708136-92a3-4eb4-8f2a-5b6c7d8e9f36",
     "subjectId": "T13",
-    "difficulty": 3,
+    "difficulty": 4,
     "origin": "OPOS24_gpt",
     "type": "test",
-    "question": "Quina funcionalitat ofereixen els assistents ERP i chatbots impulsats per IA?",
+    "question": "En un projecte d’implantació ERP, quin risc és més típic quan el mòdul de dades mestres es tracta com 'una tasca tècnica' i no com un procés de negoci?",
     "answerOptions": [
-      { "text": "Gestió de nòmines", "isCorrect": false, "rationale": "Els chatbots no són el mòdul de nòmina; poden consultar-lo però no és la definició." },
-      { "text": "Interacció mitjançant llenguatge natural i automatització de consultes", "isCorrect": true, "rationale": "Assistents IA faciliten consultes, recomanacions i automatització via llenguatge natural." },
-      { "text": "Control de qualitat", "isCorrect": false, "rationale": "Poden ajudar, però no és la funcionalitat definidora." },
-      { "text": "Gestió de projectes", "isCorrect": false, "rationale": "Poden donar suport, però no equivalen a un mòdul de projectes." }
+      { "text": "Dades inconsistents (clients/materials) que degraden tots els processos (compra, venda, inventari, finances)", "isCorrect": true, "rationale": "Si el negoci no governa mestres, els errors es propaguen i impacten tota l’operació." },
+      { "text": "Millora automàtica d’analítica predictiva", "isCorrect": false, "rationale": "No és un risc real." },
+      { "text": "Reducció total de la necessitat de controls d’auditoria", "isCorrect": false, "rationale": "No té relació." },
+      { "text": "Eliminació de la necessitat de formació d’usuaris", "isCorrect": false, "rationale": "La formació segueix sent crítica." }
     ],
-    "hint": "IA + chatbot = llenguatge natural."
+    "hint": "Dades mestres dolentes = falles en cadena a tot l’ERP."
   },
   {
-    "guid": "1d2e3f4a-5b6c-4d7e-8f9a-0b1c2d3e4f28",
+    "guid": "70819237-a3b4-4fc5-9a3b-6c7d8e9f0a37",
     "subjectId": "T13",
-    "difficulty": 3,
+    "difficulty": 4,
     "origin": "OPOS24_gpt",
     "type": "test",
-    "question": "Quin repte principal presenta la integració d’un ERP amb sistemes existents?",
+    "question": "Quin és el millor lloc per definir 'estructura organitzativa' i assignació d’unitats (societat, centre, planta, etc.) que condiciona processos de compra/venda/finances?",
     "answerOptions": [
-      { "text": "Augment de la productivitat", "isCorrect": false, "rationale": "Això és un possible benefici, no un repte." },
-      { "text": "Reducció de costos", "isCorrect": false, "rationale": "Pot ser un objectiu, però no el repte principal." },
-      { "text": "Problemes de compatibilitat i interoperabilitat", "isCorrect": true, "rationale": "Integrar ERP amb legacy pot requerir adaptadors, dades mestres i resolució d’interoperabilitat." },
-      { "text": "Millora de la col·laboració", "isCorrect": false, "rationale": "És un benefici esperat, no un repte." }
+      { "text": "Core de l’ERP (estructura organitzativa i customizing base), no un mòdul satèl·lit", "isCorrect": true, "rationale": "L’estructura organitzativa és base transversal del core ERP." },
+      { "text": "BI", "isCorrect": false, "rationale": "BI no defineix estructura operativa." },
+      { "text": "DMS", "isCorrect": false, "rationale": "DMS no defineix estructura organitzativa." },
+      { "text": "CRM", "isCorrect": false, "rationale": "CRM pot tenir organització comercial, però no la base corporativa transversal de l’ERP." }
     ],
-    "hint": "Legacy + ERP = integracions complicades."
+    "hint": "És parametrització transversal del core."
   },
   {
-    "guid": "5b6c7d8e-9f0a-4b1c-8d2e-3f4a5b6c7d29",
+    "guid": "8192a338-b4c5-4ad6-8b4c-7d8e9f0a1b38",
     "subjectId": "T13",
-    "difficulty": 3,
+    "difficulty": 4,
     "origin": "OPOS24_gpt",
     "type": "test",
-    "question": "Quina és una de les funcions de l’analítica avançada en ERP?",
+    "question": "Per a un examen pràctic, et donen un cas de 'factura amb IVA deduïble' i 'factura amb IVA no deduïble'. Quin mòdul defineix principalment el tractament fiscal i la comptabilització?",
     "answerOptions": [
-      { "text": "Generar informes en temps real i anàlisi predictiva", "isCorrect": true, "rationale": "Analítica avançada incorpora predicció, detecció de patrons i suport a decisions." },
-      { "text": "Controlar els enviaments", "isCorrect": false, "rationale": "Enviaments és SCM/logística." },
-      { "text": "Automatitzar la gestió de nòmines", "isCorrect": false, "rationale": "Nòmines és RH; analítica pot ajudar, però no és la funció principal." },
-      { "text": "Reduir la capacitat de resposta del sistema", "isCorrect": false, "rationale": "No és una funció; seria un problema." }
+      { "text": "Finances (tax engine/configuració fiscal) amb suport de compres/vendes segons origen", "isCorrect": true, "rationale": "La determinació i comptabilització fiscal depèn de configuració de finances, integrant amb el mòdul origen (compra/venda)." },
+      { "text": "WMS", "isCorrect": false, "rationale": "No tracta fiscalitat." },
+      { "text": "EAM", "isCorrect": false, "rationale": "No tracta fiscalitat." },
+      { "text": "BI", "isCorrect": false, "rationale": "BI pot informar, però no comptabilitza impostos." }
     ],
-    "hint": "Predictiu i en temps real."
+    "hint": "IVA i assentaments = finances."
   },
   {
-    "guid": "9f0a1b2c-3d4e-4f5a-8b6c-7d8e9f0a1b30",
+    "guid": "92a3b439-c5d6-4be7-9c5d-8e9f0a1b2c39",
     "subjectId": "T13",
-    "difficulty": 3,
+    "difficulty": 4,
     "origin": "OPOS24_gpt",
     "type": "test",
-    "question": "Quina és una estratègia per mitigar els costos elevats d’implantació d’un ERP?",
+    "question": "Quina definició és més ajustada de 'mòdul de compres' en un ERP respecte SRM?",
     "answerOptions": [
-      { "text": "Evitar la planificació", "isCorrect": false, "rationale": "Sense planificació augmenten riscos i sobrecostos." },
-      { "text": "Escollir proveïdors sense experiència", "isCorrect": false, "rationale": "Això incrementa risc i costos." },
-      { "text": "Realitzar una anàlisi de viabilitat i planificació acurada", "isCorrect": true, "rationale": "Scope, fases, riscos i recursos ben definits redueixen desviacions de cost." },
-      { "text": "No formar els usuaris", "isCorrect": false, "rationale": "Sense formació baixa adopció i augmenta re-treball/cost." }
+      { "text": "Compres cobreix la transacció (sol·licitud, ordre, recepció); SRM amplia la gestió de relació (contractes, avaluació, col·laboració)", "isCorrect": true, "rationale": "Procurement és execució P2P; SRM és relació i capacitats ampliades." },
+      { "text": "SRM és només inventari; compres és només BI", "isCorrect": false, "rationale": "Incorrecte." },
+      { "text": "Compres i SRM són idèntics sempre", "isCorrect": false, "rationale": "Depèn del fabricant, però conceptualment SRM amplia." },
+      { "text": "SRM és per clients; compres per proveïdors", "isCorrect": false, "rationale": "SRM és per proveïdors, no clients." }
     ],
-    "hint": "Costos = bona definició d’abast i planificació."
-  },
-
-  {
-    "guid": "3c2d1e0f-9a8b-4c7d-8e6f-5a4b3c2d1e31",
-    "subjectId": "T13",
-    "difficulty": 2,
-    "origin": "OPOS24_gpt",
-    "type": "test",
-    "question": "Quin mòdul ERP és responsable de gestionar les ordres de compra i les relacions amb proveïdors?",
-    "answerOptions": [
-      { "text": "CRM", "isCorrect": false, "rationale": "CRM tracta clients." },
-      { "text": "SRM", "isCorrect": true, "rationale": "SRM gestiona relació amb proveïdors i processos de compra." },
-      { "text": "EPM", "isCorrect": false, "rationale": "EPM és planificació i pressupostos." },
-      { "text": "BI", "isCorrect": false, "rationale": "BI és analítica i informes." }
-    ],
-    "hint": "Ordres de compra + proveïdors."
+    "hint": "Procurement = transacció; SRM = relació ampliada."
   },
   {
-    "guid": "9a8b7c6d-5e4f-4a3b-9c2d-1e0f2a3b4c32",
+    "guid": "a3b4c53a-d6e7-4cf8-8d6e-9f0a1b2c3d3a",
     "subjectId": "T13",
-    "difficulty": 2,
+    "difficulty": 4,
     "origin": "OPOS24_gpt",
     "type": "test",
-    "question": "Quina etapa de l’evolució ERP inclou la planificació de recursos de fabricació?",
+    "question": "En un examen, et demanen quin mòdul és més crític per assegurar que 'una comanda de venda no prometi entrega si no hi ha estoc ni capacitat'. Quina resposta és més completa?",
     "answerOptions": [
-      { "text": "MRP I", "isCorrect": false, "rationale": "MRP I se centra en materials." },
-      { "text": "MRP II", "isCorrect": true, "rationale": "MRP II amplia a recursos de fabricació (capacitat, planificació de producció)." },
-      { "text": "ERP II", "isCorrect": false, "rationale": "ERP II és una evolució posterior cap a integració externa." },
-      { "text": "ERP Cloud", "isCorrect": false, "rationale": "Cloud és model de desplegament, no etapa evolutiva." }
+      { "text": "Vendes + SCM/ATP (available-to-promise) + Inventari, amb regles de disponibilitat", "isCorrect": true, "rationale": "La promesa d’entrega requereix vendes i càlcul de disponibilitat (ATP) basat en estoc i planificació." },
+      { "text": "Finances (GL) perquè controla el tancament", "isCorrect": false, "rationale": "No és el domini de promesa d’entrega." },
+      { "text": "Qualitat perquè bloqueja lots", "isCorrect": false, "rationale": "Qualitat pot afectar disponibilitat, però no és el mòdul principal de promesa." },
+      { "text": "DMS perquè guarda comandes", "isCorrect": false, "rationale": "DMS no calcula promeses." }
     ],
-    "hint": "MRP II = Manufacturing Resource Planning."
+    "hint": "Promesa d’entrega = ATP + estoc + planificació."
   },
   {
-    "guid": "5e4f3a2b-1c0d-4e9f-8a7b-6c5d4e3f2a33",
+    "guid": "b4c5d63b-e7f8-4d09-9e7f-0a1b2c3d4e3b",
     "subjectId": "T13",
-    "difficulty": 2,
+    "difficulty": 4,
     "origin": "OPOS24_gpt",
     "type": "test",
-    "question": "Quin benefici aporta la integració de la intel·ligència artificial en els sistemes ERP?",
+    "question": "Quin dels següents és un indicador que un mòdul 'core' d’ERP està fent de 'system of record'?",
     "answerOptions": [
-      { "text": "Reducció de la seguretat", "isCorrect": false, "rationale": "No és un benefici; la seguretat s’ha de gestionar." },
-      { "text": "Automatització de processos complexos i presa de decisions proactiva", "isCorrect": true, "rationale": "IA permet predicció, recomanacions i automatització de tasques i decisions." },
-      { "text": "Eliminació de la base de dades comuna", "isCorrect": false, "rationale": "L’ERP continua requerint dades integrades; IA no elimina això." },
-      { "text": "Augment de la resistència al canvi", "isCorrect": false, "rationale": "Pot incrementar-la si es gestiona malament, però no és un benefici." }
+      { "text": "És el lloc on s’executa la transacció i es registra l’estat oficial (assentament, estoc, comanda) amb controls", "isCorrect": true, "rationale": "System of record és el registre oficial transaccional, no només una còpia analítica." },
+      { "text": "Només rep dades un cop al dia per lots", "isCorrect": false, "rationale": "Això descriu més un sistema satèl·lit o un DWH." },
+      { "text": "Només serveix per fer gràfics", "isCorrect": false, "rationale": "Això és BI." },
+      { "text": "No té cap control d’accés perquè tothom hi pugui entrar", "isCorrect": false, "rationale": "Un system of record acostuma a tenir controls d’accés." }
     ],
-    "hint": "IA = recomanar/predir/automatitzar."
-  },
-  {
-    "guid": "1c0d9e8f-7a6b-4c5d-8e9f-0a1b2c3d4e34",
-    "subjectId": "T13",
-    "difficulty": 2,
-    "origin": "OPOS24_gpt",
-    "type": "test",
-    "question": "Quin repte pot aparèixer en la implantació d’un ERP si hi ha canvis en l’organització?",
-    "answerOptions": [
-      { "text": "Millora de la formació", "isCorrect": false, "rationale": "Això seria una acció, no un repte derivat." },
-      { "text": "Reestructuracions que afecten el projecte", "isCorrect": true, "rationale": "Canvis organitzatius poden canviar requeriments, responsables i calendari del projecte." },
-      { "text": "Reducció de costos", "isCorrect": false, "rationale": "No és el repte típic; sovint hi ha risc d’increment de costos." },
-      { "text": "Augment de la col·laboració", "isCorrect": false, "rationale": "És un benefici possible, no un repte." }
-    ],
-    "hint": "Canvis interns poden impactar abast i governança."
-  },
-  {
-    "guid": "7a6b5c4d-3e2f-4a1b-9c0d-8e7f6a5b4c35",
-    "subjectId": "T13",
-    "difficulty": 2,
-    "origin": "OPOS24_gpt",
-    "type": "test",
-    "question": "Quin tipus de sistema ERP combina serveis al núvol amb aplicacions locals?",
-    "answerOptions": [
-      { "text": "ERP composable", "isCorrect": false, "rationale": "Composable és arquitectura modular; pot ser cloud o no." },
-      { "text": "ERP II", "isCorrect": false, "rationale": "ERP II és etapa d’evolució, no combinació cloud/on-prem." },
-      { "text": "ERP híbrid", "isCorrect": true, "rationale": "Híbrid combina components cloud amb components on-premise." },
-      { "text": "ERP tradicional", "isCorrect": false, "rationale": "Tradicional sol referir-se a on-premise monolític." }
-    ],
-    "hint": "Híbrid = part cloud, part local."
-  },
-  {
-    "guid": "3e2f1a0b-9c8d-4e7f-8a6b-5c4d3e2f1a36",
-    "subjectId": "T13",
-    "difficulty": 2,
-    "origin": "OPOS24_gpt",
-    "type": "test",
-    "question": "Quina funcionalitat ofereix el mòdul de Gestió de Projectes en un ERP?",
-    "answerOptions": [
-      { "text": "Gestió de nòmines", "isCorrect": false, "rationale": "Això és RH." },
-      { "text": "Seguiment del rendiment dels empleats", "isCorrect": false, "rationale": "Això és RH/performance management." },
-      { "text": "Planificació, assignació de recursos i seguiment del progrés", "isCorrect": true, "rationale": "Projectes cobreix planificació, recursos, costos i seguiment d’execució." },
-      { "text": "Control de qualitat", "isCorrect": false, "rationale": "Qualitat pot ser un mòdul separat o procés transversal." }
-    ],
-    "hint": "Projectes = planificar i controlar execució i recursos."
-  },
-  {
-    "guid": "9c8d7e6f-5a4b-4c3d-8e2f-1a0b9c8d7e37",
-    "subjectId": "T13",
-    "difficulty": 2,
-    "origin": "OPOS24_gpt",
-    "type": "test",
-    "question": "Quina tendència ERP permet la integració amb sensors per a manteniment predictiu?",
-    "answerOptions": [
-      { "text": "ERP mòbil", "isCorrect": false, "rationale": "ERP mòbil és accés des de dispositius, no sensors." },
-      { "text": "ERP composable", "isCorrect": false, "rationale": "Composable pot facilitar integració, però la tendència específica és IoT." },
-      { "text": "Integració amb IoT", "isCorrect": true, "rationale": "IoT integra sensors i telemetria per manteniment predictiu i operacions." },
-      { "text": "ERP Cloud", "isCorrect": false, "rationale": "Cloud pot ajudar, però IoT és el concepte de sensors." }
-    ],
-    "hint": "Sensors i telemetria = IoT."
-  },
-  {
-    "guid": "5a4b3c2d-1e0f-4a9b-8c7d-6e5f4a3b2c38",
-    "subjectId": "T13",
-    "difficulty": 2,
-    "origin": "OPOS24_gpt",
-    "type": "test",
-    "question": "Quin mòdul ERP facilita la gestió de relacions amb clients?",
-    "answerOptions": [
-      { "text": "SCM", "isCorrect": false, "rationale": "SCM és cadena de subministrament." },
-      { "text": "CRM", "isCorrect": true, "rationale": "CRM gestiona relació amb clients, vendes, oportunitats i servei." },
-      { "text": "SRM", "isCorrect": false, "rationale": "SRM és relació amb proveïdors." },
-      { "text": "PRM", "isCorrect": false, "rationale": "PRM és relació amb partners; no és la resposta típica per clients." }
-    ],
-    "hint": "Relació amb clients = Customer Relationship Management."
-  },
-  {
-    "guid": "1e0f9a8b-7c6d-4b5a-9e3f-2a1b0c9d8e39",
-    "subjectId": "T13",
-    "difficulty": 2,
-    "origin": "OPOS24_gpt",
-    "type": "test",
-    "question": "Quina és una característica clau dels sistemes ERP moderns respecte a la informació?",
-    "answerOptions": [
-      { "text": "Informació dispersa i duplicada", "isCorrect": false, "rationale": "ERP modern busca coherència i integració." },
-      { "text": "Informació compartida en temps real i amb integritat", "isCorrect": true, "rationale": "La integració permet dades consistents i disponibles per múltiples àrees." },
-      { "text": "Informació només accessible per TI", "isCorrect": false, "rationale": "ERP modern tendeix a autoservei i rols de negoci." },
-      { "text": "Informació no actualitzada", "isCorrect": false, "rationale": "L’objectiu és precisament informació actualitzada." }
-    ],
-    "hint": "Temps real + integritat = base d’un ERP modern."
-  },
-  {
-    "guid": "7c6d5b4a-3f2e-4a1b-9c0d-8e7f6a5b4c40",
-    "subjectId": "T13",
-    "difficulty": 2,
-    "origin": "OPOS24_gpt",
-    "type": "test",
-    "question": "Quin risc pot aparèixer si no es forma adequadament als usuaris en l’ús de l’ERP?",
-    "answerOptions": [
-      { "text": "Millora de la productivitat", "isCorrect": false, "rationale": "Sense formació sol passar el contrari." },
-      { "text": "Ús incorrecte del sistema i baixa eficiència", "isCorrect": true, "rationale": "Sense formació hi ha errors, reprocessos i baixa adopció." },
-      { "text": "Reducció de costos", "isCorrect": false, "rationale": "Sovint augmenten costos per incidències i re-treball." },
-      { "text": "Augment de la col·laboració", "isCorrect": false, "rationale": "La col·laboració millora quan s’utilitza bé el sistema." }
-    ],
-    "hint": "Formació = adopció; sense adopció, el sistema no aporta valor."
+    "hint": "System of record = on passa l’operació oficial."
   }
 ]
 
