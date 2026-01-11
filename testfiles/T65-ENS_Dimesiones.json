@@ -1,0 +1,226 @@
+[
+  {
+    "guid": "ens-dim-0001-4f21-8a01-000000000001",
+    "subjectId": "T65",
+    "difficulty": 4,
+    "origin": "OPOS24_gpt",
+    "type": "test",
+    "question": "Una aplicación permite modificar parámetros ocultos en una petición HTTP, logrando que un usuario cambie datos de expedientes que no le pertenecen, sin que el sistema detecte la alteración. ¿Qué dimensión de seguridad se ve principalmente comprometida?",
+    "answerOptions": [
+      { "text": "Confidencialidad", "isCorrect": false, "rationale": "No hay acceso a información ajena." },
+      { "text": "Disponibilidad", "isCorrect": false, "rationale": "El sistema sigue operativo." },
+      { "text": "Autenticidad", "isCorrect": false, "rationale": "No hay suplantación." },
+      { "text": "Integridad", "isCorrect": true, "rationale": "Se altera información sin autorización." }
+    ]
+  },
+  {
+    "guid": "ens-dim-0002-9c11-7b22-000000000002",
+    "subjectId": "T65",
+    "difficulty": 4,
+    "origin": "OPOS24_gpt",
+    "type": "test",
+    "question": "Un atacante obtiene credenciales válidas de un empleado mediante phishing y accede al sistema realizando operaciones legítimas con esa identidad. ¿Qué dimensión de la seguridad de las víctimas se ve comprometida?",
+    "answerOptions": [
+      { "text": "Confidencialidad", "isCorrect": false, "rationale": "El problema no es el acceso." },
+      { "text": "Autenticidad", "isCorrect": true, "rationale": "Existe suplantación." },
+      { "text": "Integridad", "isCorrect": false, "rationale": "Las operaciones son coherentes." },
+      { "text": "Trazabilidad", "isCorrect": false, "rationale": "Puede haber registros." }
+    ]
+  },
+  {
+    "guid": "ens-dim-0003-3a77-6d44-000000000003",
+    "subjectId": "T65",
+    "difficulty": 4,
+    "origin": "OPOS24_gpt",
+    "type": "test",
+    "question": "Un fallo en el sistema de logs impide reconstruir quién accedió a un expediente sensible, aunque se sabe que el acceso fue indebido. ¿Qué dimensión se ve directamente afectada?",
+    "answerOptions": [
+      { "text": "Confidencialidad", "isCorrect": false, "rationale": "No es el fallo descrito." },
+      { "text": "Integridad", "isCorrect": false, "rationale": "No hay alteración." },
+      { "text": "Trazabilidad", "isCorrect": true, "rationale": "No se puede auditar." },
+      { "text": "Disponibilidad", "isCorrect": false, "rationale": "El sistema funciona." }
+    ]
+  },
+  {
+    "guid": "ens-dim-0004-2e55-1f99-000000000004",
+    "subjectId": "T65",
+    "difficulty": 4,
+    "origin": "OPOS24_gpt",
+    "type": "test",
+    "question": "Un atacante cifra los servidores de un portal de trámites electrónicos, impidiendo durante 48 horas la presentación de solicitudes, sin exfiltrar información. ¿Qué dimensión es la principalmente afectada?",
+    "answerOptions": [
+      { "text": "Confidencialidad", "isCorrect": false, "rationale": "No hay acceso a datos." },
+      { "text": "Integridad", "isCorrect": false, "rationale": "No se describen cambios." },
+      { "text": "Autenticidad", "isCorrect": false, "rationale": "No hay suplantación." },
+      { "text": "Disponibilidad", "isCorrect": true, "rationale": "El servicio no está accesible." }
+    ]
+  },
+  {
+    "guid": "ens-dim-0005-8b61-0c33-000000000005",
+    "subjectId": "T65",
+    "difficulty": 4,
+    "origin": "OPOS24_gpt",
+    "type": "test",
+    "question": "Un error de configuración permite que cualquier usuario autenticado consulte expedientes de otros ciudadanos, sin modificar nada. ¿Qué dimensión de seguridad se ve comprometida?",
+    "answerOptions": [
+      { "text": "Integridad", "isCorrect": false, "rationale": "No se modifica información." },
+      { "text": "Autenticidad", "isCorrect": false, "rationale": "El usuario es legítimo." },
+      { "text": "Confidencialidad", "isCorrect": true, "rationale": "Acceso no autorizado." },
+      { "text": "Trazabilidad", "isCorrect": false, "rationale": "No se menciona fallo en logs." }
+    ]
+  },
+  {
+    "guid": "ens-dim-0006-5d10-aa88-000000000006",
+    "subjectId": "T65",
+    "difficulty": 4,
+    "origin": "OPOS24_gpt",
+    "type": "test",
+    "question": "Un atacante reutiliza un token de sesión válido robado mediante XSS y actúa como otro usuario, accediendo a sus datos y realizando trámites en su nombre. ¿Cuál es la dimensión más gravemente comprometida para la víctima?",
+    "answerOptions": [
+      { "text": "Confidencialidad", "isCorrect": false, "rationale": "No es el impacto principal." },
+      { "text": "Integridad", "isCorrect": false, "rationale": "Las acciones pueden ser válidas." },
+      { "text": "Autenticidad", "isCorrect": true, "rationale": "Hay suplantación." },
+      { "text": "Trazabilidad", "isCorrect": false, "rationale": "Puede existir registro." }
+    ]
+  },
+  {
+    "guid": "ens-dim-0007-7f44-bb21-000000000007",
+    "subjectId": "T65",
+    "difficulty": 4,
+    "origin": "OPOS24_gpt",
+    "type": "test",
+    "question": "Un sistema funciona correctamente, pero un error de sincronización provoca que se muestren datos antiguos como si fueran actuales. ¿Qué dimensión se ve afectada?",
+    "answerOptions": [
+      { "text": "Disponibilidad", "isCorrect": false, "rationale": "El sistema funciona." },
+      { "text": "Confidencialidad", "isCorrect": false, "rationale": "No hay acceso indebido." },
+      { "text": "Integridad", "isCorrect": true, "rationale": "Datos incorrectos." },
+      { "text": "Autenticidad", "isCorrect": false, "rationale": "No hay suplantación." }
+    ]
+  },
+  {
+    "guid": "ens-dim-0008-1a99-cd77-000000000008",
+    "subjectId": "T65",
+    "difficulty": 4,
+    "origin": "OPOS24_gpt",
+    "type": "test",
+    "question": "Un usuario niega haber presentado una solicitud electrónica, pero el sistema dispone de sellado de tiempo, firma y registro de actividad verificable. ¿Qué dimensión de seguridad está garantizando el sistema?",
+    "answerOptions": [
+      { "text": "Autenticidad", "isCorrect": false, "rationale": "No es lo clave." },
+      { "text": "Integridad", "isCorrect": false, "rationale": "No hay alteración." },
+      { "text": "Trazabilidad", "isCorrect": true, "rationale": "Prueba quién hizo qué." },
+      { "text": "Confidencialidad", "isCorrect": false, "rationale": "No aplica." }
+    ]
+  },
+  {
+    "guid": "ens-dim-0001-4f21-8a01-000000000001",
+    "subjectId": "T65",
+    "difficulty": 4,
+    "origin": "OPOS24_gpt",
+    "type": "test",
+    "question": "Una aplicación permite modificar parámetros ocultos en una petición HTTP, logrando que un usuario cambie datos de expedientes que no le pertenecen, sin que el sistema detecte la alteración. ¿Qué dimensión de seguridad se ve principalmente comprometida?",
+    "answerOptions": [
+      { "text": "Confidencialidad", "isCorrect": false, "rationale": "No hay acceso a información ajena." },
+      { "text": "Disponibilidad", "isCorrect": false, "rationale": "El sistema sigue operativo." },
+      { "text": "Autenticidad", "isCorrect": false, "rationale": "No hay suplantación." },
+      { "text": "Integridad", "isCorrect": true, "rationale": "Se altera información sin autorización." }
+    ]
+  },
+  {
+    "guid": "ens-dim-0002-9c11-7b22-000000000002",
+    "subjectId": "T65",
+    "difficulty": 4,
+    "origin": "OPOS24_gpt",
+    "type": "test",
+    "question": "Un atacante obtiene credenciales válidas de un empleado mediante phishing y accede al sistema realizando operaciones legítimas con esa identidad. ¿Qué dimensión de la seguridad de las víctimas se ve comprometida?",
+    "answerOptions": [
+      { "text": "Confidencialidad", "isCorrect": false, "rationale": "El problema no es el acceso." },
+      { "text": "Autenticidad", "isCorrect": true, "rationale": "Existe suplantación." },
+      { "text": "Integridad", "isCorrect": false, "rationale": "Las operaciones son coherentes." },
+      { "text": "Trazabilidad", "isCorrect": false, "rationale": "Puede haber registros." }
+    ]
+  },
+  {
+    "guid": "ens-dim-0003-3a77-6d44-000000000003",
+    "subjectId": "T65",
+    "difficulty": 4,
+    "origin": "OPOS24_gpt",
+    "type": "test",
+    "question": "Un fallo en el sistema de logs impide reconstruir quién accedió a un expediente sensible, aunque se sabe que el acceso fue indebido. ¿Qué dimensión se ve directamente afectada?",
+    "answerOptions": [
+      { "text": "Confidencialidad", "isCorrect": false, "rationale": "No es el fallo descrito." },
+      { "text": "Integridad", "isCorrect": false, "rationale": "No hay alteración." },
+      { "text": "Trazabilidad", "isCorrect": true, "rationale": "No se puede auditar." },
+      { "text": "Disponibilidad", "isCorrect": false, "rationale": "El sistema funciona." }
+    ]
+  },
+  {
+    "guid": "ens-dim-0004-2e55-1f99-000000000004",
+    "subjectId": "T65",
+    "difficulty": 4,
+    "origin": "OPOS24_gpt",
+    "type": "test",
+    "question": "Un atacante cifra los servidores de un portal de trámites electrónicos, impidiendo durante 48 horas la presentación de solicitudes, sin exfiltrar información. ¿Qué dimensión es la principalmente afectada?",
+    "answerOptions": [
+      { "text": "Confidencialidad", "isCorrect": false, "rationale": "No hay acceso a datos." },
+      { "text": "Integridad", "isCorrect": false, "rationale": "No se describen cambios." },
+      { "text": "Autenticidad", "isCorrect": false, "rationale": "No hay suplantación." },
+      { "text": "Disponibilidad", "isCorrect": true, "rationale": "El servicio no está accesible." }
+    ]
+  },
+  {
+    "guid": "ens-dim-0005-8b61-0c33-000000000005",
+    "subjectId": "T65",
+    "difficulty": 4,
+    "origin": "OPOS24_gpt",
+    "type": "test",
+    "question": "Un error de configuración permite que cualquier usuario autenticado consulte expedientes de otros ciudadanos, sin modificar nada. ¿Qué dimensión de seguridad se ve comprometida?",
+    "answerOptions": [
+      { "text": "Integridad", "isCorrect": false, "rationale": "No se modifica información." },
+      { "text": "Autenticidad", "isCorrect": false, "rationale": "El usuario es legítimo." },
+      { "text": "Confidencialidad", "isCorrect": true, "rationale": "Acceso no autorizado." },
+      { "text": "Trazabilidad", "isCorrect": false, "rationale": "No se menciona fallo en logs." }
+    ]
+  },
+  {
+    "guid": "ens-dim-0006-5d10-aa88-000000000006",
+    "subjectId": "T65",
+    "difficulty": 4,
+    "origin": "OPOS24_gpt",
+    "type": "test",
+    "question": "Un atacante reutiliza un token de sesión válido robado mediante XSS y actúa como otro usuario, accediendo a sus datos y realizando trámites en su nombre. ¿Cuál es la dimensión más gravemente comprometida para la víctima?",
+    "answerOptions": [
+      { "text": "Confidencialidad", "isCorrect": false, "rationale": "No es el impacto principal." },
+      { "text": "Integridad", "isCorrect": false, "rationale": "Las acciones pueden ser válidas." },
+      { "text": "Autenticidad", "isCorrect": true, "rationale": "Hay suplantación." },
+      { "text": "Trazabilidad", "isCorrect": false, "rationale": "Puede existir registro." }
+    ]
+  },
+  {
+    "guid": "ens-dim-0007-7f44-bb21-000000000007",
+    "subjectId": "T65",
+    "difficulty": 4,
+    "origin": "OPOS24_gpt",
+    "type": "test",
+    "question": "Un sistema funciona correctamente, pero un error de sincronización provoca que se muestren datos antiguos como si fueran actuales. ¿Qué dimensión se ve afectada?",
+    "answerOptions": [
+      { "text": "Disponibilidad", "isCorrect": false, "rationale": "El sistema funciona." },
+      { "text": "Confidencialidad", "isCorrect": false, "rationale": "No hay acceso indebido." },
+      { "text": "Integridad", "isCorrect": true, "rationale": "Datos incorrectos." },
+      { "text": "Autenticidad", "isCorrect": false, "rationale": "No hay suplantación." }
+    ]
+  },
+  {
+    "guid": "ens-dim-0008-1a99-cd77-000000000008",
+    "subjectId": "T65",
+    "difficulty": 4,
+    "origin": "OPOS24_gpt",
+    "type": "test",
+    "question": "Un usuario niega haber presentado una solicitud electrónica, pero el sistema dispone de sellado de tiempo, firma y registro de actividad verificable. ¿Qué dimensión de seguridad está garantizando el sistema?",
+    "answerOptions": [
+      { "text": "Autenticidad", "isCorrect": false, "rationale": "No es lo clave." },
+      { "text": "Integridad", "isCorrect": false, "rationale": "No hay alteración." },
+      { "text": "Trazabilidad", "isCorrect": true, "rationale": "Prueba quién hizo qué." },
+      { "text": "Confidencialidad", "isCorrect": false, "rationale": "No aplica." }
+    ]
+  }
+]

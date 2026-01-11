@@ -1,0 +1,777 @@
+[
+  {
+    "guid": "218e48cc-ee6e-4c8d-b998-6ea2b4df41f4",
+    "subjectId": "T65",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "Según la medida [op.pl.1] Análisis de riesgos, ¿qué tipo de análisis se exige para un sistema de categoría ALTA y qué característica principal lo define?",
+    "answerOptions": [
+      {
+        "text": "Un análisis informal, realizado en lenguaje natural y exponiendo textualmente los riesgos.",
+        "isCorrect": false,
+        "rationale": "Este tipo de análisis es el requisito base, pero es insuficiente para la categoría ALTA, correspondiendo a la categoría BÁSICA."
+      },
+      {
+        "text": "Un análisis semiformal, usando un lenguaje específico y tablas para valorar cualitativamente los activos.",
+        "isCorrect": false,
+        "rationale": "El análisis semiformal es un requisito para la categoría MEDIA, que representa un nivel intermedio de rigor."
+      },
+      {
+        "text": "Un análisis formal, que utiliza un lenguaje específico con un fundamento matemático reconocido internacionalmente.",
+        "isCorrect": true,
+        "rationale": "El refuerzo R2, exigido para la categoría ALTA, especifica un análisis formal con fundamento matemático para valorar y priorizar salvaguardas y asumir formalmente el riesgo residual."
+      },
+      {
+        "text": "Cualquier metodología reconocida internacionalmente, sin especificar un nivel de formalidad.",
+        "isCorrect": false,
+        "rationale": "Aunque se deben usar metodologías reconocidas, el ENS sí especifica niveles crecientes de formalidad del análisis de riesgos según la categoría del sistema."
+      }
+    ],
+    "hint": "Considere cómo evoluciona la exigencia de rigor y cuantificación en el análisis de riesgos a medida que aumenta la categoría del sistema."
+  },
+  {
+    "guid": "eb1d7580-d13e-444f-b01f-f14bbaa5e30d",
+    "subjectId": "T65",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "En el marco de la medida [op.pl.2] Arquitectura de Seguridad, ¿cuál de los siguientes elementos es un requisito específico del refuerzo R2, aplicable a sistemas de categoría ALTA?",
+    "answerOptions": [
+      {
+        "text": "Documentación de las instalaciones y del sistema, incluyendo equipos y redes.",
+        "isCorrect": false,
+        "rationale": "La documentación de la arquitectura es un requisito base de la medida, aplicable a todas las categorías."
+      },
+      {
+        "text": "Esquema de líneas de defensa, incluyendo cortafuegos y DMZ.",
+        "isCorrect": false,
+        "rationale": "El diseño de líneas de defensa es parte de los requisitos base, aplicable desde la categoría BÁSICA."
+      },
+      {
+        "text": "Un sistema de gestión de la seguridad de la información, con actualización y aprobación periódica.",
+        "isCorrect": true,
+        "rationale": "El refuerzo R2 [op.pl.2.r2.1] exige un sistema de gestión de seguridad con un ciclo de mejora continua, lo cual es un requisito para la categoría ALTA."
+      },
+      {
+        "text": "Un sistema de gestión relativo a la planificación y control de los recursos de seguridad.",
+        "isCorrect": false,
+        "rationale": "Esto corresponde al refuerzo R1, que se aplica a partir de la categoría MEDIA, pero no es el requisito específico del refuerzo R2 para la categoría ALTA."
+      }
+    ],
+    "hint": "Distinga entre la simple existencia de un sistema de gestión y la exigencia de un proceso de mejora continua."
+  },
+  {
+    "guid": "05e46335-68ef-4824-85fb-a56ace30f2d6",
+    "subjectId": "T65",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "Para un sistema con nivel ALTO en la dimensión de Disponibilidad [D], ¿qué refuerzo se aplica a la medida [op.pl.4] Dimensionamiento / gestión de la capacidad que también se aplica al nivel MEDIO?",
+    "answerOptions": [
+      {
+        "text": "Realizar un estudio previo a la explotación sobre necesidades de procesamiento y almacenamiento.",
+        "isCorrect": false,
+        "rationale": "Este es el requisito base de la medida [op.pl.4], aplicable desde el nivel BAJO."
+      },
+      {
+        "text": "Realizar una previsión de la capacidad, mantenerla actualizada y monitorizarla con herramientas.",
+        "isCorrect": true,
+        "rationale": "El refuerzo R1 [op.pl.4.r1.1 y .r1.2] exige una gestión continua y monitorización de la capacidad, siendo aplicable tanto para el nivel MEDIO como para el ALTO."
+      },
+      {
+        "text": "No se aplica ningún refuerzo adicional para el nivel ALTO en comparación con el nivel MEDIO.",
+        "isCorrect": false,
+        "rationale": "La tabla del Anexo II muestra que para los niveles MEDIO y ALTO de la dimensión D se aplica el mismo refuerzo '+ R1'."
+      },
+      {
+        "text": "Implementar un mecanismo de escalado automático de recursos basado en la demanda.",
+        "isCorrect": false,
+        "rationale": "Aunque es una buena práctica, el Anexo II no especifica el escalado automático como un requisito explícito en el refuerzo R1 para esta medida."
+      }
+    ],
+    "hint": "Revise la tabla del Anexo II para la medida [op.pl.4] y compare los requisitos para los niveles MEDIO y ALTO de la dimensión de Disponibilidad."
+  },
+  {
+    "guid": "8d4bfcf4-dd66-46ec-a4c2-3c7d1487510d",
+    "subjectId": "T65",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "En la medida [op.acc.6] Mecanismo de autenticación para usuarios de la organización, ¿qué combinación de refuerzos es obligatoria para un sistema de nivel MEDIO en las dimensiones CITA?",
+    "answerOptions": [
+      {
+        "text": "[R1 o R2 o R3 o R4] + R8 + R9",
+        "isCorrect": false,
+        "rationale": "Esta combinación corresponde al nivel BAJO, ya que carece del refuerzo R5 sobre el registro de accesos."
+      },
+      {
+        "text": "[R1 o R2 o R3 o R4] + R5 + R6 + R7 + R8 + R9",
+        "isCorrect": false,
+        "rationale": "Esta es la combinación más exigente, que corresponde al nivel ALTO, al incluir los refuerzos R6 y R7."
+      },
+      {
+        "text": "[R1 o R2 o R3 o R4] + R5 + R8 + R9",
+        "isCorrect": true,
+        "rationale": "Para el nivel MEDIO se exige un mecanismo de autenticación robusto, el registro de accesos (R5) y las medidas para acceso desde zonas no controladas (R8) y acceso remoto (R9)."
+      },
+      {
+        "text": "Únicamente el refuerzo R8 de doble factor para acceso desde zonas no controladas.",
+        "isCorrect": false,
+        "rationale": "El refuerzo R8 es una parte importante, pero no es el único requisito; se debe elegir un mecanismo base y aplicar otros refuerzos como el R5."
+      }
+    ],
+    "hint": "Identifique el refuerzo que se añade al pasar del nivel BAJO al MEDIO en esta medida específica."
+  },
+  {
+    "guid": "67f29ba6-57a0-448e-856b-bafb238062f9",
+    "subjectId": "T65",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "La medida [op.exp.3] Gestión de la configuración de seguridad, para un sistema de categoría ALTA, exige los refuerzos R1, R2 y R3. ¿Qué implica el refuerzo R3 [op.exp.3.r3.1]?",
+    "answerOptions": [
+      {
+        "text": "Verificar periódicamente la configuración hardware/software del sistema.",
+        "isCorrect": false,
+        "rationale": "Esta acción corresponde al refuerzo R1, relacionado con el mantenimiento regular de la configuración."
+      },
+      {
+        "text": "Limitar la responsabilidad de la configuración a un número reducido de administradores.",
+        "isCorrect": false,
+        "rationale": "Esta es la exigencia del refuerzo R2, centrada en la segregación de responsabilidades."
+      },
+      {
+        "text": "Realizar copias de seguridad de la configuración del sistema para permitir su reconstrucción.",
+        "isCorrect": true,
+        "rationale": "El refuerzo R3 se enfoca en la resiliencia, asegurando que la configuración pueda ser restaurada tras un incidente."
+      },
+      {
+        "text": "Mantener actualizada la configuración a través de un procedimiento de instalación de parches.",
+        "isCorrect": false,
+        "rationale": "Esto se relaciona con la medida [op.exp.4] sobre mantenimiento, aunque la gestión de la configuración es un concepto relacionado, el refuerzo R3 trata sobre las copias de seguridad."
+      }
+    ],
+    "hint": "Piense en las acciones necesarias para restaurar un sistema a un estado conocido y seguro después de un fallo o incidente."
+  },
+  {
+    "guid": "55e3cf8c-1826-4a2b-84ce-171c05213b62",
+    "subjectId": "T65",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "En la medida [op.exp.6] Protección frente a código dañino, ¿qué capacidad avanzada, requerida para la categoría ALTA a través del refuerzo R4, diferencia fundamentalmente su enfoque del de un antivirus tradicional?",
+    "answerOptions": [
+      {
+        "text": "Escanear todo el sistema regularmente para detectar código dañino.",
+        "isCorrect": false,
+        "rationale": "El escaneo periódico es una función básica de los antivirus y es requerido desde la categoría MEDIA a través del refuerzo R1."
+      },
+      {
+        "text": "Implementar una lista blanca para impedir la ejecución de aplicaciones no autorizadas.",
+        "isCorrect": false,
+        "rationale": "La lista blanca (refuerzo R3) es una medida potente requerida para la categoría ALTA, pero se centra en la prevención de la ejecución, no en la respuesta a actividades sospechosas."
+      },
+      {
+        "text": "Emplear herramientas de seguridad para detectar, investigar y resolver actividades sospechosas en los endpoints (EDR).",
+        "isCorrect": true,
+        "rationale": "El refuerzo R4 [op.exp.6.r4.1] exige capacidades de Detección y Respuesta en el Endpoint (EDR), que van más allá de la simple detección basada en firmas, enfocándose en el análisis del comportamiento para investigar y remediar amenazas avanzadas."
+      },
+      {
+        "text": "Analizar las funciones críticas del sistema al arrancar para prevenir modificaciones no autorizadas.",
+        "isCorrect": false,
+        "rationale": "Esta revisión preventiva corresponde al refuerzo R2, aplicable desde la categoría MEDIA, y se centra en la integridad del arranque."
+      }
+    ],
+    "hint": "Considere la diferencia entre detectar un archivo malicioso conocido y responder a un comportamiento anómalo que podría indicar un ataque en curso."
+  },
+  {
+    "guid": "a8aa6d4a-b254-4889-b5af-8d1e821ac61e",
+    "subjectId": "T65",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "La medida [op.mon.3] Vigilancia exige un conjunto de refuerzos progresivos. Para un sistema de categoría ALTA, ¿cuál de las siguientes capacidades NO está explícitamente requerida?",
+    "answerOptions": [
+      {
+        "text": "Disponer de sistemas para la detección de Amenazas Persistentes Avanzadas (APT) mediante anomalías en el tráfico de red.",
+        "isCorrect": false,
+        "rationale": "El refuerzo R3 [op.mon.3.r3.2] exige explícitamente esta capacidad para los sistemas de categoría ALTA."
+      },
+      {
+        "text": "Limitar las consultas y alertar de comportamientos sospechosos para prevenir la minería de datos.",
+        "isCorrect": false,
+        "rationale": "El refuerzo R5 [op.mon.3.r5.1 y .r5.2] detalla estas medidas contra la minería de datos como requisito para la categoría ALTA."
+      },
+      {
+        "text": "Implementar un Centro de Operaciones de Seguridad (SOC) con personal 24/7.",
+        "isCorrect": true,
+        "rationale": "Aunque un SOC es el medio habitual para implementar la vigilancia avanzada, el Anexo II no prescribe explícitamente su creación ni un horario 24/7, sino que detalla las capacidades funcionales requeridas (detección de APTs, análisis dinámico, etc.)."
+      },
+      {
+        "text": "Realizar periódicamente pruebas de penetración, análisis de vulnerabilidades y verificación de configuración.",
+        "isCorrect": false,
+        "rationale": "El refuerzo R6 [op.mon.3.r6.1 a .r6.3] sobre inspecciones de seguridad es un requisito mandatorio para los sistemas de categoría ALTA."
+      }
+    ],
+    "hint": "Distinga entre las capacidades funcionales que exige la norma y las soluciones organizativas o de implementación concretas que se podrían usar para cumplirlas."
+  },
+  {
+    "guid": "1bbb4c7d-a783-47e7-a266-a9416e44a7ef",
+    "subjectId": "T65",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "En la protección de las comunicaciones, la medida [mp.com.4] Separación de flujos de información en la red es obligatoria para las categorías MEDIA y ALTA. ¿Qué opción de implementación NO sería válida para cumplir con el requisito base de esta medida en un sistema de categoría MEDIA?",
+    "answerOptions": [
+      {
+        "text": "Implementar los segmentos de red por medio de redes de área local virtuales (VLAN).",
+        "isCorrect": false,
+        "rationale": "El refuerzo R1, que es una opción válida para la categoría MEDIA, permite el uso de VLAN para la segmentación lógica básica."
+      },
+      {
+        "text": "Implementar los segmentos de red por medio de redes privadas virtuales (VPN).",
+        "isCorrect": false,
+        "rationale": "El refuerzo R2, opción válida para la categoría MEDIA, permite el uso de VPN para una segmentación lógica avanzada."
+      },
+      {
+        "text": "Implementar los segmentos de red con medios físicos separados.",
+        "isCorrect": false,
+        "rationale": "El refuerzo R3, también una opción válida para la categoría MEDIA, contempla la segmentación física, que es el nivel más alto de separación."
+      },
+      {
+        "text": "Implementar la separación únicamente mediante reglas en un cortafuegos perimetral sin segmentación de red interna.",
+        "isCorrect": true,
+        "rationale": "La medida exige explícitamente la segregación del tráfico en la red interna en distintos segmentos o subredes (usuarios, servicios, administración). Las reglas de un cortafuegos perimetral por sí solas no cumplen con este requisito de segmentación interna."
+      }
+    ],
+    "hint": "La medida requiere elegir entre tres tipos de refuerzos para la segmentación de red. Analice si la opción propuesta se corresponde con alguna de estas implementaciones aceptadas."
+  },
+  {
+    "guid": "debaf303-72b6-4f90-8d9e-f66473a0b810",
+    "subjectId": "T65",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "Para un sistema con nivel de seguridad ALTO en la dimensión de Confidencialidad [C], la medida [mp.com.2] Protección de la confidencialidad exige los refuerzos R1, R2 y R3. ¿Qué establece el refuerzo R2 [mp.com.2.r2.1]?",
+    "answerOptions": [
+      {
+        "text": "Emplear algoritmos y parámetros autorizados por el CCN.",
+        "isCorrect": false,
+        "rationale": "Este es el requisito del refuerzo R1, aplicable desde el nivel MEDIO."
+      },
+      {
+        "text": "Emplear dispositivos hardware para establecer y utilizar la red privada virtual.",
+        "isCorrect": true,
+        "rationale": "El refuerzo R2 exige el uso de hardware específico para las VPN, proporcionando un mayor nivel de seguridad y rendimiento que las soluciones basadas puramente en software."
+      },
+      {
+        "text": "Usar productos o servicios que cumplan con los requisitos de certificación de [op.pl.5].",
+        "isCorrect": false,
+        "rationale": "Este es el requisito del refuerzo R3, que se suma a los anteriores para el nivel ALTO, exigiendo certificación de seguridad."
+      },
+      {
+        "text": "Emplear redes privadas virtuales cifradas cuando la comunicación discurra por redes no seguras.",
+        "isCorrect": false,
+        "rationale": "Este es el requisito base de la medida [mp.com.2.1], aplicable desde el nivel BAJO."
+      }
+    ],
+    "hint": "Considere la diferencia de seguridad entre una implementación de VPN basada en software y una basada en un equipo físico dedicado."
+  },
+  {
+    "guid": "4033dc67-758d-4a95-8622-9ef8689a9546",
+    "subjectId": "T65",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "La medida [mp.sw.1] Desarrollo de aplicaciones, para categorías MEDIA y ALTA, requiere aplicar una metodología de desarrollo seguro (R2). ¿Cuál de las siguientes acciones NO es un componente explícito de esta metodología según [mp.sw.1.r2.1]?",
+    "answerOptions": [
+      {
+        "text": "Tener en consideración los aspectos de seguridad a lo largo de todo el ciclo de vida.",
+        "isCorrect": false,
+        "rationale": "Este es el primer y más importante principio de una metodología de desarrollo seguro según la norma."
+      },
+      {
+        "text": "Incluir normas de programación segura, como el control de desbordamiento de memoria.",
+        "isCorrect": false,
+        "rationale": "La norma especifica explícitamente la necesidad de seguir guías de codificación segura para evitar vulnerabilidades comunes."
+      },
+      {
+        "text": "Utilizar exclusivamente herramientas de análisis estático de código (SAST) para la inspección.",
+        "isCorrect": true,
+        "rationale": "La norma exige permitir la inspección del código fuente, pero no prescribe una única herramienta o método como SAST, dejando abierta la posibilidad a revisiones manuales o análisis dinámico (DAST)."
+      },
+      {
+        "text": "Tratar específicamente los datos usados en pruebas para proteger la información real.",
+        "isCorrect": false,
+        "rationale": "La protección de los datos de producción y su correcto tratamiento en entornos de prueba es un requisito clave de la metodología."
+      }
+    ],
+    "hint": "La norma define los principios de la metodología, pero ¿especifica las herramientas concretas a utilizar?"
+  },
+  {
+    "guid": "d4dc9624-2992-45aa-bd1d-819fa6fabfda",
+    "subjectId": "T65",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "En el contexto de la medida [mp.info.3] Firma electrónica para un sistema con nivel ALTO en Integridad [I] y Autenticidad [A], ¿qué se requiere específicamente que no es obligatorio para el nivel MEDIO?",
+    "answerOptions": [
+      {
+        "text": "Garantizar la verificación y validación de la firma durante el tiempo requerido (R3).",
+        "isCorrect": false,
+        "rationale": "El refuerzo R3 es requerido tanto para el nivel MEDIO como para el ALTO."
+      },
+      {
+        "text": "Emplear algoritmos y parámetros autorizados por el CCN (R2).",
+        "isCorrect": false,
+        "rationale": "El refuerzo R2 es también un requisito común para los niveles MEDIO y ALTO."
+      },
+      {
+        "text": "Usar firma electrónica avanzada basada en certificados cualificados con un segundo factor (R4).",
+        "isCorrect": true,
+        "rationale": "El refuerzo R4, que añade la exigencia de un segundo factor (algo que se sabe o algo que se es) al uso del certificado, es específico para el nivel ALTO."
+      },
+      {
+        "text": "Emplear certificados cualificados cuando se usen sistemas de firma electrónica avanzada (R1).",
+        "isCorrect": false,
+        "rationale": "El uso de certificados cualificados (R1) es un requisito para los niveles MEDIO y ALTO por igual."
+      }
+    ],
+    "hint": "Examine los refuerzos de la medida [mp.info.3] e identifique cuál se añade exclusivamente en el nivel ALTO."
+  },
+  {
+    "guid": "a9797ae5-e36e-42ac-8994-456ac34ef8d9",
+    "subjectId": "T65",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "La medida [mp.s.2] Protección de servicios y aplicaciones web, para un sistema de categoría ALTA, exige los refuerzos R2 y R3. ¿Qué tipo de auditoría introduce el refuerzo R2 que no se contempla en el R1?",
+    "answerOptions": [
+      {
+        "text": "Auditorías continuas de seguridad de «caja negra» antes de la fase de producción.",
+        "isCorrect": false,
+        "rationale": "Las auditorías de 'caja negra' son parte del refuerzo R1, que es una opción válida también para categorías BÁSICA y MEDIA."
+      },
+      {
+        "text": "Auditorías de seguridad de «caja blanca» sobre las aplicaciones web durante la fase de desarrollo.",
+        "isCorrect": true,
+        "rationale": "El refuerzo R2 [mp.s.2.r2.1] eleva la exigencia a auditorías de 'caja blanca', que implican el análisis del código fuente y la lógica interna de la aplicación, proporcionando una visión mucho más profunda de la seguridad."
+      },
+      {
+        "text": "El análisis de resultados y la subsanación de las vulnerabilidades encontradas.",
+        "isCorrect": false,
+        "rationale": "El análisis y la corrección de vulnerabilidades (R2.3) es una consecuencia de la auditoría, pero el tipo de auditoría distintivo es la de 'caja blanca'."
+      },
+      {
+        "text": "La prevención de ataques de manipulación de proxies y cachés.",
+        "isCorrect": false,
+        "rationale": "Esto corresponde al refuerzo R3, que se suma al R2 para la categoría ALTA, y no describe un tipo de auditoría."
+      }
+    ],
+    "hint": "Considere la diferencia en el nivel de información y acceso que tiene un auditor en una prueba de 'caja negra' frente a una de 'caja blanca'."
+  },
+  {
+    "guid": "cba7662d-f76b-4726-afd7-52547c9c10aa",
+    "subjectId": "T65",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "Según el Anexo II, la medida [op.ext.3] Protección de la cadena de suministro es aplicable únicamente a sistemas de una categoría específica. ¿A cuál y por qué?",
+    "answerOptions": [
+      {
+        "text": "Categoría MEDIA, porque los riesgos de la cadena de suministro se consideran significativos a partir de este nivel.",
+        "isCorrect": false,
+        "rationale": "La tabla del Anexo II indica que esta medida es 'n.a.' (no aplica) para la categoría MEDIA."
+      },
+      {
+        "text": "Categoría BÁSICA, para establecer una base de seguridad en todas las interacciones con terceros.",
+        "isCorrect": false,
+        "rationale": "La tabla del Anexo II indica que esta medida es 'n.a.' (no aplica) para la categoría BÁSICA."
+      },
+      {
+        "text": "Todas las categorías, ya que la cadena de suministro siempre representa un vector de ataque relevante.",
+        "isCorrect": false,
+        "rationale": "Aunque es una buena práctica, el ENS aplica el principio de proporcionalidad y solo exige esta medida compleja para la categoría más alta."
+      },
+      {
+        "text": "Categoría ALTA, debido a la criticidad de los sistemas y el impacto potencial de un incidente originado en un proveedor.",
+        "isCorrect": true,
+        "rationale": "La tabla del Anexo II muestra que la medida [op.ext.3] es exigible ('aplica') exclusivamente para los sistemas de categoría ALTA, reflejando su complejidad y la necesidad de gestionar riesgos avanzados."
+      }
+    ],
+    "hint": "Revise la tabla de aplicabilidad de las medidas operacionales y busque la entrada correspondiente a la protección de la cadena de suministro."
+  },
+  {
+    "guid": "b52a0d8c-37bf-4408-be25-48d3106d2fad",
+    "subjectId": "T65",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "¿Qué medida de continuidad del servicio, según el marco [op.cont], se exige para un sistema con nivel MEDIO en Disponibilidad [D] pero no para uno de nivel BAJO?",
+    "answerOptions": [
+      {
+        "text": "El desarrollo de un plan de continuidad [op.cont.2].",
+        "isCorrect": false,
+        "rationale": "El plan de continuidad [op.cont.2] es una medida que se exige únicamente para el nivel ALTO."
+      },
+      {
+        "text": "La realización de un análisis de impacto [op.cont.1].",
+        "isCorrect": true,
+        "rationale": "La medida [op.cont.1] es la primera que se aplica en materia de continuidad y es exigible a partir del nivel MEDIO en la dimensión de Disponibilidad."
+      },
+      {
+        "text": "La realización de pruebas periódicas del plan de continuidad [op.cont.3].",
+        "isCorrect": false,
+        "rationale": "Las pruebas periódicas [op.cont.3] son una exigencia únicamente para el nivel ALTO."
+      },
+      {
+        "text": "La disponibilidad de medios alternativos [op.cont.4].",
+        "isCorrect": false,
+        "rationale": "La previsión de medios alternativos [op.cont.4] es un requisito específico del nivel ALTO."
+      }
+    ],
+    "hint": "Identifique el primer paso lógico en la planificación de la continuidad de un servicio, que se vuelve obligatorio a partir del nivel MEDIO."
+  },
+  {
+    "guid": "6f3ca6ef-26c0-42fc-a2fb-123f14213596",
+    "subjectId": "T65",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "En el contexto de la medida [mp.si.2] Criptografía, aplicada a soportes de información, ¿qué combinación de requisitos es obligatoria para un sistema con nivel ALTO en las dimensiones de Confidencialidad [C] o Integridad [I]?",
+    "answerOptions": [
+      {
+        "text": "Únicamente el uso de mecanismos criptográficos con algoritmos autorizados por el CCN.",
+        "isCorrect": false,
+        "rationale": "Este es el requisito para el nivel MEDIO, pero es insuficiente para el nivel ALTO."
+      },
+      {
+        "text": "El uso de mecanismos criptográficos, el empleo de productos certificados (R1) y el cifrado de las copias de seguridad (R2).",
+        "isCorrect": true,
+        "rationale": "Para el nivel ALTO, se exige el requisito base, la certificación de los productos criptográficos (R1) y la protección específica de las copias de seguridad mediante cifrado (R2)."
+      },
+      {
+        "text": "Solo el empleo de productos certificados (R1), sin ser necesario cifrar las copias de seguridad.",
+        "isCorrect": false,
+        "rationale": "El refuerzo R2, sobre el cifrado de copias de seguridad, es una exigencia adicional y específica para el nivel ALTO."
+      },
+      {
+        "text": "El cifrado de las copias de seguridad (R2), pero sin requerir que los productos estén certificados.",
+        "isCorrect": false,
+        "rationale": "Ambos refuerzos, R1 y R2, son acumulativos y necesarios para cumplir con los requisitos del nivel ALTO."
+      }
+    ],
+    "hint": "Examine todos los refuerzos listados para la medida [mp.si.2] y determine cuáles son aplicables para el nivel de seguridad más elevado."
+  },
+  {
+    "guid": "7bf404ed-ab5c-4dc5-b604-4286358943e4",
+    "subjectId": "T65",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "La medida [mp.per.1] Caracterización del puesto de trabajo no aplica para sistemas de categoría BÁSICA. Para un sistema de categoría ALTA, ¿se contempla algún refuerzo adicional sobre el requisito base aplicable en categoría MEDIA?",
+    "answerOptions": [
+      {
+        "text": "Sí, se exige la Habilitación Personal de Seguridad (HPS) para los administradores.",
+        "isCorrect": false,
+        "rationale": "La Habilitación Personal de Seguridad (HPS) es un refuerzo opcional [mp.per.1.r1.1] que puede aplicarse si el análisis de riesgos lo determina, pero no es un requisito mandatorio para todos los sistemas de categoría ALTA."
+      },
+      {
+        "text": "No, los requisitos de definir responsabilidades y verificar antecedentes son los mismos para las categorías MEDIA y ALTA.",
+        "isCorrect": true,
+        "rationale": "La tabla del Anexo II muestra que para la medida [mp.per.1] se aplica el requisito base ('aplica') tanto en categoría MEDIA como en ALTA, sin añadir refuerzos obligatorios adicionales para esta última."
+      },
+      {
+        "text": "Sí, se exige una revisión anual de los antecedentes laborales del personal.",
+        "isCorrect": false,
+        "rationale": "La norma exige la verificación de antecedentes en el momento de la selección, pero no especifica una revisión anual como requisito en el texto de la medida."
+      },
+      {
+        "text": "Sí, se exige una formación específica y certificada en seguridad para cada puesto.",
+        "isCorrect": false,
+        "rationale": "La formación se trata en la medida [mp.per.4] y no es un refuerzo de la caracterización del puesto de trabajo en [mp.per.1]."
+      }
+    ],
+    "hint": "Observe la tabla del Anexo II para la medida [mp.per.1]. ¿Aparece algún '+ R' en la columna de la categoría ALTA que no esté en la de MEDIA?"
+  },
+  {
+    "guid": "102f319a-ebb4-4fff-90da-47c5cc47052d",
+    "subjectId": "T65",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "En la medida [mp.eq.2] Bloqueo de puesto de trabajo, aplicable a partir del nivel MEDIO de Autenticidad [A], ¿qué acción adicional exige el refuerzo R1, específico del nivel ALTO?",
+    "answerOptions": [
+      {
+        "text": "El puesto de trabajo se bloqueará tras un tiempo de inactividad, requiriendo nueva autenticación.",
+        "isCorrect": false,
+        "rationale": "Este es el requisito base de la medida [mp.eq.2.1], aplicable desde el nivel MEDIO."
+      },
+      {
+        "text": "Pasado un cierto tiempo, superior al de bloqueo, se cancelarán las sesiones abiertas desde dicho puesto.",
+        "isCorrect": true,
+        "rationale": "El refuerzo R1 [mp.eq.2.r1.1] va un paso más allá del simple bloqueo de pantalla, exigiendo el cierre completo de las sesiones para minimizar la ventana de exposición en caso de un puesto abandonado."
+      },
+      {
+        "text": "Se registrará en la auditoría cada vez que un puesto de trabajo se bloquee por inactividad.",
+        "isCorrect": false,
+        "rationale": "El registro de eventos se trata en otras medidas, y no es el foco del refuerzo R1 de [mp.eq.2]."
+      },
+      {
+        "text": "El tiempo de inactividad para el bloqueo será configurable por el propio usuario.",
+        "isCorrect": false,
+        "rationale": "Generalmente, por motivos de seguridad, este parámetro es definido por la política de seguridad y no se deja a discreción del usuario."
+      }
+    ],
+    "hint": "Piense en la diferencia entre suspender temporalmente el acceso (bloqueo) y terminarlo por completo (cierre)."
+  },
+  {
+    "guid": "13205b02-ec0d-425a-bd46-3fdb838c7cfa",
+    "subjectId": "T65",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "Para la protección de dispositivos portátiles [mp.eq.3], ¿cuál es el requisito específico de cifrado para un sistema de categoría ALTA?",
+    "answerOptions": [
+      {
+        "text": "No se exige cifrado, solo un inventario y un procedimiento de notificación de pérdida.",
+        "isCorrect": false,
+        "rationale": "Estos son requisitos base aplicables a todas las categorías, pero insuficientes para la categoría ALTA."
+      },
+      {
+        "text": "Se protegerá el dispositivo mediante cifrado del disco duro cuando el nivel de confidencialidad sea de nivel MEDIO o superior.",
+        "isCorrect": false,
+        "rationale": "El refuerzo R1 [mp.eq.3.r1.1] exige el cifrado de disco a partir del nivel MEDIO de confidencialidad, y por tanto, también aplica a ALTA, pero hay un requisito adicional para esta última."
+      },
+      {
+        "text": "El uso de dispositivos portátiles fuera de las instalaciones se restringirá a entornos protegidos.",
+        "isCorrect": true,
+        "rationale": "El refuerzo R2 [mp.eq.3.r2.1], que exige el uso en 'entornos protegidos', es una medida adicional y específica para los sistemas de categoría ALTA, que complementa al cifrado."
+      },
+      {
+        "text": "Se deben usar productos de cifrado certificados por el CCN.",
+        "isCorrect": false,
+        "rationale": "Aunque es una buena práctica y podría ser requerido por otras medidas, el texto específico de los refuerzos de [mp.eq.3] no menciona explícitamente la certificación de productos."
+      }
+    ],
+    "hint": "Además de la protección de los datos en el dispositivo (cifrado), ¿qué requisito adicional sobre el entorno físico se impone en la categoría ALTA?"
+  },
+  {
+    "guid": "302fb3d6-e44d-45b4-a117-54abe6aff801",
+    "subjectId": "T65",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "En la medida [op.nub.1] Protección de servicios en la nube, ¿qué requisito adicional se introduce para un sistema de categoría ALTA que no es mandatorio para la categoría MEDIA?",
+    "answerOptions": [
+      {
+        "text": "Los sistemas de información que soportan el servicio deben ser conformes con el ENS.",
+        "isCorrect": false,
+        "rationale": "La conformidad con el ENS o con las guías CCN-STIC es un requisito base aplicable a todas las categorías."
+      },
+      {
+        "text": "Los servicios en la nube de terceros deben estar certificados bajo una metodología reconocida.",
+        "isCorrect": false,
+        "rationale": "El refuerzo R1, que exige la certificación de los servicios, es un requisito tanto para la categoría MEDIA como para la ALTA."
+      },
+      {
+        "text": "La configuración de seguridad de los sistemas debe realizarse según una guía CCN-STIC de Configuración Específica.",
+        "isCorrect": true,
+        "rationale": "El refuerzo R2 [op.nub.1.r2.1] exige seguir guías de configuración específicas ('hardening'), lo cual es un requisito adicional y exclusivo para la categoría ALTA, buscando un nivel de seguridad más profundo y detallado."
+      },
+      {
+        "text": "Si el servicio en la nube es un servicio de seguridad, debe cumplir con los requisitos de [op.pl.5].",
+        "isCorrect": false,
+        "rationale": "Esta exigencia, parte del refuerzo R1, es aplicable tanto para la categoría MEDIA como para la ALTA."
+      }
+    ],
+    "hint": "Piense en la diferencia entre una certificación general del servicio y la exigencia de aplicar una configuración de seguridad detallada y específica."
+  },
+  {
+    "guid": "24a3cf66-c2d4-40fb-a3b5-613e78b8afb1",
+    "subjectId": "T65",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "De acuerdo con el modelo de madurez de capacidad (CMM) descrito en el Anexo II, ¿qué nivel mínimo de madurez se exige para la implantación de las medidas de seguridad en un sistema de categoría MEDIA?",
+    "answerOptions": [
+      {
+        "text": "L2 - Reproducible, pero intuitivo.",
+        "isCorrect": false,
+        "rationale": "Este nivel de madurez es el mínimo exigido para los sistemas de categoría BÁSICA."
+      },
+      {
+        "text": "L3 - Proceso definido.",
+        "isCorrect": true,
+        "rationale": "Para la categoría MEDIA, se exige que la organización disponga de normativa y procedimientos detallados y documentados, lo que corresponde al nivel L3."
+      },
+      {
+        "text": "L4 - Gestionado y medible.",
+        "isCorrect": false,
+        "rationale": "Este nivel, que implica el uso de métricas para la toma de decisiones, es el requisito para los sistemas de categoría ALTA."
+      },
+      {
+        "text": "L5 - Optimizado.",
+        "isCorrect": false,
+        "rationale": "El nivel de optimización y mejora continua, aunque deseable, no es el mínimo exigido por el ENS para ninguna categoría."
+      }
+    ],
+    "hint": "Relacione cada categoría de seguridad (BÁSICA, MEDIA, ALTA) con un nivel creciente de formalización y documentación de los procesos."
+  },
+  {
+    "guid": "d0c10f65-5711-4e71-b1fa-8cc88ba1cfd6",
+    "subjectId": "T65",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "La medida [op.exp.7] Gestión de incidentes para un sistema de categoría MEDIA requiere los refuerzos R1 y R2. ¿Qué aspecto fundamental introduce el refuerzo R2?",
+    "answerOptions": [
+      {
+        "text": "La disponibilidad de una ventanilla única para la notificación de incidentes al CCN-CERT.",
+        "isCorrect": false,
+        "rationale": "La ventanilla única de notificación es el objetivo del refuerzo R1."
+      },
+      {
+        "text": "La capacidad de reconfiguración dinámica del sistema para detener o limitar ataques.",
+        "isCorrect": false,
+        "rationale": "La reconfiguración dinámica es una capacidad avanzada descrita en el refuerzo R3, que es exigible solo para la categoría ALTA."
+      },
+      {
+        "text": "La implantación de medidas urgentes, la investigación de causas, la resolución y la prevención de recurrencias.",
+        "isCorrect": true,
+        "rationale": "El refuerzo R2 detalla el ciclo de vida completo de la respuesta al incidente, desde la contención inicial (medidas urgentes) hasta el aprendizaje y mejora (prevenir que se repita)."
+      },
+      {
+        "text": "Disponer de un proceso integral para hacer frente a los incidentes, que incluya clasificación y escalado.",
+        "isCorrect": false,
+        "rationale": "Este es el requisito base de la medida [op.exp.7.1], aplicable a todas las categorías."
+      }
+    ],
+    "hint": "El refuerzo R2 describe las fases clave del proceso de respuesta a un incidente, más allá de la simple notificación."
+  },
+  {
+    "guid": "3f5d899e-636e-4cac-9381-4350fd97ff6f",
+    "subjectId": "T65",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "En la medida [op.acc.3] Segregación de funciones y tareas, ¿qué requisito introduce el refuerzo R1 (Segregación rigurosa), específico para la categoría ALTA?",
+    "answerOptions": [
+      {
+        "text": "Las capacidades de desarrollo y operación no recaerán en la misma persona.",
+        "isCorrect": false,
+        "rationale": "Esta es una de las segregaciones básicas definidas en [op.acc.3.1], aplicable desde la categoría MEDIA."
+      },
+      {
+        "text": "Existirán cuentas con privilegios de auditoría estrictamente controladas y personalizadas.",
+        "isCorrect": false,
+        "rationale": "Esto corresponde al refuerzo opcional R2, que no es parte de la segregación rigurosa del R1."
+      },
+      {
+        "text": "La misma persona no puede aunar funciones de auditoría o supervisión con cualquier otra función.",
+        "isCorrect": true,
+        "rationale": "El refuerzo R1 [op.acc.3.r1.2] establece la segregación más estricta, impidiendo que quien audita pueda realizar cualquier otra tarea en el sistema, para garantizar la independencia y objetividad."
+      },
+      {
+        "text": "Las personas que autorizan y controlan el uso serán distintas.",
+        "isCorrect": false,
+        "rationale": "Esta es otra de las segregaciones del requisito base [op.acc.3.2], aplicable desde la categoría MEDIA."
+      }
+    ],
+    "hint": "Identifique la separación de funciones más crítica para garantizar la imparcialidad en la supervisión de la seguridad."
+  },
+  {
+    "guid": "cab641fd-8c12-4d9e-b521-13d9ed8c9d12",
+    "subjectId": "T65",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "La medida [mp.s.4] Protección frente a denegación de servicio (DoS/DDoS) se exige a partir del nivel MEDIO en Disponibilidad [D]. ¿Qué capacidad es exclusiva del nivel ALTO según el refuerzo R1?",
+    "answerOptions": [
+      {
+        "text": "Planificar y dotar al sistema de capacidad suficiente para atender la carga prevista.",
+        "isCorrect": false,
+        "rationale": "La planificación de la capacidad es un requisito base de la medida [mp.s.4.1], aplicable desde el nivel MEDIO."
+      },
+      {
+        "text": "Desplegar tecnologías para prevenir los ataques conocidos.",
+        "isCorrect": false,
+        "rationale": "El despliegue de tecnologías preventivas es también un requisito base de la medida [mp.s.4.2] para el nivel MEDIO."
+      },
+      {
+        "text": "Establecer un sistema de detección de ataques y procedimientos de reacción.",
+        "isCorrect": true,
+        "rationale": "El refuerzo R1 [mp.s.4.r1.1 y .r1.2] introduce la necesidad no solo de prevenir, sino de tener un sistema activo de detección y respuesta, lo cual es mandatorio para el nivel ALTO."
+      },
+      {
+        "text": "Detectar y evitar el lanzamiento de ataques desde las propias instalaciones.",
+        "isCorrect": false,
+        "rationale": "Esto corresponde al refuerzo opcional R2, que se centra en evitar que la propia organización sea origen de ataques."
+      }
+    ],
+    "hint": "La diferencia clave entre el nivel MEDIO y ALTO en esta medida radica en pasar de una postura preventiva a una postura proactiva de detección y respuesta."
+  },
+  {
+    "guid": "d07ec72e-afca-49f9-88c3-4f625a42269a",
+    "subjectId": "T65",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "En el contexto de la medida [mp.info.6] Copias de seguridad, para un sistema con nivel ALTO en Disponibilidad [D], ¿qué requisito impone el refuerzo R2 que va más allá de lo exigido para el nivel MEDIO?",
+    "answerOptions": [
+      {
+        "text": "Realizar copias de seguridad con una periodicidad definida en la normativa interna.",
+        "isCorrect": false,
+        "rationale": "Este es el requisito base [mp.info.6.1], aplicable desde el nivel BAJO."
+      },
+      {
+        "text": "Probar regularmente los procedimientos de copia de seguridad y restauración.",
+        "isCorrect": false,
+        "rationale": "La realización de pruebas (refuerzo R1) es un requisito para el nivel MEDIO, pero hay una exigencia adicional para el nivel ALTO."
+      },
+      {
+        "text": "Almacenar al menos una de las copias de seguridad en un lugar diferente y separado.",
+        "isCorrect": true,
+        "rationale": "El refuerzo R2 [mp.info.6.r2.1] introduce el concepto de 'off-site backup', una protección crucial contra desastres físicos que puedan afectar a la ubicación principal, siendo un requisito específico del nivel ALTO."
+      },
+      {
+        "text": "Cifrar todas las copias de seguridad utilizando algoritmos autorizados.",
+        "isCorrect": false,
+        "rationale": "El cifrado de las copias de seguridad se exige en la medida [mp.si.2] para el nivel ALTO en Confidencialidad/Integridad, no en [mp.info.6] para Disponibilidad."
+      }
+    ],
+    "hint": "Considere qué estrategia de almacenamiento de copias protege contra incidentes que afectan a toda una instalación física."
+  },
+  {
+    "guid": "1cf5fb9c-4c0d-4b6e-bcb9-db10d0103e69",
+    "subjectId": "T65",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "Según la medida [op.exp.8] Registro de la actividad, para un sistema con nivel ALTO en Trazabilidad [T], ¿qué capacidad avanzada se requiere que no es obligatoria en el nivel MEDIO?",
+    "answerOptions": [
+      {
+        "text": "Sincronizar el reloj del sistema con una referencia de tiempo fiable.",
+        "isCorrect": false,
+        "rationale": "La sincronización del reloj (refuerzo R2) es un requisito aplicable desde el nivel MEDIO."
+      },
+      {
+        "text": "Controlar que solo el personal autorizado pueda acceder o eliminar los registros de actividad.",
+        "isCorrect": false,
+        "rationale": "El control de acceso a los registros (refuerzo R4) es también un requisito para el nivel MEDIO."
+      },
+      {
+        "text": "Disponer de un sistema automático de recolección de registros, correlación de eventos y respuesta automática.",
+        "isCorrect": true,
+        "rationale": "El refuerzo R5 [op.exp.8.r5.2] exige una capacidad de tipo SIEM (Security Information and Event Management) con respuesta automática, lo cual es una exigencia específica y avanzada para el nivel ALTO."
+      },
+      {
+        "text": "Indicar en la documentación de seguridad los eventos a auditar y el tiempo de retención de los registros.",
+        "isCorrect": false,
+        "rationale": "La definición de la política de retención (refuerzo R3) es un requisito aplicable a partir del nivel MEDIO."
+      }
+    ],
+    "hint": "La evolución hacia el nivel ALTO en esta medida implica pasar de la simple recolección y revisión de registros a su análisis y procesamiento automatizado e inteligente."
+  }
+]

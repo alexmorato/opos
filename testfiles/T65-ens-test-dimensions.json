@@ -1,0 +1,467 @@
+[
+  {
+    "guid": "4f18ff30-7110-4c4f-b0d5-d5e46b2e3aed",
+    "subjectId": "T65",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "Un ataque de denegación de servicio (DDoS) deja inoperativo el portal web de una universidad pública durante el período de matriculación, impidiendo que los estudiantes puedan inscribirse en sus asignaturas. ¿Qué dimensión de la seguridad se ha visto comprometida de forma principal?",
+    "answerOptions": [
+      {
+        "text": "Integridad",
+        "isCorrect": false,
+        "rationale": "El escenario no describe una alteración de los datos de matriculación, sino la imposibilidad de realizar el proceso."
+      },
+      {
+        "text": "Disponibilidad",
+        "isCorrect": true,
+        "rationale": "El servicio de matriculación no está accesible para los usuarios autorizados (estudiantes) cuando lo requieren, lo cual es la definición de esta dimensión."
+      },
+      {
+        "text": "Confidencialidad",
+        "isCorrect": false,
+        "rationale": "El problema principal no es la fuga o revelación de información de los estudiantes, sino la caída del servicio."
+      },
+      {
+        "text": "Autenticidad",
+        "isCorrect": false,
+        "rationale": "No se cuestiona la identidad de los estudiantes ni del portal; el portal legítimo simplemente no está operativo."
+      }
+    ],
+    "hint": "Considera si el principal problema es el acceso al servicio, la veracidad de la información, el secreto de los datos o la identidad de las partes."
+  },
+  {
+    "guid": "62075b36-ac8e-43a7-b1f7-1718a3c803fe",
+    "subjectId": "T65",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "Un funcionario malintencionado accede a la base de datos del censo y modifica la fecha de nacimiento de un ciudadano para que parezca mayor de edad y pueda votar. ¿Qué dimensión de la seguridad ha sido violada primordialmente?",
+    "answerOptions": [
+      {
+        "text": "Integridad",
+        "isCorrect": true,
+        "rationale": "Esta dimensión se refiere a que la información no sea alterada de manera no autorizada, que es exactamente lo que ha ocurrido con la fecha de nacimiento."
+      },
+      {
+        "text": "Confidencialidad",
+        "isCorrect": false,
+        "rationale": "Aunque el funcionario accedió a datos que no debería, la acción principal y dañina fue la modificación, no la simple lectura."
+      },
+      {
+        "text": "Disponibilidad",
+        "isCorrect": false,
+        "rationale": "La información del censo sigue estando accesible, aunque ahora es incorrecta. El problema no es la falta de acceso."
+      },
+      {
+        "text": "Trazabilidad",
+        "isCorrect": false,
+        "rationale": "Si el sistema no puede registrar quién hizo el cambio, fallaría la trazabilidad, pero la violación fundamental del dato en sí misma afecta a otra dimensión."
+      }
+    ],
+    "hint": "El foco del problema está en que la información registrada ya no es la correcta. ¿Cómo se llama esa propiedad?"
+  },
+  {
+    "guid": "abf14af8-ba00-4df0-bc43-00b270f5674b",
+    "subjectId": "T65",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "Un sistema de gestión de expedientes judiciales debe garantizar que se pueda determinar sin lugar a dudas qué juez, en qué fecha y a qué hora exacta, dictó una sentencia. ¿Qué dimensión de la seguridad es crucial para cumplir este requisito?",
+    "answerOptions": [
+      {
+        "text": "Autenticidad",
+        "isCorrect": false,
+        "rationale": "La autenticidad verifica la identidad del juez en el momento de la acción, pero no garantiza el registro histórico de esa acción."
+      },
+      {
+        "text": "Integridad",
+        "isCorrect": false,
+        "rationale": "La integridad asegura que la sentencia no se altere, pero no registra quién la creó o cuándo."
+      },
+      {
+        "text": "Disponibilidad",
+        "isCorrect": false,
+        "rationale": "Esta dimensión se asegura de que la sentencia esté accesible, no de registrar su historial de creación."
+      },
+      {
+        "text": "Trazabilidad",
+        "isCorrect": true,
+        "rationale": "Esta dimensión garantiza que las acciones de los usuarios queden registradas, permitiendo reconstruir la secuencia de eventos (quién, qué, cuándo)."
+      }
+    ],
+    "hint": "La necesidad clave es poder seguir el rastro de una acción hasta su origen en el tiempo y el autor."
+  },
+  {
+    "guid": "7cf2cff1-9f1d-440d-af34-2e448b141ab8",
+    "subjectId": "T65",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "Un ciudadano accede a la sede electrónica de su ayuntamiento para pagar un impuesto. Antes de introducir sus datos bancarios, el sistema le exige identificarse con un certificado digital cualificado. ¿Qué dimensión de la seguridad se pretende garantizar con este paso?",
+    "answerOptions": [
+      {
+        "text": "Disponibilidad",
+        "isCorrect": false,
+        "rationale": "El requisito de identificación no tiene como objetivo principal asegurar que el servicio esté en línea, sino controlar quién accede."
+      },
+      {
+        "text": "Confidencialidad",
+        "isCorrect": false,
+        "rationale": "Aunque el resultado final protege la confidencialidad de sus datos, el acto de usar un certificado sirve para probar su identidad de forma fehaciente."
+      },
+      {
+        "text": "Autenticidad",
+        "isCorrect": true,
+        "rationale": "El uso de un certificado cualificado es un mecanismo robusto para ratificar que la persona que realiza la operación es quien dice ser."
+      },
+      {
+        "text": "Integridad",
+        "isCorrect": false,
+        "rationale": "La firma con el certificado sí asegura la integridad del pago, pero el paso previo de identificación se centra en la identidad del usuario."
+      }
+    ],
+    "hint": "El sistema necesita estar seguro de la identidad de la persona que va a realizar la transacción."
+  },
+  {
+    "guid": "7bdaa261-35ee-4727-8420-cccf0179ce5f",
+    "subjectId": "T65",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "Debido a un error de configuración en un servidor web de un ministerio, se exponen públicamente los borradores de una ley que contenían información sensible y estratégica, antes de su aprobación. ¿Cuál es la dimensión de la seguridad que ha fallado?",
+    "answerOptions": [
+      {
+        "text": "Confidencialidad",
+        "isCorrect": true,
+        "rationale": "La información ha sido revelada a individuos y procesos no autorizados (el público general), lo que constituye un fallo de esta dimensión."
+      },
+      {
+        "text": "Integridad",
+        "isCorrect": false,
+        "rationale": "El problema no es que los borradores hayan sido modificados, sino que han sido expuestos."
+      },
+      {
+        "text": "Autenticidad",
+        "isCorrect": false,
+        "rationale": "No se está suplantando la identidad del ministerio ni de los usuarios; la fuga de información es el problema central."
+      },
+      {
+        "text": "Trazabilidad",
+        "isCorrect": false,
+        "rationale": "La falta de un registro de quién accedió a la información sería un fallo de trazabilidad, pero la exposición inicial del dato es un fallo de otra dimensión."
+      }
+    ],
+    "hint": "Piensa en el principio que exige que la información solo sea accesible por personal autorizado."
+  },
+  {
+    "guid": "048fd358-2976-457a-877c-9dde72a3530d",
+    "subjectId": "T65",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "Un atacante intercepta una comunicación entre dos sistemas de la Administración y reenvía repetidamente el mismo mensaje de autorización, provocando que se realice una operación crítica varias veces en lugar de una. El sistema receptor no detecta que los mensajes son duplicados. ¿Qué dimensión de la seguridad está fallando?",
+    "answerOptions": [
+      {
+        "text": "Confidencialidad",
+        "isCorrect": false,
+        "rationale": "El atacante no necesariamente ha leído el contenido del mensaje, sino que ha manipulado el flujo de la comunicación."
+      },
+      {
+        "text": "Integridad",
+        "isCorrect": true,
+        "rationale": "Este concepto abarca no solo la no alteración del contenido, sino también la prevención de la duplicación o reordenación de mensajes en una secuencia."
+      },
+      {
+        "text": "Disponibilidad",
+        "isCorrect": false,
+        "rationale": "El servicio sigue estando disponible, pero está funcionando de manera incorrecta y potencialmente dañina."
+      },
+      {
+        "text": "Autenticidad",
+        "isCorrect": false,
+        "rationale": "Aunque se podría argumentar que el flujo de mensajes no es auténtico, la violación fundamental es que la secuencia de datos ha sido alterada (mediante repetición)."
+      }
+    ],
+    "hint": "La propiedad de la información que garantiza que no ha sido alterada incluye protección contra la modificación, inserción, borrado y repetición de datos."
+  },
+  {
+    "guid": "8640bd46-d146-4ad9-80f1-65ab70133273",
+    "subjectId": "T65",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "Una auditoría interna revela que las contraseñas de los administradores de un sistema crítico se almacenan en un fichero de texto plano. Si este fichero fuese robado, el atacante podría acceder a todo el sistema. ¿Qué dimensión se encuentra en un riesgo inminente y directo?",
+    "answerOptions": [
+      {
+        "text": "Confidencialidad",
+        "isCorrect": true,
+        "rationale": "El almacenamiento inseguro pone en riesgo el secreto de las credenciales, que son un tipo de información. Su revelación a un no autorizado es un fallo de esta dimensión."
+      },
+      {
+        "text": "Integridad",
+        "isCorrect": false,
+        "rationale": "El almacenamiento en texto plano no implica que las contraseñas hayan sido modificadas, sino que pueden ser leídas."
+      },
+      {
+        "text": "Trazabilidad",
+        "isCorrect": false,
+        "rationale": "La trazabilidad se vería comprometida después de un acceso no autorizado, pero el riesgo inmediato del almacenamiento inseguro es la exposición de la información."
+      },
+      {
+        "text": "Disponibilidad",
+        "isCorrect": false,
+        "rationale": "El sistema sigue estando disponible. El problema es la seguridad de la información que contiene."
+      }
+    ],
+    "hint": "El problema principal radica en que una información que debería ser secreta (la contraseña) puede ser leída fácilmente si se accede al fichero."
+  },
+  {
+    "guid": "eff706e2-3d69-40f5-957b-ffe7cb05dcd2",
+    "subjectId": "T65",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "Un empleado se va de la empresa, pero su cuenta de usuario no es desactivada. Semanas después, utiliza sus antiguas credenciales para acceder a la red y borrar ficheros importantes. ¿Qué dimensión de la seguridad falló al permitirle el acceso inicial?",
+    "answerOptions": [
+      {
+        "text": "Trazabilidad",
+        "isCorrect": false,
+        "rationale": "El sistema puede haber registrado el acceso, por lo que la trazabilidad puede funcionar, pero el acceso no debió permitirse en primer lugar."
+      },
+      {
+        "text": "Integridad",
+        "isCorrect": false,
+        "rationale": "La integridad de los ficheros se vio afectada como consecuencia del acceso, pero el fallo original fue permitir que un usuario no legitimado entrara al sistema."
+      },
+      {
+        "text": "Autenticidad",
+        "isCorrect": true,
+        "rationale": "El sistema verificó correctamente que las credenciales eran válidas, pero no pudo determinar que la persona detrás de ellas ya no estaba autorizada. La gestión del ciclo de vida de la identidad es clave para esta dimensión."
+      },
+      {
+        "text": "Disponibilidad",
+        "isCorrect": false,
+        "rationale": "La disponibilidad de los ficheros se vio afectada por el borrado, pero este es el resultado del fallo, no la causa."
+      }
+    ],
+    "hint": "El sistema debe poder garantizar que una identidad sigue siendo válida y autorizada en el momento del acceso."
+  },
+  {
+    "guid": "9f8084d7-c911-47b6-a929-75f437dc9a18",
+    "subjectId": "T65",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "Tras un incidente de seguridad, el equipo de respuesta necesita revisar los registros (logs) para saber qué comandos ejecutó el atacante y qué ficheros consultó. Sin embargo, descubren que el registro de actividad había sido desactivado. La imposibilidad de investigar el incidente se debe a un fallo de...",
+    "answerOptions": [
+      {
+        "text": "Disponibilidad",
+        "isCorrect": false,
+        "rationale": "El sistema principal pudo haber estado disponible durante el ataque; el problema es la falta de registros sobre lo que ocurrió."
+      },
+      {
+        "text": "Trazabilidad",
+        "isCorrect": true,
+        "rationale": "Esta dimensión se encarga de que quede constancia de las actividades realizadas, permitiendo su posterior análisis, lo cual ha fallado en este caso."
+      },
+      {
+        "text": "Confidencialidad",
+        "isCorrect": false,
+        "rationale": "La confidencialidad pudo haberse visto comprometida, pero la incapacidad de demostrarlo y analizarlo es un fallo específico de otra dimensión."
+      },
+      {
+        "text": "Integridad",
+        "isCorrect": false,
+        "rationale": "La integridad de los logs (su no existencia) ha fallado, pero la función que cumplen esos logs está directamente relacionada con otra dimensión."
+      }
+    ],
+    "hint": "Esta dimensión es la que permite responder a la pregunta '¿quién hizo qué y cuándo?'."
+  },
+  {
+    "guid": "602a7804-142a-4de7-a06f-4467f02310ae",
+    "subjectId": "T65",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "Un ayuntamiento implementa un sistema de copias de seguridad diarias para poder restaurar sus servicios informáticos en menos de una hora en caso de un fallo catastrófico del hardware. ¿Qué dimensión de la seguridad se busca preservar principalmente con esta medida?",
+    "answerOptions": [
+      {
+        "text": "Integridad",
+        "isCorrect": false,
+        "rationale": "Aunque las copias deben ser íntegras, el objetivo principal de tenerlas listas para una rápida restauración es mantener el servicio en funcionamiento."
+      },
+      {
+        "text": "Autenticidad",
+        "isCorrect": false,
+        "rationale": "La autenticidad de los usuarios no es el foco de una estrategia de recuperación ante desastres."
+      },
+      {
+        "text": "Disponibilidad",
+        "isCorrect": true,
+        "rationale": "Las copias de seguridad y los planes de recuperación son medidas fundamentales para garantizar que los datos y servicios estén accesibles incluso después de un incidente grave."
+      },
+      {
+        "text": "Confidencialidad",
+        "isCorrect": false,
+        "rationale": "Las copias de seguridad deben ser confidenciales, pero su propósito primordial es asegurar la continuidad del servicio, no el secreto de la información."
+      }
+    ],
+    "hint": "La medida está diseñada para que el servicio siga funcionando o se recupere rápidamente tras un fallo."
+  },
+  {
+    "guid": "677102ba-5a19-45b1-bc2d-0fe98ded1526",
+    "subjectId": "T65",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "Al recibir un fichero firmado electrónicamente, un sistema verifica la firma utilizando la clave pública del emisor. Esta comprobación asegura que el fichero no ha sido modificado desde que se firmó. ¿Qué dimensión se garantiza con esta verificación?",
+    "answerOptions": [
+      {
+        "text": "Integridad",
+        "isCorrect": true,
+        "rationale": "La firma electrónica, al estar vinculada unívocamente con los datos firmados, permite detectar cualquier alteración posterior, garantizando así esta dimensión."
+      },
+      {
+        "text": "Disponibilidad",
+        "isCorrect": false,
+        "rationale": "La verificación de la firma no tiene relación con que el fichero esté o no accesible."
+      },
+      {
+        "text": "Confidencialidad",
+        "isCorrect": false,
+        "rationale": "La firma no cifra el documento, por lo que no protege su contenido de ser leído. Su función es otra."
+      },
+      {
+        "text": "Trazabilidad",
+        "isCorrect": false,
+        "rationale": "La firma permite atribuir la acción de firmar a una persona (autenticidad), pero no registra otras acciones sobre el documento."
+      }
+    ],
+    "hint": "La función principal de este mecanismo es asegurar que el contenido del documento es exactamente el mismo que el original."
+  },
+  {
+    "guid": "a3e015fe-be17-4414-b03c-65d7f900dac5",
+    "subjectId": "T65",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "Una aplicación web no valida correctamente los datos introducidos por los usuarios, lo que permite a un atacante inyectar código malicioso (XSS) que se ejecuta en el navegador de otros visitantes, robando sus cookies de sesión. ¿Qué dimensión de la seguridad de las víctimas se ve comprometida al ser suplantadas?",
+    "answerOptions": [
+      {
+        "text": "Integridad",
+        "isCorrect": false,
+        "rationale": "La integridad del sitio web está comprometida, pero el impacto final en las víctimas es que su identidad es robada y usada por otro."
+      },
+      {
+        "text": "Autenticidad",
+        "isCorrect": true,
+        "rationale": "Al robar la cookie de sesión, el atacante puede hacerse pasar por el usuario legítimo, comprometiendo la capacidad del sistema para verificar la identidad real del usuario."
+      },
+      {
+        "text": "Disponibilidad",
+        "isCorrect": false,
+        "rationale": "El sitio web sigue funcionando; el problema es un fallo de seguridad que permite la suplantación."
+      },
+      {
+        "text": "Confidencialidad",
+        "isCorrect": false,
+        "rationale": "La confidencialidad de la cookie se ve comprometida, pero el uso que se le da a esa información robada afecta directamente a la suplantación de identidad."
+      }
+    ],
+    "hint": "El resultado final del ataque es que el atacante puede actuar en nombre de otro usuario. ¿Qué propiedad se ha roto?"
+  },
+  {
+    "guid": "8b5389be-5214-46d0-9507-3e9617d0c6b4",
+    "subjectId": "T65",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "Un sistema de información clasificada requiere que toda la información almacenada en los discos duros de los portátiles esté cifrada. Esta medida busca proteger los datos en caso de pérdida o robo del equipo. ¿Qué dimensión es la principal beneficiada por el cifrado?",
+    "answerOptions": [
+      {
+        "text": "Disponibilidad",
+        "isCorrect": false,
+        "rationale": "El cifrado no ayuda a que los datos estén más disponibles; de hecho, si se pierde la clave, se vuelven indisponibles."
+      },
+      {
+        "text": "Integridad",
+        "isCorrect": false,
+        "rationale": "Aunque algunos modos de cifrado ofrecen integridad, el objetivo principal del cifrado de disco completo es impedir la lectura no autorizada."
+      },
+      {
+        "text": "Confidencialidad",
+        "isCorrect": true,
+        "rationale": "El cifrado transforma la información para que sea ininteligible sin la clave correspondiente, protegiendo así su secreto ante accesos no autorizados."
+      },
+      {
+        "text": "Autenticidad",
+        "isCorrect": false,
+        "rationale": "El cifrado por sí solo no prueba la identidad del propietario del equipo ni el origen de los datos."
+      }
+    ],
+    "hint": "La medida está diseñada para que, si alguien no autorizado obtiene el dispositivo, no pueda entender la información que contiene."
+  },
+  {
+    "guid": "9a4ddcf2-fcf3-4960-84be-42901f9ff4b4",
+    "subjectId": "T65",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "Para cumplir con la normativa, una entidad pública debe conservar los correos electrónicos de ciertas comunicaciones durante 10 años, asegurando que se puedan consultar en el futuro. ¿Qué dimensión de la seguridad se garantiza al asegurar que esos correos seguirán siendo accesibles a largo plazo?",
+    "answerOptions": [
+      {
+        "text": "Confidencialidad",
+        "isCorrect": false,
+        "rationale": "El requisito principal no es el secreto de los correos, sino su preservación y accesibilidad a lo largo del tiempo."
+      },
+      {
+        "text": "Disponibilidad",
+        "isCorrect": true,
+        "rationale": "Esta dimensión cubre la accesibilidad de los datos por parte de usuarios autorizados cuando se requiera, tanto de forma inmediata como a largo plazo."
+      },
+      {
+        "text": "Autenticidad",
+        "isCorrect": false,
+        "rationale": "La autenticidad del emisor es importante, pero la medida de conservación se centra en que el activo (el correo) perdure y se pueda acceder a él."
+      },
+      {
+        "text": "Trazabilidad",
+        "isCorrect": false,
+        "rationale": "La conservación de los correos permite su trazabilidad, pero la garantía de que el 'almacén' donde se guardan no falle y permita el acceso futuro es una cuestión de disponibilidad."
+      }
+    ],
+    "hint": "La clave de la pregunta está en la capacidad de acceder a la información en el futuro, cuando sea necesario."
+  },
+  {
+    "guid": "638eac07-dbdc-4f67-a5cf-9f90e7ecdeb5",
+    "subjectId": "T65",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "Una organización establece una política de 'mínimo privilegio', asegurando que cada empleado solo pueda acceder a los recursos estrictamente necesarios para realizar su trabajo. Por ejemplo, un contable no puede acceder a los informes de desarrollo de software. ¿Qué dimensión se refuerza directamente con esta política?",
+    "answerOptions": [
+      {
+        "text": "Disponibilidad",
+        "isCorrect": false,
+        "rationale": "Esta política no busca mejorar el tiempo de actividad del sistema, sino controlar quién accede a qué información."
+      },
+      {
+        "text": "Integridad",
+        "isCorrect": false,
+        "rationale": "Indirectamente se protege la integridad al reducir el número de personas que pueden modificar datos, pero el objetivo principal es evitar la visualización no autorizada."
+      },
+      {
+        "text": "Autenticidad",
+        "isCorrect": false,
+        "rationale": "La política asume que los usuarios ya han sido autenticados; se centra en limitar lo que pueden hacer una vez dentro del sistema."
+      },
+      {
+        "text": "Confidencialidad",
+        "isCorrect": true,
+        "rationale": "Limitar el acceso a la información basándose en la necesidad de conocer es una de las estrategias fundamentales para proteger el secreto de los datos."
+      }
+    ],
+    "hint": "La medida busca evitar que las personas vean información que no les corresponde. ¿Qué propiedad se protege así?"
+  }
+]
