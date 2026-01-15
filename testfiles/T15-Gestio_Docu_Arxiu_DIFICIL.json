@@ -1,0 +1,845 @@
+[
+  {
+    "guid": "ec1001cf-b74f-4262-a73b-208c4f5bafaf",
+    "subjectId": "T15",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "La 'captura no automatizada' de documentos ofimáticos en el modelo de Barcelona se realiza mediante una interfaz que los deposita en una estructura de carpetas predefinida. ¿Qué finalidad tiene esta estructura?",
+    "answerOptions": [
+      {
+        "text": "Asegurar que los documentos solo puedan ser firmados una vez capturados en el repositorio.",
+        "rationale": "El modelo permite capturar documentos ya firmados o firmarlos después, no es una restricción impuesta por la estructura.",
+        "isCorrect": false
+      },
+      {
+        "text": "Minimizar la cantidad de metadatos que el usuario debe asignar manualmente.",
+        "rationale": "La estructura de carpetas sigue el Cuadro de Clasificación, por lo que muchos metadatos (como la serie documental) se pueden heredar de la ubicación, simplificando la tarea del usuario.",
+        "isCorrect": true
+      },
+      {
+        "text": "Servir como una zona provisional antes de la revisión y clasificación por parte de los responsables de archivo.",
+        "rationale": "La 'zona provisional' se describe para documentos de instancia genérica; en este caso, el usuario ya está clasificando el documento al elegir la carpeta.",
+        "isCorrect": false,
+        "selectedByUser": true
+      },
+      {
+        "text": "Aplicar permisos de acceso más restrictivos que a los documentos capturados de forma automatizada.",
+        "rationale": "Los permisos de acceso dependen de la serie documental y del estado del expediente, no del método de captura.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en cómo la organización del sistema de ficheros puede ayudar a inferir información sobre los propios ficheros.",
+    "username": "amorato",
+    "fecha": "2026-01-14T15:54:16.459Z"
+  },
+  {
+    "guid": "1de3e324-1399-4403-993d-4cc23147f63a",
+    "subjectId": "T15",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "La 'análisis documental' es un proceso clave previo a la incorporación de documentos al Archivo electrónico del Ajuntament de Barcelona. ¿Cuál de las siguientes tareas NO forma parte de dicha análisis?",
+    "answerOptions": [
+      {
+        "text": "La determinación del nivel de seguridad (básico, medio o alto) que se aplicará según el ENS.",
+        "rationale": "El análisis documental se centra en la gestión y estructura del documento; la categorización de seguridad según el ENS es un análisis de riesgos complementario pero distinto.",
+        "isCorrect": false,
+        "selectedByUser": true
+      },
+      {
+        "text": "La definición de las reglas y categorías de acceso que se aplicarán una vez finalizados los trámites.",
+        "rationale": "La propuesta de normas de conservación y acceso es un resultado clave de este análisis.",
+        "isCorrect": false
+      },
+      {
+        "text": "La identificación de las series documentales del Cuadro de Clasificación a las que se asocian los expedientes.",
+        "rationale": "Esta es una de las tareas fundamentales, ya que la clasificación es la base de todo el modelo.",
+        "isCorrect": false
+      },
+      {
+        "text": "El establecimiento de los documentos que deben incluirse en los expedientes y sus características.",
+        "rationale": "El análisis define la composición de los expedientes, qué documentos son obligatorios, cuáles esenciales, etc.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Distinga entre las tareas relacionadas con la estructura y gestión archivística del documento y las relacionadas con la seguridad de la información del sistema que lo contiene.",
+    "username": "amorato",
+    "fecha": "2026-01-14T15:51:15.552Z"
+  },
+  {
+    "guid": "60e5bcda-d8aa-446a-95c8-d847591f06be",
+    "subjectId": "T15",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "Según el Modelo de gestión de documentos y expedientes electrónicos del Ajuntament de Barcelona, ¿cuál es la consecuencia directa del cierre de un expediente electrónico en el Archivo electrónico?",
+    "answerOptions": [
+      {
+        "text": "Se inicia automáticamente el plazo de conservación definido en el Calendario de conservación y acceso.",
+        "rationale": "El plazo de conservación se activa, pero una consecuencia más inmediata y estructural es la generación del índice.",
+        "isCorrect": false
+      },
+      {
+        "text": "Se eliminan todos los permisos de modificación y se activan los permisos de consulta según las reglas de acceso establecidas.",
+        "rationale": "Esto ocurre como parte del proceso de cierre, pero la creación del índice electrónico es la acción técnica fundamental que sella la integridad del expediente.",
+        "isCorrect": false
+      },
+      {
+        "text": "Se genera un índice electrónico en formato XML, firmado con un sello de órgano, que asegura la integridad y secuencia de los documentos.",
+        "rationale": "El modelo especifica que el cierre supone la creación de este índice firmado, que incluye las referencias (hash) de los documentos, garantizando que el expediente no ha sido alterado desde su cierre.",
+        "isCorrect": true
+      },
+      {
+        "text": "Se realiza una transferencia automática de los documentos del repositorio de gestión al repositorio de conservación permanente.",
+        "rationale": "El modelo se basa en un Archivo electrónico único y centralizado, por lo que no se prevén transferencias entre diferentes sistemas de información, más allá de migraciones tecnológicas.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en el mecanismo técnico que garantiza la inalterabilidad de un expediente una vez finalizada su tramitación."
+  },
+  {
+    "guid": "9e3b0312-2451-4971-b5a2-727b9d7481ab",
+    "subjectId": "T15",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "Dentro del Modelo Tecnológico del Ajuntament de Barcelona, ¿qué componente actúa como una capa de abstracción que expone operaciones como 'Guardar documento' o 'Cerrar expediente' para que sean consumidas por aplicaciones como el GPA o desarrollos a medida?",
+    "answerOptions": [
+      {
+        "text": "El Repositori d'objectes digitals (ECM).",
+        "rationale": "El Repositori es la capa de almacenamiento donde residen los objetos digitales, pero no es la capa que expone los servicios de negocio.",
+        "isCorrect": false
+      },
+      {
+        "text": "Los Mòduls comuns.",
+        "rationale": "Los Módulos Comunes son aplicaciones específicas para funcionalidades transversales como la firma o la notificación, no la capa general de servicios documentales.",
+        "isCorrect": false
+      },
+      {
+        "text": "La Plataforma d’interoperabilitat (PDIB).",
+        "rationale": "La PDIB facilita la integración y el intercambio de datos entre sistemas heterogéneos y con otras administraciones, no la lógica de negocio para la gestión documental interna.",
+        "isCorrect": false
+      },
+      {
+        "text": "El Framework de serveis documentals.",
+        "rationale": "Este framework está constituido por una serie de servicios que las aplicaciones utilizan para relacionarse con el repositorio, incorporando la lógica de los procesos documentales.",
+        "isCorrect": true
+      }
+    ],
+    "hint": "Considere la arquitectura de software y el componente que funciona como una API para la gestión de documentos."
+  },
+  {
+    "guid": "443f3db9-9094-4bc3-9cdd-3b4cdc27437d",
+    "subjectId": "T15",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "¿Qué ocurre con un documento que entra a través de la instancia genérica en el Ajuntament de Barcelona, según su modelo de gestión documental?",
+    "answerOptions": [
+      {
+        "text": "Es clasificado y asignado a un expediente de forma automática mediante inteligencia artificial.",
+        "rationale": "El modelo no menciona el uso de inteligencia artificial para la clasificación automática; el proceso es manual para la instancia genérica.",
+        "isCorrect": false
+      },
+      {
+        "text": "Se rechaza y se informa al ciudadano que debe utilizar el trámite específico correspondiente.",
+        "rationale": "Aunque se pretende evitar su uso, la instancia genérica es un mecanismo válido y los documentos se gestionan, no se rechazan por defecto.",
+        "isCorrect": false
+      },
+      {
+        "text": "Se incluye en una 'zona provisional' del Archivo electrónico para que la unidad designada lo asocie manualmente a un expediente.",
+        "rationale": "El modelo describe que estos documentos, al no poder identificar el procedimiento, se alojan en una zona provisional para su triaje y asignación manual por parte de las unidades receptoras.",
+        "isCorrect": true
+      },
+      {
+        "text": "Se registra en la aplicación de registro pero no se incluye en el Archivo electrónico hasta que no se inicie un expediente formal.",
+        "rationale": "El documento sí se incorpora al repositorio del Archivo electrónico, aunque sea en una zona temporal, y no queda fuera del sistema.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Recuerde el tratamiento especial para los documentos cuya clasificación no puede determinarse en el momento de la entrada."
+  },
+  {
+    "guid": "e15c5f65-fb0a-496a-8f3c-2b7cbeff884c",
+    "subjectId": "T15",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "En el contexto del Modelo de gestión del Ajuntament de Barcelona, ¿cuál de los siguientes instrumentos es fundamental para poder automatizar la asignación de tipos documentales y las reglas asociadas a cada serie documental?",
+    "answerOptions": [
+      {
+        "text": "El Quadre de classificació uniforme.",
+        "rationale": "El Cuadro de clasificación organiza las series documentales de forma jerárquica, pero es otro instrumento el que detalla los tipos de documentos dentro de cada serie.",
+        "isCorrect": false
+      },
+      {
+        "text": "El Calendari de conservació i accés.",
+        "rationale": "Este instrumento determina los plazos de conservación y las condiciones de acceso, que se aplican una vez el documento ya está clasificado.",
+        "isCorrect": false
+      },
+      {
+        "text": "El Catàleg de documents.",
+        "rationale": "Esta herramienta reúne las series documentales con sus correspondientes tipos documentales, permitiendo la normalización y automatización de reglas en la creación y gestión.",
+        "isCorrect": true
+      },
+      {
+        "text": "El Registre de procediments.",
+        "rationale": "El Registro de procedimientos define la tramitación y los elementos del procedimiento administrativo, y aunque está alineado con el Catálogo de documentos, es este último el que se centra en la tipología documental.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en la herramienta que actúa como un diccionario de todos los tipos de documentos posibles dentro de cada procedimiento."
+  },
+  {
+    "guid": "1285d47d-3396-4d18-9e39-9763bb28e0e4",
+    "subjectId": "T15",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "Un expediente electrónico en el Ajuntament de Barcelona se encuentra en estado 'En preparació'. Si transcurren 30 días y no se inicia oficialmente (pasando a estado 'Obert'), ¿qué acción automatizada se ejecuta sobre él?",
+    "answerOptions": [
+      {
+        "text": "Se convierte automáticamente en un expediente 'Obert' con una notificación al tramitador.",
+        "rationale": "El sistema no asume la oficialización del expediente; requiere una acción explícita.",
+        "isCorrect": false
+      },
+      {
+        "text": "Se archiva en un repositorio temporal durante 6 meses antes de su borrado definitivo.",
+        "rationale": "El plazo y la acción son mucho más inmediatos y drásticos para evitar la acumulación de expedientes no iniciados.",
+        "isCorrect": false
+      },
+      {
+        "text": "El expediente y todos los documentos que contiene se eliminan de forma automatizada del Archivo electrónico.",
+        "rationale": "El modelo establece explícitamente que los expedientes en este estado tienen una vida máxima de 30 días, tras los cuales se eliminan para mantener la integridad del sistema.",
+        "isCorrect": true
+      },
+      {
+        "text": "Se bloquea el expediente y se genera una alerta al supervisor de la unidad para su revisión manual.",
+        "rationale": "El proceso es automatizado y no contempla una intervención manual para la gestión de este estado caducado.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considere la naturaleza transitoria y sin efectos jurídicos de este estado inicial del expediente."
+  },
+  {
+    "guid": "d83e7ff9-c32c-4cc0-b8ee-2b8e54f56826",
+    "subjectId": "T15",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "Según el Modelo de gestión de documentos del Ajuntament de Barcelona, ¿cuál es el tratamiento para los documentos calificados como 'esenciales'?",
+    "answerOptions": [
+      {
+        "text": "Se conservan permanentemente por defecto, ignorando el Calendario de conservación.",
+        "rationale": "La condición de esencial no altera su plazo de conservación, sino las medidas para asegurar su supervivencia.",
+        "isCorrect": false
+      },
+      {
+        "text": "Requieren una doble firma electrónica para cualquier modificación, incluso en estado de borrador.",
+        "rationale": "La gestión de firmas sigue la política general; el carácter esencial se enfoca en la recuperación y disponibilidad.",
+        "isCorrect": false
+      },
+      {
+        "text": "Están sujetos a medidas adicionales para garantizar su recuperación en caso de desastre y son supervisados periódicamente.",
+        "rationale": "Estos documentos son indispensables para la continuidad del servicio, por lo que se aplican medidas extra de protección y monitorización para comprobar su disponibilidad e integridad.",
+        "isCorrect": true
+      },
+      {
+        "text": "Solo pueden ser consultados por los responsables del Archivo electrónico y los supervisores de la unidad tramitadora.",
+        "rationale": "Las reglas de acceso dependen de la serie documental y del estado del expediente, no de si un documento es calificado como esencial.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Enfóquese en la importancia de estos documentos para la continuidad de las operaciones de la administración."
+  },
+  {
+    "guid": "e8561f42-e883-43cc-9999-fc255c8c6870",
+    "subjectId": "T15",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "La interoperabilidad semántica, según el marco normativo aplicable a la gestión documental electrónica, se garantiza principalmente a través de:",
+    "answerOptions": [
+      {
+        "text": "El uso de protocolos abiertos y servicios web como API REST.",
+        "rationale": "Estos elementos corresponden a la interoperabilidad técnica, que se refiere a la compatibilidad de sistemas y formatos.",
+        "isCorrect": false
+      },
+      {
+        "text": "La coordinación de procesos y políticas de gestión documental entre administraciones.",
+        "rationale": "Esto se refiere a la interoperabilidad organizativa, que alinea los procedimientos de negocio.",
+        "isCorrect": false
+      },
+      {
+        "text": "El uso de vocabularios, esquemas de metadatos comunes y catálogos de documentos.",
+        "rationale": "La semántica se refiere al significado de la información, y se asegura de que todos los sistemas interpreten los datos (metadatos) de la misma manera.",
+        "isCorrect": true
+      },
+      {
+        "text": "La implementación de medidas de seguridad definidas en el Esquema Nacional de Seguridad (ENS).",
+        "rationale": "El ENS se centra en la seguridad de la información (integridad, confidencialidad, disponibilidad), no en la interpretación común del significado de los datos.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en cómo asegurar que diferentes sistemas 'entiendan' el significado de la información que intercambian."
+  },
+  {
+    "guid": "92f09bc1-f7c8-4daf-bef8-05a3a72cb88c",
+    "subjectId": "T15",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "Si un documento en el Archivo electrónico del Ajuntament de Barcelona, que ya ha sido firmado y está en estado definitivo, se detecta que contiene un error material, ¿qué procedimiento se debe seguir?",
+    "answerOptions": [
+      {
+        "text": "Se elimina del expediente y se reemplaza por la versión correcta, registrando la acción en el log de auditoría.",
+        "rationale": "Un documento definitivo, especialmente si está firmado, no puede ser eliminado ni modificado directamente para preservar la trazabilidad.",
+        "isCorrect": false
+      },
+      {
+        "text": "Se marca como 'erróneo', permaneciendo en el Archivo electrónico pero siendo ignorado en las comprobaciones de cierre del expediente.",
+        "rationale": "El modelo prevé un estado específico para estos casos, que permite mantener la evidencia del error sin eliminar el documento y sin que afecte a la integridad formal del expediente en su cierre.",
+        "isCorrect": true
+      },
+      {
+        "text": "Se reabre el expediente, se elimina el documento erróneo y se vuelve a cerrar el expediente con el documento corregido.",
+        "rationale": "El modelo establece que un expediente cerrado no puede reabrirse; se deben utilizar expedientes vinculados si es necesario.",
+        "isCorrect": false
+      },
+      {
+        "text": "Se crea una nueva versión del documento, y la versión errónea se transfiere a un archivo histórico de incidencias.",
+        "rationale": "El documento erróneo permanece en el mismo expediente, pero con una marca especial. No se transfiere a otro lugar.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considere cómo el sistema maneja los errores sin violar el principio de inalterabilidad de los documentos definitivos."
+  },
+  {
+    "guid": "efa6138e-1c88-49de-8453-6c9c7ab16837",
+    "subjectId": "T15",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "¿Cuál es la principal diferencia funcional entre el Esquema Nacional de Seguridad (ENS) y el Esquema Nacional de Interoperabilidad (ENI) en el contexto de un archivo electrónico?",
+    "answerOptions": [
+      {
+        "text": "El ENS regula los formatos de fichero (PDF/A, ODF) mientras que el ENI regula los niveles de seguridad (básico, medio, alto).",
+        "rationale": "Esta opción invierte los roles de ambos esquemas; el ENI se ocupa de los formatos y el ENS de los niveles de seguridad.",
+        "isCorrect": false
+      },
+      {
+        "text": "El ENS se enfoca en proteger la información y los servicios, garantizando su integridad y disponibilidad, mientras que el ENI establece los estándares para que los sistemas puedan intercambiar y reutilizar dicha información.",
+        "rationale": "El ENS es el marco para la seguridad de los activos de información, mientras que el ENI es el marco para la comunicación y el entendimiento técnico, semántico y organizativo entre sistemas.",
+        "isCorrect": true
+      },
+      {
+        "text": "El ENS es de aplicación obligatoria para la Administración General del Estado, y el ENI es para las Comunidades Autónomas y Entidades Locales.",
+        "rationale": "Ambos esquemas, derivados de la Ley 40/2015, son de aplicación obligatoria para todo el sector público español.",
+        "isCorrect": false
+      },
+      {
+        "text": "El ENS se basa en normas ISO 30300/30301, mientras que el ENI se basa en el modelo de referencia OAIS (ISO 14721).",
+        "rationale": "Las normas ISO mencionadas son referencias en gestión documental y preservación, pero no son la base fundamental y distintiva de ENS y ENI.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en el propósito fundamental de cada esquema: uno trata de la 'protección' y el otro del 'intercambio'."
+  },
+  {
+    "guid": "cfb6996b-6945-4922-920e-75cdc073f7f2",
+    "subjectId": "T15",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "En el modelo del Ajuntament de Barcelona, cuando un ciudadano solicita una copia auténtica imprimible de un documento del Archivo electrónico, ¿qué elemento clave se incluye para permitir su posterior validación?",
+    "answerOptions": [
+      {
+        "text": "Un sello de tiempo cualificado que garantiza el momento exacto de la generación de la copia.",
+        "rationale": "Aunque se utilizan sellos, el elemento específico para la verificación a través de la Sede Electrónica es otro.",
+        "isCorrect": false
+      },
+      {
+        "text": "Un Código Seguro de Verificación (CSV) que puede ser utilizado en la Sede Electrónica para contrastar el documento.",
+        "rationale": "El CSV es el mecanismo estándar que permite a un tercero verificar la autenticidad de una copia en papel o imprimible de un documento electrónico original.",
+        "isCorrect": true
+      },
+      {
+        "text": "Una firma electrónica avanzada del empleado público que genera la copia.",
+        "rationale": "Las copias auténticas suelen generarse con un sello de órgano automatizado, no con la firma de un empleado específico.",
+        "isCorrect": false
+      },
+      {
+        "text": "Un enlace URL permanente al documento original dentro del Archivo electrónico.",
+        "rationale": "El acceso directo al documento original en el archivo no es el método estándar para la verificación de copias impresas, y de hecho, el material indica que las URL no están garantizadas.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considere el mecanismo que conecta una copia física o un PDF con su original electrónico a través de un portal web público."
+  },
+  {
+    "guid": "56ad690a-ef81-4bff-be04-b374ccf60f90",
+    "subjectId": "T15",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "El mantenimiento de la validez de las firmas electrónicas a largo plazo en el Archivo electrónico del Ajuntament de Barcelona, especialmente ante certificados revocados u obsoletos, se aborda mediante un proceso de:",
+    "answerOptions": [
+      {
+        "text": "Migración periódica de los documentos a formatos con soporte de firma longeva como PDF/A-3.",
+        "rationale": "La migración de formato es una estrategia de preservación del contenido, pero no resuelve directamente el problema de la validez de la firma a lo largo del tiempo.",
+        "isCorrect": false
+      },
+      {
+        "text": "Emulación del software original de firma para poder validar los certificados en su entorno nativo.",
+        "rationale": "La emulación es una estrategia de preservación compleja y costosa, y para las firmas se prefiere un método más proactivo.",
+        "isCorrect": false
+      },
+      {
+        "text": "Resellado automatizado de los documentos con un sello de órgano, conservando siempre la información de las firmas originales.",
+        "rationale": "La Política de Firma contempla este sistema de resellado, que añade nuevas capas de evidencia criptográfica (sellos de tiempo) para extender la validez de las firmas a lo largo del tiempo sin perder las originales.",
+        "isCorrect": true
+      },
+      {
+        "text": "Sustitución de las firmas electrónicas por metadatos descriptivos una vez finalizada la vigencia administrativa del documento.",
+        "rationale": "Esta es una posibilidad que se puede plantear tras la vigencia administrativa, pero el mantenimiento durante dicho periodo se realiza mediante resellado.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en cómo se puede 'renovar' la confianza en una firma digital a medida que pasa el tiempo y la tecnología criptográfica evoluciona."
+  },
+  {
+    "guid": "f0013bf6-e0eb-47b6-b426-2d6081e8e4b0",
+    "subjectId": "T15",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "De acuerdo con el modelo del Ajuntament de Barcelona, la lógica general de permisos de acceso de consulta para el personal interno sobre expedientes cerrados y documentos definitivos se basa principalmente en:",
+    "answerOptions": [
+      {
+        "text": "El rol del usuario en el organigrama municipal (jefe de servicio, técnico, administrativo).",
+        "rationale": "Aunque el rol influye, el criterio principal que estructura el acceso no es el cargo genérico, sino la función documentada.",
+        "isCorrect": false
+      },
+      {
+        "text": "La unidad organizativa que tramitó originalmente el expediente.",
+        "rationale": "El acceso se concede a los responsables actuales del procedimiento, que pueden no ser los mismos que lo tramitaron originalmente debido a reorganizaciones.",
+        "isCorrect": false
+      },
+      {
+        "text": "Las series documentales a las que pertenecen los expedientes, con patrones de acceso predefinidos.",
+        "rationale": "El modelo establece explícitamente que la lógica de acceso se basa en las series documentales, definiendo para cada una si es de acceso libre, restringido, etc.",
+        "isCorrect": true
+      },
+      {
+        "text": "La fecha de cierre del expediente, aplicando diferentes niveles de acceso según su antigüedad.",
+        "rationale": "La antigüedad del expediente puede influir en la aplicación del calendario de acceso (por ejemplo, para datos personales), pero el permiso base se define por la serie documental.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considere el instrumento de clasificación que agrupa los expedientes por función y que, por tanto, sirve de base para aplicar políticas comunes."
+  },
+  {
+    "guid": "d14e67f7-7267-417d-ab53-c74b3d5b9bdf",
+    "subjectId": "T15",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "El Archivo electrónico del Ajuntament de Barcelona garantiza la integridad, autenticidad y acceso a los documentos. Sin embargo, ¿qué elemento, que podría estar asociado a un documento, se menciona explícitamente en el material de estudio como algo que NO garantiza?",
+    "answerOptions": [
+      {
+        "text": "La validez de las firmas electrónicas una vez el certificado ha caducado.",
+        "rationale": "El archivo implementa políticas como el resellado para mantener la validez de las firmas a largo plazo.",
+        "isCorrect": false
+      },
+      {
+        "text": "La confidencialidad de los datos personales contenidos en los documentos.",
+        "rationale": "El sistema aplica controles de acceso por roles para garantizar la confidencialidad según la normativa.",
+        "isCorrect": false
+      },
+      {
+        "text": "La disponibilidad de las URL externas que puedan estar referenciadas dentro de los documentos.",
+        "rationale": "El material de estudio destaca como una pregunta de examen típica que el archivo garantiza el contenido del documento en sí, pero no puede asegurar que los enlaces a recursos externos sigan funcionando en el futuro.",
+        "isCorrect": true
+      },
+      {
+        "text": "La trazabilidad de las operaciones realizadas sobre los expedientes.",
+        "rationale": "La trazabilidad es uno de los requisitos fundamentales de cualquier sistema de gestión documental y archivo electrónico, garantizada mediante logs de auditoría.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en los elementos de un documento que dependen de sistemas o recursos fuera del control directo del archivo municipal."
+  },
+  {
+    "guid": "19319e91-29bf-48f2-b0ad-1f7e0d33b33e",
+    "subjectId": "T15",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "En el contexto de la preservación digital, la estrategia de 'emulación' consiste en:",
+    "answerOptions": [
+      {
+        "text": "Convertir periódicamente los documentos de formatos obsoletos a formatos actuales y soportados.",
+        "rationale": "Esta descripción corresponde a la estrategia de 'migración', que se centra en transformar el objeto digital.",
+        "isCorrect": false
+      },
+      {
+        "text": "Mantener múltiples copias de los documentos en diferentes ubicaciones geográficas y soportes físicos.",
+        "rationale": "Esto es una medida de seguridad y backup para la disponibilidad, pero no una estrategia de preservación para combatir la obsolescencia tecnológica.",
+        "isCorrect": false
+      },
+      {
+        "text": "Recrear el entorno de hardware y software original necesario para visualizar e interactuar con el documento en su formato nativo.",
+        "rationale": "La emulación se centra en preservar el entorno original, permitiendo que el objeto digital se mantenga sin cambios y se ejecute como se hacía en el momento de su creación.",
+        "isCorrect": true
+      },
+      {
+        "text": "Extraer los metadatos de preservación (PREMIS) y almacenarlos en un sistema de gestión independiente.",
+        "rationale": "La gestión de metadatos de preservación es una parte crucial de cualquier estrategia, pero no es la estrategia de emulación en sí misma.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Imagine que necesita usar un programa muy antiguo. ¿Qué haría si no puede instalarlo en un ordenador moderno?"
+  },
+  {
+    "guid": "3160961e-1be6-4afc-ac47-910b6529966d",
+    "subjectId": "T15",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "El Modelo del Ajuntament de Barcelona establece que, para evitar expedientes híbridos, los documentos en papel aportados por ciudadanos en procedimientos automatizados deben ser digitalizados. ¿Bajo qué condiciones debe realizarse este proceso?",
+    "answerOptions": [
+      {
+        "text": "Aplicando el Protocolo de digitalización segura del Ajuntament de Barcelona.",
+        "rationale": "Este protocolo establece las condiciones técnicas y jurídicas para que la copia electrónica resultante tenga la misma validez que el original en papel, permitiendo la creación de expedientes íntegramente electrónicos.",
+        "isCorrect": true
+      },
+      {
+        "text": "Utilizando cualquier escáner que cumpla con una resolución mínima de 300 ppp.",
+        "rationale": "La resolución es un requisito técnico, pero el proceso de digitalización segura implica mucho más, como el sellado, metadatos y un procedimiento reglado.",
+        "isCorrect": false
+      },
+      {
+        "text": "Conservando siempre el documento original en papel en el archivo físico como respaldo.",
+        "rationale": "La digitalización segura permite, en muchos casos, devolver el original al ciudadano o proceder a su destrucción controlada, ya que la copia electrónica es válida.",
+        "isCorrect": false
+      },
+      {
+        "text": "Bajo la supervisión directa de un fedatario público para dar fe de la copia.",
+        "rationale": "El procedimiento está reglado y se basa en la tecnología (sellos de órgano) para garantizar la autenticidad, no requiriendo la intervención de un fedatario en cada caso.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en el documento normativo municipal que regula la transformación de documentos de papel a formato electrónico con plenas garantías."
+  },
+  {
+    "guid": "3ac47f70-30b5-4e30-83ca-2c4fe0d4eeb7",
+    "subjectId": "T15",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "¿Cuál de las siguientes afirmaciones sobre el modelo de referencia OAIS (ISO 14721) es la más precisa?",
+    "answerOptions": [
+      {
+        "text": "Es una norma que especifica los formatos de fichero obligatorios para la conservación a largo plazo, como PDF/A.",
+        "rationale": "OAIS es un modelo conceptual y funcional para un sistema de archivo, no una especificación de formatos concretos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Define un modelo funcional para sistemas de archivo electrónico, con fases como la ingestión (ingest), almacenamiento (archival storage) y acceso (access).",
+        "rationale": "El modelo OAIS (Open Archival Information System) es el estándar de referencia internacional que describe las funciones, responsabilidades y componentes de un sistema de archivo digital de confianza.",
+        "isCorrect": true
+      },
+      {
+        "text": "Es un producto de software de código abierto para la gestión de archivos electrónicos, similar a Alfresco o Archivematica.",
+        "rationale": "OAIS es un modelo teórico, un estándar, no un software. Herramientas como Archivematica sí están basadas en los principios de OAIS.",
+        "isCorrect": false
+      },
+      {
+        "text": "Establece los requisitos de seguridad que debe cumplir un repositorio digital para obtener una certificación de confianza.",
+        "rationale": "Aunque relacionado, la norma específica para la certificación de repositorios de confianza es la ISO 16363, que se basa en los conceptos de OAIS.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Enfóquese en la naturaleza de OAIS como un 'modelo' o 'marco de referencia' y no como un producto o una regla técnica específica."
+  },
+  {
+    "guid": "6836c223-99b6-443b-99e3-fd98687daebd",
+    "subjectId": "T15",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "En el Modelo Tecnológico del Ajuntament de Barcelona, ¿cuál es la función del 'Mòdul comú de signatura electrònica' (MCSE)?",
+    "answerOptions": [
+      {
+        "text": "Únicamente validar las firmas de los documentos recibidos de los ciudadanos a través del registro.",
+        "rationale": "Su función es mucho más amplia, abarcando la gestión completa del ciclo de vida de las firmas corporativas.",
+        "isCorrect": false
+      },
+      {
+        "text": "Generar Códigos Seguros de Verificación (CSV) para las copias auténticas de documentos.",
+        "rationale": "La generación de copias y CSV es una función del 'Mòdul comú de copies', aunque interactúe con el módulo de firma para sellar la copia.",
+        "isCorrect": false
+      },
+      {
+        "text": "Gestionar los certificados del personal y los sellos de órgano, permitiendo firmar, validar, custodiar y preservar las firmas realizadas.",
+        "rationale": "El MCSE es el componente centralizado que provee todos los servicios relacionados con la firma electrónica corporativa, tanto para el personal como para actuaciones automatizadas.",
+        "isCorrect": true
+      },
+      {
+        "text": "Aplicar el resellado periódico de los documentos para el mantenimiento de firmas a largo plazo.",
+        "rationale": "Aunque la política de firma define el resellado, y el MCSE interviene, su función principal es la gestión activa de las firmas, no solo la preservación.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en este componente como el servicio centralizado que ofrece toda la funcionalidad de firma electrónica a las demás aplicaciones."
+  },
+  {
+    "guid": "f5355545-44a7-4c51-acc8-20fa37d237ee",
+    "subjectId": "T15",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "Según el modelo del Ajuntament de Barcelona, la eliminación de documentos y expedientes electrónicos se realiza en aplicación del Calendario de conservación. ¿Qué requisito es indispensable para proceder a dicha eliminación?",
+    "answerOptions": [
+      {
+        "text": "La aprobación de la eliminación debe ser ratificada por la Generalitat de Catalunya.",
+        "rationale": "El modelo indica que la eliminación se realiza según la norma aprobada por la CMAAD y ratificada por la Generalitat, siguiendo la normativa archivística vigente.",
+        "isCorrect": true
+      },
+      {
+        "text": "Se requiere una copia de seguridad de los documentos a eliminar que debe conservarse durante 5 años.",
+        "rationale": "La eliminación incluye todas las copias de seguridad; la idea es la destrucción definitiva, no el respaldo.",
+        "isCorrect": false
+      },
+      {
+        "text": "La unidad productora del documento debe dar su consentimiento explícito para cada lote de eliminación.",
+        "rationale": "El proceso es automatizado y se basa en las normas aprobadas, con un flujo de aprobación por los responsables del archivo, no por cada unidad productora.",
+        "isCorrect": false
+      },
+      {
+        "text": "Los documentos deben haber sido migrados previamente a un formato de solo lectura para evitar su recuperación.",
+        "rationale": "La eliminación se refiere al borrado seguro de los ficheros y metadatos, no a una conversión de formato.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considere la jerarquía de las administraciones públicas en materia de patrimonio documental."
+  },
+  {
+    "guid": "60c4cc87-2b92-4f8b-9b79-09fd5415cc47",
+    "subjectId": "T15",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "Dentro de la arquitectura del Ajuntament de Barcelona, ¿qué aplicación o sistema ejerce el rol de estructurador de la gobernanza de la operación que deriva en un expediente administrativo?",
+    "answerOptions": [
+      {
+        "text": "GPA (Gestor de procediment administratiu).",
+        "rationale": "El GPA es la herramienta que permite a los tramitadores gestionar los expedientes, pero no es el sistema que contiene la definición formal y la gobernanza de los procedimientos.",
+        "isCorrect": false
+      },
+      {
+        "text": "El Archivo electrónico.",
+        "rationale": "El Archivo electrónico es el sistema de custodia y conservación, no el que define la estructura y reglas de la tramitación de los procedimientos.",
+        "isCorrect": false
+      },
+      {
+        "text": "El Catàleg de documents.",
+        "rationale": "El Catálogo de documentos define las series y tipos documentales, pero está alineado con otro sistema que define el procedimiento en su conjunto.",
+        "isCorrect": false
+      },
+      {
+        "text": "El Registre de procediments.",
+        "rationale": "Esta aplicación contiene la definición de los elementos que conforman el procedimiento y su tramitación, sirviendo de guía a usuarios y aplicaciones.",
+        "isCorrect": true
+      }
+    ],
+    "hint": "Busque el componente que actúa como el 'cerebro' o la fuente de conocimiento sobre cómo deben tramitarse los expedientes administrativos."
+  },
+  {
+    "guid": "ec1001cf-b74f-4262-a73b-208c4f5bafaf",
+    "subjectId": "T15",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "La 'captura no automatizada' de documentos ofimáticos en el modelo de Barcelona se realiza mediante una interfaz que los deposita en una estructura de carpetas predefinida. ¿Qué finalidad tiene esta estructura?",
+    "answerOptions": [
+      {
+        "text": "Asegurar que los documentos solo puedan ser firmados una vez capturados en el repositorio.",
+        "rationale": "El modelo permite capturar documentos ya firmados o firmarlos después, no es una restricción impuesta por la estructura.",
+        "isCorrect": false
+      },
+      {
+        "text": "Minimizar la cantidad de metadatos que el usuario debe asignar manualmente.",
+        "rationale": "La estructura de carpetas sigue el Cuadro de Clasificación, por lo que muchos metadatos (como la serie documental) se pueden heredar de la ubicación, simplificando la tarea del usuario.",
+        "isCorrect": true
+      },
+      {
+        "text": "Servir como una zona provisional antes de la revisión y clasificación por parte de los responsables de archivo.",
+        "rationale": "La 'zona provisional' se describe para documentos de instancia genérica; en este caso, el usuario ya está clasificando el documento al elegir la carpeta.",
+        "isCorrect": false
+      },
+      {
+        "text": "Aplicar permisos de acceso más restrictivos que a los documentos capturados de forma automatizada.",
+        "rationale": "Los permisos de acceso dependen de la serie documental y del estado del expediente, no del método de captura.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en cómo la organización del sistema de ficheros puede ayudar a inferir información sobre los propios ficheros."
+  },
+  {
+    "guid": "ee9eee60-e6bc-4c4f-ac5f-a55163e89903",
+    "subjectId": "T15",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "¿Qué es MoReq2010?",
+    "answerOptions": [
+      {
+        "text": "Una norma ISO para la certificación de repositorios digitales de confianza.",
+        "rationale": "La norma para la certificación de repositorios es la ISO 16363.",
+        "isCorrect": false
+      },
+      {
+        "text": "El esquema de metadatos obligatorio definido en el Esquema Nacional de Interoperabilidad (ENI).",
+        "rationale": "El ENI define su propio esquema de metadatos (e-EMGDE), aunque puede tener influencias de otros estándares.",
+        "isCorrect": false
+      },
+      {
+        "text": "Un modelo europeo de requisitos funcionales que deben cumplir los sistemas de gestión de archivos electrónicos.",
+        "rationale": "MoReq (Model Requirements for Electronic Records Management) es una especificación detallada de lo que un sistema de archivo electrónico debe ser capaz de hacer.",
+        "isCorrect": true
+      },
+      {
+        "text": "El nombre del framework de servicios documentales implementado en el Ajuntament de Barcelona.",
+        "rationale": "MoReq es un estándar de referencia externo, no el nombre de un componente tecnológico interno del Ayuntamiento.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Su nombre (Model Requirements) ya da una pista sobre su naturaleza. Es un documento de especificaciones, no una norma de certificación ni un software."
+  },
+  {
+    "guid": "c3b8336a-f5bc-4c66-a93f-6ae89435c994",
+    "subjectId": "T15",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "En el modelo del Ajuntament de Barcelona, si se debe remitir un expediente no cerrado a la administración de justicia, ¿cómo se asegura la integridad de dicha remisión parcial?",
+    "answerOptions": [
+      {
+        "text": "Se cierra temporalmente el expediente, se remite y luego se reabre para continuar la tramitación.",
+        "rationale": "El modelo establece que los expedientes cerrados no se pueden reabrir.",
+        "isCorrect": false
+      },
+      {
+        "text": "Se crea un 'índice provisional' del estado del expediente en ese momento, que se guarda como evidencia junto al propio expediente.",
+        "rationale": "Se utiliza el mismo mecanismo de indexación y firma que para el cierre definitivo, pero creando una instantánea (índice provisional) que documenta qué se remitió y en qué estado.",
+        "isCorrect": true
+      },
+      {
+        "text": "Se genera una copia auténtica con CSV de cada uno de los documentos del expediente y se envían individualmente.",
+        "rationale": "Se debe remitir el expediente como un conjunto coherente, no como documentos sueltos, y el índice es lo que garantiza la integridad de ese conjunto.",
+        "isCorrect": false
+      },
+      {
+        "text": "Se exporta el expediente a un formato de fichero comprimido (ZIP) con un documento de texto que lista los ficheros incluidos.",
+        "rationale": "Esto no proporciona una garantía criptográfica de la integridad del conjunto, que es lo que se logra con el índice electrónico firmado.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en cómo se puede crear una 'foto fija' y verificable del contenido de un expediente en un momento dado, sin necesidad de cerrarlo definitivamente."
+  },
+  {
+    "guid": "6d7dd113-f1aa-4bd7-b324-209c03f8615c",
+    "subjectId": "T15",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "¿Cuál de los siguientes formatos NO es considerado un formato abierto recomendado por el ENI para el intercambio de información?",
+    "answerOptions": [
+      {
+        "text": "ODF (.odt, .ods)",
+        "rationale": "OpenDocument Format (ODF) es un estándar abierto ISO para documentos ofimáticos, recomendado explícitamente.",
+        "isCorrect": false
+      },
+      {
+        "text": "PDF/A",
+        "rationale": "PDF/A es el estándar ISO para la preservación a largo plazo de documentos electrónicos y es un formato clave en la administración.",
+        "isCorrect": false
+      },
+      {
+        "text": "XML",
+        "rationale": "XML es el lenguaje de marcado extensible por excelencia para el intercambio estructurado de datos entre sistemas.",
+        "isCorrect": false
+      },
+      {
+        "text": "DOCX (.docx)",
+        "rationale": "Aunque es un estándar documentado (Office Open XML), es de origen propietario y el material de estudio lo señala como un formato a evitar en favor de ODF.",
+        "isCorrect": true
+      }
+    ],
+    "hint": "Distinga entre formatos que nacieron como estándares abiertos y aquellos que son de origen propietario, aunque su especificación sea pública."
+  },
+  {
+    "guid": "42bbd918-6744-464a-b467-763c33707d76",
+    "subjectId": "T15",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "El concepto de 'Arxiu electrònic únic' obligatorio por la Ley 39/2015 implica que:",
+    "answerOptions": [
+      {
+        "text": "Cada unidad administrativa debe tener su propio sistema de archivo, pero todos deben estar federados tecnológicamente.",
+        "rationale": "La ley busca la centralización y unicidad del archivo para toda la administración, no la federación de sistemas departamentales.",
+        "isCorrect": false
+      },
+      {
+        "text": "Toda la documentación electrónica de una administración pública debe gestionarse y conservarse en un sistema o infraestructura centralizada y común.",
+        "rationale": "El objetivo es evitar la dispersión de documentos en múltiples repositorios y garantizar un punto único de custodia y acceso a largo plazo para toda la organización.",
+        "isCorrect": true
+      },
+      {
+        "text": "Solo se permite el uso de un único proveedor de software de gestión documental para toda la administración.",
+        "rationale": "La unicidad se refiere al concepto y a la infraestructura lógica, no a que deba ser un único producto de software. Varias tecnologías pueden conformar el archivo único.",
+        "isCorrect": false
+      },
+      {
+        "text": "Los documentos electrónicos solo tienen validez si existe una única copia original en el archivo, eliminando cualquier duplicado.",
+        "rationale": "La naturaleza de lo digital permite la existencia de múltiples copias idénticas; el concepto de único se refiere al sistema de archivo, no al número de copias del fichero.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en el problema de la dispersión de la información y cómo la legislación intenta solucionarlo."
+  },
+  {
+    "guid": "1de3e324-1399-4403-993d-4cc23147f63a",
+    "subjectId": "T15",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "La 'análisis documental' es un proceso clave previo a la incorporación de documentos al Archivo electrónico del Ajuntament de Barcelona. ¿Cuál de las siguientes tareas NO forma parte de dicha análisis?",
+    "answerOptions": [
+      {
+        "text": "La identificación de las series documentales del Cuadro de Clasificación a las que se asocian los expedientes.",
+        "rationale": "Esta es una de las tareas fundamentales, ya que la clasificación es la base de todo el modelo.",
+        "isCorrect": false
+      },
+      {
+        "text": "La determinación del nivel de seguridad (básico, medio o alto) que se aplicará según el ENS.",
+        "rationale": "El análisis documental se centra en la gestión y estructura del documento; la categorización de seguridad según el ENS es un análisis de riesgos complementario pero distinto.",
+        "isCorrect": false
+      },
+      {
+        "text": "La definición de las reglas y categorías de acceso que se aplicarán una vez finalizados los trámites.",
+        "rationale": "La propuesta de normas de conservación y acceso es un resultado clave de este análisis.",
+        "isCorrect": false
+      },
+      {
+        "text": "El establecimiento de los documentos que deben incluirse en los expedientes y sus características.",
+        "rationale": "El análisis define la composición de los expedientes, qué documentos son obligatorios, cuáles esenciales, etc.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Distinga entre las tareas relacionadas con la estructura y gestión archivística del documento y las relacionadas con la seguridad de la información del sistema que lo contiene."
+  }
+]
