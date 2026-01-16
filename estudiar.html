@@ -491,11 +491,16 @@
   // Cargar preguntas o flashcards del localStorage
   function loadQuestions() {
       try {
-        // Si repassarErrores=1 en la URL, cargar solo historial de fallos
+        // Si copypaste=1 en la URL, cargar solo historial de fallos
         const params = new URLSearchParams(window.location.search);
         if (params.get('repassarErrores') === '1') {
           isRepassingErrors = true;
-          preguntes = JSON.parse(localStorage.getItem(LS_KEYS.HISTORIAL_FALLOS));
+          preguntes = JSON.parse(localStorage.getItem(LS_KEYS.HISTORIAL_FALLOS) || '[]');
+          document.getElementById('removeFromHistoryContainer').style.display = 'block';
+        }
+        else if (params.get('copypaste') === '1') {
+          isRepassingErrors = false;
+          preguntes = JSON.parse(localStorage.getItem(LS_KEYS.JSON_COPYPASTE) || '[]');
           document.getElementById('removeFromHistoryContainer').style.display = 'block';
         } else {
           isRepassingErrors = false;
@@ -509,7 +514,7 @@
           if (isRepassingErrors) {
             msg = 'No hi ha errors guardats per repassar.';
           } else {
-            msg = 'No hi ha preguntes o flashcards carregades.';
+            msg = 'No hi ha preguntes carregades.';
           }
           document.getElementById('questionContainer').innerHTML = 
             `<div class="question-card"><div class="question-text">${msg}</div></div>`;

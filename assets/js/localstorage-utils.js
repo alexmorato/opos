@@ -13,6 +13,7 @@ const LS_KEYS = {
   CRONOMETRO: 'sTICdOpos_cronometro',
   PREGUNTES: 'sTICdOpos_preguntes',
   HISTORIAL_FALLOS: 'sTICdOpos_historialFallos',
+  JSON_COPYPASTE: 'sTICdOpos_jsonCopypaste',
   USER_NAME: 'sTICdOpos_userName',
   USER_PASS: 'sTICdOpos_userPass',
 };
