@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Daypo XML → QuestionContract JSON</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    textarea {
+      width: 100%;
+      height: 250px;
+      font-family: monospace;
+    }
+    button {
+      margin-top: 10px;
+      padding: 10px 20px;
+    }
+    pre {
+      background: #f4f4f4;
+      padding: 15px;
+      overflow: auto;
+      max-height: 300px;
+    }
+  </style>
+</head>
+<body>
+
+<h2>Daypo XML → QuestionContract JSON</h2>
+
+<p>Pega aquí el XML de Daypo:</p>
+<textarea id="xmlInput"></textarea>
+
+<label>SubjectId:</label>
+<input id="subjectId" value="ITIL_V3" />
+
+<label>Origin:</label>
+<input id="origin" value="daypo_xml" />
+
+<br><br>
+<button onclick="convert()">Convertir</button>
+<button onclick="download()">Descargar JSON</button>
+
+<h3>Resultado JSON</h3>
+<pre id="output"></pre>
+
+<script>
+function uuidv4() {
+  return crypto.randomUUID();
+}
+
+function patternToBools(pattern) {
+  return pattern.trim().split("").map(c => c === "2");
+}
+
+function convert() {
+  const xmlText = document.getElementById("xmlInput").value;
+  const subjectId = document.getElementById("subjectId").value;
+  const origin = document.getElementById("origin").value;
+
+  const parser = new DOMParser();
+  const xml = parser.parseFromString(xmlText, "application/xml");
+
+  const questionNodes = xml.querySelectorAll("c > c");
+  const questions = [];
+
+  questionNodes.forEach(qnode => {
+    const questionText = qnode.querySelector("p")?.textContent.trim() ?? "";
+    const pattern = qnode.querySelector("c")?.textContent.trim() ?? "";
+
+    const options = Array.from(qnode.querySelectorAll("r > o"))
+      .map(o => o.textContent.trim());
+
+    const correctness = patternToBools(pattern);
+
+    const answerOptions = options.map((text, i) => ({
+      text,
+      isCorrect: correctness[i] || false,
+      rationale: ""
+    }));
+
+    questions.push({
+      guid: uuidv4(),
+      subjectId,
+      difficulty: 1,
+      origin,
+      type: "test",
+      question: questionText,
+      answerOptions
+    });
+  });
+
+  document.getElementById("output").textContent =
+    JSON.stringify(questions, null, 2);
+
+  window._jsonResult = questions;
+}
+
+function download() {
+  if (!window._jsonResult) {
+    alert("Primero convierte el XML.");
+    return;
+  }
+  const blob = new Blob(
+    [JSON.stringify(window._jsonResult, null, 2)],
+    { type: "application/json" }
+  );
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = "daypo_questions.json";
+  a.click();
+}
+</script>
+
+</body>
+</html>
