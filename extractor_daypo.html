@@ -24,60 +24,82 @@
       max-height: 300px;
     }
   </style>
+  <script src="assets/js/toast.js"></script>
 </head>
 <body>
 
-<h2>Daypo XML → QuestionContract JSON</h2>
+<h2>👽 Daypo XML → QuestionContract JSON</h2>
 
 <p>Pega aquí el XML de Daypo:</p>
-<textarea id="xmlInput"></textarea>
+<textarea id="xmlInput" style="height: 50px; background-color: aquamarine;"></textarea>
 
 <label>SubjectId:</label>
-<input id="subjectId" value="ITIL_V3" />
+<input id="subjectId" value="Txx" />
 
 <label>Origin:</label>
-<input id="origin" value="daypo_xml" />
+<input id="origin" value="daypo" />
 
 <br><br>
 <button onclick="convert()">Convertir</button>
-<button onclick="download()">Descargar JSON</button>
+<button onclick="copyJSON()">Copiar JSON</button>
+<button onclick="window.location.href='menu.html'">⬅️ Tornar al menú</button>
 
 <h3>Resultado JSON</h3>
 <pre id="output"></pre>
+<script src="assets/js/login.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bcryptjs@2.4.3/dist/bcrypt.min.js"></script>
+<script src="assets/js/localstorage-utils.js"></script>
 
 <script>
+  // Usar la función checkUserAuth desde login.js
+  document.addEventListener('DOMContentLoaded', function() {
+    const userName = localStorage.getItem(LS_KEYS.USER_NAME);
+    const userPass = localStorage.getItem(LS_KEYS.USER_PASS);
+    login.checkUserAuth(userName, userPass);
+  }, {once:true});
+
+
 function uuidv4() {
   return crypto.randomUUID();
 }
 
 function patternToBools(pattern) {
-  return pattern.trim().split("").map(c => c === "2");
+  return pattern.split("").map(c => c === "2");
 }
 
 function convert() {
   const xmlText = document.getElementById("xmlInput").value;
   const subjectId = document.getElementById("subjectId").value;
+  if(subjectId.trim() === "") {
+    toast.showToast('El SubjectId no pot estar buit.');
+    return;
+  }
   const origin = document.getElementById("origin").value;
 
   const parser = new DOMParser();
   const xml = parser.parseFromString(xmlText, "application/xml");
 
-  const questionNodes = xml.querySelectorAll("c > c");
+  const questionNodes = xml.querySelectorAll("test > c > c");
   const questions = [];
 
   questionNodes.forEach(qnode => {
-    const questionText = qnode.querySelector("p")?.textContent.trim() ?? "";
-    const pattern = qnode.querySelector("c")?.textContent.trim() ?? "";
+    const questionText =
+      qnode.querySelector(":scope > p")?.textContent.trim() ?? "";
 
-    const options = Array.from(qnode.querySelectorAll("r > o"))
-      .map(o => o.textContent.trim());
+    const pattern =
+      qnode.querySelector(":scope > c")?.textContent.trim() ?? "";
+
+    const options = Array.from(
+      qnode.querySelectorAll(":scope > r > o")
+    ).map(o => o.textContent.trim());
+
+    if (!questionText || options.length === 0) return;
 
     const correctness = patternToBools(pattern);
 
     const answerOptions = options.map((text, i) => ({
       text,
-      isCorrect: correctness[i] || false,
-      rationale: ""
+      isCorrect: correctness[i] || false
     }));
 
     questions.push({
@@ -97,21 +119,24 @@ function convert() {
   window._jsonResult = questions;
 }
 
-function download() {
-  if (!window._jsonResult) {
-    alert("Primero convierte el XML.");
+function copyJSON() {
+  if (!window._jsonResult || window._jsonResult.length === 0) {
+    toast.showToast('No hi ha JSON per copiar. Converteix primer!');
     return;
   }
-  const blob = new Blob(
-    [JSON.stringify(window._jsonResult, null, 2)],
-    { type: "application/json" }
-  );
-  const a = document.createElement("a");
-  a.href = URL.createObjectURL(blob);
-  a.download = "daypo_questions.json";
-  a.click();
+  
+  const jsonText = JSON.stringify(window._jsonResult, null, 2);
+  navigator.clipboard.writeText(jsonText)
+    .then(() => {
+      toast.showToast('JSON copiat al portapapers!');
+    })
+    .catch(err => {
+      console.error('Error copiant:', err);
+      toast.showToast('Error copiant al portapapers');
+    });
 }
 </script>
+
 
 </body>
 </html>
