@@ -290,6 +290,17 @@
   <script>
     // Fullscreen toggle al clicar el header
     document.addEventListener('DOMContentLoaded', function() {
+      // Navegación con flechas del teclado
+      document.addEventListener('keydown', function(e) {
+        if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+        if (e.key === 'ArrowRight') {
+          nextQuestion();
+          e.preventDefault();
+        } else if (e.key === 'ArrowLeft') {
+          previousQuestion();
+          e.preventDefault();
+        }
+      });
       const header = document.getElementById('headerTitle');
       header.style.cursor = 'pointer';
       header.title = 'Clica per a pantalla completa';
