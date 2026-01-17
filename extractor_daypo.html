@@ -34,7 +34,7 @@
 <textarea id="xmlInput" style="height: 50px; background-color: aquamarine;"></textarea>
 
 <label>SubjectId:</label>
-<input id="subjectId" value="Txx" />
+<input id="subjectId" value="" />
 
 <label>Origin:</label>
 <input id="origin" value="daypo" />
@@ -64,7 +64,7 @@ function uuidv4() {
 }
 
 function patternToBools(pattern) {
-  return pattern.split("").map(c => c === "2");
+  return pattern.trim().split("").map(c => c === "2");
 }
 
 function convert() {
@@ -93,16 +93,22 @@ function convert() {
       qnode.querySelectorAll(":scope > r > o")
     ).map(o => o.textContent.trim());
 
-    if (!questionText || options.length === 0) return;
+    const hint =
+      qnode.querySelector(":scope > h")?.textContent.trim();
+
+    if (!questionText || options.length === 0 || !pattern) return;
 
     const correctness = patternToBools(pattern);
 
     const answerOptions = options.map((text, i) => ({
       text,
-      isCorrect: correctness[i] || false
+      isCorrect: correctness[i] || false,
+      rationale: correctness[i]
+        ? "Respuesta correcta según ITIL v3."
+        : "No corresponde con la definición ITIL v3."
     }));
 
-    questions.push({
+    const questionObj = {
       guid: uuidv4(),
       subjectId,
       difficulty: 1,
@@ -110,7 +116,13 @@ function convert() {
       type: "test",
       question: questionText,
       answerOptions
-    });
+    };
+
+    if (hint) {
+      questionObj.hint = hint;
+    }
+
+    questions.push(questionObj);
   });
 
   document.getElementById("output").textContent =
