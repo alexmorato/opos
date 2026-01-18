@@ -316,7 +316,7 @@
 </head>
 <body>
   <div class="center">
-    <h1 class="titulo">📚 Historial de Fallos</h1>
+    <h1 class="titulo">📋 Historial d'errors</h1>
     
     <div class="info-box">
       <div class="stats">
@@ -337,6 +337,7 @@
 
     <div class="buttons-container">
       <button class="btn-primary" id="repassarBtn" style="display:none;">🔁 Repassar Historial</button>
+      <button class="btn-secondary" id="copiarBtn" style="display:none;">📋 Copiar JSON</button>
       <button class="btn-danger" id="esborrarTotBtn" style="display:none;">🗑️ Esborrar Tot</button>
       <button class="btn-secondary" id="tornarBtn">⬅️ Tornar</button>
     </div>
@@ -411,6 +412,7 @@
 
         // Mostrar botones
         document.getElementById('repassarBtn').style.display = 'block';
+        document.getElementById('copiarBtn').style.display = 'block';
         document.getElementById('esborrarTotBtn').style.display = 'block';
 
         // Renderizar preguntas
@@ -418,6 +420,7 @@
       } else {
         document.getElementById('ultimaActualizacion').textContent = '-';
         document.getElementById('repassarBtn').style.display = 'none';
+        document.getElementById('copiarBtn').style.display = 'none';
         document.getElementById('esborrarTotBtn').style.display = 'none';
         preguntesContainer.innerHTML = '<div class="empty-state">No hi ha preguntes a l\'historial de fallos.</div>';
       }
@@ -616,6 +619,27 @@
       }
     };
 
+    // Botón copiar JSON
+    document.getElementById('copiarBtn').onclick = function() {
+      if (historialFallos.length > 0) {
+        const jsonStr = JSON.stringify(historialFallos, null, 2);
+        navigator.clipboard.writeText(jsonStr).then(() => {
+          // Feedback visual
+          const btn = document.getElementById('copiarBtn');
+          const originalText = btn.textContent;
+          btn.textContent = '✓ Copiat!';
+          btn.style.background = '#21c08d';
+          setTimeout(() => {
+            btn.textContent = originalText;
+            btn.style.background = '#27304a';
+          }, 700);
+        }).catch(err => {
+          console.error('Error al copiar:', err);
+          alert('No s\'ha pogut copiar al portapapers');
+        });
+      }
+    };
+
     // Botón esborrar tot
     document.getElementById('esborrarTotBtn').onclick = function() {
       if (confirm('Segur que vols esborrar TOT l\'historial de fallos? Aquesta acció no es pot desfer.')) {
@@ -627,7 +651,7 @@
 
     // Botón tornar
     document.getElementById('tornarBtn').onclick = function() {
-      window.location.href = 'init.html';
+      window.location.href = 'menu.html';
     };
 
     // Cargar historial al iniciar
