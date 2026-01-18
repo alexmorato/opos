@@ -1,0 +1,1502 @@
+[
+  {
+    "guid": "8ab4c949-390d-4cc3-8697-3f0965659bfc",
+    "subjectId": "T32",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "En Power BI, quin enunciat descriu millor una columna calculada?",
+    "answerOptions": [
+      {
+        "text": "Es calcula quan s’obre un visual i pot variar segons les seleccions de l’usuari.",
+        "isCorrect": false,
+        "rationale": "Descriu el comportament d’una mesura, que es calcula segons filtres i seleccions del report."
+      },
+      {
+        "text": "Es calcula en el refresc de dades i queda emmagatzemada al model.",
+        "isCorrect": true,
+        "rationale": "Una columna calculada es calcula durant el refresc i queda guardada al model com un camp més."
+      },
+      {
+        "text": "Es calcula quan es publica al servei i queda fixada fins a la següent publicació.",
+        "isCorrect": false,
+        "rationale": "La publicació al servei no fixa el càlcul; el valor depèn del model i del refresc de dades."
+      },
+      {
+        "text": "Es calcula en cada pàgina del report i es desa com a propietat de la pàgina.",
+        "isCorrect": false,
+        "rationale": "Les columnes calculades no són propietats de pàgina; formen part del model de dades."
+      }
+    ]
+  },
+  {
+    "guid": "1f08bc83-80e3-444a-863a-f52b8e11346a",
+    "subjectId": "T32",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "En Power Query, què vol dir que hi ha query folding?",
+    "answerOptions": [
+      {
+        "text": "Part de les transformacions s’executen a l’origen mitjançant una consulta nativa equivalent.",
+        "isCorrect": true,
+        "rationale": "El query folding passa quan Power Query delega transformacions a l’origen mitjançant una consulta equivalent."
+      },
+      {
+        "text": "Les transformacions s’executen al model com a mesures DAX per reduir càrrega a l’origen.",
+        "isCorrect": false,
+        "rationale": "DAX s’executa al model, no substitueix les transformacions M ni les envia a l’origen."
+      },
+      {
+        "text": "Els passos de transformació es converteixen en columnes calculades en carregar el model.",
+        "isCorrect": false,
+        "rationale": "Els passos de Power Query no es converteixen en columnes calculades; s’apliquen abans de carregar."
+      },
+      {
+        "text": "Els passos s’agrupen per reduir memòria, però s’executen sempre al Desktop.",
+        "isCorrect": false,
+        "rationale": "Power Query pot executar passos al Desktop, però el folding implica delegació a l’origen quan és possible."
+      }
+    ]
+  },
+  {
+    "guid": "5a7934ad-1abd-430e-89c7-4c08985e84d2",
+    "subjectId": "T32",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "En un model en estrella, quin enunciat és més coherent?",
+    "answerOptions": [
+      {
+        "text": "Les dimensions es normalitzen en diverses taules relacionades per reduir redundància i mantenir coherència d’atributs.",
+        "isCorrect": false,
+        "rationale": "Descriu un esquema floc de neu, on dimensions es normalitzen en diverses taules."
+      },
+      {
+        "text": "Una taula de fets té relacions molts-a-u amb dimensions, habitualment per claus.",
+        "isCorrect": true,
+        "rationale": "En estrella, la taula de fets es relaciona amb dimensions, habitualment molts a u mitjançant claus."
+      },
+      {
+        "text": "Diverses taules de fets comparteixen dimensions conformades i poden conviure en el mateix model mantenint una anàlisi coherent.",
+        "isCorrect": false,
+        "rationale": "És un patró de magatzem de dades amb diverses taules de fets; pot existir, però no és la característica definidora d’una estrella simple."
+      },
+      {
+        "text": "La taula de fets concentra també la major part d’atributs descriptius per reduir el nombre de taules del model.",
+        "isCorrect": false,
+        "rationale": "Atributs descriptius solen anar a dimensions; posar-los a fets acostuma a empitjorar el model i la compressió."
+      }
+    ]
+  },
+  {
+    "guid": "4a6f52dc-3006-4859-ada1-d7f80ac455ef",
+    "subjectId": "T32",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "Per fer RLS dinàmic per usuari, quin enfocament és el més habitual?",
+    "answerOptions": [
+      {
+        "text": "Filtrar dades segons la configuració regional del navegador de l’usuari.",
+        "isCorrect": false,
+        "rationale": "La configuració regional no és una identitat de seguretat fiable per filtrar files per usuari."
+      },
+      {
+        "text": "Filtrar per l’identificador del report i mantenir una llista per report.",
+        "isCorrect": false,
+        "rationale": "L’RLS s’aplica per identitat d’usuari o grup, no per identificadors de report."
+      },
+      {
+        "text": "Publicar un report per usuari amb filtres predefinits a cada pàgina.",
+        "isCorrect": false,
+        "rationale": "Publicar un report per usuari no és escalable i no és RLS dinàmic."
+      },
+      {
+        "text": "Definir un rol que filtri una taula de seguretat amb la identitat de l’usuari connectat.",
+        "isCorrect": true,
+        "rationale": "El patró típic és una taula de seguretat que relaciona usuari amb valors permesos i un rol que filtra per identitat."
+      }
+    ]
+  },
+  {
+    "guid": "fbc6cdf5-533a-414e-be74-6b52cd53627a",
+    "subjectId": "T32",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "Per configurar incremental refresh en mode Import, què és més clau al dataset?",
+    "answerOptions": [
+      {
+        "text": "Un KPI que indiqui el percentatge de files noves per cada refresc.",
+        "isCorrect": false,
+        "rationale": "Un KPI no és un requisit per particionar ni per configurar incremental refresh."
+      },
+      {
+        "text": "Un camp de “versió de càrrega” per diferenciar dades noves de dades antigues.",
+        "isCorrect": false,
+        "rationale": "Un camp de versió pot ajudar en alguns casos, però la configuració està pensada per rangs temporals."
+      },
+      {
+        "text": "Una columna de data o data i hora adequada per particionar el rang.",
+        "isCorrect": true,
+        "rationale": "Cal una columna de data o data i hora per definir el rang i crear particions d’incremental refresh."
+      },
+      {
+        "text": "Que totes les taules del model siguin en mode DirectQuery.",
+        "isCorrect": false,
+        "rationale": "Incremental refresh és propi d’Import; DirectQuery no és un requisit per particionar al servei."
+      }
+    ]
+  },
+  {
+    "guid": "7cfd415d-a740-4d6f-a104-73403850a449",
+    "subjectId": "T32",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "Quin risc és més típic en activar filtratge bidireccional en relacions?",
+    "answerOptions": [
+      {
+        "text": "Redueix la capacitat de compressió del model i força canvis de format.",
+        "isCorrect": false,
+        "rationale": "La compressió es veu afectada sobretot per la cardinalitat i el model, no per la direcció de filtre."
+      },
+      {
+        "text": "Pot crear camins de filtre ambigus i resultats inesperats en alguns visuals.",
+        "isCorrect": true,
+        "rationale": "El bidireccional pot generar camins de filtre ambigus, dobles filtratges i totals sorprenents."
+      },
+      {
+        "text": "Desactiva les funcions de time intelligence perquè canvia l’ordre de filtres.",
+        "isCorrect": false,
+        "rationale": "La time intelligence depèn sobretot d’una taula de dates i relacions, no d’aquest ajust."
+      },
+      {
+        "text": "Impedeix l’ús de mesures i obliga a fer càlculs com a columnes.",
+        "isCorrect": false,
+        "rationale": "Les mesures continuen funcionant; el problema és l’ambigüitat i el rendiment en alguns casos."
+      }
+    ]
+  },
+  {
+    "guid": "496faf12-4caf-4026-a3f6-11375804c74a",
+    "subjectId": "T32",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "Quin és l’efecte principal de CALCULATE en DAX?",
+    "answerOptions": [
+      {
+        "text": "Canvia el context de filtre aplicant, afegint o substituint filtres.",
+        "isCorrect": true,
+        "rationale": "CALCULATE modifica el context de filtre, afegint o reemplaçant filtres abans d’avaluar l’expressió."
+      },
+      {
+        "text": "Converteix el càlcul en un resultat persistent al model perquè es reutilitzi entre visuals.",
+        "isCorrect": false,
+        "rationale": "No crea resultats persistents; els valors es calculen per consulta segons el context."
+      },
+      {
+        "text": "Avalua l’expressió en un context independent dels filtres del report i després el projecta al visual.",
+        "isCorrect": false,
+        "rationale": "No ignora filtres per defecte; cal usar funcions com ALL o REMOVEFILTERS si es vol treure context."
+      },
+      {
+        "text": "Reescriu el càlcul com una taula virtual i retorna un resultat agregat derivat d’aquesta taula.",
+        "isCorrect": false,
+        "rationale": "Pot crear taules virtuals en alguns patrons, però la seva funció clau és el canvi de context de filtre."
+      }
+    ]
+  },
+  {
+    "guid": "be7ff75e-122a-4d55-9352-0e408b0c993b",
+    "subjectId": "T32",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "Quina diferència descriu millor Power Query i DAX?",
+    "answerOptions": [
+      {
+        "text": "Power Query defineix visuals i DAX defineix les fonts de dades.",
+        "isCorrect": false,
+        "rationale": "Power Query no defineix visuals; serveix per connectar i transformar dades."
+      },
+      {
+        "text": "Power Query s’usa per modelar relacions i DAX per definir passos d’importació.",
+        "isCorrect": false,
+        "rationale": "Les relacions es defineixen al model, no com a passos d’importació."
+      },
+      {
+        "text": "Power Query s’executa en temps de consulta i DAX en temps de càrrega.",
+        "isCorrect": false,
+        "rationale": "Power Query s’aplica en càrrega o refresc; DAX s’avalua quan el motor calcula visuals."
+      },
+      {
+        "text": "Power Query transforma dades abans de carregar; DAX calcula dins el model.",
+        "isCorrect": true,
+        "rationale": "Power Query prepara dades abans de carregar; DAX calcula mesures i expressions dins el model."
+      }
+    ]
+  },
+  {
+    "guid": "6d00e388-4e11-4084-a4e5-82c2e3fb8df6",
+    "subjectId": "T32",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "Per refrescar un dataset al servei quan l’origen és on-premises, què és el més habitual?",
+    "answerOptions": [
+      {
+        "text": "Configurar un gateway i les credencials de connexió en el servei.",
+        "isCorrect": true,
+        "rationale": "Per refresc programat amb origen local cal gateway i credencials configurades al servei."
+      },
+      {
+        "text": "Convertir el model a connexió en viu i delegar l’actualització a l’origen.",
+        "isCorrect": false,
+        "rationale": "Connexió en viu no substitueix el gateway quan cal accedir a dades locals."
+      },
+      {
+        "text": "Activar bookmarks perquè el servei recuperi l’estat i actualitzi dades.",
+        "isCorrect": false,
+        "rationale": "Bookmarks guarden estat del report, no actualitzen dades."
+      },
+      {
+        "text": "Fer una publicació diària manual del fitxer per substituir el refresc.",
+        "isCorrect": false,
+        "rationale": "La publicació manual no és el mecanisme habitual per refresc programat."
+      }
+    ]
+  },
+  {
+    "guid": "e11ef3ff-8de1-4625-92fb-b4dc3b988268",
+    "subjectId": "T32",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "Quin escenari encaixa millor amb DirectQuery respecte a Import?",
+    "answerOptions": [
+      {
+        "text": "Dataset petit i estable on es prioritza velocitat de visuals.",
+        "isCorrect": false,
+        "rationale": "En dataset petit i estable, Import sol donar millor rendiment i interactivitat."
+      },
+      {
+        "text": "Model amb moltes transformacions M que es volen persistir al dataset.",
+        "isCorrect": false,
+        "rationale": "DirectQuery no està pensat per persistir transformacions M al dataset."
+      },
+      {
+        "text": "Dades molt grans i necessitat de veure canvis gairebé en temps real, assumint impacte en rendiment.",
+        "isCorrect": true,
+        "rationale": "DirectQuery encaixa quan cal accés gairebé en temps real a dades molt grans, assumint impacte en latència."
+      },
+      {
+        "text": "Necessitat de treballar offline i distribuir l’informe com a fitxer.",
+        "isCorrect": false,
+        "rationale": "Treballar offline és propi d’Import amb dades carregades al pbix."
+      }
+    ]
+  },
+  {
+    "guid": "a07044ae-0eaf-48be-9ba3-27104751099f",
+    "subjectId": "T32",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "Què descriu millor un dataflow a Power BI Service?",
+    "answerOptions": [
+      {
+        "text": "Un report empaquetat per compartir-lo amb una audiència.",
+        "isCorrect": false,
+        "rationale": "Això descriu una app, no un dataflow."
+      },
+      {
+        "text": "Un visual reutilitzable que es pot inserir a diversos reports.",
+        "isCorrect": false,
+        "rationale": "Un visual reutilitzable és un component del report, no un dataflow."
+      },
+      {
+        "text": "Un mecanisme per replicar dades del gateway a memòria del servei.",
+        "isCorrect": false,
+        "rationale": "El dataflow no replica el gateway; reutilitza Power Query al servei per preparar dades."
+      },
+      {
+        "text": "Preparació de dades al servei per reutilitzar-les en diversos datasets.",
+        "isCorrect": true,
+        "rationale": "Un dataflow permet preparar i reutilitzar dades al servei per alimentar diversos datasets."
+      }
+    ]
+  },
+  {
+    "guid": "c8c83f3c-6a05-4b29-8c5b-3c5f9957ac68",
+    "subjectId": "T32",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "Quin tipus de filtre afecta totes les pàgines d’un informe?",
+    "answerOptions": [
+      {
+        "text": "Filtre de nivell d’informe.",
+        "isCorrect": true,
+        "rationale": "El filtre de nivell d’informe s’aplica a totes les pàgines del report."
+      },
+      {
+        "text": "Filtre de nivell de pàgina.",
+        "isCorrect": false,
+        "rationale": "El filtre de pàgina només afecta una pàgina concreta."
+      },
+      {
+        "text": "Filtre de nivell de visual.",
+        "isCorrect": false,
+        "rationale": "El filtre de visual només afecta un visual."
+      },
+      {
+        "text": "Filtre de ressaltat entre visuals.",
+        "isCorrect": false,
+        "rationale": "El ressaltat és una interacció, no un filtre persistent a totes les pàgines."
+      }
+    ]
+  },
+  {
+    "guid": "f8d5eafa-df61-4754-a691-6db0b34529f5",
+    "subjectId": "T32",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "Per habilitar drillthrough cap a una pàgina de detall, què cal configurar?",
+    "answerOptions": [
+      {
+        "text": "Activar el ressaltat entre visuals a la pàgina d’origen.",
+        "isCorrect": false,
+        "rationale": "El ressaltat no configura drillthrough."
+      },
+      {
+        "text": "Afegir el camp al panell de drillthrough de la pàgina de destí.",
+        "isCorrect": true,
+        "rationale": "Per drillthrough cal posar un camp al panell de drillthrough de la pàgina de destí."
+      },
+      {
+        "text": "Crear una mesura que retorni el valor seleccionat com a text.",
+        "isCorrect": false,
+        "rationale": "Una mesura no defineix la navegació de drillthrough."
+      },
+      {
+        "text": "Convertir la pàgina de destí en tooltip i assignar-la al visual.",
+        "isCorrect": false,
+        "rationale": "Un tooltip és per informació emergent, no per drillthrough."
+      }
+    ]
+  },
+  {
+    "guid": "fe736e7e-8637-40fb-868d-1d9f3fa660f8",
+    "subjectId": "T32",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "Què guarda principalment un bookmark a Power BI?",
+    "answerOptions": [
+      {
+        "text": "Les relacions i la direcció de filtratge del model.",
+        "isCorrect": false,
+        "rationale": "Les relacions formen part del model, no són l’objecte que guarda un bookmark."
+      },
+      {
+        "text": "L’estat de la pàgina, incloent seleccions, filtres i visibilitat d’elements.",
+        "isCorrect": true,
+        "rationale": "El bookmark guarda l’estat de la pàgina: seleccions, filtres, visibilitat i altres elements."
+      },
+      {
+        "text": "Les credencials de les fonts i la configuració del gateway.",
+        "isCorrect": false,
+        "rationale": "Credencials i gateway es configuren al servei, no es guarden en bookmarks."
+      },
+      {
+        "text": "La política de refresc programat i les notificacions del servei.",
+        "isCorrect": false,
+        "rationale": "La programació de refresc és del dataset al servei, no d’un bookmark."
+      }
+    ]
+  },
+  {
+    "guid": "95658194-5eb7-4513-a76c-14ffab0f6c0c",
+    "subjectId": "T32",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "Per analitzar per què un visual triga a renderitzar, quina eina és més directa al Desktop?",
+    "answerOptions": [
+      {
+        "text": "Performance Analyzer.",
+        "isCorrect": true,
+        "rationale": "Performance Analyzer mesura temps de renderitzat i consultes generades pels visuals."
+      },
+      {
+        "text": "Model view.",
+        "isCorrect": false,
+        "rationale": "Model view serveix per veure relacions i estructura, no el rendiment de visuals."
+      },
+      {
+        "text": "Data view.",
+        "isCorrect": false,
+        "rationale": "Data view és per veure dades i columnes, no per analitzar renderitzat."
+      },
+      {
+        "text": "Q and A.",
+        "isCorrect": false,
+        "rationale": "Q and A és per preguntes en llenguatge natural, no per diagnosi de rendiment."
+      }
+    ]
+  },
+  {
+    "guid": "4ea1c53a-2a20-4a7c-83c9-99df364fcdb4",
+    "subjectId": "T32",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "Vols un percentatge sobre el total per producte mantenint filtres d’any però ignorant el filtre de producte. Quin patró és més típic?",
+    "answerOptions": [
+      {
+        "text": "Calcular el total amb DISTINCTCOUNT de productes i dividir.",
+        "isCorrect": false,
+        "rationale": "DISTINCTCOUNT de productes no dona el total d’import; només compta valors."
+      },
+      {
+        "text": "Usar SUMX sobre la dimensió de producte per obtenir el total.",
+        "isCorrect": false,
+        "rationale": "SUMX pot servir, però el patró típic per treure el filtre de producte és usar ALL al denominador."
+      },
+      {
+        "text": "Usar CALCULATE amb ALL a la dimensió de producte per al denominador.",
+        "isCorrect": true,
+        "rationale": "ALL a la dimensió de producte elimina aquest filtre al denominador, mantenint la resta de filtres com l’any."
+      },
+      {
+        "text": "Crear una columna calculada amb el percentatge i agregar-la.",
+        "isCorrect": false,
+        "rationale": "Una columna calculada queda fixada per fila en el refresc; el percentatge sobre el total ha de variar amb filtres i segmentacions, i per això s’expressa com a mesura."
+      }
+    ]
+  },
+  {
+    "guid": "d755026c-b0ea-4a98-8189-6eb193a1b4b8",
+    "subjectId": "T32",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "Quan és més apropiat SUMX respecte a SUM?",
+    "answerOptions": [
+      {
+        "text": "Quan la columna ja és un subtotal i es vol evitar doble agregació.",
+        "isCorrect": false,
+        "rationale": "No és la diferència clau; SUM pot agregar bé i SUMX no evita per si sol dobles agregacions."
+      },
+      {
+        "text": "Quan cal iterar files i calcular una expressió per fila abans de sumar.",
+        "isCorrect": true,
+        "rationale": "SUMX itera files i avalua una expressió per fila abans de sumar, útil per imports derivats."
+      },
+      {
+        "text": "Quan la taula és petita i es vol simplificar el DAX.",
+        "isCorrect": false,
+        "rationale": "La mida de taula no defineix quan toca SUMX; depèn de si cal iteració."
+      },
+      {
+        "text": "Quan es vol que el càlcul canviï segons la pàgina activa.",
+        "isCorrect": false,
+        "rationale": "El càlcul no canvia per pàgina, canvia pel context de filtre."
+      }
+    ]
+  },
+  {
+    "guid": "d0007cee-ee66-4231-a228-d64bdaebfd8f",
+    "subjectId": "T32",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "En un model en estrella, quina direcció de filtratge és habitual per relacions dimensions-fets?",
+    "answerOptions": [
+      {
+        "text": "De fets cap a dimensions per garantir que els totals pugin cap als atributs.",
+        "isCorrect": false,
+        "rationale": "El filtre habitual va de dimensions cap a fets per restringir els registres de la taula de fets."
+      },
+      {
+        "text": "Bidireccional en totes les relacions per facilitar combinacions de filtres entre taules.",
+        "isCorrect": false,
+        "rationale": "El bidireccional a tot arreu pot crear ambigüitats i penalitzar rendiment."
+      },
+      {
+        "text": "Variable segons el visual, perquè el motor decideix la direcció de filtre a cada consulta.",
+        "isCorrect": false,
+        "rationale": "La direcció és una propietat de la relació; el motor no la canvia segons visual."
+      },
+      {
+        "text": "De dimensions cap a fets, com a direcció principal.",
+        "isCorrect": true,
+        "rationale": "En estrella, la direcció principal és de dimensions cap a fets."
+      }
+    ]
+  },
+  {
+    "guid": "7b71030d-a078-47e5-96b8-7b91a63b0e34",
+    "subjectId": "T32",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "Què és un composite model a Power BI?",
+    "answerOptions": [
+      {
+        "text": "Un report amb diverses pàgines i diferents temes.",
+        "isCorrect": false,
+        "rationale": "Un report amb diverses pàgines no defineix un composite model."
+      },
+      {
+        "text": "Un model que pot combinar taules en Import i taules en DirectQuery.",
+        "isCorrect": true,
+        "rationale": "Composite model permet combinar taules en Import i taules en DirectQuery al mateix model."
+      },
+      {
+        "text": "Un dataset que integra dashboards i reports en un sol objecte.",
+        "isCorrect": false,
+        "rationale": "Dashboard i report són objectes diferents; no existeix un dataset que els integri com a concepte."
+      },
+      {
+        "text": "Un model que reemplaça DAX per M en tots els càlculs.",
+        "isCorrect": false,
+        "rationale": "M i DAX conviuen; el composite model no elimina DAX."
+      }
+    ]
+  },
+  {
+    "guid": "1d8dd095-e455-4454-b390-f8a5e608b269",
+    "subjectId": "T32",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "Què descriu millor el mode Dual en una taula?",
+    "answerOptions": [
+      {
+        "text": "Una taula que es comparteix com a dataset i com a dataflow.",
+        "isCorrect": false,
+        "rationale": "No té a veure amb compartir objects; és un mode d’emmagatzematge de taula."
+      },
+      {
+        "text": "Una taula que alterna refresc complet i incremental segons horari.",
+        "isCorrect": false,
+        "rationale": "No tracta d’horaris de refresc; és una decisió per consulta."
+      },
+      {
+        "text": "Una taula que pot actuar com Import o DirectQuery segons la consulta.",
+        "isCorrect": true,
+        "rationale": "Dual fa que una taula actuï com Import o com DirectQuery segons el camí de consulta."
+      },
+      {
+        "text": "Una taula que manté dos formats de dades per a visuals diferents.",
+        "isCorrect": false,
+        "rationale": "No manté dos formats; canvia el mode efectiu segons el context."
+      }
+    ]
+  },
+  {
+    "guid": "85f2b9ad-1590-4994-8952-94a05020b877",
+    "subjectId": "T32",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "Quin benefici principal aporten els calculation groups en models amb moltes mesures similars?",
+    "answerOptions": [
+      {
+        "text": "Substitueixen la necessitat de taules de dates.",
+        "isCorrect": false,
+        "rationale": "No substitueixen taules de dates; són una tècnica per aplicar lògiques transversals a mesures."
+      },
+      {
+        "text": "Eviten relacions molts-a-molts perquè reescriuen filtres.",
+        "isCorrect": false,
+        "rationale": "No resolen molts a molts per si sols; això depèn del model."
+      },
+      {
+        "text": "Converteixen mesures en columnes i milloren compressió.",
+        "isCorrect": false,
+        "rationale": "No converteixen mesures en columnes; treballen sobre mesures."
+      },
+      {
+        "text": "Permeten aplicar lògiques comunes a moltes mesures i reduir duplicació.",
+        "isCorrect": true,
+        "rationale": "Permeten centralitzar lògiques com períodes o formats sobre moltes mesures i reduir duplicació."
+      }
+    ]
+  },
+  {
+    "guid": "bac5c633-ff82-4a93-a08a-d841d650f818",
+    "subjectId": "T32",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "Per permetre que l’usuari triï quina dimensió usa un eix o quin KPI es mostra, què és més típic?",
+    "answerOptions": [
+      {
+        "text": "Sincronitzar slicers entre pàgines.",
+        "isCorrect": false,
+        "rationale": "Sincronitzar slicers no permet canviar dinàmicament el camp d’un eix o KPI."
+      },
+      {
+        "text": "Duplicar visuals per cada combinació i alternar-los amb bookmarks.",
+        "isCorrect": false,
+        "rationale": "Bookmarks poden resoldre-ho, però és menys escalable i flexible que l’opció específica."
+      },
+      {
+        "text": "Usar field parameters.",
+        "isCorrect": true,
+        "rationale": "Field parameters permeten que l’usuari triï camps o mesures per eixos i visuals."
+      },
+      {
+        "text": "Canviar el dataset a connexió en viu i editar al servei.",
+        "isCorrect": false,
+        "rationale": "Connexió en viu no habilita aquesta funcionalitat per si sola."
+      }
+    ]
+  },
+  {
+    "guid": "b9bc96ad-e6db-4ca5-9077-3d7cd0e60461",
+    "subjectId": "T32",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "A Power BI Service, què indica habitualment que un dataset està certificat?",
+    "answerOptions": [
+      {
+        "text": "Que el dataset queda bloquejat i ningú el pot reutilitzar.",
+        "isCorrect": false,
+        "rationale": "La certificació no bloqueja reutilització; al contrari, facilita ús com a font fiable."
+      },
+      {
+        "text": "Que el dataset té refresc cada hora configurat per defecte.",
+        "isCorrect": false,
+        "rationale": "La certificació no implica refresc horari per defecte."
+      },
+      {
+        "text": "Que el dataset està optimitzat per mòbil per defecte.",
+        "isCorrect": false,
+        "rationale": "No implica optimització mòbil per defecte."
+      },
+      {
+        "text": "Que el dataset és recomanat com a font fiable per governança.",
+        "isCorrect": true,
+        "rationale": "Un dataset certificat s’identifica com a font fiable dins la governança de dades."
+      }
+    ]
+  },
+  {
+    "guid": "1938524a-3d12-42e2-87f1-58a6509defc1",
+    "subjectId": "T32",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "Quin rol al workspace és típicament necessari per publicar o actualitzar una app del workspace?",
+    "answerOptions": [
+      {
+        "text": "Member o Admin.",
+        "isCorrect": true,
+        "rationale": "Per publicar o actualitzar una app cal rol de Member o Admin al workspace."
+      },
+      {
+        "text": "Contributor amb permís d’editar contingut al workspace.",
+        "isCorrect": false,
+        "rationale": "Contributor pot editar, però habitualment no pot publicar l’app."
+      },
+      {
+        "text": "Viewer amb accés a tots els reports i dashboards del workspace.",
+        "isCorrect": false,
+        "rationale": "Viewer és rol de lectura, no de publicació."
+      },
+      {
+        "text": "Usuari amb permís Build al dataset del workspace.",
+        "isCorrect": false,
+        "rationale": "Build és per reutilitzar dataset, no per gestionar l’app del workspace."
+      }
+    ]
+  },
+  {
+    "guid": "1b2c45bf-38b6-4401-86b9-2026460580ff",
+    "subjectId": "T32",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "A Power BI Service, com s’anomena sovint el dataset en el context de reutilització per informes?",
+    "answerOptions": [
+      {
+        "text": "Workspace object.",
+        "isCorrect": false,
+        "rationale": "No és el nom habitual en aquest context."
+      },
+      {
+        "text": "Semantic model.",
+        "isCorrect": true,
+        "rationale": "Al servei, el dataset es denomina sovint semantic model en l’ús per altres informes."
+      },
+      {
+        "text": "Data source.",
+        "isCorrect": false,
+        "rationale": "Data source és l’origen, no el dataset."
+      },
+      {
+        "text": "Report container.",
+        "isCorrect": false,
+        "rationale": "Report container no és el terme oficial."
+      }
+    ]
+  },
+  {
+    "guid": "ca69e8e6-5ade-4cf2-b051-afb0274633f6",
+    "subjectId": "T32",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "Un cop publicat el dataset amb RLS, què cal fer al servei perquè s’apliqui a usuaris reals?",
+    "answerOptions": [
+      {
+        "text": "Afegir un slicer ocult amb el correu de l’usuari i fixar-lo per pàgina.",
+        "isCorrect": false,
+        "rationale": "Un slicer ocult no substitueix la configuració de rols al dataset."
+      },
+      {
+        "text": "Publicar una app diferent per cada rol i repartir enllaços.",
+        "isCorrect": false,
+        "rationale": "No cal una app per rol; l’RLS ja controla l’accés per usuari."
+      },
+      {
+        "text": "Assignar usuaris o grups als rols de seguretat del dataset.",
+        "isCorrect": true,
+        "rationale": "Cal assignar usuaris o grups als rols del dataset perquè el servei apliqui l’RLS."
+      },
+      {
+        "text": "Convertir el report en dashboard i compartir-lo amb permisos específics.",
+        "isCorrect": false,
+        "rationale": "Convertir en dashboard no aplica RLS per si mateix."
+      }
+    ]
+  },
+  {
+    "guid": "c69d38bd-211c-4772-9c61-2cedccdac2fd",
+    "subjectId": "T32",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "Perquè el refresc programat funcioni amb dades on-premises en mode Import, què és imprescindible?",
+    "answerOptions": [
+      {
+        "text": "Tenir un model en estrella amb totes les dimensions desnormalitzades.",
+        "isCorrect": false,
+        "rationale": "El model en estrella ajuda, però no és imprescindible per al refresc programat."
+      },
+      {
+        "text": "Tenir una taula de dates marcada i un calendari complet.",
+        "isCorrect": false,
+        "rationale": "Marcar una taula de dates no és un requisit del refresc programat."
+      },
+      {
+        "text": "Tenir un dataflow intermedi al mateix workspace.",
+        "isCorrect": false,
+        "rationale": "Un dataflow pot ajudar, però el refresc pot funcionar sense."
+      },
+      {
+        "text": "Gateway operatiu i credencials correctes configurades al servei.",
+        "isCorrect": true,
+        "rationale": "És imprescindible tenir gateway operatiu i credencials correctes per accedir a dades locals."
+      }
+    ]
+  },
+  {
+    "guid": "d5ca8c8e-8661-4635-a477-0a156aba5828",
+    "subjectId": "T32",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "Quina afirmació descriu millor una app de Power BI?",
+    "answerOptions": [
+      {
+        "text": "Una còpia del dataset per a cada usuari final.",
+        "isCorrect": false,
+        "rationale": "Una app no és una còpia del dataset per usuari; reutilitza el mateix contingut."
+      },
+      {
+        "text": "Un paquet de contingut publicat per distribuir reports i dashboards a una audiència.",
+        "isCorrect": true,
+        "rationale": "Una app és un paquet publicat per distribuir reports i dashboards a una audiència."
+      },
+      {
+        "text": "Un mecanisme per substituir el gateway en entorns on-premises.",
+        "isCorrect": false,
+        "rationale": "L’app no substitueix el gateway."
+      },
+      {
+        "text": "Un format alternatiu del pbix per publicar més ràpid.",
+        "isCorrect": false,
+        "rationale": "No existeix un format pbix alternatiu associat a l’app."
+      }
+    ]
+  },
+  {
+    "guid": "7cae0692-3670-48af-be3c-7edf40c58ceb",
+    "subjectId": "T32",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "Quina pràctica millora la usabilitat del model i redueix confusió en camps?",
+    "answerOptions": [
+      {
+        "text": "Mostrar claus i camps tècnics per facilitar traçabilitat a l’usuari.",
+        "isCorrect": false,
+        "rationale": "Mostrar camps tècnics sol confondre a usuaris de negoci i complica l’ús."
+      },
+      {
+        "text": "Deixar visibles tots els camps i ordenar-los alfabèticament.",
+        "isCorrect": false,
+        "rationale": "Deixar-ho tot visible incrementa soroll i errors en visuals."
+      },
+      {
+        "text": "Amagar claus tècniques i camps que no s’usen en visuals.",
+        "isCorrect": true,
+        "rationale": "Amagar claus i camps tècnics redueix confusió i millora experiència del report."
+      },
+      {
+        "text": "Moure totes les mesures a la taula de fets i eliminar les dimensions.",
+        "isCorrect": false,
+        "rationale": "Moure mesures a fets pot ser habitual, però eliminar dimensions perjudica el model."
+      }
+    ]
+  },
+  {
+    "guid": "73176584-90b5-4c4c-a1ea-29e0a3fe3003",
+    "subjectId": "T32",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "Perquè funcions de time intelligence funcionin de manera consistent, què és recomanable?",
+    "answerOptions": [
+      {
+        "text": "Marcar una taula de dates com a taula de dates del model.",
+        "isCorrect": true,
+        "rationale": "Marcar la taula de dates fa que funcions com SAMEPERIODLASTYEAR treballin de forma consistent."
+      },
+      {
+        "text": "Crear una mesura per cada període i evitar calendaris.",
+        "isCorrect": false,
+        "rationale": "Crear mesures per període escala malament i no resol el requisit de taula de dates."
+      },
+      {
+        "text": "Fer servir dates com a text per evitar problemes de format.",
+        "isCorrect": false,
+        "rationale": "Dates com a text trenquen càlculs temporals."
+      },
+      {
+        "text": "Carregar la taula de dates com a dataflow i referenciar-la.",
+        "isCorrect": false,
+        "rationale": "Un dataflow no substitueix el marcat de taula de dates al model."
+      }
+    ]
+  },
+  {
+    "guid": "62dce75a-c56d-42b4-94df-6e240087d97b",
+    "subjectId": "T32",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "En Power BI, què descriu millor la diferència entre un report i un dashboard al servei?",
+    "answerOptions": [
+      {
+        "text": "Un report és un conjunt de tiles fixats; un dashboard és una col·lecció de pàgines interactives.",
+        "isCorrect": false,
+        "rationale": "Això està invertit: dashboard són tiles fixats, report són pàgines interactives."
+      },
+      {
+        "text": "Un report pot contenir múltiples pàgines i visuals; un dashboard agrega tiles fixats des de reports.",
+        "isCorrect": true,
+        "rationale": "El report té pàgines i visuals; el dashboard agrega tiles fixats des de reports."
+      },
+      {
+        "text": "Un report sempre té dataset propi; un dashboard pot reutilitzar datasets de diversos orígens.",
+        "isCorrect": false,
+        "rationale": "El report pot reutilitzar datasets; no és cert que sempre en tingui un de propi."
+      },
+      {
+        "text": "Un report es crea al Desktop; un dashboard es crea al servei i no es poden crear en l’altre entorn.",
+        "isCorrect": false,
+        "rationale": "Un dashboard es crea al servei, però un report també es pot crear al servei; la diferència principal és la naturalesa de tiles."
+      }
+    ]
+  },
+  {
+    "guid": "e237ab43-134d-4b06-a155-49848b45210b",
+    "subjectId": "T32",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "En Power BI, quan té més sentit usar una mesura en lloc d’una columna calculada?",
+    "answerOptions": [
+      {
+        "text": "Quan el resultat ha de respondre a filtres i segmentacions del report.",
+        "isCorrect": true,
+        "rationale": "Una mesura es recalcula segons el context de filtre i segmentacions, ideal per KPIs i agregats."
+      },
+      {
+        "text": "Quan cal desar el resultat per fila i reutilitzar-lo com a clau.",
+        "isCorrect": false,
+        "rationale": "Això descriu una columna calculada, que és per fila."
+      },
+      {
+        "text": "Quan es vol reduir dependència de DAX i fer-ho tot a M.",
+        "isCorrect": false,
+        "rationale": "No cal evitar DAX; Power Query i DAX tenen rols diferents."
+      },
+      {
+        "text": "Quan es vol que el càlcul quedi fixat fins al següent refresh.",
+        "isCorrect": false,
+        "rationale": "El càlcul fix fins al refresc és propi de columna calculada."
+      }
+    ]
+  },
+  {
+    "guid": "c2a709a8-6ea3-4e9d-b742-7628e7015085",
+    "subjectId": "T32",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "Quin enunciat descriu millor “Sync slicers”?",
+    "answerOptions": [
+      {
+        "text": "Fa que tots els slicers es converteixin en filtres de nivell d’informe.",
+        "isCorrect": false,
+        "rationale": "No converteix slicers en filtres d’informe automàticament."
+      },
+      {
+        "text": "Permet aplicar el mateix slicer a diverses pàgines i controlar en quines està actiu.",
+        "isCorrect": true,
+        "rationale": "Sync slicers permet aplicar el mateix slicer a diverses pàgines i controlar on és visible."
+      },
+      {
+        "text": "Fa que el slicer afecti un visual concret.",
+        "isCorrect": false,
+        "rationale": "Això seria un filtre a nivell de visual, no sincronització."
+      },
+      {
+        "text": "Converteix per defecte el slicer en un paràmetre de camp.",
+        "isCorrect": false,
+        "rationale": "No transforma slicers en field parameters."
+      }
+    ]
+  },
+  {
+    "guid": "5daf2fb1-a4ba-4780-b417-c820a3139c09",
+    "subjectId": "T32",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "A nivell d’interaccions entre visuals, quin enunciat és més ajustat?",
+    "answerOptions": [
+      {
+        "text": "Es pot definir que un visual filtri, ressalti o no afecti un altre visual.",
+        "isCorrect": true,
+        "rationale": "Power BI permet configurar si un visual filtra, ressalta o no afecta un altre."
+      },
+      {
+        "text": "Les interaccions queden determinades pel tipus de visual i no es poden ajustar per pàgina.",
+        "isCorrect": false,
+        "rationale": "Les interaccions es poden editar, no depenen només del tipus de visual."
+      },
+      {
+        "text": "Les interaccions depenen del dataset i no es poden canviar des del report.",
+        "isCorrect": false,
+        "rationale": "Es configura al report, no al dataset."
+      },
+      {
+        "text": "Les interaccions serveixen per canviar l’ordre de renderitzat dels visuals quan hi ha solapaments.",
+        "isCorrect": false,
+        "rationale": "No controla l’ordre de renderitzat; controla filtratge i ressaltat."
+      }
+    ]
+  },
+  {
+    "guid": "79c6f86b-72bd-4ab2-b569-ab0f39290d75",
+    "subjectId": "T32",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "Quin ús encaixa millor amb paràmetres a Power Query?",
+    "answerOptions": [
+      {
+        "text": "Fer reutilitzables consultes i adaptar fonts o filtres segons un valor.",
+        "isCorrect": true,
+        "rationale": "Paràmetres a Power Query serveixen per fer consultes reutilitzables i adaptar fonts o filtres."
+      },
+      {
+        "text": "Acelerar mesures DAX precomputant resultats en visuals.",
+        "isCorrect": false,
+        "rationale": "No acceleren mesures DAX; actuen abans de carregar les dades."
+      },
+      {
+        "text": "Reemplaçar relacions del model per unions dins Power Query.",
+        "isCorrect": false,
+        "rationale": "No substitueixen relacions; poden ajudar en transformacions però el model segueix essent necessari."
+      },
+      {
+        "text": "Controlar permisos d’usuari segons valors de paràmetre.",
+        "isCorrect": false,
+        "rationale": "Permisos d’usuari es gestionen amb RLS i permisos del servei, no amb paràmetres M."
+      }
+    ]
+  },
+  {
+    "guid": "b4f3a849-0628-4178-9e1d-3c8f87d273d8",
+    "subjectId": "T32",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "Sobre incremental refresh, quin enunciat és més correcte?",
+    "answerOptions": [
+      {
+        "text": "Reprocessa totes les dades a cada refresc per mantenir consistència en el dataset.",
+        "isCorrect": false,
+        "rationale": "Incremental refresh evita refrescar-ho tot; reprocessa només particions recents segons configuració."
+      },
+      {
+        "text": "Requereix que les taules estiguin en DirectQuery per poder particionar el dataset.",
+        "isCorrect": false,
+        "rationale": "No requereix DirectQuery; funciona en Import amb particions."
+      },
+      {
+        "text": "Actua com un mecanisme de visualització que amaga dades antigues, però el refresc és complet.",
+        "isCorrect": false,
+        "rationale": "No és un truc de visualització; canvia com es refresquen i mantenen les dades al servei."
+      },
+      {
+        "text": "Crea i gestiona particions al servei després del primer refresc complet.",
+        "isCorrect": true,
+        "rationale": "Després del primer refresc, el servei gestiona particions i refresca rangs definits."
+      }
+    ]
+  },
+  {
+    "guid": "af47957a-3436-43bd-a4ac-43569d8c7a20",
+    "subjectId": "T32",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "Per crear un informe nou connectant-te a un dataset existent del servei, quin permís és clau?",
+    "answerOptions": [
+      {
+        "text": "Viewer al workspace.",
+        "isCorrect": false,
+        "rationale": "Viewer no dona capacitat de crear informes connectant al dataset."
+      },
+      {
+        "text": "Permís de lectura al report original.",
+        "isCorrect": false,
+        "rationale": "Llegir el report no implica poder reutilitzar el dataset."
+      },
+      {
+        "text": "Permís Build al dataset.",
+        "isCorrect": true,
+        "rationale": "Build permission és el que permet connectar-se a un dataset com a font per nous informes."
+      },
+      {
+        "text": "Permís d’exportació de dades.",
+        "isCorrect": false,
+        "rationale": "Exportar dades no habilita creació d’informes sobre el dataset."
+      }
+    ]
+  },
+  {
+    "guid": "a3bfc01c-bded-45b6-b8e7-690ffa7caaeb",
+    "subjectId": "T32",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "Què permet un tema de Power BI en format JSON?",
+    "answerOptions": [
+      {
+        "text": "Definir estils de visuals com tipografies i formats per defecte.",
+        "isCorrect": true,
+        "rationale": "El tema en JSON configura estils, colors i formats per defecte dels visuals."
+      },
+      {
+        "text": "Crear relacions, jerarquies i mesures per defecte.",
+        "isCorrect": false,
+        "rationale": "Relacions i mesures no es creen amb un tema."
+      },
+      {
+        "text": "Configurar gateway i credencials del dataset.",
+        "isCorrect": false,
+        "rationale": "Gateway i credencials es configuren al servei, no al tema."
+      },
+      {
+        "text": "Generar dataflows a partir del model publicat.",
+        "isCorrect": false,
+        "rationale": "Els dataflows es creen al servei, no a partir del tema."
+      }
+    ]
+  },
+  {
+    "guid": "5030a422-f3a7-43a9-8a40-f79aceb1ec7f",
+    "subjectId": "T32",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "Si vols que un visual no afecti un altre a la mateixa pàgina, què és l’adequat?",
+    "answerOptions": [
+      {
+        "text": "Bloquejar el report en mode lectura.",
+        "isCorrect": false,
+        "rationale": "Bloquejar en lectura no controla interaccions entre visuals."
+      },
+      {
+        "text": "Editar interaccions i establir que no hi hagi efecte entre visuals.",
+        "isCorrect": true,
+        "rationale": "Edit interactions permet establir que un visual no filtri ni ressalti un altre."
+      },
+      {
+        "text": "Convertir un dels visuals en imatge.",
+        "isCorrect": false,
+        "rationale": "Convertir en imatge elimina interacció, però no és la tècnica adequada."
+      },
+      {
+        "text": "Desactivar el panell de filtres.",
+        "isCorrect": false,
+        "rationale": "Desactivar panell de filtres no canvia interaccions."
+      }
+    ]
+  },
+  {
+    "guid": "92601840-9b1e-4a6c-b398-6e98cfa7be6e",
+    "subjectId": "T32",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "Per mostrar informació contextual quan l’usuari passa el cursor per un punt d’un visual, què és més típic?",
+    "answerOptions": [
+      {
+        "text": "Un drillthrough a una pàgina de detall.",
+        "isCorrect": false,
+        "rationale": "Drillthrough porta a una pàgina de detall, no a informació emergent al cursor."
+      },
+      {
+        "text": "Un bookmark amb seleccions predefinides.",
+        "isCorrect": false,
+        "rationale": "Bookmark canvia estat del report; no és un tooltip."
+      },
+      {
+        "text": "Una pàgina de tooltip assignada com a report tooltip.",
+        "isCorrect": true,
+        "rationale": "Una pàgina de tooltip es configura com a report tooltip i es pot assignar a visuals."
+      },
+      {
+        "text": "Un dashboard amb el visual fixat com a tile.",
+        "isCorrect": false,
+        "rationale": "Un dashboard és per consum de tiles, no per hover contextual."
+      }
+    ]
+  },
+  {
+    "guid": "f5e1f09c-0847-4ebb-aae7-34b4e2a6d60e",
+    "subjectId": "T32",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "En Power BI Desktop, què és un “pbix”?",
+    "answerOptions": [
+      {
+        "text": "Un paquet de distribució publicat al servei, amb audiència i permisos, orientat a consum.",
+        "isCorrect": false,
+        "rationale": "Això descriu una app publicada al servei."
+      },
+      {
+        "text": "El fitxer de treball que conté model, consultes i disseny de report.",
+        "isCorrect": true,
+        "rationale": "El pbix és el fitxer de treball: model, consultes i disseny del report."
+      },
+      {
+        "text": "Un fitxer de plantilla que conserva model i disseny, però es distribueix amb model i disseny, i les dades no hi van incloses.",
+        "isCorrect": false,
+        "rationale": "Això descriu un pbit, una plantilla de Power BI."
+      },
+      {
+        "text": "Un fitxer de configuració del servei que defineix connexions i credencials del dataset.",
+        "isCorrect": false,
+        "rationale": "No existeix un fitxer de configuració del servei amb aquest nom."
+      }
+    ]
+  },
+  {
+    "guid": "605cd6e4-36a5-4a13-81ab-969271844bd2",
+    "subjectId": "T32",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "Què vol dir “Publish” des de Power BI Desktop?",
+    "answerOptions": [
+      {
+        "text": "Crear una app al workspace a partir del report actual i assignar-li una audiència.",
+        "isCorrect": false,
+        "rationale": "Publish no crea una app; publica contingut al workspace."
+      },
+      {
+        "text": "Pujar el fitxer al servei per crear o actualitzar report i dataset al workspace.",
+        "isCorrect": true,
+        "rationale": "Publish puja el pbix al servei i crea o actualitza report i dataset al workspace."
+      },
+      {
+        "text": "Generar un enllaç compartible del report local, amb les dades incrustades, al marge del servei.",
+        "isCorrect": false,
+        "rationale": "No genera un enllaç local amb dades incrustades; el destí és el servei."
+      },
+      {
+        "text": "Publicar el disseny del report i deixar el dataset en local per a consulta.",
+        "isCorrect": false,
+        "rationale": "No publica només el disseny; el dataset també es crea o s’actualitza al servei."
+      }
+    ]
+  },
+  {
+    "guid": "2f5d71af-b3ac-4a40-8124-0be6ff7e3653",
+    "subjectId": "T32",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "En Power BI, què és un “slicer”?",
+    "answerOptions": [
+      {
+        "text": "Un camp calculat que segmenta totals per categories.",
+        "isCorrect": false,
+        "rationale": "Un slicer no és un camp calculat; és un visual de filtre."
+      },
+      {
+        "text": "Un element de filtre visual perquè l’usuari seleccioni valors.",
+        "isCorrect": true,
+        "rationale": "Un slicer permet que l’usuari seleccioni valors i filtri visuals segons la selecció."
+      },
+      {
+        "text": "Un mecanisme de seguretat per limitar files del dataset.",
+        "isCorrect": false,
+        "rationale": "La seguretat de files és RLS, no un slicer."
+      },
+      {
+        "text": "Una propietat de format que canvia el tipus de visual.",
+        "isCorrect": false,
+        "rationale": "No és una propietat de format, és un objecte interactiu del report."
+      }
+    ]
+  },
+  {
+    "guid": "3bdc3486-0487-45a4-827e-2a95e851b0d6",
+    "subjectId": "T32",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "Què significa “Get data” a Power BI Desktop?",
+    "answerOptions": [
+      {
+        "text": "Importar o connectar-se a una font de dades per construir consultes.",
+        "isCorrect": true,
+        "rationale": "Get data obre connectors per importar o connectar-se a fonts i construir consultes."
+      },
+      {
+        "text": "Crear una mesura amb un assistent i afegir-la al model.",
+        "isCorrect": false,
+        "rationale": "Les mesures es creen al model, no des de Get data."
+      },
+      {
+        "text": "Publicar el report al servei i configurar el refresc.",
+        "isCorrect": false,
+        "rationale": "Publicar és una acció diferent; Get data és per connectar fonts."
+      },
+      {
+        "text": "Fixar un visual a un dashboard.",
+        "isCorrect": false,
+        "rationale": "Fixar visuals a dashboard es fa al servei, no amb Get data."
+      }
+    ]
+  },
+  {
+    "guid": "a5cad833-a7b8-4f15-9935-9cd92011830f",
+    "subjectId": "T32",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "En Power Query, què és un “Applied Step”?",
+    "answerOptions": [
+      {
+        "text": "Una mètrica de rendiment del dataset al servei.",
+        "isCorrect": false,
+        "rationale": "Una mètrica de rendiment no és un applied step."
+      },
+      {
+        "text": "Un pas de transformació que forma part de la seqüència de la consulta.",
+        "isCorrect": true,
+        "rationale": "Applied Steps és la llista de transformacions aplicades a una consulta a Power Query."
+      },
+      {
+        "text": "Un rol de seguretat aplicat a una taula.",
+        "isCorrect": false,
+        "rationale": "Rols de seguretat es defineixen a RLS, no com a passos."
+      },
+      {
+        "text": "Un format condicional aplicat a un visual.",
+        "isCorrect": false,
+        "rationale": "El format condicional és del report, no de Power Query."
+      }
+    ]
+  },
+  {
+    "guid": "f5074bc8-57e1-4693-ad0c-c6c8c3b58592",
+    "subjectId": "T32",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "Què vol dir “Append” a Power Query?",
+    "answerOptions": [
+      {
+        "text": "Afegir columnes d’una taula a una altra a partir d’una clau comuna.",
+        "isCorrect": false,
+        "rationale": "Això descriu un merge, no un append."
+      },
+      {
+        "text": "Afegir files d’una taula sota una altra amb una estructura compatible.",
+        "isCorrect": true,
+        "rationale": "Append apila files d’una taula sota una altra quan l’estructura de columnes és compatible."
+      },
+      {
+        "text": "Crear una taula amb totes les combinacions possibles de files de dues taules.",
+        "isCorrect": false,
+        "rationale": "Això és un producte cartesià, no append."
+      },
+      {
+        "text": "Substituir valors d’una columna amb valors d’una altra columna segons una regla.",
+        "isCorrect": false,
+        "rationale": "Substituir valors és una transformació diferent."
+      }
+    ]
+  },
+  {
+    "guid": "cab7ee84-32be-4a92-8bbe-a46a623213d8",
+    "subjectId": "T32",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "Què vol dir “Merge” a Power Query?",
+    "answerOptions": [
+      {
+        "text": "Combinar taules apilant files una sota l’altra quan les columnes coincideixen.",
+        "isCorrect": false,
+        "rationale": "Això descriu un append."
+      },
+      {
+        "text": "Definir una relació al model perquè els filtres circulin entre taules.",
+        "isCorrect": false,
+        "rationale": "Relacions del model no són un merge de Power Query."
+      },
+      {
+        "text": "Unir taules afegint columnes segons una clau de coincidència.",
+        "isCorrect": true,
+        "rationale": "Merge uneix taules afegint columnes segons una clau de coincidència."
+      },
+      {
+        "text": "Agrupar files d’una taula i després afegir el resum al model.",
+        "isCorrect": false,
+        "rationale": "Agrupar i afegir resums és una operació d’agrupació, no merge."
+      }
+    ]
+  },
+  {
+    "guid": "a2c60f5f-5753-492f-bddd-1e3178fddec2",
+    "subjectId": "T32",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "En Power BI, què és un “tooltip” personalitzat?",
+    "answerOptions": [
+      {
+        "text": "Un text fix que s’afegeix a totes les pàgines del report.",
+        "isCorrect": false,
+        "rationale": "No és un text fix global; és un element interactiu."
+      },
+      {
+        "text": "Una pàgina dissenyada per aparèixer com a informació emergent en passar el cursor.",
+        "isCorrect": true,
+        "rationale": "Un tooltip personalitzat és una pàgina dissenyada per aparèixer en passar el cursor."
+      },
+      {
+        "text": "Una targeta KPI que substitueix un visual quan hi ha filtres.",
+        "isCorrect": false,
+        "rationale": "Una targeta KPI no substitueix el tooltip."
+      },
+      {
+        "text": "Un paràmetre que canvia l’eix del visual.",
+        "isCorrect": false,
+        "rationale": "No és un paràmetre d’eix; és una pàgina de report configurada com a tooltip."
+      }
+    ]
+  },
+  {
+    "guid": "f45d7f75-0d91-4ccf-b5b0-27b8327e564a",
+    "subjectId": "T32",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "Què vol dir “Drill down” en un visual amb jerarquia?",
+    "answerOptions": [
+      {
+        "text": "Expandir tots els nivells de la jerarquia alhora dins el mateix visual.",
+        "isCorrect": false,
+        "rationale": "Expandir tots els nivells és una acció diferent del drill down."
+      },
+      {
+        "text": "Baixar a un nivell més detallat dins la jerarquia del mateix visual.",
+        "isCorrect": true,
+        "rationale": "Drill down baixa a un nivell més detallat dins la jerarquia del mateix visual."
+      },
+      {
+        "text": "Saltar a una pàgina de detall amb el context del valor seleccionat.",
+        "isCorrect": false,
+        "rationale": "Això és drillthrough, no drill down."
+      },
+      {
+        "text": "Canviar la jerarquia activa del visual per una altra dimensió del model.",
+        "isCorrect": false,
+        "rationale": "Canviar jerarquia és una acció de camp, no drill down."
+      }
+    ]
+  },
+  {
+    "guid": "f79538b6-52e9-4850-a49b-f0c37396b7bf",
+    "subjectId": "T32",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "En un gràfic, què és “Sort by” útilment?",
+    "answerOptions": [
+      {
+        "text": "Reordenar els camps de l’eix per canviar la jerarquia mostrada al visual.",
+        "isCorrect": false,
+        "rationale": "No canvia la jerarquia; ordena categories."
+      },
+      {
+        "text": "Per ordenar categories segons una mètrica o un camp seleccionat.",
+        "isCorrect": true,
+        "rationale": "Sort by permet ordenar categories segons una mètrica o camp, millorant la lectura del visual."
+      },
+      {
+        "text": "Fixar un ordre manual de categories que s’aplica de manera uniforme a tots els visuals del report.",
+        "isCorrect": false,
+        "rationale": "No fixa un ordre uniforme per tots els visuals; depèn del visual i configuració."
+      },
+      {
+        "text": "Aplicar una selecció de valors més alts o més baixos com a criteri de visualització.",
+        "isCorrect": false,
+        "rationale": "Top N és una altra funcionalitat; Sort by ordena, no filtra per si mateix."
+      }
+    ]
+  }
+]
