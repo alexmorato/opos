@@ -290,15 +290,28 @@
   <script>
     // Fullscreen toggle al clicar el header
     document.addEventListener('DOMContentLoaded', function() {
-      // Navegación con flechas del teclado
+      // Navegación con flechas del teclado y selección con 1-4
       document.addEventListener('keydown', function(e) {
         if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
-        if (e.key === 'ArrowRight') {
+        if (e.key === 'ArrowRight' || e.key === 'Enter') {
           nextQuestion();
           e.preventDefault();
         } else if (e.key === 'ArrowLeft') {
           previousQuestion();
           e.preventDefault();
+        } else if (["1","2","3","4"].includes(e.key)) {
+          // Selección rápida de respuesta
+          const idx = parseInt(e.key, 10) - 1;
+          const pregunta = preguntes[currentQuestion];
+          if (!pregunta || !Array.isArray(pregunta.answerOptions)) return;
+          if (idx >= 0 && idx < pregunta.answerOptions.length) {
+            const isMultiCorrect = pregunta.answerOptions.filter(opt => opt.isCorrect).length > 1;
+            if (!isMultiCorrect) {
+              selectAnswer(idx);
+            } else {
+              toggleMultiSelect(idx);
+            }
+          }
         }
       });
       const header = document.getElementById('headerTitle');
