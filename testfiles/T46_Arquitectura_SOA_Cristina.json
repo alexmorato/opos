@@ -1,0 +1,1982 @@
+[
+  {
+    "guid": "97e6e230-532d-4d7b-bc52-602efc284d8f",
+    "subjectId": "SOA",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "En una arquitectura basada en serveis (SOA), quin principi és més central?",
+    "answerOptions": [
+      {
+        "text": "Serveis autònoms, contractes clars i acoblament baix.",
+        "isCorrect": true,
+        "rationale": "Principi central de SOA: serveis autònoms amb contractes clars i desacoblament."
+      },
+      {
+        "text": "Unificar lògica en una capa comuna compartida per tots els serveis.",
+        "isCorrect": false,
+        "rationale": "Centralitzar lògica en un component compartit incrementa l'acoblament i limita l'evolució independent."
+      },
+      {
+        "text": "Model de dades canònic per facilitar integracions entre dominis.",
+        "isCorrect": false,
+        "rationale": "Això apunta a un model canònic de dades; pot ajudar integració però no és el concepte demanat aquí."
+      },
+      {
+        "text": "Integració basada en missatgeria i events per desacoblar consumidors i productors.",
+        "isCorrect": false,
+        "rationale": "Integra via events pot ser útil, però la pregunta demana el principi base de SOA: contracte i desacoblament."
+      }
+    ]
+  },
+  {
+    "guid": "e064bee6-4c9f-4835-994a-cb89aeb3567c",
+    "subjectId": "SOA",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "En SOA, què descriu millor un “service contract”?",
+    "answerOptions": [
+      {
+        "text": "L’estructura interna del servei, dependències i decisions d’implementació.",
+        "isCorrect": false,
+        "rationale": "Aquesta opció es centra en 'L’estructura interna del servei, dependències i…', que no correspon al concepte demanat."
+      },
+      {
+        "text": "La interfície i regles d’ús del servei, amb dades i errors esperats.",
+        "isCorrect": true,
+        "rationale": "El contracte de servei defineix la interfície, dades, operacions i errors esperats."
+      },
+      {
+        "text": "Un acord operatiu del servei amb nivells, canals, horaris i responsabilitats d’atenció.",
+        "isCorrect": false,
+        "rationale": "Aquesta opció es centra en 'Un acord operatiu del servei amb…', que no correspon al concepte demanat."
+      },
+      {
+        "text": "Un document d’explotació que descriu entorns, capacitat i dependències tècniques del servei.",
+        "isCorrect": false,
+        "rationale": "Assignar endpoints manualment és configuració estàtica; no és discover y dinàmic."
+      }
+    ]
+  },
+  {
+    "guid": "fad509b6-29fa-4de0-bce5-47503520fe69",
+    "subjectId": "SOA",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "Quin enunciat descriu millor SOAP?",
+    "answerOptions": [
+      {
+        "text": "Estil d’API orientat a recursos i operacions HTTP sobre representacions.",
+        "isCorrect": false,
+        "rationale": "Això descriu REST, un estil orientat a recursos sobre HTTP."
+      },
+      {
+        "text": "Model de missatgeria asíncrona basat en publicació i subscripció d’esdeveniments.",
+        "isCorrect": false,
+        "rationale": "Això descriu integració/missatgeria per events; és un altre mecanisme diferent del concepte preguntat."
+      },
+      {
+        "text": "Protocol de serveis web amb missatges XML i extensibilitat WS.",
+        "isCorrect": true,
+        "rationale": "SOAP és un protocol de serveis web basat en missatges XML i l'ecosistema WS-*."
+      },
+      {
+        "text": "Protocol d’RPC amb contracte IDL i serialització binària per a crides entre serveis.",
+        "isCorrect": false,
+        "rationale": "Optimitzar latència/serialització és rendiment, però no és el criteri clau del concepte preguntat."
+      }
+    ]
+  },
+  {
+    "guid": "bf1bc853-657c-48e9-a1d3-01d2716c1941",
+    "subjectId": "SOA",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "Què és un XSD en el context de serveis web?",
+    "answerOptions": [
+      {
+        "text": "Un registre de serveis per publicar endpoints.",
+        "isCorrect": false,
+        "rationale": "Això fa referència a un registre/registry de serveis (UDDI), no al concepte preguntat."
+      },
+      {
+        "text": "Un llenguatge per descriure operacions i ports de servei.",
+        "isCorrect": false,
+        "rationale": "Això fa referència a WSDL/definició d'interfícies, no al concepte preguntat."
+      },
+      {
+        "text": "Un token per autenticació delegada entre serveis.",
+        "isCorrect": false,
+        "rationale": "Això tracta d'autenticació/autorització; no defineix el concepte preguntat."
+      },
+      {
+        "text": "Un esquema per definir i validar l’estructura d’XML.",
+        "isCorrect": true,
+        "rationale": "XSD és l'esquema XML que defineix i valida l'estructura de documents XML."
+      }
+    ]
+  },
+  {
+    "guid": "39a599fc-41fb-4db6-8fda-98ca4a0a63cc",
+    "subjectId": "SOA",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "En disseny d’APIs, què vol dir “idempotència”?",
+    "answerOptions": [
+      {
+        "text": "Repetir la mateixa petició produeix el mateix efecte final.",
+        "isCorrect": true,
+        "rationale": "Idempotència: repetir la mateixa petició deixa el sistema en el mateix estat final."
+      },
+      {
+        "text": "La petició s’executa en paral·lel per millorar rendiment.",
+        "isCorrect": false,
+        "rationale": "Paral·lelisme és una tècnica de rendiment; no és la propietat d'idempotència."
+      },
+      {
+        "text": "La petició garanteix ordre estricte en totes les crides.",
+        "isCorrect": false,
+        "rationale": "L'ordre de processament és una propietat de seqüenciació; no és idempotència."
+      },
+      {
+        "text": "La petició implica autenticació forta per defecte.",
+        "isCorrect": false,
+        "rationale": "Això tracta d'autenticació/autorització; no defineix el concepte preguntat."
+      }
+    ]
+  },
+  {
+    "guid": "d5ed6313-48f1-43a1-9be5-4400feec0c7a",
+    "subjectId": "SOA",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "En serveis, què implica “stateless”?",
+    "answerOptions": [
+      {
+        "text": "Mantenir sessió al servidor per reduir crides al client.",
+        "isCorrect": false,
+        "rationale": "Mantenir sessió al servidor és propi d'un servei stateful, l'oposat de stateless."
+      },
+      {
+        "text": "No conservar estat de sessió entre peticions del client.",
+        "isCorrect": true,
+        "rationale": "Stateless: el servidor no manté estat de sessió entre peticions; l'estat és al client o a un magatzem."
+      },
+      {
+        "text": "Guardar estat a memòria cau per accelerar respostes.",
+        "isCorrect": false,
+        "rationale": "La memòria cau pot accelerar respostes però no substitueix el principi stateless."
+      },
+      {
+        "text": "Persistir sempre cada pas en base de dades.",
+        "isCorrect": false,
+        "rationale": "Persistència és una decisió d'emmagatzematge; stateless no implica persistir cada pas."
+      }
+    ]
+  },
+  {
+    "guid": "1fae5f4f-388d-4d76-beed-436fbf250160",
+    "subjectId": "SOA",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "Quin objectiu persegueix “loose coupling” en SOA?",
+    "answerOptions": [
+      {
+        "text": "Compartir llibreries per assegurar consistència de codi.",
+        "isCorrect": false,
+        "rationale": "Compartir llibreries genera dependències de codi i pot augmentar l'acoblament entre serveis."
+      },
+      {
+        "text": "Enllaçar serveis per optimitzar latències i serialització.",
+        "isCorrect": false,
+        "rationale": "Optimitzar latència/serialització és rendiment, però no és el criteri clau del concepte preguntat."
+      },
+      {
+        "text": "Reduir dependències perquè canvis afectin menys a altres serveis.",
+        "isCorrect": true,
+        "rationale": "Loose coupling: minimitzar dependències entre serveis, basant-se en contractes i no en detalls interns."
+      },
+      {
+        "text": "Tenir un contracte de dades comú i obligatori per a tots els serveis.",
+        "isCorrect": false,
+        "rationale": "Aquesta opció es centra en 'Tenir un contracte de dades comú…', que no correspon al concepte demanat."
+      }
+    ]
+  },
+  {
+    "guid": "f7b28859-35e3-4743-9ac1-b59902c0e84e",
+    "subjectId": "SOA",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "Quin enunciat descriu millor REST?",
+    "answerOptions": [
+      {
+        "text": "Missatgeria asíncrona amb cues i confirmacions.",
+        "isCorrect": false,
+        "rationale": "Això descriu integració/missatgeria per events; és un altre mecanisme diferent del concepte preguntat."
+      },
+      {
+        "text": "Orquestració de processos amb un motor de regles.",
+        "isCorrect": false,
+        "rationale": "Aquesta opció es centra en 'Orquestració de processos amb un motor…', que no correspon al concepte demanat."
+      },
+      {
+        "text": "Comunicació per RPC amb contractes estrictes de tipus.",
+        "isCorrect": false,
+        "rationale": "Això descriu RPC amb contractes de tipus (gRPC/Thrift), diferent de l'estil REST."
+      },
+      {
+        "text": "Estil d’API orientat a recursos, estat al client i HTTP.",
+        "isCorrect": true,
+        "rationale": "REST és un estil arquitectònic orientat a recursos, amb operacions HTTP i representacions."
+      }
+    ]
+  },
+  {
+    "guid": "3353ade6-461f-49ac-ab3d-2567c1a2f8b0",
+    "subjectId": "SOA",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "Què és UDDI en l’àmbit SOA clàssic?",
+    "answerOptions": [
+      {
+        "text": "Un registre per publicar i descobrir serveis i metadades.",
+        "isCorrect": true,
+        "rationale": "UDDI és un registre de serveis per publicar i descobrir serveis SOAP."
+      },
+      {
+        "text": "Un protocol de xifrat d’extrem a extrem per serveis.",
+        "isCorrect": false,
+        "rationale": "Aquesta opció tracta de seguretat (auth/xifrat); és un altre aspecte diferent del concepte demanat."
+      },
+      {
+        "text": "Un format binari per optimitzar payloads de missatges.",
+        "isCorrect": false,
+        "rationale": "Aquesta opció és d'optimització de rendiment, però no defineix el concepte que es pregunta."
+      },
+      {
+        "text": "Un sistema de monitoratge distribuït de traces.",
+        "isCorrect": false,
+        "rationale": "Això descriu observabilitat i tracing, no el mecanisme de seguretat preguntat."
+      }
+    ]
+  },
+  {
+    "guid": "83273ac6-e51f-4599-840e-d9ef0b897c2e",
+    "subjectId": "SOA",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "Quina funció descriu millor un API Gateway?",
+    "answerOptions": [
+      {
+        "text": "Enrutar missatges entre sistemes amb transformacions profundes.",
+        "isCorrect": false,
+        "rationale": "Aquesta opció es centra en 'Enrutar missatges entre sistemes amb transformacions…', que no correspon al concepte demanat."
+      },
+      {
+        "text": "Punt d’entrada per APIs amb auth, quota i routing.",
+        "isCorrect": true,
+        "rationale": "API Gateway: punt d'entrada a APIs amb autenticació, límits, rutes i polítiques."
+      },
+      {
+        "text": "Gestionar el catàleg d’APIs, versions i publicació per a consumidors i desenvolupadors.",
+        "isCorrect": false,
+        "rationale": "Aquesta opció apunta a governança o gestió del cicle de vida; no és el concepte específic preguntat."
+      },
+      {
+        "text": "Gestionar la comunicació entre serveis interns amb polítiques de trànsit i seguretat a nivell de malla.",
+        "isCorrect": false,
+        "rationale": "Aquesta opció tracta de seguretat (auth/xifrat); és un altre aspecte diferent del concepte demanat."
+      }
+    ]
+  },
+  {
+    "guid": "d879558c-d809-42d0-97a0-3a91fa401ace",
+    "subjectId": "SOA",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "Què descriu millor “bounded context”?",
+    "answerOptions": [
+      {
+        "text": "Un esquema canònic de dades compartit per tota l’organització.",
+        "isCorrect": false,
+        "rationale": "Això apunta a un model canònic de dades; pot ajudar integració però no és el concepte demanat aquí."
+      },
+      {
+        "text": "Un llindar de disponibilitat acordat per contracte de servei.",
+        "isCorrect": false,
+        "rationale": "Aquesta opció es centra en 'Un llindar de disponibilitat acordat per…', que no correspon al concepte demanat."
+      },
+      {
+        "text": "Un límit de domini amb model propi i vocabulari coherent.",
+        "isCorrect": true,
+        "rationale": "Bounded context delimita un domini amb model i llenguatge propis per reduir acoblament semàntic."
+      },
+      {
+        "text": "Un segment de xarxa on s’aïllen serveis per seguretat.",
+        "isCorrect": false,
+        "rationale": "Aquesta opció tracta de seguretat (auth/xifrat); és un altre aspecte diferent del concepte demanat."
+      }
+    ]
+  },
+  {
+    "guid": "a3aa2504-0b1f-47d5-8521-686fe5c74b96",
+    "subjectId": "SOA",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "Què és BPMN?",
+    "answerOptions": [
+      {
+        "text": "Un protocol de missatgeria per integració entre serveis.",
+        "isCorrect": false,
+        "rationale": "Això descriu integració/missatgeria per events; és un altre mecanisme diferent del concepte preguntat."
+      },
+      {
+        "text": "Una tècnica de caching per reduir crides entre capes.",
+        "isCorrect": false,
+        "rationale": "Caching accelera lectures però no té relació amb BPMN o definició de processos."
+      },
+      {
+        "text": "Un llenguatge de definició d’interfícies de serveis web.",
+        "isCorrect": false,
+        "rationale": "Aquesta opció es centra en 'Un llenguatge de definició d’interfícies de…', que no correspon al concepte demanat."
+      },
+      {
+        "text": "Una notació per modelar processos i fluxos de negoci.",
+        "isCorrect": true,
+        "rationale": "BPMN és una notació estàndard per modelar processos de negoci."
+      }
+    ]
+  },
+  {
+    "guid": "29a464e5-ccdc-40c9-865a-7c8d3cc16293",
+    "subjectId": "SOA",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "Què diferencia millor coreografia d’orquestració?",
+    "answerOptions": [
+      {
+        "text": "Coreografia sempre requereix un motor central de processos.",
+        "isCorrect": false,
+        "rationale": "Un motor central és propi d'orquestració; coreografia és descentralitzada."
+      },
+      {
+        "text": "Orquestració és adreçament de missatges; coreografia és xifrat.",
+        "isCorrect": false,
+        "rationale": "Aquesta opció tracta de seguretat (auth/xifrat); és un altre aspecte diferent del concepte demanat."
+      },
+      {
+        "text": "Coreografia és proves; orquestració és desplegament.",
+        "isCorrect": false,
+        "rationale": "Aquesta opció és de desplegament/DevOps, no del concepte arquitectònic preguntat."
+      },
+      {
+        "text": "Coreografia coordina per regles entre serveis; orquestració té un controlador.",
+        "isCorrect": true,
+        "rationale": "Coreografia és coordinació descentralitzada per events; orquestració és coordinació per un component central."
+      }
+    ]
+  },
+  {
+    "guid": "46adbc10-663a-4fd3-91d0-35f266ce54f7",
+    "subjectId": "SOA",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "Què aporta WS-Security?",
+    "answerOptions": [
+      {
+        "text": "Autenticació basada en cookies de sessió per serveis web.",
+        "isCorrect": false,
+        "rationale": "Això tracta d'autenticació/autorització; no defineix el concepte preguntat."
+      },
+      {
+        "text": "Mecanismes de seguretat a nivell de missatge en SOAP.",
+        "isCorrect": true,
+        "rationale": "WS-Security aporta seguretat a missatges SOAP, com signatura i xifrat."
+      },
+      {
+        "text": "Observabilitat de crides amb identificadors de traça.",
+        "isCorrect": false,
+        "rationale": "Això descriu observabilitat i tracing, no el mecanisme de seguretat preguntat."
+      },
+      {
+        "text": "Limitació de trànsit amb quotes i prioritats.",
+        "isCorrect": false,
+        "rationale": "Aquesta opció es centra en 'Limitació de trànsit amb quotes i…', que no correspon al concepte demanat."
+      }
+    ]
+  },
+  {
+    "guid": "78e3556e-778a-4ff2-8b27-1ef4621ba9eb",
+    "subjectId": "SOA",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "En service discovery, què és “client-side discovery”?",
+    "answerOptions": [
+      {
+        "text": "El servidor decideix el target usant un balancejador central.",
+        "isCorrect": false,
+        "rationale": "Això descriu descoberta server-side via balançador, no client-side discovery."
+      },
+      {
+        "text": "El DNS decideix dinàmicament el node amb menys càrrega.",
+        "isCorrect": false,
+        "rationale": "Això és balanç i resolució via DNS, diferent del patró client-side discovery amb registre."
+      },
+      {
+        "text": "El client resol l’adreça del servei consultant un registry.",
+        "isCorrect": true,
+        "rationale": "Client-side discovery: el client consulta un registre i decideix a quin endpoint cridar."
+      },
+      {
+        "text": "Un operador assigna manualment l’endpoint en un document.",
+        "isCorrect": false,
+        "rationale": "Assignar endpoints manualment és configuració estàtica; no és discover y dinàmic."
+      }
+    ]
+  },
+  {
+    "guid": "b11f4813-e6df-4efb-bbe4-7bc97f4fd849",
+    "subjectId": "SOA",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "Què és una “message queue” en integració SOA?",
+    "answerOptions": [
+      {
+        "text": "Un repositori de contractes i esquemes versionats.",
+        "isCorrect": false,
+        "rationale": "Aquesta opció apunta a governança o gestió del cicle de vida; no és el concepte específic preguntat."
+      },
+      {
+        "text": "Un catàleg de serveis per a consulta d’operació.",
+        "isCorrect": false,
+        "rationale": "Aquesta opció apunta a governança o gestió del cicle de vida; no és el concepte específic preguntat."
+      },
+      {
+        "text": "Una base de dades temporal per replicar estat.",
+        "isCorrect": false,
+        "rationale": "Persistència és una decisió d'emmagatzematge; stateless no implica persistir cada pas."
+      },
+      {
+        "text": "Un mecanisme asíncron per desacoblar productor i consumidor.",
+        "isCorrect": true,
+        "rationale": "Message queue: cua de missatges que desacobla productor i consumidor de manera asíncrona."
+      }
+    ]
+  },
+  {
+    "guid": "9bb30adb-9756-4b54-a1d9-e7d3250ea5d8",
+    "subjectId": "SOA",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "Què descriu millor “eventual consistency”?",
+    "answerOptions": [
+      {
+        "text": "Totes les lectures reflecteixen l’últim escrit immediatament.",
+        "isCorrect": false,
+        "rationale": "Aquesta opció es centra en 'Totes les lectures reflecteixen l’últim escrit…', que no correspon al concepte demanat."
+      },
+      {
+        "text": "Les escriptures fallen si no hi ha quorum global.",
+        "isCorrect": false,
+        "rationale": "Això s'associa a consistència forta o control d'atomicitat, diferent d'eventual consistency."
+      },
+      {
+        "text": "La consistència es garanteix amb bloqueig distribuït.",
+        "isCorrect": false,
+        "rationale": "Això s'associa a consistència forta o control d'atomicitat, diferent d'eventual consistency."
+      },
+      {
+        "text": "La coherència s’assoleix amb el temps via propagació d’esdeveniments.",
+        "isCorrect": true,
+        "rationale": "Eventual consistency: l'estat convergeix amb el temps; lectures immediates poden veure valors antics."
+      }
+    ]
+  },
+  {
+    "guid": "234b6894-d1d2-4f19-885d-28bee98f2df9",
+    "subjectId": "SOA",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "SLA vs QoS: quin enunciat és més ajustat?",
+    "answerOptions": [
+      {
+        "text": "SLA descriu principalment paràmetres tècnics de rendiment; QoS és l’acord de servei amb objectius i conseqüències.",
+        "isCorrect": false,
+        "rationale": "Aquesta opció parla d'operació/monitoratge; no descriu el concepte central que es pregunta."
+      },
+      {
+        "text": "SLA és compromís acordat; QoS és característiques mesurables del servei.",
+        "isCorrect": true,
+        "rationale": "SLA és el compromís acordat; QoS són propietats mesurables del servei (latència, pèrdua, disponibilitat)."
+      },
+      {
+        "text": "SLA defineix objectius del servei; QoS és el conjunt d’informes periòdics que en demostren el compliment.",
+        "isCorrect": false,
+        "rationale": "Això descriu informes de seguiment; QoS són propietats tècniques mesurables, no informes."
+      },
+      {
+        "text": "QoS s’associa sobretot a la capa de xarxa; SLA descriu sobretot detalls interns d’implementació del servei.",
+        "isCorrect": false,
+        "rationale": "Aquesta opció parla d'operació/monitoratge; no descriu el concepte central que es pregunta."
+      }
+    ]
+  },
+  {
+    "guid": "ea8f33c0-92d0-40aa-9e74-de59cd5592e9",
+    "subjectId": "SOA",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "Quin patró talla temporalment crides a un servei que falla repetidament?",
+    "answerOptions": [
+      {
+        "text": "Retry amb backoff.",
+        "isCorrect": false,
+        "rationale": "Reintents i backoff és una tècnica de resiliència; no és el patró principal preguntat."
+      },
+      {
+        "text": "Circuit breaker.",
+        "isCorrect": true,
+        "rationale": "Circuit breaker talla crides temporalment quan hi ha fallades repetides per evitar cascades."
+      },
+      {
+        "text": "Sidecar.",
+        "isCorrect": false,
+        "rationale": "Aquesta opció es centra en 'Sidecar.…', que no correspon al concepte demanat."
+      },
+      {
+        "text": "Blue-green deployment.",
+        "isCorrect": false,
+        "rationale": "Blue-green és una estratègia de desplegament; no correspon al concepte preguntat."
+      }
+    ]
+  },
+  {
+    "guid": "52b6c19a-e25e-4711-a7e1-c70d22906ca1",
+    "subjectId": "SOA",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "Quin patró aïlla recursos per evitar que un servei saturat afecti la resta?",
+    "answerOptions": [
+      {
+        "text": "Cache warming.",
+        "isCorrect": false,
+        "rationale": "La memòria cau pot accelerar respostes però no substitueix el principi stateless."
+      },
+      {
+        "text": "Rate limiting.",
+        "isCorrect": false,
+        "rationale": "Quota o rate limiting és protecció de capacitat; no és el concepte preguntat en aquesta opció."
+      },
+      {
+        "text": "Service mesh.",
+        "isCorrect": false,
+        "rationale": "Aquesta opció es centra en 'Service mesh.…', que no correspon al concepte demanat."
+      },
+      {
+        "text": "Bulkhead.",
+        "isCorrect": true,
+        "rationale": "Bulkhead aïlla recursos per evitar que la saturació d'una part afecti la resta."
+      }
+    ]
+  },
+  {
+    "guid": "9ad0ff31-d85f-4f55-85a9-6ec7ef6139ce",
+    "subjectId": "SOA",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "Per correlacionar crides entre serveis, què s’usa típicament?",
+    "answerOptions": [
+      {
+        "text": "Un correlation ID propagat entre serveis.",
+        "isCorrect": true,
+        "rationale": "Correlation ID és un identificador compartit per correlacionar logs i traces d'una mateixa petició."
+      },
+      {
+        "text": "Un checksum del payload per cada missatge.",
+        "isCorrect": false,
+        "rationale": "Checksum verifica integritat del payload; no és un identificador de correlació."
+      },
+      {
+        "text": "Un port TCP fix per a totes les crides.",
+        "isCorrect": false,
+        "rationale": "Un port fix és detall de xarxa; no ajuda a correlacionar una petició entre serveis."
+      },
+      {
+        "text": "Un timestamp local del servidor com a identificador únic.",
+        "isCorrect": false,
+        "rationale": "Un timestamp local no garanteix correlació global ni unicitat entre serveis."
+      }
+    ]
+  },
+  {
+    "guid": "8bd47c4f-dc98-4a82-944e-0b3d8adc89f3",
+    "subjectId": "SOA",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "En una operació crítica, quin mecanisme evita dobles processaments en reintents?",
+    "answerOptions": [
+      {
+        "text": "Sticky sessions al balançador.",
+        "isCorrect": false,
+        "rationale": "Aquesta opció es centra en 'Sticky sessions al balançador.…', que no correspon al concepte demanat."
+      },
+      {
+        "text": "Idempotency key associada a la petició.",
+        "isCorrect": true,
+        "rationale": "Idempotency key evita duplicats quan es reintenten operacions no idempotents."
+      },
+      {
+        "text": "Un timeout més curt al client.",
+        "isCorrect": false,
+        "rationale": "Un timeout és gestió d'errors; no evita duplicats quan hi ha reintents."
+      },
+      {
+        "text": "Un increment de threads al servidor.",
+        "isCorrect": false,
+        "rationale": "Augmentar threads és tuning de rendiment; no substitueix una idempotency key."
+      }
+    ]
+  },
+  {
+    "guid": "d8b890c7-836f-44bc-ab49-26b03ff3af2a",
+    "subjectId": "SOA",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "Què és un “sidecar” en patrons de serveis?",
+    "answerOptions": [
+      {
+        "text": "Un repositori de contractes per governança.",
+        "isCorrect": false,
+        "rationale": "Aquesta opció apunta a governança o gestió del cicle de vida; no és el concepte específic preguntat."
+      },
+      {
+        "text": "Un procés que executa els tests del servei en cada build.",
+        "isCorrect": false,
+        "rationale": "Això és CI/CD; no és el concepte demanat sobre arquitectura o governança."
+      },
+      {
+        "text": "Un component auxiliar al costat del servei per funcions transversals.",
+        "isCorrect": true,
+        "rationale": "Sidecar és un component auxiliar desplegat al costat del servei per afegir capacitats transversals."
+      },
+      {
+        "text": "Un sistema central per transformar missatges entre sistemes.",
+        "isCorrect": false,
+        "rationale": "Aquesta opció es centra en 'Un sistema central per transformar missatges…', que no correspon al concepte demanat."
+      }
+    ]
+  },
+  {
+    "guid": "65364a3b-0a3b-4e74-8cad-2de2e9efdc26",
+    "subjectId": "SOA",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "En tracing distribuït, què ajuda més a reconstruir el camí d’una petició?",
+    "answerOptions": [
+      {
+        "text": "Correlacionar logs locals per timestamps i identificadors de servidor.",
+        "isCorrect": false,
+        "rationale": "Un timestamp local no garanteix correlació global ni unicitat entre serveis."
+      },
+      {
+        "text": "Afegir un requestId a logs i mètriques per seguir una transacció de forma bàsica.",
+        "isCorrect": false,
+        "rationale": "Aquesta opció parla d'operació/monitoratge; no descriu el concepte central que es pregunta."
+      },
+      {
+        "text": "Disposar d’un mapa de dependències de serveis i rutes habituals per orientar la investigació.",
+        "isCorrect": false,
+        "rationale": "Aquesta opció es centra en 'Disposar d’un mapa de dependències de…', que no correspon al concepte demanat."
+      },
+      {
+        "text": "Propagar trace context entre serveis i spans.",
+        "isCorrect": true,
+        "rationale": "Tracing distribuït segueix una petició end-to-end amb spans i correlació entre serveis."
+      }
+    ]
+  },
+  {
+    "guid": "915d0674-442e-484f-acb2-a1ddb38290bf",
+    "subjectId": "SOA",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "CQRS i event sourcing: quin enunciat és més correcte?",
+    "answerOptions": [
+      {
+        "text": "CQRS separa lectura i escriptura; event sourcing guarda esdeveniments com a font.",
+        "isCorrect": true,
+        "rationale": "Event sourcing i CQRS separen escriptura/lectura i guarden l'històric com a esdeveniments."
+      },
+      {
+        "text": "CQRS i event sourcing són el mateix patró amb dos noms.",
+        "isCorrect": false,
+        "rationale": "Aquesta opció parla de missatgeria i integració per events; no és el terme concret preguntat."
+      },
+      {
+        "text": "CQRS tracta d’encriptació; event sourcing tracta d’autenticació.",
+        "isCorrect": false,
+        "rationale": "Això tracta d'autenticació/autorització; no defineix el concepte preguntat."
+      },
+      {
+        "text": "CQRS elimina la necessitat de bases de dades; event sourcing les substitueix.",
+        "isCorrect": false,
+        "rationale": "Aquesta opció parla de missatgeria i integració per events; no és el terme concret preguntat."
+      }
+    ]
+  },
+  {
+    "guid": "91281882-1c9c-41c2-aa8d-905495fc70a8",
+    "subjectId": "SOA",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "Què descriu millor un ESB en SOA clàssic?",
+    "answerOptions": [
+      {
+        "text": "Bus que mediatza, transforma i enruta missatges entre serveis.",
+        "isCorrect": true,
+        "rationale": "ESB és un bus d'integració amb mediació, rutes i transformacions entre sistemes."
+      },
+      {
+        "text": "Punt d’entrada per a rate limiting i auth d’APIs.",
+        "isCorrect": false,
+        "rationale": "Quota o rate limiting és protecció de capacitat; no és el concepte preguntat en aquesta opció."
+      },
+      {
+        "text": "Repositori de contractes i models de dades versionats.",
+        "isCorrect": false,
+        "rationale": "Aquesta opció apunta a governança o gestió del cicle de vida; no és el concepte específic preguntat."
+      },
+      {
+        "text": "Motor per executar pipelines de desplegament i release.",
+        "isCorrect": false,
+        "rationale": "Això és CI/CD; no és el concepte demanat sobre arquitectura o governança."
+      }
+    ]
+  },
+  {
+    "guid": "ff00d2fd-0813-4e47-8cd0-f6f974057b94",
+    "subjectId": "SOA",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "Què vol dir WSDL?",
+    "answerOptions": [
+      {
+        "text": "Web Services Description Language.",
+        "isCorrect": true,
+        "rationale": "WSDL descriu formalment un servei SOAP: operacions, ports i missatges."
+      },
+      {
+        "text": "Web Service Discovery Layer.",
+        "isCorrect": false,
+        "rationale": "Aquesta opció es centra en 'Web Service Discovery Layer.…', que no correspon al concepte demanat."
+      },
+      {
+        "text": "Wide Service Data Link.",
+        "isCorrect": false,
+        "rationale": "Aquesta opció es centra en 'Wide Service Data Link.…', que no correspon al concepte demanat."
+      },
+      {
+        "text": "Workflow Service Definition List.",
+        "isCorrect": false,
+        "rationale": "Aquesta opció es centra en 'Workflow Service Definition List.…', que no correspon al concepte demanat."
+      }
+    ]
+  },
+  {
+    "guid": "e517e082-03cc-4a80-a198-c2256b6fd81c",
+    "subjectId": "SOA",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "Què vol dir BPEL?",
+    "answerOptions": [
+      {
+        "text": "Business Process Event Log.",
+        "isCorrect": false,
+        "rationale": "Aquesta opció parla d'operació/monitoratge; no descriu el concepte central que es pregunta."
+      },
+      {
+        "text": "Basic Protocol Exchange Layer.",
+        "isCorrect": false,
+        "rationale": "Aquesta opció es centra en 'Basic Protocol Exchange Layer.…', que no correspon al concepte demanat."
+      },
+      {
+        "text": "Business Process Execution Language.",
+        "isCorrect": true,
+        "rationale": "BPEL és Business Process Execution Language, per definir orquestracions de processos sobre serveis."
+      },
+      {
+        "text": "Business Policy Enforcement Library.",
+        "isCorrect": false,
+        "rationale": "Aquesta opció es centra en 'Business Policy Enforcement Library.…', que no correspon al concepte demanat."
+      }
+    ]
+  },
+  {
+    "guid": "ce95c015-3378-4611-8388-c3942870f4de",
+    "subjectId": "SOA",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "Quin patró gestiona transaccions distribuïdes amb passos i compensacions?",
+    "answerOptions": [
+      {
+        "text": "Two-phase commit.",
+        "isCorrect": false,
+        "rationale": "Aquesta opció es centra en 'Two-phase commit.…', que no correspon al concepte demanat."
+      },
+      {
+        "text": "Bulkhead.",
+        "isCorrect": false,
+        "rationale": "Aquesta opció es centra en 'Bulkhead.…', que no correspon al concepte demanat."
+      },
+      {
+        "text": "Circuit breaker.",
+        "isCorrect": false,
+        "rationale": "Aquesta opció es centra en 'Circuit breaker.…', que no correspon al concepte demanat."
+      },
+      {
+        "text": "Saga.",
+        "isCorrect": true,
+        "rationale": "Saga gestiona transaccions distribuïdes amb passos i accions de compensació."
+      }
+    ]
+  },
+  {
+    "guid": "2e56d199-9a13-445f-8298-297ce32bcc64",
+    "subjectId": "SOA",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "En integració SOA, què és un “canonical data model”?",
+    "answerOptions": [
+      {
+        "text": "Model físic de base de dades compartit per tots els serveis.",
+        "isCorrect": false,
+        "rationale": "Persistència és una decisió d'emmagatzematge; stateless no implica persistir cada pas."
+      },
+      {
+        "text": "Esquema comú per intercanvi de dades entre serveis.",
+        "isCorrect": true,
+        "rationale": "Model canònic de dades: esquema comú per interoperar entre serveis i sistemes."
+      },
+      {
+        "text": "Conjunt d’events tècnics per telemetria del sistema.",
+        "isCorrect": false,
+        "rationale": "Això descriu integració/missatgeria per events; és un altre mecanisme diferent del concepte preguntat."
+      },
+      {
+        "text": "Llista de camps que cada equip pot definir lliurement.",
+        "isCorrect": false,
+        "rationale": "Aquesta opció es centra en 'Llista de camps que cada equip…', que no correspon al concepte demanat."
+      }
+    ]
+  },
+  {
+    "guid": "932e44bf-c343-4bf9-9c2c-3316af904623",
+    "subjectId": "SOA",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "Què implica un enfocament “contract-first”?",
+    "answerOptions": [
+      {
+        "text": "Escriure el codi i publicar la interfície quan està estable.",
+        "isCorrect": false,
+        "rationale": "Aquesta opció es centra en 'Escriure el codi i publicar la…', que no correspon al concepte demanat."
+      },
+      {
+        "text": "Provar en producció i documentar quan ja no hi ha errors.",
+        "isCorrect": false,
+        "rationale": "Assignar endpoints manualment és configuració estàtica; no és discover y dinàmic."
+      },
+      {
+        "text": "Definir contracte abans del codi i generar stubs.",
+        "isCorrect": true,
+        "rationale": "Contract-first: definir contracte i esquemes abans de l'implementació per estabilitzar integració."
+      },
+      {
+        "text": "Copiar models interns al contracte per evitar mapatges.",
+        "isCorrect": false,
+        "rationale": "Aquesta opció es centra en 'Copiar models interns al contracte per…', que no correspon al concepte demanat."
+      }
+    ]
+  },
+  {
+    "guid": "12e70caf-bf2b-4fda-9c60-7a74e909a630",
+    "subjectId": "SOA",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "En serveis web, per a què serveix un namespace XML?",
+    "answerOptions": [
+      {
+        "text": "Evitar col·lisions de noms i qualificar elements.",
+        "isCorrect": true,
+        "rationale": "Namespace XML evita col·lisions definint un espai de noms per a elements i tipus."
+      },
+      {
+        "text": "Encriptar el payload a nivell de missatge.",
+        "isCorrect": false,
+        "rationale": "Aquesta opció es centra en 'Encriptar el payload a nivell de…', que no correspon al concepte demanat."
+      },
+      {
+        "text": "Assignar prioritat de processament a la cua.",
+        "isCorrect": false,
+        "rationale": "Aquesta opció es centra en 'Assignar prioritat de processament a la…', que no correspon al concepte demanat."
+      },
+      {
+        "text": "Controlar la càrrega màxima per endpoint.",
+        "isCorrect": false,
+        "rationale": "Aquesta opció es centra en 'Controlar la càrrega màxima per endpoint.…', que no correspon al concepte demanat."
+      }
+    ]
+  },
+  {
+    "guid": "c70a68bb-a881-40ee-9643-fb7ed57a49b0",
+    "subjectId": "SOA",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "Què descriu millor WS-Addressing?",
+    "answerOptions": [
+      {
+        "text": "Encapsular adreces i routing en missatges SOAP.",
+        "isCorrect": true,
+        "rationale": "WS-Addressing defineix informació d'adreçament en capçaleres SOAP, independent del transport."
+      },
+      {
+        "text": "Definir esquemes XSD per validar els missatges.",
+        "isCorrect": false,
+        "rationale": "Això descriu XSD i validació d'XML, no l'element demanat."
+      },
+      {
+        "text": "Gestionar versions d’API amb capçaleres HTTP.",
+        "isCorrect": false,
+        "rationale": "Aquesta opció apunta a governança o gestió del cicle de vida; no és el concepte específic preguntat."
+      },
+      {
+        "text": "Aplicar xifrat simètric a nivell de transport.",
+        "isCorrect": false,
+        "rationale": "Aquesta opció tracta de seguretat (auth/xifrat); és un altre aspecte diferent del concepte demanat."
+      }
+    ]
+  },
+  {
+    "guid": "398b7686-3ddd-46a6-84aa-f4bbc7ef7df2",
+    "subjectId": "SOA",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "Quin patró encaixa millor amb disseminar events a múltiples consumidors?",
+    "answerOptions": [
+      {
+        "text": "Request-reply.",
+        "isCorrect": false,
+        "rationale": "Aquesta opció es centra en 'Request-reply.…', que no correspon al concepte demanat."
+      },
+      {
+        "text": "Publish-subscribe.",
+        "isCorrect": true,
+        "rationale": "Publish-subscribe distribueix esdeveniments a múltiples consumidors subscrits."
+      },
+      {
+        "text": "Point-to-point amb exclusivitat de consumidor.",
+        "isCorrect": false,
+        "rationale": "Aquesta opció es centra en 'Point-to-point amb exclusivitat de consumidor.…', que no correspon al concepte demanat."
+      },
+      {
+        "text": "Batch nocturn amb fitxers.",
+        "isCorrect": false,
+        "rationale": "Aquesta opció es centra en 'Batch nocturn amb fitxers.…', que no correspon al concepte demanat."
+      }
+    ]
+  },
+  {
+    "guid": "d6926785-894c-4bcf-a200-ed5843b5391d",
+    "subjectId": "SOA",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "En versionat de contractes, quin enfocament és més segur per compatibilitat?",
+    "answerOptions": [
+      {
+        "text": "Canviar noms de camps sovint i adaptar clients ràpid.",
+        "isCorrect": false,
+        "rationale": "Aquesta opció es centra en 'Canviar noms de camps sovint i…', que no correspon al concepte demanat."
+      },
+      {
+        "text": "Versionar cada endpoint amb un port diferent a cada release.",
+        "isCorrect": false,
+        "rationale": "Aquesta opció apunta a governança o gestió del cicle de vida; no és el concepte específic preguntat."
+      },
+      {
+        "text": "Afegir camps opcionals i evitar canvis trencadors.",
+        "isCorrect": true,
+        "rationale": "Canvis compatibles mantenen el contracte; s'afegeixen camps opcionals o noves versions sense trencar clients."
+      },
+      {
+        "text": "Unificar sempre un únic contracte global i forçar migració.",
+        "isCorrect": false,
+        "rationale": "Aquesta opció es centra en 'Unificar sempre un únic contracte global…', que no correspon al concepte demanat."
+      }
+    ]
+  },
+  {
+    "guid": "4f443ea2-67f5-4a16-9e31-5a2b40267c33",
+    "subjectId": "SOA",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "En governança SOA, què és una “policy”?",
+    "answerOptions": [
+      {
+        "text": "Regla aplicable als serveis, com auth, xifrat o logging.",
+        "isCorrect": true,
+        "rationale": "Policy són regles aplicables als serveis (auth, xifrat, logging, rate limits) enforceables per governança."
+      },
+      {
+        "text": "Historial de canvis d’un repositori de codi.",
+        "isCorrect": false,
+        "rationale": "Aquesta opció es centra en 'Historial de canvis d’un repositori de…', que no correspon al concepte demanat."
+      },
+      {
+        "text": "Informe mensual de disponibilitat del servei.",
+        "isCorrect": false,
+        "rationale": "Aquesta opció es centra en 'Informe mensual de disponibilitat del servei.…', que no correspon al concepte demanat."
+      },
+      {
+        "text": "Catàleg de proveïdors i condicions contractuals.",
+        "isCorrect": false,
+        "rationale": "Aquesta opció apunta a governança o gestió del cicle de vida; no és el concepte específic preguntat."
+      }
+    ]
+  },
+  {
+    "guid": "48c80f32-029f-4985-8343-4757777e3e13",
+    "subjectId": "SOA",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "Què vol dir SCA en alguns entorns SOA?",
+    "answerOptions": [
+      {
+        "text": "Service Control Agreement.",
+        "isCorrect": false,
+        "rationale": "Aquesta opció es centra en 'Service Control Agreement.…', que no correspon al concepte demanat."
+      },
+      {
+        "text": "Software Communication Adapter.",
+        "isCorrect": false,
+        "rationale": "Aquesta opció es centra en 'Software Communication Adapter.…', que no correspon al concepte demanat."
+      },
+      {
+        "text": "Secure Channel Authentication.",
+        "isCorrect": false,
+        "rationale": "Aquesta opció tracta de seguretat (auth/xifrat); és un altre aspecte diferent del concepte demanat."
+      },
+      {
+        "text": "Service Component Architecture.",
+        "isCorrect": true,
+        "rationale": "SCA és un enfocament per compondre aplicacions per components i serveis amb contractes i bindings."
+      }
+    ]
+  },
+  {
+    "guid": "7f7c8201-b943-4c9b-9379-9a9ab34487f8",
+    "subjectId": "SOA",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "Registry vs repository en governança: quin enunciat és més ajustat?",
+    "answerOptions": [
+      {
+        "text": "Registry guarda repos de codi; repository guarda endpoints.",
+        "isCorrect": false,
+        "rationale": "Aquesta opció es centra en 'Registry guarda repos de codi; repository…', que no correspon al concepte demanat."
+      },
+      {
+        "text": "Registry és per KPI; repository és per logs d’auditoria.",
+        "isCorrect": false,
+        "rationale": "Aquesta opció parla d'operació/monitoratge; no descriu el concepte central que es pregunta."
+      },
+      {
+        "text": "Registry orienta descoberta runtime; repository guarda artefactes i versions.",
+        "isCorrect": true,
+        "rationale": "Registry publica ubicacions; repository guarda artefactes versionats com contractes i esquemes."
+      },
+      {
+        "text": "Registry i repository són sempre el mateix component.",
+        "isCorrect": false,
+        "rationale": "Aquesta opció es centra en 'Registry i repository són sempre el…', que no correspon al concepte demanat."
+      }
+    ]
+  },
+  {
+    "guid": "a15133d3-c769-4c2a-bb68-72ee3c6d4265",
+    "subjectId": "SOA",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "Què valida sobretot un consumer-driven contract test?",
+    "answerOptions": [
+      {
+        "text": "Que el provider segueix el mateix estil de codificació.",
+        "isCorrect": false,
+        "rationale": "Aquesta opció es centra en 'Que el provider segueix el mateix…', que no correspon al concepte demanat."
+      },
+      {
+        "text": "Expectatives del consumidor sobre respostes del provider.",
+        "isCorrect": true,
+        "rationale": "Consumer-driven contract testing valida que el proveïdor compleix els contractes esperats pels consumidors."
+      },
+      {
+        "text": "Que el balançador reparteix càrrega de forma uniforme.",
+        "isCorrect": false,
+        "rationale": "Aquesta opció es centra en 'Que el balançador reparteix càrrega de…', que no correspon al concepte demanat."
+      },
+      {
+        "text": "Que el servei compleix el pressupost de latència del CPD.",
+        "isCorrect": false,
+        "rationale": "Optimitzar latència/serialització és rendiment, però no és el criteri clau del concepte preguntat."
+      }
+    ]
+  },
+  {
+    "guid": "7745686b-aab3-4edc-9347-02b6bcfeb89d",
+    "subjectId": "SOA",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "En disseny de serveis distribuïts, quin efecte és més típic quan la granularitat és massa fina?",
+    "answerOptions": [
+      {
+        "text": "Augmentar el cost operatiu per excés de serveis i desplegaments.",
+        "isCorrect": false,
+        "rationale": "Aquesta opció és de desplegament/DevOps, no del concepte arquitectònic preguntat."
+      },
+      {
+        "text": "Multiplicar crides, latència i complexitat de dependències.",
+        "isCorrect": true,
+        "rationale": "Granularitat massa fina sol multiplicar crides, latència i dependències entre serveis."
+      },
+      {
+        "text": "Fer més difícil versionar contractes i mantenir compatibilitat entre serveis.",
+        "isCorrect": false,
+        "rationale": "Aquesta opció apunta a governança o gestió del cicle de vida; no és el concepte específic preguntat."
+      },
+      {
+        "text": "Incrementar punts de fallada i propagar errors en cadena.",
+        "isCorrect": false,
+        "rationale": "Aquesta opció es centra en 'Incrementar punts de fallada i propagar…', que no correspon al concepte demanat."
+      }
+    ]
+  },
+  {
+    "guid": "8f8f6ead-8d43-4cd4-ae75-11d31c901033",
+    "subjectId": "SOA",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "Què descriu millor el patró “service façade”?",
+    "answerOptions": [
+      {
+        "text": "Un sistema central per autenticar totes les aplicacions.",
+        "isCorrect": false,
+        "rationale": "Això tracta d'autenticació/autorització; no defineix el concepte preguntat."
+      },
+      {
+        "text": "Un repositori de dades mestres per a tota l’organització.",
+        "isCorrect": false,
+        "rationale": "Aquesta opció es centra en 'Un repositori de dades mestres per…', que no correspon al concepte demanat."
+      },
+      {
+        "text": "Un servei que encapsula complexitat de sistemes interns.",
+        "isCorrect": true,
+        "rationale": "Service façade encapsula i simplifica l'accés a sistemes interns complexos."
+      },
+      {
+        "text": "Un mecanisme per assegurar ordre de missatges en cues.",
+        "isCorrect": false,
+        "rationale": "Això descriu integració/missatgeria per events; és un altre mecanisme diferent del concepte preguntat."
+      }
+    ]
+  },
+  {
+    "guid": "b709ba76-e45f-468b-abc3-0450ad67d405",
+    "subjectId": "SOA",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "Què vol dir EAI?",
+    "answerOptions": [
+      {
+        "text": "Enterprise Application Integration.",
+        "isCorrect": true,
+        "rationale": "EAI integra aplicacions empresarials mitjançant middleware, adapters i fluxos d'integració."
+      },
+      {
+        "text": "External API Interface.",
+        "isCorrect": false,
+        "rationale": "Aquesta opció es centra en 'External API Interface.…', que no correspon al concepte demanat."
+      },
+      {
+        "text": "Event Analytics Index.",
+        "isCorrect": false,
+        "rationale": "Aquesta opció parla de missatgeria i integració per events; no és el terme concret preguntat."
+      },
+      {
+        "text": "Elastic Application Infrastructure.",
+        "isCorrect": false,
+        "rationale": "Aquesta opció es centra en 'Elastic Application Infrastructure.…', que no correspon al concepte demanat."
+      }
+    ]
+  },
+  {
+    "guid": "530606ad-21d7-47da-8a8c-21a953ec3575",
+    "subjectId": "SOA",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "Què aporta WS-ReliableMessaging?",
+    "answerOptions": [
+      {
+        "text": "Validació d’esquemes XSD a nivell de contracte.",
+        "isCorrect": false,
+        "rationale": "Això descriu XSD i validació d'XML, no l'element demanat."
+      },
+      {
+        "text": "Entrega fiable i opcions d’ordre en missatgeria SOAP.",
+        "isCorrect": true,
+        "rationale": "WS-ReliableMessaging aporta lliurament fiable, reintents i ordenació de missatges SOAP."
+      },
+      {
+        "text": "Descobriment automàtic d’APIs via DNS.",
+        "isCorrect": false,
+        "rationale": "Això és balanç i resolució via DNS, diferent del patró client-side discovery amb registre."
+      },
+      {
+        "text": "Control de quota per client a nivell de gateway.",
+        "isCorrect": false,
+        "rationale": "Quota o rate limiting és protecció de capacitat; no és el concepte preguntat en aquesta opció."
+      }
+    ]
+  },
+  {
+    "guid": "c9329e84-1e9e-43ad-b100-8616d10f91c4",
+    "subjectId": "SOA",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "Què descriu millor un “idempotent consumer” en missatgeria?",
+    "answerOptions": [
+      {
+        "text": "Consumidor que deduplica i evita processar duplicats.",
+        "isCorrect": true,
+        "rationale": "Consumidor idempotent pot processar missatges duplicats sense efectes col·laterals."
+      },
+      {
+        "text": "Consumidor que reintenta indefinidament qualsevol missatge.",
+        "isCorrect": false,
+        "rationale": "Aquesta opció es centra en 'Consumidor que reintenta indefinidament qualsevol missatge.…', que no correspon al concepte demanat."
+      },
+      {
+        "text": "Consumidor que transforma payloads a un model canònic.",
+        "isCorrect": false,
+        "rationale": "Això apunta a un model canònic de dades; pot ajudar integració però no és el concepte demanat aquí."
+      },
+      {
+        "text": "Consumidor que valida esquemes i firma digital.",
+        "isCorrect": false,
+        "rationale": "Aquesta opció es centra en 'Consumidor que valida esquemes i firma…', que no correspon al concepte demanat."
+      }
+    ]
+  },
+  {
+    "guid": "45d82eee-7dc0-4b0f-8752-e6c82bf2b782",
+    "subjectId": "SOA",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "En evolució d’esquemes, quin canvi sol ser menys trencador?",
+    "answerOptions": [
+      {
+        "text": "Renombrar un camp existent utilitzat per clients.",
+        "isCorrect": false,
+        "rationale": "Aquesta opció es centra en 'Renombrar un camp existent utilitzat per…', que no correspon al concepte demanat."
+      },
+      {
+        "text": "Canviar el tipus d’un camp de text a número.",
+        "isCorrect": false,
+        "rationale": "Aquesta opció es centra en 'Canviar el tipus d’un camp de…', que no correspon al concepte demanat."
+      },
+      {
+        "text": "Afegir un camp nou opcional amb valor per defecte.",
+        "isCorrect": true,
+        "rationale": "Schema evolution gestiona canvis d'esquema (compatibilitat enrere/endavant) per no trencar consumidors."
+      },
+      {
+        "text": "Eliminar un camp antic perquè ja no s’usa internament.",
+        "isCorrect": false,
+        "rationale": "Aquesta opció es centra en 'Eliminar un camp antic perquè ja…', que no correspon al concepte demanat."
+      }
+    ]
+  },
+  {
+    "guid": "c8365b20-511a-4b1f-9206-b5280b20602e",
+    "subjectId": "SOA",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "Què vol dir AMQP?",
+    "answerOptions": [
+      {
+        "text": "Advanced Message Query Protocol.",
+        "isCorrect": false,
+        "rationale": "Aquesta opció es centra en 'Advanced Message Query Protocol.…', que no correspon al concepte demanat."
+      },
+      {
+        "text": "Advanced Message Queuing Protocol.",
+        "isCorrect": true,
+        "rationale": "AMQP és un protocol de missatgeria per brokers, habitual en RabbitMQ."
+      },
+      {
+        "text": "Asynchronous Messaging Quality Profile.",
+        "isCorrect": false,
+        "rationale": "Aquesta opció es centra en 'Asynchronous Messaging Quality Profile.…', que no correspon al concepte demanat."
+      },
+      {
+        "text": "Application Message Queue Pattern.",
+        "isCorrect": false,
+        "rationale": "Aquesta opció es centra en 'Application Message Queue Pattern.…', que no correspon al concepte demanat."
+      }
+    ]
+  },
+  {
+    "guid": "b2b52653-7573-44b8-8265-eb378665d6e4",
+    "subjectId": "SOA",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "Què vol dir JMS?",
+    "answerOptions": [
+      {
+        "text": "Java Monitoring System.",
+        "isCorrect": false,
+        "rationale": "Aquesta opció parla d'operació/monitoratge; no descriu el concepte central que es pregunta."
+      },
+      {
+        "text": "Joint Messaging Standard.",
+        "isCorrect": false,
+        "rationale": "Aquesta opció es centra en 'Joint Messaging Standard.…', que no correspon al concepte demanat."
+      },
+      {
+        "text": "Java Message Service.",
+        "isCorrect": true,
+        "rationale": "JMS és una API/estàndard Java per missatgeria (queues i topics) sobre diversos providers."
+      },
+      {
+        "text": "JSON Messaging Schema.",
+        "isCorrect": false,
+        "rationale": "Aquesta opció tracta de dades/esquemes, però no és el concepte exacte demanat en aquesta pregunta."
+      }
+    ]
+  },
+  {
+    "guid": "39a8ca52-27ae-4c73-b7ee-1ea8271511d1",
+    "subjectId": "SOA",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "En cues, per a què serveix una Dead Letter Queue?",
+    "answerOptions": [
+      {
+        "text": "Guardar missatges duplicats per auditoria.",
+        "isCorrect": false,
+        "rationale": "Aquesta opció es centra en 'Guardar missatges duplicats per auditoria.…', que no correspon al concepte demanat."
+      },
+      {
+        "text": "Distribuir missatges a múltiples consumidors en paral·lel.",
+        "isCorrect": false,
+        "rationale": "Paral·lelisme és una tècnica de rendiment; no és la propietat d'idempotència."
+      },
+      {
+        "text": "Accelerar el consum amb prioritat d’execució.",
+        "isCorrect": false,
+        "rationale": "Aquesta opció es centra en 'Accelerar el consum amb prioritat d’execució.…', que no correspon al concepte demanat."
+      },
+      {
+        "text": "Rebre missatges que fallen després de reintents o errors.",
+        "isCorrect": true,
+        "rationale": "DLQ és una cua per missatges que fallen repetidament i requereixen anàlisi o tractament."
+      }
+    ]
+  },
+  {
+    "guid": "8df80714-7b9f-4871-9bb7-1f2bb62789dc",
+    "subjectId": "SOA",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "En gestió d’APIs, què és “throttling”?",
+    "answerOptions": [
+      {
+        "text": "Cache de respostes per millorar rendiment.",
+        "isCorrect": false,
+        "rationale": "La memòria cau pot accelerar respostes però no substitueix el principi stateless."
+      },
+      {
+        "text": "Transformació de payload per compatibilitat.",
+        "isCorrect": false,
+        "rationale": "Aquesta opció es centra en 'Transformació de payload per compatibilitat.…', que no correspon al concepte demanat."
+      },
+      {
+        "text": "Descobriment de serveis via registry.",
+        "isCorrect": false,
+        "rationale": "Aquesta opció es centra en 'Descobriment de serveis via registry.…', que no correspon al concepte demanat."
+      },
+      {
+        "text": "Limitar la taxa de peticions per protegir el servei.",
+        "isCorrect": true,
+        "rationale": "Throttling limita el ritme de peticions per protegir serveis i gestionar recursos."
+      }
+    ]
+  },
+  {
+    "guid": "32b5687d-905f-4157-9cf3-be1dc5313960",
+    "subjectId": "SOA",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "Què vol dir SOA?",
+    "answerOptions": [
+      {
+        "text": "Service-Oriented Architecture.",
+        "isCorrect": true,
+        "rationale": "SOA vol dir Service-Oriented Architecture."
+      },
+      {
+        "text": "Service Operation Automation.",
+        "isCorrect": false,
+        "rationale": "Aquesta opció es centra en 'Service Operation Automation.…', que no correspon al concepte demanat."
+      },
+      {
+        "text": "Software Orchestration Alliance.",
+        "isCorrect": false,
+        "rationale": "Aquesta opció es centra en 'Software Orchestration Alliance.…', que no correspon al concepte demanat."
+      },
+      {
+        "text": "Secure Online Access.",
+        "isCorrect": false,
+        "rationale": "Aquesta opció es centra en 'Secure Online Access.…', que no correspon al concepte demanat."
+      }
+    ]
+  },
+  {
+    "guid": "7f6d5a16-c7bc-453d-8012-2c251437b05e",
+    "subjectId": "SOA",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "En comparar serveis SOAP i serveis REST en un entorn SOA, quin enunciat és més acurat?",
+    "answerOptions": [
+      {
+        "text": "SOAP sol definir contracte amb WSDL i extensions WS-*; REST sol exposar recursos via HTTP i es descriu sovint amb OpenAPI.",
+        "isCorrect": true,
+        "rationale": "SOAP sol descriure contracte amb WSDL i WS-*; REST exposa recursos via HTTP i sovint OpenAPI."
+      },
+      {
+        "text": "SOAP i REST es diferencien sobretot pel format del payload, no per l’estil d’interacció.",
+        "isCorrect": false,
+        "rationale": "Aquesta opció es centra en 'SOAP i REST es diferencien sobretot…', que no correspon al concepte demanat."
+      },
+      {
+        "text": "SOAP acostuma a descriure’s amb OpenAPI i REST acostuma a descriure’s amb WSDL.",
+        "isCorrect": false,
+        "rationale": "Això fa referència a WSDL/definició d'interfícies, no al concepte preguntat."
+      },
+      {
+        "text": "SOAP s’orienta a recursos i cache; REST s’orienta a operacions amb contracte rígid.",
+        "isCorrect": false,
+        "rationale": "Això descriu REST, un estil orientat a recursos sobre HTTP."
+      }
+    ]
+  },
+  {
+    "guid": "21a72c15-ea38-49d5-8568-db7795fbe576",
+    "subjectId": "SOA",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "Quina granularitat de servei és més adequada segons principis SOA?",
+    "answerOptions": [
+      {
+        "text": "Un servei que encapsula una capacitat de negoci massa àmplia i heterogènia, amb moltes responsabilitats barrejades.",
+        "isCorrect": false,
+        "rationale": "Aquesta opció parla d'operació/monitoratge; no descriu el concepte central que es pregunta."
+      },
+      {
+        "text": "Un servei centrat en una operació molt específica i repetida, que força moltes crides per completar un cas d’ús.",
+        "isCorrect": false,
+        "rationale": "Aquesta opció es centra en 'Un servei centrat en una operació…', que no correspon al concepte demanat."
+      },
+      {
+        "text": "Un servei dissenyat al voltant d’un detall tècnic intern, exposant estructures o decisions d’implementació als consumidors.",
+        "isCorrect": false,
+        "rationale": "Aquesta opció es centra en 'Un servei dissenyat al voltant d’un…', que no correspon al concepte demanat."
+      },
+      {
+        "text": "Un servei per capacitat de negoci coherent, amb operacions ben definides.",
+        "isCorrect": true,
+        "rationale": "Granularitat adequada equilibra reutilització i acoblament: ni massa fina ni massa grossa."
+      }
+    ]
+  },
+  {
+    "guid": "7464f0a9-10f6-4842-8ea7-f611fd540bac",
+    "subjectId": "SOA",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "Quina afirmació sobre governança SOA és més encertada?",
+    "answerOptions": [
+      {
+        "text": "Defineix estàndards, controla versions, gestiona cicle de vida i verifica polítiques de serveis.",
+        "isCorrect": true,
+        "rationale": "Governança SOA defineix estàndards, versions, polítiques i cicle de vida dels serveis."
+      },
+      {
+        "text": "Se centra en com es desplega i s’escala el runtime dels serveis en producció.",
+        "isCorrect": false,
+        "rationale": "Aquesta opció és de desplegament/DevOps, no del concepte arquitectònic preguntat."
+      },
+      {
+        "text": "Estableix convencions de contracte i revisa canvis rellevants quan apareixen.",
+        "isCorrect": false,
+        "rationale": "Aquesta opció es centra en 'Estableix convencions de contracte i revisa…', que no correspon al concepte demanat."
+      },
+      {
+        "text": "Defineix criteris d’accés i identitats per consumir serveis de forma coherent.",
+        "isCorrect": false,
+        "rationale": "Aquesta opció es centra en 'Defineix criteris d’accés i identitats per…', que no correspon al concepte demanat."
+      }
+    ]
+  },
+  {
+    "guid": "9491bcd3-7af5-440e-9f42-2fe60f1fc9de",
+    "subjectId": "SOA",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "En versionat de serveis en SOA, quan hi ha un canvi incompatible al contracte, quin enfocament és més adequat?",
+    "answerOptions": [
+      {
+        "text": "Evolucionar amb canvis compatibles cap enrere i documentar-los, mantenint el contracte quan es pot.",
+        "isCorrect": false,
+        "rationale": "Assignar endpoints manualment és configuració estàtica; no és discover y dinàmic."
+      },
+      {
+        "text": "Mantenir versions en paral·lel un temps, amb deprecació comunicada i data de retirada.",
+        "isCorrect": true,
+        "rationale": "Canvi incompatible implica versionar (p.ex. nova major) i mantenir convivència temporal."
+      },
+      {
+        "text": "Canviar el contracte al mateix endpoint quan calgui i esperar que els clients actualitzin a temps.",
+        "isCorrect": false,
+        "rationale": "Aquesta opció es centra en 'Canviar el contracte al mateix endpoint…', que no correspon al concepte demanat."
+      },
+      {
+        "text": "Crear una versió nova per canvis menors, assumint més càrrega de governança i manteniment.",
+        "isCorrect": false,
+        "rationale": "Aquesta opció apunta a governança o gestió del cicle de vida; no és el concepte específic preguntat."
+      }
+    ]
+  },
+  {
+    "guid": "f620b3b6-05d6-4ebe-a7c3-b43ee33751e4",
+    "subjectId": "SOA",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "En una arquitectura SOA, quin paper fa un motor BPM respecte als serveis?",
+    "answerOptions": [
+      {
+        "text": "Publica serveis i en gestiona endpoints com a registre central.",
+        "isCorrect": false,
+        "rationale": "Aquesta opció es centra en 'Publica serveis i en gestiona endpoints…', que no correspon al concepte demanat."
+      },
+      {
+        "text": "Dona visibilitat de procés i mètriques de negoci sobre l’execució.",
+        "isCorrect": false,
+        "rationale": "Aquesta opció es centra en 'Dona visibilitat de procés i mètriques…', que no correspon al concepte demanat."
+      },
+      {
+        "text": "Enruta missatges entre serveis com a capa de mediació i transformació.",
+        "isCorrect": false,
+        "rationale": "Aquesta opció es centra en 'Enruta missatges entre serveis com a…', que no correspon al concepte demanat."
+      },
+      {
+        "text": "Orquestra serveis en processos de negoci d’alt nivell, definint el flux de crides.",
+        "isCorrect": true,
+        "rationale": "BPM engine executa processos modelats, orquestra tasques i integra serveis segons el model."
+      }
+    ]
+  },
+  {
+    "guid": "e708a9fe-bf81-4c5b-80cb-0f4a58b9b19a",
+    "subjectId": "SOA",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "En integrar sistemes llegats en una arquitectura SOA, quin patró és més típic?",
+    "answerOptions": [
+      {
+        "text": "Exposar funcionalitats del llegat directament als consumidors amb crides específiques per client.",
+        "isCorrect": false,
+        "rationale": "Aquesta opció es centra en 'Exposar funcionalitats del llegat directament als…', que no correspon al concepte demanat."
+      },
+      {
+        "text": "Replicar les dades del llegat a una plataforma analítica i consumir des d’allà.",
+        "isCorrect": false,
+        "rationale": "Aquesta opció es centra en 'Replicar les dades del llegat a…', que no correspon al concepte demanat."
+      },
+      {
+        "text": "Permetre accés directe a la base de dades del llegat per als serveis nous.",
+        "isCorrect": false,
+        "rationale": "Persistència és una decisió d'emmagatzematge; stateless no implica persistir cada pas."
+      },
+      {
+        "text": "Façana o wrapper que encapsula el llegat i exposa funcionalitats com a servei.",
+        "isCorrect": true,
+        "rationale": "Wrapper/service abstraction exposa un sistema legacy com a servei mantenint contracte estable."
+      }
+    ]
+  },
+  {
+    "guid": "9a849dc5-f241-42bf-9d66-b1f64470cae5",
+    "subjectId": "SOA",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "En una SOA clàssica, quin risc és més típic quan l’ESB acumula transformacions i lògica funcional per “resoldre-ho tot”?",
+    "answerOptions": [
+      {
+        "text": "Concentrar massa transformacions i rutes i convertir-lo en coll d’ampolla operatiu.",
+        "isCorrect": false,
+        "rationale": "Aquesta opció es centra en 'Concentrar massa transformacions i rutes i…', que no correspon al concepte demanat."
+      },
+      {
+        "text": "Traslladar la lògica de negoci a l’ESB i crear acoblament fort i evolució difícil.",
+        "isCorrect": true,
+        "rationale": "Riscos d'ESB: punt únic de fallada, acoblament i dependència central, i evolució més rígida."
+      },
+      {
+        "text": "Dependència elevada del producte i de les seves eines de configuració i desplegament.",
+        "isCorrect": false,
+        "rationale": "Aquesta opció és de desplegament/DevOps, no del concepte arquitectònic preguntat."
+      },
+      {
+        "text": "Dificultat per governar canvis quan hi ha molts equips tocant rutes i mapatges.",
+        "isCorrect": false,
+        "rationale": "Aquesta opció apunta a governança o gestió del cicle de vida; no és el concepte específic preguntat."
+      }
+    ]
+  },
+  {
+    "guid": "714f869d-3684-4963-96c5-dc10cb026542",
+    "subjectId": "SOA",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "En comunicació asíncrona amb brokers de missatges, quin avantatge és més rellevant?",
+    "answerOptions": [
+      {
+        "text": "Permet desacoblar productors i consumidors a nivell de protocol i d’enduriment d’errors.",
+        "isCorrect": false,
+        "rationale": "Desacobla a nivell tècnic, però l'avantatge clau és el desacoblament temporal i la gestió de pics."
+      },
+      {
+        "text": "Redueix la latència mitjana perquè el missatge no depèn del temps de resposta del servei.",
+        "isCorrect": false,
+        "rationale": "No sempre redueix latència; sovint afegeix hops. El valor principal és absorbir pics amb cues i desacoblament temporal."
+      },
+      {
+        "text": "Desacoblament temporal entre productor i consumidor i millor gestió de pics de càrrega.",
+        "isCorrect": true,
+        "rationale": "Avantatge clau: desacoblament temporal i gestió de pics de càrrega amb cues i persistència."
+      },
+      {
+        "text": "Facilita el control d’ordre i reintents com a part natural del consum de missatges.",
+        "isCorrect": false,
+        "rationale": "L'ordre i reintents són propietats que poden existir, però no són l'avantatge principal en general."
+      }
+    ]
+  },
+  {
+    "guid": "fda76631-5242-4d83-bfc0-229a028491a3",
+    "subjectId": "SOA",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "En comparar SOA i microserveis, quin enunciat és més ajustat?",
+    "answerOptions": [
+      {
+        "text": "Els microserveis solen prioritzar equips autònoms i desplegaments més freqüents.",
+        "isCorrect": false,
+        "rationale": "Aquesta opció és de desplegament/DevOps, no del concepte arquitectònic preguntat."
+      },
+      {
+        "text": "SOA sol tenir més governança centralitzada; microserveis prioritzen unitats petites i desplegament independent.",
+        "isCorrect": true,
+        "rationale": "SOA pot tenir governança més centralitzada; microserveis prioritzen unitats petites i desplegament independent."
+      },
+      {
+        "text": "SOA tendeix a serveis més grans; microserveis tendeixen a límits de domini més petits.",
+        "isCorrect": false,
+        "rationale": "Aquesta opció es centra en 'SOA tendeix a serveis més grans;…', que no correspon al concepte demanat."
+      },
+      {
+        "text": "Microserveis acostumen a reduir acoblament, però incrementen la complexitat operativa distribuïda.",
+        "isCorrect": false,
+        "rationale": "Aquesta opció es centra en 'Microserveis acostumen a reduir acoblament, però…', que no correspon al concepte demanat."
+      }
+    ]
+  },
+  {
+    "guid": "017317a4-7c87-45fb-8851-cbcb2f3b6ae9",
+    "subjectId": "SOA",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "En una arquitectura SOA madura, com és més coherent definir SLA d’un servei?",
+    "answerOptions": [
+      {
+        "text": "Amb indicadors d’infra del servidor i objectius de disponibilitat de plataforma.",
+        "isCorrect": false,
+        "rationale": "Aquesta opció es centra en 'Amb indicadors d’infra del servidor i…', que no correspon al concepte demanat."
+      },
+      {
+        "text": "Amb mètriques de servei com latència, taxa d’errors, disponibilitat i capacitat, i compromís acordat.",
+        "isCorrect": true,
+        "rationale": "SLA coherent: mètriques de servei (latència, errors, disponibilitat, capacitat) amb compromís acordat."
+      },
+      {
+        "text": "Amb objectius diferents per consumidor, sense un conjunt mínim comú del servei.",
+        "isCorrect": false,
+        "rationale": "SLA pot tenir perfils, però ha d'existir un servei base comú; objectius completament diferents per consumidor dificulta governança."
+      },
+      {
+        "text": "Amb incidències i queixes, i revisant objectius quan hi ha variacions de demanda.",
+        "isCorrect": false,
+        "rationale": "Aquesta opció parla d'operació/monitoratge; no descriu el concepte central que es pregunta."
+      }
+    ]
+  },
+  {
+    "guid": "7e2b94ee-d9b9-4dd0-9fa8-7514d915afc8",
+    "subjectId": "SOA",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "Des del punt de vista de testing en SOA, quin enfocament és més adequat?",
+    "answerOptions": [
+      {
+        "text": "Cobrir amb proves unitàries i usar mocks per a dependències externes.",
+        "isCorrect": false,
+        "rationale": "Aquesta opció es centra en 'Cobrir amb proves unitàries i usar…', que no correspon al concepte demanat."
+      },
+      {
+        "text": "Fer proves de contracte i provar integracions principals en entorns de preproducció.",
+        "isCorrect": false,
+        "rationale": "És part important, però per SOA cal combinar unitàries, contracte, integració i end-to-end; aquí falta cobertura."
+      },
+      {
+        "text": "Prioritzar proves end-to-end dels fluxos crítics i reduir la resta a mostreig.",
+        "isCorrect": false,
+        "rationale": "Aquesta opció es centra en 'Prioritzar proves end-to-end dels fluxos crítics…', que no correspon al concepte demanat."
+      },
+      {
+        "text": "Proves unitàries, proves de contracte, proves d’integració i proves end-to-end de processos.",
+        "isCorrect": true,
+        "rationale": "Testing complet en SOA: unitàries, contracte, integració i end-to-end en fluxos crítics."
+      }
+    ]
+  },
+  {
+    "guid": "355aa7f1-c7cb-4e33-9739-7399a74a98c2",
+    "subjectId": "SOA",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "En dissenyar serveis en SOA, quin criteri ajuda més a maximitzar la reutilització?",
+    "answerOptions": [
+      {
+        "text": "Serveis alineats amb capacitats de negoci estables i no amb casos d’ús massa específics d’una aplicació concreta.",
+        "isCorrect": true,
+        "rationale": "Reutilització efectiva es dona quan el contracte és estable i té consumidors reals; no és per ordre ni imposició."
+      },
+      {
+        "text": "Serveis pensats per una aplicació concreta i adaptats al seu flux i pantalles.",
+        "isCorrect": false,
+        "rationale": "Aquesta opció es centra en 'Serveis pensats per una aplicació concreta…', que no correspon al concepte demanat."
+      },
+      {
+        "text": "Serveis CRUD genèrics que exposen dades amb el mínim de lògica possible.",
+        "isCorrect": false,
+        "rationale": "Aquesta opció es centra en 'Serveis CRUD genèrics que exposen dades…', que no correspon al concepte demanat."
+      },
+      {
+        "text": "Serveis que retornen dades en el format final que necessita un canal concret.",
+        "isCorrect": false,
+        "rationale": "Aquesta opció es centra en 'Serveis que retornen dades en el…', que no correspon al concepte demanat."
+      }
+    ]
+  },
+  {
+    "guid": "c09263f5-975a-42d4-9511-ddd2b94fba3c",
+    "subjectId": "SOA",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "En una migració cap a SOA des d’un monòlit, quin pas és més raonable?",
+    "answerOptions": [
+      {
+        "text": "Reescriure el sistema complet i activar el nou conjunt de serveis en un únic canvi.",
+        "isCorrect": false,
+        "rationale": "Aquesta opció es centra en 'Reescriure el sistema complet i activar…', que no correspon al concepte demanat."
+      },
+      {
+        "text": "Extreure dominis progressivament com a serveis, encapsulant el monòlit i migrant usos de forma controlada.",
+        "isCorrect": true,
+        "rationale": "Estratègia de migració: encapsular el monòlit i extreure dominis a poc a poc com a serveis."
+      },
+      {
+        "text": "Crear serveis nous duplicant funcionalitat del monòlit i resoldre incoherències després.",
+        "isCorrect": false,
+        "rationale": "Aquesta opció es centra en 'Crear serveis nous duplicant funcionalitat del…', que no correspon al concepte demanat."
+      },
+      {
+        "text": "Separar primer la base de dades i després repartir serveis segons dependències tècniques.",
+        "isCorrect": false,
+        "rationale": "Persistència és una decisió d'emmagatzematge; stateless no implica persistir cada pas."
+      }
+    ]
+  },
+  {
+    "guid": "fdfa293c-a219-4c4c-82ac-caa876c9ea73",
+    "subjectId": "SOA",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "Quin és un anti-patró típic en interfícies de serveis SOA?",
+    "answerOptions": [
+      {
+        "text": "Contractes amb operacions i errors explícits, separats de detalls interns d’implementació.",
+        "isCorrect": false,
+        "rationale": "Aquesta opció es centra en 'Contractes amb operacions i errors explícits,…', que no correspon al concepte demanat."
+      },
+      {
+        "text": "Versionat quan hi ha canvis incompatibles, amb convivència temporal de clients.",
+        "isCorrect": false,
+        "rationale": "Aquesta opció apunta a governança o gestió del cicle de vida; no és el concepte específic preguntat."
+      },
+      {
+        "text": "Operacions massa genèriques com “executarOperacio” amb dades opaques i semàntica difusa.",
+        "isCorrect": true,
+        "rationale": "Anti-patró: operacions massa genèriques i dades opaques que perden semàntica i dificulten governança."
+      },
+      {
+        "text": "Especificació formal del contracte i exemples per facilitar consum i proves.",
+        "isCorrect": false,
+        "rationale": "Aquesta opció es centra en 'Especificació formal del contracte i exemples…', que no correspon al concepte demanat."
+      }
+    ]
+  },
+  {
+    "guid": "72855401-7f82-4a6d-82b8-a3d10d0b26fb",
+    "subjectId": "SOA",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "En relació amb l’operació d’una SOA distribuïda, quin enfocament és més complet?",
+    "answerOptions": [
+      {
+        "text": "Monitoratge d’infra i alertes de capacitat per host i plataforma d’execució.",
+        "isCorrect": false,
+        "rationale": "Monitorar només infraestructura no dona visibilitat end-to-end entre serveis; falta correlació i traça distribuïda."
+      },
+      {
+        "text": "Indicadors per servei agregats, com volum de peticions i percentatge d’errors.",
+        "isCorrect": false,
+        "rationale": "Aquesta opció es centra en 'Indicadors per servei agregats, com volum…', que no correspon al concepte demanat."
+      },
+      {
+        "text": "Logs d’errors d’aplicació, revisats quan hi ha incidències rellevants.",
+        "isCorrect": false,
+        "rationale": "Aquesta opció parla d'operació/monitoratge; no descriu el concepte central que es pregunta."
+      },
+      {
+        "text": "Mètriques de servei, logs estructurats amb correlació i traces distribuïdes end-to-end.",
+        "isCorrect": true,
+        "rationale": "Operació completa: mètriques, logs estructurats amb correlació i traces end-to-end."
+      }
+    ]
+  },
+  {
+    "guid": "a5240b04-bf57-4b10-a225-dd49eb62061b",
+    "subjectId": "SOA",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "En una arquitectura SOA, quin paper juga un catàleg de serveis ben mantingut?",
+    "answerOptions": [
+      {
+        "text": "Visió global de serveis, versions, propietaris, SLA i dependències per governança i reutilització.",
+        "isCorrect": true,
+        "rationale": "Catàleg de serveis: visió de serveis, versions, propietaris, SLA i dependències per governança i reutilització."
+      },
+      {
+        "text": "Recull de procediments operatius i guies de resolució per servei i component.",
+        "isCorrect": false,
+        "rationale": "Aquesta opció es centra en 'Recull de procediments operatius i guies…', que no correspon al concepte demanat."
+      },
+      {
+        "text": "Repositori d’especificacions i contractes amb historial de canvis i aprovacions.",
+        "isCorrect": false,
+        "rationale": "Aquesta opció apunta a governança o gestió del cicle de vida; no és el concepte específic preguntat."
+      },
+      {
+        "text": "Llista d’incidències recurrents i solucions aplicades per accelerar el suport.",
+        "isCorrect": false,
+        "rationale": "Aquesta opció parla d'operació/monitoratge; no descriu el concepte central que es pregunta."
+      }
+    ]
+  }
+]
