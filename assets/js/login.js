@@ -4,7 +4,7 @@
 const login = {
   async checkUserAuth(user_name, user_pass) {
     if (!user_name || !user_pass) {
-      window.location.href = 'index.html';
+      window.location.href = 'login.html';
       return;
     }
     try {
@@ -27,7 +27,7 @@ const login = {
       const bcrypt = await waitForBcrypt();
       if (!bcrypt.compareSync(user_pass, user.password_hash)) throw new Error('Bad pass');
     } catch (e) {
-      window.location.href = 'index.html';
+      window.location.href = 'login.html';
     }
   }
 };
