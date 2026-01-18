@@ -281,6 +281,10 @@
       user-select: none;
     }
   </style>
+  <!-- KaTeX for LaTeX formula rendering -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
   <script src="assets/js/toast.js"></script>
   <script src="assets/js/localstorage-utils.js"></script>
 </head>
@@ -732,6 +736,19 @@
 
       html += '</div>';
       container.innerHTML = html;
+      
+      // Render LaTeX formulas with KaTeX
+      if (typeof renderMathInElement === 'function') {
+        renderMathInElement(container, {
+          delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false},
+            {left: '\\(', right: '\\)', display: false},
+            {left: '\\[', right: '\\]', display: true}
+          ],
+          throwOnError: false
+        });
+      }
           
       // Actualizar contador y progreso
       document.getElementById('questionCounter').textContent = `${index + 1} / ${preguntes.length}`;

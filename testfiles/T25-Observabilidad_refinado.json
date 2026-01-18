@@ -1,0 +1,274 @@
+[
+  {
+    "guid": "91ddc9f7-8443-414b-8195-9723046c431d",
+    "subjectId": "T25",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "¿Qué herramienta de código abierto se considera el estándar de facto para la recolección y almacenamiento de métricas en entornos Cloud Native y Kubernetes?",
+    "answerOptions": [
+      {
+        "text": "Logstash",
+        "isCorrect": false,
+        "rationale": "Logstash es un componente del stack ELK cuya función es la ingesta y procesamiento de logs desde diversas fuentes.",
+        "selectedByUser": true
+      },
+      {
+        "text": "Kibana",
+        "isCorrect": false,
+        "rationale": "Kibana es una herramienta de visualización potente, pero su especialidad es la exploración de datos de logs almacenados en Elasticsearch."
+      },
+      {
+        "text": "Jaeger",
+        "isCorrect": false,
+        "rationale": "Jaeger es una solución de código abierto muy popular, pero su función principal es el trazado distribuido, no la recolección de métricas."
+      },
+      {
+        "text": "Prometheus",
+        "isCorrect": true,
+        "rationale": "Prometheus fue diseñado específicamente para la monitorización de métricas en series temporales y es una pieza central del ecosistema de monitorización de Kubernetes."
+      }
+    ],
+    "hint": "Busca la herramienta que utiliza un lenguaje de consulta propio llamado PromQL y se integra de forma nativa con Grafana.",
+    "username": "amorato",
+    "fecha": "2026-01-18T10:55:38.034Z"
+  },
+  {
+    "guid": "38276981-f755-47a5-98e7-0a27823f09ce",
+    "subjectId": "T25",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Un equipo de SRE define que el '99.5% de las peticiones a la API de registro deben tener una latencia inferior a 400ms'. ¿A qué concepto de gestión de servicios corresponde esta definición?",
+    "answerOptions": [
+      {
+        "text": "Error Budget",
+        "isCorrect": false,
+        "rationale": "El presupuesto de error es la cantidad de tiempo o peticiones que pueden fallar sin incumplir el SLO, derivado de este pero no es la definición del objetivo."
+      },
+      {
+        "text": "Service Level Objective (SLO)",
+        "isCorrect": true,
+        "rationale": "Un SLO es un objetivo interno, específico y medible para un indicador de nivel de servicio (SLI), que en este caso es la latencia de la API."
+      },
+      {
+        "text": "Service Level Indicator (SLI)",
+        "isCorrect": false,
+        "rationale": "El SLI es la métrica que se mide (por ejemplo, la latencia), pero no el objetivo en sí mismo.",
+        "selectedByUser": true
+      },
+      {
+        "text": "Service Level Agreement (SLA)",
+        "isCorrect": false,
+        "rationale": "El SLA es un acuerdo contractual, a menudo con consecuencias financieras, que se basa en los SLOs pero es un concepto más formal y externo."
+      }
+    ],
+    "hint": "No se trata de la métrica en sí (el indicador), ni del contrato con el cliente, sino del objetivo interno que el equipo se compromete a cumplir.",
+    "username": "amorato",
+    "fecha": "2026-01-18T10:24:12.341Z"
+  },
+  {
+    "guid": "08210cb4-ec9b-4045-aa34-7b4651e797ac",
+    "subjectId": "T25",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "¿Qué representa un SLI (Service Level Indicator) en el contexto de SRE?",
+    "answerOptions": [
+      {
+        "text": "El proceso de análisis de un incidente para evitar que se repita.",
+        "isCorrect": false,
+        "rationale": "Este es el propósito de un postmortem, no de un indicador de nivel de servicio."
+      },
+      {
+        "text": "Una métrica cuantitativa específica que mide un aspecto del nivel de servicio, como la latencia.",
+        "isCorrect": true,
+        "rationale": "Un SLI es la medición directa y técnica de la fiabilidad, como el tiempo de respuesta o la tasa de errores.",
+        "selectedByUser": true
+      },
+      {
+        "text": "Un acuerdo contractual con el cliente que define las penalizaciones por incumplimiento.",
+        "isCorrect": false,
+        "rationale": "Esto describe un SLA (Service Level Agreement), que es un compromiso formal y a menudo legal."
+      },
+      {
+        "text": "El objetivo interno que el equipo se propone alcanzar para un determinado SLI.",
+        "isCorrect": false,
+        "rationale": "Esto describe un SLO (Service Level Objective), que es la meta para un SLI (ej. 99.9% de disponibilidad)."
+      }
+    ],
+    "hint": "Es la 'medida' directa, no el 'objetivo' ni el 'contrato'.",
+    "username": "amorato",
+    "fecha": "2026-01-18T09:58:04.998Z"
+  },
+  {
+    "guid": "6a40d1ab-396e-4aa7-9d1e-dcec07209b0a",
+    "subjectId": "T25",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "Una plataforma de observabilidad debe ser capaz de procesar y almacenar terabytes de datos diarios en grandes organizaciones. ¿A qué característica principal se refiere esta necesidad?",
+    "answerOptions": [
+      {
+        "text": "Escalabilidad",
+        "isCorrect": true,
+        "rationale": "La escalabilidad es la característica que permite a la plataforma crecer y manejar volúmenes masivos de datos sin degradar su rendimiento."
+      },
+      {
+        "text": "Tiempo real",
+        "isCorrect": false,
+        "rationale": "El tiempo real se centra en la inmediatez de la visualización de los datos, no en la capacidad de manejar su volumen."
+      },
+      {
+        "text": "Extensibilidad",
+        "isCorrect": false,
+        "rationale": "La extensibilidad es la capacidad de conectarse con diferentes fuentes de datos, lo cual es distinto a la capacidad de procesar el volumen de esos datos.",
+        "selectedByUser": true
+      },
+      {
+        "text": "Correlación y contexto",
+        "isCorrect": false,
+        "rationale": "La correlación se refiere a la capacidad de relacionar diferentes tipos de datos, no a la gestión de grandes volúmenes."
+      }
+    ],
+    "hint": "Piensa en la capacidad de la plataforma para crecer en recursos y soportar una carga de datos cada vez mayor.",
+    "username": "amorato",
+    "fecha": "2026-01-18T09:55:48.764Z"
+  },
+  {
+    "guid": "354ca6c4-9d4e-4ab1-9b3a-352ab9d73ef1",
+    "subjectId": "T25",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "El concepto de 'error budget' en SRE está directamente relacionado con la gestión de:",
+    "answerOptions": [
+      {
+        "text": "El número máximo de alertas que el equipo de guardia puede recibir por semana.",
+        "isCorrect": false,
+        "rationale": "Aunque relacionado con la carga de trabajo, el 'error budget' se mide en función de los objetivos de nivel de servicio (SLO), no del número de alertas."
+      },
+      {
+        "text": "El equilibrio entre la innovación (desplegar nuevas funciones) y la fiabilidad del servicio.",
+        "isCorrect": true,
+        "rationale": "El 'error budget' define el nivel aceptable de falta de fiabilidad. Mientras no se agote, se pueden lanzar nuevas versiones; si se agota, la prioridad pasa a ser la estabilización.",
+        "selectedByUser": true
+      },
+      {
+        "text": "La cantidad de errores de código permitidos en cada despliegue.",
+        "isCorrect": false,
+        "rationale": "No se refiere a errores de programación, sino al tiempo de inactividad o degradación del servicio permitido."
+      },
+      {
+        "text": "El presupuesto financiero asignado al departamento de operaciones.",
+        "isCorrect": false,
+        "rationale": "El 'error budget' no es un concepto financiero, sino una métrica técnica para la gestión de la fiabilidad."
+      }
+    ],
+    "hint": "Este concepto ayuda a los equipos a tomar decisiones basadas en datos sobre cuándo es seguro lanzar nuevas funcionalidades y cuándo deben centrarse en la estabilidad.",
+    "username": "amorato",
+    "fecha": "2026-01-18T09:54:03.979Z"
+  },
+  {
+    "guid": "a864776c-e829-4d57-9b70-ae74611af6f0",
+    "subjectId": "T25",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "¿Cuál de las siguientes plataformas comerciales es conocida por utilizar un motor de IA llamado 'Davis' para realizar análisis de causa raíz de forma automática?",
+    "answerOptions": [
+      {
+        "text": "Instana (IBM)",
+        "isCorrect": false,
+        "rationale": "Instana es conocida por sus 'Smart Alerts' basadas en ML y su fuerte enfoque en el tracing en tiempo real, pero su motor de IA no se llama 'Davis'."
+      },
+      {
+        "text": "Splunk Observability",
+        "isCorrect": false,
+        "rationale": "Splunk es extremadamente potente en la indexación y búsqueda masiva de logs, pero su motor de IA para análisis de causa raíz no es su característica más destacada con ese nombre.",
+        "selectedByUser": true
+      },
+      {
+        "text": "Dynatrace",
+        "isCorrect": true,
+        "rationale": "Dynatrace se diferencia en el mercado por su motor de IA, 'Davis', que está diseñado específicamente para automatizar el análisis de causa raíz."
+      },
+      {
+        "text": "Datadog",
+        "isCorrect": false,
+        "rationale": "Datadog ofrece una plataforma SaaS todo-en-uno con detección de anomalías, pero el motor de IA 'Davis' no es parte de su suite."
+      }
+    ],
+    "hint": "Esta plataforma comercial promociona activamente su capacidad de análisis de causa raíz impulsada por inteligencia artificial con un nombre propio.",
+    "username": "amorato",
+    "fecha": "2026-01-18T09:37:12.148Z"
+  },
+  {
+    "guid": "91321323-ae9a-418e-bc29-171484dcbe3d",
+    "subjectId": "T25",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Un equipo está construyendo su plataforma de observabilidad con herramientas Open Source. Ya han elegido Prometheus para las métricas y Jaeger para las trazas. ¿Qué componente del stack ELK utilizarían específicamente para la ingesta, transformación y envío de logs desde múltiples fuentes a un destino centralizado?",
+    "answerOptions": [
+      {
+        "text": "Logstash/Beats",
+        "isCorrect": true,
+        "rationale": "Logstash es un pipeline de procesamiento de datos del lado del servidor, y los Beats son agentes ligeros que se instalan en los sistemas para recolectar y enviar datos (como logs) a Logstash o Elasticsearch."
+      },
+      {
+        "text": "Elasticsearch",
+        "isCorrect": false,
+        "rationale": "Elasticsearch es el motor de búsqueda e indexación donde se almacenan los logs, pero no es responsable de la ingesta y el procesamiento inicial.",
+        "selectedByUser": true
+      },
+      {
+        "text": "Grafana",
+        "isCorrect": false,
+        "rationale": "Grafana es una plataforma de visualización, pero no se encarga de la ingesta y procesamiento de logs en el pipeline de datos."
+      },
+      {
+        "text": "Kibana",
+        "isCorrect": false,
+        "rationale": "Kibana es la herramienta de visualización y creación de dashboards para los datos almacenados en Elasticsearch."
+      }
+    ],
+    "hint": "Busca el componente del stack que actúa como un 'pipeline' o 'transportista' de datos para los logs.",
+    "username": "amorato",
+    "fecha": "2026-01-18T09:34:03.362Z"
+  },
+  {
+    "guid": "ce187c1f-fc6e-4b46-a454-becf9003443e",
+    "subjectId": "T25",
+    "difficulty": 3,
+    "origin": "SETA",
+    "type": "test",
+    "question": "Quin component de l’arquitectura de Prometheus s'encarrega de recollir dades de les fonts?",
+    "answerOptions": [
+      {
+        "text": "Tracer",
+        "isCorrect": false,
+        "rationale": "No és un component de Prometheus.",
+        "selectedByUser": true
+      },
+      {
+        "text": "PromQL",
+        "isCorrect": false,
+        "rationale": "PromQL és el llenguatge de consultes."
+      },
+      {
+        "text": "Alertmanager",
+        "isCorrect": false,
+        "rationale": "Gestiona alertes,no recollida."
+      },
+      {
+        "text": "Exporter",
+        "isCorrect": true,
+        "rationale": "Els exporters exposen mètriques perquè Prometheus les reculli."
+      }
+    ],
+    "username": "amorato",
+    "fecha": "2026-01-18T09:09:37.156Z"
+	}
+	]
+
