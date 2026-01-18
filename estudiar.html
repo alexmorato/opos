@@ -579,7 +579,16 @@
       const pregunta = preguntes[index];
       const container = document.getElementById('questionContainer');
 
+      // Ocultar hint por defecto
       ocultarHint();
+      // Mostrar u ocultar el área de hint según si la pregunta tiene hint
+      const hintDiv = document.getElementById('hintArea');
+      const tieneHint = pregunta && (pregunta.hint || pregunta.pista || pregunta.clue);
+      if (tieneHint) {
+        hintDiv.style.display = '';
+      } else {
+        hintDiv.style.display = 'none';
+      }
       
       // Detectar si hay más de una respuesta correcta
       const answerOptions = pregunta.answerOptions || [];
