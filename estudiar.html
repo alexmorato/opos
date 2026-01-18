@@ -374,6 +374,7 @@
         <button class="historial-btn" onclick="copiarHistorial()">📋 Copia</button>
         <button class="historial-btn" onclick="baixarHistorial()">💾 Baixa</button>
         <button class="historial-btn" onclick="guardarDubte()">❓ Guardar dubte</button>
+        <button class="historial-btn" onclick="borrarUltimoError()">⬅️ Esborrar últim</button>
         <button class="historial-btn" onclick="esborrarHistorial()">🗑️ Esborrar tot</button>
       </div>
       <textarea class="historial-textarea" id="historialFallos" readonly placeholder="Aquí apareixeran les preguntes fallades..."></textarea>
@@ -1186,6 +1187,18 @@
       }
       resetInactivityTimer();
     });
+
+    // Borrar el último error del historial
+    function borrarUltimoError() {
+      if (!historialFallos.length) {
+        toast.showToast('No hi ha errors per esborrar.');
+        return;
+      }
+      historialFallos.shift();
+      actualizarTextareaHistorial();
+      localStorage.setItem(LS_KEYS.HISTORIAL_FALLOS, JSON.stringify(historialFallos));
+      toast.showToast('Últim error esborrat!');
+    }
 
   </script>
 </body>
