@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Historial de Fallos - sTIC d'Opos</title>
+
+  <link rel="icon" type="image/png" sizes="16x16" href="images/icons/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/icons/favicon-32x32.png">
+  <link rel="icon" href="images/icons/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" sizes="180x180" href="images/icons/apple-touch-icon.png">
+  <link rel="manifest" href="images/icons/site.webmanifest">
+  <link rel="icon" type="image/png" sizes="192x192" href="images/icons/android-chrome-192x192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="images/icons/android-chrome-512x512.png">
+
+  <link rel="stylesheet" href="assets/styles/loading.css">
+  <style>
+    body { 
+      font-family: system-ui, sans-serif; 
+      background: #0b1020; 
+      color: #e7ecff; 
+      margin: 0; 
+      padding: 0; 
+    }
+    .center { 
+      min-height: 100vh; 
+      display: flex; 
+      flex-direction: column; 
+      align-items: center; 
+      justify-content: flex-start; 
+      padding: 20px; 
+    }
+    .titulo {
+      text-align: center;
+      color: #6ae0a7;
+      font-size: 2.2rem;
+      font-weight: bold;
+      margin-top: 15px;
+      margin-bottom: 10px;
+      letter-spacing: 0.5px;
+    }
+    .info-box {
+      width: 90vw; 
+      max-width: 900px; 
+      background: #141a2a; 
+      color: #e7ecff;
+      border: 1.5px solid #27304a; 
+      border-radius: 10px; 
+      padding: 18px 14px; 
+      margin-bottom: 20px; 
+      box-shadow: 0 4px 18px #0002;
+    }
+    .stats {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-bottom: 10px;
+    }
+    .stat-item {
+      font-size: 1.1rem;
+    }
+    .stat-label {
+      color: #6ae0a7;
+      font-weight: bold;
+    }
+    .preguntes-container {
+      width: 90vw; 
+      max-width: 900px; 
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+    .pregunta-card {
+      background: #141a2a;
+      border: 1.5px solid #27304a;
+      border-radius: 10px;
+      padding: 16px;
+      box-shadow: 0 4px 18px #0002;
+      transition: border-color 0.2s;
+    }
+    .pregunta-card:hover {
+      border-color: #6ae0a7;
+    }
+    .pregunta-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 12px;
+      gap: 15px;
+    }
+    .pregunta-info {
+      flex: 1;
+    }
+    .pregunta-text {
+      font-size: 1.1rem;
+      color: #e7ecff;
+      margin-bottom: 8px;
+      line-height: 1.5;
+    }
+    .pregunta-meta {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+      font-size: 0.9rem;
+      color: #a0a8c0;
+    }
+    .meta-item {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .meta-label {
+      color: #6ae0a7;
+      font-weight: 600;
+    }
+    .pregunta-actions {
+      display: flex;
+      gap: 8px;
+      flex-shrink: 0;
+    }
+    .btn {
+      padding: 8px 16px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      font-size: 0.95rem;
+      font-weight: 600;
+      transition: all 0.2s;
+    }
+    .btn-detail {
+      background: #2a5f8a;
+      color: #e7ecff;
+    }
+    .btn-detail:hover {
+      background: #3a7faa;
+    }
+    .btn-delete {
+      background: #8a2a2a;
+      color: #e7ecff;
+    }
+    .btn-delete:hover {
+      background: #aa3a3a;
+    }
+    .btn-primary {
+      width: 100%;
+      max-width: 300px;
+      background: linear-gradient(180deg,#2aebad,#21c08d);
+      color: #032217;
+      font-weight: bold;
+      font-size: 1.1rem;
+      padding: 14px 0;
+      border-radius: 12px;
+      border: none;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    .btn-secondary {
+      width: 100%;
+      max-width: 300px;
+      background: #27304a;
+      color: #e7ecff;
+      font-size: 1.05rem;
+      padding: 10px 0;
+      border-radius: 10px;
+      border: none;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    .btn-danger {
+      width: 100%;
+      max-width: 300px;
+      background: #8a2a2a;
+      color: #e7ecff;
+      font-size: 1.05rem;
+      padding: 10px 0;
+      border-radius: 10px;
+      border: none;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    .btn-danger:hover {
+      background: #aa3a3a;
+    }
+    .empty-state {
+      text-align: center;
+      padding: 40px 20px;
+      color: #a0a8c0;
+      font-size: 1.2rem;
+    }
+    /* Modal Styles */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.7);
+      overflow: auto;
+    }
+    .modal-content {
+      background: #141a2a;
+      margin: 5% auto;
+      padding: 30px;
+      border: 2px solid #27304a;
+      border-radius: 12px;
+      width: 90%;
+      max-width: 700px;
+      box-shadow: 0 8px 32px #0004;
+      max-height: 80vh;
+      overflow-y: auto;
+    }
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 20px;
+      padding-bottom: 15px;
+      border-bottom: 2px solid #27304a;
+    }
+    .modal-title {
+      color: #6ae0a7;
+      font-size: 1.4rem;
+      font-weight: bold;
+      flex: 1;
+      line-height: 1.4;
+    }
+    .close {
+      color: #a0a8c0;
+      font-size: 32px;
+      font-weight: bold;
+      cursor: pointer;
+      line-height: 1;
+      padding: 0 10px;
+      margin-left: 15px;
+      flex-shrink: 0;
+    }
+    .close:hover {
+      color: #6ae0a7;
+    }
+    .modal-section {
+      margin-bottom: 20px;
+    }
+    .modal-section-title {
+      color: #6ae0a7;
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+    .modal-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-bottom: 20px;
+      padding: 12px;
+      background: #0b1020;
+      border-radius: 8px;
+    }
+    .answer-option {
+      padding: 12px 16px;
+      background: #0b1020;
+      border: 2px solid #27304a;
+      border-radius: 8px;
+      margin-bottom: 10px;
+      line-height: 1.5;
+    }
+    .answer-option.correct {
+      border-color: #21c08d;
+      background: rgba(33, 192, 141, 0.1);
+    }
+    .answer-option.selected {
+      border-color: #8a2a2a;
+      background: rgba(138, 42, 42, 0.1);
+    }
+    .answer-option.correct.selected {
+      border-color: #21c08d;
+      background: rgba(33, 192, 141, 0.15);
+    }
+    .answer-badge {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-left: 10px;
+    }
+    .badge-correct {
+      background: #21c08d;
+      color: #032217;
+    }
+    .badge-selected {
+      background: #8a2a2a;
+      color: #fff;
+    }
+    .answer-rationale {
+      margin-top: 8px;
+      padding-top: 8px;
+      border-top: 1px solid #27304a;
+      color: #a0a8c0;
+      font-size: 0.95rem;
+      font-style: italic;
+    }
+    .buttons-container {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+  </style>
+  <script src="assets/js/loading.js"></script>
+  <script src="assets/js/login.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bcryptjs@2.4.3/dist/bcrypt.min.js"></script>
+  <script src="assets/js/localstorage-utils.js"></script>
+</head>
+<body>
+  <div class="center">
+    <h1 class="titulo">📚 Historial de Fallos</h1>
+    
+    <div class="info-box">
+      <div class="stats">
+        <div class="stat-item">
+          <span class="stat-label">Total preguntes:</span>
+          <span id="totalPreguntes">0</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-label">Última actualització:</span>
+          <span id="ultimaActualizacion">-</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="preguntes-container" id="preguntesContainer">
+      <div class="empty-state">No hi ha preguntes a l'historial de fallos.</div>
+    </div>
+
+    <div class="buttons-container">
+      <button class="btn-primary" id="repassarBtn" style="display:none;">🔁 Repassar Historial</button>
+      <button class="btn-danger" id="esborrarTotBtn" style="display:none;">🗑️ Esborrar Tot</button>
+      <button class="btn-secondary" id="tornarBtn">⬅️ Tornar</button>
+    </div>
+  </div>
+
+  <!-- Modal para mostrar detalles -->
+  <div id="detailModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="modalTitle"></h2>
+        <span class="close">&times;</span>
+      </div>
+      <div class="modal-meta" id="modalMeta"></div>
+      <div class="modal-section">
+        <div class="modal-section-title">Opcions de Resposta:</div>
+        <div id="modalAnswers"></div>
+      </div>
+      <div class="modal-section" id="modalHintSection" style="display:none;">
+        <div class="modal-section-title">💡 Pista:</div>
+        <div id="modalHint"></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    if (typeof showLoadingSpinner === 'function') showLoadingSpinner('Carregant historial...');
+
+    // Verificar autenticación
+    document.addEventListener('DOMContentLoaded', function() {
+      const userName = localStorage.getItem(LS_KEYS.USER_NAME);
+      const userPass = localStorage.getItem(LS_KEYS.USER_PASS);
+      login.checkUserAuth(userName, userPass);
+    }, {once:true});
+
+    // Variables globales
+    let historialFallos = [];
+    const preguntesContainer = document.getElementById('preguntesContainer');
+    const modal = document.getElementById('detailModal');
+    const closeModal = document.getElementsByClassName('close')[0];
+
+    // Cargar historial del localStorage
+    function cargarHistorial() {
+      try {
+        const historialStr = localStorage.getItem(LS_KEYS.HISTORIAL_FALLOS);
+        historialFallos = historialStr ? JSON.parse(historialStr) : [];
+      } catch (e) {
+        console.error('Error al cargar historial:', e);
+        historialFallos = [];
+      }
+      actualizarUI();
+    }
+
+    // Actualizar interfaz de usuario
+    function actualizarUI() {
+      // Actualizar estadísticas
+      document.getElementById('totalPreguntes').textContent = historialFallos.length;
+      
+      if (historialFallos.length > 0) {
+        // Encontrar la fecha más reciente
+        const fechas = historialFallos
+          .filter(p => p.fecha)
+          .map(p => new Date(p.fecha))
+          .sort((a, b) => b - a);
+        
+        if (fechas.length > 0) {
+          const ultimaFecha = fechas[0];
+          document.getElementById('ultimaActualizacion').textContent = 
+            ultimaFecha.toLocaleDateString('ca-ES') + ' ' + ultimaFecha.toLocaleTimeString('ca-ES', {hour: '2-digit', minute: '2-digit'});
+        } else {
+          document.getElementById('ultimaActualizacion').textContent = '-';
+        }
+
+        // Mostrar botones
+        document.getElementById('repassarBtn').style.display = 'block';
+        document.getElementById('esborrarTotBtn').style.display = 'block';
+
+        // Renderizar preguntas
+        renderizarPreguntes();
+      } else {
+        document.getElementById('ultimaActualizacion').textContent = '-';
+        document.getElementById('repassarBtn').style.display = 'none';
+        document.getElementById('esborrarTotBtn').style.display = 'none';
+        preguntesContainer.innerHTML = '<div class="empty-state">No hi ha preguntes a l\'historial de fallos.</div>';
+      }
+
+      if (typeof hideLoadingSpinner === 'function') hideLoadingSpinner();
+    }
+
+    // Renderizar lista de preguntas
+    function renderizarPreguntes() {
+      preguntesContainer.innerHTML = '';
+      
+      historialFallos.forEach((pregunta, index) => {
+        const card = document.createElement('div');
+        card.className = 'pregunta-card';
+        
+        const questionText = pregunta.question || pregunta.pregunta || 'Pregunta sense text';
+        const subjectId = pregunta.subjectId || '-';
+        const difficulty = pregunta.difficulty || '-';
+        const origin = pregunta.origin || '-';
+        const fecha = pregunta.fecha ? new Date(pregunta.fecha) : null;
+        const username = pregunta.username || '-';
+
+        // Crear resumen truncado de la pregunta
+        const maxLength = 150;
+        const resumen = questionText.length > maxLength 
+          ? questionText.substring(0, maxLength) + '...' 
+          : questionText;
+
+        card.innerHTML = `
+          <div class="pregunta-header">
+            <div class="pregunta-info">
+              <div class="pregunta-text">${resumen}</div>
+              <div class="pregunta-meta">
+                <div class="meta-item">
+                  <span class="meta-label">Tema:</span>
+                  <span>${subjectId}</span>
+                </div>
+                <div class="meta-item">
+                  <span class="meta-label">Dificultat:</span>
+                  <span>${difficulty}</span>
+                </div>
+                <div class="meta-item">
+                  <span class="meta-label">Origen:</span>
+                  <span>${origin}</span>
+                </div>
+                ${fecha ? `
+                <div class="meta-item">
+                  <span class="meta-label">Data:</span>
+                  <span>${fecha.toLocaleDateString('ca-ES')}</span>
+                </div>
+                ` : ''}
+                ${username !== '-' ? `
+                <div class="meta-item">
+                  <span class="meta-label">Usuari:</span>
+                  <span>${username}</span>
+                </div>
+                ` : ''}
+              </div>
+            </div>
+            <div class="pregunta-actions">
+              <button class="btn btn-detail" data-index="${index}">👁️ Detall</button>
+              <button class="btn btn-delete" data-index="${index}">🗑️</button>
+            </div>
+          </div>
+        `;
+        
+        preguntesContainer.appendChild(card);
+      });
+
+      // Añadir event listeners a los botones
+      document.querySelectorAll('.btn-detail').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          const index = parseInt(e.target.dataset.index);
+          mostrarDetalle(index);
+        });
+      });
+
+      document.querySelectorAll('.btn-delete').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          const index = parseInt(e.target.dataset.index);
+          borrarPregunta(index);
+        });
+      });
+    }
+
+    // Mostrar detalle en modal
+    function mostrarDetalle(index) {
+      const pregunta = historialFallos[index];
+      if (!pregunta) return;
+
+      const questionText = pregunta.question || pregunta.pregunta || 'Pregunta sense text';
+      document.getElementById('modalTitle').textContent = questionText;
+
+      // Meta información
+      const metaHTML = `
+        <div class="meta-item">
+          <span class="meta-label">Tema:</span>
+          <span>${pregunta.subjectId || '-'}</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Tipus:</span>
+          <span>${pregunta.type || '-'}</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Dificultat:</span>
+          <span>${pregunta.difficulty || '-'}</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Origen:</span>
+          <span>${pregunta.origin || '-'}</span>
+        </div>
+      `;
+      document.getElementById('modalMeta').innerHTML = metaHTML;
+
+      // Respuestas
+      const answersHTML = (pregunta.answerOptions || []).map((option) => {
+        const isCorrect = option.isCorrect || false;
+        const isSelected = option.selectedByUser || false;
+        let classes = 'answer-option';
+        let badges = '';
+        
+        if (isCorrect) {
+          classes += ' correct';
+          badges += '<span class="answer-badge badge-correct">✓ CORRECTA</span>';
+        }
+        if (isSelected) {
+          classes += ' selected';
+          badges += '<span class="answer-badge badge-selected">Seleccionada</span>';
+        }
+
+        const rationale = option.rationale || option.raonationale || '';
+
+        return `
+          <div class="${classes}">
+            <div>
+              ${option.text || option.resposta || '-'}
+              ${badges}
+            </div>
+            ${rationale ? `<div class="answer-rationale">${rationale}</div>` : ''}
+          </div>
+        `;
+      }).join('');
+      document.getElementById('modalAnswers').innerHTML = answersHTML || '<p>No hi ha opcions de resposta.</p>';
+
+      // Pista
+      const hint = pregunta.hint || pregunta.pista || '';
+      if (hint) {
+        document.getElementById('modalHint').textContent = hint;
+        document.getElementById('modalHintSection').style.display = 'block';
+      } else {
+        document.getElementById('modalHintSection').style.display = 'none';
+      }
+
+      modal.style.display = 'block';
+    }
+
+    // Borrar pregunta
+    function borrarPregunta(index) {
+      if (confirm('Segur que vols esborrar aquesta pregunta de l\'historial?')) {
+        historialFallos.splice(index, 1);
+        guardarHistorial();
+        actualizarUI();
+      }
+    }
+
+    // Guardar historial en localStorage
+    function guardarHistorial() {
+      try {
+        localStorage.setItem(LS_KEYS.HISTORIAL_FALLOS, JSON.stringify(historialFallos));
+      } catch (e) {
+        console.error('Error al guardar historial:', e);
+        alert('Error al guardar els canvis');
+      }
+    }
+
+    // Cerrar modal
+    closeModal.onclick = function() {
+      modal.style.display = 'none';
+    }
+
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = 'none';
+      }
+    }
+
+    // Botón repasar historial
+    document.getElementById('repassarBtn').onclick = function() {
+      if (historialFallos.length > 0) {
+        // Guardar las preguntas del historial como preguntas a estudiar
+        localStorage.setItem(LS_KEYS.PREGUNTES, JSON.stringify(historialFallos));
+        // Limpiar estado anterior
+        if (typeof borrarEstudioGuardado === 'function') borrarEstudioGuardado();
+        // Navegar a estudiar
+        window.location.href = 'estudiar.html';
+      }
+    };
+
+    // Botón esborrar tot
+    document.getElementById('esborrarTotBtn').onclick = function() {
+      if (confirm('Segur que vols esborrar TOT l\'historial de fallos? Aquesta acció no es pot desfer.')) {
+        historialFallos = [];
+        guardarHistorial();
+        actualizarUI();
+      }
+    };
+
+    // Botón tornar
+    document.getElementById('tornarBtn').onclick = function() {
+      window.location.href = 'init.html';
+    };
+
+    // Cargar historial al iniciar
+    cargarHistorial();
+  </script>
+</body>
+</html>
