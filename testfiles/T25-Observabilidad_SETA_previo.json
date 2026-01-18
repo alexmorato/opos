@@ -1,0 +1,269 @@
+[
+    {
+        "guid": "be7f7d3d-57b3-43bd-8347-6067fc5829ed",
+        "subjectId": "T25",
+        "difficulty": 1,
+        "origin": "SETA",
+        "type": "test",
+        "question": "Quins són els tres pilars de l'observabilitat?",
+        "answerOptions": [
+     {"text":"Logs,dashboards i alertes","isCorrect":false,"rationale":"Dashboards i alertes són components de visualització i gestió,no pilars."},
+     {"text":"Logs,traces i mètriques","isCorrect":true,"rationale":"Logs,mètriques i traces són els tres pilars clàssics de l’observabilitat."},
+     {"text":"Events,logs i informes","isCorrect":false,"rationale":"Els informes no formen part dels pilars bàsics."},
+     {"text":"Mòniques,traces i reports","isCorrect":false,"rationale":"Aquesta opció conté termes incorrectes."}
+    ]
+    },
+    {
+        "guid": "dede4808-86f0-4548-8b91-e461e674d786",
+        "subjectId": "T25",
+        "difficulty": 1,
+        "origin": "SETA",
+        "type": "test",
+        "question": "Quina d’aquestes afirmacions és certa sobre les mètriques?",
+        "answerOptions": [
+     {"text":"Són registres detallats d'esdeveniments puntuals","isCorrect":false,"rationale":"Això descriu logs,no mètriques."},
+     {"text":"Representen valors numèrics agregats al llarg del temps","isCorrect":true,"rationale":"Les mètriques són valors numèrics mesurats de forma periòdica."},
+     {"text":"Són útils només per a errors crítics","isCorrect":false,"rationale":"També s’utilitzen per rendiment,capacitat i tendències."},
+     {"text":"No es poden visualitzar en temps real","isCorrect":false,"rationale":"Les mètriques es poden visualitzar en temps real."}
+    ]
+    },
+    {
+        "guid": "386c0a9b-7706-408c-9562-92d6d46010e6",
+        "subjectId": "T25",
+        "difficulty": 1,
+        "origin": "SETA",
+        "type": "test",
+        "question": "Les traces ens permeten:",
+        "answerOptions": [
+     {"text":"Detectar errors de compilació","isCorrect":false,"rationale":"Això correspon a processos de desenvolupament."},
+     {"text":"Conèixer el temps de resposta de cada pas d’una petició","isCorrect":true,"rationale":"Les traces mostren el flux i la latència entre serveis."},
+     {"text":"Comparar logs entre diferents serveis","isCorrect":false,"rationale":"La comparació de logs no és la funció principal de les traces."},
+     {"text":"Controlar l'ús de CPU","isCorrect":false,"rationale":"Això és funció de les mètriques."}
+    ]
+    },
+    {
+        "guid": "0ca441bb-9efa-4cb5-85b8-f2b635909417",
+        "subjectId": "T25",
+        "difficulty": 2,
+        "origin": "SETA",
+        "type": "test",
+        "question": "Un sistema és observable quan:",
+        "answerOptions": [
+     {"text":"Té moltes alertes configurades","isCorrect":false,"rationale":"La quantitat d’alertes no garanteix observabilitat."},
+     {"text":"Mostra dades de rendiment,però no errors","isCorrect":false,"rationale":"Cal visibilitat completa,incloent errors."},
+     {"text":"Permet inferir l'estat intern a partir de les sortides externes","isCorrect":true,"rationale":"Aquesta és la definició clàssica d’observabilitat."},
+     {"text":"Té més d'un panell de monitoratge","isCorrect":false,"rationale":"El nombre de panells no determina observabilitat."}
+    ]
+    },
+    {
+        "guid": "1645214f-6ebf-45dc-8bb3-3b20fad40ffb",
+        "subjectId": "T25",
+        "difficulty": 2,
+        "origin": "SETA",
+        "type": "test",
+        "question": "Quin dels següents sistemes està més orientat a la recollida de mètriques?",
+        "answerOptions": [
+     {"text":"Jaeger","isCorrect":false,"rationale":"Jaeger és una eina de traces distribuïdes."},
+     {"text":"Grafana","isCorrect":false,"rationale":"Grafana visualitza dades,però no les recull."},
+     {"text":"Prometheus","isCorrect":true,"rationale":"Prometheus està dissenyat per recollir i emmagatzemar mètriques."},
+     {"text":"ELK Stack","isCorrect":false,"rationale":"ELK està orientat principalment a logs."}
+    ]
+    },
+    {
+        "guid": "6418f17d-9842-427b-a976-b835e39357b2",
+        "subjectId": "T25",
+        "difficulty": 4,
+        "origin": "SETA",
+        "type": "test",
+        "question": "En observabilitat, què és el cardinality explosion i per què és un problema?",
+        "answerOptions": [
+     {"text":"És una tècnica per analitzar logs amb moltes línies duplicades","isCorrect":false,"rationale":"No té relació amb duplicació de logs."},
+     {"text":"És quan una mètrica té massa valors únics per etiqueta,i pot afectar el rendiment","isCorrect":true,"rationale":"Un excés de cardinalitat pot degradar el rendiment i consumir molta memòria."},
+     {"text":"Es produeix quan les traces no es correlacionen bé amb les mètriques","isCorrect":false,"rationale":"Això és un problema de correlació,no de cardinalitat."},
+     {"text":"Fa referència a l’ús de moltes alertes redundants","isCorrect":false,"rationale":"Això és alert fatigue,no cardinality explosion."}
+    ],
+        "hint": "Pensa en etiquetes amb molts valors diferents."
+    },
+    {
+        "guid": "fff23901-0212-4572-ae60-10975a8b2758",
+        "subjectId": "T25",
+        "difficulty": 4,
+        "origin": "SETA",
+        "type": "test",
+        "question": "Quan s'utilitza OpenTelemetry, quin avantatge ofereix respecte a solucions tancades?",
+        "answerOptions": [
+     {"text":"Té una llicència més cara però més segura","isCorrect":false,"rationale":"OpenTelemetry és un estàndard obert."},
+     {"text":"Permet una integració estandarditzada amb múltiples plataformes d'observabilitat","isCorrect":true,"rationale":"OpenTelemetry facilita la interoperabilitat entre eines."},
+     {"text":"És obligatori per a sistemes en Kubernetes","isCorrect":false,"rationale":"No és obligatori,tot i que és molt habitual."},
+     {"text":"No és compatible amb mètriques,només amb logs","isCorrect":false,"rationale":"OpenTelemetry suporta logs,mètriques i traces."}
+    ]
+    },
+    {
+        "guid": "e8d8f79f-d859-4b94-8478-ace592989ba2",
+        "subjectId": "T25",
+        "difficulty": 3,
+        "origin": "SETA",
+        "type": "test",
+        "question": "Quin avantatge aporta l'ús de sampling en el context de traces distribuïdes?",
+        "answerOptions": [
+     {"text":"Redueix la latència en temps d'execució","isCorrect":false,"rationale":"El sampling no accelera directament l’execució."},
+     {"text":"Permet evitar errors en l’enviament de logs","isCorrect":false,"rationale":"No està relacionat amb l’enviament de logs."},
+     {"text":"Redueix la quantitat de dades recollides mantenint representativitat","isCorrect":true,"rationale":"El sampling controla volum i costos sense perdre informació rellevant."},
+     {"text":"Millora la correlació amb les mètriques","isCorrect":false,"rationale":"La correlació depèn del disseny,no del sampling."}
+    ]
+    },
+    {
+        "guid": "e46e2786-b0ea-4d68-bfc8-3d9ac8a03c6f",
+        "subjectId": "T25",
+        "difficulty": 3,
+        "origin": "SETA",
+        "type": "test",
+        "question": "En un sistema d’alta disponibilitat amb microserveis, quin problema pot causar una mala configuració de traçat distribuït?",
+        "answerOptions": [
+     {"text":"Duplicació de mètriques","isCorrect":false,"rationale":"Les mètriques no es dupliquen per traçat."},
+     {"text":"Bucles infinits en la comunicació","isCorrect":false,"rationale":"No és un efecte directe."},
+     {"text":"Pèrdua de context entre serveis","isCorrect":true,"rationale":"Sense context,les traces no reflecteixen el flux real."},
+     {"text":"Baixa escalabilitat del clúster","isCorrect":false,"rationale":"Pot afectar rendiment,però no és el problema principal."}
+    ]
+    },
+    {
+        "guid": "ce187c1f-fc6e-4b46-a454-becf9003443e",
+        "subjectId": "T25",
+        "difficulty": 3,
+        "origin": "SETA",
+        "type": "test",
+        "question": "Quin component de l’arquitectura de Prometheus s'encarrega de recollir dades de les fonts?",
+        "answerOptions": [
+     {"text":"PromQL","isCorrect":false,"rationale":"PromQL és el llenguatge de consultes."},
+     {"text":"Exporter","isCorrect":true,"rationale":"Els exporters exposen mètriques perquè Prometheus les reculli."},
+     {"text":"Alertmanager","isCorrect":false,"rationale":"Gestiona alertes,no recollida."},
+     {"text":"Tracer","isCorrect":false,"rationale":"No és un component de Prometheus."}
+    ]
+    },
+    {
+        "guid": "20f954e7-64be-400a-93e7-63c5e4c7ff54",
+        "subjectId": "T25",
+        "difficulty": 4,
+        "origin": "SETA",
+        "type": "test",
+        "question": "Quina és la diferència principal entre black-box i white-box monitoring?",
+        "answerOptions": [
+     {"text":"La tecnologia emprada","isCorrect":false,"rationale":"No depèn de si és open source o privativa."},
+     {"text":"El tipus de logs recollits","isCorrect":false,"rationale":"La diferència no és només el log."},
+     {"text":"L’enfocament:black-box observa el comportament extern i white-box l’estat intern","isCorrect":true,"rationale":"És la definició clàssica dels dos enfocaments."},
+     {"text":"El nivell de seguretat que ofereixen","isCorrect":false,"rationale":"No està relacionat amb seguretat."}
+    ]
+    },
+    {
+        "guid": "8f1425c8-acd0-478d-afc2-192b3c7f6412",
+        "subjectId": "T25",
+        "difficulty": 3,
+        "origin": "SETA",
+        "type": "test",
+        "question": "En què es diferencia una mètrica de tipus histogram d’una de tipus counter en Prometheus?",
+        "answerOptions": [
+     {"text":"L’histogram és per dades booleanes","isCorrect":false,"rationale":"Cap de les dues és per dades booleanes."},
+     {"text":"L’histogram agrega valors per rangs; el counter només incrementa","isCorrect":true,"rationale":"Els counters només pugen; els histogrames distribueixen valors."},
+     {"text":"El counter té més resolució temporal","isCorrect":false,"rationale":"La resolució no depèn del tipus."},
+     {"text":"No hi ha diferència funcional","isCorrect":false,"rationale":"Són tipus de mètrica diferents."}
+    ]
+    },
+    {
+        "guid": "00b882ac-28a2-4d46-b00c-6c47bbde016e",
+        "subjectId": "T25",
+        "difficulty": 3,
+        "origin": "SETA",
+        "type": "test",
+        "question": "Quin d’aquests seria un bon cas d’ús per correlacionar logs amb traces?",
+        "answerOptions": [
+     {"text":"Determinar si el panell de Grafana té massa widgets","isCorrect":false,"rationale":"No té relació amb correlació tècnica."},
+     {"text":"Identificar en quin servei es produeix una excepció dins una traça","isCorrect":true,"rationale":"La correlació permet localitzar errors en el flux."},
+     {"text":"Validar la sintaxi de PromQL","isCorrect":false,"rationale":"No està relacionat."},
+     {"text":"Millorar el disseny visual dels dashboards","isCorrect":false,"rationale":"No és un cas d’ús de correlació."}
+    ]
+    },
+    {
+        "guid": "d8e0f123-10ba-4f70-b5c0-7c8fa30f0be7",
+        "subjectId": "T25",
+        "difficulty": 3,
+        "origin": "SETA",
+        "type": "test",
+        "question": "Per què és important establir etiquetes (labels) amb criteri en les mètriques?",
+        "answerOptions": [
+     {"text":"Per poder imprimir les mètriques en format HTML","isCorrect":false,"rationale":"No és una funció rellevant."},
+     {"text":"Per evitar problemes de duplicació en logs","isCorrect":false,"rationale":"No està relacionat amb logs."},
+     {"text":"Per optimitzar la consulta i evitar sobrecàrrega de memòria","isCorrect":true,"rationale":"Un excés de labels genera problemes de cardinalitat."},
+     {"text":"Per tenir més redundància en les dades","isCorrect":false,"rationale":"No és l’objectiu."}
+    ]
+    },
+    {
+        "guid": "2570d647-9f5a-4775-afe8-037daf89f5d2",
+        "subjectId": "T25",
+        "difficulty": 2,
+        "origin": "SETA",
+        "type": "test",
+        "question": "Què és un span dins una traça distribuïda?",
+        "answerOptions": [
+     {"text":"Un log d’error","isCorrect":false,"rationale":"Un log és un registre textual,no una unitat de traça."},
+     {"text":"Un procés de consulta a base de dades","isCorrect":false,"rationale":"Pot ser un span,però no tots els spans són consultes a BD."},
+     {"text":"Una unitat de treball dins d’una operació més gran","isCorrect":true,"rationale":"Un span representa una operació individual dins d’una traça."},
+     {"text":"Un gràfic de rendiment","isCorrect":false,"rationale":"Els gràfics són visualitzacions,no elements de traça."}
+    ]
+    },
+    {
+        "guid": "7e549ec6-d261-497f-8aad-97c476733c34",
+        "subjectId": "T25",
+        "difficulty": 2,
+        "origin": "SETA",
+        "type": "test",
+        "question": "Quina diferència hi ha entre logs estructurats i no estructurats?",
+        "answerOptions": [
+     {"text":"Els estructurats són només per bases de dades","isCorrect":false,"rationale":"Els logs estructurats no són exclusius de bases de dades."},
+     {"text":"Els estructurats segueixen un format definit com JSON o XML","isCorrect":true,"rationale":"Els logs estructurats faciliten la indexació i correlació."},
+     {"text":"Els no estructurats són més ràpids de processar","isCorrect":false,"rationale":"Normalment són més difícils de processar automàticament."},
+     {"text":"No hi ha diferències rellevants","isCorrect":false,"rationale":"La diferència és clau per a l’observabilitat."}
+    ]
+    },
+    {
+        "guid": "9fcd3371-39df-4ebd-ae3f-4040ef65c2fd",
+        "subjectId": "T25",
+        "difficulty": 2,
+        "origin": "SETA",
+        "type": "test",
+        "question": "Per què és important la correlació entre logs, mètriques i traces?",
+        "answerOptions": [
+     {"text":"Per afegir redundància al sistema","isCorrect":false,"rationale":"La correlació no busca redundància."},
+     {"text":"Per fer informes mensuals","isCorrect":false,"rationale":"Els informes no són l’objectiu principal."},
+     {"text":"Per entendre millor el comportament del sistema i detectar problemes","isCorrect":true,"rationale":"La correlació permet identificar la causa arrel dels incidents."},
+     {"text":"Per estalviar recursos","isCorrect":false,"rationale":"No és la finalitat principal."}
+    ]
+    },
+    {
+        "guid": "b1a17d8f-14ba-45c9-a0ec-a66bcdb92dec",
+        "subjectId": "T25",
+        "difficulty": 1,
+        "origin": "SETA",
+        "type": "test",
+        "question": "Quina és la funció principal de Grafana?",
+        "answerOptions": [
+     {"text":"Processar logs","isCorrect":false,"rationale":"Grafana no processa logs."},
+     {"text":"Crear visualitzacions i dashboards a partir de dades d'observabilitat","isCorrect":true,"rationale":"Grafana és una eina de visualització de mètriques i altres dades."},
+     {"text":"Generar traces distribuïdes","isCorrect":false,"rationale":"Això correspon a eines de tracing."},
+     {"text":"Fer còpies de seguretat","isCorrect":false,"rationale":"No és una eina de backup."}
+    ]
+    },
+    {
+        "guid": "40345719-b857-442e-8f37-2e23ada7f0ba",
+        "subjectId": "T25",
+        "difficulty": 1,
+        "origin": "SETA",
+        "type": "test",
+        "question": "L’alertatge en temps real en un sistema observable serveix per:",
+        "answerOptions": [
+     {"text":"Millorar la seguretat perimetral","isCorrect":false,"rationale":"L’alertatge no substitueix la seguretat."},
+     {"text":"Enviar notificacions quan es superen llindars definits","isCorrect":true,"rationale":"Les alertes informen de desviacions respecte valors esperats."},
+     {"text":"Millorar el disseny del sistema","isCorrect":false,"rationale":"Pot ajudar indirectament,però no és la funció principal."},
+     {"text":"Reduir la mida dels logs","isCorrect":false,"rationale":"No té relació amb la retenció de logs."}
+    ]
+    }
+]

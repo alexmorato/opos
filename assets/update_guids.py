@@ -48,9 +48,11 @@ def update_guids(json_path, backup=True):
         print("❌ El JSON debe ser un array de objetos.")
         return
 
-    # Crear copia de seguridad
+    # Crear copia de seguridad con timestamp
     if backup:
-        backup_path = json_path + ".bak"
+        import datetime
+        timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
+        backup_path = f"{json_path}.{timestamp}.bak"
         os.rename(json_path, backup_path)
         print(f"📦 Copia de seguridad creada: {backup_path}")
 

@@ -112,6 +112,11 @@
       <span id="contadorPreguntas"></span>
     </div>
     <div class="btn-row">
+      <select id="modoEstudio" style="margin-right:12px;padding:10px 18px;border-radius:8px;border:1px solid #27304a;background:#141a2a;color:#e7ecff;font-size:1rem;">
+        <option value="1_estudiar" selected>Estudiar ràpid</option>
+        <option value="2_machacarFallos">Sobreescriure historial de fallos</option>
+        <option value="3_concatenarFallos">Concatenar al historial de fallos</option>
+      </select>
       <button class="main-btn" id="estudiarBtn" onclick="guardarYEstudiar()" >Estudiar</button>
       <button onclick="window.location.href='menu.html'">⬅️ Tornar al menú</button>
     </div>
@@ -188,16 +193,32 @@
         toast.showToast('No hi han preguntes per estudiar.');
         return;
       }
-      localStorage.setItem(LS_KEYS.JSON_COPYPASTE, JSON.stringify(nuevasPreguntas));
-
-      toast.showToast('Preguntes guardades! Redirigint...');
-      
-      // Borrar estado anterior de estudio
-      if (typeof borrarEstudioGuardado === 'function') borrarEstudioGuardado();
-
-      setTimeout(function() {
-        window.location.href = 'estudiar.html?copypaste=1';
-      }, 900);
+      const modo = document.getElementById('modoEstudio').value;
+      if (modo === '1_estudiar') {
+        localStorage.setItem(LS_KEYS.JSON_COPYPASTE, JSON.stringify(nuevasPreguntas));
+        toast.showToast('Preguntes guardades! Redirigint...');
+        if (typeof borrarEstudioGuardado === 'function') borrarEstudioGuardado();
+        setTimeout(function() {
+          window.location.href = 'estudiar.html?copypaste=1';
+        }, 900);
+      } else if (modo === '2_machacarFallos') {
+        localStorage.setItem(LS_KEYS.HISTORIAL_FALLOS, JSON.stringify(nuevasPreguntas));
+        toast.showToast('Historial de fallos sobreescrit!');
+        setTimeout(function() {
+          window.location.href = 'historialErrors.html';
+        }, 900);
+      } else if (modo === '3_concatenarFallos') {
+        let historial = [];
+        try {
+          historial = JSON.parse(localStorage.getItem(LS_KEYS.HISTORIAL_FALLOS) || '[]');
+        } catch {}
+        historial = nuevasPreguntas.concat(historial);
+        localStorage.setItem(LS_KEYS.HISTORIAL_FALLOS, JSON.stringify(historial));
+        toast.showToast('Preguntes afegides al historial de fallos!');
+        setTimeout(function() {
+          window.location.href = 'historialErrors.html';
+        }, 900);
+      }
       actualizarContadorPreguntas();
     }
     
