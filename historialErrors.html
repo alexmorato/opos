@@ -672,6 +672,7 @@
       function actualizarBotonesSegunSeleccion() {
         const btnCopiar = document.getElementById('copiarBtn');
         const btnRepassar = document.getElementById('repassarBtn');
+        const btnBorrar = document.getElementById('esborrarTotBtn');
         const seleccionadas = document.querySelectorAll('.pregunta-card.selected').length;
         const total = historialFallos.length;
         if (btnCopiar) {
@@ -686,6 +687,13 @@
             btnRepassar.textContent = '🔁 Repassar Historial';
           } else {
             btnRepassar.textContent = `🔁 Repassar ${seleccionadas} de ${total}`;
+          }
+        }
+        if (btnBorrar) {
+          if (seleccionadas === 0) {
+            btnBorrar.textContent = '🗑️ Esborrar Tot';
+          } else {
+            btnBorrar.textContent = `🗑️ Esborrar ${seleccionadas} de ${total}`;
           }
         }
       }
