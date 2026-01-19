@@ -76,7 +76,13 @@
       border-radius: 10px;
       padding: 16px;
       box-shadow: 0 4px 18px #0002;
-      transition: border-color 0.2s;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      cursor: pointer;
+    }
+    .pregunta-card.selected {
+      border-color: #21c08d;
+      box-shadow: 0 0 0 3px #21c08d55;
+      background: #18243a;
     }
     .pregunta-card:hover {
       border-color: #6ae0a7;
@@ -312,6 +318,7 @@
   <script src="assets/js/login.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bcryptjs@2.4.3/dist/bcrypt.min.js"></script>
   <script src="assets/js/localstorage-utils.js"></script>
+  <script src="assets/js/toast.js"></script>
 </head>
 <body>
   <div class="center">
@@ -434,6 +441,7 @@
       historialFallos.forEach((pregunta, index) => {
         const card = document.createElement('div');
         card.className = 'pregunta-card';
+        card.dataset.index = index;
         
         const questionText = pregunta.question || pregunta.pregunta || 'Pregunta sense text';
         const subjectId = pregunta.subjectId || '-';
@@ -485,7 +493,14 @@
             </div>
           </div>
         `;
-        
+
+        // Selección visual y lógica
+        card.addEventListener('click', function(e) {
+          // Evitar seleccionar al hacer click en los botones internos
+          if (e.target.closest('.pregunta-actions')) return;
+          card.classList.toggle('selected');
+        });
+
         preguntesContainer.appendChild(card);
       });
 
@@ -503,6 +518,30 @@
           borrarPregunta(index);
         });
       });
+
+      // Actualizar texto del botón copiar según selección
+      actualizarTextoBotonCopiar();
+
+      // Añadir event listener para actualizar el texto al seleccionar/deseleccionar
+      document.querySelectorAll('.pregunta-card').forEach(card => {
+        card.addEventListener('click', function(e) {
+          if (e.target.closest('.pregunta-actions')) return;
+          setTimeout(actualizarTextoBotonCopiar, 0);
+        });
+      });
+
+      // Actualiza el texto del botón copiar según la selección
+      function actualizarTextoBotonCopiar() {
+        const btn = document.getElementById('copiarBtn');
+        if (!btn) return;
+        const seleccionadas = document.querySelectorAll('.pregunta-card.selected').length;
+        const total = typeof historialFallos !== 'undefined' ? historialFallos.length : 0;
+        if (seleccionadas === 0) {
+          btn.textContent = '📋 Copiar Historial';
+        } else {
+          btn.textContent = `📋 Copiar ${seleccionadas} de ${total}`;
+        }
+      }
     }
 
     // Mostrar detalle en modal
@@ -620,21 +659,30 @@
 
     // Botón copiar JSON
     document.getElementById('copiarBtn').onclick = function() {
-      if (historialFallos.length > 0) {
-        const jsonStr = JSON.stringify(historialFallos, null, 2);
+      // Copiar solo las preguntas seleccionadas
+      const selectedCards = Array.from(document.querySelectorAll('.pregunta-card.selected'));
+      let preguntasSeleccionadas = [];
+      if (selectedCards.length > 0) {
+        preguntasSeleccionadas = selectedCards.map(card => {
+          const idx = parseInt(card.dataset.index);
+          return historialFallos[idx];
+        });
+      } else {
+        preguntasSeleccionadas = historialFallos;
+      }
+      if (preguntasSeleccionadas.length > 0) {
+        const jsonStr = JSON.stringify(preguntasSeleccionadas, null, 2);
         navigator.clipboard.writeText(jsonStr).then(() => {
-          // Feedback visual
-          const btn = document.getElementById('copiarBtn');
-          const originalText = btn.textContent;
-          btn.textContent = '✓ Copiat!';
-          btn.style.background = '#21c08d';
-          setTimeout(() => {
-            btn.textContent = originalText;
-            btn.style.background = '#27304a';
-          }, 700);
+          if (window.toast && typeof window.toast.showToast === 'function') {
+            toast.showToast('Copiat al portapapers!');
+          }
         }).catch(err => {
           console.error('Error al copiar:', err);
-          alert('No s\'ha pogut copiar al portapapers');
+          if (window.toast && typeof window.toast.showToast === 'function') {
+            toast.showToast('No s\'ha pogut copiar al portapapers');
+          } else {
+            alert('No s\'ha pogut copiar al portapapers');
+          }
         });
       }
     };
