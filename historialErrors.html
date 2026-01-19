@@ -313,6 +313,80 @@
       flex-wrap: wrap;
       justify-content: center;
     }
+    .custom-modal {
+      background: #141a2a;
+      border: 2px solid #27304a;
+      border-radius: 14px;
+      box-shadow: 0 8px 32px #0006;
+      padding: 32px 28px 24px 28px;
+      width: 95vw;
+      max-width: 420px;
+      min-width: 260px;
+      position: relative;
+      z-index: 100000;
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 10px;
+    }
+    .custom-modal-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0,0,0,0.45);
+      display: flex !important;
+      align-items: center;
+      justify-content: center;
+      z-index: 99999;
+    }
+    .custom-modal-title {
+      font-size: 1.2rem;
+      color: #6ae0a7;
+      margin-bottom: 18px;
+      text-align: center;
+    }
+    .custom-modal-actions {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      margin-top: 10px;
+    }
+    .custom-modal-accept {
+      background: #2aebad;
+      color: #032217;
+      font-weight: bold;
+      padding: 8px 22px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+    }
+    .custom-modal-cancel {
+      background: #27304a;
+      color: #e7ecff;
+      padding: 8px 22px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+    }
+    .dif-btn {
+      border-radius: 8px;
+      padding: 8px 14px;
+      cursor: pointer;
+      transition: all 0.15s;
+      font-weight: normal;
+      background: #1b223a;
+      color: #e7ecff;
+      border: 1px solid #2a3554;
+      margin-bottom: 4px;
+    }
+    .dif-btn.selected {
+      background: #2aebad;
+      color: #032217;
+      border: 2.5px solid #1aff4b;
+      font-weight: bold;
+    }
   </style>
   <script src="assets/js/loading.js"></script>
   <script src="assets/js/login.js"></script>
@@ -333,6 +407,9 @@
         <div class="stat-item">
           <span class="stat-label">Última actualització:</span>
           <span id="ultimaActualizacion">-</span>
+        </div>
+        <div class="stat-item">
+          <button id="filtrarTemaBtn" >🔎 Filtrar per tema</button>
         </div>
       </div>
     </div>
@@ -380,9 +457,58 @@
 
     // Variables globales
     let historialFallos = [];
+    let temasFiltrados = [];
     const preguntesContainer = document.getElementById('preguntesContainer');
     const modal = document.getElementById('detailModal');
     const closeModal = document.getElementsByClassName('close')[0];
+    // Modal para seleccionar múltiples temas
+    function showFiltrarTemaModal() {
+      if (document.getElementById('filtrarTemaModal')) return;
+      // Obtener todos los subjectId únicos del historial
+      const temasUnicos = Array.from(new Set(historialFallos.map(p => p.subjectId).filter(Boolean)));
+      // Obtener los seleccionados actualmente
+      let seleccionados = temasFiltrados;
+      const modal = document.createElement('div');
+      modal.id = 'filtrarTemaModal';
+      modal.className = 'custom-modal-bg';
+      modal.innerHTML = `
+        <div class="custom-modal">
+          <div class="custom-modal-title">Selecciona temes per filtrar</div>
+          <div id="temaBtns" class="custom-modal-btns"></div>
+          <div class="custom-modal-actions">
+            <button id="temaAceptarBtn" class="custom-modal-accept">Aceptar</button>
+            <button id="temaCancelarBtn" class="custom-modal-cancel">Cancelar</button>
+          </div>
+        </div>
+      `;
+      document.body.appendChild(modal);
+      // Botones de tema
+      const btnsDiv = modal.querySelector('#temaBtns');
+      temasUnicos.forEach(tema => {
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.textContent = tema;
+        btn.value = tema;
+        btn.className = 'dif-btn';
+        if (seleccionados.includes(tema)) btn.classList.add('selected');
+        btn.addEventListener('click', function() {
+          btn.classList.toggle('selected');
+        });
+        btnsDiv.appendChild(btn);
+      });
+      // Botón aceptar
+      modal.querySelector('#temaAceptarBtn').onclick = function() {
+        temasFiltrados = Array.from(btnsDiv.querySelectorAll('button.selected')).map(b => b.value);
+        document.body.removeChild(modal);
+        renderizarPreguntes(); // Aplicar filtro inmediatamente
+      };
+      // Botón cancelar
+      modal.querySelector('#temaCancelarBtn').onclick = function() {
+        document.body.removeChild(modal);
+      };
+    }
+  // Abrir modal al hacer click en el botón
+  document.getElementById('filtrarTemaBtn').addEventListener('click', showFiltrarTemaModal);
 
     // Cargar historial del localStorage
     function cargarHistorial() {
@@ -437,25 +563,26 @@
     // Renderizar lista de preguntas
     function renderizarPreguntes() {
       preguntesContainer.innerHTML = '';
-      
-      historialFallos.forEach((pregunta, index) => {
+      // Filtrar preguntas si hay filtro
+      let preguntasAMostrar = historialFallos;
+      if (temasFiltrados.length > 0) {
+        preguntasAMostrar = historialFallos.filter(p => temasFiltrados.includes(p.subjectId));
+      }
+      preguntasAMostrar.forEach((pregunta, index) => {
         const card = document.createElement('div');
         card.className = 'pregunta-card';
         card.dataset.index = index;
-        
         const questionText = pregunta.question || pregunta.pregunta || 'Pregunta sense text';
         const subjectId = pregunta.subjectId || '-';
         const difficulty = pregunta.difficulty || '-';
         const origin = pregunta.origin || '-';
         const fecha = pregunta.fecha ? new Date(pregunta.fecha) : null;
         const username = pregunta.username || '-';
-
         // Crear resumen truncado de la pregunta
         const maxLength = 150;
         const resumen = questionText.length > maxLength 
           ? questionText.substring(0, maxLength) + '...' 
           : questionText;
-
         card.innerHTML = `
           <div class="pregunta-header">
             <div class="pregunta-info">
@@ -535,7 +662,7 @@
         const btn = document.getElementById('copiarBtn');
         if (!btn) return;
         const seleccionadas = document.querySelectorAll('.pregunta-card.selected').length;
-        const total = typeof historialFallos !== 'undefined' ? historialFallos.length : 0;
+        const total = historialFallos.length;
         if (seleccionadas === 0) {
           btn.textContent = '📋 Copiar Historial';
         } else {
