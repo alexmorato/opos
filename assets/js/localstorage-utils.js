@@ -13,15 +13,17 @@ const LS_KEYS = {
   CRONOMETRO: 'sTICdOpos_cronometro',
   PREGUNTES: 'sTICdOpos_preguntes',
   HISTORIAL_FALLOS: 'sTICdOpos_historialFallos',
-  JSON_COPYPASTE: 'sTICdOpos_jsonCopypaste',
+  REPASAR_FALLOS: 'sTICdOpos_repasarFallos',
+  JSON_COPYPASTE: 'sTICdOpos_jsonCopypaste', //lo quiero eliminar
   USER_NAME: 'sTICdOpos_userName',
   USER_PASS: 'sTICdOpos_userPass',
 };
 
 // Método para borrar el estado guardado de estudio
-function borrarEstudioGuardado() {
+function borrarEstudioEnProgreso() {
   localStorage.removeItem(LS_KEYS.PREGUNTES_BARREJADES);
   localStorage.removeItem(LS_KEYS.ANSWERS);
   localStorage.removeItem(LS_KEYS.CRONOMETRO);
   localStorage.removeItem(LS_KEYS.PREGUNTA_POSITION);
+  localStorage.removeItem(LS_KEYS.REPASAR_FALLOS);
 }

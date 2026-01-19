@@ -521,22 +521,14 @@
   // Cargar preguntas o flashcards del localStorage
   function loadQuestions() {
       try {
-        // Si copypaste=1 en la URL, cargar solo historial de fallos
         const params = new URLSearchParams(window.location.search);
-        if (params.get('repassarErrores') === '1') {
+        
+        isRepassingErrors = false;
+        preguntes = JSON.parse(localStorage.getItem(LS_KEYS.PREGUNTES) || '[]');
+        document.getElementById('removeFromHistoryContainer').style.display = 'block';
+
+        if (localStorage.getItem(LS_KEYS.REPASAR_FALLOS)) {
           isRepassingErrors = true;
-          preguntes = JSON.parse(localStorage.getItem(LS_KEYS.HISTORIAL_FALLOS) || '[]');
-          document.getElementById('removeFromHistoryContainer').style.display = 'block';
-        }
-        else if (params.get('copypaste') === '1') {
-          isRepassingErrors = false;
-          preguntes = JSON.parse(localStorage.getItem(LS_KEYS.JSON_COPYPASTE) || '[]');
-          document.getElementById('removeFromHistoryContainer').style.display = 'block';
-        } else {
-          isRepassingErrors = false;
-          preguntes = JSON.parse(localStorage.getItem(LS_KEYS.PREGUNTES) || '[]');
-          // Si no estamos en modo repaso de errores, desactivar el botón de eliminar del historial
-          document.getElementById('removeFromHistoryContainer').style.display = 'none';
         }
 
         if (!preguntes.length) {

@@ -194,18 +194,22 @@
       }
       const modo = document.getElementById('modoEstudio').value;
       if (modo === '1_estudiar') {
-        localStorage.setItem(LS_KEYS.JSON_COPYPASTE, JSON.stringify(nuevasPreguntas));
+        localStorage.setItem(LS_KEYS.PREGUNTES, JSON.stringify(nuevasPreguntas));
         toast.showToast('Preguntes guardades! Redirigint...');
-        if (typeof borrarEstudioGuardado === 'function') borrarEstudioGuardado();
+        if (typeof borrarEstudioEnProgreso === 'function') borrarEstudioEnProgreso();
         setTimeout(function() {
-          window.location.href = 'estudiar.html?copypaste=1';
+          window.location.href = 'estudiar.html';
         }, 900);
       } else if (modo === '2_machacarFallos') {
-        localStorage.setItem(LS_KEYS.HISTORIAL_FALLOS, JSON.stringify(nuevasPreguntas));
-        toast.showToast('Historial de fallos sobreescrit!');
-        setTimeout(function() {
-          window.location.href = 'historialErrors.html';
-        }, 900);
+        if (confirm('Segur que vols SOBREESCRIURE el historial de fallos? Aquesta acció no es pot desfer.')) {
+          localStorage.setItem(LS_KEYS.HISTORIAL_FALLOS, JSON.stringify(nuevasPreguntas));
+          toast.showToast('Historial de fallos sobreescrit!');
+          setTimeout(function() {
+            window.location.href = 'historialErrors.html';
+          }, 900);
+        } else {
+          toast.showToast('Acció cancel·lada. El historial no s\'ha modificat.');
+        }
       } else if (modo === '3_concatenarFallos') {
         let historial = [];
         try {

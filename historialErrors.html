@@ -53,7 +53,6 @@
       display: flex;
       gap: 20px;
       flex-wrap: wrap;
-      margin-bottom: 10px;
     }
     .stat-item {
       font-size: 1.1rem;
@@ -171,6 +170,13 @@
       border: none;
       cursor: pointer;
       margin-top: 10px;
+    }
+    #filtrarTemaBtn.btn-secondary {
+      padding-left: 22px;
+      padding-right: 22px;
+      width: auto;
+      max-width: none;
+      margin-top: 0px;
     }
     .btn-danger {
       width: 100%;
@@ -409,7 +415,7 @@
           <span id="ultimaActualizacion">-</span>
         </div>
         <div class="stat-item">
-          <button id="filtrarTemaBtn" >🔎 Filtrar per tema</button>
+          <button id="filtrarTemaBtn" class="btn-secondary">🔎 Filtrar per tema</button>
         </div>
       </div>
     </div>
@@ -628,6 +634,11 @@
           card.classList.toggle('selected');
         });
 
+        // Si hay temas filtrados, marcar como seleccionada
+        if (temasFiltrados.length > 0) {
+          card.classList.add('selected');
+        }
+
         preguntesContainer.appendChild(card);
       });
 
@@ -646,27 +657,36 @@
         });
       });
 
-      // Actualizar texto del botón copiar según selección
-      actualizarTextoBotonCopiar();
+      // Actualizar texto de los botones según selección
+      actualizarBotonesSegunSeleccion();
 
       // Añadir event listener para actualizar el texto al seleccionar/deseleccionar
       document.querySelectorAll('.pregunta-card').forEach(card => {
         card.addEventListener('click', function(e) {
           if (e.target.closest('.pregunta-actions')) return;
-          setTimeout(actualizarTextoBotonCopiar, 0);
+          setTimeout(actualizarBotonesSegunSeleccion, 0);
         });
       });
 
-      // Actualiza el texto del botón copiar según la selección
-      function actualizarTextoBotonCopiar() {
-        const btn = document.getElementById('copiarBtn');
-        if (!btn) return;
+      // Actualiza el texto de los botones según la selección
+      function actualizarBotonesSegunSeleccion() {
+        const btnCopiar = document.getElementById('copiarBtn');
+        const btnRepassar = document.getElementById('repassarBtn');
         const seleccionadas = document.querySelectorAll('.pregunta-card.selected').length;
         const total = historialFallos.length;
-        if (seleccionadas === 0) {
-          btn.textContent = '📋 Copiar Historial';
-        } else {
-          btn.textContent = `📋 Copiar ${seleccionadas} de ${total}`;
+        if (btnCopiar) {
+          if (seleccionadas === 0) {
+            btnCopiar.textContent = '📋 Copiar Historial';
+          } else {
+            btnCopiar.textContent = `📋 Copiar ${seleccionadas} de ${total}`;
+          }
+        }
+        if (btnRepassar) {
+          if (seleccionadas === 0) {
+            btnRepassar.textContent = '🔁 Repassar Historial';
+          } else {
+            btnRepassar.textContent = `🔁 Repassar ${seleccionadas} de ${total}`;
+          }
         }
       }
     }
@@ -775,10 +795,24 @@
     // Botón repasar historial
     document.getElementById('repassarBtn').onclick = function() {
       if (historialFallos.length > 0) {
-        // Guardar las preguntas del historial como preguntas a estudiar
-        localStorage.setItem(LS_KEYS.PREGUNTES, JSON.stringify(historialFallos));
+        // Obtener las seleccionadas
+        const selectedCards = Array.from(document.querySelectorAll('.pregunta-card.selected'));
+        let preguntasAEstudiar = [];
+        if (selectedCards.length > 0) {
+          preguntasAEstudiar = selectedCards.map(card => {
+            const idx = parseInt(card.dataset.index);
+            return historialFallos[idx];
+          });
+        } else {
+          preguntasAEstudiar = historialFallos;
+        }
         // Limpiar estado anterior
-        if (typeof borrarEstudioGuardado === 'function') borrarEstudioGuardado();
+        if (typeof borrarEstudioEnProgreso === 'function') borrarEstudioEnProgreso();
+
+        // Guardar las preguntas a estudiar
+        localStorage.setItem(LS_KEYS.PREGUNTES, JSON.stringify(preguntasAEstudiar));
+        localStorage.setItem(LS_KEYS.REPASAR_FALLOS, "true");
+
         // Navegar a estudiar
         window.location.href = 'estudiar.html';
       }
