@@ -8,51 +8,60 @@
 
   <style>
     html, body {
-    height: 100%;
-    margin: 0;
-    overflow: hidden; /* 🔑 desactiva scroll global */
+      height: 100%;
+      margin: 0;
+      overflow: hidden;
     }
 
     body {
-    display: flex;
-    font-family: Arial, sans-serif;
+      display: flex;
+      font-family: Arial, sans-serif;
     }
 
+    /* TOC */
     #toc {
       width: 280px;
+      min-width: 280px;
       height: 100vh;
-      overflow-y: auto;
 
+      overflow-y: auto;
       border-right: 1px solid #ccc;
       padding: 20px;
 
-      transition: transform 0.3s ease;
+      transition: width 0.3s ease, padding 0.3s ease;
     }
 
+    /* Estado colapsado */
     #toc.collapsed {
-      transform: translateX(-260px);
+      width: 20px;
+      min-width: 20px;
+      padding: 0;
+      overflow: hidden;
+      border-right: 1px solid #ccc;
     }
 
     #toc-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 10px;
+      position: relative;
     }
 
     #toggle-toc {
-      cursor: pointer;
-      border: none;
-      background: none;
-      font-size: 16px;
-    }
+      position: absolute;
+      top: 10px;
+      right: -10px;
 
+      width: 20px;
+      height: 20px;
+
+      cursor: pointer;
+      border: 1px solid #ccc;
+      background: white;
+    }
+    /* Contenido */
     #content {
       flex: 1;
       height: 100vh;
       overflow-y: auto;
       padding: 20px;
-      transition: margin-left 0.3s ease;
     }
   </style>
 </head>
@@ -124,10 +133,8 @@
     const toggleBtn = document.getElementById('toggle-toc');
 
     toggleBtn.addEventListener('click', () => {
-      toc.classList.toggle('collapsed');
-
-      // Cambiar icono
-      toggleBtn.textContent = toc.classList.contains('collapsed') ? '⟩' : '⟨';
+      const colapsado = toc.classList.toggle('collapsed');
+      toggleBtn.textContent = colapsado ? '⟩' : '⟨';
     });
   </script>
 
