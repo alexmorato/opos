@@ -80,7 +80,8 @@
   </style>
 </head>
 <body>
-  <h1 id="headerTitle">☕ Estic d'opos - Menú ☕</h1>  
+  <h1 id="headerTitle">☕ Estic d'opos - Menú ☕</h1>
+  <div id="welcomeMessage" style="text-align: center; color: #6ae0a7; font-size: 1.4rem; margin-bottom: 10px; display: none;"></div>
   <div class="container">
     <div class="menu-grid">
       <button class="menu-btn" data-require-login="true" onclick="window.location.href='init.html'">
@@ -130,11 +131,28 @@
   <script src="assets/js/toast.js"></script>
   <script src="assets/js/localstorage-utils.js"></script>
   <script>
+    // Función para capitalizar primera letra
+    function capitalizeFirstLetter(string) {
+      if (!string) return '';
+      return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
+    }
+
     // Función para mostrar/ocultar botones según login
     function toggleButtonsByLogin() {      
       // Opción 1: Si usaste data-require-VIP en cada botón
       const vipButtons = document.querySelectorAll('[data-require-VIP="true"]');
       const username = localStorage.getItem(LS_KEYS.USER_NAME);
+      
+      // Mostrar mensaje de bienvenida si está logueado
+      const welcomeMessage = document.getElementById('welcomeMessage');
+      if (username && username !== 'anonim') {
+        const capitalizedName = capitalizeFirstLetter(username);
+        welcomeMessage.textContent = `Hola ${capitalizedName}! 👋`;
+        welcomeMessage.style.display = 'block';
+      } else {
+        welcomeMessage.style.display = 'none';
+      }
+      
       if(!username || username === 'anonim') {
         vipButtons.forEach(button => {
           button.style.display = 'none';

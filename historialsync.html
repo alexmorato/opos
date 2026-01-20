@@ -128,12 +128,12 @@
 
     <!-- Botón Obtener del Servidor -->
     <div class="btn-row">
-      <button class="main-btn" id="btnObtener" onclick="obtenerDelServidor()">☁️ Obtenir Historial del Servidor</button>
+      <button class="main-btn" id="btnObtener" onclick="obtenerDelServidor()">☁️⬇️ Baixar Historial Servidor</button>
     </div>
 
     <!-- Botón Sobreescribir Servidor -->
     <div class="btn-row">
-      <button id="btnSobreescribir" onclick="sobreescribirServidor()" disabled>⚠️ Sobreescriure Servidor amb Local</button>
+      <button id="btnSobreescribir" onclick="sobreescribirServidor()" disabled>⚠️⬆️ Sobreescriure Servidor amb Local</button>
     </div>
 
     <!-- Resumen Servidor -->
@@ -154,20 +154,22 @@
 
     <!-- Botones de Guardado -->
     <div class="btn-row hidden" id="botonesGuardar">
-      <button class="main-btn" id="btnGuardarLocal" onclick="guardarEnLocal()">💾 Guardar en el Dispositiu</button>
-      <button class="main-btn" id="btnGuardarServidor" onclick="guardarEnServidor()">☁️ Guardar en el Servidor</button>
+      <button class="main-btn" id="btnGuardarLocal" onclick="guardarEnLocal()">💾⬅️ Guardar merge en Local</button>
+      <button class="main-btn" id="btnGuardarServidor" onclick="guardarEnServidor()">☁️⬆️ Guardar merge al Servidor</button>
     </div>
 
     <!-- Botón Volver -->
     <div class="btn-row">
       <button onclick="window.location.href='index.html'">⬅️ Tornar al menú</button>
     </div>
+      <!-- <a href="https:///opos25-d677.restdb.io/rest/_jsapi.doc"></a> -->
   </div>
 
   <!-- jQuery (OBLIGATORIO para RestDB) -->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <!-- RestDB JS API -->
   <script src="https://opos25-d677.restdb.io/rest/_jsapi.js"></script>
+
 
   <script>
     // Usar la función checkUserAuth desde login.js
@@ -340,14 +342,14 @@
           toast.showToast('Historial obtingut del servidor');
         } else {
           // No existe, crear uno nuevo
-          registroServidor = {
+          registroServidor = new db.historiales({
             user: username,
             preguntes: [],
-            interaccions: JSON.stringify(interacciones)
-          };
+            interaccions: interacciones
+          });
           
           // Guardar en servidor para obtener _id
-          db.historiales.save(registroServidor, function(err, data) {
+          registroServidor.save(function(err, data) {
             if (!err && data) {
               registroServidor = data;
               historialServidor = [];
