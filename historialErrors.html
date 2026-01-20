@@ -454,13 +454,6 @@
   <script>
     if (typeof showLoadingSpinner === 'function') showLoadingSpinner('Carregant historial...');
 
-    // Verificar autenticación
-    document.addEventListener('DOMContentLoaded', function() {
-      const userName = localStorage.getItem(LS_KEYS.USER_NAME);
-      const userPass = localStorage.getItem(LS_KEYS.USER_PASS);
-      login.checkUserAuth(userName, userPass);
-    }, {once:true});
-
     // Variables globales
     let historialFallos = [];
     let temasFiltrados = [];

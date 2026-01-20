@@ -521,8 +521,8 @@
   // Cargar preguntas o flashcards del localStorage
   function loadQuestions() {
       try {
-        const params = new URLSearchParams(window.location.search);
-        
+        localStorage.setItem(LS_KEYS.ESTUDIO_WIP, 'true');
+
         isRepassingErrors = false;
         preguntes = JSON.parse(localStorage.getItem(LS_KEYS.PREGUNTES) || '[]');
         document.getElementById('removeFromHistoryContainer').style.display = 'block';
@@ -889,6 +889,7 @@
 
     // Mostrar resultados finals
     function showResults() {
+      localStorage.removeItem(LS_KEYS.ESTUDIO_WIP);
       showingResults = true;
       
       let correctAnswers = 0;
@@ -1140,11 +1141,22 @@
       // Check if there is a saved question position and preloaded questions
       const savedPosition = localStorage.getItem(LS_KEYS.PREGUNTA_POSITION);
       const preloadedQuestions = localStorage.getItem(LS_KEYS.PREGUNTES_BARREJADES);
+      const estudioWipContinue = localStorage.getItem(LS_KEYS.ESTUDIO_WIP_CONTINUE);
+      localStorage.removeItem(LS_KEYS.ESTUDIO_WIP_CONTINUE); // Clear after reading
 
       if (savedPosition !== null && preloadedQuestions) {
-        const userChoice = confirm('Vols continuar des de la pregunta guardada o començar de nou?\nPrem "Acceptar" per continuar o "Cancel·lar" per reiniciar.');
+        // Variable para controlar si se debe continuar o reiniciar
+        let continuarChoice;
+        
+        // Verificar si estudioWipContinue es true
+        if (estudioWipContinue === 'true' || estudioWipContinue === true) {
+          continuarChoice = true; // Continuar automáticamente sin preguntar
+        } else {
+          // Solo preguntar si estudioWipContinue no es true
+          continuarChoice = confirm('Vols continuar des de la pregunta guardada o començar de nou?\nPrem "Acceptar" per continuar o "Cancel·lar" per reiniciar.');
+        }
 
-        if (userChoice) {
+        if (continuarChoice) {
           try {
             // Use preloaded questions and set the current question index
             preguntes = JSON.parse(preloadedQuestions);

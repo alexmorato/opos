@@ -14,6 +14,13 @@
 
   <link rel="stylesheet" href="assets/styles_lite.css">
   <style>
+    .menu-btn:disabled {
+      opacity: 0.5;
+      filter: grayscale(0.7);
+      cursor: not-allowed;
+      pointer-events: none;
+      box-shadow: none;
+    }
     .container {
       max-width: 800px;
       width: 100%;
@@ -76,46 +83,76 @@
   <h1 id="headerTitle">☕ Estic d'opos - Menú ☕</h1>  
   <div class="container">
     <div class="menu-grid">
-      <button class="menu-btn" onclick="window.location.href='init.html'">
+      <button class="menu-btn" data-require-login="true" onclick="window.location.href='init.html'">
         📚 Escull tema
       </button>
-      <button class="menu-btn" onclick="window.location.href='estudiar.html?repassarErrores=1'" title="Repasa només les preguntes fallades">
-        🔄 Estudiar errors
+      <button id="continuaEstudi" class="menu-btn" disabled onclick="continuaEstudi()">
+        🔄 Continua estudi
       </button>
-      <button class="menu-btn" onclick="window.location.href='cargarManual.html'" title="Repasa només les preguntes fallades">
-        ✂️ Estudiar amb CopyPaste
+      <button class="menu-btn"  onclick="window.location.href='cargarManual.html'">
+        ✂️ Estudiar CopyPaste
       </button>
       <button class="menu-btn" onclick="window.location.href='historialErrors.html'">
         📋 Historial d'errors
       </button>
-      <button class="menu-btn" onclick="window.location.href='extractor_notebooklm.html'">
-        🤖 NotebookLM Extractor
-      </button>
-      <button class="menu-btn" onclick="window.location.href='extractor_daypo.html'">
-        👽 Daypo Extractor
-      </button>
       <button class="menu-btn" onclick="window.location.href='generarJsonTest.html'">
-        🧪 Generar JSON Test
-      </button>
-      <button class="menu-btn" onclick="window.location.href='login.html?relogin=1'">
-        🙋🏻‍♂️ Tornar al login
+        ⚗️ Generar JSON
       </button>
       <button class="menu-btn" id="countdownBtn" onclick="window.location.href='countdown.html'">
         ⏳ Dies fins examen
       </button>
+      <button class="menu-btn" onclick="logout()">
+        🙋🏻‍♂️ Tornar al login
+      </button>
       <button class="menu-btn" id="testToastBtn" type="button">
         📢 Test Toast
       </button>
-      <button class="menu-btn" onclick="window.location.href='list.html'">
+      <button class="menu-btn" data-require-login="true" onclick="window.location.href='list.html'">
         📋 Escull tema OLD
       </button>
-      <button class="menu-btn" onclick="window.location.href='quizletformat.html'">
+      <button class="menu-btn" data-require-login="true" onclick="window.location.href='quizletformat.html'">
         📝 Quizlet Format
+      </button>
+      <button class="menu-btn" data-require-login="true" onclick="window.location.href='extractor_notebooklm.html'">
+        🤖 NotebookLM Extractor
+      </button>
+      <button class="menu-btn" data-require-login="true" onclick="window.location.href='extractor_daypo.html'">
+        👽 Daypo Extractor
       </button>
     </div>
   </div>
   <script src="assets/js/toast.js"></script>
+  <script src="assets/js/localstorage-utils.js"></script>
   <script>
+    // Función para mostrar/ocultar botones según login
+    function toggleButtonsByLogin() {      
+      if (!localStorage.getItem(LS_KEYS.USER_NAME)) {
+
+        // Opción 1: Si usaste data-require-login en cada botón
+        const protectedButtons = document.querySelectorAll('[data-require-login="true"]');
+        
+        protectedButtons.forEach(button => {
+          button.style.display = 'none';
+        });
+      }
+      
+    }
+
+    // Ejecutar al cargar la página
+    document.addEventListener('DOMContentLoaded', toggleButtonsByLogin);
+
+    document.addEventListener('DOMContentLoaded', function() {
+      const continuaEstudiBtn = document.getElementById('continuaEstudi');
+      
+      // Verificar si existe el item en localStorage
+      if (!localStorage.getItem(LS_KEYS.ESTUDIO_WIP)) {
+        continuaEstudiBtn.disabled = true;
+      } else {
+        continuaEstudiBtn.disabled = false;
+      }
+    });
+
+
     // Cargar headerTitle dinámicamente desde config.json
     fetch('assets/config.json')
       .then(r => r.json())
@@ -141,6 +178,20 @@
         alert('toast.js no cargado');
       }
     };
+
+    // Borrar el último error del historial
+    function continuaEstudi() {
+      localStorage.setItem(LS_KEYS.ESTUDIO_WIP_CONTINUE, 'true');
+      window.location.href = 'estudiar.html';
+    }
+
+    // Borrar el último error del historial
+    function logout() {
+      localStorage.removeItem(LS_KEYS.USER_NAME);
+      localStorage.removeItem(LS_KEYS.USER_PASS);
+      window.location.href = 'login.html';
+    }
+
   </script>
   
 </body>

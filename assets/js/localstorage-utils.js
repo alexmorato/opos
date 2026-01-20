@@ -12,6 +12,8 @@ const LS_KEYS = {
   ANSWERS: 'sTICdOpos_answers',
   CRONOMETRO: 'sTICdOpos_cronometro',
   PREGUNTES: 'sTICdOpos_preguntes',
+  ESTUDIO_WIP: 'sTICdOpos_estudioWip',
+  ESTUDIO_WIP_CONTINUE: 'sTICdOpos_estudioWipContinue',
   HISTORIAL_FALLOS: 'sTICdOpos_historialFallos',
   REPASAR_FALLOS: 'sTICdOpos_repasarFallos',
   JSON_COPYPASTE: 'sTICdOpos_jsonCopypaste', //lo quiero eliminar
