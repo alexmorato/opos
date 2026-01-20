@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Gestión de Fallos</title>
+</head>
+<body>
+
+  <button id="btnCargar">Cargar fallo</button><br><br>
+
+  <textarea id="historial" rows="15" cols="80"></textarea><br><br>
+
+  <button id="btnGuardar">Guardar</button>
+
+  <!-- jQuery (OBLIGATORIO) -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+  <!-- RestDB JS API -->
+  <script src="https://opos25-d677.restdb.io/rest/_jsapi.js"></script>
+
+  <script>
+    var db = new restdb("696fd6723731f79a933fd7d8");
+    var historialActual = null;
+
+    document.getElementById("btnCargar").onclick = function () {
+      db.historiales.find({ user: "amorato" }, { "$max": 1 }, function (err, res) {
+        if (!err && res.length > 0) {
+          historialActual = res[0];
+          document.getElementById("historial").value =
+            typeof historialActual.preguntes === "string"
+              ? historialActual.preguntes
+              : JSON.stringify(historialActual.preguntes, null, 2);
+        }
+      });
+    };
+
+    document.getElementById("btnGuardar").onclick = function () {
+      if (!historialActual) return alert("Primero carga un fallo");
+      historialActual.preguntes = document.getElementById("historial").value;
+      historialActual.save();
+    };
+  </script>
+
+</body>
+</html>

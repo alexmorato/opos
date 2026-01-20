@@ -95,6 +95,9 @@
       <button class="menu-btn" onclick="window.location.href='historialErrors.html'">
         📋 Historial d'errors
       </button>
+      <button class="menu-btn" data-require-VIP="true" onclick="window.location.href='historialsync.html'">
+        💾 Sincronitzar Historial
+      </button>
       <button class="menu-btn" onclick="window.location.href='generarJsonTest.html'">
         ⚗️ Generar JSON
       </button>
@@ -129,6 +132,15 @@
   <script>
     // Función para mostrar/ocultar botones según login
     function toggleButtonsByLogin() {      
+      // Opción 1: Si usaste data-require-VIP en cada botón
+      const vipButtons = document.querySelectorAll('[data-require-VIP="true"]');
+      const username = localStorage.getItem(LS_KEYS.USER_NAME);
+      if(!username || username === 'anonim') {
+        vipButtons.forEach(button => {
+          button.style.display = 'none';
+        });
+      }
+
       if (!localStorage.getItem(LS_KEYS.USER_NAME)) {
 
         // Opción 1: Si usaste data-require-login en cada botón
@@ -137,6 +149,8 @@
         protectedButtons.forEach(button => {
           button.style.display = 'none';
         });
+
+
       }
       
     }

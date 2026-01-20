@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sincronització Historial - sTIC d'Opos</title>
+  <link rel="icon" type="image/png" sizes="16x16" href="images/icons/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/icons/favicon-32x32.png">
+  <link rel="icon" href="images/icons/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" sizes="180x180" href="images/icons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="images/icons/android-chrome-192x192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="images/icons/android-chrome-512x512.png">
+  <style>
+    body {
+      font-family: system-ui, sans-serif;
+      background: #0b1020;
+      color: #e7ecff;
+      margin: 0;
+      padding: 20px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .container {
+      max-width: 700px;
+      width: 100%;
+      background: #141a2a;
+      border-radius: 16px;
+      padding: 32px 24px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+      border: 1px solid #27304a;
+      margin-top: 40px;
+    }
+    h2 {
+      color: #6ae0a7;
+      text-align: center;
+      margin-bottom: 18px;
+    }
+    .resumen-box {
+      background: #232b45;
+      border: 1.5px solid #27304a;
+      border-radius: 8px;
+      padding: 16px;
+      margin-bottom: 18px;
+    }
+    .resumen-box h3 {
+      color: #6ae0a7;
+      margin-top: 0;
+      margin-bottom: 12px;
+      font-size: 1.1rem;
+    }
+    .resumen-box p {
+      margin: 6px 0;
+      font-size: 0.95rem;
+      color: #e7ecff;
+    }
+    .resumen-box .label {
+      color: #9fb0ff;
+      font-weight: bold;
+    }
+    .btn-row {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 18px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    button {
+      background: #27304a;
+      color: #e7ecff;
+      font-size: 1rem;
+      padding: 10px 22px;
+      border-radius: 8px;
+      border: 1px solid #2a3554;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    button:hover:not(:disabled) {
+      background: #2a3554;
+      border-color: #6ae0a7;
+      color: #6ae0a7;
+    }
+    .main-btn {
+      background: linear-gradient(180deg, #2aebad, #21c08d);
+      color: #032217;
+      font-weight: bold;
+      font-size: 1.1rem;
+      border: none;
+    }
+    .main-btn:hover:not(:disabled) {
+      background: #6ae0a7;
+      color: #032217;
+    }
+    button:disabled {
+      background: #27304a;
+      color: #6b7585;
+      cursor: not-allowed;
+      opacity: 0.5;
+    }
+    .footer {
+      text-align: center;
+      font-size: 13px;
+      color: #9fb0ff;
+      margin-top: 30px;
+    }
+    .hidden {
+      display: none;
+    }
+  </style>
+  <script src="assets/js/toast.js"></script>
+  <script src="assets/js/localstorage-utils.js"></script>
+  <script src="assets/js/login.js"></script>
+  <script src="assets/js/loading.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bcryptjs@2.4.3/dist/bcrypt.min.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h2>🔄 Sincronització Historial de Fallos</h2>
+    
+    <!-- Resumen Local -->
+    <div class="resumen-box">
+      <h3>📱 Historial Local (Dispositiu)</h3>
+      <p><span class="label">Total preguntes:</span> <span id="localTotal">0</span></p>
+      <p><span class="label">Última actualització:</span> <span id="localUltima">-</span></p>
+      <p><span class="label">Temes:</span> <span id="localTemes">-</span></p>
+    </div>
+
+    <!-- Botón Obtener del Servidor -->
+    <div class="btn-row">
+      <button class="main-btn" id="btnObtener" onclick="obtenerDelServidor()">☁️ Obtenir Historial del Servidor</button>
+    </div>
+
+    <!-- Botón Sobreescribir Servidor -->
+    <div class="btn-row">
+      <button id="btnSobreescribir" onclick="sobreescribirServidor()" disabled>⚠️ Sobreescriure Servidor amb Local</button>
+    </div>
+
+    <!-- Resumen Servidor -->
+    <div class="resumen-box hidden" id="servidorBox">
+      <h3>☁️ Historial Servidor</h3>
+      <p><span class="label">Total preguntes:</span> <span id="servidorTotal">0</span></p>
+      <p><span class="label">Última actualització:</span> <span id="servidorUltima">-</span></p>
+      <p><span class="label">Temes:</span> <span id="servidorTemes">-</span></p>
+    </div>
+
+    <!-- Resumen Merge -->
+    <div class="resumen-box hidden" id="mergeBox">
+      <h3>🔀 Historial Combinat (Merge)</h3>
+      <p><span class="label">Total preguntes:</span> <span id="mergeTotal">0</span></p>
+      <p><span class="label">Última actualització:</span> <span id="mergeUltima">-</span></p>
+      <p><span class="label">Temes:</span> <span id="mergeTemes">-</span></p>
+    </div>
+
+    <!-- Botones de Guardado -->
+    <div class="btn-row hidden" id="botonesGuardar">
+      <button class="main-btn" id="btnGuardarLocal" onclick="guardarEnLocal()">💾 Guardar en el Dispositiu</button>
+      <button class="main-btn" id="btnGuardarServidor" onclick="guardarEnServidor()">☁️ Guardar en el Servidor</button>
+    </div>
+
+    <!-- Botón Volver -->
+    <div class="btn-row">
+      <button onclick="window.location.href='index.html'">⬅️ Tornar al menú</button>
+    </div>
+  </div>
+
+  <!-- jQuery (OBLIGATORIO para RestDB) -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <!-- RestDB JS API -->
+  <script src="https://opos25-d677.restdb.io/rest/_jsapi.js"></script>
+
+  <script>
+    // Usar la función checkUserAuth desde login.js
+    document.addEventListener('DOMContentLoaded', function() {
+      const userName = localStorage.getItem(LS_KEYS.USER_NAME);
+      const userPass = localStorage.getItem(LS_KEYS.USER_PASS);
+      login.checkUserAuth(userName, userPass);
+    }, {once:true});
+
+    const MAX_INTERACCIONES_DIA = 10;
+    
+    var db = new restdb("696fd6723731f79a933fd7d8");
+    var historialLocal = [];
+    var historialServidor = [];
+    var historialMerge = [];
+    var registroServidor = null;
+    var username = null;
+
+    // Inicialización
+    document.addEventListener('DOMContentLoaded', function() {
+      username = localStorage.getItem(LS_KEYS.USER_NAME);
+      cargarHistorialLocal();
+      mostrarResumenLocal();
+    });
+
+    function cargarHistorialLocal() {
+      try {
+        const data = localStorage.getItem(LS_KEYS.HISTORIAL_FALLOS);
+        historialLocal = data ? JSON.parse(data) : [];
+      } catch (e) {
+        historialLocal = [];
+        toast.showToast('Error carregant historial local');
+      }
+    }
+
+    function mostrarResumenLocal() {
+      const resumen = calcularResumen(historialLocal);
+      document.getElementById('localTotal').textContent = resumen.total;
+      document.getElementById('localUltima').textContent = resumen.ultima;
+      document.getElementById('localTemes').textContent = resumen.temes;
+    }
+
+    function calcularResumen(preguntas) {
+      const total = preguntas.length;
+      let ultimaFecha = '-';
+      const temaCount = {};
+
+      preguntas.forEach(p => {
+        // Contar por tema
+        const tema = p.subjectId || '??';
+        temaCount[tema] = (temaCount[tema] || 0) + 1;
+
+        // Buscar fecha más reciente
+        if (p.fecha) {
+          if (ultimaFecha === '-' || new Date(p.fecha) > new Date(ultimaFecha)) {
+            ultimaFecha = p.fecha;
+          }
+        }
+      });
+
+      // Formatear fecha
+      if (ultimaFecha !== '-') {
+        const date = new Date(ultimaFecha);
+        ultimaFecha = date.toLocaleString('ca-ES');
+      }
+
+      // Formatear temas ordenados
+      const temasOrdenados = Object.keys(temaCount)
+        .sort()
+        .map(tema => `${tema}: ${temaCount[tema]}`)
+        .join(', ');
+
+      return {
+        total,
+        ultima: ultimaFecha,
+        temes: temasOrdenados || '-'
+      };
+    }
+
+    function verificarLimiteInteracciones() {
+      const hoy = new Date().toISOString().split('T')[0];
+      let data = { fecha: hoy, interacciones: 0 };
+      
+      try {
+        const stored = localStorage.getItem(LS_KEYS.INTERACCIONES_API);
+        if (stored) {
+          data = JSON.parse(stored);
+          // Si es otro día, reiniciar
+          if (data.fecha !== hoy) {
+            data = { fecha: hoy, interacciones: 0 };
+          }
+        }
+      } catch (e) {
+        data = { fecha: hoy, interacciones: 0 };
+      }
+
+      if (data.interacciones >= MAX_INTERACCIONES_DIA) {
+        toast.showToast('Has arribat al límit diari d\'interaccions amb el servidor');
+        return false;
+      }
+
+      return true;
+    }
+
+    function incrementarInteracciones() {
+      const hoy = new Date().toISOString().split('T')[0];
+      let data = { fecha: hoy, interacciones: 0 };
+      
+      try {
+        const stored = localStorage.getItem(LS_KEYS.INTERACCIONES_API);
+        if (stored) {
+          data = JSON.parse(stored);
+          if (data.fecha !== hoy) {
+            data = { fecha: hoy, interacciones: 0 };
+          }
+        }
+      } catch (e) {}
+
+      data.interacciones++;
+      localStorage.setItem(LS_KEYS.INTERACCIONES_API, JSON.stringify(data));
+
+      const restantes = MAX_INTERACCIONES_DIA - data.interacciones;
+      toast.showToast(`Interacció registrada. Et queden ${restantes} per avui.`);
+      
+      return data;
+    }
+
+    function obtenerDelServidor() {
+      if (!verificarLimiteInteracciones()) {
+        return;
+      }
+
+      document.getElementById('btnObtener').disabled = true;
+      toast.showToast('Connectant amb el servidor...');
+
+      db.historiales.find({ user: username }, { "$max": 1 }, function (err, res) {
+        if (err) {
+          toast.showToast('Error de connexió amb el servidor');
+          document.getElementById('btnObtener').disabled = false;
+          return;
+        }
+
+        const interacciones = incrementarInteracciones();
+
+        if (res && res.length > 0) {
+          // Existe registro
+          registroServidor = res[0];
+          
+          try {
+            historialServidor = typeof registroServidor.preguntes === "string"
+              ? JSON.parse(registroServidor.preguntes)
+              : registroServidor.preguntes || [];
+          } catch (e) {
+            historialServidor = [];
+          }
+
+          // Actualizar interacciones desde servidor
+          if (registroServidor.interaccions) {
+            try {
+              const serverInteracciones = registroServidor.interaccions;
+              if (serverInteracciones.fecha === interacciones.fecha) {
+                // Usar el máximo entre local y servidor
+                if (serverInteracciones.interacciones > interacciones.interacciones) {
+                  localStorage.setItem(LS_KEYS.INTERACCIONES_API, JSON.stringify(serverInteracciones));
+                }
+              }
+            } catch (e) {}
+          }
+
+          toast.showToast('Historial obtingut del servidor');
+        } else {
+          // No existe, crear uno nuevo
+          registroServidor = {
+            user: username,
+            preguntes: [],
+            interaccions: JSON.stringify(interacciones)
+          };
+          
+          // Guardar en servidor para obtener _id
+          db.historiales.save(registroServidor, function(err, data) {
+            if (!err && data) {
+              registroServidor = data;
+              historialServidor = [];
+              toast.showToast('Nou registre creat al servidor');
+            }
+          });
+        }
+
+        mostrarResumenServidor();
+        realizarMerge();
+        mostrarResumenMerge();
+        mostrarBotonesGuardar();
+        
+        document.getElementById('btnObtener').disabled = false;
+        document.getElementById('btnSobreescribir').disabled = false;
+      });
+    }
+
+    function mostrarResumenServidor() {
+      const resumen = calcularResumen(historialServidor);
+      document.getElementById('servidorTotal').textContent = resumen.total;
+      document.getElementById('servidorUltima').textContent = resumen.ultima;
+      document.getElementById('servidorTemes').textContent = resumen.temes;
+      document.getElementById('servidorBox').classList.remove('hidden');
+    }
+
+    function realizarMerge() {
+      // Crear mapa por guid con la pregunta más reciente
+      const mapaPreguntas = new Map();
+
+      // Procesar todas las preguntas (local + servidor)
+      const todasPreguntas = [...historialLocal, ...historialServidor];
+
+      todasPreguntas.forEach(pregunta => {
+        const guid = pregunta.guid;
+        const fecha = pregunta.fecha ? new Date(pregunta.fecha) : new Date(0);
+
+        if (!mapaPreguntas.has(guid)) {
+          mapaPreguntas.set(guid, pregunta);
+        } else {
+          const existente = mapaPreguntas.get(guid);
+          const fechaExistente = existente.fecha ? new Date(existente.fecha) : new Date(0);
+          
+          // Quedarnos con la más reciente
+          if (fecha > fechaExistente) {
+            mapaPreguntas.set(guid, pregunta);
+          }
+        }
+      });
+
+      // Convertir mapa a array
+      historialMerge = Array.from(mapaPreguntas.values());
+    }
+
+    function mostrarResumenMerge() {
+      const resumen = calcularResumen(historialMerge);
+      document.getElementById('mergeTotal').textContent = resumen.total;
+      document.getElementById('mergeUltima').textContent = resumen.ultima;
+      document.getElementById('mergeTemes').textContent = resumen.temes;
+      document.getElementById('mergeBox').classList.remove('hidden');
+    }
+
+    function mostrarBotonesGuardar() {
+      document.getElementById('botonesGuardar').classList.remove('hidden');
+    }
+
+    function guardarEnLocal() {
+      try {
+        localStorage.setItem(LS_KEYS.HISTORIAL_FALLOS, JSON.stringify(historialMerge));
+        historialLocal = historialMerge;
+        mostrarResumenLocal();
+        toast.showToast('Historial guardat en el dispositiu!');
+      } catch (e) {
+        toast.showToast('Error guardant en el dispositiu: ' + e.message);
+      }
+    }
+
+    function guardarEnServidor() {
+      if (!verificarLimiteInteracciones()) {
+        return;
+      }
+
+      if (!registroServidor) {
+        toast.showToast('No hi ha connexió amb el servidor');
+        return;
+      }
+
+      document.getElementById('btnGuardarServidor').disabled = true;
+      toast.showToast('Guardant al servidor...');
+
+      const interacciones = incrementarInteracciones();
+
+      registroServidor.preguntes = JSON.stringify(historialMerge);
+      registroServidor.interaccions = JSON.stringify(interacciones);
+      
+      registroServidor.save(function(err, data) {
+        if (err) {
+          toast.showToast('Error guardant al servidor');
+          document.getElementById('btnGuardarServidor').disabled = false;
+          return;
+        }
+
+        historialServidor = historialMerge;
+        mostrarResumenServidor();
+        toast.showToast('Historial guardat al servidor!');
+        document.getElementById('btnGuardarServidor').disabled = false;
+      });
+    }
+
+    function sobreescribirServidor() {
+      if (!verificarLimiteInteracciones()) {
+        return;
+      }
+
+      if (!registroServidor) {
+        toast.showToast('No hi ha connexió amb el servidor');
+        return;
+      }
+
+      if (!confirm('⚠️ ATENCIÓ: Aquesta acció SOBREESCRIURÀ completament el historial del servidor amb el teu historial local. Estàs segur?')) {
+        toast.showToast('Acció cancel·lada');
+        return;
+      }
+
+      document.getElementById('btnSobreescribir').disabled = true;
+      toast.showToast('Sobreescrivint servidor amb local...');
+
+      const interacciones = incrementarInteracciones();
+
+      registroServidor.preguntes = JSON.stringify(historialLocal);
+      registroServidor.interaccions = JSON.stringify(interacciones);
+      
+      registroServidor.save(function(err, data) {
+        if (err) {
+          toast.showToast('Error sobreescrivint el servidor');
+          document.getElementById('btnSobreescribir').disabled = false;
+          return;
+        }
+
+        historialServidor = historialLocal;
+        mostrarResumenServidor();
+        realizarMerge();
+        mostrarResumenMerge();
+        toast.showToast('Servidor sobreescrit amb historial local!');
+        document.getElementById('btnSobreescribir').disabled = false;
+      });
+    }
+  </script>
+</body>
+</html>

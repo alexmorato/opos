@@ -19,6 +19,7 @@ const LS_KEYS = {
   JSON_COPYPASTE: 'sTICdOpos_jsonCopypaste', //lo quiero eliminar
   USER_NAME: 'sTICdOpos_userName',
   USER_PASS: 'sTICdOpos_userPass',
+  INTERACCIONES_API: 'sTICdOpos_apiInteracciones'
 };
 
 // Método para borrar el estado guardado de estudio
