@@ -851,8 +851,7 @@
       }
     }
 
-    // Botón repasar historial
-    document.getElementById('repassarBtn').onclick = function() {
+    function repassarAction() {
       if (historialFallos.length > 0) {
         // Obtener las seleccionadas
         const selectedCards = Array.from(document.querySelectorAll('.pregunta-card.selected'));
@@ -875,6 +874,14 @@
         // Navegar a estudiar
         window.location.href = 'estudiar.html';
       }
+    }
+
+    // Botón repasar historial
+    document.getElementById('repassarBtn2').onclick = function() {
+      repassarAction();
+    };
+    document.getElementById('repassarBtn').onclick = function() {
+      repassarAction();
     };
 
     // Botón copiar JSON
