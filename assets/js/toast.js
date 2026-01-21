@@ -1,7 +1,7 @@
 // toast.js
 // Función reutilizable para mostrar un toast visual
 window.toast = {
-  showToast: function(msg) {
+  showToast: function(msg, duration = 2300) {
     let toast = document.getElementById('toastMsg');
     if (!toast) {
       toast = document.createElement('div');
@@ -30,7 +30,7 @@ window.toast = {
         if (toast.parentNode) {
           toast.parentNode.removeChild(toast);
         }
-      }, 350); // Espera a que termine la transición
-    }, 1800);
+      }, 350); // duración del fade-out
+    }, duration);
   }
 };
