@@ -807,8 +807,7 @@
         document.getElementById('removeFromHistoryBtn').disabled = true;
       }
 
-      if (selectedOption && !selectedOption.isCorrect && !isRepassingErrors) {
-        // Solo guardar en historial si NO estamos repasando errores
+      if (selectedOption && !selectedOption.isCorrect) {
         guardarFalloEnHistorial(currentQuestion, optionIndex);
       }
 
@@ -872,7 +871,7 @@
         document.getElementById('removeFromHistoryBtn').disabled = true;
       }
       
-      if (!isCorrect && !isRepassingErrors) {
+      if (!isCorrect) {
         // Guardar en historial con las opciones seleccionadas
         guardarFalloEnHistorialMulti(currentQuestion, selectedIndices);
       }
@@ -978,67 +977,99 @@
     }
 
     // Guardar fallo en historial
-    function guardarFalloEnHistorial(questionIndex, selectedOptionIndex) {
-      const pregunta = JSON.parse(JSON.stringify(preguntes[questionIndex])); // Deep copy
-      const opciones = pregunta.answerOptions || [];
-      const username = localStorage.getItem(LS_KEYS.USER_NAME) || 'unknown';
-      // Añadir username y fecha a la pregunta
-      pregunta.username = username;
-      pregunta.fecha = new Date().toISOString();
-      // Marcar la opción seleccionada por el usuario
-      if (pregunta.answerOptions) {
-        pregunta.answerOptions.forEach((option, i) => {
-          const shuffledIndex = opciones.findIndex(shuffled => shuffled.text === option.text);
-          if (shuffledIndex === selectedOptionIndex) {
-            option.selectedByUser = true;
+    // Función unificada para añadir/actualizar pregunta en el historial
+    function addOrUpdateQuestionInHistorial(pregunta, selectedOptions = null) {
+      const guid = pregunta.guid;
+      const ahora = new Date().toISOString();
+      
+      // Buscar si ya existe en el historial por guid
+      const indiceExistente = guid ? historialFallos.findIndex(p => p.guid === guid) : -1;
+      
+      if (indiceExistente !== -1) {
+        // Ya existe: actualizar count y fecha
+        const preguntaExistente = historialFallos[indiceExistente];
+        preguntaExistente.count = (preguntaExistente.count || 1) + 1;
+        preguntaExistente.fecha = ahora;
+        
+        // Actualizar opciones seleccionadas si se proporcionan
+        if (selectedOptions !== null && preguntaExistente.answerOptions) {
+          preguntaExistente.answerOptions.forEach((option, i) => {
+            option.selectedByUser = false; // Reset
+          });
+          
+          if (Array.isArray(selectedOptions)) {
+            // Múltiples opciones
+            selectedOptions.forEach(idx => {
+              if (preguntaExistente.answerOptions[idx]) {
+                preguntaExistente.answerOptions[idx].selectedByUser = true;
+              }
+            });
+          } else if (typeof selectedOptions === 'number') {
+            // Una sola opción
+            if (preguntaExistente.answerOptions[selectedOptions]) {
+              preguntaExistente.answerOptions[selectedOptions].selectedByUser = true;
+            }
           }
-        });
+        }
+        
+        // Mover al principio del historial (más reciente primero)
+        historialFallos.splice(indiceExistente, 1);
+        historialFallos.unshift(preguntaExistente);
+      } else {
+        // No existe: crear nueva entrada
+        const nuevaPregunta = JSON.parse(JSON.stringify(pregunta)); // Deep copy
+        nuevaPregunta.fecha = ahora;
+        nuevaPregunta.count = 1;
+        
+        // Marcar opciones seleccionadas si se proporcionan
+        if (selectedOptions !== null && nuevaPregunta.answerOptions) {
+          nuevaPregunta.answerOptions.forEach((option, i) => {
+            option.selectedByUser = false;
+          });
+          
+          if (Array.isArray(selectedOptions)) {
+            // Múltiples opciones
+            selectedOptions.forEach(idx => {
+              if (nuevaPregunta.answerOptions[idx]) {
+                nuevaPregunta.answerOptions[idx].selectedByUser = true;
+              }
+            });
+          } else if (typeof selectedOptions === 'number') {
+            // Una sola opción
+            if (nuevaPregunta.answerOptions[selectedOptions]) {
+              nuevaPregunta.answerOptions[selectedOptions].selectedByUser = true;
+            }
+          }
+        }
+        
+        // Añadir al principio del historial
+        historialFallos.unshift(nuevaPregunta);
       }
-      // Añadir al principio del historial (más nuevo primero)
-      historialFallos.unshift(pregunta);
+      
+      // Guardar y actualizar UI
       actualizarTextareaHistorial();
       localStorage.setItem(LS_KEYS.HISTORIAL_FALLOS, JSON.stringify(historialFallos));
     }
 
+    // Guardar fallo en historial (una sola respuesta)
+    function guardarFalloEnHistorial(questionIndex, selectedOptionIndex) {
+      const pregunta = preguntes[questionIndex];
+      addOrUpdateQuestionInHistorial(pregunta, selectedOptionIndex);
+    }
+
     // Guardar fallo en historial para preguntas con múltiples respuestas
     function guardarFalloEnHistorialMulti(questionIndex, selectedIndices) {
-      const pregunta = JSON.parse(JSON.stringify(preguntes[questionIndex])); // Deep copy
-      const opciones = pregunta.answerOptions || [];
-      const username = localStorage.getItem(LS_KEYS.USER_NAME) || 'unknown';
-      // Añadir username y fecha a la pregunta
-      pregunta.username = username;
-      pregunta.fecha = new Date().toISOString();
-      // Marcar las opciones seleccionadas por el usuario
-      if (pregunta.answerOptions) {
-        pregunta.answerOptions.forEach((option, i) => {
-          const shuffledIndex = opciones.findIndex(shuffled => shuffled.text === option.text);
-          if (selectedIndices.includes(shuffledIndex)) {
-            option.selectedByUser = true;
-          }
-        });
-      }
-      // Añadir al principio del historial (más nuevo primero)
-      historialFallos.unshift(pregunta);
-      actualizarTextareaHistorial();
-      localStorage.setItem(LS_KEYS.HISTORIAL_FALLOS, JSON.stringify(historialFallos));
+      const pregunta = preguntes[questionIndex];
+      addOrUpdateQuestionInHistorial(pregunta, selectedIndices);
     }
 
     // Guardar duda actual (independiente de si es correcta o no)
     function guardarDubte() {
       if (currentQuestion >= 0 && currentQuestion < preguntes.length) {
-        // Lógica original para preguntas
+        const pregunta = preguntes[currentQuestion];
         const userAnswer = answers[currentQuestion];
-        if (userAnswer !== null) {
-          guardarFalloEnHistorial(currentQuestion, userAnswer);
-        } else {
-          const pregunta = JSON.parse(JSON.stringify(preguntes[currentQuestion]));
-          const username = localStorage.getItem(LS_KEYS.USER_NAME) || 'unknown';
-          pregunta.username = username;
-          pregunta.fecha = new Date().toISOString();
-          historialFallos.unshift(pregunta);
-          actualizarTextareaHistorial();
-          localStorage.setItem(LS_KEYS.HISTORIAL_FALLOS, JSON.stringify(historialFallos));
-        }
+        // Si hay respuesta guardada, usar esa; si no, null (sin marcar opciones)
+        addOrUpdateQuestionInHistorial(pregunta, userAnswer);
       }
     }
 
