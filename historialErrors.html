@@ -627,7 +627,7 @@
       preguntasAMostrar.forEach((pregunta, index) => {
         const card = document.createElement('div');
         card.className = 'pregunta-card';
-        card.dataset.index = index;
+        card.dataset.guid = pregunta.guid; // Guardar guid en lugar de index
         const questionText = pregunta.question || pregunta.pregunta || 'Pregunta sense text';
         const subjectId = pregunta.subjectId || '-';
         const difficulty = pregunta.difficulty || '-';
@@ -669,8 +669,8 @@
               </div>
             </div>
             <div class="pregunta-actions">
-              <button class="btn btn-detail" data-index="${index}">👁️</button>
-              <button class="btn btn-delete" data-index="${index}">🗑️</button>
+              <button class="btn btn-detail" data-guid="${pregunta.guid}">👁️</button>
+              <button class="btn btn-delete" data-guid="${pregunta.guid}">🗑️</button>
             </div>
           </div>
         `;
@@ -693,15 +693,15 @@
       // Añadir event listeners a los botones
       document.querySelectorAll('.btn-detail').forEach(btn => {
         btn.addEventListener('click', (e) => {
-          const index = parseInt(e.target.dataset.index);
-          mostrarDetalle(index);
+          const guid = e.target.dataset.guid;
+          mostrarDetalle(guid);
         });
       });
 
       document.querySelectorAll('.btn-delete').forEach(btn => {
         btn.addEventListener('click', (e) => {
-          const index = parseInt(e.target.dataset.index);
-          borrarPregunta(index);
+          const guid = e.target.dataset.guid;
+          borrarPregunta(guid);
         });
       });
 
@@ -751,8 +751,8 @@
     }
 
     // Mostrar detalle en modal
-    function mostrarDetalle(index) {
-      const pregunta = historialFallos[index];
+    function mostrarDetalle(guid) {
+      const pregunta = historialFallos.find(p => p.guid === guid);
       if (!pregunta) return;
 
       const questionText = pregunta.question || pregunta.pregunta || 'Pregunta sense text';
@@ -822,11 +822,14 @@
     }
 
     // Borrar pregunta
-    function borrarPregunta(index) {
+    function borrarPregunta(guid) {
       if (confirm('Segur que vols esborrar aquesta pregunta de l\'historial?')) {
-        historialFallos.splice(index, 1);
-        guardarHistorial();
-        actualizarUI();
+        const index = historialFallos.findIndex(p => p.guid === guid);
+        if (index !== -1) {
+          historialFallos.splice(index, 1);
+          guardarHistorial();
+          actualizarUI();
+        }
       }
     }
 
@@ -858,9 +861,9 @@
         let preguntasAEstudiar = [];
         if (selectedCards.length > 0) {
           preguntasAEstudiar = selectedCards.map(card => {
-            const idx = parseInt(card.dataset.index);
-            return historialFallos[idx];
-          });
+            const guid = card.dataset.guid;
+            return historialFallos.find(p => p.guid === guid);
+          }).filter(p => p !== undefined);
         } else {
           preguntasAEstudiar = historialFallos;
         }
@@ -891,9 +894,9 @@
       let preguntasSeleccionadas = [];
       if (selectedCards.length > 0) {
         preguntasSeleccionadas = selectedCards.map(card => {
-          const idx = parseInt(card.dataset.index);
-          return historialFallos[idx];
-        });
+          const guid = card.dataset.guid;
+          return historialFallos.find(p => p.guid === guid);
+        }).filter(p => p !== undefined);
       } else {
         preguntasSeleccionadas = historialFallos;
       }
@@ -922,9 +925,9 @@
       let preguntasSeleccionadas = [];
       if (selectedCards.length > 0) {
         preguntasSeleccionadas = selectedCards.map(card => {
-          const idx = parseInt(card.dataset.index);
-          return historialFallos[idx];
-        });
+          const guid = card.dataset.guid;
+          return historialFallos.find(p => p.guid === guid);
+        }).filter(p => p !== undefined);
       } else {
         preguntasSeleccionadas = historialFallos;
       }
@@ -938,9 +941,9 @@
             let preguntasAConservar = [];
             const nonSelectedCards = Array.from(document.querySelectorAll('.pregunta-card:not(.selected)'));
             preguntasAConservar = nonSelectedCards.map(card => {
-              const idx = parseInt(card.dataset.index);
-              return historialFallos[idx];
-            });
+              const guid = card.dataset.guid;
+              return historialFallos.find(p => p.guid === guid);
+            }).filter(p => p !== undefined);
             historialFallos = preguntasAConservar;
           } else {
             historialFallos = [];
