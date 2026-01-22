@@ -1,0 +1,2762 @@
+[
+  {
+    "guid": "c350ee56-b4e6-4ac8-b2b4-5500868cf21b",
+    "subjectId": "T60",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "1. Quina característica diferencia millor un CPD de nivell Tier III en disponibilitat?",
+    "answerOptions": [
+      {
+        "text": "Permet manteniment de components de capacitat mantenint el servei operatiu",
+        "isCorrect": true,
+        "rationale": "Tier III es basa en manteniment concurrent: es pot mantenir un component de capacitat o camí sense aturar el servei."
+      },
+      {
+        "text": "Disposa d’un segon CPD geogràficament separat amb replicació síncrona",
+        "isCorrect": false,
+        "rationale": "Això descriu un escenari de continuïtat o recuperació amb un segon centre separat, no el criteri de Tier III."
+      },
+      {
+        "text": "Funciona amb un camí de distribució simple i redundància molt limitada",
+        "isCorrect": false,
+        "rationale": "Un camí simple i poca redundància s’associa a nivells bàsics, no a Tier III."
+      },
+      {
+        "text": "Té dos camins actius i tolera la fallada d’un camí complet",
+        "isCorrect": false,
+        "rationale": "Dos camins actius i tolerància a la fallada d’un camí complet s’apropa a disseny tolerant a fallades propi de Tier IV."
+      }
+    ]
+  },
+  {
+    "guid": "861f4b1e-faea-4e0f-8954-2fca0064cb32",
+    "subjectId": "T60",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "2. En redundància elèctrica, què descriu millor una arquitectura 2N?",
+    "answerOptions": [
+      {
+        "text": "Capacitat N amb un mòdul addicional compartit",
+        "isCorrect": false,
+        "rationale": "Això s’assembla a N+1, on hi ha un mòdul extra per cobrir fallades, però no dos sistemes complets."
+      },
+      {
+        "text": "Dos sistemes complets i independents, cadascun capaç de suportar tota la càrrega",
+        "isCorrect": true,
+        "rationale": "En 2N hi ha dos sistemes complets i independents, cadascun capaç de suportar tota la càrrega."
+      },
+      {
+        "text": "Dues línies que comparteixen part de la distribució i sumen capacitat per arribar a N",
+        "isCorrect": false,
+        "rationale": "Compartir part de la distribució introdueix dependències comunes i no equival a 2N."
+      },
+      {
+        "text": "Un sistema N amb possibilitat de bypass per manteniment però sense segon sistema complet",
+        "isCorrect": false,
+        "rationale": "Un bypass facilita manteniment, però no substitueix un segon sistema complet per redundància 2N."
+      }
+    ]
+  },
+  {
+    "guid": "d98714ec-478d-4b56-93cc-37dff9f3307b",
+    "subjectId": "T60",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "3. Quin és el paper principal d’un SAI en la cadena d’alimentació d’un CPD?",
+    "answerOptions": [
+      {
+        "text": "Automatitzar la commutació entre font principal i font alternativa",
+        "isCorrect": false,
+        "rationale": "La commutació entre fonts és funció típica d’un ATS, no del SAI."
+      },
+      {
+        "text": "Distribuir energia als racks i oferir mesura per circuit",
+        "isCorrect": false,
+        "rationale": "Distribuir energia als racks i mesurar circuits és propi d’una PDU, no del SAI."
+      },
+      {
+        "text": "Proporcionar energia condicionada i autonomia breu fins a la transició a una altra font",
+        "isCorrect": true,
+        "rationale": "El SAI condiciona l’energia i dona autonomia breu per evitar talls fins que entra una altra font, com el grup electrogen."
+      },
+      {
+        "text": "Proporcionar generació elèctrica pròpia per cobrir talls llargs",
+        "isCorrect": false,
+        "rationale": "La generació elèctrica pròpia és del grup electrogen, no del SAI."
+      }
+    ]
+  },
+  {
+    "guid": "be9f11f4-8f24-4af0-aacd-83dc733eb31d",
+    "subjectId": "T60",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "4. Quin és el paper principal d’un ATS en la infraestructura elèctrica d’un CPD?",
+    "answerOptions": [
+      {
+        "text": "Proporcionar autonomia breu mitjançant bateries i inversor",
+        "isCorrect": false,
+        "rationale": "Això descriu un SAI, que dona autonomia breu amb bateries."
+      },
+      {
+        "text": "Distribuir energia a racks amb proteccions i mesura",
+        "isCorrect": false,
+        "rationale": "Això correspon a una PDU, orientada a distribució i mesura."
+      },
+      {
+        "text": "Supervisar i comandar instal·lacions de l’edifici com quadres i climatització",
+        "isCorrect": false,
+        "rationale": "Supervisar instal·lacions d’edifici és propi d’un BMS."
+      },
+      {
+        "text": "Transferir automàticament la càrrega entre fonts d’alimentació disponibles",
+        "isCorrect": true,
+        "rationale": "Un ATS transfereix automàticament la càrrega entre fonts d’alimentació disponibles."
+      }
+    ]
+  },
+  {
+    "guid": "feae1cf2-5f33-4572-aaa8-da05f2dc6e19",
+    "subjectId": "T60",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "5. Quin sistema d’extinció s’utilitza sovint en sales TI per minimitzar residus i danys a equips?",
+    "answerOptions": [
+      {
+        "text": "Aigua en canonada mullada amb descàrrega directa a la sala",
+        "isCorrect": false,
+        "rationale": "Aigua en canonada mullada deixa residus i pot danyar equips TI; no és l’opció típica per minimitzar danys."
+      },
+      {
+        "text": "Preaction amb aigua, activada per sistema de detecció",
+        "isCorrect": false,
+        "rationale": "Preaction redueix descàrregues accidentals, però segueix essent aigua i pot afectar equips."
+      },
+      {
+        "text": "Nebulització d’aigua d’alta pressió per a extinció i refredament",
+        "isCorrect": false,
+        "rationale": "Nebulització pot reduir danys respecte ruixadors, però no és l’opció més habitual quan es busca minimitzar residus."
+      },
+      {
+        "text": "Agents nets gasosos per inundació controlada del recinte",
+        "isCorrect": true,
+        "rationale": "Els agents nets gasosos apaguen el foc amb poca afectació a equips i sense residus significatius."
+      }
+    ]
+  },
+  {
+    "guid": "ece72d75-a4dd-4b7c-99f8-64dab88050f5",
+    "subjectId": "T60",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "6. Quin és l’objectiu principal del confinament de passadís calent i passadís fred?",
+    "answerOptions": [
+      {
+        "text": "Facilitar control d’accés i compartimentació física de la sala",
+        "isCorrect": false,
+        "rationale": "El confinament de passadissos tracta flux d’aire, no control d’accés."
+      },
+      {
+        "text": "Separar corrents d’aire de subministrament i retorn per millorar l’eficiència del fred",
+        "isCorrect": true,
+        "rationale": "Separa aire fred de subministrament i aire calent de retorn per evitar recirculació i millorar eficiència de refrigeració."
+      },
+      {
+        "text": "Reduir interferències entre cablejat de dades i potència",
+        "isCorrect": false,
+        "rationale": "El cablejat no és el focus principal del confinament de passadissos."
+      },
+      {
+        "text": "Reduir latència de xarxa limitant longituds de cable",
+        "isCorrect": false,
+        "rationale": "La latència de xarxa no depèn del confinament de passadissos."
+      }
+    ]
+  },
+  {
+    "guid": "0c263898-50f1-4880-9b07-2e501508aea4",
+    "subjectId": "T60",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "7. En un CPD amb terra tècnic elevat, quin ús és més habitual?",
+    "answerOptions": [
+      {
+        "text": "Crear una cambra Faraday per minimitzar interferències electromagnètiques",
+        "isCorrect": false,
+        "rationale": "Un terra tècnic no es dissenya com una gàbia de Faraday de manera principal."
+      },
+      {
+        "text": "Implementar busbar aeri com a única via de distribució elèctrica",
+        "isCorrect": false,
+        "rationale": "Busbar aeri pot existir, però no és l’ús típic del plenum d’un terra elevat."
+      },
+      {
+        "text": "Utilitzar el plenum per distribució d’aire i pas ordenat d’infraestructura",
+        "isCorrect": true,
+        "rationale": "S’utilitza el plenum per distribuir aire i ordenar el pas d’infraestructura, segons el disseny del CPD."
+      },
+      {
+        "text": "Substituir la climatització mecànica per ventilació natural a sala",
+        "isCorrect": false,
+        "rationale": "El terra elevat no substitueix la climatització mecànica per ventilació natural."
+      }
+    ]
+  },
+  {
+    "guid": "bec27955-105e-4f8d-af9c-fdd935e5eac3",
+    "subjectId": "T60",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "8. Quin objectiu s’associa millor a un vestíbul de doble porta controlada, tipus mantrap?",
+    "answerOptions": [
+      {
+        "text": "Reduir el risc d’accés no autoritzat i evitar el pas simultani mitjançant doble control",
+        "isCorrect": true,
+        "rationale": "Un mantrap evita entrades simultànies i reforça l’autenticació, reduint el risc d’accés no autoritzat."
+      },
+      {
+        "text": "Estabilitzar condicions ambientals reduint l’entrada d’aire exterior a la sala",
+        "isCorrect": false,
+        "rationale": "Pot ajudar a reduir intercanvi d’aire, però el seu objectiu és la seguretat d’accés."
+      },
+      {
+        "text": "Centralitzar el control de visites i equipament a través del sistema DCIM",
+        "isCorrect": false,
+        "rationale": "DCIM gestiona capacitat i energia, no és la funció principal d’un mantrap."
+      },
+      {
+        "text": "Facilitar el moviment de materials mantenint portes desbloquejades en horari laboral",
+        "isCorrect": false,
+        "rationale": "Mantenir portes desbloquejades debilita el control d’accés."
+      }
+    ]
+  },
+  {
+    "guid": "eff31ec3-8e48-496a-881e-6d3d968e6a68",
+    "subjectId": "T60",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "9. Com es defineix habitualment el PUE en eficiència energètica de CPD?",
+    "answerOptions": [
+      {
+        "text": "Energia TI dividida per energia total de la instal·lació",
+        "isCorrect": false,
+        "rationale": "Aquesta és la inversa del PUE, sovint anomenada DCiE."
+      },
+      {
+        "text": "Energia de refrigeració dividida per energia total de la instal·lació",
+        "isCorrect": false,
+        "rationale": "Relaciona només refrigeració, no l’eficiència global del centre."
+      },
+      {
+        "text": "Energia total de la instal·lació dividida per energia de refrigeració",
+        "isCorrect": false,
+        "rationale": "No és la definició estàndard de PUE."
+      },
+      {
+        "text": "Energia total de la instal·lació dividida per energia consumida per l’equipament TI",
+        "isCorrect": true,
+        "rationale": "PUE és energia total de la instal·lació dividida per l’energia consumida per l’equipament TI."
+      }
+    ]
+  },
+  {
+    "guid": "736f5b42-d0d4-4913-89d2-2715472a5d42",
+    "subjectId": "T60",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "10. Quin component distribueix energia dins el rack o fila i pot incorporar mesura i protecció per circuits?",
+    "answerOptions": [
+      {
+        "text": "Consola KVM per accés remot a nivell de consola",
+        "isCorrect": false,
+        "rationale": "Una KVM facilita accés a consola, no distribueix energia elèctrica."
+      },
+      {
+        "text": "Commutador d’accés per connectar servidors a la xarxa",
+        "isCorrect": false,
+        "rationale": "Un commutador d’accés és per connectivitat de xarxa, no per potència."
+      },
+      {
+        "text": "PDU de rack o de fila amb distribució i mesura",
+        "isCorrect": true,
+        "rationale": "Una PDU de rack o de fila distribueix energia i pot mesurar i protegir circuits."
+      },
+      {
+        "text": "Plataforma de sensors ambientals amb monitoratge centralitzat",
+        "isCorrect": false,
+        "rationale": "Sensors ambientals monitoren condicions, no distribueixen energia als equips."
+      }
+    ]
+  },
+  {
+    "guid": "f38f8555-5f9e-468e-9f7c-195852b816db",
+    "subjectId": "T60",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "11. Quin enunciat descriu millor la integració contínua en un entorn d’operació de CPD i sistemes?",
+    "answerOptions": [
+      {
+        "text": "Integrar canvis en lots grans al final de cada iteració i validar-los abans del lliurament",
+        "isCorrect": false,
+        "rationale": "Integrar en lots grans incrementa risc d’integració tardana i no reflecteix pràctica de CI."
+      },
+      {
+        "text": "Integrar canvis sovint a un repositori compartit i executar build i proves automàtiques",
+        "isCorrect": true,
+        "rationale": "CI integra canvis sovint en un repositori comú i executa build i proves automàtiques per detectar errors aviat."
+      },
+      {
+        "text": "Publicar cada canvi directament a producció si passa una validació mínima",
+        "isCorrect": false,
+        "rationale": "Publicar directament a producció és més propi de desplegament continu, no de la definició de CI."
+      },
+      {
+        "text": "Fer proves manuals després de cada integració per decidir si es pot promoure",
+        "isCorrect": false,
+        "rationale": "CI prioritza automatització; fer-ho manualment redueix rapidesa i consistència."
+      }
+    ]
+  },
+  {
+    "guid": "a9341047-0c29-489f-9b06-27524a6c3b26",
+    "subjectId": "T60",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "12. Quina afirmació diferencia millor continuous delivery i continuous deployment?",
+    "answerOptions": [
+      {
+        "text": "Delivery implica publicació automàtica a producció; deployment implica validació en preproducció",
+        "isCorrect": false,
+        "rationale": "Aquesta descripció intercanvia conceptes: publicació automàtica a producció és deployment, no delivery."
+      },
+      {
+        "text": "Delivery és una pràctica d’operació; deployment és una pràctica de desenvolupament",
+        "isCorrect": false,
+        "rationale": "Totes dues són pràctiques de lliurament i operació del pipeline, no una separació tan rígida."
+      },
+      {
+        "text": "Delivery es limita a provar; deployment es limita a empaquetar",
+        "isCorrect": false,
+        "rationale": "Cap de les dues es limita només a una activitat; cobreixen tot el flux fins al desplegament."
+      },
+      {
+        "text": "Delivery manté el producte sempre llest per desplegar; deployment desplega automàticament a producció quan el pipeline ho valida",
+        "isCorrect": true,
+        "rationale": "Delivery manté el producte sempre llest per desplegar; deployment desplega automàticament a producció quan el pipeline ho valida."
+      }
+    ]
+  },
+  {
+    "guid": "53f3a5fc-495e-41fe-a310-37f07e824d44",
+    "subjectId": "T60",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "13. Quina descripció encaixa millor amb un CPD Tier IV?",
+    "answerOptions": [
+      {
+        "text": "Disseny tolerant a fallades amb capacitat duplicada i distribució independent",
+        "isCorrect": true,
+        "rationale": "Tier IV és tolerant a fallades, amb capacitat duplicada i distribució independent."
+      },
+      {
+        "text": "Manteniment concurrent amb camins múltiples però amb un camí habitualment actiu",
+        "isCorrect": false,
+        "rationale": "Això s’associa a manteniment concurrent, típic de Tier III."
+      },
+      {
+        "text": "Components de capacitat redundants amb un camí de distribució simple",
+        "isCorrect": false,
+        "rationale": "Capacitat redundant amb camí simple s’associa a Tier II."
+      },
+      {
+        "text": "Infraestructura bàsica amb capacitat i distribució no redundants",
+        "isCorrect": false,
+        "rationale": "Sense redundància significativa s’associa a Tier I."
+      }
+    ]
+  },
+  {
+    "guid": "dd0ddfd7-28a8-4b39-b923-114feb7da79d",
+    "subjectId": "T60",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "14. Quina mesura ajuda més a reduir punts únics de fallada en l’alimentació fins al rack?",
+    "answerOptions": [
+      {
+        "text": "Incrementar la capacitat del SAI principal i afegir bypass per manteniment",
+        "isCorrect": false,
+        "rationale": "Augmentar un sol SAI millora capacitat, però pot mantenir punts únics de fallada en la distribució."
+      },
+      {
+        "text": "Instal·lar un únic generador més potent i augmentar el combustible disponible",
+        "isCorrect": false,
+        "rationale": "Un generador únic és un punt únic de fallada i no resol la distribució fins al rack."
+      },
+      {
+        "text": "Doble camí A i B amb distribució separada i equips amb doble font d’alimentació",
+        "isCorrect": true,
+        "rationale": "Camins A i B separats amb equips de doble font redueixen punts únics de fallada fins al rack."
+      },
+      {
+        "text": "Afegir més PDUs al mateix quadre elèctric per repartir circuits",
+        "isCorrect": false,
+        "rationale": "Més PDUs al mateix quadre comparteixen alimentació i no eliminen punts únics."
+      }
+    ]
+  },
+  {
+    "guid": "ff00911d-1a30-4e02-967d-2fe726c36cf5",
+    "subjectId": "T60",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "15. Quina configuració descriu millor una alimentació elèctrica dual per a servidors amb dues fonts?",
+    "answerOptions": [
+      {
+        "text": "Dues preses del mateix PDU amb circuits diferents però mateixa línia d’entrada",
+        "isCorrect": false,
+        "rationale": "Dues preses del mateix PDU comparteixen entrada i no donen redundància real de camí."
+      },
+      {
+        "text": "Dues línies independents associades a camins diferents fins al rack",
+        "isCorrect": true,
+        "rationale": "Alimentació dual implica dues línies independents associades a camins diferents fins al rack."
+      },
+      {
+        "text": "Una línia principal i una segona línia connectada al mateix SAI per redundància",
+        "isCorrect": false,
+        "rationale": "Compartir el mateix SAI manté dependència comuna i no és una dualitat completa."
+      },
+      {
+        "text": "Una línia amb commutació manual de la font alternativa en cas d’incident",
+        "isCorrect": false,
+        "rationale": "Commutació manual és una mesura operativa, no una arquitectura dual robusta."
+      }
+    ]
+  },
+  {
+    "guid": "4e914d14-9e65-4b5a-bf61-de4883c1235f",
+    "subjectId": "T60",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "16. Quina mesura és més habitual per gestionar el risc de descàrregues electrostàtiques en una sala TI?",
+    "answerOptions": [
+      {
+        "text": "Controlar la humitat relativa dins rang recomanat per reduir acumulació electrostàtica",
+        "isCorrect": false,
+        "rationale": "Controlar humitat ajuda, però és una part del control ESD i no assegura equipotencialitat."
+      },
+      {
+        "text": "Utilitzar polseres i estores ESD en operacions de manteniment d’electrònica",
+        "isCorrect": false,
+        "rationale": "Polseres i estores són mesures de manteniment, però no cobreixen el conjunt de la sala."
+      },
+      {
+        "text": "Implementar punts de posada a terra per a racks i estructures metàl·liques",
+        "isCorrect": false,
+        "rationale": "Posada a terra és necessària, però manca el component de paviment dissipatiu i equipotencialitat general."
+      },
+      {
+        "text": "Paviment dissipatiu i equipotencialitat de racks i elements metàl·lics",
+        "isCorrect": true,
+        "rationale": "Paviment dissipatiu i equipotencialitat redueixen acumulació i diferències de potencial a tota la sala."
+      }
+    ]
+  },
+  {
+    "guid": "577d68ac-7458-42d5-85c4-19da7b434bce",
+    "subjectId": "T60",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "17. Quin principi de seguretat física reflecteix millor la zonificació d’un CPD?",
+    "answerOptions": [
+      {
+        "text": "Separació d’àrees per nivells d’autorització amb controls d’accés progressius",
+        "isCorrect": true,
+        "rationale": "Zonificar és separar àrees per nivells d’autorització amb controls d’accés progressius."
+      },
+      {
+        "text": "Accés ampli a totes les zones per agilitzar intervencions d’operació",
+        "isCorrect": false,
+        "rationale": "Accés ampli a totes les zones incrementa risc i no segueix principi de mínim privilegi."
+      },
+      {
+        "text": "Accés directe a sala TI amb control principal a recepció de l’edifici",
+        "isCorrect": false,
+        "rationale": "Accés directe a sala TI debilita la defensa en profunditat."
+      },
+      {
+        "text": "Control d’accés únic al perímetre i circulació lliure un cop dins",
+        "isCorrect": false,
+        "rationale": "Un únic control al perímetre deixa zones internes sense protecció escalonada."
+      }
+    ]
+  },
+  {
+    "guid": "3c18c7ac-5587-451f-a0cf-bccfde41bbe9",
+    "subjectId": "T60",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "18. Quin tipus de detecció és especialment útil per identificar fum en fases molt primerenques?",
+    "answerOptions": [
+      {
+        "text": "Detecció tèrmica per increment sobtat de temperatura",
+        "isCorrect": false,
+        "rationale": "La detecció tèrmica reacciona més tard que el fum en fases inicials."
+      },
+      {
+        "text": "Detecció per flama amb sensors òptics",
+        "isCorrect": false,
+        "rationale": "La detecció per flama requereix foc visible, no és primerenca."
+      },
+      {
+        "text": "Detecció aspirativa d’alta sensibilitat amb mostreig d’aire",
+        "isCorrect": true,
+        "rationale": "La detecció aspirativa d’alta sensibilitat pot identificar partícules de fum en fases molt inicials."
+      },
+      {
+        "text": "Detecció de gasos combustibles associada a zona de bateries",
+        "isCorrect": false,
+        "rationale": "La detecció de gasos és específica de certes zones i no és la més típica per fum primerenc."
+      }
+    ]
+  },
+  {
+    "guid": "9760925a-73b5-46d2-bb39-863c30c5b834",
+    "subjectId": "T60",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "19. En sistemes de ruixadors preaction, quina característica és més pròpia respecte a canonada mullada?",
+    "answerOptions": [
+      {
+        "text": "L’aigua ja és present en canonades i la descàrrega depèn de la temperatura",
+        "isCorrect": false,
+        "rationale": "Canonada mullada té aigua permanent i actua per temperatura del ruixador, no és preaction."
+      },
+      {
+        "text": "Les canonades estan carregades d’aire i l’aigua entra quan s’obren els ruixadors",
+        "isCorrect": false,
+        "rationale": "Això s’assembla a un sistema de canonada seca, no al preaction típic en sales TI."
+      },
+      {
+        "text": "L’aigua entra a la instal·lació quan hi ha alarma general independentment de ruixadors",
+        "isCorrect": false,
+        "rationale": "Això descriu un sistema deluge, no un preaction."
+      },
+      {
+        "text": "L’entrada d’aigua es condiciona a una validació prèvia del sistema de detecció",
+        "isCorrect": true,
+        "rationale": "En preaction l’aigua entra després d’una validació del sistema de detecció, reduint descàrregues no desitjades."
+      }
+    ]
+  },
+  {
+    "guid": "5d66b2d5-1bbc-4eae-b7d2-dfbffd602362",
+    "subjectId": "T60",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "20. Quin és un ús típic d’una eina DCIM en un CPD?",
+    "answerOptions": [
+      {
+        "text": "Control integral d’instal·lacions d’edifici com climatització general i quadres",
+        "isCorrect": false,
+        "rationale": "Això és propi d’un BMS, orientat a instal·lacions d’edifici."
+      },
+      {
+        "text": "Monitorar capacitat, energia, condicions ambientals i ocupació d’espai TI",
+        "isCorrect": true,
+        "rationale": "DCIM monitoritza capacitat, energia, ambient i ocupació d’espai de la infraestructura TI."
+      },
+      {
+        "text": "Gestionar identitats i credencials d’accés físic com a funció principal",
+        "isCorrect": false,
+        "rationale": "Gestió d’identitats d’accés físic és una altra categoria de sistema."
+      },
+      {
+        "text": "Gestionar compilació i distribució d’artefactes de programari",
+        "isCorrect": false,
+        "rationale": "Compilació i distribució d’artefactes és propi de DevOps, no DCIM."
+      }
+    ]
+  },
+  {
+    "guid": "b7e50d12-25f7-49a6-a846-3b7f1b31d965",
+    "subjectId": "T60",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "21. Quina expressió relaciona millor MTBF i MTTR amb disponibilitat d’un servei?",
+    "answerOptions": [
+      {
+        "text": "Disponibilitat aproximada és MTBF dividit per MTBF més MTTR",
+        "isCorrect": true,
+        "rationale": "La disponibilitat s’aproxima com MTBF dividit per MTBF més MTTR."
+      },
+      {
+        "text": "Disponibilitat aproximada és MTTR dividit per MTBF més MTTR",
+        "isCorrect": false,
+        "rationale": "Aquesta expressió dona el pes del temps de reparació, no la disponibilitat."
+      },
+      {
+        "text": "Disponibilitat aproximada és MTBF més MTTR dividit per MTBF",
+        "isCorrect": false,
+        "rationale": "No és una formulació estàndard de disponibilitat."
+      },
+      {
+        "text": "Disponibilitat aproximada és MTBF dividit per MTTR",
+        "isCorrect": false,
+        "rationale": "Aquesta relació no reflecteix la proporció de temps operatiu respecte el total."
+      }
+    ]
+  },
+  {
+    "guid": "e27d21c0-3ccc-4b55-a78b-d76b57f97376",
+    "subjectId": "T60",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "22. En continuïtat de negoci, quin parell descriu millor RTO i RPO?",
+    "answerOptions": [
+      {
+        "text": "RTO és antiguitat màxima de dades admissible; RPO és temps objectiu de recuperació",
+        "isCorrect": false,
+        "rationale": "Intercanvia definicions: l’antiguitat de dades correspon a RPO, no a RTO."
+      },
+      {
+        "text": "RTO és temps màxim d’indisponibilitat; RPO és temps de restauració del servei",
+        "isCorrect": false,
+        "rationale": "RPO no és temps de restauració; RPO tracta pèrdua de dades admissible."
+      },
+      {
+        "text": "RTO és temps objectiu de recuperació; RPO és antiguitat màxima de dades admissible",
+        "isCorrect": true,
+        "rationale": "RTO és temps objectiu de recuperació; RPO és antiguitat màxima de dades admissible."
+      },
+      {
+        "text": "RTO és finestra de manteniment; RPO és freqüència de còpies de seguretat",
+        "isCorrect": false,
+        "rationale": "Finestra de manteniment i freqüència de còpies són conceptes diferents de RTO i RPO."
+      }
+    ]
+  },
+  {
+    "guid": "d5994168-82de-48ba-a853-1a4b4f686070",
+    "subjectId": "T60",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "23. Quin escenari descriu millor un disseny actiu-actiu entre dos centres de dades?",
+    "answerOptions": [
+      {
+        "text": "Un centre en producció i un altre en fred preparat per activar-se en emergència",
+        "isCorrect": false,
+        "rationale": "Això és un centre en fred, sense càrrega habitual."
+      },
+      {
+        "text": "Un centre principal i un altre en warm standby amb serveis parcialment actius",
+        "isCorrect": false,
+        "rationale": "Warm standby té serveis parcials, no compartició real de càrrega."
+      },
+      {
+        "text": "Un centre principal i un secundari en hot standby amb canvi automàtic però sense càrrega habitual",
+        "isCorrect": false,
+        "rationale": "Hot standby està preparat per canvi ràpid, però no comparteix càrrega habitualment."
+      },
+      {
+        "text": "Dos centres en servei compartint càrrega i amb capacitat d’assumir-la mútuament",
+        "isCorrect": true,
+        "rationale": "Actiu-actiu implica dos centres en servei compartint càrrega i amb capacitat d’assumir-se mútuament."
+      }
+    ]
+  },
+  {
+    "guid": "2cfafe0b-306f-401e-8d71-ca67ada4246b",
+    "subjectId": "T60",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "24. En cablejat de CPD, quina opció descriu millor una arquitectura top of rack?",
+    "answerOptions": [
+      {
+        "text": "Commutadors a final de fila amb cablejat cap a cada rack",
+        "isCorrect": false,
+        "rationale": "Això s’assembla a end of row, amb commutadors a final de fila."
+      },
+      {
+        "text": "Commutador a la part superior del rack amb connexions curtes dins el rack",
+        "isCorrect": true,
+        "rationale": "Top of rack situa el commutador a la part superior del rack amb connexions curtes dins del rack."
+      },
+      {
+        "text": "Commutadors centrals a sala amb enllaços individuals llargs cap a cada servidor",
+        "isCorrect": false,
+        "rationale": "Commutadors centrals amb enllaços llargs no descriu ToR i incrementa longitud de cablejat."
+      },
+      {
+        "text": "Connexió directa servidor a servidor sense capa d’accés",
+        "isCorrect": false,
+        "rationale": "Servidor a servidor directe no és una arquitectura d’accés típica en CPD."
+      }
+    ]
+  },
+  {
+    "guid": "53050bfe-a429-4e39-81d5-8fd444afbbde",
+    "subjectId": "T60",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "25. Quin tipus de fibra és més adequada per enllaços llargs dins campus o entre edificis?",
+    "answerOptions": [
+      {
+        "text": "Fibra multimode OM3 per enllaços de campus de llarga distància",
+        "isCorrect": false,
+        "rationale": "OM3 multimode és per distàncies més curtes que la monomode en campus."
+      },
+      {
+        "text": "Fibra multimode OM4 per troncals de molts quilòmetres amb alta atenuació",
+        "isCorrect": false,
+        "rationale": "OM4 millora multimode, però no és l’opció típica per molts quilòmetres."
+      },
+      {
+        "text": "Fibra monomode OS2 per distàncies llargues i baixa atenuació",
+        "isCorrect": true,
+        "rationale": "OS2 monomode és adequada per distàncies llargues i baixa atenuació."
+      },
+      {
+        "text": "Fibra plàstica per troncals principals de backbone en CPD",
+        "isCorrect": false,
+        "rationale": "Fibra plàstica no és habitual per backbone principal en CPD."
+      }
+    ]
+  },
+  {
+    "guid": "fdd5e579-cec5-41fc-a4c9-5ef855614714",
+    "subjectId": "T60",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "26. Quina diferència descriu millor CRAC i CRAH en climatització de CPD?",
+    "answerOptions": [
+      {
+        "text": "CRAC acostuma a ser DX amb refrigerant; CRAH treballa amb aigua refrigerada i bateria",
+        "isCorrect": true,
+        "rationale": "CRAC sovint és DX amb refrigerant; CRAH treballa amb aigua refrigerada i bateria."
+      },
+      {
+        "text": "CRAC s’utilitza en passadís fred; CRAH s’utilitza en passadís calent",
+        "isCorrect": false,
+        "rationale": "La diferència no depèn del passadís, sinó del tipus de circuit de refrigeració."
+      },
+      {
+        "text": "CRAC mesura consum TI; CRAH mesura consum total d’edifici",
+        "isCorrect": false,
+        "rationale": "Cap dels dos és per mesurar consum TI o total; això és d’energia."
+      },
+      {
+        "text": "CRAC és per sales TI; CRAH és per sales d’oficina",
+        "isCorrect": false,
+        "rationale": "Tots dos s’usen en sales TI; la diferència és tecnològica, no d’ús per oficines."
+      }
+    ]
+  },
+  {
+    "guid": "14cdc3ba-3642-435c-ab01-5b3db7111742",
+    "subjectId": "T60",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "27. Quin component és més habitual per protegir contra fallades de subministrament extern i donar autonomia de llarga durada?",
+    "answerOptions": [
+      {
+        "text": "Bancs de bateries dimensionats per diverses hores com a font principal",
+        "isCorrect": false,
+        "rationale": "Bateries per hores són possibles però no és la solució típica d’autonomia llarga per cost i volum."
+      },
+      {
+        "text": "Volant d’inèrcia per donar autonomia prolongada i substituir bateries",
+        "isCorrect": false,
+        "rationale": "Volant d’inèrcia dona autonomia molt curta, segons minuts."
+      },
+      {
+        "text": "Segona escomesa elèctrica d’una altra subestació com a garantia d’autonomia",
+        "isCorrect": false,
+        "rationale": "Segona escomesa millora disponibilitat, però no garanteix autonomia llarga davant una fallada general."
+      },
+      {
+        "text": "Grup electrogen dimensionat en potència i combustible segons l’escenari",
+        "isCorrect": true,
+        "rationale": "El grup electrogen aporta autonomia de llarga durada segons potència i combustible disponible."
+      }
+    ]
+  },
+  {
+    "guid": "dcb8e83d-e782-448e-b918-09b070624627",
+    "subjectId": "T60",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "28. Quin objectiu està més alineat amb una bona posada a terra i equipotencialitat en un CPD?",
+    "answerOptions": [
+      {
+        "text": "Millorar l’eficiència de refrigeració reduint recirculació d’aire",
+        "isCorrect": false,
+        "rationale": "Això és un objectiu de refrigeració, no de posada a terra."
+      },
+      {
+        "text": "Reduir riscos elèctrics i minimitzar diferències de potencial entre equips",
+        "isCorrect": true,
+        "rationale": "Posada a terra i equipotencialitat redueixen riscos elèctrics i diferències de potencial entre equips."
+      },
+      {
+        "text": "Incrementar la capacitat de xarxa i reduir col·lisions a nivell Ethernet",
+        "isCorrect": false,
+        "rationale": "Col·lisions Ethernet i capacitat de xarxa no depenen d’equipotencialitat."
+      },
+      {
+        "text": "Uniformitzar connectors i longituds de cable per modularitat",
+        "isCorrect": false,
+        "rationale": "Connectors i longituds de cable no són el focus d’una bona terra."
+      }
+    ]
+  },
+  {
+    "guid": "8b207335-bf04-48b2-af3d-14205b5758b0",
+    "subjectId": "T60",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "29. Quin sistema s’associa més a gestió d’instal·lacions de l’edifici, com climatització general, quadres i alarmes?",
+    "answerOptions": [
+      {
+        "text": "EDR per protecció d’endpoints",
+        "isCorrect": false,
+        "rationale": "EDR és per seguretat d’endpoints, no per instal·lacions d’edifici."
+      },
+      {
+        "text": "DCIM per capacitat i energia del CPD",
+        "isCorrect": false,
+        "rationale": "DCIM se centra en capacitat i energia del CPD, no en climatització general d’edifici."
+      },
+      {
+        "text": "BMS per supervisió i control d’instal·lacions",
+        "isCorrect": true,
+        "rationale": "BMS supervisa i controla instal·lacions com climatització, quadres i alarmes."
+      },
+      {
+        "text": "CMDB per inventari lògic i serveis",
+        "isCorrect": false,
+        "rationale": "CMDB és inventari lògic de serveis i configuracions, no control d’instal·lacions."
+      }
+    ]
+  },
+  {
+    "guid": "068c8b87-f2ea-4620-b51f-fbfa28a20700",
+    "subjectId": "T60",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "30. Quina descripció encaixa millor amb un CPD Tier II?",
+    "answerOptions": [
+      {
+        "text": "Components de capacitat redundants amb camí de distribució simple",
+        "isCorrect": true,
+        "rationale": "Tier II té components de capacitat redundants però un camí de distribució simple."
+      },
+      {
+        "text": "Camins de distribució múltiples amb manteniment concurrent",
+        "isCorrect": false,
+        "rationale": "Camins múltiples amb manteniment concurrent s’associa a Tier III."
+      },
+      {
+        "text": "Tolerància a fallades amb distribució independent",
+        "isCorrect": false,
+        "rationale": "Tolerància a fallades amb distribució independent és Tier IV."
+      },
+      {
+        "text": "Capacitat i distribució molt limitades en redundància",
+        "isCorrect": false,
+        "rationale": "Poca o nul·la redundància s’associa a Tier I."
+      }
+    ]
+  },
+  {
+    "guid": "1ad5efcc-8755-4101-b706-aadbd60935d0",
+    "subjectId": "T60",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "31. Quin enunciat descriu millor el nivell Tier IV en termes de tolerància a fallades?",
+    "answerOptions": [
+      {
+        "text": "Disseny bàsic amb un sol camí i aturades per manteniment",
+        "isCorrect": false,
+        "rationale": "Un sol camí i aturades per manteniment descriu un nivell bàsic, no Tier IV."
+      },
+      {
+        "text": "Redundància de components amb un camí de distribució que pot quedar fora de servei",
+        "isCorrect": false,
+        "rationale": "Redundància de components amb camí únic no és tolerant a fallades de camí complet."
+      },
+      {
+        "text": "Manteniment concurrent amb camins múltiples però un actiu habitualment",
+        "isCorrect": false,
+        "rationale": "Manteniment concurrent correspon a Tier III, no a tolerància a fallades plena."
+      },
+      {
+        "text": "Tolerància a fallades amb capacitat duplicada i distribució independent",
+        "isCorrect": true,
+        "rationale": "Tier IV és tolerant a fallades amb capacitat duplicada i distribució independent."
+      }
+    ]
+  },
+  {
+    "guid": "eb52be8c-50b2-4e38-98d4-a18ca8a34b56",
+    "subjectId": "T60",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "32. En protecció contra incendis, quin avantatge és propi d’un sistema de preaction per a sales TI?",
+    "answerOptions": [
+      {
+        "text": "Descàrrega directa d’aigua en detectar temperatura alta a un ruixador",
+        "isCorrect": false,
+        "rationale": "Això descriu resposta de ruixador i canonada mullada, no l’avantatge del preaction."
+      },
+      {
+        "text": "Entrada d’aigua condicionada a confirmació del sistema de detecció, reduint descàrregues no desitjades",
+        "isCorrect": true,
+        "rationale": "Preaction requereix confirmació de detecció abans d’entrar aigua, reduint descàrregues accidentals."
+      },
+      {
+        "text": "Extinció principal amb gas inert i aigua com a suport posterior",
+        "isCorrect": false,
+        "rationale": "Gas inert pot existir, però no defineix el principi del preaction."
+      },
+      {
+        "text": "Canonada mullada permanent per millorar temps de resposta en qualsevol cas",
+        "isCorrect": false,
+        "rationale": "Canonada mullada permanent és precisament el que el preaction evita."
+      }
+    ]
+  },
+  {
+    "guid": "9a8f6b30-11e0-4292-ac8a-238d9c5bfd31",
+    "subjectId": "T60",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "33. En control d’accés a CPD, quina pràctica reforça millor l’auditoria i la traçabilitat?",
+    "answerOptions": [
+      {
+        "text": "Registre per torn amb anotacions agregades",
+        "isCorrect": false,
+        "rationale": "Registre agregat per torn perd detall d’identitat i traça per accés individual."
+      },
+      {
+        "text": "Control d’accés amb codi compartit per a l’equip de guàrdia",
+        "isCorrect": false,
+        "rationale": "Codi compartit impedeix atribuir accions a una persona concreta i debilita auditoria."
+      },
+      {
+        "text": "Registre d’entrades i sortides amb identitat, hora i motiu de visita",
+        "isCorrect": true,
+        "rationale": "Identitat, hora i motiu d’entrada i sortida permeten auditoria i traçabilitat real."
+      },
+      {
+        "text": "Autorització verbal del responsable de servei per cada entrada",
+        "isCorrect": false,
+        "rationale": "Autorització verbal no deixa evidència suficient ni traça temporal."
+      }
+    ]
+  },
+  {
+    "guid": "a613b231-810b-4504-8cc1-0a0e88441291",
+    "subjectId": "T60",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "34. Quin enunciat descriu millor una topologia de SAI online de doble conversió?",
+    "answerOptions": [
+      {
+        "text": "La càrrega rep energia a través d’un inversor, aïllant-la de variacions de xarxa",
+        "isCorrect": true,
+        "rationale": "En doble conversió la càrrega rep energia a través d’un inversor, aïllant-la de variacions de xarxa."
+      },
+      {
+        "text": "La càrrega s’alimenta de xarxa i el SAI actua en fallada amb commutació ràpida",
+        "isCorrect": false,
+        "rationale": "Això descriu un SAI line-interactive o standby amb commutació, no doble conversió."
+      },
+      {
+        "text": "La càrrega s’alimenta de bateries i la xarxa només recarrega quan hi ha estabilitat",
+        "isCorrect": false,
+        "rationale": "Un SAI no alimenta sempre de bateries; les usa quan cal."
+      },
+      {
+        "text": "La càrrega rep energia del generador i el SAI actua com a bypass",
+        "isCorrect": false,
+        "rationale": "El generador no és la font principal contínua i el bypass no defineix la doble conversió."
+      }
+    ]
+  },
+  {
+    "guid": "8136d267-df55-48e1-a834-4e48fdf807f1",
+    "subjectId": "T60",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "35. Quin component s’utilitza sovint per distribuir energia de forma flexible a fila amb derivacions cap a racks?",
+    "answerOptions": [
+      {
+        "text": "Patch panel de fibra per backbone",
+        "isCorrect": false,
+        "rationale": "Un patch panel de fibra és per cablejat de dades, no per distribució elèctrica."
+      },
+      {
+        "text": "PDU de rack per distribució local",
+        "isCorrect": false,
+        "rationale": "Una PDU de rack distribueix dins el rack, no és distribució flexible a fila."
+      },
+      {
+        "text": "Quadre elèctric principal de sala",
+        "isCorrect": false,
+        "rationale": "Un quadre principal no dona punts de derivació flexibles a cada rack."
+      },
+      {
+        "text": "Busway o canalització elèctrica amb punts de derivació",
+        "isCorrect": true,
+        "rationale": "Busway ofereix canalització a fila amb punts de derivació per alimentar racks de forma modular."
+      }
+    ]
+  },
+  {
+    "guid": "75150086-c18d-45f8-b0dd-2a685a5e205b",
+    "subjectId": "T60",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "36. En videovigilància de CPD, quin criteri és més rellevant per al disseny operatiu?",
+    "answerOptions": [
+      {
+        "text": "Prioritzar zoom i resolució com a criteri principal",
+        "isCorrect": false,
+        "rationale": "Zoom i resolució són importants, però no substitueixen criteris operatius i de govern de gravacions."
+      },
+      {
+        "text": "Cobrir punts crítics, definir retenció i controlar l’accés a les gravacions",
+        "isCorrect": true,
+        "rationale": "El disseny operatiu prioritza cobrir punts crítics, definir retenció i controlar qui pot accedir a gravacions."
+      },
+      {
+        "text": "Gravar totes les zones de manera contínua amb retenció indefinida",
+        "isCorrect": false,
+        "rationale": "Retenció indefinida i gravació total no és proporcional ni habitual per requisits i capacitat."
+      },
+      {
+        "text": "Limitar càmeres a sala TI i reduir cobertura de perímetre",
+        "isCorrect": false,
+        "rationale": "Reduir cobertura de perímetre pot deixar punts cecs en la seguretat del CPD."
+      }
+    ]
+  },
+  {
+    "guid": "904020ca-b14e-424b-a7fc-a733c7f03156",
+    "subjectId": "T60",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "37. Quina mesura és més adequada per gestionar el risc de fuites d’aigua en un CPD?",
+    "answerOptions": [
+      {
+        "text": "Sensors de fuita, drenatge i criteris d’ubicació de canonades i equipament crític",
+        "isCorrect": true,
+        "rationale": "Sensors de fuita, drenatge i bona ubicació de canonades i equips redueixen risc i impacte de fuites d’aigua."
+      },
+      {
+        "text": "Incrementar la temperatura de sala per reduir risc de condensació",
+        "isCorrect": false,
+        "rationale": "Augmentar temperatura no elimina la causa d’una fuita ni protegeix equipament crític."
+      },
+      {
+        "text": "Ubicar canonades principals sobre els racks per facilitar inspecció",
+        "isCorrect": false,
+        "rationale": "Passar canonades sobre racks incrementa l’impacte potencial d’una fuita."
+      },
+      {
+        "text": "Col·locar equipament crític al punt més baix del plenum per facilitar evacuació",
+        "isCorrect": false,
+        "rationale": "Ubicar equipament crític a punts baixos augmenta risc d’afectació per acumulació d’aigua."
+      }
+    ]
+  },
+  {
+    "guid": "4c94d100-e216-454c-82bb-1fdc3cffcda5",
+    "subjectId": "T60",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "38. Quin conjunt de sensors és més coherent amb monitoratge ambiental d’un CPD?",
+    "answerOptions": [
+      {
+        "text": "Temperatura, humitat, diferencial de pressió i partícules en suspensió",
+        "isCorrect": false,
+        "rationale": "Partícules i diferencial de pressió poden ser útils, però manca detecció de fuites i fum precoç, crítics en CPD."
+      },
+      {
+        "text": "Temperatura, humitat, CO2 i qualitat d’aire general",
+        "isCorrect": false,
+        "rationale": "CO2 i qualitat d’aire general són més propis d’oficines que d’un CPD."
+      },
+      {
+        "text": "Temperatura, humitat, fuites d’aigua i detecció precoç de fum segons zones",
+        "isCorrect": true,
+        "rationale": "Temperatura, humitat, fuites d’aigua i fum precoç cobreixen riscos ambientals típics segons zones."
+      },
+      {
+        "text": "Temperatura, radiació UV, pressió atmosfèrica i nivell de llum",
+        "isCorrect": false,
+        "rationale": "Radiació UV i nivell de llum no són sensors centrals per risc operatiu d’un CPD."
+      }
+    ]
+  },
+  {
+    "guid": "a3a7071c-575b-4e4a-ac58-c9cc439e93a8",
+    "subjectId": "T60",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "39. En una topologia TIA-942, quines àrees descriuen millor la distribució de cablejat dins el CPD?",
+    "answerOptions": [
+      {
+        "text": "Core, distribution, access i edge",
+        "isCorrect": false,
+        "rationale": "Core, distribution i access és un model de xarxa lògica, no d’àrees TIA-942 de cablejat."
+      },
+      {
+        "text": "MMR, HDA, ZDA i EDA",
+        "isCorrect": true,
+        "rationale": "TIA-942 defineix MMR, HDA, ZDA i EDA com àrees de distribució i terminació de cablejat."
+      },
+      {
+        "text": "Primary, secondary, standby i witness",
+        "isCorrect": false,
+        "rationale": "Aquests termes són de continuïtat o arquitectura de sistemes, no de cablejat de CPD."
+      },
+      {
+        "text": "Front-end, back-end, middleware i data layer",
+        "isCorrect": false,
+        "rationale": "Això és una separació d’arquitectura aplicativa, no d’infraestructura de cablejat."
+      }
+    ]
+  },
+  {
+    "guid": "d71d8703-616a-449f-9277-ec95c6842691",
+    "subjectId": "T60",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "40. Quin referent és conegut per classificar CPD segons Tiers I a IV?",
+    "answerOptions": [
+      {
+        "text": "Uptime Institute",
+        "isCorrect": true,
+        "rationale": "Uptime Institute és conegut per la classificació Tier I a Tier IV en CPD."
+      },
+      {
+        "text": "EN 50600",
+        "isCorrect": false,
+        "rationale": "EN 50600 és una norma europea de CPD, però no és l’origen dels Tiers d’Uptime."
+      },
+      {
+        "text": "ISO/IEC 27001",
+        "isCorrect": false,
+        "rationale": "ISO/IEC 27001 tracta seguretat de la informació, no classificació de CPD per tiers."
+      },
+      {
+        "text": "TIA-942",
+        "isCorrect": false,
+        "rationale": "TIA-942 tracta infraestructura i topologia de telecom, no el sistema de tiers d’Uptime."
+      }
+    ]
+  },
+  {
+    "guid": "6df64cd9-a0ce-4917-8356-d2187bdba36b",
+    "subjectId": "T60",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "41. Què són els CPD?",
+    "answerOptions": [
+      {
+        "text": "Un tipus de xarxa social",
+        "isCorrect": false,
+        "rationale": "No correspon al focus de la pregunta ni a la funció descrita a l’opció correcta."
+      },
+      {
+        "text": "Un centre de processament de dades",
+        "isCorrect": true,
+        "rationale": "És l’opció que s’ajusta millor a la definició o funció demanada a l’enunciat."
+      },
+      {
+        "text": "Un tipus de servidor",
+        "isCorrect": false,
+        "rationale": "No correspon al focus de la pregunta ni a la funció descrita a l’opció correcta."
+      },
+      {
+        "text": "Un tipus de programari",
+        "isCorrect": false,
+        "rationale": "No correspon al focus de la pregunta ni a la funció descrita a l’opció correcta."
+      }
+    ]
+  },
+  {
+    "guid": "2f7301f1-524c-443d-b886-8ef3db483896",
+    "subjectId": "T60",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "42. Quins són els objectius dels CPD?",
+    "answerOptions": [
+      {
+        "text": "Processar dades",
+        "isCorrect": false,
+        "rationale": "És un element vàlid, però la pregunta demana el conjunt complet recollit a l’opció correcta."
+      },
+      {
+        "text": "Emmagatzemar dades",
+        "isCorrect": false,
+        "rationale": "És un element vàlid, però la pregunta demana el conjunt complet recollit a l’opció correcta."
+      },
+      {
+        "text": "Transmetre dades",
+        "isCorrect": false,
+        "rationale": "És un element vàlid, però la pregunta demana el conjunt complet recollit a l’opció correcta."
+      },
+      {
+        "text": "Totes les anteriors",
+        "isCorrect": true,
+        "rationale": "Inclou les opcions anteriors, que són aspectes vàlids: Processar dades; Emmagatzemar dades; Transmetre dades."
+      }
+    ]
+  },
+  {
+    "guid": "86db5a15-77bc-4a7d-bb7a-9850f327b31e",
+    "subjectId": "T60",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "43. Per què són importants els CPD en l'era digital?",
+    "answerOptions": [
+      {
+        "text": "Perquè permeten el processament, l'emmagatzematge i la transmissió de dades",
+        "isCorrect": false,
+        "rationale": "És un element vàlid, però la pregunta demana el conjunt complet recollit a l’opció correcta."
+      },
+      {
+        "text": "Perquè són necessaris per a la gestió eficient de les operacions empresarials",
+        "isCorrect": false,
+        "rationale": "És un element vàlid, però la pregunta demana el conjunt complet recollit a l’opció correcta."
+      },
+      {
+        "text": "Perquè són essencials per a moltes empreses i organitzacions",
+        "isCorrect": false,
+        "rationale": "És un element vàlid, però la pregunta demana el conjunt complet recollit a l’opció correcta."
+      },
+      {
+        "text": "Totes les anteriors",
+        "isCorrect": true,
+        "rationale": "Inclou les opcions anteriors, que són aspectes vàlids: Perquè permeten el processament, l'emmagatzematge i la transmissió de dades; Perquè són necessaris per a la gestió eficient de les operacions empresarials; Perquè són essencials per a moltes empreses i organitzacions."
+      }
+    ]
+  },
+  {
+    "guid": "f4f61290-4046-4c52-9b94-03176adfa385",
+    "subjectId": "T60",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "44. Quins són els components físics dels CPD?",
+    "answerOptions": [
+      {
+        "text": "Ubicació i edifici del CPD",
+        "isCorrect": false,
+        "rationale": "És un element vàlid, però la pregunta demana el conjunt complet recollit a l’opció correcta."
+      },
+      {
+        "text": "Sistemes de climatització",
+        "isCorrect": false,
+        "rationale": "És un element vàlid, però la pregunta demana el conjunt complet recollit a l’opció correcta."
+      },
+      {
+        "text": "Subministrament elèctric",
+        "isCorrect": false,
+        "rationale": "És un element vàlid, però la pregunta demana el conjunt complet recollit a l’opció correcta."
+      },
+      {
+        "text": "Totes les anteriors",
+        "isCorrect": true,
+        "rationale": "Inclou les opcions anteriors, que són aspectes vàlids: Ubicació i edifici del CPD; Sistemes de climatització; Subministrament elèctric."
+      }
+    ]
+  },
+  {
+    "guid": "ba5fcb10-e330-4ccb-b8c1-3005d84c9d48",
+    "subjectId": "T60",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "45. Quins són els components lògics dels CPD?",
+    "answerOptions": [
+      {
+        "text": "Servidors",
+        "isCorrect": false,
+        "rationale": "És un element vàlid, però la pregunta demana el conjunt complet recollit a l’opció correcta."
+      },
+      {
+        "text": "Dispositius de xarxa",
+        "isCorrect": false,
+        "rationale": "És un element vàlid, però la pregunta demana el conjunt complet recollit a l’opció correcta."
+      },
+      {
+        "text": "Sistemes de gestió i monitoratge",
+        "isCorrect": false,
+        "rationale": "És un element vàlid, però la pregunta demana el conjunt complet recollit a l’opció correcta."
+      },
+      {
+        "text": "Totes les anteriors",
+        "isCorrect": true,
+        "rationale": "Inclou les opcions anteriors, que són aspectes vàlids: Servidors; Dispositius de xarxa; Sistemes de gestió i monitoratge."
+      }
+    ]
+  },
+  {
+    "guid": "a910ded0-cffd-40c7-8612-464a61250dcc",
+    "subjectId": "T60",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "46. Què és la seguretat física en els CPD?",
+    "answerOptions": [
+      {
+        "text": "Control d'accés i vigilància",
+        "isCorrect": true,
+        "rationale": "El nucli de la seguretat física és controlar l’accés i la vigilància de l’espai i els actius."
+      },
+      {
+        "text": "Protecció contra incendis i inundacions",
+        "isCorrect": false,
+        "rationale": "És una mesura de protecció de l’entorn, però aquí es focalitza en control d’accés i vigilància com a definició principal."
+      },
+      {
+        "text": "Protecció contra atacs cibernètics",
+        "isCorrect": false,
+        "rationale": "Els atacs cibernètics s’aborden amb controls de seguretat lògica, no amb seguretat física."
+      },
+      {
+        "text": "Totes les anteriors",
+        "isCorrect": false,
+        "rationale": "És una mesura de protecció de l’entorn, però aquí es focalitza en control d’accés i vigilància com a definició principal."
+      }
+    ]
+  },
+  {
+    "guid": "227171a0-7862-417c-b217-eb2cc1037df2",
+    "subjectId": "T60",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "47. Què és la seguretat lògica en els CPD?",
+    "answerOptions": [
+      {
+        "text": "Polítiques de seguretat i protocols",
+        "isCorrect": false,
+        "rationale": "És un element vàlid, però la pregunta demana el conjunt complet recollit a l’opció correcta."
+      },
+      {
+        "text": "Sistemes de detecció i prevenció d'intrusions",
+        "isCorrect": false,
+        "rationale": "És un element vàlid, però la pregunta demana el conjunt complet recollit a l’opció correcta."
+      },
+      {
+        "text": "Còpies de seguretat i recuperació de desastres",
+        "isCorrect": false,
+        "rationale": "És un element vàlid, però la pregunta demana el conjunt complet recollit a l’opció correcta."
+      },
+      {
+        "text": "Totes les anteriors",
+        "isCorrect": true,
+        "rationale": "Inclou les opcions anteriors, que són aspectes vàlids: Polítiques de seguretat i protocols; Sistemes de detecció i prevenció d'intrusions; Còpies de seguretat i recuperació de desastres."
+      }
+    ]
+  },
+  {
+    "guid": "1e229fa8-29eb-40f0-bd01-8b78989ca262",
+    "subjectId": "T60",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "48. Quins són els components clau dels CPD?",
+    "answerOptions": [
+      {
+        "text": "Servidors",
+        "isCorrect": false,
+        "rationale": "És un element vàlid, però la pregunta demana el conjunt complet recollit a l’opció correcta."
+      },
+      {
+        "text": "Xarxes i comunicacions",
+        "isCorrect": false,
+        "rationale": "És un element vàlid, però la pregunta demana el conjunt complet recollit a l’opció correcta."
+      },
+      {
+        "text": "Sistemes d'emmagatzematge",
+        "isCorrect": false,
+        "rationale": "És un element vàlid, però la pregunta demana el conjunt complet recollit a l’opció correcta."
+      },
+      {
+        "text": "Totes les anteriors",
+        "isCorrect": true,
+        "rationale": "Inclou les opcions anteriors, que són aspectes vàlids: Servidors; Xarxes i comunicacions; Sistemes d'emmagatzematge."
+      }
+    ]
+  },
+  {
+    "guid": "4343a1c4-60cc-4a2e-af93-6f72f90dc71c",
+    "subjectId": "T60",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "49. Què són els servidors en els CPD?",
+    "answerOptions": [
+      {
+        "text": "Dispositius que processen dades",
+        "isCorrect": true,
+        "rationale": "És l’opció que s’ajusta millor a la definició o funció demanada a l’enunciat."
+      },
+      {
+        "text": "Dispositius que emmagatzemen dades",
+        "isCorrect": false,
+        "rationale": "No correspon al focus de la pregunta ni a la funció descrita a l’opció correcta."
+      },
+      {
+        "text": "Dispositius que transmeten dades",
+        "isCorrect": false,
+        "rationale": "No correspon al focus de la pregunta ni a la funció descrita a l’opció correcta."
+      },
+      {
+        "text": "Totes les anteriors",
+        "isCorrect": false,
+        "rationale": "Inclou elements que no encaixen amb la definició concreta que demana la pregunta."
+      }
+    ]
+  },
+  {
+    "guid": "de1370a5-35df-40b2-92e6-d148f0041718",
+    "subjectId": "T60",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "50. Quins són els dispositius de xarxa en els CPD?",
+    "answerOptions": [
+      {
+        "text": "Switches, routers i firewalls",
+        "isCorrect": true,
+        "rationale": "És l’opció que s’ajusta millor a la definició o funció demanada a l’enunciat."
+      },
+      {
+        "text": "Servidors",
+        "isCorrect": false,
+        "rationale": "No correspon al focus de la pregunta ni a la funció descrita a l’opció correcta."
+      },
+      {
+        "text": "Sistemes d'emmagatzematge",
+        "isCorrect": false,
+        "rationale": "No correspon al focus de la pregunta ni a la funció descrita a l’opció correcta."
+      },
+      {
+        "text": "Totes les anteriors",
+        "isCorrect": false,
+        "rationale": "Inclou elements que no encaixen amb la definició concreta que demana la pregunta."
+      }
+    ]
+  },
+  {
+    "guid": "761d6e5a-bb3b-4781-8851-813e44289a29",
+    "subjectId": "T60",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "51. Què són les polítiques de seguretat en els CPD?",
+    "answerOptions": [
+      {
+        "text": "Conjunt de normes i procediments per garantir la seguretat de les dades",
+        "isCorrect": true,
+        "rationale": "És l’opció que s’ajusta millor a la definició o funció demanada a l’enunciat."
+      },
+      {
+        "text": "Conjunt de protocols de xarxa",
+        "isCorrect": false,
+        "rationale": "No correspon al focus de la pregunta ni a la funció descrita a l’opció correcta."
+      },
+      {
+        "text": "Conjunt de tecnologies d'emmagatzematge",
+        "isCorrect": false,
+        "rationale": "No correspon al focus de la pregunta ni a la funció descrita a l’opció correcta."
+      },
+      {
+        "text": "Totes les anteriors",
+        "isCorrect": false,
+        "rationale": "Inclou elements que no encaixen amb la definició concreta que demana la pregunta."
+      }
+    ]
+  },
+  {
+    "guid": "1abde111-13e0-4c74-a50c-ff33a486d66b",
+    "subjectId": "T60",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "52. Què són les còpies de seguretat en els CPD?",
+    "answerOptions": [
+      {
+        "text": "Còpies de les dades per garantir la disponibilitat en cas de fallada del sistema",
+        "isCorrect": true,
+        "rationale": "És l’opció que s’ajusta millor a la definició o funció demanada a l’enunciat."
+      },
+      {
+        "text": "Còpies de les dades per compartir amb altres empreses",
+        "isCorrect": false,
+        "rationale": "No correspon al focus de la pregunta ni a la funció descrita a l’opció correcta."
+      },
+      {
+        "text": "Còpies de les dades per vendre a altres empreses",
+        "isCorrect": false,
+        "rationale": "No correspon al focus de la pregunta ni a la funció descrita a l’opció correcta."
+      },
+      {
+        "text": "Totes les anteriors",
+        "isCorrect": false,
+        "rationale": "Inclou elements que no encaixen amb la definició concreta que demana la pregunta."
+      }
+    ]
+  },
+  {
+    "guid": "fca41f9f-6547-465b-8717-8bbdb8efe059",
+    "subjectId": "T60",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "53. Què és la computació en el núvol en els CPD?",
+    "answerOptions": [
+      {
+        "text": "Emmagatzematge de dades en servidors externs",
+        "isCorrect": true,
+        "rationale": "És l’opció que s’ajusta millor a la definició o funció demanada a l’enunciat."
+      },
+      {
+        "text": "Emmagatzematge de dades en servidors interns",
+        "isCorrect": false,
+        "rationale": "No correspon al focus de la pregunta ni a la funció descrita a l’opció correcta."
+      },
+      {
+        "text": "Emmagatzematge de dades en discos durs externs",
+        "isCorrect": false,
+        "rationale": "No correspon al focus de la pregunta ni a la funció descrita a l’opció correcta."
+      },
+      {
+        "text": "Emmagatzematge de dades en discos durs interns",
+        "isCorrect": false,
+        "rationale": "No correspon al focus de la pregunta ni a la funció descrita a l’opció correcta."
+      }
+    ]
+  },
+  {
+    "guid": "b5fc4504-8fc9-4b19-97fc-25e0a9a50ce4",
+    "subjectId": "T60",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "54. Què és la eficiència energètica en els CPD?",
+    "answerOptions": [
+      {
+        "text": "Utilitzar menys energia per processar les dades",
+        "isCorrect": true,
+        "rationale": "És l’opció que s’ajusta millor a la definició o funció demanada a l’enunciat."
+      },
+      {
+        "text": "Utilitzar més energia per processar les dades",
+        "isCorrect": false,
+        "rationale": "No correspon al focus de la pregunta ni a la funció descrita a l’opció correcta."
+      },
+      {
+        "text": "No importa la quantitat d'energia que s'utilitza",
+        "isCorrect": false,
+        "rationale": "No correspon al focus de la pregunta ni a la funció descrita a l’opció correcta."
+      },
+      {
+        "text": "Totes les anteriors",
+        "isCorrect": false,
+        "rationale": "Inclou elements que no encaixen amb la definició concreta que demana la pregunta."
+      }
+    ]
+  },
+  {
+    "guid": "16d5158f-4b7f-4410-98ba-86e5e29d5244",
+    "subjectId": "T60",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "55. Què és la intel·ligència artificial en els CPD?",
+    "answerOptions": [
+      {
+        "text": "Utilitzar algoritmes per processar les dades",
+        "isCorrect": true,
+        "rationale": "És l’opció que s’ajusta millor a la definició o funció demanada a l’enunciat."
+      },
+      {
+        "text": "Utilitzar robots per processar les dades",
+        "isCorrect": false,
+        "rationale": "No correspon al focus de la pregunta ni a la funció descrita a l’opció correcta."
+      },
+      {
+        "text": "Utilitzar persones per processar les dades",
+        "isCorrect": false,
+        "rationale": "No correspon al focus de la pregunta ni a la funció descrita a l’opció correcta."
+      },
+      {
+        "text": "Totes les anteriors",
+        "isCorrect": false,
+        "rationale": "Inclou elements que no encaixen amb la definició concreta que demana la pregunta."
+      }
+    ]
+  },
+  {
+    "guid": "8150f466-7387-49c3-9163-b4bd7c4cebfe",
+    "subjectId": "T60",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "56. Què és la seguretat de les dades en els CPD?",
+    "answerOptions": [
+      {
+        "text": "Garantir la privacitat i la seguretat de les dades",
+        "isCorrect": true,
+        "rationale": "És l’opció que s’ajusta millor a la definició o funció demanada a l’enunciat."
+      },
+      {
+        "text": "No importa la privacitat i la seguretat de les dades",
+        "isCorrect": false,
+        "rationale": "No correspon al focus de la pregunta ni a la funció descrita a l’opció correcta."
+      },
+      {
+        "text": "Vendre les dades a altres empreses",
+        "isCorrect": false,
+        "rationale": "No correspon al focus de la pregunta ni a la funció descrita a l’opció correcta."
+      },
+      {
+        "text": "Totes les anteriors",
+        "isCorrect": false,
+        "rationale": "Inclou elements que no encaixen amb la definició concreta que demana la pregunta."
+      }
+    ]
+  },
+  {
+    "guid": "943a4894-8115-4c49-9a89-8cffcfb5c2d2",
+    "subjectId": "T60",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "57. Què és la ubicació i edifici del CPD?",
+    "answerOptions": [
+      {
+        "text": "Lloc on es troba el CPD",
+        "isCorrect": true,
+        "rationale": "És l’opció que s’ajusta millor a la definició o funció demanada a l’enunciat."
+      },
+      {
+        "text": "Edifici on es troba el CPD",
+        "isCorrect": false,
+        "rationale": "No correspon al focus de la pregunta ni a la funció descrita a l’opció correcta."
+      },
+      {
+        "text": "Només la ubicació del CPD",
+        "isCorrect": false,
+        "rationale": "No correspon al focus de la pregunta ni a la funció descrita a l’opció correcta."
+      },
+      {
+        "text": "Només l'edifici del CPD",
+        "isCorrect": false,
+        "rationale": "No correspon al focus de la pregunta ni a la funció descrita a l’opció correcta."
+      }
+    ]
+  },
+  {
+    "guid": "7ea3a469-ea92-49ac-b1f7-33d1cd0e3f50",
+    "subjectId": "T60",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "58. Què són els sistemes de climatització en els CPD?",
+    "answerOptions": [
+      {
+        "text": "Sistemes per mantenir la temperatura adequada",
+        "isCorrect": false,
+        "rationale": "És un element vàlid, però la pregunta demana el conjunt complet recollit a l’opció correcta."
+      },
+      {
+        "text": "Sistemes per mantenir la humitat adequada",
+        "isCorrect": false,
+        "rationale": "És un element vàlid, però la pregunta demana el conjunt complet recollit a l’opció correcta."
+      },
+      {
+        "text": "Sistemes per mantenir la pressió adequada",
+        "isCorrect": false,
+        "rationale": "És un element vàlid, però la pregunta demana el conjunt complet recollit a l’opció correcta."
+      },
+      {
+        "text": "Totes les anteriors",
+        "isCorrect": true,
+        "rationale": "Inclou les opcions anteriors, que són aspectes vàlids: Sistemes per mantenir la temperatura adequada; Sistemes per mantenir la humitat adequada; Sistemes per mantenir la pressió adequada."
+      }
+    ]
+  },
+  {
+    "guid": "b8154d7c-81fd-4839-bf55-c6a20ef83b49",
+    "subjectId": "T60",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "59. Què és el subministrament elèctric en els CPD?",
+    "answerOptions": [
+      {
+        "text": "Subministrament d'energia elèctrica al CPD",
+        "isCorrect": true,
+        "rationale": "És l’opció que s’ajusta millor a la definició o funció demanada a l’enunciat."
+      },
+      {
+        "text": "Subministrament d'energia solar al CPD",
+        "isCorrect": false,
+        "rationale": "No correspon al focus de la pregunta ni a la funció descrita a l’opció correcta."
+      },
+      {
+        "text": "Subministrament d'energia eòlica al CPD",
+        "isCorrect": false,
+        "rationale": "No correspon al focus de la pregunta ni a la funció descrita a l’opció correcta."
+      },
+      {
+        "text": "Totes les anteriors",
+        "isCorrect": false,
+        "rationale": "Inclou elements que no encaixen amb la definició concreta que demana la pregunta."
+      }
+    ]
+  },
+  {
+    "guid": "76497b82-d76f-4436-8f6f-461058a529cf",
+    "subjectId": "T60",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "60. Què són els sistemes de refrigeració en els CPD?",
+    "answerOptions": [
+      {
+        "text": "Sistemes per mantenir la temperatura adequada",
+        "isCorrect": true,
+        "rationale": "És l’opció que s’ajusta millor a la definició o funció demanada a l’enunciat."
+      },
+      {
+        "text": "Sistemes per mantenir la humitat adequada",
+        "isCorrect": false,
+        "rationale": "No correspon al focus de la pregunta ni a la funció descrita a l’opció correcta."
+      },
+      {
+        "text": "Sistemes per mantenir la pressió adequada",
+        "isCorrect": false,
+        "rationale": "No correspon al focus de la pregunta ni a la funció descrita a l’opció correcta."
+      },
+      {
+        "text": "Totes les anteriors",
+        "isCorrect": false,
+        "rationale": "Inclou elements que no encaixen amb la definició concreta que demana la pregunta."
+      }
+    ]
+  },
+  {
+    "guid": "56192058-446f-4db5-9c7b-4ee389e730da",
+    "subjectId": "T60",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "61. Què són les tecnologies d'emmagatzematge en els CPD?",
+    "answerOptions": [
+      {
+        "text": "HDD, SSD i NVMe",
+        "isCorrect": true,
+        "rationale": "Interfície d’alt rendiment per SSD, amb latència baixa."
+      },
+      {
+        "text": "Switches, routers i firewalls",
+        "isCorrect": false,
+        "rationale": "No descriu NVMe com requereix l’enunciat."
+      },
+      {
+        "text": "Servidors",
+        "isCorrect": false,
+        "rationale": "No descriu NVMe com requereix l’enunciat."
+      },
+      {
+        "text": "Totes les anteriors",
+        "isCorrect": false,
+        "rationale": "Inclou elements que no encaixen amb la definició concreta que demana la pregunta."
+      }
+    ]
+  },
+  {
+    "guid": "8e0d7c64-c867-4ff8-89e3-af1ef9f1602b",
+    "subjectId": "T60",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "62. Què són les topologies i protocols de xarxa en els CPD?",
+    "answerOptions": [
+      {
+        "text": "Formes en què es connecten els dispositius de xarxa",
+        "isCorrect": true,
+        "rationale": "La topologia descriu com es connecten els dispositius; és l’aspecte que encaixa millor amb les opcions donades."
+      },
+      {
+        "text": "Conjunt de normes i procediments per garantir la seguretat de les dades",
+        "isCorrect": false,
+        "rationale": "No descriu com s’organitza la connexió entre dispositius en una xarxa."
+      },
+      {
+        "text": "Conjunt de protocols de xarxa",
+        "isCorrect": false,
+        "rationale": "Els protocols són regles de comunicació, però l’opció no descriu la combinació demanada en el context de la pregunta."
+      },
+      {
+        "text": "Totes les anteriors",
+        "isCorrect": false,
+        "rationale": "No descriu com s’organitza la connexió entre dispositius en una xarxa."
+      }
+    ]
+  },
+  {
+    "guid": "e92553f4-1b6a-44d2-a558-c4782b60c291",
+    "subjectId": "T60",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "63. Quina és la principal funció d'un CPD?",
+    "answerOptions": [
+      {
+        "text": "Emmagatzemar dades",
+        "isCorrect": false,
+        "rationale": "No correspon al focus de la pregunta ni a la funció descrita a l’opció correcta."
+      },
+      {
+        "text": "Processar dades",
+        "isCorrect": true,
+        "rationale": "És l’opció que s’ajusta millor a la definició o funció demanada a l’enunciat."
+      },
+      {
+        "text": "Distribuir dades",
+        "isCorrect": false,
+        "rationale": "No correspon al focus de la pregunta ni a la funció descrita a l’opció correcta."
+      },
+      {
+        "text": "Comprimir dades",
+        "isCorrect": false,
+        "rationale": "No correspon al focus de la pregunta ni a la funció descrita a l’opció correcta."
+      }
+    ]
+  },
+  {
+    "guid": "54661198-0abe-4343-8015-309d9d596ab7",
+    "subjectId": "T60",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "64. Quin component físic del CPD és responsable de mantenir la temperatura adequada?",
+    "answerOptions": [
+      {
+        "text": "Sistemes de climatització",
+        "isCorrect": true,
+        "rationale": "És l’opció que s’ajusta millor a la definició o funció demanada a l’enunciat."
+      },
+      {
+        "text": "Subministrament elèctric",
+        "isCorrect": false,
+        "rationale": "No correspon al focus de la pregunta ni a la funció descrita a l’opció correcta."
+      },
+      {
+        "text": "Sistemes de refrigeració",
+        "isCorrect": false,
+        "rationale": "No correspon al focus de la pregunta ni a la funció descrita a l’opció correcta."
+      },
+      {
+        "text": "Control d'accés",
+        "isCorrect": false,
+        "rationale": "No correspon al focus de la pregunta ni a la funció descrita a l’opció correcta."
+      }
+    ]
+  },
+  {
+    "guid": "66af8629-ce78-498c-8a0f-0c73834a343b",
+    "subjectId": "T60",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "65. Quin component lògic del CPD és responsable de la gestió de recursos i aplicacions?",
+    "answerOptions": [
+      {
+        "text": "Servidors",
+        "isCorrect": false,
+        "rationale": "No correspon al focus de la pregunta ni a la funció descrita a l’opció correcta."
+      },
+      {
+        "text": "Dispositius de xarxa",
+        "isCorrect": false,
+        "rationale": "No correspon al focus de la pregunta ni a la funció descrita a l’opció correcta."
+      },
+      {
+        "text": "Sistemes de gestió i monitoratge",
+        "isCorrect": true,
+        "rationale": "És l’opció que s’ajusta millor a la definició o funció demanada a l’enunciat."
+      },
+      {
+        "text": "Sistemes de detecció i prevenció d'intrusions",
+        "isCorrect": false,
+        "rationale": "No correspon al focus de la pregunta ni a la funció descrita a l’opció correcta."
+      }
+    ]
+  },
+  {
+    "guid": "41c8d9df-f2e9-4af5-9820-924c1ad34890",
+    "subjectId": "T60",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "66. Quina és la principal diferència entre un CPD híbrid i un CPD tradicional?",
+    "answerOptions": [
+      {
+        "text": "El CPD híbrid utilitza només energia renovable",
+        "isCorrect": false,
+        "rationale": "No correspon al focus de la pregunta ni a la funció descrita a l’opció correcta."
+      },
+      {
+        "text": "El CPD híbrid combina recursos locals i en el núvol",
+        "isCorrect": true,
+        "rationale": "És l’opció que s’ajusta millor a la definició o funció demanada a l’enunciat."
+      },
+      {
+        "text": "El CPD híbrid és més petit que un CPD tradicional",
+        "isCorrect": false,
+        "rationale": "No correspon al focus de la pregunta ni a la funció descrita a l’opció correcta."
+      },
+      {
+        "text": "El CPD híbrid no utilitza servidors físics",
+        "isCorrect": false,
+        "rationale": "No correspon al focus de la pregunta ni a la funció descrita a l’opció correcta."
+      }
+    ]
+  },
+  {
+    "guid": "13df9daa-0eb4-4ae1-b706-aca9ea548072",
+    "subjectId": "T60",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "67. Quin tipus de dispositiu de xarxa és responsable de connectar dispositius en una xarxa local?",
+    "answerOptions": [
+      {
+        "text": "Switch",
+        "isCorrect": true,
+        "rationale": "Connecta dispositius dins una xarxa local, commutant trames per adreça MAC."
+      },
+      {
+        "text": "Router",
+        "isCorrect": false,
+        "rationale": "Això fa referència a router; la resposta correcta descriu switch."
+      },
+      {
+        "text": "Firewall",
+        "isCorrect": false,
+        "rationale": "Això fa referència a firewall; la resposta correcta descriu switch."
+      },
+      {
+        "text": "Access point",
+        "isCorrect": false,
+        "rationale": "Això fa referència a access point; la resposta correcta descriu switch."
+      }
+    ]
+  },
+  {
+    "guid": "4d33ad84-28eb-4068-89a7-d3d8be29f45d",
+    "subjectId": "T60",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "68. Quin tipus de sistema d'emmagatzematge utilitza una xarxa per accedir a les dades?",
+    "answerOptions": [
+      {
+        "text": "SAN",
+        "isCorrect": true,
+        "rationale": "SAN ofereix accés a dades via xarxa a nivell de bloc, típic en entorns de CPD."
+      },
+      {
+        "text": "NAS",
+        "isCorrect": false,
+        "rationale": "NAS també usa xarxa, però és a nivell de fitxer; la pregunta apunta a emmagatzematge de xarxa de tipus SAN."
+      },
+      {
+        "text": "DAS",
+        "isCorrect": false,
+        "rationale": "No descriu un emmagatzematge compartit via xarxa com el que es demana."
+      },
+      {
+        "text": "NVMe",
+        "isCorrect": false,
+        "rationale": "No descriu un emmagatzematge compartit via xarxa com el que es demana."
+      }
+    ]
+  },
+  {
+    "guid": "e37b3b7f-66a9-4d01-ba50-df94c10403cf",
+    "subjectId": "T60",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "69. Quina tecnologia d'emmagatzematge és més ràpida i menys propensa a errors mecànics?",
+    "answerOptions": [
+      {
+        "text": "HDD",
+        "isCorrect": false,
+        "rationale": "HDD té parts mecàniques i és més lent i propens a avaries físiques."
+      },
+      {
+        "text": "SSD",
+        "isCorrect": false,
+        "rationale": "SSD és ràpid i sense parts mecàniques, però NVMe sol oferir millor latència i rendiment."
+      },
+      {
+        "text": "NVMe",
+        "isCorrect": true,
+        "rationale": "NVMe, habitualment sobre SSD, aporta molt baixa latència i alt rendiment respecte HDD i SSD amb interfícies més antigues."
+      },
+      {
+        "text": "CD-ROM",
+        "isCorrect": false,
+        "rationale": "Aquesta tecnologia no és l’opció típica d’alt rendiment en CPD."
+      }
+    ]
+  },
+  {
+    "guid": "5d0abd37-a106-4c57-a661-6facfa45dddb",
+    "subjectId": "T60",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "70. Quin tipus de seguretat es centra en protegir el CPD de l'accés no autoritzat i altres amenaces físiques?",
+    "answerOptions": [
+      {
+        "text": "Seguretat física",
+        "isCorrect": true,
+        "rationale": "És l’opció que s’ajusta millor a la definició o funció demanada a l’enunciat."
+      },
+      {
+        "text": "Seguretat lògica",
+        "isCorrect": false,
+        "rationale": "No correspon al focus de la pregunta ni a la funció descrita a l’opció correcta."
+      },
+      {
+        "text": "Seguretat de xarxa",
+        "isCorrect": false,
+        "rationale": "No correspon al focus de la pregunta ni a la funció descrita a l’opció correcta."
+      },
+      {
+        "text": "Seguretat de dades",
+        "isCorrect": false,
+        "rationale": "No correspon al focus de la pregunta ni a la funció descrita a l’opció correcta."
+      }
+    ]
+  },
+  {
+    "guid": "52ef0740-3f8e-416d-8004-5c65043de218",
+    "subjectId": "T60",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "71. Quin tipus de seguretat es centra en protegir el CPD de ciberatacs i altres amenaces digitals?",
+    "answerOptions": [
+      {
+        "text": "Seguretat física",
+        "isCorrect": false,
+        "rationale": "No correspon al focus de la pregunta ni a la funció descrita a l’opció correcta."
+      },
+      {
+        "text": "Seguretat lògica",
+        "isCorrect": true,
+        "rationale": "És l’opció que s’ajusta millor a la definició o funció demanada a l’enunciat."
+      },
+      {
+        "text": "Seguretat de xarxa",
+        "isCorrect": false,
+        "rationale": "No correspon al focus de la pregunta ni a la funció descrita a l’opció correcta."
+      },
+      {
+        "text": "Seguretat de dades",
+        "isCorrect": false,
+        "rationale": "No correspon al focus de la pregunta ni a la funció descrita a l’opció correcta."
+      }
+    ]
+  },
+  {
+    "guid": "22e4abc3-0530-49fd-910a-229262e92c73",
+    "subjectId": "T60",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "72. Quin component del CPD és responsable de la distribució de l'energia elèctrica als dispositius?",
+    "answerOptions": [
+      {
+        "text": "Sistemes de climatització",
+        "isCorrect": false,
+        "rationale": "No correspon al focus de la pregunta ni a la funció descrita a l’opció correcta."
+      },
+      {
+        "text": "Subministrament elèctric",
+        "isCorrect": true,
+        "rationale": "És l’opció que s’ajusta millor a la definició o funció demanada a l’enunciat."
+      },
+      {
+        "text": "Sistemes de refrigeració",
+        "isCorrect": false,
+        "rationale": "No correspon al focus de la pregunta ni a la funció descrita a l’opció correcta."
+      },
+      {
+        "text": "Control d'accés",
+        "isCorrect": false,
+        "rationale": "No correspon al focus de la pregunta ni a la funció descrita a l’opció correcta."
+      }
+    ]
+  },
+  {
+    "guid": "1b8b2fec-6e6b-48d1-a4f8-38f95aee5719",
+    "subjectId": "T60",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "73. Quin tipus de servidor és responsable de gestionar les bases de dades?",
+    "answerOptions": [
+      {
+        "text": "Servidor d'aplicacions",
+        "isCorrect": false,
+        "rationale": "No correspon al focus de la pregunta ni a la funció descrita a l’opció correcta."
+      },
+      {
+        "text": "Servidor de bases de dades",
+        "isCorrect": true,
+        "rationale": "És l’opció que s’ajusta millor a la definició o funció demanada a l’enunciat."
+      },
+      {
+        "text": "Servidor de correu electrònic",
+        "isCorrect": false,
+        "rationale": "No correspon al focus de la pregunta ni a la funció descrita a l’opció correcta."
+      },
+      {
+        "text": "Servidor de fitxers",
+        "isCorrect": false,
+        "rationale": "No correspon al focus de la pregunta ni a la funció descrita a l’opció correcta."
+      }
+    ]
+  },
+  {
+    "guid": "8a08434d-0682-46d5-9ac9-35c58ed623e0",
+    "subjectId": "T60",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "74. Quin tipus de topologia de xarxa connecta tots els dispositius en una cadena lineal?",
+    "answerOptions": [
+      {
+        "text": "Estrella",
+        "isCorrect": false,
+        "rationale": "Això fa referència a topologia estrella; la resposta correcta descriu topologia bus."
+      },
+      {
+        "text": "Anell",
+        "isCorrect": false,
+        "rationale": "Això fa referència a topologia anell; la resposta correcta descriu topologia bus."
+      },
+      {
+        "text": "Bus",
+        "isCorrect": true,
+        "rationale": "Tots els nodes comparteixen un medi lineal comú."
+      },
+      {
+        "text": "Malla",
+        "isCorrect": false,
+        "rationale": "Això fa referència a topologia malla; la resposta correcta descriu topologia bus."
+      }
+    ]
+  },
+  {
+    "guid": "b4000181-b283-4a03-bd3a-200407f3a097",
+    "subjectId": "T60",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "75. Quin protocol de xarxa és responsable de l'assignació d'adreces IP als dispositius?",
+    "answerOptions": [
+      {
+        "text": "DNS",
+        "isCorrect": false,
+        "rationale": "Això fa referència a DNS; la resposta correcta descriu DHCP."
+      },
+      {
+        "text": "DHCP",
+        "isCorrect": true,
+        "rationale": "Assigna adreces IP i paràmetres de xarxa als clients."
+      },
+      {
+        "text": "FTP",
+        "isCorrect": false,
+        "rationale": "No descriu DHCP com requereix l’enunciat."
+      },
+      {
+        "text": "HTTP",
+        "isCorrect": false,
+        "rationale": "No descriu DHCP com requereix l’enunciat."
+      }
+    ]
+  },
+  {
+    "guid": "a1e0911c-5e37-469f-b105-98a3268904d2",
+    "subjectId": "T60",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "76. Quin tipus de sistema de refrigeració utilitza l'aire per eliminar la calor dels components del CPD?",
+    "answerOptions": [
+      {
+        "text": "Refrigeració líquida",
+        "isCorrect": false,
+        "rationale": "No correspon al focus de la pregunta ni a la funció descrita a l’opció correcta."
+      },
+      {
+        "text": "Refrigeració per aire",
+        "isCorrect": true,
+        "rationale": "És l’opció que s’ajusta millor a la definició o funció demanada a l’enunciat."
+      },
+      {
+        "text": "Refrigeració per immersió",
+        "isCorrect": false,
+        "rationale": "No correspon al focus de la pregunta ni a la funció descrita a l’opció correcta."
+      },
+      {
+        "text": "Refrigeració per compressió",
+        "isCorrect": false,
+        "rationale": "No correspon al focus de la pregunta ni a la funció descrita a l’opció correcta."
+      }
+    ]
+  },
+  {
+    "guid": "e79f3905-0a2b-4a98-b2a3-f4cf759ccba8",
+    "subjectId": "T60",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "77. Quin tipus de protecció contra incendis utilitza gas inerte per extingir el foc sense danyar els equips electrònics?",
+    "answerOptions": [
+      {
+        "text": "Extintors d'aigua",
+        "isCorrect": false,
+        "rationale": "No correspon al focus de la pregunta ni a la funció descrita a l’opció correcta."
+      },
+      {
+        "text": "Extintors de CO2",
+        "isCorrect": false,
+        "rationale": "No correspon al focus de la pregunta ni a la funció descrita a l’opció correcta."
+      },
+      {
+        "text": "Sistemes de gas inerte",
+        "isCorrect": true,
+        "rationale": "És l’opció que s’ajusta millor a la definició o funció demanada a l’enunciat."
+      },
+      {
+        "text": "Sprinklers",
+        "isCorrect": false,
+        "rationale": "No correspon al focus de la pregunta ni a la funció descrita a l’opció correcta."
+      }
+    ]
+  },
+  {
+    "guid": "ef100ec6-9326-46a7-8807-f81458de35f8",
+    "subjectId": "T60",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "78. Quin tipus de còpia de seguretat emmagatzema les dades en una ubicació fora del CPD?",
+    "answerOptions": [
+      {
+        "text": "Còpia de seguretat local",
+        "isCorrect": false,
+        "rationale": "No assegura emmagatzematge fora del CPD com demana la pregunta."
+      },
+      {
+        "text": "Còpia de seguretat en el núvol",
+        "isCorrect": false,
+        "rationale": "El núvol pot ser fora del CPD, però l’opció correcta defineix de manera directa la ubicació remota com a offsite."
+      },
+      {
+        "text": "Còpia de seguretat fora de línia",
+        "isCorrect": false,
+        "rationale": "No assegura emmagatzematge fora del CPD com demana la pregunta."
+      },
+      {
+        "text": "Còpia de seguretat remota",
+        "isCorrect": true,
+        "rationale": "Una còpia remota es guarda fora del CPD, en una ubicació separada, per reduir risc per desastres locals."
+      }
+    ]
+  },
+  {
+    "guid": "373d76f2-315a-47dd-93fe-dee652685691",
+    "subjectId": "T60",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "79. Quin tipus de dispositiu de xarxa és responsable de protegir el CPD de ciberatacs?",
+    "answerOptions": [
+      {
+        "text": "Switch",
+        "isCorrect": false,
+        "rationale": "Això fa referència a switch; la resposta correcta descriu firewall."
+      },
+      {
+        "text": "Router",
+        "isCorrect": false,
+        "rationale": "Això fa referència a router; la resposta correcta descriu firewall."
+      },
+      {
+        "text": "Firewall",
+        "isCorrect": true,
+        "rationale": "Filtra i controla el trànsit segons regles de seguretat."
+      },
+      {
+        "text": "Access point",
+        "isCorrect": false,
+        "rationale": "Això fa referència a access point; la resposta correcta descriu firewall."
+      }
+    ]
+  },
+  {
+    "guid": "818cae1a-3339-4f52-bb1f-cc02f63c3f09",
+    "subjectId": "T60",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "80. Quin tipus de servidor és responsable de gestionar les aplicacions web?",
+    "answerOptions": [
+      {
+        "text": "Servidor d'aplicacions",
+        "isCorrect": true,
+        "rationale": "És l’opció que s’ajusta millor a la definició o funció demanada a l’enunciat."
+      },
+      {
+        "text": "Servidor de bases de dades",
+        "isCorrect": false,
+        "rationale": "No correspon al focus de la pregunta ni a la funció descrita a l’opció correcta."
+      },
+      {
+        "text": "Servidor de correu electrònic",
+        "isCorrect": false,
+        "rationale": "No correspon al focus de la pregunta ni a la funció descrita a l’opció correcta."
+      },
+      {
+        "text": "Servidor de fitxers",
+        "isCorrect": false,
+        "rationale": "No correspon al focus de la pregunta ni a la funció descrita a l’opció correcta."
+      }
+    ]
+  },
+  {
+    "guid": "980c7803-02fc-484d-99a4-b6d9c67c7c72",
+    "subjectId": "T60",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "81. Quin tipus de sistema d'emmagatzematge utilitza una connexió directa entre el dispositiu d'emmagatzematge i el servidor?",
+    "answerOptions": [
+      {
+        "text": "SAN",
+        "isCorrect": false,
+        "rationale": "Això fa referència a SAN; la resposta correcta descriu DAS."
+      },
+      {
+        "text": "NAS",
+        "isCorrect": false,
+        "rationale": "Això fa referència a NAS; la resposta correcta descriu DAS."
+      },
+      {
+        "text": "DAS",
+        "isCorrect": true,
+        "rationale": "Emmagatzematge connectat directament al servidor, sense xarxa d’emmagatzematge."
+      },
+      {
+        "text": "NVMe",
+        "isCorrect": false,
+        "rationale": "Això fa referència a NVMe; la resposta correcta descriu DAS."
+      }
+    ]
+  },
+  {
+    "guid": "7a654539-83f1-44da-a797-c9375c41a87b",
+    "subjectId": "T60",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "82. Quin tipus de sistema de refrigeració utilitza líquids per eliminar la calor dels components del CPD?",
+    "answerOptions": [
+      {
+        "text": "Refrigeració líquida",
+        "isCorrect": true,
+        "rationale": "És l’opció que s’ajusta millor a la definició o funció demanada a l’enunciat."
+      },
+      {
+        "text": "Refrigeració per aire",
+        "isCorrect": false,
+        "rationale": "No correspon al focus de la pregunta ni a la funció descrita a l’opció correcta."
+      },
+      {
+        "text": "Refrigeració per immersió",
+        "isCorrect": false,
+        "rationale": "No correspon al focus de la pregunta ni a la funció descrita a l’opció correcta."
+      },
+      {
+        "text": "Refrigeració per compressió",
+        "isCorrect": false,
+        "rationale": "No correspon al focus de la pregunta ni a la funció descrita a l’opció correcta."
+      }
+    ]
+  },
+  {
+    "guid": "d695f3d2-583e-47d1-9f6a-89788b6fc001",
+    "subjectId": "T60",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "83. Quin tipus de protecció contra inundacions és més adequat per a un CPD?",
+    "answerOptions": [
+      {
+        "text": "Barreres de sorra",
+        "isCorrect": false,
+        "rationale": "No correspon al focus de la pregunta ni a la funció descrita a l’opció correcta."
+      },
+      {
+        "text": "Sistemes de drenatge",
+        "isCorrect": true,
+        "rationale": "És l’opció que s’ajusta millor a la definició o funció demanada a l’enunciat."
+      },
+      {
+        "text": "Bombes d'aigua",
+        "isCorrect": false,
+        "rationale": "No correspon al focus de la pregunta ni a la funció descrita a l’opció correcta."
+      },
+      {
+        "text": "Portes estanques",
+        "isCorrect": false,
+        "rationale": "No correspon al focus de la pregunta ni a la funció descrita a l’opció correcta."
+      }
+    ]
+  },
+  {
+    "guid": "96dd3fa4-54c3-4a15-b80c-44f4c97fc1b5",
+    "subjectId": "T60",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "84. Quin tipus de política de seguretat estableix les regles i procediments per protegir les dades del CPD?",
+    "answerOptions": [
+      {
+        "text": "Política de seguretat de la informació",
+        "isCorrect": true,
+        "rationale": "És l’opció que s’ajusta millor a la definició o funció demanada a l’enunciat."
+      },
+      {
+        "text": "Política de privacitat",
+        "isCorrect": false,
+        "rationale": "No correspon al focus de la pregunta ni a la funció descrita a l’opció correcta."
+      },
+      {
+        "text": "Política d'accés a la xarxa",
+        "isCorrect": false,
+        "rationale": "No correspon al focus de la pregunta ni a la funció descrita a l’opció correcta."
+      },
+      {
+        "text": "Política de gestió de riscos",
+        "isCorrect": false,
+        "rationale": "No correspon al focus de la pregunta ni a la funció descrita a l’opció correcta."
+      }
+    ]
+  },
+  {
+    "guid": "f5e763ae-0a35-466e-8e29-4be22f844df8",
+    "subjectId": "T60",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "85. Quin tipus de sistema de detecció i prevenció d'intrusions monitoritza el trànsit de xarxa per detectar i bloquejar ciberatacs?",
+    "answerOptions": [
+      {
+        "text": "IDS",
+        "isCorrect": false,
+        "rationale": "Un IDS detecta i alerta, però no bloqueja el trànsit de manera predeterminada."
+      },
+      {
+        "text": "IPS",
+        "isCorrect": true,
+        "rationale": "Un IPS pot bloquejar trànsit maliciós en línia, a diferència d’un IDS que habitualment només alerta."
+      },
+      {
+        "text": "VPN",
+        "isCorrect": false,
+        "rationale": "VPN xifra i encapsula trànsit, no és un sistema de detecció i bloqueig d’intrusions."
+      },
+      {
+        "text": "SIEM",
+        "isCorrect": false,
+        "rationale": "SIEM correlaciona i centralitza esdeveniments, però no bloqueja trànsit en temps real."
+      }
+    ]
+  },
+  {
+    "guid": "4f4047fc-c2de-4d06-892a-62b598dbe5ee",
+    "subjectId": "T60",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "86. Quin tipus de servidor és responsable de gestionar el correu electrònic?",
+    "answerOptions": [
+      {
+        "text": "Servidor d'aplicacions",
+        "isCorrect": false,
+        "rationale": "No correspon al focus de la pregunta ni a la funció descrita a l’opció correcta."
+      },
+      {
+        "text": "Servidor de bases de dades",
+        "isCorrect": false,
+        "rationale": "No correspon al focus de la pregunta ni a la funció descrita a l’opció correcta."
+      },
+      {
+        "text": "Servidor de correu electrònic",
+        "isCorrect": true,
+        "rationale": "És l’opció que s’ajusta millor a la definició o funció demanada a l’enunciat."
+      },
+      {
+        "text": "Servidor de fitxers",
+        "isCorrect": false,
+        "rationale": "No correspon al focus de la pregunta ni a la funció descrita a l’opció correcta."
+      }
+    ]
+  },
+  {
+    "guid": "8699db09-5153-4e79-bf35-6e1e741a9d7a",
+    "subjectId": "T60",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "87. Quin tipus de topologia de xarxa connecta tots els dispositius a un dispositiu central?",
+    "answerOptions": [
+      {
+        "text": "Estrella",
+        "isCorrect": true,
+        "rationale": "Tots els nodes es connecten a un punt central."
+      },
+      {
+        "text": "Anell",
+        "isCorrect": false,
+        "rationale": "Això fa referència a topologia anell; la resposta correcta descriu topologia estrella."
+      },
+      {
+        "text": "Bus",
+        "isCorrect": false,
+        "rationale": "Això fa referència a topologia bus; la resposta correcta descriu topologia estrella."
+      },
+      {
+        "text": "Malla",
+        "isCorrect": false,
+        "rationale": "Això fa referència a topologia malla; la resposta correcta descriu topologia estrella."
+      }
+    ]
+  },
+  {
+    "guid": "6a773441-97fc-4460-aa75-5a4890feacd3",
+    "subjectId": "T60",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "88. Quin protocol de xarxa és responsable de la traducció d'adreces IP a noms de domini?",
+    "answerOptions": [
+      {
+        "text": "DNS",
+        "isCorrect": true,
+        "rationale": "Resol noms de domini a adreces IP i altres registres."
+      },
+      {
+        "text": "DHCP",
+        "isCorrect": false,
+        "rationale": "Això fa referència a DHCP; la resposta correcta descriu DNS."
+      },
+      {
+        "text": "FTP",
+        "isCorrect": false,
+        "rationale": "No descriu DNS com requereix l’enunciat."
+      },
+      {
+        "text": "HTTP",
+        "isCorrect": false,
+        "rationale": "No descriu DNS com requereix l’enunciat."
+      }
+    ]
+  },
+  {
+    "guid": "1ccfd21c-2805-47ff-9583-53fa355095b8",
+    "subjectId": "T60",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "89. Quin tipus de sistema de refrigeració utilitza la immersió dels components en líquids dielèctrics per eliminar la calor?",
+    "answerOptions": [
+      {
+        "text": "Refrigeració líquida",
+        "isCorrect": false,
+        "rationale": "No correspon al focus de la pregunta ni a la funció descrita a l’opció correcta."
+      },
+      {
+        "text": "Refrigeració per aire",
+        "isCorrect": false,
+        "rationale": "No correspon al focus de la pregunta ni a la funció descrita a l’opció correcta."
+      },
+      {
+        "text": "Refrigeració per immersió",
+        "isCorrect": true,
+        "rationale": "És l’opció que s’ajusta millor a la definició o funció demanada a l’enunciat."
+      },
+      {
+        "text": "Refrigeració per compressió",
+        "isCorrect": false,
+        "rationale": "No correspon al focus de la pregunta ni a la funció descrita a l’opció correcta."
+      }
+    ]
+  },
+  {
+    "guid": "80c5e43c-c7b4-4024-aa7e-357a9fd2ced5",
+    "subjectId": "T60",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "90. Quin tipus de protecció contra incendis utilitza aigua per extingir el foc?",
+    "answerOptions": [
+      {
+        "text": "Extintors d'aigua",
+        "isCorrect": false,
+        "rationale": "No descriu sprinklers com requereix l’enunciat."
+      },
+      {
+        "text": "Extintors de CO2",
+        "isCorrect": false,
+        "rationale": "Això fa referència a CO2; la resposta correcta descriu sprinklers."
+      },
+      {
+        "text": "Sistemes de gas inerte",
+        "isCorrect": false,
+        "rationale": "No descriu sprinklers com requereix l’enunciat."
+      },
+      {
+        "text": "Sprinklers",
+        "isCorrect": true,
+        "rationale": "Ruixadors d’aigua automàtics per extinció."
+      }
+    ]
+  },
+  {
+    "guid": "5c57d7aa-06b5-4320-878a-d820df7cad9f",
+    "subjectId": "T60",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "91. Quin tipus de còpia de seguretat emmagatzema les dades en una ubicació dins del mateix CPD?",
+    "answerOptions": [
+      {
+        "text": "Còpia de seguretat local",
+        "isCorrect": true,
+        "rationale": "És l’opció que s’ajusta millor a la definició o funció demanada a l’enunciat."
+      },
+      {
+        "text": "Còpia de seguretat en el núvol",
+        "isCorrect": false,
+        "rationale": "No correspon al focus de la pregunta ni a la funció descrita a l’opció correcta."
+      },
+      {
+        "text": "Còpia de seguretat fora de línia",
+        "isCorrect": false,
+        "rationale": "No correspon al focus de la pregunta ni a la funció descrita a l’opció correcta."
+      },
+      {
+        "text": "Còpia de seguretat remota",
+        "isCorrect": false,
+        "rationale": "No correspon al focus de la pregunta ni a la funció descrita a l’opció correcta."
+      }
+    ]
+  },
+  {
+    "guid": "2c75ee15-917c-460c-8947-480b3d21665e",
+    "subjectId": "T60",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "92. Quin tipus de dispositiu de xarxa és responsable de connectar xarxes separades i encaminar el trànsit entre elles?",
+    "answerOptions": [
+      {
+        "text": "Switch",
+        "isCorrect": false,
+        "rationale": "Això fa referència a switch; la resposta correcta descriu router."
+      },
+      {
+        "text": "Router",
+        "isCorrect": true,
+        "rationale": "Encamina trànsit entre xarxes diferents, prenent decisions de ruta."
+      },
+      {
+        "text": "Firewall",
+        "isCorrect": false,
+        "rationale": "Això fa referència a firewall; la resposta correcta descriu router."
+      },
+      {
+        "text": "Access point",
+        "isCorrect": false,
+        "rationale": "Això fa referència a access point; la resposta correcta descriu router."
+      }
+    ]
+  }
+]
