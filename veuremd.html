@@ -504,7 +504,10 @@
         return;
       }
 
-      const markdownUrl = `/apunts/${tema}.md`;
+      let markdownUrl = `/apunts/${tema}.md`;
+      if (!location.hostname.includes('localhost') && !location.hostname.startsWith('127.')) {
+        markdownUrl = `/opos${markdownUrl}`;
+      }
       pageTitle.textContent = `📄 ${tema}`;
 
       try {
