@@ -10,10 +10,18 @@ Tiene que ser algo que pueda leer en 10 minutos.
 
 
 # preguntas
+29. Gestió d'Incidents de Ciberseguretat
+67. Hacking Ètic
+68. Certificats digitals i autentificació electrònica
+69. Signatura electrònica
+70. Protecció de l'accés remot
+71. La ciberseguretat aplicada al Cloud
 
 Generame preguntas tipo test.
-subjectid: T29
-preguntas normales-dificiles no muy largas.
+subjectid: T68
+origin: deepseek
+preguntas sobres conceptos troncales del tema. No profuncides.
+dificultad 1-facil, 2-medio, 3-dificil.
 Preguntas trampas que puedan liar
 Alguna pregunta que sea cual NO es correcta
 Alguna que sea cual es la mas correcta.
@@ -24,7 +32,7 @@ interface QuestionContract {
   guid: string; // Genera un GUID, Identificador Único Global, una cadena de 128 bits diseñada para ser única en el mundo
   subjectId: string; // Identificador del tema o materia (por ejemplo, "T62", "T08", "Ambit1")
   difficulty: 1 ; // Identificador numerico del nivel de dificultad 1-facil, 2-medio, 3-dificil, 4-avanzado, 5-mortal
-  origin: string; // Fuente o sistema de origen (por ejemplo, "OPOS19_preguntes_practic.pdf" para extracciones de ficheros o “OPOS24_gpt” para cuando las genera el chatgpt o "deepseek" cuando las genera DeepSeek)
+  origin: string; // Fuente, fichero o sistema de origen
   type: string; // Tipo de pregunta (por ejemplo, "test", “truefalse”, “fillgap”)
   question: string; // Texto de la pregunta
   answerOptions: AnswerOption[]; // Opciones de respuesta
@@ -36,3 +44,26 @@ interface AnswerOption {
   rationale: string; // Explicación o justificación de la opción
 }
 Haré copy-paste del JSON.
+
+
+# notebookLM
+Estoy estudiando para Oposiciones tecnico superior TIC para el ayuntamiento de barcelona.
+Fondo blanco para ahorrar tinta.
+
+# siguiente estudio
+29. Gestió d'Incidents de Ciberseguretat
+67. Hacking Ètic
+68. Certificats digitals i autentificació electrònica
+69. Signatura electrònica
+70. Protecció de l'accés remot
+71. La ciberseguretat aplicada al Cloud
+
+Estoy estudiando para Oposiciones tecnico superior TIC para el ayuntamiento de barcelona.
+Estoy preparando estos temas.
+29. Gestió d'Incidents de Ciberseguretat
+67. Hacking Ètic
+68. Certificats digitals i autentificació electrònica
+69. Signatura electrònica
+70. Protecció de l'accés remot
+71. La ciberseguretat aplicada al Cloud
+Dame informacion unicamente sobre el tema 69. Signatura electrònica. Suficientes concentos como para poder responder las preguntas tipos test que puedan salir en el examen.
