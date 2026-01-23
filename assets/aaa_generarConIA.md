@@ -66,4 +66,6 @@ Estoy preparando estos temas.
 69. Signatura electrònica
 70. Protecció de l'accés remot
 71. La ciberseguretat aplicada al Cloud
-Dame informacion unicamente sobre el tema 69. Signatura electrònica. Suficientes concentos como para poder responder las preguntas tipos test que puedan salir en el examen.
+Ahora vamos a trabajar el tema 70. Protecció de l'accés remot.
+En castellano.
+Primero un resumen ejecutivo de lo imprescidindible que hay que saber que quepa en una hoja.
