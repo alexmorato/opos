@@ -459,6 +459,7 @@
     <div class="buttons-container">
       <button class="btn-primary" id="repassarBtn" style="display:none;">🔁 Repassar Historial</button>
       <button class="btn-secondary" id="copiarBtn" style="display:none;">📋 Copiar JSON</button>
+      <button class="btn-secondary" id="descargarBtn" style="display:none;">💾 Descargar JSON</button>
       <button class="btn-danger" id="esborrarTotBtn" style="display:none;">🗑️ Esborrar Tot</button>
       <button class="btn-secondary" id="tornarBtn">⬅️ Tornar</button>
     </div>
@@ -584,6 +585,7 @@
         document.getElementById('repassarBtn').style.display = 'block';
         document.getElementById('repassarBtn2').style.display = 'block';
         document.getElementById('copiarBtn').style.display = 'block';
+        document.getElementById('descargarBtn').style.display = 'block';
         document.getElementById('esborrarTotBtn').style.display = 'block';
 
         // Renderizar preguntas
@@ -593,6 +595,7 @@
         document.getElementById('repassarBtn').style.display = 'none';
         document.getElementById('repassarBtn2').style.display = 'none';
         document.getElementById('copiarBtn').style.display = 'none';
+        document.getElementById('descargarBtn').style.display = 'none';
         document.getElementById('esborrarTotBtn').style.display = 'none';
         preguntesContainer.innerHTML = '<div class="empty-state">No hi ha preguntes a l\'historial de fallos.</div>';
       }
@@ -719,6 +722,7 @@
       // Actualiza el texto de los botones según la selección
       function actualizarBotonesSegunSeleccion() {
         const btnCopiar = document.getElementById('copiarBtn');
+        const btnDescargar = document.getElementById('descargarBtn');
         const btnRepassar = document.getElementById('repassarBtn');
         const btnRepassar2 = document.getElementById('repassarBtn2');
         const btnBorrar = document.getElementById('esborrarTotBtn');
@@ -729,6 +733,13 @@
             btnCopiar.textContent = '📋 Copiar Historial';
           } else {
             btnCopiar.textContent = `📋 Copiar ${seleccionadas} de ${total}`;
+          }
+        }
+        if (btnDescargar) {
+          if (seleccionadas === 0) {
+            btnDescargar.textContent = '💾 Descargar Historial';
+          } else {
+            btnDescargar.textContent = `💾 Descargar ${seleccionadas} de ${total}`;
           }
         }
         if (btnRepassar) {
@@ -914,6 +925,37 @@
             alert('No s\'ha pogut copiar al portapapers');
           }
         });
+      }
+    };
+
+    // Botón descargar JSON
+    document.getElementById('descargarBtn').onclick = function() {
+      // Descargar solo las preguntas seleccionadas
+      const selectedCards = Array.from(document.querySelectorAll('.pregunta-card.selected'));
+      let preguntasSeleccionadas = [];
+      if (selectedCards.length > 0) {
+        preguntasSeleccionadas = selectedCards.map(card => {
+          const guid = card.dataset.guid;
+          return historialFallos.find(p => p.guid === guid);
+        }).filter(p => p !== undefined);
+      } else {
+        preguntasSeleccionadas = historialFallos;
+      }
+      if (preguntasSeleccionadas.length > 0) {
+        const jsonStr = JSON.stringify(preguntasSeleccionadas, null, 2);
+        const blob = new Blob([jsonStr], { type: 'application/json' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        const timestamp = new Date().toISOString().replace(/[:.]/g, '-').slice(0, -5);
+        a.download = `historial-fallos-${timestamp}.json`;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+        if (window.toast && typeof window.toast.showToast === 'function') {
+          toast.showToast('Descarregant JSON...');
+        }
       }
     };
 
