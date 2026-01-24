@@ -522,9 +522,6 @@
 
       // Construir ruta: root/tema/fitxer
       let markdownUrl = tema ? `/${root}/${tema}/${fitxer}` : `/${root}/${fitxer}`;
-      if (!location.hostname.includes('localhost') && !location.hostname.startsWith('127.')) {
-        markdownUrl = `/opos${markdownUrl}`;
-      }
       pageTitle.textContent = `📄 ${tema || fitxer}`;
 
       try {

@@ -52,7 +52,7 @@
     }
     .search-btn {
       position: absolute;
-      right: 5px;
+      right: 50px;
       top: 50%;
       transform: translateY(-50%);
       background: #2aebad;
@@ -66,6 +66,23 @@
     }
     .search-btn:hover {
       background: #21c08d;
+    }
+    .clear-btn {
+      position: absolute;
+      right: 5px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: #8a2a2a;
+      color: #e7ecff;
+      border: none;
+      border-radius: 8px;
+      padding: 8px 14px;
+      cursor: pointer;
+      font-size: 1.1rem;
+      font-weight: bold;
+    }
+    .clear-btn:hover {
+      background: #aa3a3a;
     }
     .btn-tornar {
       padding: 12px 24px;
@@ -270,6 +287,7 @@
     <div class="search-box">
       <input type="text" id="searchInput" placeholder="🔍 Buscar per tema, títol o contingut...">
       <button class="search-btn" id="searchBtn">🔍</button>
+      <button class="clear-btn" id="clearBtn">🗑️</button>
     </div>
     <button class="btn-tornar" id="tornarBtn">⬅️ Tornar</button>
   </div>
@@ -291,6 +309,10 @@
     let testsManifest = {};
     let todosLosDatos = [];
     let root = "";
+
+    // LocalStorage keys
+    const LS_RECURSOS_SEARCH = 'sTICdOpos_recursos_search_text';
+    const LS_RECURSOS_TEMA = 'sTICdOpos_recursos_tema_expanded';
 
     // Verificar autenticación
     document.addEventListener('DOMContentLoaded', function() {
@@ -319,7 +341,13 @@
 
         // Procesar datos
         procesarDatos();
-        renderizarTemes();
+
+        // Restaurar estado guardado
+        const { savedSearch, savedTema } = restaurarEstado();
+        if (savedSearch) {
+          document.getElementById('searchInput').value = savedSearch;
+        }
+        renderizarTemes(savedSearch, savedTema);
 
         if (typeof hideLoadingSpinner === 'function') hideLoadingSpinner();
       } catch (err) {
@@ -328,6 +356,29 @@
           `<div class="empty-state">⚠️ Error carregant els recursos: ${err.message}</div>`;
         if (typeof hideLoadingSpinner === 'function') hideLoadingSpinner();
       }
+    }
+
+    // Guardar estado en localStorage
+    function guardarEstado(searchText, temaId) {
+      if (searchText !== undefined) {
+        localStorage.setItem(LS_RECURSOS_SEARCH, searchText);
+      }
+      if (temaId !== undefined) {
+        localStorage.setItem(LS_RECURSOS_TEMA, temaId);
+      }
+    }
+
+    // Restaurar estado desde localStorage
+    function restaurarEstado() {
+      const savedSearch = localStorage.getItem(LS_RECURSOS_SEARCH) || '';
+      const savedTema = localStorage.getItem(LS_RECURSOS_TEMA) || '';
+      return { savedSearch, savedTema };
+    }
+
+    // Limpiar estado guardado
+    function limpiarEstado() {
+      localStorage.removeItem(LS_RECURSOS_SEARCH);
+      localStorage.removeItem(LS_RECURSOS_TEMA);
     }
 
     // Procesar y combinar datos
@@ -404,7 +455,7 @@
     }
 
     // Renderizar temas
-    function renderizarTemes(filtro = '') {
+    function renderizarTemes(filtro = '', temaToExpand = '') {
       const container = document.getElementById('temesContainer');
       const noResults = document.getElementById('noResults');
       container.innerHTML = '';
@@ -427,16 +478,31 @@
       noResults.style.display = 'none';
 
       temasFiltrados.forEach(tema => {
-        const card = crearTemaCard(tema);
+        const card = crearTemaCard(tema, temaToExpand);
         container.appendChild(card);
       });
+
+      // Scroll al tema expandido si existe
+      if (temaToExpand) {
+        setTimeout(() => {
+          const cardToExpand = document.querySelector(`[data-tema-id="${temaToExpand}"]`);
+          if (cardToExpand) {
+            cardToExpand.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          }
+        }, 100);
+      }
     }
 
     // Crear card de tema
-    function crearTemaCard(tema) {
+    function crearTemaCard(tema, temaToExpand = '') {
       const card = document.createElement('div');
       card.className = 'tema-card';
       card.dataset.temaId = tema.tema;
+
+      // Expandir si es el tema guardado
+      if (temaToExpand && tema.tema === temaToExpand) {
+        card.classList.add('expanded');
+      }
 
       const totalRecursos = 
         tema.recursos.slides.length + 
@@ -469,7 +535,15 @@
 
       // Toggle expand/collapse
       card.querySelector('.tema-header').addEventListener('click', () => {
+        const wasExpanded = card.classList.contains('expanded');
         card.classList.toggle('expanded');
+        
+        // Guardar el tema expandido o limpiar si se colapsa
+        if (!wasExpanded) {
+          guardarEstado(undefined, tema.tema);
+        } else {
+          localStorage.removeItem(LS_RECURSOS_TEMA);
+        }
       });
 
       return card;
@@ -574,7 +648,7 @@
       const isLocal = location.hostname === 'localhost' || location.hostname === '127.0.0.1';
       const basePath = isLocal ? '' : 'opos/';
       //window.open(`${basePath}apunts_new/${temaId}/${fileName}`, '_blank');
-      window.open(`leerinfo.html?root=${encodeURIComponent(root)}&tema=${encodeURIComponent(temaId)}&fitxer=${encodeURIComponent(fileName)}`, '_blank');
+      window.open(`leerinfografia.html?root=${encodeURIComponent(root)}&tema=${encodeURIComponent(temaId)}&fitxer=${encodeURIComponent(fileName)}`, '_self' );
     };
 
     window.abrirApunts = function(temaId, md) {
@@ -602,12 +676,16 @@
     const searchBtn = document.getElementById('searchBtn');
 
     searchBtn.addEventListener('click', () => {
-      renderizarTemes(searchInput.value.trim());
+      const searchText = searchInput.value.trim();
+      guardarEstado(searchText, undefined);
+      renderizarTemes(searchText);
     });
 
     searchInput.addEventListener('keypress', (e) => {
       if (e.key === 'Enter') {
-        renderizarTemes(searchInput.value.trim());
+        const searchText = searchInput.value.trim();
+        guardarEstado(searchText, undefined);
+        renderizarTemes(searchText);
       }
     });
 
@@ -616,6 +694,14 @@
       if (e.target.value.trim() === '') {
         renderizarTemes('');
       }
+    });
+
+    // Botón limpiar
+    const clearBtn = document.getElementById('clearBtn');
+    clearBtn.addEventListener('click', () => {
+      searchInput.value = '';
+      limpiarEstado();
+      renderizarTemes('');
     });
 
     // Botón tornar
