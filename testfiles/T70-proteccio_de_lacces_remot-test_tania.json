@@ -1,0 +1,467 @@
+[
+  {
+    "guid": "f10f025b-268e-443a-a452-7f3e401106ef",
+    "subjectId": "T70",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "En un entorno de alta seguridad, se necesita conceder acceso temporal a un proveedor a un servidor específico, únicamente los martes de 10:00 a 12:00, y solo si se conecta desde la red de su oficina. ¿Qué modelo de control de acceso es el más adecuado para implementar esta política de forma nativa?",
+    "answerOptions": [
+      {
+        "text": "RBAC (Role-Based Access Control), asignando al proveedor un rol con permisos temporales.",
+        "rationale": "RBAC se basa en roles organizativos estáticos y no evalúa atributos dinámicos como la hora o la ubicación de la conexión de forma nativa.",
+        "isCorrect": false
+      },
+      {
+        "text": "ABAC (Attribute-Based Access Control), ya que evalúa atributos del usuario, recurso y entorno.",
+        "rationale": "ABAC es el único modelo que toma decisiones de acceso basadas en múltiples atributos dinámicos como la ubicación, el rol y la hora del día.",
+        "isCorrect": true
+      },
+      {
+        "text": "DAC (Discretionary Access Control), permitiendo al dueño del recurso configurar estos permisos.",
+        "rationale": "Aunque DAC permite al propietario establecer permisos, no está diseñado para gestionar políticas complejas basadas en atributos contextuales como la hora.",
+        "isCorrect": false
+      },
+      {
+        "text": "MAC (Mandatory Access Control), aplicando una etiqueta de seguridad al proveedor y al recurso.",
+        "rationale": "MAC se basa en niveles de seguridad y etiquetas fijas, no en condiciones dinámicas y contextuales como el horario o la red de origen.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considera qué modelo de control de acceso es inherentemente dinámico y contextual."
+  },
+  {
+    "guid": "68c90ccf-4a9c-41e3-89bd-fd80a5825f73",
+    "subjectId": "T70",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "Un usuario se conecta remotamente a la red corporativa mediante una VPN. Al iniciar sesión, se le aplican ciertas políticas de seguridad, pero una nueva GPO crítica creada por el administrador no se aplica inmediatamente. ¿Cuál es la causa más probable de este comportamiento?",
+    "answerOptions": [
+      {
+        "text": "Las GPO no se aplican a usuarios que se conectan a través de VPN, solo a los que usan RDP o VDI.",
+        "rationale": "Las GPO se aplican a cualquier equipo unido al dominio que tenga conectividad, independientemente del método de acceso remoto.",
+        "isCorrect": false
+      },
+      {
+        "text": "El equipo del usuario no ha establecido conectividad con un controlador de dominio tras conectarse a la VPN.",
+        "rationale": "Para que un equipo reciba y aplique las políticas de grupo (GPO), es indispensable que tenga comunicación con un controlador de dominio de Active Directory.",
+        "isCorrect": true
+      },
+      {
+        "text": "Las GPO solo se aplican en el siguiente reinicio del equipo, no durante una sesión activa de VPN.",
+        "rationale": "Las políticas de grupo se actualizan periódicamente en segundo plano y también pueden forzarse manualmente sin necesidad de reiniciar.",
+        "isCorrect": false
+      },
+      {
+        "text": "La conexión VPN del usuario utiliza un protocolo como WireGuard, que no es compatible con la aplicación de GPO.",
+        "rationale": "La aplicación de GPO depende de la conectividad con el dominio, no del protocolo VPN específico que se esté utilizando para establecer el túnel.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piensa en el requisito fundamental para que un equipo de dominio reciba actualizaciones de políticas."
+  },
+  {
+    "guid": "7e9d1647-95a0-44a7-8331-9eadb191e064",
+    "subjectId": "T70",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "¿Cuál de las siguientes afirmaciones describe con mayor precisión la función y limitaciones de una VPN sin cliente (Clientless VPN)?",
+    "answerOptions": [
+      {
+        "text": "Proporciona acceso completo a nivel de red, permitiendo el uso de cualquier protocolo o aplicación como si se estuviera en la red local.",
+        "rationale": "Este comportamiento corresponde a una VPN basada en cliente (client-based), no a una VPN sin cliente.",
+        "isCorrect": false
+      },
+      {
+        "text": "Funciona como un reverse proxy, ofreciendo acceso granular solo a aplicaciones web o portales específicos a través de un navegador.",
+        "rationale": "Una VPN sin cliente utiliza TLS a través del navegador para mediar el acceso a recursos específicos, actuando como un proxy inverso y no concediendo acceso total a la red.",
+        "isCorrect": true
+      },
+      {
+        "text": "Requiere la instalación de un software ligero en el cliente para establecer un túnel SSL/TLS para toda la comunicación del equipo.",
+        "rationale": "La característica definitoria de una VPN sin cliente es precisamente que no requiere la instalación de ningún software en el dispositivo del usuario.",
+        "isCorrect": false
+      },
+      {
+        "text": "Utiliza el protocolo IPSec para crear un túnel seguro desde el navegador, garantizando la máxima compatibilidad con dispositivos móviles.",
+        "rationale": "Las VPN sin cliente se basan en SSL/TLS, no en IPSec, que es un protocolo típicamente asociado a las VPN basadas en cliente.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Enfócate en cómo este tipo de VPN intermedia el acceso y a qué nivel de la red opera."
+  },
+  {
+    "guid": "98e19062-5d05-4084-b747-06144c4439d3",
+    "subjectId": "T70",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "En una arquitectura de seguridad, ¿cuál es el propósito principal de un 'bastion host' o 'jump server' en el contexto del acceso remoto administrativo?",
+    "answerOptions": [
+      {
+        "text": "Actuar como el terminador principal de las conexiones VPN de todos los usuarios remotos de la organización.",
+        "rationale": "Esta función la realiza un concentrador o gateway de VPN, no un bastion host, cuyo foco es el acceso administrativo.",
+        "isCorrect": false
+      },
+      {
+        "text": "Ser un servidor fortificado que sirve como único punto de entrada, registro y auditoría para las conexiones administrativas.",
+        "rationale": "La finalidad de un bastion host es aislar los sistemas críticos, centralizando y monitorizando todo el acceso administrativo a través de un punto de control reforzado.",
+        "isCorrect": true
+      },
+      {
+        "text": "Validar el estado de seguridad (antivirus, parches) de los equipos administrativos antes de permitirles el acceso a la red.",
+        "rationale": "Esta función corresponde a una solución de Control de Acceso a la Red (NAC), que evalúa la conformidad del dispositivo.",
+        "isCorrect": false
+      },
+      {
+        "text": "Filtrar el tráfico de red a nivel de aplicación para los administradores, similar a un Next-Generation Firewall (NGFW).",
+        "rationale": "Aunque un bastion host es seguro, su función principal no es la inspección profunda de paquetes, sino ser un punto de acceso controlado y auditado.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Céntrate en el concepto de punto de control único y fortificado para un tipo específico de acceso."
+  },
+  {
+    "guid": "aba4f2bb-b877-4c56-94c5-e31124846e75",
+    "subjectId": "T70",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "Un empleado que trabaja remotamente intenta copiar un informe con datos de clientes desde un recurso de red a su memoria USB personal. ¿Qué tecnología de seguridad está diseñada específicamente para detectar y bloquear esta acción?",
+    "answerOptions": [
+      {
+        "text": "NAC (Network Access Control), porque verifica que el dispositivo del empleado no realice acciones no permitidas.",
+        "rationale": "NAC se enfoca en la conformidad del dispositivo al conectarse a la red (antivirus, parches), no en el monitoreo del movimiento de datos.",
+        "isCorrect": false
+      },
+      {
+        "text": "SIEM (Security Information and Event Management), porque correlaciona los logs de acceso al fichero y al dispositivo USB.",
+        "rationale": "Un SIEM puede registrar y alertar sobre la acción, pero no está diseñado para bloquearla activamente en tiempo real; es una herramienta de detección y análisis.",
+        "isCorrect": false
+      },
+      {
+        "text": "DLP (Data Loss Prevention), porque sus políticas monitorizan y controlan la salida de información sensible de la red.",
+        "rationale": "Las soluciones DLP están diseñadas para clasificar datos sensibles y aplicar políticas que impidan su exfiltración a través de canales como USB, correo o la nube.",
+        "isCorrect": true
+      },
+      {
+        "text": "NGFW (Next-Generation Firewall), ya que inspecciona el tráfico de datos en busca de patrones anómalos.",
+        "rationale": "Un NGFW inspecciona el tráfico de red, pero la copia de un fichero a un dispositivo USB local no necesariamente atraviesa el firewall de la red.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "La pregunta trata sobre prevenir la 'fuga de datos'. ¿Qué tecnología tiene ese propósito en su nombre?"
+  },
+  {
+    "guid": "e45c4b6f-238d-4243-a073-5393c702b902",
+    "subjectId": "T70",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "Según las buenas prácticas y normativas como el ENS, para securizar adecuadamente el acceso mediante RDP a un servidor dentro de la red corporativa, ¿cuál de las siguientes combinaciones de medidas es la más completa y correcta?",
+    "answerOptions": [
+      {
+        "text": "Configurar RDP en un puerto no estándar y aplicar una GPO que restrinja el acceso a un grupo de usuarios específico.",
+        "rationale": "Aunque cambiar el puerto y restringir el acceso son medidas útiles, no son suficientes y omiten componentes críticos como el cifrado del canal y la autenticación robusta.",
+        "isCorrect": false
+      },
+      {
+        "text": "Habilitar la autenticación a nivel de red (NLA) en RDP y asegurarse de que el cliente RDP está actualizado.",
+        "rationale": "NLA es una medida de seguridad importante para RDP, pero por sí sola no protege el tráfico en redes no seguras ni previene el robo de credenciales.",
+        "isCorrect": false
+      },
+      {
+        "text": "Exponer RDP directamente a Internet pero protegido con autenticación de múltiples factores (MFA).",
+        "rationale": "Exponer RDP directamente a Internet es una práctica de alto riesgo, incluso con MFA, ya que el servicio sigue siendo vulnerable a ataques de fuerza bruta o de denegación de servicio.",
+        "isCorrect": false
+      },
+      {
+        "text": "Requerir conexión a través de una VPN, implementar MFA y aplicar políticas de firewall y GPO restrictivas.",
+        "rationale": "Esta es la estrategia de defensa en profundidad recomendada: la VPN cifra el canal, MFA protege las credenciales y las GPO/firewall aplican el principio de mínimo privilegio.",
+        "isCorrect": true
+      }
+    ],
+    "hint": "La seguridad de un protocolo de funcionalidad como RDP no depende de una única medida, sino de un enfoque por capas."
+  },
+  {
+    "guid": "ea4160a7-72b0-49fb-bb4c-8f0e552468e7",
+    "subjectId": "T70",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "Una organización ha implementado una VPN de acceso remoto para todos sus teletrabajadores. Un consultor de seguridad afirma que, a pesar de usar VPN, la organización no sigue un modelo Zero Trust. ¿Cuál es la justificación más sólida para esta afirmación?",
+    "answerOptions": [
+      {
+        "text": "El modelo Zero Trust prohíbe el uso de VPNs, favoreciendo únicamente el acceso a través de portales web seguros.",
+        "rationale": "Zero Trust no prohíbe las VPN, sino que cambia el paradigma de confianza; las VPN pueden ser un componente de una arquitectura Zero Trust, pero no la definen.",
+        "isCorrect": false
+      },
+      {
+        "text": "La VPN, una vez establecida la conexión, puede otorgar una confianza implícita y un acceso amplio a la red, lo cual contradice el principio de 'nunca confiar, siempre verificar'.",
+        "rationale": "El problema principal es que las VPN tradicionales a menudo crean un perímetro de confianza implícito. Zero Trust exige una verificación continua de la identidad, el dispositivo y el contexto para cada solicitud de acceso, independientemente del origen.",
+        "isCorrect": true
+      },
+      {
+        "text": "Zero Trust requiere obligatoriamente el uso de autenticación biométrica, y la VPN de la organización solo usa contraseñas y TOTP.",
+        "rationale": "Aunque la biometría es un factor de MFA, Zero Trust no prescribe un método de autenticación específico, sino que exige una autenticación robusta y una verificación continua.",
+        "isCorrect": false
+      },
+      {
+        "text": "La VPN no cifra el tráfico de extremo a extremo, lo que es un requisito fundamental del modelo Zero Trust.",
+        "rationale": "Las VPN sí cifran el tráfico entre el cliente y el gateway de la VPN. El problema no es la falta de cifrado, sino el nivel de confianza y acceso que se otorga tras la conexión.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Compara el modelo de confianza de una VPN tradicional con el principio fundamental de Zero Trust."
+  },
+  {
+    "guid": "f8527eb6-7b45-4fdf-99a7-add5cd770fd2",
+    "subjectId": "T70",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "En el contexto del Esquema Nacional de Seguridad (ENS) de España, ¿cuál es la principal exigencia en relación con los protocolos de comunicación para el acceso remoto?",
+    "answerOptions": [
+      {
+        "text": "Obliga a utilizar protocolos de código abierto como OpenVPN para garantizar la transparencia y auditabilidad del código.",
+        "rationale": "El ENS, como marco normativo, define requisitos de seguridad ('qué'), pero no prescribe productos o tecnologías específicas ('cómo').",
+        "isCorrect": false
+      },
+      {
+        "text": "Requiere el uso de protocolos seguros que garanticen la confidencialidad e integridad del tráfico, como se indica en las medidas Mp.com.2 y Mp.com.3.",
+        "rationale": "El ENS se centra en los principios de seguridad, exigiendo la protección de las comunicaciones en tránsito, lo que implica el uso de cifrado, pero deja la elección del protocolo a la organización.",
+        "isCorrect": true
+      },
+      {
+        "text": "Especifica que todo el acceso remoto debe realizarse sobre TLS 1.3, prohibiendo versiones anteriores o protocolos alternativos como IPSec.",
+        "rationale": "El ENS no entra en detalles técnicos tan específicos como la versión de un protocolo; establece el requisito de seguridad, no la implementación técnica exacta.",
+        "isCorrect": false
+      },
+      {
+        "text": "Prioriza la disponibilidad sobre la confidencialidad, permitiendo el uso de protocolos no cifrados si la conexión segura falla.",
+        "rationale": "El ENS exige un equilibrio entre todas las dimensiones de la seguridad (confidencialidad, integridad, disponibilidad, etc.), y no sacrificaría la confidencialidad del tráfico remoto.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piensa si las normativas como el ENS suelen prescribir tecnologías concretas o principios y requisitos funcionales."
+  },
+  {
+    "guid": "635c5734-ed40-4955-a609-10f5bd34bf8d",
+    "subjectId": "T70",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "Al comparar la ISO/IEC 27001 y la ISO/IEC 27002 en el ámbito del acceso remoto, ¿cuál es la relación correcta entre ambas normas?",
+    "answerOptions": [
+      {
+        "text": "La ISO 27001 es una guía de buenas prácticas que recomienda tecnologías como VPN y SIEM, mientras que la ISO 27002 establece los requisitos para certificar un SGSI.",
+        "rationale": "Esta afirmación invierte los roles de ambas normas. La ISO 27001 es la norma de requisitos certificable, y la 27002 es la guía de buenas prácticas.",
+        "isCorrect": false
+      },
+      {
+        "text": "La ISO 27001 obliga a implementar un SGSI para gestionar los riesgos del acceso remoto, y la ISO 27002 proporciona una guía detallada de buenas prácticas para implementar los controles del Anexo A.",
+        "rationale": "ISO 27001 define el 'qué' (el sistema de gestión y los controles requeridos), mientras que ISO 27002 ofrece el 'cómo' (orientación y mejores prácticas para implementar dichos controles).",
+        "isCorrect": true
+      },
+      {
+        "text": "Ambas normas son certificables y se centran exclusivamente en los aspectos técnicos del acceso remoto, como la configuración de firewalls y protocolos de cifrado.",
+        "rationale": "Solo la ISO 27001 es certificable, y ambas se centran en la gestión de la seguridad, no únicamente en medidas técnicas concretas.",
+        "isCorrect": false
+      },
+      {
+        "text": "La ISO 27002 es una norma española que adapta los requisitos de la ISO 27001 al marco del ENS, siendo obligatoria para el sector público.",
+        "rationale": "La ISO 27002 es una norma internacional, no una adaptación española, y funciona como una guía de buenas prácticas para la ISO 27001, no como un vínculo con el ENS.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Una de estas normas establece un sistema de gestión y es certificable, la otra es una guía de implementación."
+  },
+  {
+    "guid": "e484829b-2ee1-4ccf-ab0d-b8851cb88f05",
+    "subjectId": "T70",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "En la arquitectura de una red segura, las conexiones VPN de acceso remoto no deberían terminar directamente en la red interna principal. ¿Cuál es la práctica recomendada para segmentar este acceso?",
+    "answerOptions": [
+      {
+        "text": "Dirigir las conexiones VPN a una VLAN específica de usuarios remotos que tenga acceso sin restricciones al resto de la red.",
+        "rationale": "Esto no proporciona una segmentación efectiva, ya que el acceso sin restricciones anula el propósito de la separación.",
+        "isCorrect": false
+      },
+      {
+        "text": "Terminar las conexiones en un servidor proxy que filtre el contenido web antes de permitir el acceso a la red interna.",
+        "rationale": "Un proxy es útil para el tráfico web, pero no proporciona la segmentación de red necesaria para todos los protocolos y servicios a los que se accede vía VPN.",
+        "isCorrect": false
+      },
+      {
+        "text": "Utilizar una zona desmilitarizada (DMZ) o un segmento de red controlado como punto de entrada, aplicando un firewall interno para filtrar el tráfico hacia el núcleo de la red.",
+        "rationale": "Esta práctica implementa el principio de defensa en profundidad, creando una zona de contención donde el tráfico remoto puede ser inspeccionado antes de acceder a los recursos críticos.",
+        "isCorrect": true
+      },
+      {
+        "text": "Implementar un sistema de detección de intrusos (IDS) en el gateway de la VPN para monitorizar el tráfico y alertar sobre anomalías.",
+        "rationale": "Un IDS es una herramienta de monitorización y detección, no un mecanismo de segmentación de red. Puede complementar la segmentación, pero no la reemplaza.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considera cómo se aplica el concepto de 'defensa en profundidad' a las conexiones que provienen de una red externa."
+  },
+  {
+    "guid": "8acd9ac8-779d-49b9-8e3c-b430149949c0",
+    "subjectId": "T70",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "El principio de acceso 'Just-in-Time' (JIT) se aplica para mejorar la seguridad del acceso remoto. ¿Qué implica su implementación para un administrador de sistemas?",
+    "answerOptions": [
+      {
+        "text": "El administrador tiene privilegios elevados permanentes, pero debe justificar cada acción en un sistema de ticketing.",
+        "rationale": "JIT se opone a los privilegios permanentes; el objetivo es eliminar los permisos elevados cuando no se están utilizando.",
+        "isCorrect": false
+      },
+      {
+        "text": "Se le asignan permisos de administrador de forma temporal y automática, solo por el tiempo necesario para realizar una tarea autorizada.",
+        "rationale": "La esencia de JIT es conceder privilegios elevados únicamente cuando se solicitan, para una tarea específica y durante un período limitado, revocándolos después.",
+        "isCorrect": true
+      },
+      {
+        "text": "El administrador puede acceder a cualquier sistema en cualquier momento, pero todas sus sesiones son grabadas para una posterior auditoría.",
+        "rationale": "La grabación de sesiones es una buena práctica de monitorización, pero no es la definición del principio de acceso Just-in-Time.",
+        "isCorrect": false
+      },
+      {
+        "text": "Se requiere que el administrador utilice una VPN con un cliente específico que garantiza la conexión 'justo a tiempo' cuando se necesita.",
+        "rationale": "JIT se refiere a la gestión de permisos y privilegios, no a la tecnología de conexión o al momento en que se establece el túnel VPN.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "El nombre del principio contiene la clave: los privilegios se otorgan 'justo a tiempo'."
+  },
+  {
+    "guid": "437434d3-2fc2-457e-b9bc-c81bd418b185",
+    "subjectId": "T70",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "En el contexto de la guía CCN-STIC 808, ¿cuál de los siguientes elementos es un requisito fundamental para la gestión del acceso remoto?",
+    "answerOptions": [
+      {
+        "text": "La implementación obligatoria de WireGuard como protocolo VPN por su rendimiento y simplicidad.",
+        "rationale": "La guía CCN-STIC 808, al igual que el ENS, se centra en políticas y procedimientos de gestión, no en la prescripción de tecnologías específicas.",
+        "isCorrect": false
+      },
+      {
+        "text": "La existencia de una política documentada, un proceso de autorización previa y la limitación de las actividades permitidas.",
+        "rationale": "Estos son los pilares que define la guía: establecer un marco de gobernanza claro para el acceso remoto, con responsables, permisos y alcance bien definidos.",
+        "isCorrect": true
+      },
+      {
+        "text": "La integración de un SIEM para la monitorización en tiempo real de todos los accesos, con alertas automáticas.",
+        "rationale": "Aunque la monitorización es una buena práctica y está recomendada por el ENS, la guía 808 se enfoca más en los aspectos organizativos y de política.",
+        "isCorrect": false
+      },
+      {
+        "text": "El uso de dispositivos corporativos gestionados exclusivamente, prohibiendo cualquier forma de BYOD.",
+        "rationale": "La guía exige controlar los accesos, pero no prohíbe explícitamente el BYOD, siempre que se implementen las medidas de seguridad adecuadas.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Esta guía se enfoca en el marco de gobernanza y control, no en las herramientas técnicas."
+  },
+  {
+    "guid": "63e4ceff-35cb-4442-bc74-cd1e7580a75d",
+    "subjectId": "T70",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "Un usuario se autentica usando su contraseña y una aplicación en su móvil que genera un código numérico cada 30 segundos. Según la clasificación de factores de MFA, ¿qué factores se están utilizando?",
+    "answerOptions": [
+      {
+        "text": "Dos factores de conocimiento: la contraseña del móvil y la contraseña de la aplicación.",
+        "rationale": "Aunque se usan dos elementos, el código generado por la aplicación no se considera 'algo que sabes', sino 'algo que tienes'.",
+        "isCorrect": false
+      },
+      {
+        "text": "Un factor de conocimiento (la contraseña) y un factor de posesión (la aplicación TOTP en el móvil).",
+        "rationale": "La contraseña es 'algo que sabes' y el dispositivo móvil que genera el código (token) es 'algo que tienes'.",
+        "isCorrect": true
+      },
+      {
+        "text": "Un factor de posesión (el móvil) y un factor de inherencia (la acción de introducir el código).",
+        "rationale": "La inherencia se refiere a características biométricas (huella, rostro), no a una acción realizada por el usuario.",
+        "isCorrect": false
+      },
+      {
+        "text": "Un factor de conocimiento (la contraseña) y un factor de inherencia (el patrón único del código generado).",
+        "rationale": "El código es un token de posesión. La inherencia está estrictamente ligada a las características biológicas del individuo.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Clasifica cada método de autenticación en 'algo que sabes', 'algo que tienes' o 'algo que eres'."
+  },
+  {
+    "guid": "77d65bc8-e3a7-44b6-972c-a3c4becbb3be",
+    "subjectId": "T70",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "Al securizar el uso de dispositivos personales (BYOD) para el acceso remoto, ¿por qué es insuficiente confiar únicamente en una VPN y se recomiendan medidas como MDM o VDI?",
+    "answerOptions": [
+      {
+        "text": "Porque la VPN solo cifra el tráfico de red, pero no tiene control sobre la seguridad, configuración o datos almacenados en el dispositivo.",
+        "rationale": "MDM y VDI abordan la seguridad del endpoint: MDM aplicando políticas en el dispositivo y VDI aislando el entorno de trabajo, problemas que la VPN por sí sola no resuelve.",
+        "isCorrect": true
+      },
+      {
+        "text": "Porque las soluciones de MDM o VDI incluyen su propio cliente VPN, haciendo innecesario el uso de uno separado.",
+        "rationale": "Aunque algunas soluciones pueden integrar funcionalidades de VPN, su propósito principal es la gestión y seguridad del dispositivo o el entorno, no la conexión en sí.",
+        "isCorrect": false
+      },
+      {
+        "text": "Porque el uso de BYOD está prohibido por normativas como ISO 27001, que obliga a usar VDI en todos los casos.",
+        "rationale": "ISO 27001 no prohíbe el BYOD, sino que exige que los riesgos asociados sean gestionados con controles adecuados, como pueden ser MDM o VDI.",
+        "isCorrect": false
+      },
+      {
+        "text": "Porque los dispositivos personales no son compatibles con los protocolos VPN modernos como WireGuard o IKEv2.",
+        "rationale": "La compatibilidad con protocolos VPN es una característica del sistema operativo del dispositivo y no es la razón fundamental para necesitar MDM o VDI.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piensa en el alcance de la protección de una VPN frente a la superficie de ataque que representa el propio dispositivo."
+  },
+  {
+    "guid": "0006cce1-1b3a-4c4a-8619-bacd92971560",
+    "subjectId": "T70",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "Comparando protocolos de VPN, ¿qué ventaja clave de WireGuard se menciona en el material fuente con respecto a alternativas como OpenVPN o IPSec?",
+    "answerOptions": [
+      {
+        "text": "Su integración nativa con Active Directory para la aplicación de políticas de seguridad GPO.",
+        "rationale": "La aplicación de GPO depende de la conectividad con el dominio, no del protocolo VPN. Ningún protocolo VPN gestiona GPOs de forma nativa.",
+        "isCorrect": false
+      },
+      {
+        "text": "Su robustez y estabilidad superiores en dispositivos móviles que cambian frecuentemente de red.",
+        "rationale": "Esta característica se atribuye específicamente a IPSec/IKEv2 en el material, no a WireGuard.",
+        "isCorrect": false
+      },
+      {
+        "text": "Su diseño moderno, que lo hace más rápido, simple y eficiente en comparación con otros protocolos.",
+        "rationale": "El texto destaca explícitamente que WireGuard es un protocolo 'moderno y muy rápido, simple y eficiente'.",
+        "isCorrect": true
+      },
+      {
+        "text": "Ser el único protocolo de código abierto, lo que permite una mayor auditabilidad de su seguridad.",
+        "rationale": "El material también menciona explícitamente que OpenVPN es de código abierto, por lo que esta no es una ventaja exclusiva de WireGuard.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Busca la descripción que resalta las características de diseño de este protocolo más reciente."
+  }
+]

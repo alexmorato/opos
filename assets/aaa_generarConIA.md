@@ -46,9 +46,14 @@ interface AnswerOption {
 Haré copy-paste del JSON.
 
 
-# notebookLM
+# 🖼️ notebookLM infografia 🖼️
 Estoy estudiando para Oposiciones tecnico superior TIC para el ayuntamiento de barcelona.
 Fondo blanco para ahorrar tinta.
+
+# 🔊 notebookLM audio 🔊
+Estoy estudiando para Oposiciones tecnico superior TIC para el ayuntamiento de barcelona.
+Quiero conceptos tecnicos.
+
 
 # siguiente estudio
 29. Gestió d'Incidents de Ciberseguretat
