@@ -1,0 +1,932 @@
+[
+  {
+    "guid": "bd7c2a7c-04bb-4f3c-988e-9e13ef489b6a",
+    "subjectId": "T55",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "1. Què és el striping en RAID?",
+    "answerOptions": [
+      {
+        "text": "Duplicar les dades en dos discs",
+        "isCorrect": false,
+        "rationale": "Això descriu mirroring, que duplica dades per tolerància a fallades."
+      },
+      {
+        "text": "Repartir blocs de dades entre diversos discs per augmentar rendiment",
+        "isCorrect": true,
+        "rationale": "El striping reparteix blocs entre discs per augmentar throughput i paral·lelisme."
+      },
+      {
+        "text": "Afegir informació de recuperació calculada sobre les dades",
+        "isCorrect": false,
+        "rationale": "Això descriu paritat, informació de recuperació per reconstruir dades."
+      },
+      {
+        "text": "Reservar un disc de substitució per quan n’hi ha un que falla",
+        "isCorrect": false,
+        "rationale": "Això descriu un hot spare, un disc reservat per substituir-ne un de fallat."
+      }
+    ]
+  },
+  {
+    "guid": "5e68eef5-927b-4943-bb71-9ac433961678",
+    "subjectId": "T55",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "2. Què és la paritat en RAID?",
+    "answerOptions": [
+      {
+        "text": "Una còpia completa del volum en un altre disc",
+        "isCorrect": false,
+        "rationale": "Això és una còpia completa com en mirroring o en backups, no paritat."
+      },
+      {
+        "text": "Informació calculada que permet reconstruir dades si falla un disc",
+        "isCorrect": true,
+        "rationale": "La paritat és informació calculada que permet reconstruir dades si falla un disc."
+      },
+      {
+        "text": "Un mètode per agrupar discs en mirall",
+        "isCorrect": false,
+        "rationale": "Això descriu mirroring, no el càlcul de paritat."
+      },
+      {
+        "text": "Una tècnica per accelerar lectures guardant dades a memòria cau",
+        "isCorrect": false,
+        "rationale": "La memòria cau accelera, però no permet reconstrucció com la paritat."
+      }
+    ]
+  },
+  {
+    "guid": "8aba04bf-8210-4053-b6d4-30d0838134ca",
+    "subjectId": "T55",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "3. Què és el mirroring en RAID?",
+    "answerOptions": [
+      {
+        "text": "Guardar la mateixa informació en dos discs per tolerància a fallades",
+        "isCorrect": true,
+        "rationale": "Mirroring guarda la mateixa informació en dos discs per tolerància a fallades."
+      },
+      {
+        "text": "Distribuir dades per blocs entre discs per guanyar throughput",
+        "isCorrect": false,
+        "rationale": "Això descriu striping, orientat a rendiment."
+      },
+      {
+        "text": "Afegir blocs de paritat repartits entre discs",
+        "isCorrect": false,
+        "rationale": "Això descriu paritat distribuïda, no duplicació completa."
+      },
+      {
+        "text": "Un mecanisme per reduir capacitat repetida amb deduplicació",
+        "isCorrect": false,
+        "rationale": "La deduplicació redueix dades repetides, no replica un disc en un altre."
+      }
+    ]
+  },
+  {
+    "guid": "b3a4f852-e9d7-483f-87f0-e8a11d7a8572",
+    "subjectId": "T55",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "4. Quin enunciat descriu millor què és una SAN?",
+    "answerOptions": [
+      {
+        "text": "Un sistema d’emmagatzematge en xarxa que exposa carpetes i permisos d’usuari",
+        "isCorrect": false,
+        "rationale": "Això descriu NAS, que exposa fitxers i permisos a nivell de recurs."
+      },
+      {
+        "text": "Una xarxa dedicada per donar accés a emmagatzematge a nivell de blocs als servidors",
+        "isCorrect": true,
+        "rationale": "Una SAN és una xarxa dedicada que presenta emmagatzematge a nivell de blocs als servidors."
+      },
+      {
+        "text": "Una infraestructura pensada sobretot per fer còpies de seguretat i restauracions centralitzades",
+        "isCorrect": false,
+        "rationale": "Backups poden usar SAN, però no la defineixen."
+      },
+      {
+        "text": "Emmagatzematge connectat directament a cada servidor, sense xarxa d’emmagatzematge separada",
+        "isCorrect": false,
+        "rationale": "Això descriu DAS, emmagatzematge connectat directament al servidor."
+      }
+    ]
+  },
+  {
+    "guid": "429d812f-ed2e-4de9-89ce-00829dbcfb66",
+    "subjectId": "T55",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "5. Quina diferència descriu millor SAN respecte a NAS?",
+    "answerOptions": [
+      {
+        "text": "SAN exposa comparticions de fitxer; NAS presenta volums perquè el host els formati",
+        "isCorrect": false,
+        "rationale": "Està invertit: SAN és blocs i NAS és fitxers."
+      },
+      {
+        "text": "SAN s’accedeix principalment per SMB i NFS; NAS per Fibre Channel o iSCSI",
+        "isCorrect": false,
+        "rationale": "Protocols estan invertits: SAN usa FC o iSCSI; NAS usa SMB o NFS."
+      },
+      {
+        "text": "SAN és sobretot per a arxiu i còpies; NAS per a càrregues transaccionals",
+        "isCorrect": false,
+        "rationale": "No és una distinció correcta; SAN i NAS poden servir diferents càrregues segons disseny."
+      },
+      {
+        "text": "SAN exposa volums a nivell de blocs; NAS exposa recursos a nivell de fitxer",
+        "isCorrect": true,
+        "rationale": "SAN presenta volums a nivell de blocs; NAS exposa recursos a nivell de fitxer."
+      }
+    ]
+  },
+  {
+    "guid": "0760f3ee-4f86-46da-9618-aebaa47f3d46",
+    "subjectId": "T55",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "6. En entorns SAN, què és una LUN?",
+    "answerOptions": [
+      {
+        "text": "Un volum lògic presentat a un host perquè el vegi com un disc",
+        "isCorrect": true,
+        "rationale": "Una LUN és un volum lògic presentat a un host perquè el vegi com un disc."
+      },
+      {
+        "text": "Una tècnica per segmentar la xarxa d’emmagatzematge per VLAN",
+        "isCorrect": false,
+        "rationale": "La segmentació per VLAN és pròpia de xarxa IP, no de presentació de volums."
+      },
+      {
+        "text": "Un servei per sincronitzar metadades d’actualitzacions d’emmagatzematge",
+        "isCorrect": false,
+        "rationale": "Un catàleg o metadades no és una LUN."
+      },
+      {
+        "text": "Un procés de replicació síncrona entre cabines",
+        "isCorrect": false,
+        "rationale": "Replicació és una funció de cabina, no el concepte de LUN."
+      }
+    ]
+  },
+  {
+    "guid": "c1255f99-bcdd-4814-af94-efce8200bde3",
+    "subjectId": "T55",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "7. En Fibre Channel, què és el “zoning”?",
+    "answerOptions": [
+      {
+        "text": "Un mètode per comprimir dades entre cabina i servidor",
+        "isCorrect": false,
+        "rationale": "La compressió de dades és un altre mecanisme i no defineix zoning."
+      },
+      {
+        "text": "Una política per ajustar automàticament la velocitat del port",
+        "isCorrect": false,
+        "rationale": "Ajustar velocitat de port és auto-negociació, no zoning."
+      },
+      {
+        "text": "Un mecanisme per controlar quins iniciadors i quins targets poden comunicar-se dins el fabric",
+        "isCorrect": true,
+        "rationale": "El zoning controla quins iniciadors i targets poden comunicar-se dins el fabric FC."
+      },
+      {
+        "text": "Un tipus de paritat aplicada a nivell de cabina",
+        "isCorrect": false,
+        "rationale": "La paritat és de RAID, no de control d’accés al fabric."
+      }
+    ]
+  },
+  {
+    "guid": "36e513a1-39a3-4b63-8445-90bf265dac38",
+    "subjectId": "T55",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "8. Què descriu millor iSCSI?",
+    "answerOptions": [
+      {
+        "text": "Transporta comandes SCSI sobre TCP/IP per accés a blocs",
+        "isCorrect": true,
+        "rationale": "iSCSI transporta comandes SCSI sobre TCP/IP per oferir accés a blocs."
+      },
+      {
+        "text": "Un protocol per compartir fitxers entre servidors i estacions",
+        "isCorrect": false,
+        "rationale": "SMB o NFS són per compartir fitxers, no blocs SCSI."
+      },
+      {
+        "text": "Un format d’imatge de disc utilitzat en desplegaments d’SO",
+        "isCorrect": false,
+        "rationale": "Una imatge de disc és un fitxer, no un protocol de transport."
+      },
+      {
+        "text": "Un mecanisme de xifrat per a volums d’emmagatzematge",
+        "isCorrect": false,
+        "rationale": "El xifrat pot aplicar-se, però no defineix iSCSI."
+      }
+    ]
+  },
+  {
+    "guid": "516020cf-1339-4909-b08e-9a54d9380d90",
+    "subjectId": "T55",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "9. En un servidor connectat a una SAN, quin paper té una HBA?",
+    "answerOptions": [
+      {
+        "text": "Serveix per gestionar snapshots i clons a nivell de cabina",
+        "isCorrect": false,
+        "rationale": "Snapshots i clons són funcions de cabina, no de l’adaptador del host."
+      },
+      {
+        "text": "Decideix la política de paritat i l’algorisme de reconstrucció",
+        "isCorrect": false,
+        "rationale": "La paritat i la reconstrucció són de RAID, no de l’HBA."
+      },
+      {
+        "text": "Publica recursos de fitxer i controla permisos d’accés",
+        "isCorrect": false,
+        "rationale": "Compartir fitxers és rol de NAS o servidor de fitxers, no de l’HBA."
+      },
+      {
+        "text": "És l’adaptador que connecta el host a la xarxa SAN i gestiona la comunicació d’emmagatzematge",
+        "isCorrect": true,
+        "rationale": "Una HBA és l’adaptador del host per connectar-se a la SAN i parlar protocols d’emmagatzematge."
+      }
+    ]
+  },
+  {
+    "guid": "5358ce52-d4ec-4e25-9948-be4210b1f024",
+    "subjectId": "T55",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "10. Què descriu millor el multipathing en entorns SAN?",
+    "answerOptions": [
+      {
+        "text": "Un sistema de còpies de seguretat a dues ubicacions",
+        "isCorrect": false,
+        "rationale": "Backups a dues ubicacions és estratègia de còpia, no multipath."
+      },
+      {
+        "text": "Un mecanisme de deduplicació en línia per reduir capacitat",
+        "isCorrect": false,
+        "rationale": "Deduplicació redueix dades repetides, no crea camins alternatius."
+      },
+      {
+        "text": "L’ús de múltiples camins entre host i cabina per redundància i, sovint, balanç de càrrega",
+        "isCorrect": true,
+        "rationale": "Multipathing fa servir diversos camins host-cabina per redundància i sovint balanç de càrrega."
+      },
+      {
+        "text": "Un mètode per agrupar diversos volums en un sol espai de noms",
+        "isCorrect": false,
+        "rationale": "Un namespace únic és un concepte de fitxers o objectes, no multipath."
+      }
+    ]
+  },
+  {
+    "guid": "490791bf-4f09-4bde-b4a0-8c18d1fd0a57",
+    "subjectId": "T55",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "11. Quin enunciat descriu millor RAID 0?",
+    "answerOptions": [
+      {
+        "text": "Mirroring amb tolerància a la fallada d’un disc",
+        "isCorrect": false,
+        "rationale": "Això és RAID 1, mirroring."
+      },
+      {
+        "text": "Striping per millorar rendiment, però no ofereix tolerància a fallades",
+        "isCorrect": true,
+        "rationale": "RAID 0 és striping pur: millora rendiment però no tolera fallades."
+      },
+      {
+        "text": "Paritat distribuïda amb tolerància a la fallada d’un disc",
+        "isCorrect": false,
+        "rationale": "Això és RAID 5, paritat distribuïda."
+      },
+      {
+        "text": "Doble paritat amb tolerància a dues fallades",
+        "isCorrect": false,
+        "rationale": "Això és RAID 6, doble paritat."
+      }
+    ]
+  },
+  {
+    "guid": "fc528d9b-e60b-4ebb-80cf-415d4af47706",
+    "subjectId": "T55",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "12. Quin enunciat descriu millor RAID 1?",
+    "answerOptions": [
+      {
+        "text": "Striping amb paritat distribuïda",
+        "isCorrect": false,
+        "rationale": "Striping amb paritat distribuïda és RAID 5, no RAID 1."
+      },
+      {
+        "text": "Doble paritat distribuïda entre tots els discs",
+        "isCorrect": false,
+        "rationale": "Doble paritat distribuïda és RAID 6."
+      },
+      {
+        "text": "Agregació de discs per sumar capacitat i rendiment",
+        "isCorrect": false,
+        "rationale": "Això descriu agregació o striping, no duplicació."
+      },
+      {
+        "text": "Mirroring: les dades es mantenen duplicades en dos discos",
+        "isCorrect": true,
+        "rationale": "RAID 1 és mirroring: dades duplicades en dos discos."
+      }
+    ]
+  },
+  {
+    "guid": "e7a31cd5-1bff-49c3-9c79-95e6b3087c54",
+    "subjectId": "T55",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "13. Quin enunciat descriu millor RAID 5?",
+    "answerOptions": [
+      {
+        "text": "Striping amb paritat distribuïda, tolerant la fallada d’un disc",
+        "isCorrect": true,
+        "rationale": "RAID 5 combina striping i paritat distribuïda i tolera la fallada d’un disc."
+      },
+      {
+        "text": "Mirroring amb un tercer disc dedicat a paritat",
+        "isCorrect": false,
+        "rationale": "No existeix com a definició típica; el mirroring no usa un disc dedicat a paritat."
+      },
+      {
+        "text": "Doble mirroring amb rotació de blocs",
+        "isCorrect": false,
+        "rationale": "No descriu un nivell RAID estàndard."
+      },
+      {
+        "text": "Un esquema orientat a maximitzar capacitat amb replicació remota",
+        "isCorrect": false,
+        "rationale": "La replicació remota no és un nivell RAID."
+      }
+    ]
+  },
+  {
+    "guid": "5e025668-94f5-4d68-b9a5-6cc28fc64316",
+    "subjectId": "T55",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "14. Quin enunciat descriu millor RAID 6?",
+    "answerOptions": [
+      {
+        "text": "Mirroring amb tolerància a dues fallades",
+        "isCorrect": false,
+        "rationale": "El mirroring no és el mecanisme típic per tolerar dues fallades en un mateix conjunt."
+      },
+      {
+        "text": "Paritat simple i un disc dedicat a metadades",
+        "isCorrect": false,
+        "rationale": "No és un model de RAID habitual; RAID 6 fa doble paritat distribuïda."
+      },
+      {
+        "text": "Striping amb doble paritat, tolerant la fallada de dos discs",
+        "isCorrect": true,
+        "rationale": "RAID 6 fa striping amb doble paritat i tolera la fallada de dos discs."
+      },
+      {
+        "text": "Replicació síncrona entre dos conjunts de discs",
+        "isCorrect": false,
+        "rationale": "Replicació síncrona és entre sistemes, no un nivell RAID."
+      }
+    ]
+  },
+  {
+    "guid": "88521a4c-3040-4b88-993d-26dd7f082b66",
+    "subjectId": "T55",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "15. Quin enunciat descriu millor RAID 10?",
+    "answerOptions": [
+      {
+        "text": "Paritat distribuïda amb mirroring per blocs petits",
+        "isCorrect": false,
+        "rationale": "No és la definició de RAID 10; RAID 10 no es basa en paritat."
+      },
+      {
+        "text": "Stripe sobre parelles en mirroring, amb bon rendiment i tolerància a fallades",
+        "isCorrect": true,
+        "rationale": "RAID 10 és stripe sobre parelles en mirroring: bon rendiment i tolerància a fallades."
+      },
+      {
+        "text": "Doble paritat amb disc dedicat de reserva",
+        "isCorrect": false,
+        "rationale": "Un disc de reserva pot existir, però no defineix RAID 10."
+      },
+      {
+        "text": "Un mode d’emmagatzematge basat en codificació d’esborrat a nivell de fitxer",
+        "isCorrect": false,
+        "rationale": "Codificació d’esborrat a nivell de fitxer és un altre esquema, no RAID 10."
+      }
+    ]
+  },
+  {
+    "guid": "e42cdb3b-9d9a-40c3-af36-e17b3d6abbe2",
+    "subjectId": "T55",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "16. Quin nivell de RAID acostuma a tenir més penalització d’escriptura en operacions petites per la gestió de paritat?",
+    "answerOptions": [
+      {
+        "text": "RAID 6",
+        "isCorrect": true,
+        "rationale": "RAID 6 té més penalització en escriptures petites perquè actualitza dues paritats."
+      },
+      {
+        "text": "RAID 5",
+        "isCorrect": false,
+        "rationale": "RAID 5 també penalitza per paritat, però menys que RAID 6."
+      },
+      {
+        "text": "RAID 10",
+        "isCorrect": false,
+        "rationale": "RAID 10 no té paritat; el cost d’escriptura és el de duplicar al mirall."
+      },
+      {
+        "text": "RAID 1",
+        "isCorrect": false,
+        "rationale": "RAID 1 duplica escriptures, però no té càlcul de paritat."
+      }
+    ]
+  },
+  {
+    "guid": "a25f7c2c-a6a0-4091-9c27-f9e8a92a34cb",
+    "subjectId": "T55",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "17. Què és un hot spare en un array de discs?",
+    "answerOptions": [
+      {
+        "text": "Un disc amb més velocitat que s’assigna als volums crítics",
+        "isCorrect": false,
+        "rationale": "Un disc més ràpid no és el concepte de hot spare."
+      },
+      {
+        "text": "Un disc que guarda còpies de seguretat incrementals",
+        "isCorrect": false,
+        "rationale": "Backups incrementals són un altre procés, no un disc de reserva."
+      },
+      {
+        "text": "Un disc que actua com a memòria cau per accelerar lectures",
+        "isCorrect": false,
+        "rationale": "La memòria cau no és un disc de reserva."
+      },
+      {
+        "text": "Un disc reservat que entra en servei automàticament si falla un dels discs actius",
+        "isCorrect": true,
+        "rationale": "Un hot spare és un disc reservat que entra en servei automàticament quan falla un disc actiu."
+      }
+    ]
+  },
+  {
+    "guid": "e76a1fc8-86d4-41a3-8f17-6bdbdc163a0b",
+    "subjectId": "T55",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "18. En un array RAID, què significa “rebuild”?",
+    "answerOptions": [
+      {
+        "text": "Reordenar els blocs per reduir fragmentació",
+        "isCorrect": false,
+        "rationale": "Fragmentació i reordenació és de fitxers, no de RAID."
+      },
+      {
+        "text": "Reconstruir dades i paritat després d’una fallada o substitució d’un disc",
+        "isCorrect": true,
+        "rationale": "Rebuild és reconstruir dades i paritat després d’una fallada o substitució d’un disc."
+      },
+      {
+        "text": "Migrar un volum a un altre site d’emmagatzematge",
+        "isCorrect": false,
+        "rationale": "Migrar a un altre site és replicació o DR, no rebuild."
+      },
+      {
+        "text": "Convertir un volum de blocs a un recurs de fitxers",
+        "isCorrect": false,
+        "rationale": "Convertir a fitxers és un canvi de servei, no reconstrucció de RAID."
+      }
+    ]
+  },
+  {
+    "guid": "99cd018a-b5c2-46c0-b8bf-94cbb5b6318d",
+    "subjectId": "T55",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "19. Què descriu millor el thin provisioning?",
+    "answerOptions": [
+      {
+        "text": "Assignar espai físic complet a cada volum en el moment de crear-lo",
+        "isCorrect": false,
+        "rationale": "Això és thick provisioning: assignar físic complet al crear el volum."
+      },
+      {
+        "text": "Reservar la capacitat total a nivell de host abans de presentar el volum",
+        "isCorrect": false,
+        "rationale": "Reservar al host no és la definició; el thin evita reservar físic d’entrada."
+      },
+      {
+        "text": "Assignar capacitat lògica i consumir capacitat física a mesura que s’escriuen dades",
+        "isCorrect": true,
+        "rationale": "Thin provisioning assigna capacitat lògica i consumeix capacitat física a mesura que s’escriu."
+      },
+      {
+        "text": "Reduir la mida de bloc per augmentar el nombre de fitxers suportats",
+        "isCorrect": false,
+        "rationale": "La mida de bloc no defineix thin provisioning."
+      }
+    ]
+  },
+  {
+    "guid": "7010058b-2b6d-4aff-a5f2-08b491d4079b",
+    "subjectId": "T55",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "20. Què descriu millor un snapshot d’un volum?",
+    "answerOptions": [
+      {
+        "text": "Una còpia completa de totes les dades del volum a un altre disc",
+        "isCorrect": false,
+        "rationale": "Això seria un clone o còpia completa, no un snapshot típic."
+      },
+      {
+        "text": "Una sincronització contínua de dades entre dos datacenters",
+        "isCorrect": false,
+        "rationale": "Replicació contínua és un altre mecanisme de DR."
+      },
+      {
+        "text": "Un canvi de nivell RAID aplicat a un volum en calent",
+        "isCorrect": false,
+        "rationale": "Canviar el nivell RAID no és un snapshot."
+      },
+      {
+        "text": "Una captura puntual d’estat del volum basada en metadades per recuperar versions",
+        "isCorrect": true,
+        "rationale": "Un snapshot és una captura puntual basada en metadades per poder recuperar versions."
+      }
+    ]
+  },
+  {
+    "guid": "449396f7-6d0f-440f-899b-e6bdd67bff1b",
+    "subjectId": "T55",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "21. En una cabina, què descriu millor una write-back cache?",
+    "answerOptions": [
+      {
+        "text": "Confirma l’escriptura quan ja és persistent al disc",
+        "isCorrect": false,
+        "rationale": "Això descriu write-through: confirma quan ja és al disc."
+      },
+      {
+        "text": "Confirma l’escriptura quan és a la memòria cau i després la bolca al disc",
+        "isCorrect": true,
+        "rationale": "Write-back confirma quan és a la cache i després s’escriu al disc."
+      },
+      {
+        "text": "Confirma l’escriptura quan hi ha una còpia remota replicada",
+        "isCorrect": false,
+        "rationale": "La replicació remota no és el criteri de confirmació de cache."
+      },
+      {
+        "text": "Confirma l’escriptura quan el host ha verificat la lectura posterior",
+        "isCorrect": false,
+        "rationale": "La verificació per lectura no defineix la política de cache."
+      }
+    ]
+  },
+  {
+    "guid": "2e0b31b5-16a7-401b-904b-eaefa0d6f6e2",
+    "subjectId": "T55",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "22. Si vols accés a blocs sobre xarxa IP de forma clàssica, quin protocol és el més habitual?",
+    "answerOptions": [
+      {
+        "text": "SMB",
+        "isCorrect": false,
+        "rationale": "SMB és per comparticions de fitxers, no blocs."
+      },
+      {
+        "text": "NFS",
+        "isCorrect": false,
+        "rationale": "NFS és per fitxers, no blocs."
+      },
+      {
+        "text": "iSCSI",
+        "isCorrect": true,
+        "rationale": "iSCSI és el protocol habitual per accés a blocs sobre xarxa IP."
+      },
+      {
+        "text": "FTP",
+        "isCorrect": false,
+        "rationale": "FTP és transferència de fitxers, no emmagatzematge a blocs."
+      }
+    ]
+  },
+  {
+    "guid": "f0338092-8a7f-4e0b-bd78-62991327c4fd",
+    "subjectId": "T55",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "23. Quin enunciat descriu millor la relació entre RAID i còpies de seguretat?",
+    "answerOptions": [
+      {
+        "text": "RAID millora disponibilitat davant fallades de disc, però no substitueix una estratègia de backup",
+        "isCorrect": true,
+        "rationale": "RAID dona disponibilitat davant fallada de disc, però no substitueix backups contra errors lògics o ransomware."
+      },
+      {
+        "text": "RAID evita qualsevol pèrdua de dades, fins i tot per errors humans i ransomware",
+        "isCorrect": false,
+        "rationale": "RAID no protegeix contra esborrats, corrupció o atac; només contra fallada de disc."
+      },
+      {
+        "text": "RAID és equivalent a tenir una còpia completa de totes les dades en un altre sistema",
+        "isCorrect": false,
+        "rationale": "No és equivalent a una còpia en un altre sistema; és redundància dins del mateix subsistema."
+      },
+      {
+        "text": "RAID garanteix recuperació a un punt en el temps i retenció històrica",
+        "isCorrect": false,
+        "rationale": "La recuperació a un punt en el temps és pròpia de backups o snapshots amb retenció."
+      }
+    ]
+  },
+  {
+    "guid": "7925a98b-9f22-4aec-9857-d6a242df5726",
+    "subjectId": "T55",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "24. Què és RAID 50 (o RAID 5+0)?",
+    "answerOptions": [
+      {
+        "text": "Un sistema de paritat de alta velocitat.",
+        "isCorrect": true,
+        "rationale": "RAID 50 fa striping sobre conjunts RAID 5, combinant paritat i més rendiment."
+      },
+      {
+        "text": "Un sistema que no permet una bona redundància.",
+        "isCorrect": false,
+        "rationale": "Té redundància (paritat) dins cada conjunt RAID 5; no és el seu punt feble principal."
+      },
+      {
+        "text": "Un sistema que requereix com a mínim tres unitats d'emmagatzematge.",
+        "isCorrect": false,
+        "rationale": "Això correspon a RAID 5, no a RAID 50."
+      },
+      {
+        "text": "Un sistema que no permet grans velocitats de transferència.",
+        "isCorrect": false,
+        "rationale": "RAID 50 acostuma a millorar rendiment respecte RAID 5, no a limitar-lo."
+      }
+    ]
+  },
+  {
+    "guid": "75104694-4ad6-4705-8386-ceea033b621a",
+    "subjectId": "T55",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "25. Quina és la principal desavantatge de RAID 50?",
+    "answerOptions": [
+      {
+        "text": "No permet la fallida d'una unitat d'emmagatzematge.",
+        "isCorrect": false,
+        "rationale": "Pot tolerar fallades segons com estiguin repartides; no és la desavantatge principal."
+      },
+      {
+        "text": "El cost, ja que requereix com a mínim sis unitats d'emmagatzematge.",
+        "isCorrect": true,
+        "rationale": "Requereix diversos discos i surt car: habitualment mínim sis per tenir dos conjunts RAID 5 en stripe."
+      },
+      {
+        "text": "No permet grans velocitats de transferència.",
+        "isCorrect": false,
+        "rationale": "Normalment ofereix bon rendiment; la limitació no és la velocitat."
+      },
+      {
+        "text": "No presenta cap problema important.",
+        "isCorrect": false,
+        "rationale": "Té inconvenients clars com cost i complexitat; no és neutre."
+      }
+    ]
+  },
+  {
+    "guid": "3334ab3f-4a8f-4fd7-b582-6e10c177abdf",
+    "subjectId": "T55",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "26. Quina és la principal funció d'un sistema SAN?",
+    "answerOptions": [
+      {
+        "text": "Proporcionar un accés ràpid i eficient a les dades emmagatzemades.",
+        "isCorrect": true,
+        "rationale": "Una SAN dona accés eficient i ràpid a dades a nivell de blocs per a hosts."
+      },
+      {
+        "text": "Proporcionar un accés lent a les dades emmagatzemades.",
+        "isCorrect": false,
+        "rationale": "No és un objectiu; una SAN es dissenya per rendiment i fiabilitat."
+      },
+      {
+        "text": "Proporcionar un accés ràpid i eficient a les dades no emmagatzemades.",
+        "isCorrect": false,
+        "rationale": "No té sentit: una SAN dona accés a dades que estan emmagatzemades."
+      },
+      {
+        "text": "Proporcionar un accés lent a les dades no emmagatzemades.",
+        "isCorrect": false,
+        "rationale": "Tampoc és l’objectiu; no es dissenya per ser lenta."
+      }
+    ]
+  },
+  {
+    "guid": "ee78e37c-5717-41df-9e94-1196befbacfb",
+    "subjectId": "T55",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "27. Quina és la principal diferència entre un disc dur i un disc d'estat sòlid?",
+    "answerOptions": [
+      {
+        "text": "El disc dur utilitza el magnetisme per enregistrar les dades, mentre que el disc d'estat sòlid emmagatzema la informació en xips amb memòries flash interconnectades.",
+        "isCorrect": true,
+        "rationale": "HDD usa magnetisme i parts mecàniques; SSD guarda en memòria flash, amb accés més ràpid."
+      },
+      {
+        "text": "El disc dur emmagatzema la informació en xips amb memòries flash interconnectades, mentre que el disc d'estat sòlid utilitza el magnetisme per enregistrar les dades.",
+        "isCorrect": false,
+        "rationale": "Està invertit: l’HDD no és flash, i l’SSD no és magnètic."
+      },
+      {
+        "text": "El disc dur i el disc d'estat sòlid utilitzen el magnetisme per enregistrar les dades.",
+        "isCorrect": false,
+        "rationale": "L’SSD no és magnètic; no té plats ni capçal."
+      },
+      {
+        "text": "El disc dur i el disc d'estat sòlid emmagatzemen la informació en xips amb memòries flash interconnectades.",
+        "isCorrect": false,
+        "rationale": "L’HDD no és flash; té components mecànics."
+      }
+    ]
+  },
+  {
+    "guid": "6615c743-cbb2-4718-b4c8-f17bfa1308d4",
+    "subjectId": "T55",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "28. Quina és la principal característica de la configuració RAID 1?",
+    "answerOptions": [
+      {
+        "text": "Utilitza la tècnica de mirroring, consisteix a utilitzar discs addicionals sobre els quals realitza una còpia exacta de les dades.",
+        "isCorrect": true,
+        "rationale": "RAID 1 es basa en mirroring: còpia exacta de les dades en un altre disc."
+      },
+      {
+        "text": "No utilitza la tècnica de mirroring, consisteix a utilitzar discs addicionals sobre els quals no realitza una còpia exacta de les dades.",
+        "isCorrect": false,
+        "rationale": "Negar el mirroring contradiu el principi de RAID 1."
+      },
+      {
+        "text": "Utilitza la tècnica de mirroring, consisteix a utilitzar discs addicionals sobre els quals realitza una còpia inexacta de les dades.",
+        "isCorrect": false,
+        "rationale": "El mirroring és una còpia exacta; si no fos exacta no garantiria consistència."
+      },
+      {
+        "text": "No utilitza la tècnica de mirroring, consisteix a utilitzar discs addicionals sobre els quals realitza una còpia inexacta de les dades.",
+        "isCorrect": false,
+        "rationale": "Negar el mirroring i dir còpia inexacta és incompatible amb RAID 1."
+      }
+    ]
+  },
+  {
+    "guid": "f7db8722-61c4-449b-a2eb-fa256d7afd0e",
+    "subjectId": "T55",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "29. Quina és la principal característica de la configuració RAID 2?",
+    "answerOptions": [
+      {
+        "text": "Distribueix les dades entrellaçades a nivell de bit.",
+        "isCorrect": true,
+        "rationale": "RAID 2 fa striping a nivell de bit i usa codis de correcció tipus Hamming."
+      },
+      {
+        "text": "No distribueix les dades entrellaçades a nivell de bit.",
+        "isCorrect": false,
+        "rationale": "Negar el bit-level striping contradiu la definició de RAID 2."
+      },
+      {
+        "text": "Distribueix les dades entrellaçades a nivell de byte.",
+        "isCorrect": false,
+        "rationale": "El striping a nivell de byte s’associa a altres nivells, no RAID 2."
+      },
+      {
+        "text": "No distribueix les dades entrellaçades a nivell de byte.",
+        "isCorrect": false,
+        "rationale": "RAID 2 no es defineix per evitar byte-level striping."
+      }
+    ]
+  },
+  {
+    "guid": "f5131c58-b88c-422a-b325-bc1eaf4a01a0",
+    "subjectId": "T55",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "30. Quins protocols són propis d’una SAN moderna?",
+    "answerOptions": [
+      {
+        "text": "SMB i NFS",
+        "isCorrect": false,
+        "rationale": "SMB i NFS són protocols de fitxer típics de NAS."
+      },
+      {
+        "text": "SFTP i FTPS",
+        "isCorrect": false,
+        "rationale": "SFTP i FTPS són protocols de transferència de fitxers, no SAN."
+      },
+      {
+        "text": "Fibre Channel, iSCSI, NVMe over Fabrics",
+        "isCorrect": true,
+        "rationale": "Fibre Channel, iSCSI i NVMe-oF són protocols habituals de SAN per accés a blocs."
+      },
+      {
+        "text": "HTTP i WebDAV",
+        "isCorrect": false,
+        "rationale": "HTTP i WebDAV són protocols d’aplicació/fitxer, no SAN a blocs."
+      }
+    ]
+  },
+  {
+    "guid": "a69ef577-3ea3-4d04-a3a6-7de942d4e828",
+    "subjectId": "T55",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "31. Quin és l’objectiu del MPIO?",
+    "answerOptions": [
+      {
+        "text": "Augmentar capacitat de la LUN",
+        "isCorrect": false,
+        "rationale": "MPIO no augmenta capacitat de la LUN; afecta camins d’accés."
+      },
+      {
+        "text": "Proporcionar camins redundants i repartir càrrega entre host i cabina",
+        "isCorrect": true,
+        "rationale": "MPIO aporta camins redundants i pot balancejar càrrega entre host i cabina."
+      },
+      {
+        "text": "Xifrar el trànsit iSCSI",
+        "isCorrect": false,
+        "rationale": "El xifrat iSCSI és un altre control; MPIO és de multipath."
+      },
+      {
+        "text": "Traduir FC a iSCSI",
+        "isCorrect": false,
+        "rationale": "Traduir protocols és funció de gateways, no d’MPIO."
+      }
+    ]
+  }
+]
