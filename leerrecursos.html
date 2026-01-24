@@ -290,6 +290,7 @@
     let apuntsManifest = {};
     let testsManifest = {};
     let todosLosDatos = [];
+    let root = "";
 
     // Verificar autenticación
     document.addEventListener('DOMContentLoaded', function() {
@@ -340,6 +341,11 @@
           tests: []
         };
 
+        const isLocal = location.hostname === 'localhost' || location.hostname === '127.0.0.1';
+        root =  apuntsManifest.base;
+        if (!isLocal) {
+          root = 'opos/' + root;
+        }
         // Buscar en apunts_new/manifest.json
         if (apuntsManifest.temes && apuntsManifest.temes[temaId]) {
           const temaData = apuntsManifest.temes[temaId];
@@ -501,7 +507,7 @@
               ${tema.recursos.infografies.map((info, idx) => `
                 <div class="recurso-item">
                   <div class="recurso-name">${info.name}</div>
-                  <button class="recurso-btn btn-info" onclick="abrirInfo('${tema.tema}', '${info.file}')">
+                  <button class="recurso-btn btn-info" onclick="abrirInfografia('${tema.tema}', '${info.file}')">
                     👁️ Veure
                   </button>
                 </div>
@@ -520,7 +526,7 @@
               ${tema.recursos.apunts.map((apunt, idx) => `
                 <div class="recurso-item">
                   <div class="recurso-name">${apunt.name}</div>
-                  <button class="recurso-btn btn-apunts" onclick="abrirApunts('${tema.tema}')">
+                  <button class="recurso-btn btn-apunts" onclick="abrirApunts('${tema.tema}', '${apunt.file}')">
                     📖 Llegir
                   </button>
                 </div>
@@ -560,19 +566,20 @@
     window.abrirSlides = function(temaId, dir, imgs) {
       // Abrir página de slides con lista de imágenes
       const imgsParam = imgs.join(',');
-      window.open(`leerSlides.html?root=apunts_new&dir=${encodeURIComponent(dir)}&tema=${encodeURIComponent(temaId)}&imgs=${imgsParam}`, '_blank');
+      window.open(`leerslides.html?root=${encodeURIComponent(root)}&dir=${encodeURIComponent(dir)}&tema=${encodeURIComponent(temaId)}&imgs=${imgsParam}`, '_blank');
     };
 
-    window.abrirInfo = function(temaId, fileName) {
+    window.abrirInfografia = function(temaId, fileName) {
       // Abrir infografía en nueva pestaña
       const isLocal = location.hostname === 'localhost' || location.hostname === '127.0.0.1';
       const basePath = isLocal ? '' : 'opos/';
-      window.open(`${basePath}apunts_new/${temaId}/${fileName}`, '_blank');
+      //window.open(`${basePath}apunts_new/${temaId}/${fileName}`, '_blank');
+      window.open(`leerinfo.html?root=${encodeURIComponent(root)}&tema=${encodeURIComponent(temaId)}&fitxer=${encodeURIComponent(fileName)}`, '_blank');
     };
 
-    window.abrirApunts = function(temaId) {
+    window.abrirApunts = function(temaId, md) {
       // Abrir página de apunts
-      window.open(`veuremd.html?tema=${encodeURIComponent(temaId)}`, '_blank');
+      window.open(`leermd.html?root=${encodeURIComponent(root)}&tema=${encodeURIComponent(temaId)}&fitxer=${encodeURIComponent(md)}`, '_blank');
     };
 
     window.abrirTest = function(testFile) {

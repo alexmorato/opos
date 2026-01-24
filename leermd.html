@@ -511,18 +511,21 @@
 
     // Cargar y renderizar Markdown
     async function loadMarkdown() {
+      const root = getUrlParameter('root') || 'apunts';
+      const fitxer = getUrlParameter('fitxer');
       const tema = getUrlParameter('tema');
       
-      if (!tema) {
-        showError('No s\'ha especificat cap tema. Utilitza ?tema=T29 a la URL.');
+      if (!fitxer) {
+        showError('No s\'ha especificat cap fitxer. Utilitza ?root=apunts_new&fitxer=T68.md&tema=T68 a la URL.');
         return;
       }
 
-      let markdownUrl = `/apunts/${tema}.md`;
+      // Construir ruta: root/tema/fitxer
+      let markdownUrl = tema ? `/${root}/${tema}/${fitxer}` : `/${root}/${fitxer}`;
       if (!location.hostname.includes('localhost') && !location.hostname.startsWith('127.')) {
         markdownUrl = `/opos${markdownUrl}`;
       }
-      pageTitle.textContent = `📄 ${tema}`;
+      pageTitle.textContent = `📄 ${tema || fitxer}`;
 
       try {
         const response = await fetch(markdownUrl);
