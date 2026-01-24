@@ -250,8 +250,14 @@
         return;
       }
 
+      // Ajustar root si ya estamos en /opos/ y el root contiene "opos/"
+      let adjustedRoot = root;
+      if (location.pathname.includes('/opos/') && root.startsWith('opos/')) {
+        adjustedRoot = root.substring(5); // Quitar "opos/" del inicio
+      }
+
       // Construir ruta de la imagen
-      const imagePath = tema ? `${root}/${tema}/${fitxer}` : `${root}/${fitxer}`;
+      const imagePath = tema ? `${adjustedRoot}/${tema}/${fitxer}` : `${adjustedRoot}/${fitxer}`;
 
       const img = document.createElement('img');
       img.alt = 'Infografia';
