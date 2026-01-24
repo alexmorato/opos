@@ -31,7 +31,8 @@ def pdf_to_jpg_in_folder(pdf_path, dpi=150):
         page = pdf_document[page_num]
         pix = page.get_pixmap(matrix=mat)
         
-        output_path = os.path.join(output_folder, f"img_{page_num + 1}.jpg")
+        page_str = f"{page_num + 1:02d}"
+        output_path = os.path.join(output_folder, f"img_{page_str}.jpg")
         pix.save(output_path, "jpeg", jpg_quality=75)
     
     pdf_document.close()

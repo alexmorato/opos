@@ -75,3 +75,13 @@ Ahora vamos a trabajar el tema 68. Certificats digitals i autentificació electr
 En castellano.
 Primero un resumen ejecutivo de lo imprescidindible que hay que saber que quepa en una hoja.
 Ultimo apartado de trampas y confusiones tipicas.
+
+Estoy estudiando para Oposiciones tecnico superior TIC para el ayuntamiento de barcelona.
+Estoy preparando estos temas.
+29. Gestió d'Incidents de Ciberseguretat
+67. Hacking Ètic
+68. Certificats digitals i autentificació electrònica
+69. Signatura electrònica
+70. Protecció de l'accés remot
+71. La ciberseguretat aplicada al Cloud
+Preparo el FAQ del T67 en el formato que ya usamos: chuleta de 10 puntos clave, directa a examen, sin rellen
