@@ -194,6 +194,9 @@
     <button class="btn-tornar" id="tornarBtn">
       ⬅️ Tornar
     </button>
+    <button class="btn-tornar" id="menuIndexBtn">
+      👨‍💻 Menu
+    </button>
   </div>
 
   <div id="slidesContainer"></div>
@@ -236,6 +239,7 @@
     const menuCloseBtn = document.getElementById('menuCloseBtn');
     const fullscreenBtn = document.getElementById('fullscreenBtn');
     const tornarBtn = document.getElementById('tornarBtn');
+    const menuIndexBtn = document.getElementById('menuIndexBtn');
 
     // Toggle menú
     menuBtn.addEventListener('click', () => {
@@ -280,12 +284,18 @@
 
     // Botón tornar
     tornarBtn.addEventListener('click', () => {
-      if (window.history.length > 2) {
+      if (window.history.length > 1) {
         window.history.back();
       } else {
         window.location.href = 'index.html';
       }
     });
+
+    // Botón menu principal
+    menuIndexBtn.addEventListener('click', () => {
+      window.location.href = 'index.html';
+    });
+
   </script>
 
 </body>
