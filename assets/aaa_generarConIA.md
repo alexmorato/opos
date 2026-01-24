@@ -66,6 +66,7 @@ Estoy preparando estos temas.
 69. Signatura electrònica
 70. Protecció de l'accés remot
 71. La ciberseguretat aplicada al Cloud
-Ahora vamos a trabajar el tema 67. Hacking Ètic
+Ahora vamos a trabajar el tema 68. Certificats digitals i autentificació electrònica
 En castellano.
 Primero un resumen ejecutivo de lo imprescidindible que hay que saber que quepa en una hoja.
+Ultimo apartado de trampas y confusiones tipicas.

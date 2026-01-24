@@ -24,38 +24,54 @@
 </head>
 <body>
 
-  <div class="slide">
-    <img src="apunts/T71/T71.pdf/T71-01.jpg" alt="Diapositiva 1" loading="lazy">
-  </div>
+  <div id="slidesContainer"></div>
 
-  <div class="slide">
-    <img src="apunts/T71/T71.pdf/T71-02.jpg" alt="Diapositiva 2" loading="lazy">
-  </div>
+  <script>
+    // Leer parámetros de la URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const root = urlParams.get('root') || 'apunts_new';
+    const dir = urlParams.get('dir') || 'slides';
+    const tema = urlParams.get('tema') || '';
+    const imgsParam = urlParams.get('imgs') || '';
 
-  <div class="slide">
-    <img src="apunts/T71/T71.pdf/T71-03.jpg" alt="Diapositiva 3" loading="lazy">
-  </div>
+    // Parsear lista de imágenes
+    const imgs = imgsParam.split(',').filter(img => img.trim() !== '');
 
-  <div class="slide">
-    <img src="apunts/T71/T71.pdf/T71-04.jpg" alt="Diapositiva 3" loading="lazy">
-  </div>
+    // Generar dinámicamente los slides
+    const container = document.getElementById('slidesContainer');
+    
+    if (imgs.length === 0) {
+      container.innerHTML = '<div style="text-align:center;padding:40px;color:#666;">No hi ha imatges disponibles</div>';
+    } else {
+      imgs.forEach((img, index) => {
+        const slideDiv = document.createElement('div');
+        slideDiv.className = 'slide';
+        
+        const imgElement = document.createElement('img');
+        // Construir ruta: root/tema/dir/imagen
+        imgElement.src = `${root}/${tema}/${dir}/${img.trim()}`;
+        imgElement.alt = `Diapositiva ${index + 1}`;
+        imgElement.loading = 'lazy';
+        
+        slideDiv.appendChild(imgElement);
+        container.appendChild(slideDiv);
+      });
+    }
 
-    <div class="slide">
-    <img src="opos/apunts/T71/T71.pdf/T71-01.jpg" alt="Diapositiva 1" loading="lazy">
-  </div>
-
-  <div class="slide">
-    <img src="opos/apunts/T71/T71.pdf/T71-02.jpg" alt="Diapositiva 2" loading="lazy">
-  </div>
-
-  <div class="slide">
-    <img src="opos/apunts/T71/T71.pdf/T71-03.jpg" alt="Diapositiva 3" loading="lazy">
-  </div>
-
-  <div class="slide">
-    <img src="opos/apunts/T71/T71.pdf/T71-04.jpg" alt="Diapositiva 3" loading="lazy">
-  </div>
-
+    // Aplicar opos/ si no es localhost
+    document.addEventListener('DOMContentLoaded', function() {
+      const isLocal = location.hostname === 'localhost' || location.hostname === '127.0.0.1';
+      if (!isLocal) {
+        const allImages = document.querySelectorAll('#slidesContainer img');
+        allImages.forEach(img => {
+          const src = img.getAttribute('src');
+          if (!src.startsWith('opos/')) {
+            img.setAttribute('src', 'opos/' + src);
+          }
+        });
+      }
+    });
+  </script>
 
 </body>
 </html>
