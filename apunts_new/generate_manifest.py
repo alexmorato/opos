@@ -4,8 +4,8 @@ import json
 # =========================
 # CONFIGURACIÓN
 # =========================
-BASE_DIR = "."          # Carpeta base a escanear
-OUTPUT_FILE = "manifest.json"
+BASE_DIR = "apunts_new"          # Carpeta base a escanear
+OUTPUT_FILE = "apunts_new/manifest.json"
 
 MD_EXT = ".md"
 IMG_EXT = ".jpg"
