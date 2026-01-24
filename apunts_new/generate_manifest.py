@@ -26,8 +26,14 @@ def list_files_with_ext(folder, ext):
 # LÓGICA PRINCIPAL
 # =========================
 def generate_manifest(base_dir):
+    # 1. Ruta absoluta a partir de la relativa
+    abs_path = os.path.abspath(base_dir)
+
+    # 2. Última carpeta de la ruta
+    base_folder = os.path.basename(os.path.normpath(abs_path))
+
     manifest = {
-        "base": base_dir,
+        "base": base_folder,
         "temes": {}
     }
 
