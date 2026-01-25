@@ -48,6 +48,11 @@
         .toggle-btn:hover {
             text-decoration: underline;
         }
+
+        .tr-done {
+            background-color: #97f19f; /* verde claro */
+        }
+
     </style>
 </head>
 <body>
@@ -92,6 +97,10 @@
 
             tasks.forEach((task, index) => {
                 const row = document.createElement('tr');
+
+                if (task.status === 'DONE') {
+                    row.classList.add('tr-done');
+                }
 
                 const isLongDescription = task.description.length > DESCRIPTION_LIMIT;
                 const shortDescription = isLongDescription
