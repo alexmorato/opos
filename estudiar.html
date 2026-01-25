@@ -709,18 +709,25 @@
       }
     });
     updateCronometroDisplay();
+    // ============================================================
+    // VARIABLES GLOBALES
+    // ============================================================
     let preguntes = [];
     let currentQuestion = 0;
     let answers = [];
     let showingResults = false;
     let historialFallos = [];
+    let historialContestades = {}; // { guid: count } - Contador de veces que se ha contestado cada pregunta
     let isRepassingErrors = false;
     let canRemoveFromHistory = false;
     let inactivityTimeout = null;
-    const INACTIVITY_LIMIT_MS = 2 * 60 * 1000; // 2 minutes
+    const INACTIVITY_LIMIT_MS = 2 * 60 * 1000; // 2 minutos de inactividad
     let expandedOptions = {}; // Para trackear opciones expandidas { questionIndex: [optionIndex1, optionIndex2, ...] }
     let multiCorrectChecked = {}; // Para trackear qué preguntas multirespuesta han sido comprobadas { questionIndex: true/false }
 
+    // ============================================================
+    // GESTIÓN DE INACTIVIDAD
+    // ============================================================
     function resetInactivityTimer() {
       if (inactivityTimeout) clearTimeout(inactivityTimeout);
       inactivityTimeout = setTimeout(() => {
@@ -731,7 +738,69 @@
       }, INACTIVITY_LIMIT_MS);
     }
 
-    // Mostrar y ocultar hint
+    // ============================================================
+    // GESTIÓN DE HISTORIAL DE PREGUNTAS CONTESTADAS
+    // ============================================================
+    
+    /**
+     * Cargar historial de contestadas desde localStorage
+     */
+    function cargarHistorialContestades() {
+      try {
+        const data = localStorage.getItem(LS_KEYS.HISTORIAL_CONTESTADES);
+        if (data) {
+          historialContestades = JSON.parse(data);
+        } else {
+          historialContestades = {};
+        }
+      } catch (e) {
+        console.warn('Error cargando historial de contestadas:', e);
+        historialContestades = {};
+      }
+    }
+
+    /**
+     * Guardar historial de contestadas en localStorage
+     */
+    function guardarHistorialContestades() {
+      try {
+        localStorage.setItem(LS_KEYS.HISTORIAL_CONTESTADES, JSON.stringify(historialContestades));
+      } catch (e) {
+        console.error('Error guardando historial de contestadas:', e);
+      }
+    }
+
+    /**
+     * Incrementar contador de veces contestada una pregunta
+     * @param {string} guid - GUID de la pregunta
+     */
+    function incrementarContestada(guid) {
+      if (!guid) return;
+      
+      if (!historialContestades[guid]) {
+        historialContestades[guid] = 0;
+      }
+      historialContestades[guid]++;
+      guardarHistorialContestades();
+    }
+
+    /**
+     * Obtener número de veces que se ha contestado una pregunta
+     * @param {string} guid - GUID de la pregunta
+     * @returns {number} - Número de veces contestada
+     */
+    function getContestadaCount(guid) {
+      if (!guid) return 0;
+      return historialContestades[guid] || 0;
+    }
+
+    // ============================================================
+    // GESTIÓN DE PISTAS (HINTS)
+    // ============================================================
+    
+    /**
+     * Mostrar pista de la pregunta actual
+     */
     function mostrarHint() {
       const hintDiv = document.getElementById('hintArea');
       if (!hintDiv.classList.contains('mostrando')) {
@@ -753,25 +822,45 @@
       }
     }
 
+    /**
+     * Ocultar pista
+     */
     function ocultarHint() {
       const hintDiv = document.getElementById('hintArea');
       hintDiv.textContent = 'pista';
       hintDiv.classList.remove('mostrando');
     }
-    // --- Mapeo de dificultat ---
+
+    // ============================================================
+    // MAPEO DE DIFICULTAD
+    // ============================================================
     let difficultyMap = {};
+    
+    // Cargar mapeo de dificultades desde JSON
     fetch('assets/difficulty.json')
       .then(r => r.json())
       .then(arr => {
         arr.forEach(d => { difficultyMap[d.id] = d.text; });
       });
 
+    /**
+     * Obtener texto de dificultad
+     * @param {string} difficulty - ID de dificultad
+     * @returns {string} - Texto de dificultad
+     */
     function getDifficultyText(difficulty) {
       if (!difficulty) return 'D?';
       return difficultyMap[difficulty] || 'D?';
     }
 
-  // Cargar preguntas o flashcards del localStorage
+  // ============================================================
+  // CARGA Y PREPARACIÓN DE PREGUNTAS
+  // ============================================================
+  
+  /**
+   * Cargar preguntas desde localStorage y prepararlas para el test
+   * @returns {boolean} - true si se cargaron correctamente, false si hubo error
+   */
   function loadQuestions() {
       try {
         localStorage.setItem(LS_KEYS.ESTUDIO_WIP, 'true');
@@ -817,7 +906,14 @@
       }
     }
 
-    // Mostrar pregunta actual
+    // ============================================================
+    // RENDERIZADO DE PREGUNTAS
+    // ============================================================
+    
+    /**
+     * Mostrar pregunta actual en pantalla
+     * @param {number} index - Índice de la pregunta a mostrar
+     */
     function showQuestion(index) {
       if (index < 0 || index >= preguntes.length) return;
       
@@ -826,6 +922,7 @@
 
       // Ocultar hint por defecto
       ocultarHint();
+      
       // Mostrar u ocultar el área de hint según si la pregunta tiene hint
       const hintDiv = document.getElementById('hintArea');
       const tieneHint = pregunta && (pregunta.hint || pregunta.pista || pregunta.clue);
@@ -847,12 +944,17 @@
       
       const currentExpanded = expandedOptions[index] || [];
       
-      // Modo preguntas normal
+      // Obtener número de veces que se ha contestado esta pregunta
+      const contestadaCount = getContestadaCount(pregunta.guid);
+      const contestadaText = contestadaCount > 0 ? ` <span style="color:#9fb0ff;font-size:0.9em;">(contestades: ${contestadaCount})</span>` : '';
+      
+      // Construir HTML de la pregunta
       let html = `
         <div class="question-card">
           <div class="question-info">
             ${(pregunta.subjectId || '??') + '-' + (pregunta.origin || '??') + '-' + getDifficultyText(pregunta.difficulty)}
             ${isMultiCorrect ? ' <span style="color:#6ae0a7;font-weight:bold;">[Múltiples respostes]</span>' : ''}
+            ${contestadaText}
           </div>
           <div class="question-text">${pregunta.pregunta || pregunta.question || 'Pregunta no disponible'}</div>
       `;
@@ -1019,7 +1121,14 @@
       resetInactivityTimer();
     }
 
-    // Expandir/colapsar rationale de una opción no seleccionada
+    // ============================================================
+    // INTERACCIÓN CON OPCIONES DE RESPUESTA
+    // ============================================================
+    
+    /**
+     * Expandir/colapsar explicación de una opción no seleccionada
+     * @param {number} optionIndex - Índice de la opción
+     */
     function toggleOptionRationale(optionIndex) {
       if (!expandedOptions[currentQuestion]) {
         expandedOptions[currentQuestion] = [];
@@ -1036,7 +1145,10 @@
       showQuestion(currentQuestion);
     }
 
-    // Seleccionar respuesta única
+    /**
+     * Seleccionar respuesta única (una sola respuesta correcta)
+     * @param {number} optionIndex - Índice de la opción seleccionada
+     */
     function selectAnswer(optionIndex) {
       if (showingResults) return;
       if (answers[currentQuestion] !== null) return; // No permitir cambiar respuesta
@@ -1046,8 +1158,12 @@
       // Guardar respuestas en localStorage
       localStorage.setItem(LS_KEYS.ANSWERS, JSON.stringify(answers));
 
+      // Incrementar contador de contestadas
+      const pregunta = preguntes[currentQuestion];
+      incrementarContestada(pregunta.guid);
+
       // Verificar si la respuesta es correcta o incorrecta
-      const opciones = preguntes[currentQuestion].answerOptions || [];
+      const opciones = pregunta.answerOptions || [];
       const selectedOption = opciones[optionIndex];
 
       if (selectedOption && selectedOption.isCorrect && isRepassingErrors) {
@@ -1060,6 +1176,7 @@
         document.getElementById('removeFromHistoryBtn').disabled = true;
       }
 
+      // Guardar fallo si la respuesta es incorrecta
       if (selectedOption && !selectedOption.isCorrect) {
         guardarFalloEnHistorial(currentQuestion, optionIndex);
       }
@@ -1072,7 +1189,10 @@
       showQuestion(currentQuestion);
     }
 
-    // Toggle selección múltiple (para preguntas con varias respuestas correctas)
+    /**
+     * Toggle selección múltiple (para preguntas con varias respuestas correctas)
+     * @param {number} optionIndex - Índice de la opción a marcar/desmarcar
+     */
     function toggleMultiSelect(optionIndex) {
       if (showingResults) return;
       
@@ -1097,7 +1217,9 @@
       showQuestion(currentQuestion);
     }
 
-    // Comprovar respuesta múltiple
+    /**
+     * Comprobar respuesta múltiple (cuando hay varias respuestas correctas)
+     */
     function comprovarMultiResposta() {
       if (showingResults) return;
       if (!Array.isArray(answers[currentQuestion]) || answers[currentQuestion].length === 0) return;
@@ -1105,8 +1227,11 @@
       // Marcar como comprobada
       multiCorrectChecked[currentQuestion] = true;
       
-      // Verificar si todas las respuestas son correctas
+      // Incrementar contador de contestadas
       const pregunta = preguntes[currentQuestion];
+      incrementarContestada(pregunta.guid);
+      
+      // Verificar si todas las respuestas son correctas
       const opciones = pregunta.answerOptions || [];
       const correctIndices = opciones
         .map((opt, idx) => opt.isCorrect ? idx : -1)
@@ -1139,7 +1264,13 @@
     }
 
 
-    // Mostrar resultados finals
+    // ============================================================
+    // RESULTADOS Y NAVEGACIÓN
+    // ============================================================
+    
+    /**
+     * Mostrar resultados finales del test
+     */
     function showResults() {
       localStorage.removeItem(LS_KEYS.ESTUDIO_WIP);
       showingResults = true;
@@ -1186,7 +1317,9 @@
       document.querySelector('.navigation').style.display = 'none';
     }
 
-    // Revisar respuestas (mostrar correctas e incorrectas)
+    /**
+     * Revisar respuestas (volver a mostrar preguntas con feedback)
+     */
     function reviewAnswers() {
       showingResults = false;
       currentQuestion = 0;
@@ -1195,18 +1328,22 @@
       document.getElementById('nextBtn').textContent = 'Següent →';
     }
 
-    // Reiniciar test
+    /**
+     * Reiniciar test desde cero
+     */
     function restartTest() {
       currentQuestion = 0;
       answers = new Array(preguntes.length).fill(null);
       showingResults = false;
-      expandedOptions = {}; // Limpiar opciones expandidas
-      multiCorrectChecked = {}; // Limpiar estado de comprobación
+      expandedOptions = {};
+      multiCorrectChecked = {};
       showQuestion(0);
       document.querySelector('.navigation').style.display = 'flex';
     }
 
-    // Navegación en modo revisión
+    /**
+     * Avanzar a la siguiente pregunta
+     */
     function nextQuestion() {
       if (currentQuestion < preguntes.length - 1) {
         currentQuestion++;
@@ -1217,6 +1354,9 @@
       resetInactivityTimer();
     }
 
+    /**
+     * Retroceder a la pregunta anterior
+     */
     function previousQuestion() {
       if (currentQuestion > 0) {
         currentQuestion--;
@@ -1229,8 +1369,15 @@
       resetInactivityTimer();
     }
 
-    // Guardar fallo en historial
-    // Función unificada para añadir/actualizar pregunta en el historial
+    // ============================================================
+    // GESTIÓN DE HISTORIAL DE ERRORES
+    // ============================================================
+    
+    /**
+     * Función unificada para añadir/actualizar pregunta en el historial de errores
+     * @param {Object} pregunta - Objeto de la pregunta
+     * @param {number|Array} selectedOptions - Índice(s) de opciones seleccionadas
+     */
     function addOrUpdateQuestionInHistorial(pregunta, selectedOptions = null) {
       const guid = pregunta.guid;
       const ahora = new Date().toISOString();
@@ -1304,19 +1451,29 @@
       localStorage.setItem(LS_KEYS.HISTORIAL_FALLOS, JSON.stringify(historialFallos));
     }
 
-    // Guardar fallo en historial (una sola respuesta)
+    /**
+     * Guardar fallo en historial (una sola respuesta)
+     * @param {number} questionIndex - Índice de la pregunta
+     * @param {number} selectedOptionIndex - Índice de la opción seleccionada
+     */
     function guardarFalloEnHistorial(questionIndex, selectedOptionIndex) {
       const pregunta = preguntes[questionIndex];
       addOrUpdateQuestionInHistorial(pregunta, selectedOptionIndex);
     }
 
-    // Guardar fallo en historial para preguntas con múltiples respuestas
+    /**
+     * Guardar fallo en historial para preguntas con múltiples respuestas
+     * @param {number} questionIndex - Índice de la pregunta
+     * @param {Array} selectedIndices - Array de índices seleccionados
+     */
     function guardarFalloEnHistorialMulti(questionIndex, selectedIndices) {
       const pregunta = preguntes[questionIndex];
       addOrUpdateQuestionInHistorial(pregunta, selectedIndices);
     }
 
-    // Guardar duda actual (independiente de si es correcta o no)
+    /**
+     * Guardar duda actual (independiente de si es correcta o no)
+     */
     function guardarDubte() {
       if (currentQuestion >= 0 && currentQuestion < preguntes.length) {
         const pregunta = preguntes[currentQuestion];
@@ -1326,7 +1483,9 @@
       }
     }
 
-    // Eliminar pregunta actual del historial de fallos
+    /**
+     * Eliminar pregunta actual del historial de fallos
+     */
     function eliminarDelHistorial() {
       if (!canRemoveFromHistory || !isRepassingErrors) return;
       // Encontrar la pregunta actual en el historial original
@@ -1351,7 +1510,9 @@
       document.getElementById('removeFromHistoryBtn').disabled = true;
     }
 
-    // Borrar historial de fallos
+    /**
+     * Borrar todo el historial de fallos
+     */
     function esborrarHistorial() {
       if (confirm('Segur que vols esborrar tot l\'historial de fallos?')) {
         historialFallos = [];
@@ -1360,7 +1521,9 @@
       }
     }
 
-    // Actualizar textarea del historial
+    /**
+     * Actualizar textarea del historial con estadísticas
+     */
     function actualizarTextareaHistorial() {
       const textarea = document.getElementById('historialFallos');
       textarea.value = JSON.stringify(historialFallos, null, 2);
@@ -1395,7 +1558,13 @@
       }
     }
 
-    // Copiar historial al portapapeles
+    // ============================================================
+    // UTILIDADES DEL HISTORIAL
+    // ============================================================
+    
+    /**
+     * Copiar historial al portapapeles
+     */
     function copiarHistorial() {
       const textarea = document.getElementById('historialFallos');
       textarea.select();
@@ -1403,7 +1572,9 @@
       toast.showToast('Historial copiat al portapapers!');
     }
 
-    // Descargar historial como archivo JSON
+    /**
+     * Descargar historial como archivo JSON
+     */
     function baixarHistorial() {
       const username = localStorage.getItem(LS_KEYS.USER_NAME) || 'usuario';
       const timestamp = new Date().toISOString().replace(/[:.]/g, '-').slice(0, -5);
@@ -1420,8 +1591,17 @@
       URL.revokeObjectURL(url);
     }
 
-    // Inicializar al cargar la página
+    // ============================================================
+    // INICIALIZACIÓN
+    // ============================================================
+    
+    /**
+     * Inicializar aplicación al cargar la página
+     */
     document.addEventListener('DOMContentLoaded', function() {
+      // Cargar historial de preguntas contestadas
+      cargarHistorialContestades();
+      
       // Restaurar cronometro si existe en localStorage
       const savedCronometro = localStorage.getItem(LS_KEYS.CRONOMETRO);
       if (savedCronometro && !isNaN(savedCronometro)) {
@@ -1507,7 +1687,9 @@
       resetInactivityTimer();
     });
 
-    // Borrar el último error del historial
+    /**
+     * Borrar el último error del historial
+     */
     function borrarUltimoError() {
       if (!historialFallos.length) {
         toast.showToast('No hi ha errors per esborrar.');
