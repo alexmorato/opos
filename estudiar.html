@@ -457,7 +457,50 @@
 
   <div class="container">
   <div class="header" id="headerTitle">☕ Estic d'opos ☕</div>
-  <script>
+
+    
+    <div class="progress-bar">
+      <div class="progress-fill" id="progressFill"></div>
+    </div>
+
+
+  <div id="questionContainer"></div>
+
+  <div id="hintArea" class="hint-area" onclick="mostrarHint()">pista</div>
+
+
+  <div id="removeFromHistoryContainer" style="text-align:center;margin:10px 0; display:none;">
+    <button class="historial-btn remove-btn" id="removeFromHistoryBtn" onclick="eliminarDelHistorial()" disabled>✅ Eliminar encertada</button>
+  </div>
+  <!-- Cronómetro anclado -->
+  <div id="cronometroAnchor">
+    <div id="cronometroBox">00:00</div>
+  </div>
+
+    <div class="navigation">
+      <button class="nav-btn secondary" id="prevBtn" onclick="previousQuestion()">← Anterior</button>
+      <span id="questionCounter"></span>
+      <button class="nav-btn" id="nextBtn" onclick="nextQuestion()">Següent →</button>
+    </div>
+
+    <div class="historial-section">
+  <div class="historial-title">Historial fallos <span id="fallosCount" style="color:#9fb0ff;font-weight:normal;font-size:0.98em;"></span></div>
+      <div class="historial-buttons">
+        <button class="historial-btn" onclick="copiarHistorial()">📋 Copia</button>
+        <button class="historial-btn" onclick="baixarHistorial()">💾 Baixa</button>
+        <button class="historial-btn" onclick="guardarDubte()">❓ Guardar dubte</button>
+        <button class="historial-btn" onclick="borrarUltimoError()">⬅️ Esborrar últim</button>
+        <button class="historial-btn" onclick="esborrarHistorial()">🗑️ Esborrar tot</button>
+      </div>
+      <textarea class="historial-textarea" id="historialFallos" readonly placeholder="Aquí apareixeran les preguntes fallades..."></textarea>
+    </div>
+
+    <div style="text-align:center;margin:40px 0 10px 0;">
+      <button onclick="window.location.href='index.html'" style="background:#27304a;color:#e7ecff;font-size:1.1rem;padding:14px 38px;border-radius:12px;border:none;cursor:pointer;transition:background 0.2s;">⬅️ Tornar al menú</button>
+    </div>
+  </div>
+
+    <script>
     // Referencias a elementos del menú
     const menuBtn = document.getElementById('menuBtn');
     const menuPanel = document.getElementById('menuPanel');
@@ -575,48 +618,7 @@
         }
       });
   </script>
-    
-    <div class="progress-bar">
-      <div class="progress-fill" id="progressFill"></div>
-    </div>
-
-
-  <div id="questionContainer"></div>
-
-  <div id="hintArea" class="hint-area" onclick="mostrarHint()">pista</div>
-
-
-  <div id="removeFromHistoryContainer" style="text-align:center;margin:10px 0; display:none;">
-    <button class="historial-btn remove-btn" id="removeFromHistoryBtn" onclick="eliminarDelHistorial()" disabled>✅ Eliminar encertada</button>
-  </div>
-  <!-- Cronómetro anclado -->
-  <div id="cronometroAnchor">
-    <div id="cronometroBox">00:00</div>
-  </div>
-
-    <div class="navigation">
-      <button class="nav-btn secondary" id="prevBtn" onclick="previousQuestion()">← Anterior</button>
-      <span id="questionCounter"></span>
-      <button class="nav-btn" id="nextBtn" onclick="nextQuestion()">Següent →</button>
-    </div>
-
-    <div class="historial-section">
-  <div class="historial-title">Historial fallos <span id="fallosCount" style="color:#9fb0ff;font-weight:normal;font-size:0.98em;"></span></div>
-      <div class="historial-buttons">
-        <button class="historial-btn" onclick="copiarHistorial()">📋 Copia</button>
-        <button class="historial-btn" onclick="baixarHistorial()">💾 Baixa</button>
-        <button class="historial-btn" onclick="guardarDubte()">❓ Guardar dubte</button>
-        <button class="historial-btn" onclick="borrarUltimoError()">⬅️ Esborrar últim</button>
-        <button class="historial-btn" onclick="esborrarHistorial()">🗑️ Esborrar tot</button>
-      </div>
-      <textarea class="historial-textarea" id="historialFallos" readonly placeholder="Aquí apareixeran les preguntes fallades..."></textarea>
-    </div>
-
-    <div style="text-align:center;margin:40px 0 10px 0;">
-      <button onclick="window.location.href='index.html'" style="background:#27304a;color:#e7ecff;font-size:1.1rem;padding:14px 38px;border-radius:12px;border:none;cursor:pointer;transition:background 0.2s;">⬅️ Tornar al menú</button>
-    </div>
-  </div>
-
+  
   <script>
     // --- Cronómetro anclado ---
     let cronometroInterval = null;

@@ -197,6 +197,23 @@
       color: #ff6b6b;
     }
 
+    /* Label del directorio */
+    .info-label {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      z-index: 999;
+      background: #27304a;
+      color: #e7ecff;
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+      opacity: 0.9;
+    }
+
+
     @media (max-width: 768px) {
       body {
         padding: 10px;
@@ -246,6 +263,11 @@
     </button>
   </div>
 
+  <!-- Label fijo arriba a la izquierda con el nombre del fichero -->
+  <div id="infoLabel" class="info-label">
+    <!-- Se rellena con JavaScript -->
+  </div>
+
   <!-- Contenedor de la imagen -->
   <div class="image-container" id="imageContainer">
     <div class="loading-state">
@@ -260,6 +282,14 @@
     const root = urlParams.get('root') || 'apunts_new';
     const tema = urlParams.get('tema') || '';
     const fitxer = urlParams.get('fitxer') || '';
+
+    // Actualizar label con el nombre del fichero
+    const infoLabel = document.getElementById('infoLabel');
+    const nombreSinExtension = fitxer
+      ? fitxer.replace(/\.[^/.]+$/, '')
+      : 'infografia';
+
+    infoLabel.textContent = nombreSinExtension || 'infografia';
 
     const imageContainer = document.getElementById('imageContainer');
     const menuBtn = document.getElementById('menuBtn');
@@ -346,17 +376,33 @@
 
     // Botón tornar
     tornarBtn.addEventListener('click', () => {
-      if (window.history.length > 2) {
-        window.history.back();
-      } else {
-        window.location.href = 'index.html';
-      }
+      tiraPaAtras();
     });
 
     // Botón menu principal
     menuIndexBtn.addEventListener('click', () => {
       window.location.href = 'index.html';
     });
+
+    // Capturar tecla Backspace para volver atrás
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Backspace') {
+        // Prevenir el comportamiento por defecto solo si no estamos en un input
+        if (document.activeElement.tagName !== 'INPUT' && 
+            document.activeElement.tagName !== 'TEXTAREA') {
+          e.preventDefault();
+          tiraPaAtras();
+        }
+      }
+    });
+
+    function tiraPaAtras() {
+      if (window.history.length > 1) {
+        window.history.back();
+      } else {
+        window.location.href = 'index.html';
+      }
+    }
 
     // Cargar imagen al iniciar
     cargarImagen();
