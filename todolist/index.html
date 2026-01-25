@@ -74,6 +74,7 @@
         <thead>
             <tr>
                 <th>Título</th>
+                <th>Tipo</th>
                 <th>Estado</th>
                 <th>Complejidad</th>
                 <th>Descripción</th>
@@ -97,7 +98,8 @@
             .then(data => {
                 const statusMap = createMap(data.statuses);
                 const complexityMap = createMap(data.complexities);
-                renderTasks(data.tasks, statusMap, complexityMap);
+                const typeMap = createMap(data.types);
+                renderTasks(data.tasks, statusMap, complexityMap, typeMap);
                 renderGtdInbox(data.gtdInbox);
             })
             .catch(error => console.error('Error cargando tareas:', error));
@@ -119,7 +121,7 @@
             });
         }
 
-        function renderTasks(tasks, statusMap, complexityMap) {
+        function renderTasks(tasks, statusMap, complexityMap, typeMap) {
             const tbody = document.getElementById('tasks-table-body');
 
             tasks.forEach((task, index) => {
@@ -134,8 +136,17 @@
                     ? task.description.slice(0, DESCRIPTION_LIMIT) + '...'
                     : task.description;
 
+                // Determinar el tipo de tarea usando el label del typeMap
+                let tipo = '-';
+                if (task.type && typeMap[task.type.toUpperCase()]) {
+                    tipo = typeMap[task.type.toUpperCase()];
+                } else if (task.type) {
+                    tipo = task.type;
+                }
+
                 row.innerHTML = `
                     <td>${task.title}</td>
+                    <td>${tipo}</td>
                     <td class="status-${task.status}">
                         ${statusMap[task.status] ?? task.status}
                     </td>

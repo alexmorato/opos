@@ -10,21 +10,24 @@ Tiene que ser algo que pueda leer en 10 minutos.
 
 
 # preguntas
-29. Gestió d'Incidents de Ciberseguretat
-67. Hacking Ètic
-68. Certificats digitals i autentificació electrònica
-69. Signatura electrònica
-70. Protecció de l'accés remot
-71. La ciberseguretat aplicada al Cloud
+30. Gestió de serveis de RPA sobre UIPath
+31. Gestió del Btach sobre UC4
+49. Eines de treball col·laboratiu en entorn Microsoft 365
+50. Plataforma de Gestió de Dispositius Mòbils (MDM)
+51. Plataforma ECM (EndPoint Configurations Manager)
+66. El Reglament General de Protecció de Dades (RGPD)
 
-Generame preguntas tipo test.
-subjectid: T68
+Estoy estudiando para Oposiciones tecnico superior TIC para el ayuntamiento de barcelona.
+Generame preguntas tipo test de este tema: 30. Gestió de serveis de RPA sobre UIPath
+subjectid: T30
 origin: deepseek
 preguntas sobres conceptos troncales del tema. No profuncides.
 dificultad 1-facil, 2-medio, 3-dificil.
-Preguntas trampas que puedan liar
+Si pones siglas siempre pon lo que significan, tanto en respuestas correctas como incorrectas.
+Las respuestas incorrectas deben ser parecidas de largo. Que la respuesta correcta no sea la mas larga.
 Alguna pregunta que sea cual NO es correcta
 Alguna que sea cual es la mas correcta.
+Usa algun emoji para que sea entretenido.
 
 Quiero que generes un JSON con estas caracteristicas.
 Un array de QuestionContract.
@@ -44,6 +47,9 @@ interface AnswerOption {
   rationale: string; // Explicación o justificación de la opción
 }
 Haré copy-paste del JSON.
+
+Dame mas preguntas para completar el tema.
+Añade algun emoji para que sea mas entretenido
 
 
 # 🖼️ notebookLM infografia 🖼️
@@ -85,3 +91,10 @@ Estoy preparando estos temas.
 70. Protecció de l'accés remot
 71. La ciberseguretat aplicada al Cloud
 Preparo el FAQ del T67 en el formato que ya usamos: chuleta de 10 puntos clave, directa a examen, sin rellen
+
+30. Gestió de serveis de RPA sobre UIPath
+31. Gestió del Btach sobre UC4
+49. Eines de treball col·laboratiu en entorn Microsoft 365
+50. Plataforma de Gestió de Dispositius Mòbils (MDM)
+51. Plataforma ECM (EndPoint Configurations Manager)
+66. El Reglament General de Protecció de Dades (RGPD)
