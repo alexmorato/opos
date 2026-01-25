@@ -1,0 +1,467 @@
+[
+  {
+    "guid": "cd929b66-141a-4dd5-8db2-8342884af184",
+    "subjectId": "T31",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Quin és el component principal de l'arquitectura UC4 que actua com a servidor central i es comunica amb els agents remots?",
+    "answerOptions": [
+      {
+        "text": "Operation Manager",
+        "rationale": "Aquesta eina proporciona la consola d'administració i monitoratge, però no és el nucli que gestiona la comunicació.",
+        "isCorrect": false
+      },
+      {
+        "text": "Service Manager",
+        "rationale": "Aquest component supervisa la disponibilitat del motor i els agents, però no és el motor en si mateix.",
+        "isCorrect": false
+      },
+      {
+        "text": "Automation Engine",
+        "rationale": "Aquest component és descrit com el nucli del sistema, responsable de la comunicació i orquestració central.",
+        "isCorrect": true
+      },
+      {
+        "text": "Base de dades central",
+        "rationale": "La base de dades emmagatzema la configuració i l'històric, però no és el component actiu que executa la lògica de comunicació.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Pensa en quin element és considerat el 'nucli' o cervell de l'arquitectura UC4."
+  },
+  {
+    "guid": "67f53317-8346-4763-b469-acc258ebf00d",
+    "subjectId": "T31",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Quina és la funció principal d'un objecte Workflow (JOBP) a UC4?",
+    "answerOptions": [
+      {
+        "text": "Executar un únic script o programa en un servidor específic.",
+        "rationale": "Aquesta és la funció d'un objecte Job (JOBS), no d'un Workflow.",
+        "isCorrect": false
+      },
+      {
+        "text": "Definir un conjunt de dates específiques en què els processos s'han d'executar.",
+        "rationale": "Aquesta tasca es realitza mitjançant objectes de Calendari (Calendar).",
+        "isCorrect": false
+      },
+      {
+        "text": "Esperar que es compleixi una condició externa, com l'existència d'un fitxer.",
+        "rationale": "Aquesta funcionalitat correspon a un objecte d'Esdeveniment (EVNT).",
+        "isCorrect": false
+      },
+      {
+        "text": "Organitzar i orquestrar un conjunt de tasques en un ordre determinat amb dependències.",
+        "rationale": "Un Workflow actua com un contenidor que defineix la seqüència, el paral·lelisme i la lògica condicional entre diverses tasques.",
+        "isCorrect": true
+      }
+    ],
+    "hint": "Considera com UC4 gestiona processos complexos que involucren múltiples passos o tasques."
+  },
+  {
+    "guid": "de3a76e3-5377-4e58-9182-02be7f351ee8",
+    "subjectId": "T31",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Quina diferència clau existeix entre un objecte Event (EVNT) i un Trigger a UC4?",
+    "answerOptions": [
+      {
+        "text": "Un EVNT és un objecte específic que espera una condició, mentre que un Trigger és qualsevol mecanisme que inicia un procés.",
+        "rationale": "Aquesta opció defineix correctament l'EVNT com un tipus d'objecte concret i el Trigger com un concepte més ampli d'activació.",
+        "isCorrect": true
+      },
+      {
+        "text": "Un Trigger només pot ser una programació horària (Schedule), mentre que un EVNT pot ser qualsevol tipus de condició.",
+        "rationale": "Un Trigger no es limita a programacions horàries; pot ser un EVNT, un script o una condició dins d'un workflow.",
+        "isCorrect": false
+      },
+      {
+        "text": "Un EVNT s'executa sempre de manera cíclica, mentre que un Trigger només s'activa una vegada.",
+        "rationale": "Un EVNT pot configurar-se per actuar una sola vegada o de manera recurrent, depenent de la seva configuració.",
+        "isCorrect": false
+      },
+      {
+        "text": "Els Triggers són mecanismes interns del motor d'UC4, mentre que els EVNT són configurats pels operadors.",
+        "rationale": "Tant els EVNT com altres mecanismes que actuen com a Triggers (com els Schedules) són objectes configurables pels usuaris.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Un d'aquests termes és un tipus d'objecte concret que pots crear a UC4, mentre que l'altre és un concepte més general."
+  },
+  {
+    "guid": "91e5628c-7cb1-40d4-ad18-60d1772d476e",
+    "subjectId": "T31",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Si un procés ha d'executar-se diàriament a les 22:00, però només els dies feiners del mes, quina combinació d'objectes UC4 seria la més adequada per implementar-ho?",
+    "answerOptions": [
+      {
+        "text": "Un únic Time Event (EVNT) configurat per executar-se a les 22:00 els dies feiners.",
+        "rationale": "Tot i que un Time Event pot gestionar l'hora, combinar-lo amb regles de calendari complexes com 'dies feiners' és menys eficient que utilitzar objectes dissenyats per a això.",
+        "isCorrect": false
+      },
+      {
+        "text": "Un Schedule (JSCH) per a l'execució diària a les 22:00 i un Calendar (Calendari) per restringir-ho als dies feiners.",
+        "rationale": "Aquesta és la pràctica estàndard a UC4, on el Schedule gestiona la recurrència horària i el Calendar aplica les regles de dates.",
+        "isCorrect": true
+      },
+      {
+        "text": "Un script (SCRI) que comprovi l'hora i el dia de la setmana abans de llançar el job manualment.",
+        "rationale": "Això seria una solució personalitzada que no aprofita les capacitats de planificació natives i modulars d'UC4.",
+        "isCorrect": false
+      },
+      {
+        "text": "Un Workflow (JOBP) amb una postcondition que verifica si el dia és feiner després de l'execució.",
+        "rationale": "Les condicions s'han de verificar abans de l'execució per decidir si s'ha de llançar, no després.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Pensa en com UC4 separa la definició de la periodicitat (cada dia a una hora) de les regles de negoci basades en dates (només certs dies)."
+  },
+  {
+    "guid": "11b08251-19df-408a-a8c4-026c2a79bbb5",
+    "subjectId": "T31",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Quina és la finalitat principal d'un objecte de sincronització (Sync Object) a UC4?",
+    "answerOptions": [
+      {
+        "text": "Assegurar que les dades entre dos sistemes diferents estiguin sempre actualitzades i sincronitzades.",
+        "rationale": "Aquesta funció correspondria a un procés d'integració de dades (ETL), no a la funció principal d'un Sync Object.",
+        "isCorrect": false
+      },
+      {
+        "text": "Coordinar l'accés a recursos compartits per evitar conflictes d'execució simultània.",
+        "rationale": "Aquesta és exactament la seva funció: actuar com un semàfor per gestionar l'accés concurrent a un recurs com un fitxer o una taula de base de dades.",
+        "isCorrect": true
+      },
+      {
+        "text": "Sincronitzar l'hora del servidor d'UC4 amb la dels agents remots per garantir la precisió en els llançaments.",
+        "rationale": "La sincronització horària és una tasca de l'administració de sistemes (via NTP, per exemple), no d'un objecte de lògica de negoci d'UC4.",
+        "isCorrect": false
+      },
+      {
+        "text": "Garantir que una seqüència de tasques dins d'un workflow s'executi sempre en el mateix ordre.",
+        "rationale": "L'ordre d'execució dins d'un workflow es defineix amb regles de precedència (línies de dependència), no amb Sync Objects.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Pensa en situacions on dos processos no poden modificar el mateix element alhora."
+  },
+  {
+    "guid": "0125651e-2e7e-49fc-ac76-16318e48d998",
+    "subjectId": "T31",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Un job dins d'un workflow finalitza amb l'estat ENDED_INACTIVE. Quina és la causa més probable?",
+    "answerOptions": [
+      {
+        "text": "L'operador ha cancel·lat manualment l'execució del job mentre estava en curs.",
+        "rationale": "Si un operador cancel·la el job, l'estat final seria ENDED_CANCEL.",
+        "isCorrect": false
+      },
+      {
+        "text": "El job ha fallat a causa d'un error en l'script que executava.",
+        "rationale": "Un error en l'script durant l'execució resultaria en un estat ENDED_NOT_OK.",
+        "isCorrect": false
+      },
+      {
+        "text": "El job no s'ha executat perquè no s'han complert les seves condicions prèvies o dependències.",
+        "rationale": "Aquest estat indica que el flux de treball ha decidit saltar o no activar aquesta tasca perquè les condicions per al seu llançament no eren vàlides.",
+        "isCorrect": true
+      },
+      {
+        "text": "El job s'ha activat correctament però està esperant recursos del sistema per poder començar.",
+        "rationale": "Un job activat i en espera de recursos estaria en un estat com ACTIVATED o WAITING, no en un estat final.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Aquest estat final indica que el job mai va arribar a la fase d'execució. Què podria impedir que s'iniciï?"
+  },
+  {
+    "guid": "26dbc066-538a-42c6-8d1b-3f7e5615b1fd",
+    "subjectId": "T31",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Quin tipus de workflow especial s'utilitzaria per processar una llista de fitxers, executant el mateix conjunt de tasques per a cada fitxer de la llista?",
+    "answerOptions": [
+      {
+        "text": "IF Workflow",
+        "rationale": "Aquest tipus de workflow s'utilitza per a prendre decisions basades en condicions (if/else), no per a iteracions.",
+        "isCorrect": false
+      },
+      {
+        "text": "JOBG (Job Group)",
+        "rationale": "Un Job Group serveix per agrupar jobs, però no implementa una lògica de bucle per a processar elements d'una llista.",
+        "isCorrect": false
+      },
+      {
+        "text": "Standard Workflow (JOBP)",
+        "rationale": "Un workflow estàndard podria fer-ho amb scripts complexos, però UC4 ofereix un tipus especialitzat més eficient per a aquesta tasca.",
+        "isCorrect": false
+      },
+      {
+        "text": "FOREACH Workflow",
+        "rationale": "El nom d'aquest workflow fa referència directa a la seva funció, que és iterar sobre els elements d'una col·lecció, funcionant com un bucle.",
+        "isCorrect": true
+      }
+    ],
+    "hint": "Busca el tipus de workflow que s'assembla a una estructura de control de programació utilitzada per a bucles."
+  },
+  {
+    "guid": "f15381ec-44e6-4479-a17a-755183dc6337",
+    "subjectId": "T31",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "En el context de l'ús d'UC4 a l'Ajuntament de Barcelona, quin benefici s'obté en centralitzar la gestió de processos batch?",
+    "answerOptions": [
+      {
+        "text": "Reduir la necessitat de tenir agents instal·lats als servidors.",
+        "rationale": "La centralització requereix igualment agents als servidors per poder executar les tasques de forma remota.",
+        "isCorrect": false
+      },
+      {
+        "text": "Eliminar completament la possibilitat que un procés batch falli.",
+        "rationale": "La centralització millora la gestió d'errors, però no pot eliminar la possibilitat que es produeixin.",
+        "isCorrect": false
+      },
+      {
+        "text": "Obtenir una visió global i un punt de control unificat per a tots els processos.",
+        "rationale": "Aquest és un dels beneficis clau esmentats, ja que substitueix planificacions disperses per una única consola de gestió.",
+        "isCorrect": true
+      },
+      {
+        "text": "Permetre que cada departament defineixi els seus propis estàndards de nomenclatura i documentació.",
+        "rationale": "Al contrari, un dels beneficis és l'aplicació d'estàndards comuns i una gestió homogènia per a tota l'organització.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Pensa en l'avantatge de passar de múltiples sistemes de planificació (com cron jobs) a una única eina corporativa."
+  },
+  {
+    "guid": "34f2caf3-4b7a-4731-8ca9-8e1211d1582e",
+    "subjectId": "T31",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Quin tipus d'objecte de variable (VARA) s'hauria d'utilitzar per obtenir una llista de valors directament d'una base de dades mitjançant una consulta?",
+    "answerOptions": [
+      {
+        "text": "VARA.STATIC",
+        "rationale": "Aquest tipus de variable emmagatzema valors fixos que es defineixen manualment i no canvien.",
+        "isCorrect": false
+      },
+      {
+        "text": "VARA.DYNAMIC",
+        "rationale": "Aquestes variables poden canviar durant l'execució, però no estan dissenyades específicament per a executar consultes a bases de dades.",
+        "isCorrect": false
+      },
+      {
+        "text": "VARA.XML",
+        "rationale": "Aquest tipus de variable està optimitzat per a treballar amb dades en format XML, no per a consultes directes a bases de dades relacionals.",
+        "isCorrect": false
+      },
+      {
+        "text": "VARA.SQL",
+        "rationale": "El nom d'aquest objecte indica clarament la seva funció: obtenir valors executant una sentència SQL contra una base de dades.",
+        "isCorrect": true
+      }
+    ],
+    "hint": "El nom del tipus de variable sovint reflecteix la tecnologia amb la qual interactua."
+  },
+  {
+    "guid": "74b69af4-e886-4cb4-b3b5-0bc12ec6957f",
+    "subjectId": "T31",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Quina eina d'UC4 permet a un administrador visualitzar una predicció de les execucions futures, tenint en compte els calendaris i schedules configurats?",
+    "answerOptions": [
+      {
+        "text": "Activity Window",
+        "rationale": "Aquesta finestra mostra les activitats en temps real (actives, en espera), però no les execucions futures.",
+        "isCorrect": false
+      },
+      {
+        "text": "Workflow Monitor",
+        "rationale": "Aquesta eina mostra el progrés gràfic d'un workflow en execució, no una previsió a futur.",
+        "isCorrect": false
+      },
+      {
+        "text": "Forecast",
+        "rationale": "Aquesta funció està dissenyada específicament per simular i preveure quan s'executaran les tasques en el futur segons la seva programació.",
+        "isCorrect": true
+      },
+      {
+        "text": "Execution Report",
+        "rationale": "Aquest és un informe que es genera després que un job s'hagi executat, contenint els logs i resultats, no una predicció.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Busca la funcionalitat que serveix per a validar la programació abans que s'executi, com si fos un pronòstic del temps."
+  },
+  {
+    "guid": "b100d628-b0f3-49d3-98a4-20a4a90a8680",
+    "subjectId": "T31",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Dins d'un Workflow, les 'postconditions' s'utilitzen per a...",
+    "answerOptions": [
+      {
+        "text": "verificar si un fitxer necessari existeix abans que la tasca comenci.",
+        "rationale": "Aquesta acció es realitzaria amb una 'precondition', ja que és una comprovació prèvia a l'execució.",
+        "isCorrect": false
+      },
+      {
+        "text": "passar paràmetres d'entrada a l'script que s'executarà.",
+        "rationale": "Els paràmetres es configuren en la definició del job o mitjançant PromptSets, no en les postconditions.",
+        "isCorrect": false
+      },
+      {
+        "text": "definir accions a realitzar després de l'execució d'una tasca, basant-se en el seu resultat.",
+        "rationale": "Les postconditions permeten crear lògica que reacciona a l'estat final (èxit, error) d'una tasca, com per exemple, enviar una notificació si falla.",
+        "isCorrect": true
+      },
+      {
+        "text": "assignar l'agent o servidor on la tasca s'ha d'executar.",
+        "rationale": "L'agent s'assigna a la configuració del propi objecte Job, no en una condició posterior a l'execució.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "El prefix 'post-' indica que aquestes accions tenen lloc en un moment específic del cicle de vida de la tasca."
+  },
+  {
+    "guid": "3814e4e6-dfb4-4f89-867c-8379e11c3426",
+    "subjectId": "T31",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Quina de les següents afirmacions descriu millor el paper d'un Agent a l'arquitectura UC4?",
+    "answerOptions": [
+      {
+        "text": "És una consola d'administració des d'on els operadors monitoritzen els processos.",
+        "rationale": "Aquesta descripció correspon a l'Operation Manager, no a un Agent.",
+        "isCorrect": false
+      },
+      {
+        "text": "És un component instal·lat en un servidor remot que executa les tasques localment.",
+        "rationale": "L'Agent actua com un pont entre el servidor UC4 i el sistema operatiu on s'executen realment les ordres.",
+        "isCorrect": true
+      },
+      {
+        "text": "És un objecte lògic que conté la seqüència de jobs a executar en un procés de negoci.",
+        "rationale": "Aquesta definició correspon a un Workflow (JOBP).",
+        "isCorrect": false
+      },
+      {
+        "text": "És un mecanisme intern del motor que gestiona la cua de prioritat dels jobs.",
+        "rationale": "La gestió de la concurrència i prioritat és una funció de la Job Queue (JOBQ), no de l'Agent.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Pensa en com el servidor central d'UC4 pot executar ordres en sistemes operatius diferents com Windows o Linux."
+  },
+  {
+    "guid": "5e9857bb-56ff-4efb-b076-7a07e16041b8",
+    "subjectId": "T31",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Segons les bones pràctiques esmentades, per què és recomanable utilitzar calendaris centralitzats en lloc de codificar dates directament als scripts?",
+    "answerOptions": [
+      {
+        "text": "Perquè els scripts amb dates codificades s'executen més lentament.",
+        "rationale": "La presència de dates codificades no té un impacte significatiu en el rendiment d'execució de l'script.",
+        "isCorrect": false
+      },
+      {
+        "text": "Per facilitar el manteniment i evitar modificacions en múltiples llocs si una data canvia.",
+        "rationale": "Centralitzar les regles de dates en calendaris permet que un canvi (p. ex., un nou dia festiu) s'apliqui a tots els processos que l'utilitzen sense editar cap script.",
+        "isCorrect": true
+      },
+      {
+        "text": "Per complir amb la normativa ISO/IEC 27001 que prohibeix l'ús de dates en scripts.",
+        "rationale": "La normativa promou la gestió segura i la traçabilitat, però no prohibeix explícitament codificar dates; l'ús de calendaris és una bona pràctica per aconseguir-ho.",
+        "isCorrect": false
+      },
+      {
+        "text": "Perquè UC4 no permet l'ús de variables de data dins dels objectes de tipus script (SCRI).",
+        "rationale": "UC4 sí que permet utilitzar variables i funcions de data dins dels scripts, però centralitzar la lògica en calendaris és més mantenible.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considera què passaria si un dia festiu canvia i aquest dia està referenciat en dotzenes de scripts diferents."
+  },
+  {
+    "guid": "f29af4c0-9fac-4b9f-952a-b3cb71c874d9",
+    "subjectId": "T31",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Un procés de negoci requereix executar una tasca de neteja (Job B) només si la tasca principal de càrrega de dades (Job A) ha finalitzat amb èxit. Com s'implementaria aquesta dependència dins d'un Workflow?",
+    "answerOptions": [
+      {
+        "text": "Configurant una 'precondition' al Job B que comprovi l'estat del Job A.",
+        "rationale": "Dins d'un workflow, la dependència es defineix connectant les tasques i establint condicions en els enllaços, no amb una precondition que miri l'estat d'una tasca anterior.",
+        "isCorrect": false
+      },
+      {
+        "text": "Establint una regla de precedència des del Job A cap al Job B, condicionada a l'estat 'ENDED_OK'.",
+        "rationale": "Aquesta és la manera estàndard d'orquestrar fluxos: connectar les tasques i definir la lògica en la transició, assegurant que el successor només s'executi si el predecessor acaba correctament.",
+        "isCorrect": true
+      },
+      {
+        "text": "Utilitzant un Sync Object que el Job A bloqueja i el Job B espera que s'alliberi.",
+        "rationale": "Un Sync Object gestiona la concurrència, no les dependències seqüencials basades en el resultat d'una tasca.",
+        "isCorrect": false
+      },
+      {
+        "text": "Programant el Job B perquè s'executi cinc minuts després de l'hora programada del Job A.",
+        "rationale": "Això és una espera artificial i una mala pràctica, ja que no garanteix que el Job A hagi acabat, i menys encara que hagi acabat correctament.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Com es connecten visualment les tasques en un monitor de workflow per indicar l'ordre d'execució?"
+  },
+  {
+    "guid": "858dbe0b-d672-4497-89e6-271b3ce184cf",
+    "subjectId": "T31",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Quina informació clau es pot trobar al 'Statistical Report' generat per UC4 després de l'execució d'un job?",
+    "answerOptions": [
+      {
+        "text": "La sortida estàndard (stdout) i d'error (stderr) de l'script executat.",
+        "rationale": "Aquesta informació detallada del log d'execució es troba a l'Execution Report, no a l'Statistical Report.",
+        "isCorrect": false
+      },
+      {
+        "text": "Una predicció de la propera vegada que el job s'executarà segons el calendari.",
+        "rationale": "La predicció d'execucions futures es consulta amb l'eina Forecast, no en un informe d'una execució ja passada.",
+        "isCorrect": false
+      },
+      {
+        "text": "L'script complet que s'ha executat i les variables utilitzades.",
+        "rationale": "El detall de l'script i les variables formen part de l'Execution Report.",
+        "isCorrect": false
+      },
+      {
+        "text": "Metadades com l'hora d'inici i fi, la durada total i el codi de retorn.",
+        "rationale": "Aquest informe se centra en les mètriques i estadístiques de l'execució, proporcionant una visió general del seu rendiment.",
+        "isCorrect": true
+      }
+    ],
+    "hint": "El nom d'aquest informe suggereix que conté dades numèriques i mètriques sobre l'execució."
+  }
+]
