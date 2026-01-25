@@ -193,11 +193,21 @@
       background: #0b1020;
       border: 1px solid #27304a;
       border-radius: 8px;
-      transition: all 0.2s;
+      transition: all 0.3s;
     }
     .recurso-item:hover {
       border-color: #6ae0a7;
       background: #141a2a;
+    }
+    .recurso-item.destacado {
+      background: #1a2a3a;
+      border: 2px solid #2aebad;
+      box-shadow: 0 0 20px rgba(42, 235, 173, 0.3);
+      animation: pulsoDestacado 2s ease-in-out;
+    }
+    @keyframes pulsoDestacado {
+      0%, 100% { box-shadow: 0 0 20px rgba(42, 235, 173, 0.3); }
+      50% { box-shadow: 0 0 30px rgba(42, 235, 173, 0.5); }
     }
     .recurso-name {
       font-size: 0.95rem;
@@ -543,6 +553,7 @@
     // LocalStorage keys
     const LS_RECURSOS_SEARCH = 'sTICdOpos_recursos_search_text';
     const LS_RECURSOS_TEMA = 'sTICdOpos_recursos_tema_expanded';
+    const LS_RECURSOS_LAST_CLICKED = 'sTICdOpos_recursos_last_clicked';
 
     // Verificar autenticación
     document.addEventListener('DOMContentLoaded', function() {
@@ -611,6 +622,28 @@
       }
       if (temaId !== undefined) {
         localStorage.setItem(LS_RECURSOS_TEMA, temaId);
+      }
+    }
+
+    // Guardar último recurso clicado
+    function guardarUltimoRecursoClicado(tipo, temaId, identificador) {
+      const recursoData = {
+        tipo: tipo,
+        temaId: temaId,
+        identificador: identificador,
+        timestamp: Date.now()
+      };
+      localStorage.setItem(LS_RECURSOS_LAST_CLICKED, JSON.stringify(recursoData));
+    }
+
+    // Obtener último recurso clicado
+    function obtenerUltimoRecursoClicado() {
+      const data = localStorage.getItem(LS_RECURSOS_LAST_CLICKED);
+      if (!data) return null;
+      try {
+        return JSON.parse(data);
+      } catch (e) {
+        return null;
       }
     }
 
@@ -744,6 +777,26 @@
           }
         }, 100);
       }
+
+      // Resaltar y hacer scroll al último recurso clicado
+      const ultimoRecurso = obtenerUltimoRecursoClicado();
+      if (ultimoRecurso) {
+        setTimeout(() => {
+          const recursoId = `recurso-${ultimoRecurso.tipo}-${ultimoRecurso.temaId}-${ultimoRecurso.identificador}`;
+          const recursoElement = document.getElementById(recursoId);
+          if (recursoElement) {
+            recursoElement.classList.add('destacado');
+            recursoElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            // Quitar el resaltado después de 5 segundos
+            setTimeout(() => {
+              return; // Mantener el resaltado indefinidamente
+              recursoElement.classList.remove('destacado');
+              // Limpiar el localStorage después de mostrar
+              localStorage.removeItem(LS_RECURSOS_LAST_CLICKED);
+            }, 5000);
+          }
+        }, 300);
+      }
     }
 
     // Crear card de tema
@@ -813,7 +866,7 @@
             <div class="recursos-title">📊 Presentacions</div>
             <div class="recursos-list">
               ${tema.recursos.slides.map((slide, idx) => `
-                <div class="recurso-item">
+                <div class="recurso-item" id="recurso-slides-${tema.tema}-${slide.dir.replace(/[^a-zA-Z0-9]/g, '_')}">
                   <div class="recurso-name">${slide.dir}</div>
                   <button class="recurso-btn btn-slides" onclick='abrirSlides("${tema.tema}", "${slide.dir}", ${JSON.stringify(slide.imgs)})'>
                     👁️ Veure
@@ -832,7 +885,7 @@
             <div class="recursos-title">🖼️ Infografies</div>
             <div class="recursos-list">
               ${tema.recursos.infografies.map((info, idx) => `
-                <div class="recurso-item">
+                <div class="recurso-item" id="recurso-info-${tema.tema}-${info.file.replace(/[^a-zA-Z0-9]/g, '_')}">
                   <div class="recurso-name">${info.file}</div>
                   <button class="recurso-btn btn-info" onclick="abrirInfografia('${tema.tema}', '${info.file}')">
                     👁️ Veure
@@ -851,7 +904,7 @@
             <div class="recursos-title">📝 Apunts</div>
             <div class="recursos-list">
               ${tema.recursos.apunts.map((apunt, idx) => `
-                <div class="recurso-item">
+                <div class="recurso-item" id="recurso-apunts-${tema.tema}-${apunt.file.replace(/[^a-zA-Z0-9]/g, '_')}">
                   <div class="recurso-name">${apunt.file}</div>
                   <button class="recurso-btn btn-apunts" onclick="abrirApunts('${tema.tema}', '${apunt.file}')">
                     📖 Llegir
@@ -870,9 +923,9 @@
             <div class="recursos-title">✅ Tests</div>
             <div class="recursos-list">
               ${tema.recursos.tests.map((test, idx) => `
-                <div class="recurso-item">
+                <div class="recurso-item" id="recurso-test-${tema.tema}-${test.file.replace(/[^a-zA-Z0-9]/g, '_')}">
                   <div class="recurso-name">${test.name}</div>
-                  <button class="recurso-btn btn-test" onclick="abrirTest('${test.file}')">
+                  <button class="recurso-btn btn-test" onclick="abrirTest('${tema.tema}', '${test.file}')">
                     ▶️ Fer test
                   </button>
                 </div>
@@ -891,12 +944,16 @@
 
     // Funciones para abrir recursos
     window.abrirSlides = function(temaId, dir, imgs) {
+      // Guardar recurso clicado
+      guardarUltimoRecursoClicado('slides', temaId, dir.replace(/[^a-zA-Z0-9]/g, '_'));
       // Abrir página de slides con lista de imágenes
       const imgsParam = imgs.join(',');
       window.open(`leerdiapos.html?root=${encodeURIComponent(rootSinOpos)}&dir=${encodeURIComponent(dir)}&tema=${encodeURIComponent(temaId)}&imgs=${imgsParam}`, '_self');
     };
 
     window.abrirInfografia = function(temaId, fileName) {
+      // Guardar recurso clicado
+      guardarUltimoRecursoClicado('info', temaId, fileName.replace(/[^a-zA-Z0-9]/g, '_'));
       // Abrir infografía en nueva pestaña
       const isLocal = location.hostname === 'localhost' || location.hostname === '127.0.0.1';
       const basePath = isLocal ? '' : 'opos/';
@@ -905,11 +962,15 @@
     };
 
     window.abrirApunts = function(temaId, md) {
+      // Guardar recurso clicado
+      guardarUltimoRecursoClicado('apunts', temaId, md.replace(/[^a-zA-Z0-9]/g, '_'));
       // Abrir página de apunts
       window.open(`leermd.html?root=${encodeURIComponent(root)}&tema=${encodeURIComponent(temaId)}&fitxer=${encodeURIComponent(md)}`, '_self');
     };
 
-    window.abrirTest = function(testFile) {
+    window.abrirTest = function(temaId, testFile) {
+      // Guardar recurso clicado
+      guardarUltimoRecursoClicado('test', temaId, testFile.replace(/[^a-zA-Z0-9]/g, '_'));
       // Cargar el test y navegar a estudiar.html
       fetch(`testfiles/${testFile}`)
         .then(res => res.json())
