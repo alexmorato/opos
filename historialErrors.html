@@ -412,6 +412,193 @@
       border: 2.5px solid #1aff4b;
       font-weight: bold;
     }
+
+    /* Botón hamburguesa */
+    .menu-btn {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      width: 50px;
+      height: 50px;
+      background: #2aebad;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      z-index: 1000;
+      transition: all 0.3s;
+      box-shadow: 0 4px 12px rgba(42, 235, 173, 0.3);
+    }
+
+    .menu-btn:hover {
+      background: #21c08d;
+      transform: scale(1.05);
+    }
+
+    .menu-btn span {
+      width: 28px;
+      height: 3px;
+      background: #032217;
+      border-radius: 2px;
+      transition: all 0.3s;
+    }
+
+    /* Menú desplegable */
+    .menu-panel {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: #141a2a;
+      border: 2px solid #27304a;
+      border-radius: 12px;
+      padding: 15px;
+      display: none;
+      flex-direction: column;
+      gap: 10px;
+      z-index: 1001;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+      min-width: 200px;
+    }
+
+    .menu-panel.visible {
+      display: flex;
+      animation: slideIn 0.3s ease-out;
+    }
+
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .menu-close-btn {
+      width: 100%;
+      padding: 12px;
+      background: #2aebad;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1.1rem;
+      font-weight: bold;
+      color: #032217;
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .menu-close-btn:hover {
+      background: #21c08d;
+      transform: translateY(-1px);
+    }
+
+    .btn-menu-action {
+      width: 100%;
+      padding: 12px;
+      background: #27304a;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: 600;
+      color: #e7ecff;
+      transition: all 0.2s;
+    }
+
+    .btn-menu-action:hover {
+      background: #3a4a6a;
+      transform: translateY(-1px);
+    }
+
+    .btn-menu-action.primary {
+      background: linear-gradient(180deg, #2aebad, #21c08d);
+      color: #032217;
+    }
+
+    .btn-menu-action.primary:hover {
+      background: linear-gradient(180deg, #21c08d, #1a9970);
+    }
+
+    .btn-menu-action.danger {
+      background: #8a2a2a;
+    }
+
+    .btn-menu-action.danger:hover {
+      background: #aa3a3a;
+    }
+
+    .btn-menu-fullscreen {
+      width: 100%;
+      padding: 12px;
+      background: #2a5f8a;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: 600;
+      color: #e7ecff;
+      transition: all 0.2s;
+    }
+
+    .btn-menu-fullscreen:hover {
+      background: #3a7faa;
+      transform: translateY(-1px);
+    }
+
+    .btn-scroll-top {
+      width: 100%;
+      max-width: 300px;
+      background: #2a5f8a;
+      color: #e7ecff;
+      font-size: 1.05rem;
+      padding: 10px 0;
+      border-radius: 10px;
+      border: none;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    .btn-scroll-top:hover {
+      background: #3a7faa;
+    }
+
+    @media (max-width: 768px) {
+      .menu-btn {
+        width: 45px;
+        height: 45px;
+        top: 15px;
+        right: 15px;
+      }
+
+      .menu-btn span {
+        width: 24px;
+      }
+
+      .menu-panel {
+        top: 15px;
+        right: 15px;
+        min-width: 170px;
+      }
+    }
+
+    /* Para el <hr> */
+    .menu-separator {
+      margin: 12px 8px;
+      border: none;
+      border-top: 1px solid #ddd;
+      width: 100%;
+    }
+
   </style>
   <script src="assets/js/loading.js"></script>
   <script src="assets/js/login.js"></script>
@@ -420,6 +607,40 @@
   <script src="assets/js/toast.js"></script>
 </head>
 <body>
+  <!-- Botón hamburguesa -->
+  <button class="menu-btn" id="menuBtn">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
+  <!-- Menú desplegable -->
+  <div class="menu-panel" id="menuPanel">
+    <button class="menu-close-btn" id="menuCloseBtn">
+      ☰ Tancar
+    </button>
+    <button class="btn-menu-fullscreen" id="menuFullscreenBtn">
+      ⛶ Pantalla completa
+    </button>
+    <button class="btn-menu-action" id="menuIndexBtn">
+      👨‍💻 Menu
+    </button>
+    <!-- Separador después del botón Menu -->
+    <hr class="menu-separator">
+    <button class="btn-menu-action primary" id="menuRepassarBtn" style="display:none;">
+      🔁 Repassar
+    </button>
+    <button class="btn-menu-action" id="menuCopiarBtn" style="display:none;">
+      📋 Copiar
+    </button>
+    <button class="btn-menu-action" id="menuDescargarBtn" style="display:none;">
+      💾 Descargar
+    </button>
+    <button class="btn-menu-action danger" id="menuEsborrarBtn" style="display:none;">
+      🗑️ Esborrar
+    </button>
+  </div>
+
   <div class="center">
     <h1 class="titulo">📋 Historial d'errors</h1>
     
@@ -446,22 +667,12 @@
       </div>
     </div>
 
-    <div class="buttons-container">
-      <button class="btn-primary" id="repassarBtn2" style="display:none;">🔁 Repassar</button>
-      <button class="btn-secondary" id="tornarBtn2">⬅️ Tornar</button>
-    </div>
-
-
     <div class="preguntes-container" id="preguntesContainer">
       <div class="empty-state">No hi ha preguntes a l'historial de fallos.</div>
     </div>
 
     <div class="buttons-container">
-      <button class="btn-primary" id="repassarBtn" style="display:none;">🔁 Repassar Historial</button>
-      <button class="btn-secondary" id="copiarBtn" style="display:none;">📋 Copiar JSON</button>
-      <button class="btn-secondary" id="descargarBtn" style="display:none;">💾 Descargar JSON</button>
-      <button class="btn-danger" id="esborrarTotBtn" style="display:none;">🗑️ Esborrar Tot</button>
-      <button class="btn-secondary" id="tornarBtn">⬅️ Tornar</button>
+      <button class="btn-scroll-top" id="scrollTopBtn">⬆️ Tornar a dalt</button>
     </div>
   </div>
 
@@ -494,6 +705,68 @@
     const preguntesContainer = document.getElementById('preguntesContainer');
     const modal = document.getElementById('detailModal');
     const closeModal = document.getElementsByClassName('close')[0];
+
+    // Referencias al menú hamburguesa
+    const menuBtn = document.getElementById('menuBtn');
+    const menuPanel = document.getElementById('menuPanel');
+    const menuCloseBtn = document.getElementById('menuCloseBtn');
+    const menuFullscreenBtn = document.getElementById('menuFullscreenBtn');
+    const menuIndexBtn = document.getElementById('menuIndexBtn');
+    const menuRepassarBtn = document.getElementById('menuRepassarBtn');
+    const menuCopiarBtn = document.getElementById('menuCopiarBtn');
+    const menuDescargarBtn = document.getElementById('menuDescargarBtn');
+    const menuEsborrarBtn = document.getElementById('menuEsborrarBtn');
+
+    // Toggle menú
+    menuBtn.addEventListener('click', () => {
+      menuPanel.classList.toggle('visible');
+    });
+
+    // Cerrar menú
+    menuCloseBtn.addEventListener('click', () => {
+      menuPanel.classList.remove('visible');
+    });
+
+    // Cerrar menú al hacer clic fuera
+    document.addEventListener('click', (e) => {
+      if (!menuPanel.contains(e.target) && !menuBtn.contains(e.target)) {
+        menuPanel.classList.remove('visible');
+      }
+    });
+
+    // Botón fullscreen
+    menuFullscreenBtn.addEventListener('click', () => {
+      if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen().then(() => {
+          menuFullscreenBtn.innerHTML = '⛶ Sortir pantalla completa';
+          menuPanel.classList.remove('visible');
+        }).catch(err => {
+          console.error('Error al activar fullscreen:', err);
+        });
+      } else {
+        document.exitFullscreen().then(() => {
+          menuFullscreenBtn.innerHTML = '⛶ Pantalla completa';
+          menuPanel.classList.remove('visible');
+        });
+      }
+    });
+
+    // Actualizar texto del botón cuando se sale de fullscreen con ESC
+    document.addEventListener('fullscreenchange', () => {
+      if (!document.fullscreenElement) {
+        menuFullscreenBtn.innerHTML = '⛶ Pantalla completa';
+      }
+    });
+
+    // Botón menu principal
+    menuIndexBtn.addEventListener('click', () => {
+      window.location.href = 'index.html';
+    });
+
+    // Botón volver arriba
+    document.getElementById('scrollTopBtn').addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
     // Modal para seleccionar múltiples temas
     function showFiltrarTemaModal() {
       if (document.getElementById('filtrarTemaModal')) return;
@@ -581,22 +854,20 @@
           document.getElementById('ultimaActualizacion').textContent = '-';
         }
 
-        // Mostrar botones
-        document.getElementById('repassarBtn').style.display = 'block';
-        document.getElementById('repassarBtn2').style.display = 'block';
-        document.getElementById('copiarBtn').style.display = 'block';
-        document.getElementById('descargarBtn').style.display = 'block';
-        document.getElementById('esborrarTotBtn').style.display = 'block';
+        // Mostrar botones del menú
+        menuRepassarBtn.style.display = 'block';
+        menuCopiarBtn.style.display = 'block';
+        menuDescargarBtn.style.display = 'block';
+        menuEsborrarBtn.style.display = 'block';
 
         // Renderizar preguntas
         renderizarPreguntes();
       } else {
         document.getElementById('ultimaActualizacion').textContent = '-';
-        document.getElementById('repassarBtn').style.display = 'none';
-        document.getElementById('repassarBtn2').style.display = 'none';
-        document.getElementById('copiarBtn').style.display = 'none';
-        document.getElementById('descargarBtn').style.display = 'none';
-        document.getElementById('esborrarTotBtn').style.display = 'none';
+        menuRepassarBtn.style.display = 'none';
+        menuCopiarBtn.style.display = 'none';
+        menuDescargarBtn.style.display = 'none';
+        menuEsborrarBtn.style.display = 'none';
         preguntesContainer.innerHTML = '<div class="empty-state">No hi ha preguntes a l\'historial de fallos.</div>';
       }
 
@@ -721,11 +992,10 @@
 
       // Actualiza el texto de los botones según la selección
       function actualizarBotonesSegunSeleccion() {
-        const btnCopiar = document.getElementById('copiarBtn');
-        const btnDescargar = document.getElementById('descargarBtn');
-        const btnRepassar = document.getElementById('repassarBtn');
-        const btnRepassar2 = document.getElementById('repassarBtn2');
-        const btnBorrar = document.getElementById('esborrarTotBtn');
+        const btnCopiar = menuCopiarBtn;
+        const btnDescargar = menuDescargarBtn;
+        const btnRepassar = menuRepassarBtn;
+        const btnBorrar = menuEsborrarBtn;
         const seleccionadas = document.querySelectorAll('.pregunta-card.selected').length;
         const total = historialFallos.length;
         if (btnCopiar) {
@@ -745,10 +1015,8 @@
         if (btnRepassar) {
           if (seleccionadas === 0) {
             btnRepassar.textContent = '🔁 Repassar Historial';
-            btnRepassar2.textContent = '🔁 Repassar Historial';
-2          } else {
+          } else {
             btnRepassar.textContent = `🔁 Repassar ${seleccionadas} de ${total}`;
-            btnRepassar2.textContent = `🔁 Repassar ${seleccionadas} de ${total}`;
           }
         }
         if (btnBorrar) {
@@ -865,6 +1133,27 @@
       }
     }
 
+    // Conectar botones del menú a las acciones
+    menuRepassarBtn.addEventListener('click', () => {
+      menuPanel.classList.remove('visible');
+      repassarAction();
+    });
+
+    menuCopiarBtn.addEventListener('click', () => {
+      menuPanel.classList.remove('visible');
+      copiarAction();
+    });
+
+    menuDescargarBtn.addEventListener('click', () => {
+      menuPanel.classList.remove('visible');
+      descargarAction();
+    });
+
+    menuEsborrarBtn.addEventListener('click', () => {
+      menuPanel.classList.remove('visible');
+      esborrarAction();
+    });
+
     function repassarAction() {
       if (historialFallos.length > 0) {
         // Obtener las seleccionadas
@@ -890,16 +1179,8 @@
       }
     }
 
-    // Botón repasar historial
-    document.getElementById('repassarBtn2').onclick = function() {
-      repassarAction();
-    };
-    document.getElementById('repassarBtn').onclick = function() {
-      repassarAction();
-    };
-
-    // Botón copiar JSON
-    document.getElementById('copiarBtn').onclick = function() {
+    // Funciones de acción
+    function copiarAction() {
       // Copiar solo las preguntas seleccionadas
       const selectedCards = Array.from(document.querySelectorAll('.pregunta-card.selected'));
       let preguntasSeleccionadas = [];
@@ -926,10 +1207,9 @@
           }
         });
       }
-    };
+    }
 
-    // Botón descargar JSON
-    document.getElementById('descargarBtn').onclick = function() {
+    function descargarAction() {
       // Descargar solo las preguntas seleccionadas
       const selectedCards = Array.from(document.querySelectorAll('.pregunta-card.selected'));
       let preguntasSeleccionadas = [];
@@ -948,7 +1228,9 @@
         const a = document.createElement('a');
         a.href = url;
         const timestamp = new Date().toISOString().replace(/[:.]/g, '-').slice(0, -5);
-        a.download = `historial-fallos-${timestamp}.json`;
+        const username = localStorage.getItem(LS_KEYS.USER_NAME);
+
+        a.download = `historial-${username}-${timestamp}.json`;
         document.body.appendChild(a);
         a.click();
         document.body.removeChild(a);
@@ -957,10 +1239,9 @@
           toast.showToast('Descarregant JSON...');
         }
       }
-    };
+    }
 
-    // Botón esborrar tot
-    document.getElementById('esborrarTotBtn').onclick = function() {
+    function esborrarAction() {
       // Copiar solo las preguntas seleccionadas
       const selectedCards = Array.from(document.querySelectorAll('.pregunta-card.selected'));
       const total = historialFallos.length;
@@ -994,18 +1275,7 @@
           actualizarUI();
         }
       }
-    };
-
-    // Botón tornar
-    document.getElementById('tornarBtn').onclick = function() {
-      window.location.href = 'index.html';
-    };
-
-        // Botón tornar
-    document.getElementById('tornarBtn2').onclick = function() {
-      window.location.href = 'index.html';
-    };
-
+    }
 
     // Cargar historial al iniciar
     cargarHistorial();
