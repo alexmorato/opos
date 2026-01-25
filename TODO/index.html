@@ -21,6 +21,7 @@
         th, td {
             padding: 10px;
             border: 1px solid #ddd;
+            vertical-align: top;
         }
 
         th {
@@ -34,6 +35,19 @@
         .complexity-LOW    { color: #2e7d32; }
         .complexity-MEDIUM { color: #e65100; }
         .complexity-HIGH   { color: #b00020; font-weight: bold; }
+
+        .toggle-btn {
+            background: none;
+            border: none;
+            color: #1565c0;
+            cursor: pointer;
+            padding: 0;
+            font-size: 0.9em;
+        }
+
+        .toggle-btn:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
@@ -44,10 +58,10 @@
         <thead>
             <tr>
                 <th>Título</th>
-                <th>Fecha inserción</th>
-                <th>Descripción</th>
                 <th>Estado</th>
                 <th>Complejidad</th>
+                <th>Descripción</th>
+                <th>Fecha inserción</th>
                 <th>Fecha finalización</th>
             </tr>
         </thead>
@@ -55,6 +69,8 @@
     </table>
 
     <script>
+        const DESCRIPTION_LIMIT = 150;
+
         fetch('tasks.json')
             .then(response => response.json())
             .then(data => {
@@ -74,24 +90,64 @@
         function renderTasks(tasks, statusMap, complexityMap) {
             const tbody = document.getElementById('tasks-table-body');
 
-            tasks.forEach(task => {
+            tasks.forEach((task, index) => {
                 const row = document.createElement('tr');
+
+                const isLongDescription = task.description.length > DESCRIPTION_LIMIT;
+                const shortDescription = isLongDescription
+                    ? task.description.slice(0, DESCRIPTION_LIMIT) + '...'
+                    : task.description;
 
                 row.innerHTML = `
                     <td>${task.title}</td>
-                    <td>${task.createdAt}</td>
-                    <td>${task.description}</td>
                     <td class="status-${task.status}">
                         ${statusMap[task.status] ?? task.status}
                     </td>
                     <td class="complexity-${task.complexity}">
                         ${complexityMap[task.complexity] ?? task.complexity}
                     </td>
+                    <td>
+                        <span id="desc-short-${index}">${shortDescription}</span>
+                        ${
+                            isLongDescription
+                                ? `
+                                <span id="desc-full-${index}" style="display:none;">
+                                    ${task.description}
+                                </span>
+                                <br>
+                                <button class="toggle-btn"
+                                        onclick="toggleDescription(${index})"
+                                        id="toggle-btn-${index}">
+                                    Ver más
+                                </button>
+                                `
+                                : ''
+                        }
+                    </td>
+                    <td>${task.createdAt}</td>
                     <td>${task.completedAt ?? '-'}</td>
                 `;
 
                 tbody.appendChild(row);
             });
+        }
+
+        function toggleDescription(index) {
+            const shortEl = document.getElementById(`desc-short-${index}`);
+            const fullEl = document.getElementById(`desc-full-${index}`);
+            const btn = document.getElementById(`toggle-btn-${index}`);
+
+            const isExpanded = fullEl.style.display === 'inline';
+
+            if (isExpanded) {
+                fullEl.style.display = 'none';
+                shortEl.style.display = 'inline';
+                btn.textContent = 'Ver más';
+            } else {
+                fullEl.style.display = 'inline';
+                shortEl.style.display = 'none';
+                btn.textContent = 'Ver menos';
+            }
         }
     </script>
 
