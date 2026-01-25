@@ -53,6 +53,17 @@
             background-color: #97f19f; /* verde claro */
         }
 
+        #gtd-inbox {
+            background-color: #ffffff;
+            padding: 15px 25px;
+            border-radius: 6px;
+        }
+
+        #gtd-inbox li {
+            margin-bottom: 6px;
+        }
+
+
     </style>
 </head>
 <body>
@@ -73,6 +84,11 @@
         <tbody id="tasks-table-body"></tbody>
     </table>
 
+    <h2>🧠 Bandeja de entrada (Getting Things Done)</h2>
+    <ul id="gtd-inbox">
+        <!-- Items GTD -->
+    </ul>
+
     <script>
         const DESCRIPTION_LIMIT = 150;
 
@@ -82,6 +98,7 @@
                 const statusMap = createMap(data.statuses);
                 const complexityMap = createMap(data.complexities);
                 renderTasks(data.tasks, statusMap, complexityMap);
+                renderGtdInbox(data.gtdInbox);
             })
             .catch(error => console.error('Error cargando tareas:', error));
 
@@ -90,6 +107,16 @@
                 map[item.code] = item.label;
                 return map;
             }, {});
+        }
+
+        function renderGtdInbox(items) {
+            const ul = document.getElementById('gtd-inbox');
+
+            items.forEach(text => {
+                const li = document.createElement('li');
+                li.textContent = text;
+                ul.appendChild(li);
+            });
         }
 
         function renderTasks(tasks, statusMap, complexityMap) {
