@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Tareas – Proyecto generación de tests</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 40px;
+            background-color: #f5f5f5;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: #ffffff;
+        }
+
+        th, td {
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f0f0f0;
+        }
+
+        .status-TODO { color: #b00020; font-weight: bold; }
+        .status-WIP  { color: #e65100; font-weight: bold; }
+        .status-DONE { color: #2e7d32; font-weight: bold; }
+
+        .complexity-LOW    { color: #2e7d32; }
+        .complexity-MEDIUM { color: #e65100; }
+        .complexity-HIGH   { color: #b00020; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+    <h1>📋 Tareas del proyecto</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Título</th>
+                <th>Fecha inserción</th>
+                <th>Descripción</th>
+                <th>Estado</th>
+                <th>Complejidad</th>
+                <th>Fecha finalización</th>
+            </tr>
+        </thead>
+        <tbody id="tasks-table-body"></tbody>
+    </table>
+
+    <script>
+        fetch('tasks.json')
+            .then(response => response.json())
+            .then(data => {
+                const statusMap = createMap(data.statuses);
+                const complexityMap = createMap(data.complexities);
+                renderTasks(data.tasks, statusMap, complexityMap);
+            })
+            .catch(error => console.error('Error cargando tareas:', error));
+
+        function createMap(items) {
+            return items.reduce((map, item) => {
+                map[item.code] = item.label;
+                return map;
+            }, {});
+        }
+
+        function renderTasks(tasks, statusMap, complexityMap) {
+            const tbody = document.getElementById('tasks-table-body');
+
+            tasks.forEach(task => {
+                const row = document.createElement('tr');
+
+                row.innerHTML = `
+                    <td>${task.title}</td>
+                    <td>${task.createdAt}</td>
+                    <td>${task.description}</td>
+                    <td class="status-${task.status}">
+                        ${statusMap[task.status] ?? task.status}
+                    </td>
+                    <td class="complexity-${task.complexity}">
+                        ${complexityMap[task.complexity] ?? task.complexity}
+                    </td>
+                    <td>${task.completedAt ?? '-'}</td>
+                `;
+
+                tbody.appendChild(row);
+            });
+        }
+    </script>
+
+</body>
+</html>
