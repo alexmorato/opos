@@ -89,17 +89,19 @@ def png_to_jpg_optimized(png_path, target_size_kb=450):
 
 
 def process_folder(folder_path):
-    """Procesa todos los PDFs y PNGs en una carpeta"""
+    """Procesa todos los PDFs y PNGs en una carpeta y sus subcarpetas recursivamente"""
     if not os.path.isdir(folder_path):
         raise NotADirectoryError(f"No existe la carpeta: {folder_path}")
 
-    # Buscar todos los archivos PDF y PNG
+    # Buscar todos los archivos PDF y PNG recursivamente
     pdfs = []
     pngs = []
     
-    for file in os.listdir(folder_path):
-        file_path = os.path.join(folder_path, file)
-        if os.path.isfile(file_path):
+    print(f"🔍 Buscando PDFs y PNGs en '{folder_path}' y subcarpetas...")
+    
+    for root, dirs, files in os.walk(folder_path):
+        for file in files:
+            file_path = os.path.join(root, file)
             if file.lower().endswith(".pdf"):
                 pdfs.append(file_path)
             elif file.lower().endswith(".png"):

@@ -154,6 +154,37 @@
       transform: translateY(-1px);
     }
 
+    /* Label del directorio */
+    .dir-label {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      z-index: 999;
+      background: #27304a;
+      color: #e7ecff;
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+      opacity: 0.9;
+    }
+
+    /* Contador de diapositivas */
+    .slide-counter {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: #2aebad;
+      color: #032217;
+      padding: 6px 14px;
+      border-radius: 6px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      box-shadow: 0 2px 6px rgba(42, 235, 173, 0.4);
+      z-index: 10;
+    }
+
     @media (max-width: 768px) {
       .menu-btn {
         width: 45px;
@@ -199,6 +230,11 @@
     </button>
   </div>
 
+  <!-- Label fijo arriba a la izquierda con el nombre del directorio -->
+  <div id="dirLabel" class="dir-label">
+    <!-- Se rellena con JavaScript -->
+  </div>
+
   <div id="slidesContainer"></div>
 
   <script>
@@ -221,6 +257,12 @@
       imgs.forEach((img, index) => {
         const slideDiv = document.createElement('div');
         slideDiv.className = 'slide';
+        slideDiv.style.position = 'relative';
+        
+        // Contador de diapositiva (1 de N)
+        const counterDiv = document.createElement('div');
+        counterDiv.className = 'slide-counter';
+        counterDiv.textContent = `${index + 1} de ${imgs.length}`;
         
         const imgElement = document.createElement('img');
         // Construir ruta: root/tema/dir/imagen
@@ -228,10 +270,15 @@
         imgElement.alt = `Diapositiva ${index + 1}`;
         imgElement.loading = 'lazy';
         
+        slideDiv.appendChild(counterDiv);
         slideDiv.appendChild(imgElement);
         container.appendChild(slideDiv);
       });
     }
+
+    // Actualizar label con el nombre del directorio
+    const dirLabel = document.getElementById('dirLabel');
+    dirLabel.textContent = dir || 'slides';
 
     // Referencias a elementos del menú
     const menuBtn = document.getElementById('menuBtn');
@@ -284,12 +331,28 @@
 
     // Botón tornar
     tornarBtn.addEventListener('click', () => {
+      tiraPaAtras();
+    });
+
+    // Capturar tecla Backspace para volver atrás
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Backspace') {
+        // Prevenir el comportamiento por defecto solo si no estamos en un input
+        if (document.activeElement.tagName !== 'INPUT' && 
+            document.activeElement.tagName !== 'TEXTAREA') {
+          e.preventDefault();
+          tiraPaAtras();
+        }
+      }
+    });
+
+    function tiraPaAtras() {
       if (window.history.length > 1) {
         window.history.back();
       } else {
         window.location.href = 'index.html';
       }
-    });
+    }
 
     // Botón menu principal
     menuIndexBtn.addEventListener('click', () => {
