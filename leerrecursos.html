@@ -578,22 +578,22 @@
         // Procesar datos
         procesarDatos();
 
+        // Restaurar estado guardado
+        let { savedSearch, savedTema } = restaurarEstado();
         // Buscar filtro en la URL
-        const filtroUrl = getQueryParam('search');
-          let filtroFinal = '';
-          if (filtroUrl) {
-            filtroFinal = filtroUrl;
-            document.getElementById('searchInput').value = filtroUrl;
-            guardarEstado(filtroUrl, undefined);
-          } else {
-          // Restaurar estado guardado
-          const { savedSearch, savedTema } = restaurarEstado();
+        const filtroUrl = getQueryParam('search');        
+        let filtroFinal = '';
+        if (filtroUrl) {
+          filtroFinal = filtroUrl;
+          document.getElementById('searchInput').value = filtroUrl;
+        } else {
           if (savedSearch) {
             document.getElementById('searchInput').value = savedSearch;
             filtroFinal = savedSearch;
           }
         }
-        renderizarTemes(filtroFinal);
+        guardarEstado(filtroFinal, savedTema);
+        renderizarTemes(filtroFinal, savedTema);
 
         if (typeof hideLoadingSpinner === 'function') hideLoadingSpinner();
       } catch (err) {
