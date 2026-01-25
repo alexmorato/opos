@@ -551,6 +551,12 @@
       login.checkUserAuth(userGuid, userPass);
     }, {once: true});
 
+    // Buscar parámetro 'search' en la URL y aplicarlo como filtro prioritario
+    function getQueryParam(name) {
+      const params = new URLSearchParams(window.location.search);
+      return params.get(name);
+    }
+
     // Cargar todos los datos
     async function cargarDatos() {
       try {
@@ -572,12 +578,22 @@
         // Procesar datos
         procesarDatos();
 
-        // Restaurar estado guardado
-        const { savedSearch, savedTema } = restaurarEstado();
-        if (savedSearch) {
-          document.getElementById('searchInput').value = savedSearch;
+        // Buscar filtro en la URL
+        const filtroUrl = getQueryParam('search');
+          let filtroFinal = '';
+          if (filtroUrl) {
+            filtroFinal = filtroUrl;
+            document.getElementById('searchInput').value = filtroUrl;
+            guardarEstado(filtroUrl, undefined);
+          } else {
+          // Restaurar estado guardado
+          const { savedSearch, savedTema } = restaurarEstado();
+          if (savedSearch) {
+            document.getElementById('searchInput').value = savedSearch;
+            filtroFinal = savedSearch;
+          }
         }
-        renderizarTemes(savedSearch, savedTema);
+        renderizarTemes(filtroFinal);
 
         if (typeof hideLoadingSpinner === 'function') hideLoadingSpinner();
       } catch (err) {
@@ -693,10 +709,16 @@
 
       const temasFiltrados = todosLosDatos.filter(tema => {
         if (!filtro) return true;
-        const searchText = filtro.toLowerCase();
-        return tema.tema.toLowerCase().includes(searchText) ||
-               tema.titol.toLowerCase().includes(searchText) ||
-               tema.curt.toLowerCase().includes(searchText);
+        
+        // Dividir el filtro en palabras separadas por espacios
+        const palabras = filtro.toLowerCase().trim().split(/\s+/).filter(p => p.length > 0);
+        
+        // Comprobar si alguna palabra coincide con algún campo (OR)
+        return palabras.some(palabra => 
+          tema.tema.toLowerCase().includes(palabra) ||
+          tema.titol.toLowerCase().includes(palabra) ||
+          tema.curt.toLowerCase().includes(palabra)
+        );
       });
 
       if (temasFiltrados.length === 0) {
