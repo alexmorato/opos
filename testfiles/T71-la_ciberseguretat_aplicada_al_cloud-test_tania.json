@@ -1,0 +1,467 @@
+[
+  {
+    "guid": "c3c3b5e7-9c3a-4bc1-a784-9e3f66be5583",
+    "subjectId": "T71",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "En un model IaaS (Infrastructure as a Service), si un atacant explota una vulnerabilitat del sistema operatiu d'una màquina virtual per instal·lar malware, de qui és la responsabilitat principal de solucionar l'incident?",
+    "answerOptions": [
+      {
+        "text": "Del proveïdor del núvol, que ha de garantir la seguretat de tota la infraestructura, incloent els sistemes operatius de les màquines virtuals.",
+        "rationale": "En IaaS, el proveïdor és responsable de la seguretat de la infraestructura física i de l'hipervisor, però no del contingut o la configuració de les màquines virtuals del client.",
+        "isCorrect": false
+      },
+      {
+        "text": "Del client, que ha d'aplicar el pegat de seguretat corresponent al sistema operatiu i gestionar la recuperació.",
+        "rationale": "Segons el model de responsabilitat compartida en IaaS, el client és responsable de la seguretat des del sistema operatiu cap amunt, incloent l'aplicació de pegats i la gestió de vulnerabilitats.",
+        "isCorrect": true
+      },
+      {
+        "text": "D'ambdós, ja que el model de responsabilitat compartida estableix que la seguretat del sistema operatiu és una tasca conjunta i coordinada.",
+        "rationale": "Tot i que el model és 'compartit', les responsabilitats estan clarament delimitades; la gestió del SO en IaaS recau de forma inequívoca en el client.",
+        "isCorrect": false
+      },
+      {
+        "text": "De l'hipervisor, que hauria d'haver aïllat la màquina virtual i evitat l'explotació de la vulnerabilitat a nivell de sistema operatiu.",
+        "rationale": "L'hipervisor aïlla les màquines virtuals entre elles a nivell d'infraestructura, però no pot prevenir l'explotació d'una vulnerabilitat interna del sistema operatiu convidat.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Recorda quina és la capa més alta que gestiona el proveïdor en un model d'Infraestructura com a Servei."
+  },
+  {
+    "guid": "6db0da28-23df-42ba-8fed-8a42e936820c",
+    "subjectId": "T71",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "Quina eina de seguretat al núvol està dissenyada específicament per escanejar contínuament la configuració dels recursos cloud i detectar automàticament males pràctiques o incompliments de polítiques de seguretat?",
+    "answerOptions": [
+      {
+        "text": "CWPP (Cloud Workload Protection Platform)",
+        "rationale": "Un CWPP se centra en la protecció de les càrregues de treball (com VMs o contenidors) en temps d'execució, més que en l'auditoria de la configuració de la infraestructura subjacent.",
+        "isCorrect": false
+      },
+      {
+        "text": "SIEM (Security Information and Event Management)",
+        "rationale": "Un SIEM agrega i correlaciona logs d'esdeveniments per a la detecció d'amenaces en temps real, però no està dissenyat principalment per a l'auditoria proactiva i contínua de la configuració.",
+        "isCorrect": false
+      },
+      {
+        "text": "CASB (Cloud Access Security Broker)",
+        "rationale": "Un CASB actua com a intermediari per aplicar polítiques de seguretat a l'ús d'aplicacions al núvol (principalment SaaS), no per escanejar la configuració d'infraestructura.",
+        "isCorrect": false
+      },
+      {
+        "text": "CSPM (Cloud Security Posture Management)",
+        "rationale": "La funció principal d'un CSPM és precisament auditar la 'postura' de seguretat, identificant configuracions errònies i incompliments de forma preventiva i contínua.",
+        "isCorrect": true
+      }
+    ],
+    "hint": "El seu nom fa referència a la 'postura' o l'estat de la configuració de seguretat."
+  },
+  {
+    "guid": "62617302-0717-414f-839d-fd79c72facac",
+    "subjectId": "T71",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "Un atac de denegació de servei distribuït (DDoS) que impedeix l'accés dels usuaris legítims a un portal de tràmits de l'administració pública allotjat al núvol, quin principi fonamental de la tríada CID afecta principalment?",
+    "answerOptions": [
+      {
+        "text": "Confidencialitat",
+        "rationale": "La confidencialitat es veuria afectada si les dades fossin exposades a persones no autoritzades, la qual cosa no és l'objectiu principal d'un atac DDoS.",
+        "isCorrect": false
+      },
+      {
+        "text": "Disponibilitat",
+        "rationale": "Aquest principi garanteix que els serveis estiguin accessibles quan es necessiten, i un atac DDoS té com a objectiu directe interrompre aquesta accessibilitat.",
+        "isCorrect": true
+      },
+      {
+        "text": "Integritat",
+        "rationale": "La integritat es veuria compromesa si les dades fossin modificades sense autorització, fet que no es produeix en un atac DDoS típic que només busca saturar el servei.",
+        "isCorrect": false
+      },
+      {
+        "text": "Autenticitat",
+        "rationale": "L'autenticitat es refereix a la verificació de la identitat d'usuaris o sistemes; tot i estar relacionada amb la seguretat, no és el principi directament afectat per la indisponibilitat del servei.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Pensa en quin és l'objectiu principal d'un atac que busca saturar un servei."
+  },
+  {
+    "guid": "2758c225-2238-42c3-b5dd-1a7787ff636c",
+    "subjectId": "T71",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "En el context de la protecció de dades al núvol, què implica el principi BYOK (Bring Your Own Key)?",
+    "answerOptions": [
+      {
+        "text": "Que el proveïdor del núvol ofereix un servei de gestió de claus altament segur (HSM) on el client pot emmagatzemar les claus generades per ell.",
+        "rationale": "Això descriu un servei de Key Management, que pot ser utilitzat per implementar BYOK, però no és la definició del principi en si mateix, que se centra en l'origen de la clau.",
+        "isCorrect": false
+      },
+      {
+        "text": "Que les dades es xifren automàticament tant en trànsit com en repòs utilitzant les claus mestres gestionades íntegrament pel proveïdor.",
+        "rationale": "Aquesta opció descriu el xifratge gestionat pel proveïdor (provider-managed keys), que és precisament l'alternativa al model BYOK.",
+        "isCorrect": false
+      },
+      {
+        "text": "Que el client genera i gestiona les seves pròpies claus de xifratge, aportant-les al servei del proveïdor per xifrar les seves dades.",
+        "rationale": "BYOK permet al client mantenir el control sobre el seu material criptogràfic, generant les claus fora del núvol i important-les per al seu ús.",
+        "isCorrect": true
+      },
+      {
+        "text": "Que el client ha de desenvolupar el seu propi algorisme de xifratge per garantir la màxima seguretat, a més de gestionar les claus.",
+        "rationale": "BYOK es refereix a la gestió de les 'claus', no al desenvolupament dels 'algorismes' de xifratge, que solen ser estàndards de la indústria com AES.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "L'acrònim significa 'Porta la teva pròpia clau'."
+  },
+  {
+    "guid": "316fa3a3-9177-482c-9697-bfd05621512b",
+    "subjectId": "T71",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "Segons la Directiva NIS2, quina és una de les principals implicacions per a les entitats que utilitzen serveis cloud?",
+    "answerOptions": [
+      {
+        "text": "Han d'avaluar els riscos de ciberseguretat de la seva cadena de subministrament, incloent els seus proveïdors de serveis al núvol.",
+        "rationale": "La directiva posa un fort èmfasi en la gestió de riscos de tercers, considerant els proveïdors cloud com una part crítica de la cadena de subministrament.",
+        "isCorrect": true
+      },
+      {
+        "text": "Prohibeix explícitament l'ús de proveïdors de núvol no europeus per a sectors crítics per garantir la sobirania de les dades.",
+        "rationale": "NIS2 no prohibeix proveïdors per la seva ubicació, sinó que exigeix que les entitats gestionin adequadament els riscos de seguretat associats a tots els seus proveïdors.",
+        "isCorrect": false
+      },
+      {
+        "text": "Obliga els proveïdors de núvol a obtenir la certificació de l'Esquema Nacional de Seguretat (ENS) per poder operar a la UE.",
+        "rationale": "L'ENS és una normativa específica de l'àmbit públic espanyol, no un requisit directe imposat per la directiva europea NIS2 a tots els proveïdors.",
+        "isCorrect": false
+      },
+      {
+        "text": "Eximeix les empreses de notificar incidents si aquests ocorren a la infraestructura del proveïdor cloud, sent aquest l'únic responsable.",
+        "rationale": "Al contrari, NIS2 reforça les obligacions de notificació per part de l'entitat que presta el servei essencial, la qual continua sent responsable davant la llei.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Aquesta directiva posa un fort èmfasi en la seguretat de tots els actors implicats en la prestació d'un servei essencial."
+  },
+  {
+    "guid": "48484c5f-db00-42d4-8d04-6dc4add33082",
+    "subjectId": "T71",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "Quina tecnologia emergent permet protegir les dades fins i tot mentre estan sent processades a la CPU d'un servidor al núvol, aïllant-les del propi proveïdor cloud?",
+    "answerOptions": [
+      {
+        "text": "El xifratge homomòrfic, que permet realitzar operacions directament sobre les dades xifrades.",
+        "rationale": "Tot i que el xifratge homomòrfic també protegeix les dades en ús, el mecanisme descrit basat en aïllament de maquinari correspon a una altra tecnologia.",
+        "isCorrect": false
+      },
+      {
+        "text": "L'arquitectura Zero Trust, que valida contínuament cada petició d'accés als recursos.",
+        "rationale": "Zero Trust és un model estratègic de gestió d'accessos, no una tecnologia per a la protecció de dades en ús a nivell de maquinari.",
+        "isCorrect": false
+      },
+      {
+        "text": "La computació confidencial (Confidential Computing) mitjançant enclavaments segurs de maquinari (TEE).",
+        "rationale": "Aquesta tecnologia utilitza àrees segures dins de la CPU (TEE) per desencriptar i processar dades de forma aïllada, impedint l'accés fins i tot a l'hipervisor o al personal del proveïdor.",
+        "isCorrect": true
+      },
+      {
+        "text": "El xifratge de dades en repòs (at rest) amb claus gestionades pel client (BYOK).",
+        "rationale": "El xifratge en repòs protegeix les dades quan estan emmagatzemades en un disc, però no mentre s'estan processant activament a la memòria RAM o la CPU.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Aquesta tecnologia crea una mena de 'bombolla' segura dins del processador."
+  },
+  {
+    "guid": "dad5f9c2-fadc-45e2-8c78-4d4d4d90dbd3",
+    "subjectId": "T71",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "En un servei SaaS com Microsoft 365, si un usuari és víctima d'un atac de phishing i el seu compte és compromès perquè no tenia l'autenticació multifactor (MFA) activada, sobre qui recau la responsabilitat principal de l'incident?",
+    "answerOptions": [
+      {
+        "text": "Sobre el client, que és responsable de configurar correctament els usuaris, els permisos i les polítiques d'ús segur com l'MFA.",
+        "rationale": "El model de responsabilitat en SaaS estableix que la configuració de la seguretat dels comptes i la gestió de les dades és responsabilitat del client.",
+        "isCorrect": true
+      },
+      {
+        "text": "Sobre el proveïdor (Microsoft), ja que és responsable de la seguretat de tota l'aplicació i hauria d'haver bloquejat l'atac.",
+        "rationale": "El proveïdor és responsable de la seguretat de la plataforma, però no pot controlar les decisions de configuració de seguretat preses per cada client.",
+        "isCorrect": false
+      },
+      {
+        "text": "Sobre l'usuari final exclusivament, ja que és qui ha comès l'error de clicar a l'enllaç maliciós.",
+        "rationale": "Encara que l'usuari comet l'error, la responsabilitat organitzativa de definir i aplicar polítiques de seguretat (com exigir MFA) recau sobre l'empresa client.",
+        "isCorrect": false
+      },
+      {
+        "text": "Compartida entre el client i el proveïdor, ja que el proveïdor hauria de forçar l'activació de l'MFA per defecte a tots els comptes.",
+        "rationale": "Tot i que els proveïdors poden recomanar o facilitar l'MFA, la responsabilitat contractual de la seva implementació i gestió és del client que administra el servei.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Pensa en la configuració de la seguretat a nivell d'usuari dins d'una aplicació que ja funciona."
+  },
+  {
+    "guid": "54fadd8c-4a21-44a8-b9a5-ad2480c13056",
+    "subjectId": "T71",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "Quina de les següents es considera una bona pràctica fonamental per gestionar la seguretat en un entorn multi-núvol?",
+    "answerOptions": [
+      {
+        "text": "Utilitzar exclusivament les eines de seguretat natives de cada proveïdor per aprofitar la seva integració òptima, evitant eines de tercers.",
+        "rationale": "Aquesta estratègia crea silos de gestió i dificulta tenir una visibilitat i control unificats, a més de dependre de funcionalitats que poden no ser equivalents entre proveïdors.",
+        "isCorrect": false
+      },
+      {
+        "text": "Establir una política de seguretat única i rígida per a totes les aplicacions, independentment del núvol on s'allotgin, per garantir la uniformitat.",
+        "rationale": "Tot i que cal una base comuna, el text recomana un equilibri, definint també polítiques específiques per aplicació segons la seva criticitat i característiques.",
+        "isCorrect": false
+      },
+      {
+        "text": "Centralitzar tots els logs en el proveïdor de núvol principal i utilitzar les seves eines per monitorar els altres entorns de forma remota.",
+        "rationale": "Aquesta pràctica genera una forta dependència d'un únic proveïdor; la recomanació és utilitzar una solució de monitorització centralitzada agnòstica (p. ex., un SIEM multi-cloud).",
+        "isCorrect": false
+      },
+      {
+        "text": "Sincronitzar i aplicar polítiques de seguretat consistents a tots els proveïdors de núvol, utilitzant un marc comú i eines d'automatització.",
+        "rationale": "Aquesta aproximació garanteix una línia base de seguretat coherent (baseline) a través de tots els entorns, simplificant la gestió i reduint el risc d'inconsistències.",
+        "isCorrect": true
+      }
+    ],
+    "hint": "La complexitat del multi-núvol requereix buscar la coherència entre diferents plataformes."
+  },
+  {
+    "guid": "93e75b4b-3f00-461e-92cd-5c70dfd00f01",
+    "subjectId": "T71",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "Una organització vol obtenir visibilitat i control sobre quines aplicacions al núvol (tant aprovades com no aprovades o \"Shadow IT\") estan utilitzant els seus empleats. Quina tecnologia de seguretat és la més adequada per a aquesta finalitat?",
+    "answerOptions": [
+      {
+        "text": "WAF (Web Application Firewall)",
+        "rationale": "Un WAF està dissenyat per protegir les aplicacions web pròpies contra atacs a la capa 7, no per monitoritzar l'ús que fan els empleats d'aplicacions SaaS de tercers.",
+        "isCorrect": false
+      },
+      {
+        "text": "NGFW (Next-Generation Firewall)",
+        "rationale": "Tot i que un NGFW pot identificar i bloquejar trànsit a certes aplicacions, no ofereix la visibilitat granular ni les capacitats de control de dades que proporciona una eina especialitzada.",
+        "isCorrect": false
+      },
+      {
+        "text": "EDR (Endpoint Detection and Response)",
+        "rationale": "Un EDR se centra en la detecció d'amenaces en els dispositius finals, i encara que pot veure connexions de xarxa, el seu objectiu principal no és la governança d'aplicacions cloud.",
+        "isCorrect": false
+      },
+      {
+        "text": "CASB (Cloud Access Security Broker)",
+        "rationale": "La funció principal d'un CASB és descobrir l'ús d'aplicacions al núvol (incloent Shadow IT) i actuar com a punt de control per aplicar polítiques de seguretat i prevenció de pèrdua de dades.",
+        "isCorrect": true
+      }
+    ],
+    "hint": "Aquesta eina actua com un intermediari o 'broker' entre els usuaris i els serveis al núvol."
+  },
+  {
+    "guid": "015f58cc-e22c-463f-8a2e-544a81bb416d",
+    "subjectId": "T71",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "Quina és una de les principals diferències en la gestió d'incidents de seguretat al núvol en comparació amb un entorn on-premises?",
+    "answerOptions": [
+      {
+        "text": "La impossibilitat d'aïllar recursos afectats, ja que la infraestructura és compartida i no es pot controlar directament.",
+        "rationale": "Al contrari, la flexibilitat del núvol sovint facilita aïllar recursos mitjançant grups de seguretat o fins i tot aixecar entorns nets paral·lels ràpidament.",
+        "isCorrect": false
+      },
+      {
+        "text": "La dependència de les eines de registre (logs) proporcionades pel proveïdor i la necessitat de coordinar-se amb el seu equip de resposta a incidents.",
+        "rationale": "En el núvol, l'accés a logs de baix nivell i a la infraestructura física és limitat, fent indispensable la col·laboració amb el proveïdor per a una investigació forense completa.",
+        "isCorrect": true
+      },
+      {
+        "text": "L'obligació de notificar incidents a les autoritats segons el RGPD, que només s'aplica a entorns cloud i no a on-premises.",
+        "rationale": "L'obligació de notificació del RGPD s'aplica a qualsevol incident que afecti dades personals, independentment de si la infraestructura és cloud o on-premises.",
+        "isCorrect": false
+      },
+      {
+        "text": "Els temps de resposta són sempre més lents al núvol, ja que cal esperar que el proveïdor actuï primer en qualsevol cas.",
+        "rationale": "La resposta pot ser més ràpida en certs aspectes gràcies a l'automatització i les APIs del núvol, que permeten accions de contenció immediates i programades.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Pensa en qui té el control directe sobre la infraestructura física i les capes més baixes del sistema."
+  },
+  {
+    "guid": "e9a66b4c-a16e-4f2c-a938-74fc3d4391f6",
+    "subjectId": "T71",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "Donat que els errors de configuració són una de les principals amenaces en entorns cloud, quina estratègia preventiva és més eficaç per minimitzar aquest risc de forma consistent?",
+    "answerOptions": [
+      {
+        "text": "Realitzar auditories manuals de la configuració de tots els recursos cada mes per part de l'equip de seguretat.",
+        "rationale": "Les auditories manuals són lentes, propenses a errors i no escalen bé en entorns cloud dinàmics, sent una mesura menys eficaç que l'automatització.",
+        "isCorrect": false
+      },
+      {
+        "text": "Utilitzar Infraestructura com a Codi (IaC) amb plantilles preaprovades i segures per desplegar els entorns de forma automatitzada.",
+        "rationale": "IaC permet definir la infraestructura en codi, la qual cosa facilita la revisió, l'estandardització i el desplegament consistent de configuracions segures, reduint dràsticament l'error humà.",
+        "isCorrect": true
+      },
+      {
+        "text": "Formar exhaustivament a tots els administradors en les bones pràctiques de seguretat de cada proveïdor de núvol.",
+        "rationale": "Tot i que la formació és crucial, no elimina per si sola el risc d'error humà en tasques complexes i repetitives; l'automatització és un control més robust.",
+        "isCorrect": false
+      },
+      {
+        "text": "Contractar un servei de pentesting extern per identificar errors de configuració un cop els serveis ja estan en producció.",
+        "rationale": "El pentesting és una mesura detectiva, no preventiva. Identifica problemes existents, però no evita que es produeixin en primer lloc.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "La prevenció d'errors humans a gran escala sovint es beneficia de l'eliminació de les tasques manuals i repetitives."
+  },
+  {
+    "guid": "d1383b83-a8ef-4a40-a551-59d5361e36b4",
+    "subjectId": "T71",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "Quin és el principi fonamental que regeix una arquitectura de seguretat Zero Trust?",
+    "answerOptions": [
+      {
+        "text": "Establir un perímetre de xarxa fortament protegit amb tallafocs per assegurar que cap amenaça externa pugui entrar.",
+        "rationale": "Això descriu el model de seguretat tradicional basat en perímetres, que el Zero Trust pretén superar assumint que les amenaces ja poden ser a dins.",
+        "isCorrect": false
+      },
+      {
+        "text": "No confiar per defecte en cap entitat, interna o externa, i verificar explícitament cada sol·licitud d'accés de forma contínua.",
+        "rationale": "El lema del Zero Trust és 'mai confiar, sempre verificar', aplicant controls d'accés estrictes a cada petició com si vingués d'una xarxa no fiable.",
+        "isCorrect": true
+      },
+      {
+        "text": "Concedir als usuaris interns un nivell de confiança bàsic per accedir als recursos, monitoritzant només els comportaments anòmals.",
+        "rationale": "Això representa un model de 'confiança implícita' per als usuaris interns, que és precisament l'antítesi del principi fonamental de Zero Trust.",
+        "isCorrect": false
+      },
+      {
+        "text": "Xifrar totes les comunicacions dins de la xarxa corporativa per garantir que, si un atacant entra, no pugui llegir el trànsit.",
+        "rationale": "El xifratge intern és un control important dins d'una arquitectura Zero Trust, però el principi fonamental no és el xifratge en si, sinó la validació contínua de l'accés.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "El seu nom ('Confiança Zero') descriu literalment la seva premissa de partida."
+  },
+  {
+    "guid": "e69fddf4-e36b-4d47-ab82-9c5a6cd8ff7d",
+    "subjectId": "T71",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "Dins de la família d'estàndards ISO/IEC 27000, quina norma se centra específicament en proporcionar controls i guies per a la protecció de dades personals (privacitat) en serveis de computació al núvol?",
+    "answerOptions": [
+      {
+        "text": "ISO/IEC 27001",
+        "rationale": "Aquesta és la norma principal per als Sistemes de Gestió de la Seguretat de la Informació (SGSI) en general, sense un enfocament específic en el núvol o la privacitat.",
+        "isCorrect": false
+      },
+      {
+        "text": "ISO/IEC 27017",
+        "rationale": "Aquesta norma proporciona guies de controls de seguretat per a serveis cloud, però no se centra específicament en la protecció de dades personals.",
+        "isCorrect": false
+      },
+      {
+        "text": "ISO/IEC 27018",
+        "rationale": "Aquest estàndard estableix objectius de control i directrius per protegir la Informació d'Identificació Personal (PII) en entorns de computació en núvol públics.",
+        "isCorrect": true
+      },
+      {
+        "text": "ISO/IEC 27701",
+        "rationale": "Aquesta és una extensió de la 27001 per a la gestió de la privacitat (PIMS), però la 27018 és la que el text cita com la norma històricament centrada en la privacitat al núvol.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Pensa en quina norma complementa la guia general de seguretat cloud amb un enfocament en la informació d'identificació personal."
+  },
+  {
+    "guid": "297c882d-159f-45d0-8ad1-180945b87769",
+    "subjectId": "T71",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "L'arquitectura SASE (Secure Access Service Edge) integra diverses funcionalitats. Quina de les següents tecnologies NO és un component central i definitori de SASE segons el text?",
+    "answerOptions": [
+      {
+        "text": "ZTNA (Zero Trust Network Access)",
+        "rationale": "ZTNA és considerat un component fonamental de SASE, proporcionant el model d'accés segur a aplicacions basat en la identitat.",
+        "isCorrect": false
+      },
+      {
+        "text": "SWG (Secure Web Gateway)",
+        "rationale": "La passarel·la web segura és un element clau de la pila de seguretat de SASE, protegint els usuaris de les amenaces web.",
+        "isCorrect": false
+      },
+      {
+        "text": "EDR (Endpoint Detection and Response)",
+        "rationale": "Tot i que EDR es pot integrar amb SASE per a una seguretat completa, se centra en el dispositiu final i no és part de la convergència de xarxa i seguretat de xarxa que defineix SASE.",
+        "isCorrect": true
+      },
+      {
+        "text": "CASB (Cloud Access Security Broker)",
+        "rationale": "CASB és una funció essencial de SASE per donar visibilitat i control sobre l'ús d'aplicacions SaaS.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "SASE se centra en la seguretat del trànsit de xarxa i l'accés a les aplicacions, no principalment en la protecció del dispositiu final en si."
+  },
+  {
+    "guid": "9d37e8c9-bb9c-4560-864d-1ed217038627",
+    "subjectId": "T71",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "Segons l'informe d'ENISA 2023 citat al text, quin vector d'atac és responsable del 40% dels incidents reportats en serveis SaaS com Microsoft 365 i Google Workspace?",
+    "answerOptions": [
+      {
+        "text": "Explotació de vulnerabilitats en les APIs dels proveïdors de SaaS.",
+        "rationale": "Tot i que les vulnerabilitats en APIs són una amenaça rellevant per a la cadena de subministrament, la dada específica del 40% s'atribueix a un altre vector.",
+        "isCorrect": false
+      },
+      {
+        "text": "Errors de configuració de permisos per part dels administradors.",
+        "rationale": "Les males configuracions són un dels riscos més destacats al núvol, però l'estadística esmentada correspon a un atac dirigit a l'usuari.",
+        "isCorrect": false
+      },
+      {
+        "text": "Atacs de denegació de servei (DDoS) contra les plataformes SaaS.",
+        "rationale": "Els atacs DDoS afecten la disponibilitat dels serveis, mentre que la dada del 40% es refereix a incidents que sovint porten al compromís de comptes.",
+        "isCorrect": false
+      },
+      {
+        "text": "Atacs de phishing dirigits a comptes corporatius.",
+        "rationale": "El text indica explícitament que, segons ENISA, el 40% dels incidents reportats en SaaS provenien del 'phishing a comptes corporatius'.",
+        "isCorrect": true
+      }
+    ],
+    "hint": "Aquest tipus d'atac busca enganyar l'usuari per obtenir les seves credencials d'accés."
+  }
+]
