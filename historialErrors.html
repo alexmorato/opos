@@ -727,12 +727,16 @@
       menuPanel.classList.remove('visible');
     });
 
+    let cerrarMenuAlClickFuera = false;
     // Cerrar menú al hacer clic fuera
     document.addEventListener('click', (e) => {
+      if (!cerrarMenuAlClickFuera) return;
+
       if (!menuPanel.contains(e.target) && !menuBtn.contains(e.target)) {
         menuPanel.classList.remove('visible');
       }
     });
+
 
     // Botón fullscreen
     menuFullscreenBtn.addEventListener('click', () => {
