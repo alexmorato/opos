@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Visor Markdown - sTIC d'Opos</title>
+
+  <link rel="icon" type="image/png" sizes="16x16" href="images/icons/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/icons/favicon-32x32.png">
+  <link rel="icon" href="images/icons/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" sizes="180x180" href="images/icons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="images/icons/android-chrome-192x192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="images/icons/android-chrome-512x512.png">
+
+  <!-- Marked.js para renderizar Markdown -->
+  <script src="https://cdn.jsdelivr.net/npm/marked@11.1.1/marked.min.js"></script>
+  
+  <!-- Mermaid.js para diagramas -->
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      background: #0b1020;
+      color: #e7ecff;
+      overflow: hidden;
+      height: 100vh;
+    }
+
+    /* Layout principal con Grid */
+    .main-container {
+      display: grid;
+      grid-template-rows: auto 1fr;
+      grid-template-columns: 1fr auto;
+      height: 100vh;
+      gap: 0;
+    }
+
+    /* Barra de botones fija */
+    .toolbar {
+      grid-column: 1 / -1;
+      background: #141a2a;
+      border-bottom: 2px solid #27304a;
+      padding: 6px 10px;
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      flex-wrap: wrap;
+      z-index: 100;
+    }
+
+    .toolbar-title {
+      color: #6ae0a7;
+      font-size: 1.3rem;
+      font-weight: bold;
+      margin-right: auto;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .btn {
+      padding: 4px 8px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      font-size: 0.95rem;
+      font-weight: 600;
+      transition: all 0.2s;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: linear-gradient(180deg, #2aebad, #21c08d);
+      color: #032217;
+    }
+
+    .btn-primary:hover {
+      background: linear-gradient(180deg, #3affbd, #2ad09d);
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      background: #27304a;
+      color: #e7ecff;
+    }
+
+    .btn-secondary:hover {
+      background: #3a4a6a;
+    }
+
+    .btn-icon {
+      background: #2a5f8a;
+      color: #e7ecff;
+      font-size: 1.1rem;
+      padding: 4px 8px;
+    }
+
+    .btn-icon:hover {
+      background: #3a7faa;
+    }
+
+    /* Panel de contenido principal */
+    .content-panel {
+      grid-column: 1;
+      grid-row: 2;
+      overflow-y: auto;
+      padding: 30px;
+      background: #0b1020;
+    }
+
+    .content-panel.full-width {
+      grid-column: 1 / -1;
+    }
+
+    /* Panel del índice (TOC) */
+    .toc-panel {
+      grid-column: 2;
+      grid-row: 2;
+      width: 280px;
+      background: #141a2a;
+      border-left: 2px solid #27304a;
+      overflow-y: auto;
+      padding: 10px;
+    }
+
+    .toc-panel.hidden {
+      display: none;
+    }
+
+    .toc-title {
+      color: #6ae0a7;
+      font-size: 1.2rem;
+      font-weight: bold;
+      margin-bottom: 15px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid #27304a;
+    }
+
+    .toc-list {
+      list-style: none;
+    }
+
+    .toc-item {
+      margin-bottom: 8px;
+    }
+
+    .toc-link {
+      color: #a0a8c0;
+      text-decoration: none;
+      display: block;
+      padding: 2px 10px;
+      border-radius: 6px;
+      transition: all 0.2s;
+      font-size: 0.95rem;
+      line-height: 1.4;
+    }
+
+    .toc-link:hover {
+      background: #1b2a4a;
+      color: #6ae0a7;
+    }
+
+    .toc-link.active {
+      background: #2a5f8a;
+      color: #fff;
+      font-weight: 600;
+    }
+
+    /* Niveles de encabezados en TOC */
+    .toc-item.level-1 { padding-left: 0; }
+    .toc-item.level-2 { padding-left: 15px; }
+    .toc-item.level-3 { padding-left: 30px; }
+    .toc-item.level-4 { padding-left: 45px; }
+    .toc-item.level-5 { padding-left: 60px; }
+    .toc-item.level-6 { padding-left: 75px; }
+
+    /* Estilos para el contenido Markdown renderizado */
+    .markdown-content {
+      max-width: 900px;
+      margin: 0 auto;
+      line-height: 1.7;
+      font-size: 16px;
+      transition: font-size 0.2s;
+    }
+
+    .markdown-content h1,
+    .markdown-content h2,
+    .markdown-content h3,
+    .markdown-content h4,
+    .markdown-content h5,
+    .markdown-content h6 {
+      color: #6ae0a7;
+      margin-top: 1em;
+      margin-bottom: 0.5em;
+      font-weight: bold;
+      line-height: 1.3;
+    }
+
+    .markdown-content h1 {
+      font-size: 2.2em;
+      border-bottom: 3px solid #27304a;
+      padding-bottom: 0.3em;
+    }
+
+    .markdown-content h2 {
+      font-size: 1.8em;
+      border-bottom: 2px solid #27304a;
+      padding-bottom: 0.25em;
+    }
+
+    .markdown-content h3 {
+      font-size: 1.5em;
+    }
+
+    .markdown-content h4 {
+      font-size: 1.3em;
+    }
+
+    .markdown-content h5 {
+      font-size: 1.1em;
+    }
+
+    .markdown-content h6 {
+      font-size: 1em;
+      color: #a0a8c0;
+    }
+
+    .markdown-content p {
+      margin-bottom: 1.2em;
+    }
+
+    .markdown-content ul,
+    .markdown-content ol {
+      margin-bottom: 1.2em;
+      padding-left: 2em;
+    }
+
+    .markdown-content li {
+      margin-bottom: 0.5em;
+    }
+
+    .markdown-content code {
+      background: #1b223a;
+      color: #2aebad;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-family: 'Consolas', 'Monaco', monospace;
+      font-size: 0.9em;
+    }
+
+    .markdown-content pre {
+      background: #141a2a;
+      border: 1px solid #27304a;
+      border-radius: 8px;
+      padding: 16px;
+      overflow-x: auto;
+      margin-bottom: 1.5em;
+    }
+
+    .markdown-content pre code {
+      background: none;
+      padding: 0;
+      color: #e7ecff;
+      font-size: 0.95em;
+    }
+
+    .markdown-content blockquote {
+      border-left: 4px solid #6ae0a7;
+      background: #141a2a;
+      padding: 12px 20px;
+      margin-bottom: 1.5em;
+      border-radius: 0 8px 8px 0;
+    }
+
+    .markdown-content blockquote p:last-child {
+      margin-bottom: 0;
+    }
+
+    .markdown-content table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 1.5em;
+      background: #141a2a;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .markdown-content table th {
+      background: #27304a;
+      color: #6ae0a7;
+      padding: 12px;
+      text-align: left;
+      font-weight: bold;
+    }
+
+    .markdown-content table td {
+      padding: 10px 12px;
+      border-top: 1px solid #27304a;
+    }
+
+    .markdown-content table tr:hover {
+      background: #1b223a;
+    }
+
+    .markdown-content a {
+      color: #6ae0a7;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s;
+    }
+
+    .markdown-content a:hover {
+      border-bottom-color: #6ae0a7;
+    }
+
+    .markdown-content img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      margin: 1em 0;
+    }
+
+    .markdown-content hr {
+      border: none;
+      border-top: 2px solid #27304a;
+      margin: 2em 0;
+    }
+
+    /* Diagramas Mermaid */
+    .markdown-content .mermaid {
+      background: #141a2a;
+      border: 1px solid #27304a;
+      border-radius: 8px;
+      padding: 20px;
+      margin: 1.5em 0;
+      display: flex;
+      justify-content: center;
+    }
+
+    /* Estado de carga */
+    .loading-state {
+      text-align: center;
+      padding: 60px 20px;
+      color: #a0a8c0;
+    }
+
+    .loading-spinner {
+      width: 50px;
+      height: 50px;
+      border: 4px solid #27304a;
+      border-top-color: #6ae0a7;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin: 0 auto 20px;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    .error-state {
+      text-align: center;
+      padding: 60px 20px;
+      color: #ff6b6b;
+    }
+
+    .error-state h2 {
+      margin-bottom: 15px;
+      color: #ff6b6b;
+    }
+
+    /* Scrollbars personalizados */
+    .content-panel::-webkit-scrollbar,
+    .toc-panel::-webkit-scrollbar {
+      width: 10px;
+    }
+
+    .content-panel::-webkit-scrollbar-track,
+    .toc-panel::-webkit-scrollbar-track {
+      background: #0b1020;
+    }
+
+    .content-panel::-webkit-scrollbar-thumb,
+    .toc-panel::-webkit-scrollbar-thumb {
+      background: #27304a;
+      border-radius: 5px;
+    }
+
+    .content-panel::-webkit-scrollbar-thumb:hover,
+    .toc-panel::-webkit-scrollbar-thumb:hover {
+      background: #3a4a6a;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .toc-panel {
+        width: 240px;
+      }
+
+      .toolbar {
+        gap: 8px;
+      }
+
+      .btn {
+        font-size: 0.85rem;
+        padding: 6px 12px;
+      }
+
+      .toolbar-title {
+        font-size: 1.1rem;
+      }
+
+      .content-panel {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="main-container">
+    <!-- Barra de herramientas fija -->
+    <div class="toolbar">
+      <div class="toolbar-title" id="pageTitle">📄 Visor Markdown</div>
+      <button class="btn btn-icon" id="btnFontIncrease" title="Augmentar mida lletra">A+</button>
+      <button class="btn btn-icon" id="btnFontDecrease" title="Disminuir mida lletra">A-</button>
+      <button class="btn btn-secondary" id="btnToggleToc">📑Índex</button>
+      <button class="btn btn-primary" id="btnBack">⬅️Back</button>
+    </div>
+
+    <!-- Panel de contenido principal -->
+    <div class="content-panel" id="contentPanel">
+      <div class="loading-state" id="loadingState">
+        <div class="loading-spinner"></div>
+        <p>Carregant document...</p>
+      </div>
+      <div class="markdown-content" id="markdownContent" style="display: none;"></div>
+      <div class="error-state" id="errorState" style="display: none;">
+        <h2>⚠️ Error</h2>
+        <p id="errorMessage"></p>
+      </div>
+    </div>
+
+    <!-- Panel del índice (TOC) -->
+    <div class="toc-panel" id="tocPanel">
+      <div class="toc-title">📑 Índex</div>
+      <ul class="toc-list" id="tocList"></ul>
+    </div>
+  </div>
+
+  <script>
+        // Mostrar solo emojis en botones si el ancho es menor a 700px
+        function updateButtonTextByWidth() {
+          const tocBtn = document.getElementById('btnToggleToc');
+          const backBtn = document.getElementById('btnBack');
+          if (window.innerWidth < 700) {
+            tocBtn.innerHTML = '📑';
+            backBtn.innerHTML = '⬅️';
+          } else {
+            tocBtn.innerHTML = '📑Índex';
+            backBtn.innerHTML = '⬅️Back';
+          }
+        }
+        window.addEventListener('resize', updateButtonTextByWidth);
+        document.addEventListener('DOMContentLoaded', updateButtonTextByWidth);
+    // Configurar Mermaid
+    mermaid.initialize({
+      startOnLoad: false,
+      theme: 'dark',
+      themeVariables: {
+        primaryColor: '#2aebad',
+        primaryTextColor: '#e7ecff',
+        primaryBorderColor: '#27304a',
+        lineColor: '#6ae0a7',
+        secondaryColor: '#2a5f8a',
+        tertiaryColor: '#141a2a',
+        background: '#141a2a',
+        mainBkg: '#141a2a',
+        textColor: '#e7ecff',
+        fontSize: '16px'
+      }
+    });
+
+    // Variables globales
+    let currentFontSize = 16;
+    const minFontSize = 10;
+    const maxFontSize = 30;
+    let tocVisible = true;
+
+    // Elementos del DOM
+    const contentPanel = document.getElementById('contentPanel');
+    const markdownContent = document.getElementById('markdownContent');
+    const loadingState = document.getElementById('loadingState');
+    const errorState = document.getElementById('errorState');
+    const errorMessage = document.getElementById('errorMessage');
+    const tocPanel = document.getElementById('tocPanel');
+    const tocList = document.getElementById('tocList');
+    const pageTitle = document.getElementById('pageTitle');
+
+    // Obtener parámetro 'tema' de la URL
+    function getUrlParameter(name) {
+      const urlParams = new URLSearchParams(window.location.search);
+      return urlParams.get(name);
+    }
+
+    // Cargar y renderizar Markdown
+    async function loadMarkdown() {
+      const root = getUrlParameter('root') || 'apunts';
+      const fitxer = getUrlParameter('fitxer');
+      const tema = getUrlParameter('tema');
+      
+      if (!fitxer) {
+        showError('No s\'ha especificat cap fitxer. Utilitza ?root=apunts_new&fitxer=T68.md&tema=T68 a la URL.');
+        return;
+      }
+
+      // Construir ruta: root/tema/fitxer
+      let markdownUrl = tema ? `/${root}/${tema}/${fitxer}` : `/${root}/${fitxer}`;
+      pageTitle.textContent = `📄 ${tema || fitxer}`;
+
+      try {
+        const response = await fetch(markdownUrl);
+        
+        if (!response.ok) {
+          throw new Error(`No s'ha pogut carregar el fitxer: ${response.statusText}`);
+        }
+
+        const markdownText = await response.text();
+        await renderMarkdown(markdownText);
+        
+      } catch (error) {
+        console.error('Error:', error);
+        showError(`Error al carregar el document: ${error.message}`);
+      }
+    }
+
+    // Renderizar Markdown a HTML
+    async function renderMarkdown(markdownText) {
+      try {
+        // Configurar marked con opciones
+        marked.setOptions({
+          breaks: true,
+          gfm: true,
+          headerIds: true,
+          mangle: false
+        });
+
+        // Convertir markdown a HTML
+        let html = marked.parse(markdownText);
+
+        // Insertar HTML en el contenedor
+        markdownContent.innerHTML = html;
+
+        // Agregar IDs a los encabezados si no los tienen (PRIMERO)
+        addHeaderIds();
+
+        // Renderizar diagramas Mermaid
+        await renderMermaidDiagrams();
+
+        // Generar índice (TOC) (DESPUÉS de tener los IDs)
+        generateToc();
+
+        // Mostrar contenido
+        loadingState.style.display = 'none';
+        markdownContent.style.display = 'block';
+
+      } catch (error) {
+        console.error('Error al renderizar:', error);
+        showError(`Error al renderizar el document: ${error.message}`);
+      }
+    }
+
+    // Renderizar diagramas Mermaid
+    async function renderMermaidDiagrams() {
+      const codeBlocks = markdownContent.querySelectorAll('pre code.language-mermaid');
+      
+      for (let i = 0; i < codeBlocks.length; i++) {
+        const codeBlock = codeBlocks[i];
+        const mermaidCode = codeBlock.textContent;
+        const preElement = codeBlock.parentElement;
+
+        try {
+          // Crear un div temporal para Mermaid
+          const mermaidDiv = document.createElement('div');
+          mermaidDiv.className = 'mermaid';
+          mermaidDiv.textContent = mermaidCode;
+
+          // Reemplazar el <pre><code> con el div de Mermaid
+          preElement.replaceWith(mermaidDiv);
+
+          // Renderizar el diagrama
+          await mermaid.run({
+            nodes: [mermaidDiv]
+          });
+        } catch (error) {
+          console.error('Error al renderizar diagrama Mermaid:', error);
+          preElement.innerHTML = `<code style="color: #ff6b6b;">Error al renderizar diagrama Mermaid: ${error.message}</code>`;
+        }
+      }
+    }
+
+    // Agregar IDs a los encabezados
+    function addHeaderIds() {
+      const headers = markdownContent.querySelectorAll('h1, h2, h3, h4, h5, h6');
+      headers.forEach((header, index) => {
+        if (!header.id) {
+          // Crear ID desde el texto del encabezado
+          const text = header.textContent.trim();
+          const id = text
+            .toLowerCase()
+            .replace(/[^\w\s-]/g, '')
+            .replace(/\s+/g, '-')
+            .replace(/-+/g, '-')
+            .substring(0, 50);
+          header.id = id || `heading-${index}`;
+        }
+      });
+    }
+
+    // Generar índice (TOC)
+    function generateToc() {
+      const headers = markdownContent.querySelectorAll('h1, h2, h3, h4, h5, h6');
+      tocList.innerHTML = '';
+
+      if (headers.length === 0) {
+        tocList.innerHTML = '<li style="color: #a0a8c0; padding: 10px;">No hi ha encapçalaments</li>';
+        return;
+      }
+
+      headers.forEach((header, index) => {
+        const level = parseInt(header.tagName.charAt(1));
+        const text = header.textContent.trim();
+        const id = header.id || `heading-${index}`;
+
+        const li = document.createElement('li');
+        li.className = `toc-item level-${level}`;
+
+        const a = document.createElement('a');
+        a.className = 'toc-link';
+        a.href = `#${id}`;
+        a.textContent = text;
+        a.addEventListener('click', (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          scrollToHeader(id);
+        });
+
+        li.appendChild(a);
+        tocList.appendChild(li);
+      });
+
+      // Activar enlace del TOC según scroll
+      setupTocActiveTracking();
+    }
+
+    // Scroll suave a un encabezado
+    function scrollToHeader(id) {
+      const element = document.getElementById(id);
+      if (element) {
+        // Calcular la posición relativa al markdownContent
+        const elementRect = element.getBoundingClientRect();
+        const containerRect = contentPanel.getBoundingClientRect();
+        const scrollTop = contentPanel.scrollTop;
+        const targetPosition = scrollTop + (elementRect.top - containerRect.top) - 20;
+        
+        contentPanel.scrollTo({
+          top: targetPosition,
+          behavior: 'smooth'
+        });
+      }
+    }
+
+    // Configurar seguimiento activo del TOC según scroll
+    function setupTocActiveTracking() {
+      const headers = markdownContent.querySelectorAll('h1, h2, h3, h4, h5, h6');
+      const tocLinks = tocList.querySelectorAll('.toc-link');
+
+      contentPanel.addEventListener('scroll', () => {
+        let current = '';
+        
+        headers.forEach(header => {
+          const rect = header.getBoundingClientRect();
+          if (rect.top < 100) {
+            current = header.id;
+          }
+        });
+
+        tocLinks.forEach(link => {
+          link.classList.remove('active');
+          if (link.getAttribute('href') === `#${current}`) {
+            link.classList.add('active');
+          }
+        });
+      });
+    }
+
+    // Mostrar error
+    function showError(message) {
+      loadingState.style.display = 'none';
+      markdownContent.style.display = 'none';
+      errorState.style.display = 'block';
+      errorMessage.textContent = message;
+    }
+
+    // Botón aumentar tamaño de letra
+    document.getElementById('btnFontIncrease').addEventListener('click', () => {
+      if (currentFontSize < maxFontSize) {
+        currentFontSize += 2;
+        markdownContent.style.fontSize = `${currentFontSize}px`;
+      }
+    });
+
+    // Botón disminuir tamaño de letra
+    document.getElementById('btnFontDecrease').addEventListener('click', () => {
+      if (currentFontSize > minFontSize) {
+        currentFontSize -= 2;
+        markdownContent.style.fontSize = `${currentFontSize}px`;
+      }
+    });
+
+    // Botón toggle índice
+    document.getElementById('btnToggleToc').addEventListener('click', () => {
+      tocVisible = !tocVisible;
+      
+      if (tocVisible) {
+        tocPanel.classList.remove('hidden');
+        contentPanel.classList.remove('full-width');
+      } else {
+        tocPanel.classList.add('hidden');
+        contentPanel.classList.add('full-width');
+      }
+    });
+
+    // Botón volver
+    document.getElementById('btnBack').addEventListener('click', () => {
+      if (window.history.length > 1) {
+        window.history.back();
+      } else {
+        window.location.href = 'index.html';
+      }
+    });
+
+    // Cargar markdown al iniciar
+    loadMarkdown();
+  </script>
+</body>
+</html>

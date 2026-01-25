@@ -11,14 +11,14 @@ Tiene que ser algo que pueda leer en 10 minutos.
 
 # preguntas
 30. Gestió de serveis de RPA sobre UIPath
-31. Gestió del Btach sobre UC4
+31. Gestió del Batch sobre UC4
 49. Eines de treball col·laboratiu en entorn Microsoft 365
 50. Plataforma de Gestió de Dispositius Mòbils (MDM)
 51. Plataforma ECM (EndPoint Configurations Manager)
 66. El Reglament General de Protecció de Dades (RGPD)
 
 Estoy estudiando para Oposiciones tecnico superior TIC para el ayuntamiento de barcelona.
-Generame preguntas tipo test de este tema: 30. Gestió de serveis de RPA sobre UIPath
+Generame preguntas tipo test de este tema: 31. Gestió del Batch sobre UC4
 subjectid: T30
 origin: deepseek
 preguntas sobres conceptos troncales del tema. No profuncides.
@@ -84,13 +84,18 @@ Ultimo apartado de trampas y confusiones tipicas.
 
 Estoy estudiando para Oposiciones tecnico superior TIC para el ayuntamiento de barcelona.
 Estoy preparando estos temas.
-29. Gestió d'Incidents de Ciberseguretat
-67. Hacking Ètic
-68. Certificats digitals i autentificació electrònica
-69. Signatura electrònica
-70. Protecció de l'accés remot
-71. La ciberseguretat aplicada al Cloud
-Preparo el FAQ del T67 en el formato que ya usamos: chuleta de 10 puntos clave, directa a examen, sin rellen
+30. Gestió de serveis de RPA sobre UIPath
+31. Gestió del Batch sobre UC4
+49. Eines de treball col·laboratiu en entorn Microsoft 365
+50. Plataforma de Gestió de Dispositius Mòbils (MDM)
+51. Plataforma ECM (EndPoint Configurations Manager)
+66. El Reglament General de Protecció de Dades (RGPD)
+Ahora vamos a trabajar el tema 31. Gestió del Batch sobre UC4
+En castellano.
+Primero un resumen ejecutivo de lo imprescidindible que hay que saber que quepa en una hoja.
+
+
+Ultimo apartado de trampas y confusiones tipicas.
 
 30. Gestió de serveis de RPA sobre UIPath
 31. Gestió del Btach sobre UC4
