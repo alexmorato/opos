@@ -1,14 +1,23 @@
 import os
 import json
+import sys
 
 
 # CONFIGURACIÓN
-# Carpeta a listar
-carpeta = ".."  # Cambia esta ruta según necesidad
-# Carpeta destino para el manifest.json
-carpeta_destino = ".."  # Cambia esta ruta según necesidad
 # Lista de palabras prohibidas
 palabras_prohibidas = ["manifest"]  # Modifica según necesidad
+
+# Leer carpeta desde parámetros
+if len(sys.argv) != 2:
+    print("Uso: python generate_manifest.py <ruta_carpeta>")
+    sys.exit(1)
+
+carpeta = sys.argv[1]
+carpeta_destino = carpeta  # Carpeta y destino son iguales
+
+if not os.path.isdir(carpeta):
+    print(f"Error: La carpeta '{carpeta}' no existe")
+    sys.exit(1)
 
 # Listar solo archivos (no carpetas) y filtrar por palabras prohibidas
 ficheros = []

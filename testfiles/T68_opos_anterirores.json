@@ -1,0 +1,467 @@
+[
+  {
+    "guid": "bd4aa66d-bf0b-4999-8a15-732eb2147c47",
+    "subjectId": "T68",
+    "difficulty": 4,
+    "origin": "t68_oposicions | TS TIC 2019 – Específic (Q30)",
+    "type": "test",
+    "question": "Per a la implementació tecnològica del DNI 3.0, quina afirmació és FALSA?",
+    "answerOptions": [
+      {
+        "text": "Usa l’algoritme de hash SHA-256 en la validació de certificats i en les ordres d’autenticació.",
+        "isCorrect": false,
+        "rationale": "Afirmació compatible amb l’ús d’algorismes hash moderns en validació/operacions d’autenticació; no és l’element que fa la frase falsa."
+      },
+      {
+        "text": "Té implementat la prestació Dual Interface amb tecnologia NFC contactless.",
+        "isCorrect": false,
+        "rationale": "És coherent amb el DNIe 3.0 (contacte i sense contacte/NFC)."
+      },
+      {
+        "text": "El càlcul de claus de sessió es realitza segons ANSI X9.63.",
+        "isCorrect": false,
+        "rationale": "És una especificació habitual per a derivació de claus en entorns ECC; pot ser plausible en el context de xips d’identitat."
+      },
+      {
+        "text": "No implementa xifrat simètric.",
+        "isCorrect": true,
+        "rationale": "FALSA: el DNIe utilitza mecanismes de xifrat simètric en canals segurs/secure messaging; per tant dir que no n’implementa és incorrecte."
+      }
+    ],
+    "hint": "Pensa en canals segurs: sovint combinen criptografia asimètrica i simètrica."
+  },
+  {
+    "guid": "b28fdb45-9b11-4125-9990-14057a0cb26a",
+    "subjectId": "T68",
+    "difficulty": 2,
+    "origin": "t68_oposicions | TS TIC 2019 – Específic (Q72)",
+    "type": "test",
+    "question": "Els certificats digitals contenen el nom de l’usuari i la seva clau pública, així com el període de validesa. Es coneix com a Infraestructura de Clau Pública a la infraestructura constituïda per:",
+    "answerOptions": [
+      {
+        "text": "El conjunt de servidors que emmagatzema els certificats digitals dels usuaris d’una companyia.",
+        "isCorrect": false,
+        "rationale": "Això pot formar part d’un repositori/directori, però no defineix tota una PKI."
+      },
+      {
+        "text": "Les autoritats de certificació, les autoritats de registre i la tecnologia de certificats digitals.",
+        "isCorrect": true,
+        "rationale": "Una PKI inclou rols (CA/RA) i components/procediments per emetre, gestionar i validar certificats."
+      },
+      {
+        "text": "El servei de signatura electrònica al núvol.",
+        "isCorrect": false,
+        "rationale": "És un servei concret; pot usar PKI però no és sinònim de PKI."
+      },
+      {
+        "text": "El servei per a la generació de l’empremta digital dels missatges.",
+        "isCorrect": false,
+        "rationale": "Això és un hash; és una tècnica, no la infraestructura de clau pública."
+      }
+    ],
+    "hint": "PKI = rols (CA/RA) + tecnologia/procediments de certificats."
+  },
+  {
+    "guid": "9e39f350-e5e9-4f61-a2b0-71604c44b87a",
+    "subjectId": "T68",
+    "difficulty": 2,
+    "origin": "t68_oposicions | TS TIC 2019 – Específic (Q78)",
+    "type": "test",
+    "question": "Quina de les següents afirmacions és CERTA respecte a un sistema de xifratge asimètric o de clau pública?",
+    "answerOptions": [
+      {
+        "text": "Fa servir la mateixa clau per al xifrat i el desxifrat i és compartida per l’emissor i el receptor.",
+        "isCorrect": false,
+        "rationale": "Descriu criptografia simètrica, no asimètrica."
+      },
+      {
+        "text": "Fa servir un parell de claus generades per l’emissor. Una d’elles és pública, és a dir, coneguda per tot el món i l’altra privada, de manera que allò que es xifra per una clau és desxifrat per l’altra i viceversa.",
+        "isCorrect": true,
+        "rationale": "Defineix el principi bàsic de la criptografia de clau pública (parell públic/privat i operacions inverses)."
+      },
+      {
+        "text": "Intercanvia les claus de xifratge per un canal de comunicacions alternatiu, denominat asimètric, entre l’emissor i el receptor.",
+        "isCorrect": false,
+        "rationale": "Confón el concepte: l’asimetria no és un canal alternatiu, sinó el tipus de claus."
+      },
+      {
+        "text": "Fa servir un servidor intermediari que proporciona claus públiques als interlocutors en cada interacció entre ells.",
+        "isCorrect": false,
+        "rationale": "Pot existir un directori/PKI per distribuir claus/certs, però el sistema asimètric no requereix aquest servidor en cada interacció."
+      }
+    ],
+    "hint": "Clau pública/privada: el que xifres amb una, ho desxifres amb l’altra."
+  },
+  {
+    "guid": "08c0e7f6-810a-42d7-b000-cd438c9c1de3",
+    "subjectId": "T68",
+    "difficulty": 3,
+    "origin": "t68_oposicions | TS TIC 2019 – Supòsit pràctic 4 (Q7)",
+    "type": "test",
+    "question": "Per tal d’acomplir els requeriments de l’ENS es decideix implementar un sistema d’identificació i autenticació d’usuaris del sistema de contractació. Quina opció NO seria d’aplicació per a un sistema de seguretat en l’accés?",
+    "answerOptions": [
+      {
+        "text": "Accés mitjançant login / contrasenya validat amb un Sistema LDAP.",
+        "isCorrect": false,
+        "rationale": "És un mecanisme d’autenticació clàssic i aplicable."
+      },
+      {
+        "text": "Sistema d’empremtes dactilars i càlcul de minúcies.",
+        "isCorrect": false,
+        "rationale": "És biometria (factor d’inherència); aplicable com a mecanisme d’autenticació."
+      },
+      {
+        "text": "Sistema gràfic de processos del tipus BPMN v2 (Business Process Model and Notation v2) amb identificació de rols.",
+        "isCorrect": true,
+        "rationale": "NO aplicable: BPMN és modelatge de processos; identificar rols en un procés no és un mecanisme d’autenticació/accés."
+      },
+      {
+        "text": "Ús de certificats digitals com ara DNIe i CatCert.",
+        "isCorrect": false,
+        "rationale": "És un mecanisme d’autenticació fort basat en certificats; aplicable."
+      }
+    ],
+    "hint": "No confonguis modelatge de processos (BPMN) amb autenticació."
+  },
+  {
+    "guid": "d14e8b94-a329-4c9f-8db9-5bf4538347ee",
+    "subjectId": "T68",
+    "difficulty": 2,
+    "origin": "t68_oposicions | TM TIC 2021 – Específic (Q44)",
+    "type": "test",
+    "question": "Qué són les ER idCAT?",
+    "answerOptions": [
+      {
+        "text": "Juntament amb l'idCAT Mòbil i idCAT Certificat són formes d'identificació digital.",
+        "isCorrect": false,
+        "rationale": "Les ER no són una forma d’identificació; són entitats de suport al procés d’emissió/registre."
+      },
+      {
+        "text": "Un mètode de signatura que permet realitzar tràmits amb totes les administracions de manera ràpida i segura.",
+        "isCorrect": false,
+        "rationale": "No és un mètode de signatura; és un rol/entitat del procés de registre."
+      },
+      {
+        "text": "Són entitats ubicades a diverses administracions públiques i encarregades de comprovar la veracitat de les dades introduïdes a la sol·licitud del certificat.",
+        "isCorrect": true,
+        "rationale": "Les ER (Entitats de Registre) verifiquen identitat/dades per a l’emissió de certificats."
+      },
+      {
+        "text": "Són entitats que permeten l'ús de dispositius mòbils per verificar les dades.",
+        "isCorrect": false,
+        "rationale": "Això s’assembla més a un mecanisme mòbil d’identificació, no a la funció d’una ER."
+      }
+    ],
+    "hint": "ER = Entitat de Registre: verifica identitat/dades per obtenir el certificat."
+  },
+  {
+    "guid": "0bb9b421-f9f0-4b54-a25c-500670729ff7",
+    "subjectId": "T68",
+    "difficulty": 3,
+    "origin": "t68_oposicions | TM TIC 2021 – Específic (Q45)",
+    "type": "test",
+    "question": "Signar digitalment documents amb el DNIe:",
+    "answerOptions": [
+      {
+        "text": "Permet atorgar al document una validesa jurídica equivalent a la que proporciona la firma manuscrita.",
+        "isCorrect": true,
+        "rationale": "La signatura amb certificat qualificat (com el del DNIe) s’equipara a la manuscrita en el marc eIDAS."
+      },
+      {
+        "text": "Permet atorgar al document una validesa jurídica superior a un document signat per un empleat/ada públic/a amb la T-Cat.",
+        "isCorrect": false,
+        "rationale": "No hi ha ‘superior’; el valor depèn del tipus de certificat i del context. No és una jerarquia així formulada."
+      },
+      {
+        "text": "A Catalunya no tenen validesa els documents signats amb DNI electrònic.",
+        "isCorrect": false,
+        "rationale": "Fals: el DNIe és vàlid; la validesa no depèn de la comunitat autònoma."
+      },
+      {
+        "text": "Garanteix parcialment la identitat del ciutadà/ana i totalment la signatura per fer tràmits telemàtics.",
+        "isCorrect": false,
+        "rationale": "La identitat i la signatura es basen en certificat; no encaixa la distinció ‘parcialment/totament’ així."
+      }
+    ],
+    "hint": "Equiparació a manuscrita quan la signatura és qualificada."
+  },
+  {
+    "guid": "b780eb4a-101c-48a7-97bd-1dbcff1d8774",
+    "subjectId": "T68",
+    "difficulty": 3,
+    "origin": "t68_oposicions | TM TIC 2021 – Específic (Q66)",
+    "type": "test",
+    "question": "Quin és el funcionament d'una signatura electrònica amb criptografia de clau pública aplicada a un missatge?",
+    "answerOptions": [
+      {
+        "text": "L'emissor/a calcula un hash del missatge, el xifra amb la seva clau pública i transmet el criptograma resultant (signatura) al costat de missatge. El/la receptor/a utilitza la clau privada de l'emissor per desxifrar el criptograma.",
+        "isCorrect": false,
+        "rationale": "Incorrecte: en signatura, s’utilitza la clau privada del signant; la pública serveix per verificar."
+      },
+      {
+        "text": "L'emissor/a calcula un hash del missatge, el xifra amb la seva clau privada i transmet el criptograma resultant (signatura) al costat del missatge. El/la receptor/a utilitza la clau pública de l'emissor per desxifrar el criptograma.",
+        "isCorrect": true,
+        "rationale": "Signatura = hash + operar amb clau privada; verificació amb clau pública del signant."
+      },
+      {
+        "text": "L'emissor/a calcula un hash del missatge, el xifra amb la seva clau privada i transmet el criptograma resultant (signatura) al costat del missatge. El/la receptor/a utilitza la seva clau privada per desxifrar el criptograma.",
+        "isCorrect": false,
+        "rationale": "El receptor no pot verificar amb la seva clau privada; ha d’emprar la clau pública del signant."
+      },
+      {
+        "text": "L'emissor/a calcula un hash del missatge, el xifra amb la seva clau pública i transmet el criptograma resultant (signatura) al costat del missatge. El/la receptor/a utilitza la seva clau privada per desxifrar el criptograma.",
+        "isCorrect": false,
+        "rationale": "Això descriu xifrat per confidencialitat (clau pública del receptor), no una signatura."
+      }
+    ],
+    "hint": "Signatura: hash + clau privada del signant; verificació: clau pública del signant."
+  },
+  {
+    "guid": "6bdabfed-1bab-444a-9779-c57a299c9cea",
+    "subjectId": "T68",
+    "difficulty": 2,
+    "origin": "t68_oposicions | TM TIC 2021 – Específic (Q67)",
+    "type": "test",
+    "question": "En crear un certificat digital, quina clau s'empra per crear la firma digital del certificat?",
+    "answerOptions": [
+      {
+        "text": "La clau pública de l’autoritat de certificació (CA).",
+        "isCorrect": false,
+        "rationale": "Una clau pública no serveix per ‘signar’; serveix per verificar."
+      },
+      {
+        "text": "La clau privada de la persona.",
+        "isCorrect": false,
+        "rationale": "La persona signa documents amb la seva clau privada, però el certificat l’emet i signa la CA."
+      },
+      {
+        "text": "La clau privada de l’autoritat de certificació (CA).",
+        "isCorrect": true,
+        "rationale": "La CA signa el certificat amb la seva clau privada per garantir autenticitat i cadena de confiança."
+      },
+      {
+        "text": "La clau pública de la persona.",
+        "isCorrect": false,
+        "rationale": "La clau pública s’inclou al certificat, però no s’utilitza per signar-lo."
+      }
+    ],
+    "hint": "Els certificats els signa la CA: signatura amb la seva clau privada."
+  },
+  {
+    "guid": "d57a7883-5cea-4609-99c6-ea1f24060ece",
+    "subjectId": "T68",
+    "difficulty": 1,
+    "origin": "t68_oposicions | TM TIC 2021 – Específic (Q71)",
+    "type": "test",
+    "question": "La targeta del banc, que tots portem a la cartera, ens permet treure diners als caixers automàtics un cop ens hem autenticat. De quin tipus d'autenticació és aquest exemple?",
+    "answerOptions": [
+      {
+        "text": "Autenticació basada en 1 factor, en aquest cas en una cosa que té la persona usuària.",
+        "isCorrect": false,
+        "rationale": "Per treure diners normalment també cal PIN; per tant no és 1 factor."
+      },
+      {
+        "text": "Autenticació basada en 1 factor, en aquest cas en una cosa que sap la persona usuària.",
+        "isCorrect": false,
+        "rationale": "El PIN sol no és suficient sense la targeta; per tant no és 1 factor."
+      },
+      {
+        "text": "Autenticació basada en 2 factors, en aquest cas en una cosa que té i una cosa que sap la persona usuària.",
+        "isCorrect": true,
+        "rationale": "Targeta (posseir) + PIN (coneixement) = 2 factors."
+      },
+      {
+        "text": "Autenticació basada en 1 factor, en aquest cas en una cosa que fa la persona usuària.",
+        "isCorrect": false,
+        "rationale": "Això seria un factor de comportament; no és el cas d’una targeta + PIN."
+      }
+    ],
+    "hint": "2FA típic: ‘tenir’ (targeta) + ‘saber’ (PIN)."
+  },
+  {
+    "guid": "083e2d75-4c2e-4fa7-a4c3-be40a5983f76",
+    "subjectId": "T68",
+    "difficulty": 2,
+    "origin": "t68_oposicions | TS TIC 2021 – Supòsit pràctic 2 (Q22)",
+    "type": "test",
+    "question": "El mecanisme o factor d’autenticació és el mecanisme que permet validar la identitat d'una persona usuària quan vol accedir a un recurs protegit. Aquest mecanisme és important i crític, donat que la identificació de la persona usuària és, en general, fàcilment accessible. Quin dels següents NO és un mecanisme d’autenticació?",
+    "answerOptions": [
+      {
+        "text": "Alguna cosa que es coneix (un secret).",
+        "isCorrect": false,
+        "rationale": "És un factor d’autenticació: coneixement (contrasenya, PIN)."
+      },
+      {
+        "text": "Alguna cosa que es té (un objecte).",
+        "isCorrect": false,
+        "rationale": "És un factor d’autenticació: possessió (targeta, token, certificat en dispositiu)."
+      },
+      {
+        "text": "Un codi de persona usuària.",
+        "isCorrect": true,
+        "rationale": "És un identificador (username), però per si sol no autentica (no prova identitat)."
+      },
+      {
+        "text": "Alguna cosa que és pròpia de la persona usuària, com característiques biomètriques.",
+        "isCorrect": false,
+        "rationale": "És un factor d’autenticació: inherència (biometria)."
+      }
+    ],
+    "hint": "Identificació (usuari) ≠ autenticació (prova)."
+  },
+  {
+    "guid": "0de2696a-fd2e-4c49-b7d3-e54966ae1cf2",
+    "subjectId": "T68",
+    "difficulty": 4,
+    "origin": "t68_oposicions | TS TIC 2023 – Supòsit pràctic 2 (Q7)",
+    "type": "test",
+    "question": "Es sol·licita al/a la cap de departament TIC que faciliti un nou servei de confiança qualificat per a la realització de firmes i segells electrònics de l'administració. Un prestador d’aquest servei de confiança qualificat ha de ser auditat:",
+    "answerOptions": [
+      {
+        "text": "Mai.",
+        "isCorrect": false,
+        "rationale": "Els prestadors qualificats han de sotmetre’s a auditories/avaluacions periòdiques."
+      },
+      {
+        "text": "Mínim cada 5 anys.",
+        "isCorrect": false,
+        "rationale": "És un període massa llarg per garantir la conformitat d’un servei qualificat."
+      },
+      {
+        "text": "Mínim cada 2 anys.",
+        "isCorrect": true,
+        "rationale": "El manteniment de la qualificació exigeix avaluació de conformitat periòdica; el mínim habitual és biennal."
+      },
+      {
+        "text": "Mínim cada any.",
+        "isCorrect": false,
+        "rationale": "Pot existir revisió anual en alguns esquemes, però el requisit mínim general per a QTSP és cada 2 anys."
+      }
+    ],
+    "hint": "QTSP: conformitat periòdica (mínim biennal)."
+  },
+  {
+    "guid": "58a13eb2-5689-45f6-9c6c-b62c8679d6c5",
+    "subjectId": "T68",
+    "difficulty": 5,
+    "origin": "t68_oposicions | TS TIC 2023 – Supòsit pràctic 2 (Q8)",
+    "type": "test",
+    "question": "Aquest servei de confiança ha de permetre produir signatures qualificades que es requereixen per certs actes administratius. Per a poder realitzar signatures qualificades, quina de les següents afirmacions és INCORRECTA en relació als certificats que s'empren segons el Reglament (UE) 910/2014?",
+    "answerOptions": [
+      {
+        "text": "El certificat ha de ser expedit por un prestador qualificat de serveis de confiança.",
+        "isCorrect": false,
+        "rationale": "Per a certificats qualificats cal un prestador qualificat (QTSP)."
+      },
+      {
+        "text": "El període de validesa del certificat no pot superar 1 any.",
+        "isCorrect": true,
+        "rationale": "eIDAS no fixa un límit general d’1 any com a regla universal per a la validesa dels certificats qualificats."
+      },
+      {
+        "text": "El certificat durant el seu període de validesa pot trobar-se en estat de suspès.",
+        "isCorrect": false,
+        "rationale": "Un certificat pot estar suspès/revocat segons l’estat publicat pel prestador i els mecanismes de validació."
+      },
+      {
+        "text": "El certificat pot identificar a la persona física a la que se li expedeix el certificat amb un pseudònim.",
+        "isCorrect": false,
+        "rationale": "És possible identificar amb pseudònim en determinats supòsits, d’acord amb el marc eIDAS."
+      }
+    ],
+    "hint": "Ojo: eIDAS defineix requisits, però no un límit ‘1 any’ genèric."
+  },
+  {
+    "guid": "d459dc82-2dae-4fb9-ba3d-30e41fa636f3",
+    "subjectId": "T68",
+    "difficulty": 3,
+    "origin": "t68_oposicions | TS TIC 2023 – Supòsit pràctic 2 (Q27)",
+    "type": "test",
+    "question": "El/la cap del departament de tecnologia requereix d’un servei de validació de certificats i signatures de confiança. En quin reglament es troba plenament regulat els serveis de confiança?",
+    "answerOptions": [
+      {
+        "text": "Llei Orgànica 3/2018, de 5 de desembre, de protecció de dades personals i garantia dels drets digitals.",
+        "isCorrect": false,
+        "rationale": "És normativa de protecció de dades, no de serveis de confiança."
+      },
+      {
+        "text": "Llei 6/2020, d'11 de novembre reguladora de determinats aspectes dels serveis electrònics de confiança.",
+        "isCorrect": false,
+        "rationale": "És normativa estatal complementària, però el marc principal UE dels serveis de confiança és eIDAS."
+      },
+      {
+        "text": "Reglament (UE) Nº 910/2014 del Parlament Europeu i del Consell, de 23 de juliol de 2014 relatiu a la identificació electrònica i els serveis de confiança per a les transaccions electròniques al mercat interior.",
+        "isCorrect": true,
+        "rationale": "eIDAS regula a nivell de la UE els serveis de confiança (firma, segell, segellat de temps, validació, etc.)."
+      },
+      {
+        "text": "Reglament (UE) 2016/679 del Parlament Europeu i del Consell, de 27 d'abril de 2016 relatiu a la protecció de les persones físiques pel que fa al tractament de dades personals i a la lliure circulació d'aquestes dades.",
+        "isCorrect": false,
+        "rationale": "És el RGPD: protecció de dades, no regulació de serveis de confiança."
+      }
+    ],
+    "hint": "Serveis de confiança (firma/segell/temps) = eIDAS (UE 910/2014)."
+  },
+  {
+    "guid": "67cc2d97-f86a-49f7-84c6-bf2271cc5401",
+    "subjectId": "T68",
+    "difficulty": 3,
+    "origin": "t68_oposicions | TM TIC 2024 – Específic (Q36)",
+    "type": "test",
+    "question": "Segons estableix l’article 22 del Reglament (UE) 910/2014 del Parlament Europeu i del Consell de 23 de juliol de 2014 relatiu a la identificació electrònica i els serveis de confiança per a les transaccions electròniques al mercat interior, qui establirà les llistes de confiança?",
+    "answerOptions": [
+      {
+        "text": "Cada estat membre de la Unió Europea.",
+        "isCorrect": true,
+        "rationale": "Cada Estat membre estableix i manté la seva llista de confiança (trust list) amb els prestadors qualificats."
+      },
+      {
+        "text": "La Comissió Europea.",
+        "isCorrect": false,
+        "rationale": "La Comissió pot facilitar/publicar agregacions, però no estableix la llista nacional de cada estat."
+      },
+      {
+        "text": "El Parlament Europeu.",
+        "isCorrect": false,
+        "rationale": "No té funció operativa d’establir llistes de confiança."
+      },
+      {
+        "text": "El Consell de la Unió Europea.",
+        "isCorrect": false,
+        "rationale": "No té funció operativa d’establir llistes de confiança."
+      }
+    ],
+    "hint": "Trust list: la fa i manté cada Estat membre."
+  },
+  {
+    "guid": "27c88af3-6bf6-4a90-ae71-376840400bec",
+    "subjectId": "T68",
+    "difficulty": 3,
+    "origin": "t68_oposicions | TS TIC 2024 – Específic (Q30)",
+    "type": "test",
+    "question": "Quin dels següents reglaments incorpora el concepte de EUDI (European Union Digital Identity), que proporciona a la ciutadania de la unió europea la capacitat de gestionar fàcilment les seves dades d'identitat i oferir-les de manera segmentada a les empreses, administracions i altres ciutadans/anes i de manera segura en línia amb el RGPD?",
+    "answerOptions": [
+      {
+        "text": "EIDAS",
+        "isCorrect": false,
+        "rationale": "eIDAS (910/2014) és el marc original, però l’EUDI Wallet s’impulsa amb la reforma eIDAS2."
+      },
+      {
+        "text": "DORA",
+        "isCorrect": false,
+        "rationale": "DORA tracta de resiliència operativa digital en el sector financer, no d’identitat digital europea."
+      },
+      {
+        "text": "EIDAS2",
+        "isCorrect": true,
+        "rationale": "eIDAS2 introdueix el marc de la European Union Digital Identity (EUDI) i les wallets."
+      },
+      {
+        "text": "NIS2",
+        "isCorrect": false,
+        "rationale": "NIS2 és ciberseguretat/seguretat de xarxes i sistemes, no identitat digital UE."
+      }
+    ],
+    "hint": "EUDI = EU Digital Identity Wallet → eIDAS2."
+  }
+]
