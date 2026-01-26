@@ -1,0 +1,312 @@
+[
+  {
+    "guid": "f634e56a-2cfe-404b-bce9-7114d2b58647",
+    "subjectId": "T51",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "En el contexto de Microsoft Endpoint Configuration Manager (ECM), ¿cuál es la función principal del componente Cloud Management Gateway (CMG)?",
+    "answerOptions": [
+      {
+        "text": "Alojar el contenido de las aplicaciones y actualizaciones para distribuirlo a los clientes de la red interna.",
+        "rationale": "El componente que aloja y distribuye contenido dentro de la red local es el Punto de Distribución (DP), no el Cloud Management Gateway.",
+        "isCorrect": false
+      },
+      {
+        "text": "Permitir la gestión de dispositivos remotos que se conectan a través de Internet sin necesidad de una conexión VPN.",
+        "rationale": "El CMG es un servicio en Azure que actúa como un puente, permitiendo que los clientes en Internet se comuniquen con la infraestructura ECM on-premises de forma segura.",
+        "isCorrect": true
+      },
+      {
+        "text": "Sincronizar la base de datos SQL de ECM con Microsoft Intune para la co-gestión.",
+        "rationale": "La sincronización con Intune se realiza a través de conectores y la integración con Azure AD/Entra ID, mientras que el CMG se enfoca en la comunicación con los clientes.",
+        "isCorrect": false
+      },
+      {
+        "text": "Generar informes avanzados sobre el cumplimiento y el inventario de los dispositivos gestionados.",
+        "rationale": "La generación de informes es una función del rol 'Reporting Services Point', que se integra con SQL Server Reporting Services.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piensa en cómo ECM supera su limitación principal en entornos de teletrabajo."
+  },
+  {
+    "guid": "8d48b34d-ea6a-4ffa-80a0-fb518cdd74e4",
+    "subjectId": "T51",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Un administrador necesita asegurarse de que todos los portátiles de la empresa tengan el cifrado de disco BitLocker activado. ¿Qué funcionalidad de ECM es la más adecuada para definir esta regla y verificar qué equipos la cumplen?",
+    "answerOptions": [
+      {
+        "text": "Inventario de hardware y software.",
+        "rationale": "El inventario permite recopilar información sobre el estado de BitLocker, pero no define ni impone activamente la política de que deba estar activado.",
+        "isCorrect": false
+      },
+      {
+        "text": "Despliegue de sistemas operativos (OSD).",
+        "rationale": "El OSD se utiliza para instalar el sistema operativo y puede activar BitLocker durante la instalación inicial, pero no supervisa el cumplimiento a lo largo del tiempo.",
+        "isCorrect": false
+      },
+      {
+        "text": "Gestión de configuraciones y cumplimiento (compliance).",
+        "rationale": "Esta funcionalidad permite crear líneas base de configuración (por ejemplo, 'BitLocker debe estar activado') y evaluar continuamente si los dispositivos se desvían de ellas.",
+        "isCorrect": true
+      },
+      {
+        "text": "Distribución de aplicaciones.",
+        "rationale": "La distribución de aplicaciones se centra en instalar, actualizar o desinstalar software, no en configurar características del sistema operativo como el cifrado de disco.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Busca la funcionalidad diseñada para establecer un estado deseado en los dispositivos y luego informar sobre las desviaciones."
+  },
+  {
+    "guid": "0fae04e3-4506-4071-9073-70b3f9958c2c",
+    "subjectId": "T51",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Según el material, ¿cuál es una de las principales desventajas o limitaciones de ECM en comparación con soluciones nativas de la nube como Microsoft Intune?",
+    "answerOptions": [
+      {
+        "text": "Su incapacidad para gestionar antivirus y firewalls, requiriendo siempre una herramienta de terceros.",
+        "rationale": "ECM integra la funcionalidad Endpoint Protection, que permite gestionar de forma centralizada Windows Defender Antivirus y Firewall.",
+        "isCorrect": false
+      },
+      {
+        "text": "La gestión de dispositivos no-Windows es limitada y a menudo incompleta en comparación con la de los equipos Windows.",
+        "rationale": "El texto destaca que, aunque existe soporte para macOS y Linux, la gestión es menos robusta y completa que en su ecosistema nativo de Windows.",
+        "isCorrect": true
+      },
+      {
+        "text": "No ofrece la posibilidad de que los usuarios instalen software por sí mismos, dependiendo siempre de un técnico.",
+        "rationale": "ECM proporciona el 'Software Center', un portal de autoservicio que permite a los usuarios instalar aplicaciones aprobadas por la empresa.",
+        "isCorrect": false
+      },
+      {
+        "text": "La imposibilidad de desplegar imágenes de sistemas operativos en equipos nuevos (bare metal).",
+        "rationale": "Una de sus fortalezas es precisamente el despliegue de sistemas operativos (OSD), incluyendo la instalación en equipos sin SO mediante PXE boot.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considera cómo se comporta ECM en un entorno empresarial con una mezcla de diferentes sistemas operativos."
+  },
+  {
+    "guid": "65724678-3e59-471f-a57f-6c4f98df7f7f",
+    "subjectId": "T51",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "En la arquitectura de ECM, ¿qué componente es el responsable de almacenar todo el contenido (paquetes de software, imágenes de SO, actualizaciones) y entregarlo a los dispositivos cliente?",
+    "answerOptions": [
+      {
+        "text": "Management Point (MP)",
+        "rationale": "El Management Point actúa como el intermediario para la comunicación y las políticas, pero no almacena el contenido de los paquetes.",
+        "isCorrect": false
+      },
+      {
+        "text": "Site Database (SQL Server)",
+        "rationale": "La base de datos SQL almacena la configuración, el inventario y los metadatos, pero no los archivos binarios del contenido que se distribuye.",
+        "isCorrect": false
+      },
+      {
+        "text": "Distribution Point (DP)",
+        "rationale": "Este rol de servidor está diseñado específicamente para actuar como un repositorio de archivos desde el cual los clientes descargan el contenido necesario.",
+        "isCorrect": true
+      },
+      {
+        "text": "SMS Provider",
+        "rationale": "El SMS Provider es una capa de comunicación entre la consola de administración y la base de datos, no participa en la distribución de contenido.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piensa en la arquitectura como una oficina: un componente da las órdenes, otro las registra, y un tercero actúa como el almacén de donde se recogen los materiales."
+  },
+  {
+    "guid": "9d1e7b37-3733-4548-86fa-8102fb16c0d7",
+    "subjectId": "T51",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Qué describe mejor el concepto de 'co-gestión' (co-management) en el ecosistema de Microsoft Endpoint Manager?",
+    "answerOptions": [
+      {
+        "text": "La gestión de un mismo dispositivo simultáneamente por dos consolas de ECM diferentes para alta disponibilidad.",
+        "rationale": "La alta disponibilidad en ECM se logra con otras configuraciones, como servidores de sitio pasivos, no gestionando un cliente desde dos sitios a la vez.",
+        "isCorrect": false
+      },
+      {
+        "text": "La capacidad de un administrador para compartir el control de la consola de ECM con otro técnico.",
+        "rationale": "El control de acceso basado en roles permite que varios administradores usen la consola, pero 'co-gestión' se refiere a la gestión del dispositivo en sí.",
+        "isCorrect": false
+      },
+      {
+        "text": "La administración de un dispositivo de forma conjunta por ECM (on-premises) e Intune (nube), combinando lo mejor de ambos.",
+        "rationale": "Este modelo híbrido permite que ciertas cargas de trabajo (como el despliegue de SO) sean manejadas por ECM, mientras que otras (como las políticas de cumplimiento para equipos remotos) sean manejadas por Intune.",
+        "isCorrect": true
+      },
+      {
+        "text": "La gestión exclusiva de servidores Windows utilizando ECM y de estaciones de trabajo Windows utilizando Intune.",
+        "rationale": "La co-gestión implica que un único dispositivo (como una estación de trabajo) es administrado por ambas herramientas a la vez, no la división de herramientas por tipo de dispositivo.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Este concepto representa la estrategia de Microsoft para unir su solución de gestión tradicional con su solución moderna basada en la nube."
+  },
+  {
+    "guid": "907da0bf-02da-469b-8785-9cdf7d4b3256",
+    "subjectId": "T51",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "El despliegue de una 'imagen dorada' es un caso de uso típico de ECM. ¿A qué se refiere este término?",
+    "answerOptions": [
+      {
+        "text": "Una copia de seguridad completa del servidor de ECM, que se puede restaurar en caso de desastre.",
+        "rationale": "Aunque las copias de seguridad son cruciales, una 'imagen dorada' se refiere al sistema operativo de los clientes, no a la infraestructura del servidor.",
+        "isCorrect": false
+      },
+      {
+        "text": "Una plantilla de sistema operativo preconfigurada, optimizada y estandarizada que se despliega masivamente en los equipos.",
+        "rationale": "Esta imagen maestra contiene el SO, los drivers, las aplicaciones base y las configuraciones corporativas, garantizando la homogeneidad en los nuevos despliegues.",
+        "isCorrect": true
+      },
+      {
+        "text": "El primer paquete de actualización de seguridad que se prueba en un grupo piloto antes del despliegue general.",
+        "rationale": "Esto describe una buena práctica de gestión de parches, pero no el concepto de una imagen de sistema operativo maestra.",
+        "isCorrect": false
+      },
+      {
+        "text": "Un informe de inventario especial que resalta los activos de hardware más valiosos de la organización.",
+        "rationale": "Este término está relacionado con la instalación de sistemas operativos, no con la generación de informes de inventario.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Se trata de un concepto clave en la automatización del aprovisionamiento de nuevos ordenadores."
+  },
+  {
+    "guid": "e3db4baa-55d4-4c42-8fe9-95f0cbbca212",
+    "subjectId": "T51",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Un usuario final necesita instalar una aplicación opcional aprobada por la empresa, como un editor de PDF avanzado. Según la funcionalidad de ECM, ¿cuál es el método diseñado para que el usuario lo haga por sí mismo sin contactar a TI?",
+    "answerOptions": [
+      {
+        "text": "Solicitándolo a través de la herramienta de control remoto para que un técnico la instale.",
+        "rationale": "El control remoto es para soporte técnico y resolución de incidencias, no para la instalación de software de autoservicio.",
+        "isCorrect": false
+      },
+      {
+        "text": "Utilizando la aplicación Software Center en su propio equipo para buscar e instalar el software.",
+        "rationale": "El Software Center es el portal de autoservicio que presenta a los usuarios un catálogo de software disponible para su instalación bajo demanda.",
+        "isCorrect": true
+      },
+      {
+        "text": "Ejecutando un script de PowerShell proporcionado por el departamento de TI en la intranet.",
+        "rationale": "Aunque técnicamente posible, ECM ofrece una solución integrada y más amigable para el usuario que la ejecución manual de scripts.",
+        "isCorrect": false
+      },
+      {
+        "text": "Esperando a que el sistema aplique automáticamente la instalación en la próxima ventana de mantenimiento.",
+        "rationale": "Las instalaciones automáticas y obligatorias son una función de ECM, pero este escenario describe una instalación opcional iniciada por el usuario.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piensa en el componente de ECM que se instala en el equipo del cliente y le proporciona una especie de 'tienda de aplicaciones' corporativa."
+  },
+  {
+    "guid": "7aad4abe-81a8-4ab2-9792-148b869fd7bd",
+    "subjectId": "T51",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Cuál de las siguientes afirmaciones describe correctamente uno de los principales requisitos de infraestructura para implementar ECM?",
+    "answerOptions": [
+      {
+        "text": "Requiere una suscripción a Microsoft 365 E5 como mínimo, ya que es una herramienta puramente basada en la nube.",
+        "rationale": "ECM es una solución on-premises, no puramente de nube. Intune es la solución que está más integrada en las suscripciones de Microsoft 365.",
+        "isCorrect": false
+      },
+      {
+        "text": "Es una aplicación ligera que puede ejecutarse en cualquier estación de trabajo Windows 10/11 sin necesidad de servidores dedicados.",
+        "rationale": "Al contrario, ECM es conocido por su compleja infraestructura que requiere servidores dedicados para sus diferentes roles.",
+        "isCorrect": false
+      },
+      {
+        "text": "Depende de componentes preexistentes como un dominio de Active Directory y un servidor de bases de datos SQL.",
+        "rationale": "El texto enfatiza que ECM se apoya en una infraestructura de TI madura, necesitando AD para descubrir recursos y SQL Server para almacenar todos sus datos.",
+        "isCorrect": true
+      },
+      {
+        "text": "Su único requisito es una conexión a Internet, ya que toda la gestión se realiza a través del portal de Azure.",
+        "rationale": "Esta descripción se ajusta más a Microsoft Intune. ECM opera principalmente dentro de la red corporativa local.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considera por qué ECM es a menudo considerado complejo y costoso de implementar, especialmente para organizaciones pequeñas."
+  },
+  {
+    "guid": "e4244742-3f56-424d-a6bf-709b713bf0d4",
+    "subjectId": "T51",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Para optimizar la distribución de contenido en una red con varias oficinas remotas conectadas por enlaces WAN lentos, ECM puede utilizar tecnologías como BranchCache. ¿Cuál es el principio de funcionamiento de BranchCache?",
+    "answerOptions": [
+      {
+        "text": "Comprime todo el contenido en el servidor antes de enviarlo para reducir el tamaño de la transferencia.",
+        "rationale": "Aunque la compresión puede ser parte del proceso, el mecanismo principal de BranchCache es diferente y se centra en el almacenamiento en caché local.",
+        "isCorrect": false
+      },
+      {
+        "text": "Permite que los equipos de una misma oficina remota compartan contenido ya descargado por uno de ellos, evitando múltiples descargas a través de la WAN.",
+        "rationale": "BranchCache crea una caché compartida en la sucursal, de modo que el primer cliente descarga el contenido desde el servidor central y los siguientes lo obtienen de ese primer cliente localmente.",
+        "isCorrect": true
+      },
+      {
+        "text": "Establece una conexión VPN automática y optimizada para cada transferencia de archivos, asegurando la máxima velocidad.",
+        "rationale": "BranchCache no gestiona las conexiones VPN; su objetivo es reducir el tráfico que pasa por el enlace de red, independientemente de si es una VPN o no.",
+        "isCorrect": false
+      },
+      {
+        "text": "Divide los archivos grandes en paquetes pequeños y los envía en segundo plano (BITS) para no saturar la red.",
+        "rationale": "BITS (Background Intelligence Transfer Service) es otra tecnología que ECM utiliza para transferencias eficientes, pero BranchCache se enfoca específicamente en el almacenamiento en caché en sucursales.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "El nombre de esta tecnología da una pista sobre su función en las 'sucursales' (branches) de una empresa."
+  },
+  {
+    "guid": "4da232ec-5745-4593-845c-8fa85bdde533",
+    "subjectId": "T51",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "En un escenario de 'Patch Tuesday', un administrador de TI quiere desplegar las actualizaciones de seguridad de Microsoft de forma controlada. ¿Qué ventaja clave ofrece ECM para este proceso?",
+    "answerOptions": [
+      {
+        "text": "Despliega todas las actualizaciones instantáneamente a todos los equipos en cuanto son publicadas por Microsoft.",
+        "rationale": "Este enfoque no es controlado y podría causar problemas generalizados si una actualización es defectuosa. ECM permite un mayor control.",
+        "isCorrect": false
+      },
+      {
+        "text": "Permite un control granular, como probar las actualizaciones en un grupo piloto y luego desplegarlas de forma escalonada al resto de la organización.",
+        "rationale": "El texto destaca la capacidad de ECM para programar, escalar y controlar el despliegue de parches, minimizando el impacto y el riesgo.",
+        "isCorrect": true
+      },
+      {
+        "text": "Sólo puede gestionar actualizaciones para el sistema operativo Windows, ignorando otros productos de Microsoft como Office.",
+        "rationale": "A través de su integración con WSUS, ECM puede gestionar actualizaciones para una amplia gama de productos de Microsoft, incluyendo Office.",
+        "isCorrect": false
+      },
+      {
+        "text": "Requiere que cada usuario apruebe e inicie manualmente la instalación de las actualizaciones desde el Software Center.",
+        "rationale": "ECM puede forzar la instalación de actualizaciones de seguridad obligatorias fuera del horario laboral, sin requerir la intervención del usuario.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piensa en cómo una gran organización minimiza el riesgo al aplicar parches a miles de máquinas."
+  }
+]

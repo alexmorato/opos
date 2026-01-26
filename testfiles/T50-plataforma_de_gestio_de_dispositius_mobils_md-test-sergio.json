@@ -1,0 +1,808 @@
+[
+  {
+    "guid": "59c16923-9b85-4f43-aa45-8eaff392b82a",
+    "subjectId": "T50",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Cuál es la distinción técnica principal que diferencia a una solución UEM (Unified Endpoint Management) de una solución EMM (Enterprise Mobility Management)?",
+    "answerOptions": [
+      {
+        "text": "La capacidad de gestionar dispositivos IoT, impresoras y sistemas operativos de escritorio como Windows, macOS y Linux de forma unificada.",
+        "rationale": "UEM expande el alcance de EMM al integrar la gestión de todos los puntos finales de la empresa, no solo los móviles y sus aplicaciones.",
+        "isCorrect": true
+      },
+      {
+        "text": "La inclusión exclusiva de contenedores seguros para aplicaciones móviles en dispositivos personales.",
+        "rationale": "Esta función es característica de EMM (MAM/MCM) y no define la transición hacia la gestión unificada de endpoints que ofrece UEM.",
+        "isCorrect": false
+      },
+      {
+        "text": "El uso de protocolos de notificación push como APNS y FCM para la comunicación con el servidor.",
+        "rationale": "Tanto MDM como EMM y UEM utilizan estos servicios de notificación del fabricante para contactar con los dispositivos móviles.",
+        "isCorrect": false
+      },
+      {
+        "text": "La migración obligatoria de la infraestructura de gestión a un entorno puramente Cloud SaaS.",
+        "rationale": "Aunque es una tendencia, UEM puede ofrecerse en modalidades híbridas o locales, por lo que el despliegue no es su factor diferenciador técnico.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considere qué tipos de hardware adicionales se incorporan en la gestión total de la red corporativa."
+  },
+  {
+    "guid": "dca8e758-75ba-442f-9fc3-d21bede7fc67",
+    "subjectId": "T50",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En el contexto de la arquitectura MDM del Ayuntamiento de Barcelona (IMI), ¿cuál es la función de la integración con el sistema GID vía LDAP?",
+    "answerOptions": [
+      {
+        "text": "Validar la identidad de los usuarios contra una réplica diaria del directorio de identidades.",
+        "rationale": "El material indica que la arquitectura local valida la identidad comparándola con una réplica de GID mediante LDAP para el control de acceso.",
+        "isCorrect": true
+      },
+      {
+        "text": "Sincronizar automáticamente el inventario de hardware con el catálogo de dispositivos homologados.",
+        "rationale": "LDAP es un protocolo de acceso a directorios de identidad, no una herramienta de gestión de inventario de activos físicos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Distribuir paquetes de software SCCM a los terminales móviles Android e iOS.",
+        "rationale": "SCCM se utiliza para PCs y LDAP no es el mecanismo de distribución de paquetes de aplicaciones.",
+        "isCorrect": false
+      },
+      {
+        "text": "Permitir el borrado remoto completo de dispositivos BYOD sin intervención del administrador.",
+        "rationale": "El borrado remoto es una función de la plataforma MDM/UEM y LDAP no gestiona las políticas de borrado de datos en el terminal.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en cómo el sistema verifica quién es el propietario o usuario del dispositivo que intenta registrarse."
+  },
+  {
+    "guid": "8a0e0af2-e2d2-443e-8d7e-ac6799aa12dc",
+    "subjectId": "T50",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Según la estrategia futura del IMI, ¿qué cambio se producirá en la gestión de los PCs que actualmente utilizan SCCM?",
+    "answerOptions": [
+      {
+        "text": "Serán integrados progresivamente en Microsoft Intune para una gestión unificada como UEM.",
+        "rationale": "El material afirma que SCCM será sustituido a futuro por Intune para centralizar la gestión de PCs y móviles.",
+        "isCorrect": true
+      },
+      {
+        "text": "Se mantendrán en SCCM de forma indefinida por ser una solución local más segura que el cloud.",
+        "rationale": "El texto indica explícitamente que la idea de futuro es pasar la gestión a Intune, que es una solución en la nube.",
+        "isCorrect": false
+      },
+      {
+        "text": "Pasarán a gestionarse mediante el módulo MTD de Ivanti MobileIron.",
+        "rationale": "MTD es un módulo específico de seguridad para detección de amenazas móviles, no una herramienta de despliegue para PCs.",
+        "isCorrect": false
+      },
+      {
+        "text": "Solo se gestionarán mediante Intune si son portátiles, manteniendo SCCM para ordenadores de sobremesa.",
+        "rationale": "La visión UEM de Intune abarca todos los endpoints (portátiles, tablets y desktops) sin hacer distinción de formato.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Reflexione sobre la convergencia de herramientas de administración hacia una única consola en la nube."
+  },
+  {
+    "guid": "be8096af-87b6-4cc8-a33a-d29c99b906dc",
+    "subjectId": "T50",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Al comparar los modelos de propiedad BYOD y COPE, ¿qué restricción técnica aplica el administrador sobre el borrado remoto en un escenario BYOD?",
+    "answerOptions": [
+      {
+        "text": "Solo se permite el borrado selectivo de los datos y aplicaciones del perfil corporativo.",
+        "rationale": "En BYOD el dispositivo es del empleado, por lo que la privacidad impide realizar un factory reset que elimine fotos o contactos personales.",
+        "isCorrect": true
+      },
+      {
+        "text": "Se requiere el consentimiento físico del usuario mediante un código OTP para ejecutar el borrado.",
+        "rationale": "El borrado remoto se ejecuta desde la consola sin necesidad de interacción física, aunque esté limitado legalmente por el tipo de propiedad.",
+        "isCorrect": false
+      },
+      {
+        "text": "El borrado completo es obligatorio si se detecta una amenaza de nivel crítico vía MTD.",
+        "rationale": "Incluso con amenazas críticas, en BYOD se actúa solo sobre la parte profesional para respetar la propiedad del terminal.",
+        "isCorrect": false
+      },
+      {
+        "text": "No se puede realizar ningún tipo de borrado si el dispositivo no está conectado a una red VPN.",
+        "rationale": "El MDM utiliza servicios push (APNS/FCM) para enviar la orden de borrado a través de internet, independientemente de la VPN.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considere la diferencia entre el ámbito de control sobre la información privada frente a la información de la empresa."
+  },
+  {
+    "guid": "cd90fb3e-e14e-4c99-8217-62fbb2feca2f",
+    "subjectId": "T50",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Respecto a las plataformas MDM analizadas, ¿cuál es una característica exclusiva de Microsoft Intune mencionada en el texto?",
+    "answerOptions": [
+      {
+        "text": "Existe únicamente como un servicio en la nube (SaaS), sin opción de instalación local.",
+        "rationale": "El documento resalta que, a diferencia de otras como VMware o Jamf, Microsoft Intune solo existe como servicio cloud.",
+        "isCorrect": true
+      },
+      {
+        "text": "Es la única plataforma capaz de gestionar dispositivos con sistema operativo Windows 10.",
+        "rationale": "Otras plataformas UEM como MobileIron o VMware Workspace ONE también son compatibles con Windows 10.",
+        "isCorrect": false
+      },
+      {
+        "text": "Requiere obligatoriamente el uso de certificados digitales para cualquier tipo de enrolamiento.",
+        "rationale": "Aunque puede configurar certificados, no es una característica exclusiva ni su única forma de funcionamiento.",
+        "isCorrect": false
+      },
+      {
+        "text": "Es la única que permite la contenedorización de aplicaciones en entornos Android.",
+        "rationale": "La gestión de aplicaciones y contenedores (MAM) es una función estándar de la mayoría de las soluciones EMM/UEM.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en las limitaciones de despliegue de infraestructura que tiene este fabricante específico."
+  },
+  {
+    "guid": "15cb0456-fa5e-447f-9885-522b4eb19ca0",
+    "subjectId": "T50",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Qué diferencia funcional existe entre el modelo COBO (Corporate-Owned, Business Only) y el modelo COPE (Corporate-Owned, Personally Enabled)?",
+    "answerOptions": [
+      {
+        "text": "El modelo COBO no permite ningún uso privado ni la instalación de aplicaciones personales por parte del usuario.",
+        "rationale": "COBO está orientado estrictamente al uso profesional, mientras que COPE, aun siendo de la empresa, permite una parcela de uso privado.",
+        "isCorrect": true
+      },
+      {
+        "text": "En COPE, el usuario es el dueño legal del hardware mientras dure el contrato laboral.",
+        "rationale": "En ambos modelos (COBO y COPE), la propiedad del dispositivo pertenece a la organización.",
+        "isCorrect": false
+      },
+      {
+        "text": "COBO solo permite la conexión a redes Wi-Fi corporativas, bloqueando el uso de datos móviles.",
+        "rationale": "COBO restringe el tipo de uso (aplicaciones/datos), pero no necesariamente el medio de conexión (LTE/4G/5G).",
+        "isCorrect": false
+      },
+      {
+        "text": "El borrado remoto en COPE siempre es completo (factory reset) por política de seguridad estándar.",
+        "rationale": "En COPE el borrado puede ser selectivo para respetar la parte privada, dependiendo de la política de la empresa.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Identifique cuál de los dos modelos prioriza totalmente la restricción de funciones no laborales."
+  },
+  {
+    "guid": "5e9ee32e-61c8-47ec-b9e9-a52577e04f1d",
+    "subjectId": "T50",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En la gestión de dispositivos Apple, ¿qué ventaja aporta técnicamente el uso del programa DEP (Device Enrollment Program)?",
+    "answerOptions": [
+      {
+        "text": "Permite el enrolamiento automático y la supervisión completa del dispositivo desde su activación inicial sin intervención manual técnica.",
+        "rationale": "DEP automatiza la inscripción de dispositivos iOS/macOS, facilitando su configuración masiva y control total por la empresa.",
+        "isCorrect": true
+      },
+      {
+        "text": "Habilita la capacidad de instalar aplicaciones de la Play Store de Android en dispositivos iPad.",
+        "rationale": "DEP es una solución específica del ecosistema Apple y no proporciona interoperabilidad de aplicaciones con Android.",
+        "isCorrect": false
+      },
+      {
+        "text": "Garantiza que el dispositivo solo pueda conectarse a través de túneles VPN de nivel 3.",
+        "rationale": "Aunque facilita la configuración de VPN, DEP se centra en el proceso de inscripción y propiedad, no solo en la capa de red.",
+        "isCorrect": false
+      },
+      {
+        "text": "Elimina la necesidad de utilizar el servicio de notificaciones APNS para la gestión remota.",
+        "rationale": "DEP es compatible y depende de la infraestructura de notificaciones de Apple (APNS) para comunicarse con los terminales.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en el proceso que ocurre justo después de sacar un dispositivo nuevo de su caja."
+  },
+  {
+    "guid": "c464b2bb-be31-49b8-bf74-a2f3b3053c29",
+    "subjectId": "T50",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Qué componente del ecosistema MobileIron en el Ayuntamiento de Barcelona es responsable de aplicar las políticas de seguridad en tiempo real (baseline)?",
+    "answerOptions": [
+      {
+        "text": "El módulo MTD (Mobile Threat Detection).",
+        "rationale": "El texto especifica que el módulo MTD permite actuar según la 'baseline' de políticas de seguridad para proteger el dispositivo.",
+        "isCorrect": true
+      },
+      {
+        "text": "El servidor LDAP de réplica de identidades.",
+        "rationale": "LDAP se encarga de la autenticación de usuarios, pero no monitoriza activamente amenazas o cumplimiento de políticas de seguridad.",
+        "isCorrect": false
+      },
+      {
+        "text": "El sistema DEP de Apple integrado en el Core.",
+        "rationale": "DEP es un método de alta de dispositivos, no un sistema de detección de amenazas en ejecución.",
+        "isCorrect": false
+      },
+      {
+        "text": "El conector Sentry de balanceo de carga.",
+        "rationale": "El Sentry actúa principalmente como puerta de enlace de tráfico, no como el motor de análisis de amenazas MTD.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Busque el acrónimo asociado específicamente a la capa de 'seguridad' y 'detección'."
+  },
+  {
+    "guid": "8639a83b-cc08-4930-a1c3-a0eac120827b",
+    "subjectId": "T50",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Cuál es el propósito del modelo COSU (Corporate-Owned Single Use) según la documentación?",
+    "answerOptions": [
+      {
+        "text": "Destinar dispositivos a un uso muy específico y restringido, como puntos de información o firmas digitales.",
+        "rationale": "COSU se define para usos concretos y limitados, a menudo configurados en 'modo quiosco'.",
+        "isCorrect": true
+      },
+      {
+        "text": "Permitir que el empleado use el dispositivo como si fuera propio bajo normas de uso mínimas.",
+        "rationale": "Esta descripción encaja mejor con el modelo HYOD o COPE, no con el modelo de uso único restringido COSU.",
+        "isCorrect": false
+      },
+      {
+        "text": "Gestionar dispositivos que rotan entre múltiples usuarios sin necesidad de credenciales.",
+        "rationale": "Aunque pueden ser multiusuario, el COSU se define por la especificidad de la tarea, no por la ausencia de credenciales.",
+        "isCorrect": false
+      },
+      {
+        "text": "Facilitar el registro de dispositivos personales mediante un código QR único.",
+        "rationale": "COSU se aplica a dispositivos propiedad de la organización, no a dispositivos personales (BYOD).",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Relacione el término con dispositivos que solo deben ejecutar una tarea determinada."
+  },
+  {
+    "guid": "98d73edb-b2e6-4c68-87c3-ad205132b4f5",
+    "subjectId": "T50",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En una comparativa de costes y recursos TI, ¿cuál es la principal desventaja de un despliegue MDM On-Premise?",
+    "answerOptions": [
+      {
+        "text": "Mayores costes operativos a largo plazo y necesidad de personal técnico dedicado para el mantenimiento de la infraestructura.",
+        "rationale": "La gestión local requiere servidores, parches de seguridad y personal interno, lo que eleva el coste y reduce la agilidad.",
+        "isCorrect": true
+      },
+      {
+        "text": "La imposibilidad de sincronizar con directorios activos o bases de datos internas.",
+        "rationale": "Al contrario, una de las ventajas del On-Premise es la facilidad de integración con sistemas internos sin exponerlos a la nube.",
+        "isCorrect": false
+      },
+      {
+        "text": "La falta de compatibilidad con dispositivos que no utilicen Windows como sistema operativo.",
+        "rationale": "La ubicación del servidor (nube o local) no determina la compatibilidad con los sistemas operativos móviles.",
+        "isCorrect": false
+      },
+      {
+        "text": "La dependencia crítica de una conexión a internet constante para la gestión interna de los terminales.",
+        "rationale": "El despliegue local permite operar internamente incluso con limitaciones de salida a internet, a diferencia del Cloud.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en quién es el responsable de que el servidor MDM siga funcionando cada día."
+  },
+  {
+    "guid": "37650990-ef98-4e4b-ba02-49349f582bad",
+    "subjectId": "T50",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Qué función cumple el componente MAM (Mobile Application Management) dentro de una solución EMM?",
+    "answerOptions": [
+      {
+        "text": "Controlar el ciclo de vida de las aplicaciones corporativas, permitiendo su distribución, actualización y borrado selectivo.",
+        "rationale": "MAM se centra específicamente en la gestión de las aplicaciones y sus datos, independientemente del estado del dispositivo.",
+        "isCorrect": true
+      },
+      {
+        "text": "Gestionar la geolocalización por GPS para rastrear dispositivos perdidos.",
+        "rationale": "El rastreo del dispositivo físico es una función típica de MDM (Mobile Device Management), no de MAM.",
+        "isCorrect": false
+      },
+      {
+        "text": "Configurar automáticamente los parámetros de hardware como el brillo de pantalla o la cámara.",
+        "rationale": "El control de las funciones de hardware del terminal es responsabilidad del nivel MDM.",
+        "isCorrect": false
+      },
+      {
+        "text": "Cifrar la totalidad del disco duro en ordenadores portátiles con Windows 10.",
+        "rationale": "El cifrado de disco es una función de seguridad de MDM/UEM; MAM se limita a la capa de aplicación.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Diferencie entre la gestión del 'contenedor de software' y la gestión del 'aparato físico'."
+  },
+  {
+    "guid": "718074ba-1afa-4214-a0bb-c48aa8468059",
+    "subjectId": "T50",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Dentro del ecosistema Android, ¿qué servicio se utiliza para que el servidor MDM pueda enviar órdenes en tiempo real a los terminales?",
+    "answerOptions": [
+      {
+        "text": "FCM (Firebase Cloud Messaging).",
+        "rationale": "FCM es el servicio de Google que permite a las plataformas MDM enviar notificaciones y comandos a dispositivos Android.",
+        "isCorrect": true
+      },
+      {
+        "text": "APNS (Apple Push Notification Service).",
+        "rationale": "APNS es el servicio homólogo pero exclusivo para dispositivos del ecosistema Apple.",
+        "isCorrect": false
+      },
+      {
+        "text": "LDAP (Lightweight Directory Access Protocol).",
+        "rationale": "LDAP se utiliza para la consulta de directorios de usuarios, no para el envío de notificaciones push.",
+        "isCorrect": false
+      },
+      {
+        "text": "MTD (Mobile Threat Detection).",
+        "rationale": "MTD es un módulo de seguridad, no un canal de transporte de mensajes de sistema.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Es un acrónimo de tres letras asociado a los servicios de Google Cloud."
+  },
+  {
+    "guid": "c0608ed5-858b-474d-acb8-ddd7d1b6f224",
+    "subjectId": "T50",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En el Ayuntamiento de Barcelona, ¿cómo se gestionarán las 'nuevas PDAs' de la Guardia Urbana (GUB) a futuro?",
+    "answerOptions": [
+      {
+        "text": "En modo quiosco multiusuario, donde cada agente introduce sus credenciales nominales.",
+        "rationale": "El material indica que la evolución de las PDAs de GUB será pasar a un sistema multiusuario nominal en modo quiosco.",
+        "isCorrect": true
+      },
+      {
+        "text": "Mediante un perfil BYOD para que los agentes usen sus propios terminales en actos de servicio.",
+        "rationale": "Las PDAs son herramientas corporativas específicas y el texto no menciona el uso de dispositivos personales para esta función.",
+        "isCorrect": false
+      },
+      {
+        "text": "Únicamente a través de certificados digitales físicos sin necesidad de usuario y contraseña.",
+        "rationale": "Se especifica el uso de credenciales nominales, lo que implica una identificación de usuario estándar o integrada.",
+        "isCorrect": false
+      },
+      {
+        "text": "A través de la plataforma JAMF Pro debido a su especialización en terminales rugerizados.",
+        "rationale": "JAMF Pro es exclusivo para Apple; las PDAs mencionadas suelen ser Android y la estrategia del IMI es converger hacia Intune.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en la necesidad de que varios agentes puedan usar el mismo hardware de forma segura."
+  },
+  {
+    "guid": "88a03df2-3167-42d7-ac3b-5030f8e7d6f8",
+    "subjectId": "T50",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Qué define al modelo de gestión CYOD (Choose Your Own Device)?",
+    "answerOptions": [
+      {
+        "text": "La organización ofrece un catálogo limitado de dispositivos homologados para que el usuario elija uno.",
+        "rationale": "CYOD es un modelo híbrido donde la empresa controla el hardware disponible pero da libertad de elección al empleado.",
+        "isCorrect": true
+      },
+      {
+        "text": "El usuario puede traer cualquier dispositivo del mercado y la empresa lo securiza totalmente.",
+        "rationale": "Esto describe el modelo BYOD (Bring Your Own Device) puro, donde no hay un catálogo previo de la empresa.",
+        "isCorrect": false
+      },
+      {
+        "text": "Es un sinónimo exacto de COBO donde el usuario no tiene ninguna capacidad de elección.",
+        "rationale": "En COBO la empresa asigna el terminal sin dar opciones; en CYOD el usuario elige dentro de un marco controlado.",
+        "isCorrect": false
+      },
+      {
+        "text": "Un sistema donde el enrolamiento se realiza sin contacto (Zero-Touch) por parte del equipo de TI.",
+        "rationale": "CYOD se refiere a la elección del hardware; el enrolamiento Zero-Touch es una técnica de despliegue que puede aplicarse a varios modelos.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en una mezcla entre la libertad del usuario y el control de inventario de la empresa."
+  },
+  {
+    "guid": "11016c7d-4712-4367-9941-8f5829960484",
+    "subjectId": "T50",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En la comparativa MDM vs. EMM, ¿qué capacidad añade el MCM (Mobile Content Management)?",
+    "answerOptions": [
+      {
+        "text": "El acceso seguro y controlado a documentos y archivos corporativos en dispositivos móviles.",
+        "rationale": "MCM se encarga de la gestión de contenidos, asegurando que los documentos de la empresa se visualicen en entornos protegidos.",
+        "isCorrect": true
+      },
+      {
+        "text": "La gestión de la garantía y el ciclo de vida del hardware del terminal.",
+        "rationale": "El control de activos y hardware es una función básica de MDM, no de la gestión de contenidos.",
+        "isCorrect": false
+      },
+      {
+        "text": "La detección de jailbreak o rooting en el sistema operativo del móvil.",
+        "rationale": "Esta es una función de cumplimiento (compliance) o de seguridad avanzada (MTD/MSM), no de gestión de archivos.",
+        "isCorrect": false
+      },
+      {
+        "text": "La configuración remota de perfiles de correo electrónico Exchange.",
+        "rationale": "La configuración de cuentas de correo es una funcionalidad básica de MDM presente desde sus inicios.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Fíjese en la palabra 'Content' (Contenido) y su relación con la información no estructurada."
+  },
+  {
+    "guid": "84560b7c-a9de-4b18-a03c-cc918fa1fcae",
+    "subjectId": "T50",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Por qué el IMI considera que el modelo DEP de Apple es 'visualmente' similar a un COPE aunque técnicamente esté totalmente administrado?",
+    "answerOptions": [
+      {
+        "text": "Porque el usuario puede instalar aplicaciones personales, aunque no perciba una separación clara de contenedores como en Android.",
+        "rationale": "En iOS/DEP el usuario tiene libertad de uso personal pero bajo un control total de la empresa, a menudo sin la interfaz de 'perfil de trabajo' de Android.",
+        "isCorrect": true
+      },
+      {
+        "text": "Porque requiere que el usuario pague una parte del coste del terminal (modelo híbrido).",
+        "rationale": "DEP es un programa de inscripción corporativa; no implica que el usuario asuma costes de adquisición.",
+        "isCorrect": false
+      },
+      {
+        "text": "Porque solo permite el uso de aplicaciones firmadas por el Ayuntamiento de Barcelona.",
+        "rationale": "DEP permite gestionar cualquier aplicación, tanto corporativa como pública de la App Store, según las políticas configuradas.",
+        "isCorrect": false
+      },
+      {
+        "text": "Porque el dispositivo se desbloquea automáticamente mediante reconocimiento facial integrado en Active Directory.",
+        "rationale": "El método de desbloqueo biométrico es una función del hardware y no define la similitud visual con el modelo COPE.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considere la experiencia del usuario final al usar sus propias apps en un terminal de la empresa."
+  },
+  {
+    "guid": "90b6c1fe-92f8-4c46-8109-5c0a4b344d78",
+    "subjectId": "T50",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "De acuerdo con las funciones de un MDM, ¿qué permite la 'Gestión Centralizada' respecto al inventario?",
+    "answerOptions": [
+      {
+        "text": "Supervisar tanto los dispositivos propiedad de la empresa (COPE) como los personales (BYOD) desde una única consola.",
+        "rationale": "La consola centralizada unifica la visión de todo el parque de dispositivos móviles, independientemente de su origen de propiedad.",
+        "isCorrect": true
+      },
+      {
+        "text": "Realizar pedidos automáticos de reposición de stock al fabricante cuando se detectan roturas.",
+        "rationale": "El MDM gestiona el software y estado del dispositivo, pero no suele integrarse directamente en la cadena de suministro de hardware.",
+        "isCorrect": false
+      },
+      {
+        "text": "Instalar físicamente tarjetas SIM en los terminales de forma remota.",
+        "rationale": "La instalación de hardware (SIM física) requiere presencia manual; el MDM solo puede gestionar eSIMs si el terminal lo soporta.",
+        "isCorrect": false
+      },
+      {
+        "text": "Eliminar el malware de los ordenadores personales de los empleados que no están inscritos en el sistema.",
+        "rationale": "Un MDM solo puede actuar sobre dispositivos que hayan sido previamente inscritos (enrolled) en su base de datos.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en la visibilidad que tiene el administrador sobre todos los activos de la red."
+  },
+  {
+    "guid": "e6484b44-97f8-4674-b976-bc76a5e5f0ea",
+    "subjectId": "T50",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En el modelo COBO de dispositivos de GUB, ¿qué sucede si se detecta una amenaza de seguridad?",
+    "answerOptions": [
+      {
+        "text": "Se puede realizar un borrado completo (factory reset) del terminal, ya que no contiene información privada del usuario.",
+        "rationale": "En dispositivos de uso exclusivo profesional (COBO), la organización tiene el control total para restablecer el terminal ante cualquier riesgo.",
+        "isCorrect": true
+      },
+      {
+        "text": "El sistema espera 24 horas a que el usuario valide la amenaza antes de bloquear el terminal.",
+        "rationale": "Las respuestas ante amenazas en entornos críticos suelen ser automáticas e inmediatas para evitar la fuga de datos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Solo se permite el borrado selectivo del correo electrónico para no afectar a las fotos personales del agente.",
+        "rationale": "Por definición, en un modelo COBO no debería haber fotos ni datos personales que proteger.",
+        "isCorrect": false
+      },
+      {
+        "text": "La amenaza se ignora si el dispositivo se encuentra fuera de la zona de servicio (geofencing).",
+        "rationale": "Las políticas de seguridad se aplican independientemente de la ubicación, a menos que existan reglas de geolocalización específicas para bloquearlo.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Recuerde que en COBO 'prioriza la organización' y no hay parcela privada."
+  },
+  {
+    "guid": "ffd84241-9853-4d5e-be7c-8fbb2721a71f",
+    "subjectId": "T50",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Qué característica define al sistema VMware Workspace ONE según la comparativa de despliegue?",
+    "answerOptions": [
+      {
+        "text": "Ofrece opciones tanto locales como SaaS, pero impulsa esta última para acceder a analíticas y automatización avanzada.",
+        "rationale": "VMware mantiene la dualidad pero prioriza la nube para ofrecer funcionalidades que técnicamente son difíciles de mantener on-premise.",
+        "isCorrect": true
+      },
+      {
+        "text": "Es la única plataforma que no requiere agentes instalados en los dispositivos Android.",
+        "rationale": "Casi todas las plataformas MDM modernas requieren un agente o un perfil de gestión para interactuar con el sistema operativo.",
+        "isCorrect": false
+      },
+      {
+        "text": "Se integra exclusivamente con navegadores de código abierto como Firefox.",
+        "rationale": "Workspace ONE es agnóstico al navegador y se centra en la gestión de identidad y dispositivos multiplataforma.",
+        "isCorrect": false
+      },
+      {
+        "text": "Solo puede gestionar dispositivos Apple si se contrata un módulo adicional de JAMF.",
+        "rationale": "Workspace ONE tiene capacidades nativas de gestión para iOS y macOS sin depender de terceros.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considere por qué un fabricante querría que sus clientes usen la versión en la nube en lugar de la local."
+  },
+  {
+    "guid": "3290b636-cc51-4045-a43e-c26c5ed50e74",
+    "subjectId": "T50",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Qué función cumple el 'xifratge de dades o discos' mencionado como beneficio de seguridad?",
+    "answerOptions": [
+      {
+        "text": "Asegurar que la información confidencial sea ilegible en caso de acceso no autorizado o pérdida física del dispositivo.",
+        "rationale": "El cifrado es una medida de protección fundamental que impide la lectura de datos sin la clave correspondiente.",
+        "isCorrect": true
+      },
+      {
+        "text": "Aumentar la velocidad de transferencia de archivos mediante la compresión de datos.",
+        "rationale": "El cifrado suele añadir una ligera carga de procesamiento y no está diseñado para la compresión o velocidad de red.",
+        "isCorrect": false
+      },
+      {
+        "text": "Permitir la ejecución de aplicaciones pirateadas saltándose la validación de la firma.",
+        "rationale": "Al contrario, el MDM utiliza el cifrado y las políticas para asegurar que solo se ejecute software autorizado y legítimo.",
+        "isCorrect": false
+      },
+      {
+        "text": "Evitar que el dispositivo se conecte a redes Wi-Fi públicas no seguras.",
+        "rationale": "La restricción de redes Wi-Fi es una política de configuración, no una función directa del cifrado de disco.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Relacione el concepto con la protección de la información ante un robo del terminal."
+  },
+  {
+    "guid": "429ec7f5-65fd-4d81-a4d1-4b9da90d8cd3",
+    "subjectId": "T50",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Cuál es la principal ventaja de utilizar contenedores seguros en un entorno BYOD?",
+    "answerOptions": [
+      {
+        "text": "Aislar los datos corporativos de los personales, permitiendo el borrado de la información de la empresa sin tocar lo privado.",
+        "rationale": "La contenedorización es clave en BYOD para garantizar la privacidad del empleado y la seguridad de la empresa simultáneamente.",
+        "isCorrect": true
+      },
+      {
+        "text": "Duplicar la memoria RAM disponible para las aplicaciones de diseño gráfico.",
+        "rationale": "Los contenedores son una división lógica de software y datos, no una ampliación física o virtual de los recursos de hardware.",
+        "isCorrect": false
+      },
+      {
+        "text": "Permitir que el usuario rootee su dispositivo sin que el MDM lo detecte.",
+        "rationale": "El MDM monitoriza el estado del sistema operativo; si se detecta root o jailbreak, el contenedor suele bloquearse por seguridad.",
+        "isCorrect": false
+      },
+      {
+        "text": "Eliminar la necesidad de utilizar contraseñas de bloqueo en el terminal físico.",
+        "rationale": "Los contenedores suelen añadir una capa adicional de autenticación (PIN/Biometría) además de la del propio dispositivo.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en la coexistencia de dos 'mundos' (trabajo y ocio) en un mismo teléfono."
+  },
+  {
+    "guid": "61ddb0c6-a8d7-422a-b3a6-8c87cd55d723",
+    "subjectId": "T50",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿A qué se refiere el término 'Compliance' dentro de una plataforma MDM como Microsoft Intune?",
+    "answerOptions": [
+      {
+        "text": "Al cumplimiento de un conjunto de reglas de seguridad mínimas para que el dispositivo pueda acceder a los recursos de la empresa.",
+        "rationale": "Las políticas de cumplimiento verifican, por ejemplo, si el dispositivo tiene el antivirus activo o la pantalla bloqueada antes de darle acceso.",
+        "isCorrect": true
+      },
+      {
+        "text": "Al pago anual de las licencias de software basado en el número de usuarios activos.",
+        "rationale": "Eso se refiere a la gestión de licencias o 'compliance' de activos de software (SAM), no al estado del dispositivo.",
+        "isCorrect": false
+      },
+      {
+        "text": "A la capacidad del dispositivo para traducir aplicaciones de Android a Windows 10 automáticamente.",
+        "rationale": "No existe tal función de traducción automática ligada al concepto de compliance en MDM.",
+        "isCorrect": false
+      },
+      {
+        "text": "A la obligación del empleado de utilizar el GPS corporativo durante toda su jornada laboral.",
+        "rationale": "El rastreo GPS es una funcionalidad técnica sujeta a leyes de privacidad, no es la definición de compliance de seguridad.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Imagine un control de entrada donde se revisa si el dispositivo 'está sano' y 'cumple las normas'."
+  },
+  {
+    "guid": "5d68d1b7-5080-431a-a17f-5d26ade58748",
+    "subjectId": "T50",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En la arquitectura de Ivanti MobileIron en el IMI, ¿qué significa que esté 'balanceado' con 'dos cores y dos sentrys'?",
+    "answerOptions": [
+      {
+        "text": "Que existe redundancia y alta disponibilidad para evitar que el sistema deje de funcionar si falla un componente.",
+        "rationale": "Tener múltiples instancias de los servidores centrales (Core) y puertas de enlace (Sentry) garantiza la continuidad del servicio.",
+        "isCorrect": true
+      },
+      {
+        "text": "Que el sistema divide los dispositivos exactamente al 50% entre usuarios de iOS y Android.",
+        "rationale": "El balanceo se refiere a la carga técnica de red y procesamiento, no a la distribución por tipos de sistema operativo.",
+        "isCorrect": false
+      },
+      {
+        "text": "Que se requiere el doble de licencias de software para poder operar legalmente.",
+        "rationale": "El número de servidores de infraestructura no suele determinar directamente el modelo de licenciamiento por usuario/dispositivo.",
+        "isCorrect": false
+      },
+      {
+        "text": "Que un servidor gestiona los dispositivos BYOD y el otro los COPE de forma aislada.",
+        "rationale": "Normalmente, todos los servidores trabajan en conjunto para gestionar todo el parque de forma transparente.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en la seguridad de que el servicio no se caiga si un servidor se estropea."
+  },
+  {
+    "guid": "2e08f9c9-2248-4bb1-aab6-c595cbf26195",
+    "subjectId": "T50",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Cuál es la especialización principal de la plataforma Jamf Pro?",
+    "answerOptions": [
+      {
+        "text": "La gestión avanzada y específica de dispositivos del ecosistema Apple (iOS, macOS, tvOS).",
+        "rationale": "Jamf es reconocido en el mercado por ser el estándar para la administración profunda de productos de Apple.",
+        "isCorrect": true
+      },
+      {
+        "text": "La gestión de servidores Linux en centros de datos distribuidos.",
+        "rationale": "Jamf se centra en los puntos finales del usuario (endpoints) de Apple, no en la administración de servidores de backend.",
+        "isCorrect": false
+      },
+      {
+        "text": "El control de dispositivos IoT como sensores de temperatura y cámaras IP.",
+        "rationale": "Aunque Apple tiene dispositivos IoT (HomePod), Jamf está orientado principalmente a la movilidad empresarial y ordenadores.",
+        "isCorrect": false
+      },
+      {
+        "text": "Ser la única solución MDM gratuita para pequeñas y medianas empresas.",
+        "rationale": "Jamf Pro es una solución comercial de pago con un coste por dispositivo/usuario.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Relacione esta marca con la famosa empresa de Cupertino."
+  },
+  {
+    "guid": "1fbbee46-8e51-41e0-9241-47294dd7e7f0",
+    "subjectId": "T50",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Qué representa el KPI (Key Performance Indicator) en el ciclo de vida de los dispositivos?",
+    "answerOptions": [
+      {
+        "text": "Indicadores que permiten analizar en tiempo real el rendimiento, el uso y la salud de los dispositivos administrados.",
+        "rationale": "Los KPIs ayudan a los equipos de TI a tomar decisiones basadas en datos sobre cuándo renovar hardware o detectar problemas de uso.",
+        "isCorrect": true
+      },
+      {
+        "text": "El código de desbloqueo maestro que permite resetear cualquier móvil sin contraseña.",
+        "rationale": "Ese sería un código de recuperación o bypass, no un indicador de rendimiento.",
+        "isCorrect": false
+      },
+      {
+        "text": "El protocolo de comunicación entre el MDM y las operadoras de telefonía móvil.",
+        "rationale": "La relación con las operadoras se gestiona mediante otros canales; KPI es un término de gestión y análisis.",
+        "isCorrect": false
+      },
+      {
+        "text": "Un sistema de puntos para premiar a los empleados que no pierden su dispositivo corporativo.",
+        "rationale": "Aunque se podría usar para eso, su función técnica es el control operativo del parque móvil de la empresa.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en métricas y estadísticas para la toma de decisiones gerenciales."
+  },
+  {
+    "guid": "fc00db86-6d97-4f9f-8cfe-d33856b54793",
+    "subjectId": "T50",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Cuál es el riesgo principal de delegar la infraestructura en el modelo MDM Cloud SaaS?",
+    "answerOptions": [
+      {
+        "text": "La pérdida de control directo sobre dónde se almacenan físicamente los datos y la dependencia del proveedor para actualizaciones.",
+        "rationale": "Al externalizar, la empresa gana agilidad pero pierde capacidad de personalización profunda de la infraestructura subyacente.",
+        "isCorrect": true
+      },
+      {
+        "text": "Que los dispositivos dejen de funcionar si el administrador local apaga su ordenador personal.",
+        "rationale": "En el modelo Cloud, el servidor está siempre encendido en el centro de datos del proveedor, independientemente del administrador.",
+        "isCorrect": false
+      },
+      {
+        "text": "La imposibilidad de añadir nuevos dispositivos durante los fines de semana.",
+        "rationale": "El modelo Cloud ofrece escalabilidad y disponibilidad 24/7 para el alta de terminales.",
+        "isCorrect": false
+      },
+      {
+        "text": "Que el software solo sea compatible con dispositivos que tengan conexión 5G.",
+        "rationale": "La compatibilidad depende del sistema operativo del móvil, no de si el MDM está en la nube o es local.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en lo que se cede a cambio de no tener que comprar y mantener servidores propios."
+  }
+]
