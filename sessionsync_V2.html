@@ -295,6 +295,86 @@
         min-width: 150px;
       }
     }
+
+    /* Modal */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 2000;
+    }
+
+    .modal-content {
+      background: #141a2a;
+      border: 2px solid #27304a;
+      border-radius: 16px;
+      padding: 32px;
+      max-width: 500px;
+      width: 90%;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    }
+
+    .modal-content h3 {
+      color: #6ae0a7;
+      margin-top: 0;
+      margin-bottom: 16px;
+      font-size: 1.4rem;
+      text-align: center;
+    }
+
+    .modal-content p {
+      color: #9fb0ff;
+      margin-bottom: 20px;
+      line-height: 1.5;
+    }
+
+    .modal-input {
+      width: 100%;
+      padding: 12px;
+      background: #232b45;
+      border: 2px solid #27304a;
+      border-radius: 8px;
+      color: #e7ecff;
+      font-size: 1rem;
+      margin-bottom: 20px;
+      box-sizing: border-box;
+    }
+
+    .modal-input:focus {
+      outline: none;
+      border-color: #6ae0a7;
+    }
+
+    .modal-btn {
+      width: 100%;
+      padding: 12px;
+      background: linear-gradient(180deg, #2aebad, #21c08d);
+      color: #032217;
+      font-weight: bold;
+      font-size: 1.1rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .modal-btn:hover:not(:disabled) {
+      background: #6ae0a7;
+      transform: translateY(-1px);
+    }
+
+    .modal-btn:disabled {
+      background: #27304a;
+      color: #6b7585;
+      cursor: not-allowed;
+      opacity: 0.5;
+    }
   </style>
   <script src="assets/js/toast.js"></script>
   <script src="assets/js/localstorage-utils.js"></script>
@@ -324,6 +404,26 @@
     <button class="btn-menu-historial" id="menuHistorialBtn">
       📋 Historial
     </button>
+  </div>
+
+  <!-- Modal Firebase Site ID -->
+  <div class="modal-overlay" id="siteIdModal" style="display: none;">
+    <div class="modal-content">
+      <h3>🏛️ Firebase Site ID</h3>
+      <p>Per poder connectar amb Firebase, necessites introduir el Site ID del projecte:</p>
+      <input type="text" class="modal-input" id="siteIdInput" placeholder="Exemple: sticdopos" />
+      <button class="modal-btn" id="siteIdSaveBtn">Guardar i continuar</button>
+    </div>
+  </div>
+
+  <!-- Modal Firebase API Key -->
+  <div class="modal-overlay" id="apiKeyModal" style="display: none;">
+    <div class="modal-content">
+      <h3>🔑 Firebase API Key</h3>
+      <p>Per poder sincronitzar amb Firebase, necessites introduir la clau API:</p>
+      <input type="text" class="modal-input" id="apiKeyInput" placeholder="Introdueix la Firebase API Key..." />
+      <button class="modal-btn" id="apiKeySaveBtn">Guardar i continuar</button>
+    </div>
   </div>
 
   <div class="container">
@@ -519,39 +619,80 @@
       login.checkUserAuth(userName, userPass);
 
       window.username = localStorage.getItem(LS_KEYS.USER_NAME);
-      const siteKeyDeRecaptcha = localStorage.getItem(LS_KEYS.SITE_KEY_DE_RECAPTCHA);
 
       if (!window.username) {
         toast.showToast('Error: No hi ha usuari definit');
         return;
       }
 
-      if (!siteKeyDeRecaptcha) {
-        toast.showToast('Error: No hi ha API Key de Recaptcha Firebase');
-        return;
+      // Verificar si viene siteid por parámetro URL
+      const urlParams = new URLSearchParams(window.location.search);
+      const siteIdFromUrl = urlParams.get('siteid');
+      
+      if (siteIdFromUrl) {
+        localStorage.setItem(LS_KEYS.FIREBASE_SITE_ID, siteIdFromUrl);
+        toast.showToast('Site ID guardat des de la URL!');
+        // Limpiar la URL sin recargar
+        window.history.replaceState({}, document.title, window.location.pathname);
       }
 
-      // Inicializar Firebase
+      let firebaseSiteId = localStorage.getItem(LS_KEYS.FIREBASE_SITE_ID);
+      let apiKey = localStorage.getItem(LS_KEYS.FIREBASE_APIKEY);
+
+      // Si no hay Site ID, mostrar modal
+      if (!firebaseSiteId) {
+        const modal = document.getElementById('siteIdModal');
+        const input = document.getElementById('siteIdInput');
+        const saveBtn = document.getElementById('siteIdSaveBtn');
+
+        modal.style.display = 'flex';
+
+        const guardarSiteId = () => {
+          const newSiteId = input.value.trim();
+          if (!newSiteId) {
+            toast.showToast('El Site ID no pot estar buit');
+            return;
+          }
+
+          // Guardar en localStorage
+          localStorage.setItem(LS_KEYS.FIREBASE_SITE_ID, newSiteId);
+          modal.style.display = 'none';
+          firebaseSiteId = newSiteId;
+          inicializarFirebase(firebaseSiteId);
+          toast.showToast('Site ID guardat correctament!');
+        };
+
+        saveBtn.addEventListener('click', guardarSiteId);
+
+        // Permitir guardar con Enter
+        input.addEventListener('keypress', (e) => {
+          if (e.key === 'Enter') {
+            guardarSiteId();
+          }
+        });
+
+        return;
+      }else{
+        inicializarFirebase(firebaseSiteId);
+      }
+
+    }, {once: true});
+
+    // Función para inicializar Firebase
+    function inicializarFirebase(siteId) {
       const firebaseConfig = {
         apiKey: "AIzaSyBNEaYUKHjSQ_n8nlluwDBSKjcY-a1ieww",
-        authDomain: "sticdopos.firebaseapp.com",
-        projectId: "sticdopos",
-        storageBucket: "sticdopos.firebasestorage.app",
-        appId: "1:404229781413:web:92ce881db7bd1d553e1a4c"
+        authDomain: `${siteId}.firebaseapp.com`,
+        projectId: siteId,
+        storageBucket: `${siteId}.firebasestorage.app`,
       };
 
       const app = initializeApp(firebaseConfig);
-    // 🔐 APP CHECK
-    initializeAppCheck(app, {
-        provider: new ReCaptchaV3Provider(siteKeyDeRecaptcha),
-        isTokenAutoRefreshEnabled: true
-    });
-
       window.storage = getStorage(app);
 
       cargarSesionLocal();
       mostrarResumenLocal();
-    }, {once: true});
+    }
 
     // ========================================
     // FUNCIONES DE CARGA LOCAL
