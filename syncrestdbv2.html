@@ -1,0 +1,318 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>syncrestdbv2 — Media Archive (restdb.io)</title>
+  <style>
+    :root { --b:#ddd; --muted:#666; }
+    body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; margin: 24px; }
+    h1 { margin: 0 0 8px; font-size: 20px; }
+    p { margin: 6px 0; color: var(--muted); }
+    .panel { border: 1px solid var(--b); border-radius: 12px; padding: 14px; margin: 14px 0; }
+    .row { display: flex; gap: 12px; flex-wrap: wrap; align-items: end; }
+    label { display: grid; gap: 6px; font-size: 13px; }
+    input, select { padding: 10px; font-size: 14px; min-width: 260px; border: 1px solid var(--b); border-radius: 10px; }
+    button { padding: 10px 14px; font-size: 14px; cursor: pointer; border: 1px solid var(--b); border-radius: 10px; background: #fff; }
+    button.primary { border-color: #bbb; font-weight: 600; }
+    button.danger { border-color: #e3b3b3; }
+    .status { white-space: pre-wrap; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace; font-size: 12px; color: #111; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 12px; }
+    .card { border: 1px solid var(--b); border-radius: 12px; padding: 12px; }
+    .thumb { width: 100%; height: 200px; object-fit: cover; border-radius: 10px; border: 1px solid var(--b); background: #fafafa; }
+    .meta { margin-top: 10px; }
+    .meta .name { font-weight: 700; }
+    .meta .id { color: var(--muted); font-size: 12px; word-break: break-all; }
+    .meta .kv { font-size: 12px; color: #222; margin-top: 6px; }
+    .meta .kv span { color: var(--muted); }
+    .actions { display: flex; gap: 10px; margin-top: 10px; flex-wrap: wrap; }
+    .actions a { font-size: 13px; text-decoration: none; }
+    .small { font-size: 12px; color: var(--muted); }
+    code { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace; }
+  </style>
+</head>
+
+<body>
+  <h1>syncrestdbv2 — restdb.io Media Archive</h1>
+  <p>
+    Requiere una <strong>API key con CORS</strong> (cabecera <code>x-apikey</code>) y permisos de POST/DELETE si vas a subir/borrar. :contentReference[oaicite:1]{index=1}
+  </p>
+
+  <div class="panel">
+    <div class="row">
+      <label>
+        DB (subdominio)
+        <input id="db" placeholder="mi-db (sin .restdb.io)" />
+        <span class="small">Ej.: <code>rdb-simpledb</code></span>
+      </label>
+
+      <label>
+        API key (CORS enabled)
+        <input id="apikey" placeholder="x-apikey..." />
+        <span class="small">Se envía como <code>x-apikey</code>.</span>
+      </label>
+
+      <label>
+        Tamaño imagen
+        <select id="imgSize">
+          <option value="t">Thumbnail (?s=t)</option>
+          <option value="w">Web (?s=w)</option>
+          <option value="">Original</option>
+        </select>
+        <span class="small">restdb soporta <code>?s=t</code> y <code>?s=w</code>. :contentReference[oaicite:2]{index=2}</span>
+      </label>
+
+      <label>
+        Límite listado
+        <input id="limit" type="number" min="1" max="500" value="50" />
+        <span class="small">Usa <code>h={"$max":N}</code>. :contentReference[oaicite:3]{index=3}</span>
+      </label>
+
+      <button class="primary" id="refreshBtn">Refrescar listado</button>
+    </div>
+  </div>
+
+  <div class="panel">
+    <div class="row">
+      <label>
+        Subir fichero(s)
+        <input id="fileInput" type="file" multiple />
+        <span class="small">Se sube con <code>FormData</code> a <code>POST /media</code>. :contentReference[oaicite:4]{index=4}</span>
+      </label>
+      <button class="primary" id="uploadBtn">Upload</button>
+      <button id="clearBtn">Limpiar estado</button>
+    </div>
+
+    <div class="status" id="status" style="margin-top:12px;"></div>
+  </div>
+
+  <div class="panel">
+    <div class="row">
+      <label>
+        Buscar por nombre (contiene)
+        <input id="filterName" placeholder="p. ej. .pdf o foto" />
+      </label>
+      <button id="applyFilterBtn">Aplicar filtro</button>
+    </div>
+    <p class="small" style="margin-top:10px;">
+      El listado se obtiene con <code>GET /media/*/meta</code> (sin <code>ids</code> devuelve todo el archivo). :contentReference[oaicite:5]{index=5}
+    </p>
+  </div>
+
+  <div class="grid" id="grid"></div>
+
+<script>
+  const $ = (id) => document.getElementById(id);
+
+  function setStatus(msg) {
+    $("status").textContent = msg || "";
+  }
+
+  function baseUrl() {
+    const db = $("db").value.trim();
+    if (!db) throw new Error("Falta DB (subdominio).");
+    return `https://${db}.restdb.io`;
+  }
+
+  function apiKey() {
+    const k = $("apikey").value.trim();
+    if (!k) throw new Error("Falta API key (CORS enabled).");
+    return k;
+  }
+
+  async function apiFetch(path, { method="GET", body=null, headers={} } = {}) {
+    const url = `${baseUrl()}${path}`;
+    const h = new Headers(headers);
+    h.set("x-apikey", apiKey());
+    // Importante: cuando body es FormData, NO fijar Content-Type manualmente.
+    if (!(body instanceof FormData)) h.set("Content-Type", h.get("Content-Type") || "application/json");
+    h.set("Accept", "application/json");
+
+    const res = await fetch(url, { method, headers: h, body });
+    if (!res.ok) {
+      const text = await res.text().catch(() => "");
+      throw new Error(`HTTP ${res.status} ${res.statusText}\n${text}`);
+    }
+
+    // Algunos endpoints binarios no devuelven JSON; aquí solo usamos JSON.
+    return res.json();
+  }
+
+  function fmtBytes(n) {
+    if (n === undefined || n === null) return "-";
+    const units = ["B","KB","MB","GB","TB"];
+    let i = 0, num = Number(n);
+    while (num >= 1024 && i < units.length - 1) { num /= 1024; i++; }
+    return `${num.toFixed(i === 0 ? 0 : 1)} ${units[i]}`;
+  }
+
+  function esc(s) {
+    return String(s).replace(/[&<>"']/g, c => ({
+      "&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"
+    }[c]));
+  }
+
+  function buildMediaUrl(id, accessKey) {
+    const size = $("imgSize").value; // t | w | ""
+    const params = new URLSearchParams();
+    if (size) params.set("s", size);
+
+    // Si el Media Archive está en modo restricted, puede exigir ?key=... (access_key viene en meta). :contentReference[oaicite:6]{index=6}
+    if (accessKey) params.set("key", accessKey);
+
+    const qs = params.toString();
+    return `${baseUrl()}/media/${encodeURIComponent(id)}${qs ? "?" + qs : ""}`;
+  }
+
+  function buildMetaUrl(id) {
+    // /media/<id>/meta está documentado. :contentReference[oaicite:7]{index=7}
+    return `${baseUrl()}/media/${encodeURIComponent(id)}/meta`;
+  }
+
+  async function refreshList() {
+    setStatus("Cargando metadatos…");
+
+    const max = Math.max(1, Math.min(500, Number($("limit").value || 50)));
+    const h = encodeURIComponent(JSON.stringify({
+      "$max": max,
+      "$orderby": { "_created": -1 }
+    }));
+
+    // /media/*/meta sin ids => todo el archivo. :contentReference[oaicite:8]{index=8}
+    const items = await apiFetch(`/media/*/meta?h=${h}`, { method: "GET", headers: { "Content-Type": "application/json" } });
+
+    // Normaliza: el endpoint devuelve array
+    const arr = Array.isArray(items) ? items : [];
+    render(arr);
+    setStatus(`OK — ${arr.length} fichero(s) cargado(s).`);
+  }
+
+  function render(items) {
+    const filter = $("filterName").value.trim().toLowerCase();
+    const grid = $("grid");
+    grid.innerHTML = "";
+
+    const list = filter
+      ? items.filter(x => String(x.origname || "").toLowerCase().includes(filter))
+      : items;
+
+    for (const it of list) {
+      const id = it._id;
+      const name = it.origname || it.file || id || "(sin nombre)";
+      const type = it.mediatype || "-";
+      const size = fmtBytes(it.filesize);
+      const created = it._created ? new Date(it._created).toLocaleString() : "-";
+      const accessKey = it.access_key || ""; // útil en modo restricted :contentReference[oaicite:9]{index=9}
+
+      const mediaUrl = id ? buildMediaUrl(id, accessKey) : "#";
+      const metaUrl = id ? buildMetaUrl(id) : "#";
+
+      const card = document.createElement("div");
+      card.className = "card";
+
+      // Si no es imagen, forzamos un “fallback” visual.
+      const isImage = String(type).toLowerCase() === "image";
+
+      card.innerHTML = `
+        <img class="thumb" alt="${esc(name)}"
+             src="${isImage ? mediaUrl : ""}"
+             onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,${encodeURIComponent(nonImageSvg(name))}'">
+        <div class="meta">
+          <div class="name">${esc(name)}</div>
+          <div class="id">${esc(id)}</div>
+          <div class="kv"><span>Tipo:</span> ${esc(type)} · <span>Tamaño:</span> ${esc(size)} · <span>Creado:</span> ${esc(created)}</div>
+        </div>
+        <div class="actions">
+          <a href="${mediaUrl}" target="_blank" rel="noopener">Abrir/descargar</a>
+          <a href="${metaUrl}" target="_blank" rel="noopener">Ver meta</a>
+          <button class="danger" data-del="${esc(id)}">Borrar</button>
+        </div>
+      `;
+
+      // Botón borrar (DELETE /media/<id>) :contentReference[oaicite:10]{index=10}
+      card.querySelector("button[data-del]").addEventListener("click", async (e) => {
+        const mid = e.currentTarget.getAttribute("data-del");
+        if (!mid) return;
+
+        try {
+          setStatus(`Borrando ${mid}…`);
+          await apiFetch(`/media/${encodeURIComponent(mid)}`, { method: "DELETE", headers: { "Content-Type": "application/json" } });
+          setStatus(`Borrado OK: ${mid}`);
+          await refreshList();
+        } catch (err) {
+          setStatus(`Error borrando.\n${err.message || err}`);
+        }
+      });
+
+      // Si no es imagen, ponemos siempre el SVG
+      if (!isImage) {
+        const img = card.querySelector("img.thumb");
+        img.src = "data:image/svg+xml;utf8," + encodeURIComponent(nonImageSvg(name));
+      }
+
+      grid.appendChild(card);
+    }
+
+    if (list.length === 0) {
+      const empty = document.createElement("div");
+      empty.className = "card";
+      empty.innerHTML = `<div class="meta"><div class="name">Sin resultados</div><div class="id">No hay ficheros que coincidan con el filtro o el archivo está vacío.</div></div>`;
+      grid.appendChild(empty);
+    }
+  }
+
+  function nonImageSvg(filename) {
+    const safe = String(filename || "archivo").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+    return `
+      <svg xmlns="http://www.w3.org/2000/svg" width="800" height="450">
+        <rect width="100%" height="100%" fill="#f3f4f6"/>
+        <rect x="40" y="40" width="720" height="370" rx="18" fill="#ffffff" stroke="#d1d5db"/>
+        <text x="80" y="160" font-family="system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="22" fill="#111827">Documento / fichero</text>
+        <text x="80" y="205" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono" font-size="14" fill="#6b7280">${safe}</text>
+        <text x="80" y="260" font-family="system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="14" fill="#6b7280">No es una imagen (o no se pudo cargar la previsualización).</text>
+      </svg>
+    `.trim();
+  }
+
+  async function uploadFiles() {
+    try {
+      const input = $("fileInput");
+      const files = input.files;
+      if (!files || files.length === 0) {
+        setStatus("No hay ficheros seleccionados.");
+        return;
+      }
+
+      setStatus(`Subiendo ${files.length} fichero(s)…`);
+
+      // FormData con clave "myfile" (como en el post) :contentReference[oaicite:11]{index=11}
+      const formData = new FormData();
+      for (const f of files) formData.append("myfile", f, f.name);
+
+      // POST /media :contentReference[oaicite:12]{index=12}
+      const resp = await apiFetch(`/media`, {
+        method: "POST",
+        body: formData,
+        headers: {} // NO Content-Type
+      });
+
+      // resp típico incluye ids[] :contentReference[oaicite:13]{index=13}
+      const ids = Array.isArray(resp?.ids) ? resp.ids : [];
+      setStatus(`Upload OK.\nuploadid: ${resp?.uploadid || "-"}\nids: ${ids.join(", ") || "-"}`);
+
+      input.value = "";
+      await refreshList();
+    } catch (err) {
+      setStatus(`Error subiendo.\n${err.message || err}`);
+    }
+  }
+
+  $("uploadBtn").addEventListener("click", uploadFiles);
+  $("refreshBtn").addEventListener("click", () => refreshList().catch(e => setStatus(e.message || e)));
+  $("applyFilterBtn").addEventListener("click", () => refreshList().catch(e => setStatus(e.message || e)));
+  $("clearBtn").addEventListener("click", () => setStatus(""));
+
+  // Nota operativa: si abres con file:// y el navegador limita CORS, sirve el fichero con un servidor local (p.ej. `python -m http.server`).
+</script>
+</body>
+</html>

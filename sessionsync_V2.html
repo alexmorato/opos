@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sincronització Sessió V2 - sTIC d'Opos</title>
+  <link rel="icon" type="image/png" sizes="16x16" href="images/icons/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/icons/favicon-32x32.png">
+  <link rel="icon" href="images/icons/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" sizes="180x180" href="images/icons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="images/icons/android-chrome-192x192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="images/icons/android-chrome-512x512.png">
+  <style>
+    body {
+      font-family: system-ui, sans-serif;
+      background: #0b1020;
+      color: #e7ecff;
+      margin: 0;
+      padding: 20px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .container {
+      max-width: 800px;
+      width: 100%;
+      background: #141a2a;
+      border-radius: 16px;
+      padding: 32px 24px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+      border: 1px solid #27304a;
+      margin-top: 40px;
+    }
+    h2 {
+      color: #6ae0a7;
+      text-align: center;
+      margin-bottom: 18px;
+    }
+    .resumen-box {
+      background: #232b45;
+      border: 1.5px solid #27304a;
+      border-radius: 8px;
+      padding: 16px;
+      margin-bottom: 18px;
+    }
+    .resumen-box h3 {
+      color: #6ae0a7;
+      margin-top: 0;
+      margin-bottom: 12px;
+      font-size: 1.1rem;
+    }
+    .resumen-box .subsection {
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid #27304a;
+    }
+    .resumen-box .subsection:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+    .resumen-box .subsection-title {
+      color: #9fb0ff;
+      font-weight: bold;
+      font-size: 1rem;
+      margin-bottom: 8px;
+    }
+    .resumen-box p {
+      margin: 4px 0;
+      font-size: 0.9rem;
+      color: #e7ecff;
+    }
+    .resumen-box .label {
+      color: #9fb0ff;
+      font-weight: bold;
+    }
+    .btn-row {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 18px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    button {
+      background: #27304a;
+      color: #e7ecff;
+      font-size: 1rem;
+      padding: 10px 22px;
+      border-radius: 8px;
+      border: 1px solid #2a3554;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    button:hover:not(:disabled) {
+      background: #2a3554;
+      border-color: #6ae0a7;
+      color: #6ae0a7;
+    }
+    .main-btn {
+      background: linear-gradient(180deg, #2aebad, #21c08d);
+      color: #032217;
+      font-weight: bold;
+      font-size: 1.05rem;
+      border: none;
+    }
+    .main-btn:hover:not(:disabled) {
+      background: #6ae0a7;
+      color: #032217;
+    }
+    .warning-btn {
+      background: linear-gradient(180deg, #ff9966, #ff6b35);
+      color: #fff;
+      font-weight: bold;
+      border: none;
+    }
+    .warning-btn:hover:not(:disabled) {
+      background: #ff8855;
+      color: #fff;
+    }
+    button:disabled {
+      background: #27304a;
+      color: #6b7585;
+      cursor: not-allowed;
+      opacity: 0.5;
+    }
+    .hidden {
+      display: none;
+    }
+    .footer {
+      text-align: center;
+      font-size: 13px;
+      color: #9fb0ff;
+      margin-top: 30px;
+    }
+  </style>
+  <script src="assets/js/toast.js"></script>
+  <script src="assets/js/localstorage-utils.js"></script>
+  <script src="assets/js/login.js"></script>
+  <script src="assets/js/loading.js"></script>
+  <link rel="stylesheet" href="assets/styles/loading.css">
+</head>
+<body>
+  <div class="container">
+    <h2>🔄 Sincronització Sessió V2 (Firebase)</h2>
+    
+    <!-- Resumen Local -->
+    <div class="resumen-box">
+      <h3>📱 Sessió Local (Dispositiu)</h3>
+      
+      <div class="subsection">
+        <div class="subsection-title">Historial de Fallos</div>
+        <p><span class="label">Preguntes en historial:</span> <span id="localFallosPreguntas">0</span></p>
+        <p><span class="label">Última actualització:</span> <span id="localFallosUltima">-</span></p>
+        <p><span class="label">Total errors (suma count):</span> <span id="localFallosTotal">0</span></p>
+        <p><span class="label">Temes únics:</span> <span id="localFallosTemes">0</span></p>
+      </div>
+      
+      <div class="subsection">
+        <div class="subsection-title">Historial Contestades</div>
+        <p><span class="label">Preguntes respondides:</span> <span id="localContestadesPreguntas">0</span></p>
+        <p><span class="label">Total respostes:</span> <span id="localContestadesTotal">0</span></p>
+      </div>
+      
+      <div class="subsection">
+        <div class="subsection-title">Interaccions API</div>
+        <p><span class="label">Última data:</span> <span id="localApiData">-</span></p>
+        <p><span class="label">Intents restants:</span> <span id="localApiRestantes">-</span></p>
+      </div>
+    </div>
+
+    <!-- Botón Descargar del Servidor -->
+    <div class="btn-row">
+      <button class="main-btn" id="btnDescargar" onclick="descargarDelServidor()">☁️⬇️ Descarregar Sessió del Servidor</button>
+    </div>
+
+    <!-- Resumen Servidor -->
+    <div class="resumen-box hidden" id="servidorBox">
+      <h3>☁️ Sessió Servidor</h3>
+      
+      <div class="subsection">
+        <div class="subsection-title">Historial de Fallos</div>
+        <p><span class="label">Preguntes en historial:</span> <span id="servidorFallosPreguntas">0</span></p>
+        <p><span class="label">Última actualització:</span> <span id="servidorFallosUltima">-</span></p>
+        <p><span class="label">Total errors (suma count):</span> <span id="servidorFallosTotal">0</span></p>
+        <p><span class="label">Temes únics:</span> <span id="servidorFallosTemes">0</span></p>
+      </div>
+      
+      <div class="subsection">
+        <div class="subsection-title">Historial Contestades</div>
+        <p><span class="label">Preguntes respondides:</span> <span id="servidorContestadesPreguntas">0</span></p>
+        <p><span class="label">Total respostes:</span> <span id="servidorContestadesTotal">0</span></p>
+      </div>
+      
+      <div class="subsection">
+        <div class="subsection-title">Interaccions API</div>
+        <p><span class="label">Última data:</span> <span id="servidorApiData">-</span></p>
+      </div>
+    </div>
+
+    <!-- Resumen Merge -->
+    <div class="resumen-box hidden" id="mergeBox">
+      <h3>🔀 Sessió Combinada (Merge)</h3>
+      
+      <div class="subsection">
+        <div class="subsection-title">Historial de Fallos</div>
+        <p><span class="label">Preguntes en historial:</span> <span id="mergeFallosPreguntas">0</span></p>
+        <p><span class="label">Última actualització:</span> <span id="mergeFallosUltima">-</span></p>
+        <p><span class="label">Total errors (suma count):</span> <span id="mergeFallosTotal">0</span></p>
+        <p><span class="label">Temes únics:</span> <span id="mergeFallosTemes">0</span></p>
+      </div>
+      
+      <div class="subsection">
+        <div class="subsection-title">Historial Contestades</div>
+        <p><span class="label">Preguntes respondides:</span> <span id="mergeContestadesPreguntas">0</span></p>
+        <p><span class="label">Total respostes:</span> <span id="mergeContestadesTotal">0</span></p>
+      </div>
+      
+      <div class="subsection">
+        <div class="subsection-title">Interaccions API</div>
+        <p><span class="label">Última data:</span> <span id="mergeApiData">-</span></p>
+        <p><span class="label">Interaccions:</span> <span id="mergeApiInteracciones">-</span></p>
+      </div>
+    </div>
+
+    <!-- Botones de Guardado -->
+    <div class="btn-row hidden" id="botonesGuardar">
+      <button class="main-btn" id="btnGuardarLocal" onclick="guardarMergeEnLocal()">💾⬅️ Guardar merge en Local</button>
+      <button class="main-btn" id="btnGuardarServidor" onclick="guardarMergeEnServidor()">☁️⬆️ Guardar merge al Servidor</button>
+    </div>
+
+    <!-- Botón Guardar Local en Servidor -->
+    <div class="btn-row hidden" id="botonSobreescribir">
+      <button class="warning-btn" id="btnLocalAServidor" onclick="guardarLocalEnServidor()">⚠️⬆️ Guardar Local al Servidor</button>
+    </div>
+
+    <!-- Botón Volver -->
+    <div class="btn-row">
+      <button onclick="window.location.href='index.html'">⬅️ Tornar al menú</button>
+    </div>
+  </div>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-app.js";
+    import { getStorage, ref, uploadBytes, getDownloadURL, getBytes } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-storage.js";
+
+    const MAX_INTERACCIONES_DIA = 20;
+
+    // Variables globales - expuestas en window para acceso desde funciones onclick
+    window.storage = null;
+    window.username = null;
+    window.firebaseRef = ref;
+    window.firebaseUploadBytes = uploadBytes;
+    window.firebaseGetDownloadURL = getDownloadURL;
+    window.firebaseGetBytes = getBytes;
+    
+    let sesionLocal = {
+      historialFallos: [],
+      historialContestades: {},
+      interaccionesApi: {}
+    };
+    let sesionServidor = {
+      historialFallos: [],
+      historialContestades: {},
+      interaccionesApi: {}
+    };
+    let sesionMerge = {
+      historialFallos: [],
+      historialContestades: {},
+      interaccionesApi: {}
+    };
+
+    // Inicialización
+    document.addEventListener('DOMContentLoaded', function() {
+      const userName = localStorage.getItem(LS_KEYS.USER_NAME);
+      const userPass = localStorage.getItem(LS_KEYS.USER_PASS);
+      login.checkUserAuth(userName, userPass);
+
+      window.username = localStorage.getItem(LS_KEYS.USER_NAME);
+      const apiKey = localStorage.getItem(LS_KEYS.FIREBASE_APIKEY);
+
+      if (!window.username) {
+        toast.showToast('Error: No hi ha usuari definit');
+        return;
+      }
+
+      if (!apiKey) {
+        toast.showToast('Error: No hi ha API Key de Firebase');
+        return;
+      }
+
+      // Inicializar Firebase
+      const firebaseConfig = {
+        apiKey: apiKey,
+        authDomain: "sticdopos.firebaseapp.com",
+        projectId: "sticdopos",
+        storageBucket: "sticdopos.firebasestorage.app",
+      };
+
+      const app = initializeApp(firebaseConfig);
+      window.storage = getStorage(app);
+
+      cargarSesionLocal();
+      mostrarResumenLocal();
+    }, {once: true});
+
+    // ========================================
+    // FUNCIONES DE CARGA LOCAL
+    // ========================================
+
+    function cargarSesionLocal() {
+      try {
+        // Historial Fallos
+        const fallosData = localStorage.getItem(LS_KEYS.HISTORIAL_FALLOS);
+        sesionLocal.historialFallos = fallosData ? JSON.parse(fallosData) : [];
+
+        // Historial Contestades
+        const contestadesData = localStorage.getItem(LS_KEYS.HISTORIAL_CONTESTADES);
+        sesionLocal.historialContestades = contestadesData ? JSON.parse(contestadesData) : {};
+
+        // Interacciones API
+        const apiData = localStorage.getItem(LS_KEYS.INTERACCIONES_API);
+        sesionLocal.interaccionesApi = apiData ? JSON.parse(apiData) : {};
+      } catch (e) {
+        console.error('Error cargando sesión local:', e);
+        toast.showToast('Error carregant dades locals');
+      }
+    }
+
+    function mostrarResumenLocal() {
+      if (typeof showLoadingSpinner === 'function') showLoadingSpinner('Carregant sessió local...');
+
+      // Historial Fallos
+      const resumenFallos = calcularResumenFallos(sesionLocal.historialFallos);
+      document.getElementById('localFallosPreguntas').textContent = resumenFallos.preguntas;
+      document.getElementById('localFallosUltima').textContent = resumenFallos.ultima;
+      document.getElementById('localFallosTotal').textContent = resumenFallos.totalErrores;
+      document.getElementById('localFallosTemes').textContent = resumenFallos.temasUnicos;
+
+      // Historial Contestades
+      const resumenContestades = calcularResumenContestades(sesionLocal.historialContestades);
+      document.getElementById('localContestadesPreguntas').textContent = resumenContestades.preguntas;
+      document.getElementById('localContestadesTotal').textContent = resumenContestades.totalRespuestas;
+
+      // Interacciones API
+      const resumenApi = calcularResumenApi(sesionLocal.interaccionesApi, true);
+      document.getElementById('localApiData').textContent = resumenApi.fecha;
+      document.getElementById('localApiRestantes').textContent = resumenApi.restantes;
+
+      if (typeof hideLoadingSpinner === 'function') hideLoadingSpinner();
+    }
+
+    // ========================================
+    // FUNCIONES DE CÁLCULO DE RESUMEN
+    // ========================================
+
+    function calcularResumenFallos(historialFallos) {
+      const preguntas = historialFallos.length;
+      let ultimaFecha = '-';
+      let totalErrores = 0;
+      const temasSet = new Set();
+
+      historialFallos.forEach(p => {
+        // Sumar errores
+        totalErrores += p.count || 0;
+
+        // Contar temas únicos
+        if (p.subjectId) {
+          temasSet.add(p.subjectId);
+        }
+
+        // Buscar fecha más reciente
+        if (p.fecha) {
+          if (ultimaFecha === '-' || new Date(p.fecha) > new Date(ultimaFecha)) {
+            ultimaFecha = p.fecha;
+          }
+        }
+      });
+
+      // Formatear fecha
+      if (ultimaFecha !== '-') {
+        const date = new Date(ultimaFecha);
+        ultimaFecha = date.toLocaleString('ca-ES');
+      }
+
+      return {
+        preguntas,
+        ultima: ultimaFecha,
+        totalErrores,
+        temasUnicos: temasSet.size
+      };
+    }
+
+    function calcularResumenContestades(historialContestades) {
+      const preguntas = Object.keys(historialContestades).length;
+      let totalRespuestas = 0;
+
+      Object.values(historialContestades).forEach(count => {
+        totalRespuestas += count || 0;
+      });
+
+      return {
+        preguntas,
+        totalRespuestas
+      };
+    }
+
+    function calcularResumenApi(interaccionesApi, calcularRestantes = false) {
+      let fecha = '-';
+      let restantes = '-';
+
+      if (interaccionesApi.fecha) {
+        const date = new Date(interaccionesApi.fecha);
+        fecha = date.toLocaleDateString('ca-ES');
+      }
+
+      if (calcularRestantes) {
+        const hoy = new Date().toISOString().split('T')[0];
+        if (interaccionesApi.fecha === hoy) {
+          restantes = MAX_INTERACCIONES_DIA - (interaccionesApi.interacciones || 0);
+        } else {
+          restantes = MAX_INTERACCIONES_DIA;
+        }
+      }
+
+      return {
+        fecha,
+        restantes,
+        interacciones: interaccionesApi.interacciones || 0
+      };
+    }
+
+    // ========================================
+    // DESCARGAR DEL SERVIDOR
+    // ========================================
+
+    window.descargarDelServidor = async function() {
+      document.getElementById('btnDescargar').disabled = true;
+      
+      if (typeof showLoadingSpinner === 'function') showLoadingSpinner('Descarregant del servidor...');
+
+      try {
+        const filePath = `sessions/${window.username}.json`;
+        
+        // Usar getBytes en lugar de getDownloadURL + fetch para evitar CORS
+        const bytes = await window.firebaseGetBytes(window.firebaseRef(window.storage, filePath));
+        const text = new TextDecoder('utf-8').decode(bytes);
+        const data = JSON.parse(text);
+        
+        // Parsear datos del servidor
+        sesionServidor.historialFallos = data.sTICdOpos_historialFallos || [];
+        sesionServidor.historialContestades = data.sTICdOpos_historialContestades || {};
+        sesionServidor.interaccionesApi = data.sTICdOpos_apiInteracciones || {};
+
+        mostrarResumenServidor();
+        realizarMerge();
+        mostrarResumenMerge();
+        mostrarBotonesGuardar();
+
+        toast.showToast('Sessió descarregada correctament!');
+
+      } catch (e) {
+        console.error('Error descargando:', e);
+        
+        // Si el archivo no existe, crearlo con los datos locales
+        if (e.code === 'storage/object-not-found') {
+          toast.showToast('Fitxer no trobat. Creant-lo amb dades locals...');
+          
+          try {
+            const dataToUpload = {
+              sTICdOpos_historialFallos: sesionLocal.historialFallos,
+              sTICdOpos_historialContestades: sesionLocal.historialContestades,
+              sTICdOpos_apiInteracciones: sesionLocal.interaccionesApi
+            };
+
+            const blob = new Blob([JSON.stringify(dataToUpload, null, 2)], { type: 'application/json' });
+            const filePath = `sessions/${window.username}.json`;
+
+            await window.firebaseUploadBytes(window.firebaseRef(window.storage, filePath), blob);
+
+            // Ahora el servidor tiene los mismos datos que local
+            sesionServidor.historialFallos = [...sesionLocal.historialFallos];
+            sesionServidor.historialContestades = {...sesionLocal.historialContestades};
+            sesionServidor.interaccionesApi = {...sesionLocal.interaccionesApi};
+
+            mostrarResumenServidor();
+            realizarMerge();
+            mostrarResumenMerge();
+            mostrarBotonesGuardar();
+
+            toast.showToast('Fitxer creat al servidor amb dades locals!');
+          } catch (uploadError) {
+            console.error('Error creando archivo:', uploadError);
+            toast.showToast('Error creant el fitxer al servidor');
+          }
+        } else {
+          toast.showToast('Error de connexió amb el servidor');
+        }
+      } finally {
+        if (typeof hideLoadingSpinner === 'function') hideLoadingSpinner();
+        document.getElementById('btnDescargar').disabled = false;
+      }
+    };
+
+    function mostrarResumenServidor() {
+      // Historial Fallos
+      const resumenFallos = calcularResumenFallos(sesionServidor.historialFallos);
+      document.getElementById('servidorFallosPreguntas').textContent = resumenFallos.preguntas;
+      document.getElementById('servidorFallosUltima').textContent = resumenFallos.ultima;
+      document.getElementById('servidorFallosTotal').textContent = resumenFallos.totalErrores;
+      document.getElementById('servidorFallosTemes').textContent = resumenFallos.temasUnicos;
+
+      // Historial Contestades
+      const resumenContestades = calcularResumenContestades(sesionServidor.historialContestades);
+      document.getElementById('servidorContestadesPreguntas').textContent = resumenContestades.preguntas;
+      document.getElementById('servidorContestadesTotal').textContent = resumenContestades.totalRespuestas;
+
+      // Interacciones API
+      const resumenApi = calcularResumenApi(sesionServidor.interaccionesApi, false);
+      document.getElementById('servidorApiData').textContent = resumenApi.fecha;
+
+      document.getElementById('servidorBox').classList.remove('hidden');
+    }
+
+    // ========================================
+    // MERGE EN MEMORIA
+    // ========================================
+
+    function realizarMerge() {
+      // Merge Historial Fallos
+      const mapaFallos = new Map();
+
+      // Añadir del local
+      sesionLocal.historialFallos.forEach(p => {
+        const guid = p.guid;
+        if (!mapaFallos.has(guid)) {
+          mapaFallos.set(guid, p);
+        }
+      });
+
+      // Añadir del servidor
+      sesionServidor.historialFallos.forEach(p => {
+        const guid = p.guid;
+        if (!mapaFallos.has(guid)) {
+          mapaFallos.set(guid, p);
+        } else {
+          // Si existe, quedarse con el que tiene mayor count
+          const existente = mapaFallos.get(guid);
+          if ((p.count || 0) > (existente.count || 0)) {
+            mapaFallos.set(guid, p);
+          }
+        }
+      });
+
+      sesionMerge.historialFallos = Array.from(mapaFallos.values());
+
+      // Merge Historial Contestades
+      sesionMerge.historialContestades = {};
+
+      // Copiar del local
+      Object.keys(sesionLocal.historialContestades).forEach(key => {
+        sesionMerge.historialContestades[key] = sesionLocal.historialContestades[key];
+      });
+
+      // Merge con servidor
+      Object.keys(sesionServidor.historialContestades).forEach(key => {
+        const valorServidor = sesionServidor.historialContestades[key];
+        const valorLocal = sesionMerge.historialContestades[key] || 0;
+        sesionMerge.historialContestades[key] = Math.max(valorLocal, valorServidor);
+      });
+
+      // Merge Interacciones API
+      const fechaLocal = sesionLocal.interaccionesApi.fecha || '';
+      const fechaServidor = sesionServidor.interaccionesApi.fecha || '';
+
+      if (fechaServidor > fechaLocal) {
+        sesionMerge.interaccionesApi = { ...sesionServidor.interaccionesApi };
+      } else if (fechaLocal > fechaServidor) {
+        sesionMerge.interaccionesApi = { ...sesionLocal.interaccionesApi };
+      } else if (fechaLocal === fechaServidor && fechaLocal !== '') {
+        // Misma fecha, quedarse con el que tiene más interacciones
+        const interLocal = sesionLocal.interaccionesApi.interacciones || 0;
+        const interServidor = sesionServidor.interaccionesApi.interacciones || 0;
+        sesionMerge.interaccionesApi = interLocal >= interServidor
+          ? { ...sesionLocal.interaccionesApi }
+          : { ...sesionServidor.interaccionesApi };
+      } else {
+        sesionMerge.interaccionesApi = { ...sesionLocal.interaccionesApi };
+      }
+    }
+
+    function mostrarResumenMerge() {
+      // Historial Fallos
+      const resumenFallos = calcularResumenFallos(sesionMerge.historialFallos);
+      document.getElementById('mergeFallosPreguntas').textContent = resumenFallos.preguntas;
+      document.getElementById('mergeFallosUltima').textContent = resumenFallos.ultima;
+      document.getElementById('mergeFallosTotal').textContent = resumenFallos.totalErrores;
+      document.getElementById('mergeFallosTemes').textContent = resumenFallos.temasUnicos;
+
+      // Historial Contestades
+      const resumenContestades = calcularResumenContestades(sesionMerge.historialContestades);
+      document.getElementById('mergeContestadesPreguntas').textContent = resumenContestades.preguntas;
+      document.getElementById('mergeContestadesTotal').textContent = resumenContestades.totalRespuestas;
+
+      // Interacciones API
+      const resumenApi = calcularResumenApi(sesionMerge.interaccionesApi, false);
+      document.getElementById('mergeApiData').textContent = resumenApi.fecha;
+      document.getElementById('mergeApiInteracciones').textContent = resumenApi.interacciones;
+
+      document.getElementById('mergeBox').classList.remove('hidden');
+    }
+
+    function mostrarBotonesGuardar() {
+      document.getElementById('botonesGuardar').classList.remove('hidden');
+      document.getElementById('botonSobreescribir').classList.remove('hidden');
+    }
+
+    // ========================================
+    // GUARDAR DATOS
+    // ========================================
+
+    window.guardarMergeEnLocal = function() {
+      try {
+        localStorage.setItem(LS_KEYS.HISTORIAL_FALLOS, JSON.stringify(sesionMerge.historialFallos));
+        localStorage.setItem(LS_KEYS.HISTORIAL_CONTESTADES, JSON.stringify(sesionMerge.historialContestades));
+        localStorage.setItem(LS_KEYS.INTERACCIONES_API, JSON.stringify(sesionMerge.interaccionesApi));
+
+        sesionLocal = JSON.parse(JSON.stringify(sesionMerge));
+        mostrarResumenLocal();
+
+        toast.showToast('Merge guardat en el dispositiu!');
+      } catch (e) {
+        console.error('Error guardando en local:', e);
+        toast.showToast('Error guardant en el dispositiu');
+      }
+    };
+
+    window.guardarMergeEnServidor = async function() {
+      document.getElementById('btnGuardarServidor').disabled = true;
+      
+      if (typeof showLoadingSpinner === 'function') showLoadingSpinner('Pujant merge al servidor...');
+
+      try {
+        const dataToUpload = {
+          sTICdOpos_historialFallos: sesionMerge.historialFallos,
+          sTICdOpos_historialContestades: sesionMerge.historialContestades,
+          sTICdOpos_apiInteracciones: sesionMerge.interaccionesApi
+        };
+
+        const blob = new Blob([JSON.stringify(dataToUpload, null, 2)], { type: 'application/json' });
+        const filePath = `sessions/${window.username}.json`;
+
+        await window.firebaseUploadBytes(window.firebaseRef(window.storage, filePath), blob);
+
+        sesionServidor = JSON.parse(JSON.stringify(sesionMerge));
+        mostrarResumenServidor();
+
+        toast.showToast('Merge pujat al servidor correctament!');
+
+      } catch (e) {
+        console.error('Error subiendo al servidor:', e);
+        toast.showToast('Error pujant al servidor');
+      } finally {
+        if (typeof hideLoadingSpinner === 'function') hideLoadingSpinner();
+        document.getElementById('btnGuardarServidor').disabled = false;
+      }
+    };
+
+    window.guardarLocalEnServidor = async function() {
+      if (!confirm('⚠️ ATENCIÓ: Aquesta acció pujarà NOMÉS les dades locals al servidor, SOBREESCRIVINT el que hi hagi. Pots perdre dades no sincronitzades. Estàs segur?')) {
+        toast.showToast('Acció cancel·lada');
+        return;
+      }
+
+      document.getElementById('btnLocalAServidor').disabled = true;
+      
+      if (typeof showLoadingSpinner === 'function') showLoadingSpinner('Pujant dades locals al servidor...');
+
+      try {
+        const dataToUpload = {
+          sTICdOpos_historialFallos: sesionLocal.historialFallos,
+          sTICdOpos_historialContestades: sesionLocal.historialContestades,
+          sTICdOpos_apiInteracciones: sesionLocal.interaccionesApi
+        };
+
+        const blob = new Blob([JSON.stringify(dataToUpload, null, 2)], { type: 'application/json' });
+        const filePath = `sessions/${window.username}.json`;
+
+        await window.firebaseUploadBytes(window.firebaseRef(window.storage, filePath), blob);
+
+        sesionServidor = JSON.parse(JSON.stringify(sesionLocal));
+        mostrarResumenServidor();
+        
+        // Actualizar merge también
+        realizarMerge();
+        mostrarResumenMerge();
+
+        toast.showToast('Dades locals pujades al servidor!');
+
+      } catch (e) {
+        console.error('Error subiendo local al servidor:', e);
+        toast.showToast('Error pujant al servidor');
+      } finally {
+        if (typeof hideLoadingSpinner === 'function') hideLoadingSpinner();
+        document.getElementById('btnLocalAServidor').disabled = false;
+      }
+    };
+  </script>
+</body>
+</html>
