@@ -242,7 +242,7 @@
 
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-app.js";
-    import { getStorage, ref, uploadBytes, getDownloadURL, getBytes } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-storage.js";
+    import { getStorage, ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-storage.js";
 
     const MAX_INTERACCIONES_DIA = 20;
 
@@ -252,7 +252,6 @@
     window.firebaseRef = ref;
     window.firebaseUploadBytes = uploadBytes;
     window.firebaseGetDownloadURL = getDownloadURL;
-    window.firebaseGetBytes = getBytes;
     
     let sesionLocal = {
       historialFallos: [],
@@ -441,11 +440,14 @@
 
       try {
         const filePath = `sessions/${window.username}.json`;
+        const url = await window.firebaseGetDownloadURL(window.firebaseRef(window.storage, filePath));
         
-        // Usar getBytes en lugar de getDownloadURL + fetch para evitar CORS
-        const bytes = await window.firebaseGetBytes(window.firebaseRef(window.storage, filePath));
-        const text = new TextDecoder('utf-8').decode(bytes);
-        const data = JSON.parse(text);
+        const response = await fetch(url);
+        if (!response.ok) {
+          throw new Error('No s\'ha pogut descarregar el fitxer');
+        }
+
+        const data = await response.json();
         
         // Parsear datos del servidor
         sesionServidor.historialFallos = data.sTICdOpos_historialFallos || [];
