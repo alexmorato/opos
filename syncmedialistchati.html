@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>restdb.io — Media Archive (listado)</title>
+  <style>
+    body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; margin: 24px; }
+    .row { display: flex; gap: 12px; flex-wrap: wrap; align-items: end; }
+    label { display: grid; gap: 6px; font-size: 14px; }
+    input { padding: 10px; font-size: 14px; min-width: 260px; }
+    button { padding: 10px 14px; font-size: 14px; cursor: pointer; }
+    small { color: #555; }
+    .status { margin-top: 12px; white-space: pre-wrap; }
+    table { width: 100%; border-collapse: collapse; margin-top: 16px; }
+    th, td { text-align: left; padding: 10px; border-bottom: 1px solid #ddd; vertical-align: top; }
+    th { font-size: 13px; color: #333; }
+    td { font-size: 14px; }
+    .muted { color: #666; font-size: 12px; }
+    .pill { display: inline-block; padding: 2px 8px; border: 1px solid #ccc; border-radius: 999px; font-size: 12px; }
+    .right { text-align: right; }
+  </style>
+</head>
+
+<body>
+  <h1>Media Archive — listado de ficheros (restdb.io)</h1>
+  <p class="muted">
+    Usa <code>/media/*/meta</code> para listar metadatos. Descarga con <code>/media/&lt;id&gt;</code>.
+  </p>
+
+  <div class="row">
+    <label>
+      Nombre de la DB (subdominio)
+      <input id="db" placeholder="mi-db (sin .restdb.io)" />
+      <small>Ej.: <code>rdb-simpledb</code></small>
+    </label>
+
+    <label>
+      API key (CORS enabled)
+      <input id="key" placeholder="x-apikey..." />
+      <small>Se envía como cabecera <code>x-apikey</code>.</small>
+    </label>
+
+    <label>
+      Límite
+      <input id="limit" type="number" min="1" max="500" value="50" />
+      <small>Se aplica con <code>h={"$max":N}</code>.</small>
+    </label>
+
+    <label>
+      Buscar por nombre (contiene)
+      <input id="nameLike" placeholder="p. ej. .pdf o foto" />
+      <small>Filtra en cliente (simple).</small>
+    </label>
+
+    <button id="loadBtn">Cargar</button>
+  </div>
+
+  <div class="status" id="status"></div>
+
+  <table id="tbl" style="display:none">
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Tipo</th>
+        <th class="right">Tamaño</th>
+        <th>Creado</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody id="tbody"></tbody>
+  </table>
+
+  <script>
+    const $ = (id) => document.getElementById(id);
+
+    function fmtBytes(n) {
+      if (n === undefined || n === null) return "-";
+      const units = ["B","KB","MB","GB","TB"];
+      let i = 0, num = Number(n);
+      while (num >= 1024 && i < units.length - 1) { num /= 1024; i++; }
+      return `${num.toFixed(i === 0 ? 0 : 1)} ${units[i]}`;
+    }
+
+    function setStatus(msg) { $("status").textContent = msg || ""; }
+
+    async function loadMedia() {
+      const db = $("db").value.trim();
+      const apikey = $("key").value.trim();
+      const max = Math.max(1, Math.min(500, Number($("limit").value || 50)));
+      const nameLike = $("nameLike").value.trim().toLowerCase();
+
+      if (!db) { setStatus("Falta el nombre de la DB (subdominio)."); return; }
+      if (!apikey) { setStatus("Falta la API key (cabecera x-apikey)."); return; }
+
+      setStatus("Cargando…");
+
+      // Ordena por _created desc y limita resultados.
+      // Nota: La doc muestra h con $max y $orderby en el endpoint /media/*/meta. (q/h estilo restdb). 
+      const h = encodeURIComponent(JSON.stringify({
+        "$max": max,
+        "$orderby": { "_created": -1 }
+      }));
+
+      const url = `https://${db}.restdb.io/media/*/meta?h=${h}`;
+
+      try {
+        const res = await fetch(url, {
+          method: "GET",
+          headers: {
+            "Accept": "application/json",
+            "x-apikey": apikey
+          }
+        });
+
+        if (!res.ok) {
+          const text = await res.text();
+          throw new Error(`HTTP ${res.status} ${res.statusText}\n${text}`);
+        }
+
+        let data = await res.json();
+        if (!Array.isArray(data)) data = [];
+
+        // Filtrado simple por nombre original
+        if (nameLike) {
+          data = data.filter(x => String(x.origname || "").toLowerCase().includes(nameLike));
+        }
+
+        render(data, db);
+        setStatus(`OK — ${data.length} fichero(s) mostrado(s).`);
+      } catch (err) {
+        $("tbl").style.display = "none";
+        setStatus(`Error al cargar.\n${err.message || err}`);
+      }
+    }
+
+    function render(items, db) {
+      const tbody = $("tbody");
+      tbody.innerHTML = "";
+
+      for (const it of items) {
+        const id = it._id || "";
+        const name = it.origname || it.file || id || "(sin nombre)";
+        const mediatype = it.mediatype || "-";
+        const size = fmtBytes(it.filesize);
+        const created = it._created ? new Date(it._created).toLocaleString() : "-";
+
+        // URL binaria de descarga/visualización
+        let downloadUrl = `https://${db}.restdb.io/media/${encodeURIComponent(id)}`;
+
+        // Si Media Archive está "restricted", se puede necesitar ?key=<access_key>.
+        // El meta suele traer access_key cuando aplica.
+        if (it.access_key) {
+          downloadUrl += `?key=${encodeURIComponent(it.access_key)}`;
+        }
+
+        const tr = document.createElement("tr");
+
+        tr.innerHTML = `
+          <td>
+            <div><strong>${escapeHtml(name)}</strong></div>
+            <div class="muted">${escapeHtml(id)}</div>
+          </td>
+          <td><span class="pill">${escapeHtml(mediatype)}</span></td>
+          <td class="right">${escapeHtml(size)}</td>
+          <td>${escapeHtml(created)}</td>
+          <td>
+            <a href="${downloadUrl}" target="_blank" rel="noopener">Abrir/descargar</a>
+            ${id ? ` · <a href="https://${db}.restdb.io/media/${encodeURIComponent(id)}/meta" target="_blank" rel="noopener">Meta</a>` : ""}
+          </td>
+        `;
+
+        tbody.appendChild(tr);
+      }
+
+      $("tbl").style.display = "";
+    }
+
+    function escapeHtml(s) {
+      return String(s).replace(/[&<>"']/g, c => ({
+        "&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"
+      }[c]));
+    }
+
+    $("loadBtn").addEventListener("click", loadMedia);
+
+    // Opcional: carga con Enter en cualquier input
+    ["db","key","limit","nameLike"].forEach(id => {
+      $(id).addEventListener("keydown", (e) => {
+        if (e.key === "Enter") loadMedia();
+      });
+    });
+  </script>
+</body>
+</html>
