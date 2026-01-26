@@ -484,6 +484,7 @@
 
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-app.js";
+    import { initializeAppCheck, ReCaptchaV3Provider } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-app-check.js";
     import { getStorage, ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-storage.js";
 
     const MAX_INTERACCIONES_DIA = 20;
@@ -518,27 +519,33 @@
       login.checkUserAuth(userName, userPass);
 
       window.username = localStorage.getItem(LS_KEYS.USER_NAME);
-      const apiKey = localStorage.getItem(LS_KEYS.FIREBASE_APIKEY);
+      const siteKeyDeRecaptcha = localStorage.getItem(LS_KEYS.SITE_KEY_DE_RECAPTCHA);
 
       if (!window.username) {
         toast.showToast('Error: No hi ha usuari definit');
         return;
       }
 
-      if (!apiKey) {
-        toast.showToast('Error: No hi ha API Key de Firebase');
+      if (!siteKeyDeRecaptcha) {
+        toast.showToast('Error: No hi ha API Key de Recaptcha Firebase');
         return;
       }
 
       // Inicializar Firebase
       const firebaseConfig = {
-        apiKey: apiKey,
+        apiKey: "AIzaSyBNEaYUKHjSQ_n8nlluwDBSKjcY-a1ieww",
         authDomain: "sticdopos.firebaseapp.com",
         projectId: "sticdopos",
         storageBucket: "sticdopos.firebasestorage.app",
       };
 
       const app = initializeApp(firebaseConfig);
+    // 🔐 APP CHECK
+    initializeAppCheck(app, {
+        provider: new ReCaptchaV3Provider(siteKeyDeRecaptcha),
+        isTokenAutoRefreshEnabled: true
+    });
+
       window.storage = getStorage(app);
 
       cargarSesionLocal();
