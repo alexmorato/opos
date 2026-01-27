@@ -96,7 +96,7 @@
       <button class="menu-btn" onclick="window.location.href='historialErrors.html'">
         📋 Historial d'errors
       </button>
-      <button class="menu-btn" data-require-login="true" onclick="window.location.href='leerrecursos.html'">
+      <button class="menu-btn" data-require-login="true" data-require-VIP="true" onclick="window.location.href='leerrecursos.html'">
         💡🆕 Apunts Disponibles 🆕 
       </button>
       <button class="menu-btn" data-require-VIP="true" onclick="window.location.href='sync.html'">
@@ -138,9 +138,7 @@
     }
 
     // Función para mostrar/ocultar botones según login
-    function toggleButtonsByLogin() {      
-      // Opción 1: Si usaste data-require-VIP en cada botón
-      const vipButtons = document.querySelectorAll('[data-require-VIP="true"]');
+    async function toggleButtonsByLogin() {      
       const username = localStorage.getItem(LS_KEYS.USER_NAME);
       
       // Mostrar mensaje de bienvenida si está logueado
@@ -153,22 +151,40 @@
         welcomeMessage.style.display = 'none';
       }
       
-      if(!username || username === 'anonim') {
+      // Verificar rol VIP del usuario
+      let isVIP = false;
+      let isUser = false;
+      if (username) {
+        try {
+          const usersData = await fetch('assets/users.json').then(r => r.json());
+          const user = usersData.users.find(u => u.name === username);
+          if (user && Array.isArray(user.role)) {
+            if (user.role.includes('VIP')) {
+              isVIP = true;
+            }
+            if (user.role.includes('user')) {
+              isUser = true;
+            }
+          }
+        } catch (e) {
+          console.error('Error verificando rol VIP:', e);
+        }
+      }
+
+      // Ocultar botones VIP si no es VIP
+      const vipButtons = document.querySelectorAll('[data-require-VIP="true"]');
+      if (!isVIP) {
         vipButtons.forEach(button => {
           button.style.display = 'none';
         });
       }
 
-      if (!localStorage.getItem(LS_KEYS.USER_NAME)) {
-
-        // Opción 1: Si usaste data-require-login en cada botón
-        const protectedButtons = document.querySelectorAll('[data-require-login="true"]');
-        
+      // Ocultar botones protegidos si no tiene rol "user"
+      const protectedButtons = document.querySelectorAll('[data-require-login="true"]');
+      if (!isUser) {
         protectedButtons.forEach(button => {
           button.style.display = 'none';
         });
-
-
       }
       
     }
