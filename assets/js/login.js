@@ -2,7 +2,7 @@
 // Centraliza la lógica de comprobación de usuario con bcryptjs para reutilización
 
 const login = {
-  async checkUserAuth(user_name, user_pass) {
+  async checkUserAuth(user_name, user_pass, requiredRole = null) {
     if (!user_name || !user_pass) {
       window.location.href = 'login.html';
       return;
@@ -26,6 +26,11 @@ const login = {
       }
       const bcrypt = await waitForBcrypt();
       if (!bcrypt.compareSync(user_pass, user.password_hash)) throw new Error('Bad pass');
+      
+      // Verificar rol requerido si se especifica
+      if (requiredRole && Array.isArray(user.role) && !user.role.includes(requiredRole)) {
+        throw new Error('Insufficient role');
+      }
     } catch (e) {
       window.location.href = 'login.html';
     }
