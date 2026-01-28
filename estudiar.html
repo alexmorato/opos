@@ -948,13 +948,17 @@
       const contestadaCount = getContestadaCount(pregunta.guid);
       const contestadaText = contestadaCount > 0 ? ` <span style="color:#9fb0ff;font-size:0.9em;">(contestades: ${contestadaCount})</span>` : '';
       
+      // Obtener número de fallos de esta pregunta
+      const fallosCount = pregunta.guid ? (historialFallos.find(f => f.guid === pregunta.guid)?.count || 0) : 0;
+      const fallosText = fallosCount > 0 ? ` <span style="color:#ff6b6b;font-size:0.9em;">(🚨${fallosCount})</span>` : '';
+      
       // Construir HTML de la pregunta
       let html = `
         <div class="question-card">
           <div class="question-info">
             ${(pregunta.subjectId || '??') + '-' + (pregunta.origin || '??') + '-' + getDifficultyText(pregunta.difficulty)}
             ${isMultiCorrect ? ' <span style="color:#6ae0a7;font-weight:bold;">[Múltiples respostes]</span>' : ''}
-            ${contestadaText}
+            ${contestadaText}${fallosText}
           </div>
           <div class="question-text">${pregunta.pregunta || pregunta.question || 'Pregunta no disponible'}</div>
       `;
@@ -1602,6 +1606,16 @@
       // Cargar historial de preguntas contestadas
       cargarHistorialContestades();
       
+      // Cargar historial de fallos ANTES de mostrar preguntas
+      try {
+        const historialGuardado = localStorage.getItem(LS_KEYS.HISTORIAL_FALLOS);
+        if (historialGuardado) {
+          historialFallos = JSON.parse(historialGuardado);
+        }
+      } catch (e) {
+        console.warn('Error cargando historial previo:', e);
+      }
+      
       // Restaurar cronometro si existe en localStorage
       const savedCronometro = localStorage.getItem(LS_KEYS.CRONOMETRO);
       if (savedCronometro && !isNaN(savedCronometro)) {
@@ -1666,20 +1680,9 @@
         }
       }
 
-      // Load previous error history if it exists
-      try {
-        const historialGuardado = localStorage.getItem(LS_KEYS.HISTORIAL_FALLOS);
-        if (historialGuardado) {
-          historialFallos = JSON.parse(historialGuardado);
-          actualizarTextareaHistorial();
-        } else {
-          // Si no hay historial, actualizar el contador a 0
-          const fallosCount = document.getElementById('fallosCount');
-          if (fallosCount) fallosCount.textContent = '(0)';
-        }
-      } catch (e) {
-        console.warn('Error cargando historial previo:', e);
-      }
+      // Actualizar textarea del historial
+      actualizarTextareaHistorial();
+      
       // Ocultar el botón de eliminar encertada por defecto
       if (!isRepassingErrors) {
         document.getElementById('removeFromHistoryContainer').style.display = 'none';
