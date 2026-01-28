@@ -1,0 +1,715 @@
+[
+  {
+    "guid": "aa3b8f1c-9e42-4d8c-b7a5-63d2e8f9a001",
+    "subjectId": "T66",
+    "difficulty": 3,
+    "origin": "deepseek",
+    "type": "test",
+    "question": "El Ayuntamiento implementa un sistema de 'smart city' que analiza patrones de movilidad ciudadana mediante sensores urbanos y datos de WiFi público. El sistema genera perfiles anónimos para optimizar el transporte. Posteriormente, se descubre que combinando estos datos con información del padrón, ciertos perfiles pueden ser reidentificados. ¿Qué principio del RGPD se ha vulnerado principalmente y qué consecuencias legales conlleva?",
+    "answerOptions": [
+      {
+        "text": "Se vulneró el principio de minimización, pero no hay consecuencias porque los datos originalmente eran anónimos",
+        "isCorrect": false,
+        "rationale": "La reidentificación convierte datos anónimos en personales retrospectivamente. Hay responsabilidad porque el riesgo era previsible con técnicas actuales de análisis de datos."
+      },
+      {
+        "text": "Se vulneraron los principios de privacy by design y by default, generando responsabilidad por no implementar medidas técnicas adecuadas desde el origen",
+        "isCorrect": true,
+        "rationale": "El Ayuntamiento debió implementar privacy by design con técnicas de anonimización robustas e irreversibles, considerando posibles reidentificaciones. La vulneración de estos principios genera responsabilidad administrativa y posibles sanciones."
+      },
+      {
+        "text": "No se vulneró ningún principio porque el tratamiento tenía base legal de interés público y los ciudadanos fueron informados",
+        "isCorrect": false,
+        "rationale": "La base legal no exime del cumplimiento de los principios técnicos. La anonimización deficiente que permite reidentificación sí constituye vulneración independientemente de la base legal."
+      },
+      {
+        "text": "Se vulneró solo el principio de transparencia, requiriendo únicamente informar mejor a los ciudadanos",
+        "isCorrect": false,
+        "rationale": "Es un problema más grave que solo transparencia. La reidentificación afecta a la esencia de la protección de datos y requiere medidas técnicas correctivas, no solo informativas."
+      }
+    ],
+    "hint": "Piensa en qué principios exigen incorporar protección desde el diseño mismo de los sistemas tecnológicos."
+  },
+  {
+    "guid": "bb4c9f2d-af53-5e9d-c8b6-74e3f0a0b002",
+    "subjectId": "T66",
+    "difficulty": 4,
+    "origin": "deepseek",
+    "type": "test",
+    "question": "El Ayuntamiento utiliza un algoritmo de machine learning para priorizar inspecciones de viviendas en riesgo de infravivienda. El sistema analiza datos históricos de inspecciones, que contenían sesgos raciales implícitos. Como resultado, el algoritmo replica y amplifica esos sesgos. ¿Qué artículos del RGPD y LOPDGDD son relevantes y qué obligaciones incumplió el Ayuntamiento?",
+    "answerOptions": [
+      {
+        "text": "Art. 22 RGPD sobre decisiones automatizadas - Solo debe ofrecerse intervención humana, sin más requisitos",
+        "isCorrect": false,
+        "rationale": "Es insuficiente. Además del Art. 22, aplican los principios de licitud y no discriminación, y la LOPDGDD exige auditorías algorítmicas específicas."
+      },
+      {
+        "text": "Art. 5 RGPD (principios) y Art. 24 LOPDGDD (auditorías algoritmos) - Debió realizar auditoría previa, garantizar no discriminación y transparencia",
+        "isCorrect": true,
+        "rationale": "Correcto. El Art. 24 LOPDGDD exige auditorías periódicas para sistemas que afecten derechos. El Art. 5 RGPD exige licitud y lealtad. El sesgo algorítmico viola estos principios y genera responsabilidad."
+      },
+      {
+        "text": "Solo el Art. 35 RGPD sobre EIPD - Basta con hacer una evaluación de impacto estándar",
+        "isCorrect": false,
+        "rationale": "La EIPD es necesaria pero insuficiente. Los sistemas de decisiones automatizadas con posibles efectos discriminatorios requieren medidas específicas de auditoría y control continuo."
+      },
+      {
+        "text": "Ninguno, porque el algoritmo solo 'aprende' de datos existentes y el Ayuntamiento no es responsable del sesgo original",
+        "isCorrect": false,
+        "rationale": "El responsable es responsable de las consecuencias de los sistemas que implementa, incluidos sesgos algorítmicos. La 'neutralidad tecnológica' no exime de responsabilidad por impactos discriminatorios."
+      }
+    ],
+    "hint": "La LOPDGDD española tiene artículos específicos sobre auditoría de algoritmos que complementan al RGPD."
+  },
+  {
+    "guid": "cc5da03e-b064-6fae-d9c7-85f4a1b1c003",
+    "subjectId": "T66",
+    "difficulty": 5,
+    "origin": "deepseek",
+    "type": "test",
+    "question": "El Ayuntamiento firma contrato con empresa estadounidense para cloud que almacena datos de servicios sociales. La empresa sufre brecha. La Comisión Europea tiene 'Privacy Shield' anulado, pero hay 'cláusulas contractuales tipo' actualizadas. Los datos incluyen información de menores en riesgo. ¿Qué múltiples vulneraciones del RGPD existen y qué sanciones podrían aplicarse?",
+    "answerOptions": [
+      {
+        "text": "Solo vulneración de medidas de seguridad - Sanción de hasta 10M€ o 2% facturación",
+        "isCorrect": false,
+        "rationale": "Es una infracción más compleja: incluye transferencia internacional sin garantías adecuadas, datos especiales de menores, y posible falta de due diligence en selección de encargado."
+      },
+      {
+        "text": "Transferencia internacional sin garantías adecuadas + datos categorías especiales + falta privacy by design - Hasta 20M€ o 4% facturación",
+        "isCorrect": true,
+        "rationale": "Correcto. La combinación de: 1) Transferencia a EEUU con garantías insuficientes post-Schrems II, 2) Datos de menores (categoría especial), 3) Falta de cifrado adicional, constituye infracción muy grave. La sanción máxima podría aplicarse."
+      },
+      {
+        "text": "Solo falta notificación oportuna de brecha - Sanción leve de hasta 2%",
+        "isCorrect": false,
+        "rationale": "La notificación tardía sería una infracción adicional, pero el núcleo es la transferencia ilegal y el tratamiento de datos sensibles sin garantías reforzadas."
+      },
+      {
+        "text": "No hay vulneración porque hay cláusulas contractuales - Solo debe notificarse la brecha",
+        "isCorrect": false,
+        "rationale": "Las cláusulas contractuales tipo son insuficientes si no se complementan con medidas técnicas adicionales y evaluación de legislación del tercer país, especialmente tras Schrems II y datos sensibles."
+      }
+    ],
+    "hint": "Considera: 1) Transferencia post-Schrems II, 2) Naturaleza de los datos, 3) Múltiples principios vulnerados. Revisa jurisprudencia CJEU."
+  },
+  {
+    "guid": "dd6eb14f-c175-7gbf-ead8-96g5b2c2d004",
+    "subjectId": "T66",
+    "difficulty": 4,
+    "origin": "deepseek",
+    "type": "test",
+    "question": "Un ciudadano ejerce derecho de supresión contra el Ayuntamiento que publicó su multa de tráfico (ya pagada) en el tablón de edictos digital. Alega que perjudica su reputación. El Ayuntamiento se niega citando obligación legal de publicidad actos administrativos. ¿Qué derechos colisionan y cómo se resuelve según RGPD, LOPDGDD y jurisprudencia?",
+    "answerOptions": [
+      {
+        "text": "Prevalece siempre la transparencia - No hay supresión porque es obligación legal de publicidad",
+        "isCorrect": false,
+        "rationale": "Debe analizarse proporcionalidad. No es absoluto. La LOPDGDD y jurisprudencia exigen balance entre transparencia y protección datos, especialmente tras pagada la multa y pasado tiempo."
+      },
+      {
+        "text": "Derecho supresión vs Transparencia - Se aplica test proporcionalidad: finalidad, tiempo, impacto. Posible supresión parcial u ofuscación",
+        "isCorrect": true,
+        "rationale": "Correcto. Art. 17.3.b RGPD exceptúa supresión si es necesario para obligación legal, pero debe interpretarse restrictivamente. Jurisprudencia AEPD y tribunales exigen: 1) ¿Necesaria publicación completa? 2) ¿Plazo excesivo? 3) ¿Medidas minimizadoras? Posible ofuscación DNI tras cierto tiempo."
+      },
+      {
+        "text": "Prevalece siempre protección datos - Debe eliminarse inmediatamente al ejercerse el derecho",
+        "isCorrect": false,
+        "rationale": "Las administraciones tienen obligaciones de publicidad. El derecho de supresión no es absoluto y cede ante obligaciones legales, aunque estas deben ejercerse proporcionalmente."
+      },
+      {
+        "text": "Es solo derecho de oposición - El ciudadano puede oponerse a tratamiento futuro pero no a publicación existente",
+        "isCorrect": false,
+        "rationale": "El derecho de supresión sí aplica a datos ya publicados, no solo a tratamientos futuros. La cuestión es si existe excepción legal que lo limite."
+      }
+    ],
+    "hint": "Piensa en el principio de proporcionalidad y en jurisprudencia sobre 'derecho al olvido administrativo'."
+  },
+  {
+    "guid": "ee7fc25g-d286-8hcg-fbe9-a7h6c3d3e005",
+    "subjectId": "T66",
+    "difficulty": 5,
+    "origin": "deepseek",
+    "type": "test",
+    "question": "El Ayuntamiento implementa reconocimiento facial para control de acceso a edificios municipales, argumentando seguridad. El sistema compara imágenes con base de datos de empleados y visitas frecuentes. No hay EIPD, sino 'evaluación de riesgos de seguridad'. Un empleado denuncia. ¿Qué requisitos específicos de LOPDGDD se incumplen y qué consecuencias tiene la falta de EIPD para datos biométricos?",
+    "answerOptions": [
+      {
+        "text": "Solo requiere información a afectados - Consecuencias leves si se informó",
+        "isCorrect": false,
+        "rationale": "Los datos biométricos para identificación son categoría especial (Art. 9 RGPD). La LOPDGDD Art. 46 exige EIPD previa obligatoria. La falta es infracción grave."
+      },
+      {
+        "text": "Art. 46 LOPDGDD exige EIPD obligatoria + bases muy restrictivas - Falta de EIPD invalida tratamiento, infracción grave con posible sanción máxima",
+        "isCorrect": true,
+        "rationale": "Correcto. Art. 46 LOPDGDD: tratamientos biométricos requieren EIPD previa obligatoria. Además, solo son lícitos en bases muy restrictivas (consentimiento explícito o interés público esencial). Seguridad general de edificio probablemente no basta. Falta EIPD = tratamiento ilegítimo desde origen."
+      },
+      {
+        "text": "Requiere solo autorización previa DPD - Si DPD lo aprueba, es suficiente",
+        "isCorrect": false,
+        "rationale": "El DPD asesora pero no autoriza. La EIPD es obligación del responsable, no sustituible por aprobación del DPD. El tratamiento biométrico tiene requisitos legales específicos."
+      },
+      {
+        "text": "No aplica RGPD porque es seguridad física - Solo ley de protección seguridad",
+        "isCorrect": false,
+        "rationale": "El RGPD sí aplica a cualquier tratamiento datos personales, incluidos sistemas seguridad física que usen datos personales. Los datos biométricos tienen protección reforzada específica."
+      }
+    ],
+    "hint": "La LOPDGDD tiene artículo específico (46) sobre datos biométricos que impone requisitos más estrictos que el RGPD general."
+  },
+  {
+    "guid": "ff8gd36h-e397-9idh-gcf0-b8i7d4e4f006",
+    "subjectId": "T66",
+    "difficulty": 3,
+    "origin": "deepseek",
+    "type": "test",
+    "question": "Un TIC del Ayuntamiento accede sin autorización a datos de famoso local para curiosidad. No modifica ni comparte datos. ¿Qué artículos RGPD/LOPDGDD viola el empleado y qué responsabilidades PENALES (no solo administrativas) podría enfrentar según Código Penal español?",
+    "answerOptions": [
+      {
+        "text": "Solo viola RGPD principios - Solo sanción administrativa y laboral",
+        "isCorrect": false,
+        "rationale": "El acceso ilegítimo a datos sin autorización puede constituir delito según Art. 197 bis CP, especialmente si es por mera curiosidad (ánimo de injerencia en intimidad)."
+      },
+      {
+        "text": "Art. 5 RGPD (licitud) + Art. 197 bis CP - Posible delito de descubrimiento secretos, pena 1-4 años, inhabilitación especial empleo público",
+        "isCorrect": true,
+        "rationale": "Correcto. Art. 197 bis CP: acceso sin autorización a datos personales almacenados en ficheros es delito. Pena: 1-4 años + inhabilitación especial empleo/público 2-6 años. Además vulnera RGPD y LOPDGDD, con responsabilidad administrativa para Ayuntamiento también."
+      },
+      {
+        "text": "Solo viola normas internas - Mera falta disciplinaria",
+        "isCorrect": false,
+        "rationale": "Trascende lo disciplinario. El acceso no autorizado con ánimo de injerencia en intimidad es tipificado como delito en CP, independiente de sanciones laborales."
+      },
+      {
+        "text": "No hay violación porque no hubo daño - Solo amonestación",
+        "isCorrect": false,
+        "rationale": "El delito se consuma con el mero acceso ilegítimo, no requiere daño efectivo. La jurisprudencia considera que el acceso por curiosidad ya muestra ánimo de injerencia en intimidad."
+      }
+    ],
+    "hint": "Revisa el Código Penal español, artículos sobre delitos contra la intimidad y tratamiento ilícito de datos."
+  },
+  {
+    "guid": "gg9he47i-f4a8-0jei-hdg1-c9j8e5f5g007",
+    "subjectId": "T66",
+    "difficulty": 4,
+    "origin": "deepseek",
+    "type": "test",
+    "question": "El Ayuntamiento recopila datos de salud para programa COVID, amparado en interés público vital. Posteriormente, reutiliza esos datos para investigación sociológica sobre impacto económico pandemia. ¿Qué requisitos del Art. 6.4 RGPD (compatibilidad de finalidades) debe cumplir y qué papel juega la 'expectativa razonable' del ciudadano?",
+    "answerOptions": [
+      {
+        "text": "Puede reutilizar libremente - Los datos sanitarios siempre pueden usarse para investigación",
+        "isCorrect": false,
+        "rationale": "No es libre. Art. 6.4 exige evaluación específica: 1) Contexto original, 2) Naturaleza datos (especiales), 3) Consecuencias para interesados, 4) Garantías existentes. Datos salud requieren garantías adicionales."
+      },
+      {
+        "text": "Debe evaluar compatibilidad considerando expectativa razonable + garantías adicionales - Posible necesidad nueva base legal específica para investigación",
+        "isCorrect": true,
+        "rationale": "Correcto. Art. 6.4 RGPD: reutilización requiere análisis compatibilidad finalidades. Factores: expectativa razonable del ciudadano basada en contexto original (emergencia salud ≠ investigación sociológica). Datos salud exigen garantías técnicas (seudonimización) y posible nueva base legal específica para investigación."
+      },
+      {
+        "text": "Solo requiere informar - Si se informa de nueva finalidad, es suficiente",
+        "isCorrect": false,
+        "rationale": "La información es necesaria pero no suficiente. Para datos categorías especiales y cambio finalidad sustancial, necesita evaluación de compatibilidad y posible nueva base legal (Art. 9.2.j para investigación)."
+      },
+      {
+        "text": "No puede reutilizarse nunca - Los datos de emergencia son solo para esa emergencia",
+        "isCorrect": false,
+        "rationale": "Sí puede reutilizarse para investigación si cumple Art. 6.4 y Art. 9.2.j (investigación con garantías apropiadas). No es prohibición absoluta pero sí condicionada."
+      }
+    ],
+    "hint": "El RGPD establece un test de compatibilidad con factores específicos, no es automático."
+  },
+  {
+    "guid": "hh0if58j-g5b9-1kfj-ieh2-d0k9f6g6h008",
+    "subjectId": "T66",
+    "difficulty": 5,
+    "origin": "deepseek",
+    "type": "test",
+    "question": "Proveedor externo del Ayuntamiento sufre ataque ransomware. Los datos incluyen expedientes de adopción internacional con datos sensibles. El Ayuntamiento no notifica a afectados argumentando 'no alto riesgo' porque los datos no fueron exfiltrados, solo cifrados. El atacante demanda rescate amenazando publicar muestra de datos. ¿Qué errores en análisis de 'alto riesgo' y notificación cometió el Ayuntamiento según criterios AEPD y EDPB?",
+    "answerOptions": [
+      {
+        "text": "Análisis correcto - Sin exfiltración no hay alto riesgo, notificación opcional",
+        "isCorrect": false,
+        "rationale": "Según guías AEPD/EDPB, el mero acceso no autorizado a datos sensibles ya genera alto riesgo. Además, ransomware incluye acceso + cifrado. La amenaza de publicación confirma riesgo alto."
+      },
+      {
+        "text": "Error grave: acceso no autorizado a datos sensibles = alto riesgo + amenaza publicación = notificación obligatoria afectados - Vulnera Art. 33-34 RGPD",
+        "isCorrect": true,
+        "rationale": "Correcto. Criterios EDPB: 1) Datos categorías especiales (adopción, salud, etc.) = riesgo alto presumido. 2) Acceso no autorizado por atacante = violación confidencialidad. 3) Amenaza publicación = riesgo materializado. El Ayuntamiento debe notificar AEPD 72h y afectados sin dilación."
+      },
+      {
+        "text": "Solo debe notificarse si hay prueba exfiltración - Sin prueba, no notificar",
+        "isCorrect": false,
+        "rationale": "El RGPD no exige 'prueba' sino 'probabilidad' alto riesgo. Acceso a datos sensibles por atacante genera presunción de alto riesgo. La carga de prueba está en responsable para demostrar bajo riesgo, no al revés."
+      },
+      {
+        "text": "Debe notificarse solo a AEPD - Afectados solo si hay publicación efectiva",
+        "isCorrect": false,
+        "rationale": "La amenaza creíble de publicación (rescate) ya constituye alto riesgo que requiere notificación a afectados para que tomen medidas preventivas (vigilancia fraudes, etc.)."
+      }
+    ],
+    "hint": "Revisa guías AEPD sobre notificación brechas: datos sensibles generan presunción de alto riesgo, no al revés."
+  },
+  {
+    "guid": "f47ac10b-58cc-4372-a567-0e02b2c3d480",
+    "subjectId": "T66",
+    "difficulty": 1,
+    "origin": "deepseek",
+    "type": "fillgap",
+    "question": "Según el RGPD, ¿qué principio establece que solo se deben tratar los datos personales que sean adecuados, pertinentes y limitados a lo necesario?",
+    "answerOptions": [
+      {
+        "text": "Minimización de datos",
+        "isCorrect": true,
+        "rationale": "El principio de minimización de datos (Art. 5.1.c RGPD) establece que los datos personales deben ser adecuados, pertinentes y limitados a lo necesario para los fines del tratamiento."
+      },
+      {
+        "text": "Limitación de la finalidad",
+        "isCorrect": false,
+        "rationale": "La limitación de la finalidad se refiere a que los datos se recogen para fines determinados, explícitos y legítimos, no a la cantidad de datos."
+      },
+      {
+        "text": "Exactitud",
+        "isCorrect": false,
+        "rationale": "El principio de exactitud se refiere a que los datos deben ser exactos y, si es necesario, actualizados."
+      },
+      {
+        "text": "Integridad y confidencialidad",
+        "isCorrect": false,
+        "rationale": "Este principio se refiere a la seguridad de los datos, no a la cantidad mínima necesaria."
+      }
+    ],
+    "hint": "Empieza por 'M' y está relacionado con usar solo lo estrictamente necesario."
+  },
+  {
+    "guid": "550e8400-e29b-41d4-a716-446655440001",
+    "subjectId": "T66",
+    "difficulty": 1,
+    "origin": "deepseek",
+    "type": "fillgap",
+    "question": "¿Qué figura del RGPD es obligatoria en el Ayuntamiento de Barcelona para supervisar el cumplimiento de la normativa de protección de datos?",
+    "answerOptions": [
+      {
+        "text": "Delegado de Protección de Datos (DPD)",
+        "isCorrect": true,
+        "rationale": "El DPD es obligatorio en las autoridades y organismos públicos según el Art. 37 RGPD. Su función es supervisar el cumplimiento interno."
+      },
+      {
+        "text": "Responsable del tratamiento",
+        "isCorrect": false,
+        "rationale": "El Ayuntamiento es el responsable, pero esta no es una figura de supervisión interna específica del RGPD."
+      },
+      {
+        "text": "Encargado del tratamiento",
+        "isCorrect": false,
+        "rationale": "El encargado trata datos por cuenta del responsable, pero no es una figura obligatoria de supervisión interna."
+      },
+      {
+        "text": "Auditor externo",
+        "isCorrect": false,
+        "rationale": "Aunque se pueden hacer auditorías, no es una figura obligatoria establecida por el RGPD para las administraciones públicas."
+      }
+    ],
+    "hint": "Son las siglas DPD, una figura que debe ser designada formalmente."
+  },
+  {
+    "guid": "6ba7b810-9dad-11d1-80b4-00c04fd430c9",
+    "subjectId": "T66",
+    "difficulty": 1,
+    "origin": "deepseek",
+    "type": "fillgap",
+    "question": "¿Qué derecho permite a un ciudadano solicitar la corrección de sus datos incorrectos en el padrón municipal?",
+    "answerOptions": [
+      {
+        "text": "Derecho de rectificación",
+        "isCorrect": true,
+        "rationale": "El derecho de rectificación (Art. 16 RGPD) permite al interesado obtener la rectificación de datos inexactos o incompletos sin dilación indebida."
+      },
+      {
+        "text": "Derecho de supresión",
+        "isCorrect": false,
+        "rationale": "El derecho de supresión (o al olvido) permite borrar datos, no corregirlos cuando están incorrectos."
+      },
+      {
+        "text": "Derecho de oposición",
+        "isCorrect": false,
+        "rationale": "El derecho de oposición permite oponerse a un tratamiento, no corregir datos incorrectos."
+      },
+      {
+        "text": "Derecho de acceso",
+        "isCorrect": false,
+        "rationale": "El derecho de acceso permite conocer qué datos se tratan, pero no corregirlos directamente."
+      }
+    ],
+    "hint": "Está relacionado con corregir errores o información desactualizada."
+  },
+  {
+    "guid": "123e4567-e89b-12d3-a456-426614174001",
+    "subjectId": "T66",
+    "difficulty": 1,
+    "origin": "deepseek",
+    "type": "fillgap",
+    "question": "¿Qué documento interno debe mantener el Ayuntamiento donde se registran todos los tratamientos de datos personales que realiza?",
+    "answerOptions": [
+      {
+        "text": "Registro de Actividades de Tratamiento (RAT)",
+        "isCorrect": true,
+        "rationale": "El RAT es obligatorio según el Art. 30 RGPD y debe contener información sobre todos los tratamientos de datos realizados por el responsable."
+      },
+      {
+        "text": "Evaluación de Impacto (EIPD)",
+        "isCorrect": false,
+        "rationale": "La EIPD solo es necesaria para tratamientos de alto riesgo, no para todos los tratamientos."
+      },
+      {
+        "text": "Contrato de encargado de tratamiento",
+        "isCorrect": false,
+        "rationale": "Esto es para regular relaciones con empresas externas, no es un registro interno de todos los tratamientos."
+      },
+      {
+        "text": "Política de privacidad",
+        "isCorrect": false,
+        "rationale": "La política de privacidad es información pública para los interesados, no un registro interno administrativo."
+      }
+    ],
+    "hint": "Son las siglas RAT y es como el inventario de todos los tratamientos de datos."
+  },
+  {
+    "guid": "a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a12",
+    "subjectId": "T66",
+    "difficulty": 1,
+    "origin": "deepseek",
+    "type": "fillgap",
+    "question": "¿Qué principio del RGPD obliga a incorporar la protección de datos desde el diseño de los sistemas informáticos del Ayuntamiento?",
+    "answerOptions": [
+      {
+        "text": "Privacy by Design (Protección desde el diseño)",
+        "isCorrect": true,
+        "rationale": "Privacy by Design (Art. 25 RGPD) exige incorporar medidas técnicas y organizativas apropiadas desde la fase de diseño del tratamiento para cumplir los principios del RGPD."
+      },
+      {
+        "text": "Privacy by Default (Protección por defecto)",
+        "isCorrect": false,
+        "rationale": "Privacy by Default se refiere a que por defecto solo se traten los datos necesarios para cada finalidad específica, no específicamente al diseño de sistemas."
+      },
+      {
+        "text": "Responsabilidad proactiva",
+        "isCorrect": false,
+        "rationale": "La responsabilidad proactiva (accountability) es el principio general de demostrar el cumplimiento, no específicamente el diseño de sistemas."
+      },
+      {
+        "text": "Transparencia",
+        "isCorrect": false,
+        "rationale": "La transparencia se refiere a informar claramente a los interesados, no al diseño técnico de los sistemas."
+      }
+    ],
+    "hint": "Es un término en inglés que empieza por 'Privacy by...' y es fundamental para técnicos TIC."
+  },
+  {
+    "guid": "b1c2d3e4-f5a6-7890-abcd-ef1234567890",
+    "subjectId": "T66",
+    "difficulty": 1,
+    "origin": "deepseek",
+    "type": "fillgap",
+    "question": "¿Cuánto tiempo tiene el Ayuntamiento para notificar una brecha de seguridad a la AEPD desde que tiene constancia de ella?",
+    "answerOptions": [
+      {
+        "text": "72 horas",
+        "isCorrect": true,
+        "rationale": "Según el Art. 33 RGPD, la notificación a la autoridad de control (AEPD) debe hacerse sin dilación indebida y, a más tardar, en 72 horas desde que se tenga constancia."
+      },
+      {
+        "text": "24 horas",
+        "isCorrect": false,
+        "rationale": "Aunque es deseable notificar lo antes posible, el plazo legal máximo es de 72 horas, no 24."
+      },
+      {
+        "text": "5 días hábiles",
+        "isCorrect": false,
+        "rationale": "El plazo es de 72 horas, que son aproximadamente 3 días naturales, no 5 días hábiles."
+      },
+      {
+        "text": "1 mes",
+        "isCorrect": false,
+        "rationale": "1 mes es el plazo para responder a derechos de los interesados, no para notificación de brechas."
+      }
+    ],
+    "hint": "Es el mismo plazo que para declarar un accidente laboral grave."
+  },
+  {
+    "guid": "c2d3e4f5-a6b7-8901-bcde-f23456789012",
+    "subjectId": "T66",
+    "difficulty": 1,
+    "origin": "deepseek",
+    "type": "fillgap",
+    "question": "¿Qué tipo de datos personales tienen protección reforzada según el RGPD y requieren medidas adicionales?",
+    "answerOptions": [
+      {
+        "text": "Categorías especiales de datos (datos sensibles)",
+        "isCorrect": true,
+        "rationale": "Las categorías especiales (Art. 9 RGPD) incluyen datos de salud, origen racial, opiniones políticas, etc., y tienen un régimen de protección más estricto."
+      },
+      {
+        "text": "Datos de contacto",
+        "isCorrect": false,
+        "rationale": "Los datos de contacto son datos personales comunes, no tienen protección especial reforzada."
+      },
+      {
+        "text": "Datos de identificación básica",
+        "isCorrect": false,
+        "rationale": "Nombre, DNI, etc., son datos personales normales sin protección especial reforzada."
+      },
+      {
+        "text": "Datos estadísticos anonimizados",
+        "isCorrect": false,
+        "rationale": "Los datos anonimizados no son datos personales y por tanto no están sujetos al RGPD."
+      }
+    ],
+    "hint": "Incluyen datos de salud, creencias religiosas, orientación sexual, etc."
+  },
+  {
+    "guid": "d3e4f5a6-b7c8-9012-cdef-345678901234",
+    "subjectId": "T66",
+    "difficulty": 1,
+    "origin": "deepseek",
+    "type": "fillgap",
+    "question": "¿Qué ley española desarrolla y complementa el RGPD con especificaciones para España?",
+    "answerOptions": [
+      {
+        "text": "LOPDGDD (Ley Orgánica 3/2018)",
+        "isCorrect": true,
+        "rationale": "La Ley Orgánica 3/2018, de 5 de diciembre, de Protección de Datos Personales y garantía de los derechos digitales complementa el RGPD y adapta sus disposiciones al ordenamiento español."
+      },
+      {
+        "text": "Ley de Procedimiento Administrativo",
+        "isCorrect": false,
+        "rationale": "Esta ley regula el procedimiento administrativo, no específicamente la protección de datos."
+      },
+      {
+        "text": "Ley de Transparencia",
+        "isCorrect": false,
+        "rationale": "La Ley de Transparencia regula el acceso a la información pública, no desarrolla el RGPD."
+      },
+      {
+        "text": "Ley de Servicios de la Sociedad de la Información",
+        "isCorrect": false,
+        "rationale": "Esta ley regula el comercio electrónico y servicios online, no desarrolla específicamente el RGPD."
+      }
+    ],
+    "hint": "Son las siglas LOPDGDD, que sustituyó a la antigua LOPD."
+  },
+  {
+    "guid": "e4f5a6b7-c8d9-0123-defg-456789012345",
+    "subjectId": "T66",
+    "difficulty": 1,
+    "origin": "deepseek",
+    "type": "fillgap",
+    "question": "¿Qué derecho del RGPD permite a un ciudadano solicitar que se le envíen sus datos en un formato estructurado para transferirlos a otro responsable?",
+    "answerOptions": [
+      {
+        "text": "Derecho a la portabilidad",
+        "isCorrect": true,
+        "rationale": "El derecho a la portabilidad (Art. 20 RGPD) permite recibir los datos en un formato estructurado, de uso común y lectura mecánica para transmitirlos a otro responsable."
+      },
+      {
+        "text": "Derecho de acceso",
+        "isCorrect": false,
+        "rationale": "El derecho de acceso permite conocer los datos, pero no específicamente recibirlos en formato transferible."
+      },
+      {
+        "text": "Derecho de supresión",
+        "isCorrect": false,
+        "rationale": "El derecho de supresión permite borrar datos, no transferirlos."
+      },
+      {
+        "text": "Derecho de limitación",
+        "isCorrect": false,
+        "rationale": "El derecho de limitación permite 'congelar' el tratamiento temporalmente, no transferir datos."
+      }
+    ],
+    "hint": "Está relacionado con 'portar' o llevar tus datos de un sitio a otro, como portar un número de teléfono."
+  },
+  {
+    "guid": "f5a6b7c8-d9e0-1234-efgh-567890123456",
+    "subjectId": "T66",
+    "difficulty": 1,
+    "origin": "deepseek",
+    "type": "fillgap",
+    "question": "¿Qué evaluación debe realizar el Ayuntamiento antes de implantar un sistema de videovigilancia masiva en espacios públicos?",
+    "answerOptions": [
+      {
+        "text": "Evaluación de Impacto (EIPD)",
+        "isCorrect": true,
+        "rationale": "La EIPD es obligatoria para tratamientos de alto riesgo como la videovigilancia sistemática a gran escala de zonas de acceso público (Art. 35 RGPD)."
+      },
+      {
+        "text": "Auditoría de seguridad",
+        "isCorrect": false,
+        "rationale": "La auditoría de seguridad es importante pero no sustituye la EIPD, que es una evaluación previa específica para tratamientos de alto riesgo."
+      },
+      {
+        "text": "Consulta pública a los vecinos",
+        "isCorrect": false,
+        "rationale": "Aunque puede ser recomendable, no es un requisito legal del RGPD como la EIPD."
+      },
+      {
+        "text": "Análisis coste-beneficio",
+        "isCorrect": false,
+        "rationale": "El análisis económico es diferente a la evaluación de impacto sobre la protección de datos requerida por el RGPD."
+      }
+    ],
+    "hint": "Son las siglas EIPD y se hace antes de implantar tratamientos de alto riesgo."
+  },
+  {
+    "guid": "f47ac10b-58cc-4372-a567-0e02b2c3d479",
+    "subjectId": "T66",
+    "difficulty": 1,
+    "origin": "deepseek",
+    "type": "test",
+    "question": "¿Cuál es la base legal más adecuada para que el Ayuntamiento de Barcelona utilice los datos del padrón municipal para enviar información sobre una obra pública que afecta a un barrio?",
+    "answerOptions": [
+      {
+        "text": "El consentimiento expreso de los vecinos obtenido previamente",
+        "isCorrect": false,
+        "rationale": "En tratamientos administrativos obligatorios como información sobre obras públicas, el Ayuntamiento no necesita consentimiento porque actúa en ejercicio de sus competencias."
+      },
+      {
+        "text": "La misión de interés público y el ejercicio de poderes públicos, ofreciendo derecho de oposición",
+        "isCorrect": true,
+        "rationale": "Esta es la base correcta según el art. 6.1.e RGPD. El Ayuntamiento informa en cumplimiento de sus competencias municipales, pero debe permitir que los vecinos se opongan a recibir estas comunicaciones."
+      },
+      {
+        "text": "El interés legítimo del Ayuntamiento, sin necesidad de informar sobre derechos",
+        "isCorrect": false,
+        "rationale": "Aunque el interés legítimo existe, en el sector público prima la base de misión de interés público. Además, SIEMPRE debe informarse sobre los derechos de protección de datos."
+      },
+      {
+        "text": "La obligación contractual derivada de la relación vecino-Ayuntamiento",
+        "isCorrect": false,
+        "rationale": "No existe un contrato entre el vecino y el Ayuntamiento para recibir información municipal. La relación es administrativa, no contractual."
+      }
+    ],
+    "hint": "Piensa en las competencias municipales y en que los vecinos deben poder optar por no recibir ciertas comunicaciones."
+  },
+  {
+    "guid": "550e8400-e29b-41d4-a716-446655440000",
+    "subjectId": "T66",
+    "difficulty": 1,
+    "origin": "deepseek",
+    "type": "test",
+    "question": "Un ciudadano solicita al Ayuntamiento que borre sus datos del padrón municipal porque se va a vivir a otro municipio. ¿Qué derecho está ejerciendo y cuál debería ser la respuesta del Ayuntamiento?",
+    "answerOptions": [
+      {
+        "text": "Derecho de supresión; el Ayuntamiento debe borrarlo inmediatamente",
+        "isCorrect": false,
+        "rationale": "El padrón municipal tiene una obligación legal de conservación. No se puede borrar a un ciudadano mientras mantenga su domicilio en el municipio, y existen plazos legales de conservación incluso después del cambio."
+      },
+      {
+        "text": "Derecho de oposición; el Ayuntamiento puede negarse si hay motivos legítimos",
+        "isCorrect": false,
+        "rationale": "No es el derecho de oposición, que se refiere a oponerse a un tratamiento específico. Aquí se solicita la eliminación completa de los datos."
+      },
+      {
+        "text": "Derecho de supresión; el Ayuntamiento debe denegarlo porque existe una obligación legal que exige el tratamiento",
+        "isCorrect": true,
+        "rationale": "El art. 17.3.b RGPD establece que no aplica el derecho de supresión cuando el tratamiento es necesario para el cumplimiento de una obligación legal, como la gestión del padrón municipal."
+      },
+      {
+        "text": "Derecho de portabilidad; el Ayuntamiento debe transferir sus datos al nuevo municipio",
+        "isCorrect": false,
+        "rationale": "El derecho de portabilidad aplica principalmente a datos proporcionados por el interesado bajo consentimiento o contrato, no a tratamientos administrativos obligatorios como el padrón."
+      }
+    ],
+    "hint": "El padrón municipal está regulado por leyes específicas que establecen obligaciones de conservación."
+  },
+  {
+    "guid": "6ba7b810-9dad-11d1-80b4-00c04fd430c8",
+    "subjectId": "T66",
+    "difficulty": 1,
+    "origin": "deepseek",
+    "type": "test",
+    "question": "¿Cuál de estas situaciones NO requeriría necesariamente una Evaluación de Impacto (EIPD) según el RGPD?",
+    "answerOptions": [
+      {
+        "text": "Un sistema de videovigilancia que cubre todo un distrito municipal",
+        "isCorrect": false,
+        "rationale": "Sí requeriría EIPD por ser monitorización sistemática y a gran escala de una zona de acceso público."
+      },
+      {
+        "text": "Un tratamiento que cruce datos de servicios sociales con datos de salud de miles de ciudadanos",
+        "isCorrect": false,
+        "rationale": "Sí requeriría EIPD por tratarse de datos de salud a gran escala y categorías especiales de datos."
+      },
+      {
+        "text": "La publicación en la web municipal de los nombres de los beneficiarios de ayudas sociales",
+        "isCorrect": false,
+        "rationale": "Sí requeriría EIPD por el alto riesgo para los derechos de los afectados al hacerse públicos datos sensibles."
+      },
+      {
+        "text": "El envío masivo de convocatorias de plazas de empleo público a través del padrón municipal",
+        "isCorrect": true,
+        "rationale": "Generalmente no requeriría EIPD si se hace con las garantías adecuadas (información clara, derecho de oposición). No es tratamiento de alto riesgo sistemático como los otros casos."
+      }
+    ],
+    "hint": "Piensa en tratamientos que impliquen datos sensibles, monitorización masiva o evaluación sistemática de personas."
+  },
+  {
+    "guid": "123e4567-e89b-12d3-a456-426614174000",
+    "subjectId": "T66",
+    "difficulty": 1,
+    "origin": "deepseek",
+    "type": "test",
+    "question": "El Ayuntamiento contrata a una empresa externa para digitalizar expedientes históricos que contienen datos personales. ¿Qué medida es esencial según el RGPD?",
+    "answerOptions": [
+      {
+        "text": "Firmar un contrato que designe a la empresa como Responsable del tratamiento",
+        "isCorrect": false,
+        "rationale": "La empresa es ENCARGADA del tratamiento, no Responsable. El Responsable sigue siendo el Ayuntamiento."
+      },
+      {
+        "text": "Establecer un contrato con cláusulas específicas que regulen el tratamiento por cuenta del Ayuntamiento",
+        "isCorrect": true,
+        "rationale": "El art. 28 RGPD exige un contrato u acto jurídico que establezca que el encargado trata datos solo por instrucciones del responsable, con medidas de seguridad y otras obligaciones."
+      },
+      {
+        "text": "Obtener el consentimiento expreso de todos los ciudadanos cuyos expedientes se van a digitalizar",
+        "isCorrect": false,
+        "rationale": "No es necesario porque el Ayuntamiento actúa en cumplimiento de sus funciones públicas. La base legal es la misión de interés público."
+      },
+      {
+        "text": "Designar a un empleado de la empresa como Delegado de Protección de Datos del Ayuntamiento",
+        "isCorrect": false,
+        "rationale": "El DPD es designado por el Responsable (Ayuntamiento), no por el Encargado. Además, el DPD debe ser independiente y no puede tener conflictos de intereses."
+      }
+    ],
+    "hint": "Piensa en la relación jurídica entre el Ayuntamiento (quien decide) y la empresa (quien ejecuta)."
+  },
+  {
+    "guid": "a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a11",
+    "subjectId": "T66",
+    "difficulty": 1,
+    "origin": "deepseek",
+    "type": "test",
+    "question": "¿Qué plazo tiene el Ayuntamiento para responder a un ciudadano que ejerce su derecho de acceso a sus datos personales?",
+    "answerOptions": [
+      {
+        "text": "15 días naturales desde la recepción de la solicitud",
+        "isCorrect": false,
+        "rationale": "Este era el plazo de la antigua LOPD, pero el RGPD estableció plazos diferentes."
+      },
+      {
+        "text": "1 mes, prorrogable a 2 meses en casos complejos",
+        "isCorrect": true,
+        "rationale": "Según el art. 12 RGPD, el plazo es de 1 mes, que puede ampliarse a 2 meses por complejidad, informando al interesado dentro del primer mes."
+      },
+      {
+        "text": "72 horas hábiles por tratarse de una administración pública",
+        "isCorrect": false,
+        "rationale": "Las 72 horas son para notificación de brechas de seguridad a la AEPD, no para ejercicios de derechos."
+      },
+      {
+        "text": "3 meses por la carga de trabajo administrativa",
+        "isCorrect": false,
+        "rationale": "No hay excepción por carga de trabajo. El plazo máximo con prórroga es de 2 meses."
+      }
+    ],
+    "hint": "El RGPD unificó los plazos para todos los derechos de los interesados."
+  }
+]
