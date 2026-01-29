@@ -1,0 +1,374 @@
+[
+  {
+    "guid": "ee9a192a-e22f-4507-9ca7-c89624633491",
+    "subjectId": "T34",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 4,
+    "question": "En el contexto de la arquitectura de SAP TRM, el componente FI-CA (Contract Accounts Receivable and Payable) y su adaptación para el sector público, PSCD (Public Sector Collection and Disbursement), constituyen el núcleo del sistema. Considerando su función principal, ¿cuál de las siguientes afirmaciones describe con mayor precisión el rol específico y el alcance de PSCD dentro de la gestión tributaria?",
+    "answerOptions": [
+      {
+        "text": "PSCD es responsable exclusivamente de la configuración de los productos fiscales y la lógica de cálculo de las cuotas tributarias mediante el motor de reglas BRF+, dejando la gestión de cobros y pagos masivos al módulo estándar de FI-CA.",
+        "rationale": "Esta opción atribuye incorrectamente la definición de productos fiscales a PSCD, cuando esa función se relaciona con 'Product Definition' y el cálculo con BRF+.",
+        "isCorrect": false
+      },
+      {
+        "text": "PSCD gestiona principalmente la información maestra de los contribuyentes (Business Partner) y los objetos tributarios (Contract Object), asegurando una visión 360º, mientras que la contabilidad de deudas se delega a FI-CA.",
+        "rationale": "Aunque se integra con ellos, la gestión de datos maestros de BP y Contract Object son entidades separadas; la función principal de PSCD es el ciclo financiero.",
+        "isCorrect": false
+      },
+      {
+        "text": "PSCD se enfoca en la gestión de expedientes administrativos, como inspecciones y reclamaciones, utilizando Case Management para vincular los procedimientos con los documentos contables generados en FI-CA.",
+        "rationale": "La gestión de expedientes es una función del componente Case Management, que se integra con PSCD, pero no es la función central de PSCD en sí misma.",
+        "isCorrect": false
+      },
+      {
+        "text": "PSCD adapta la funcionalidad de FI-CA para controlar el ciclo financiero completo de los tributos en el sector público, incluyendo la generación de deudas, cobros masivos, devoluciones, intereses, recargos y la gestión de la recaudación ejecutiva.",
+        "rationale": "Esta afirmación describe correctamente que PSCD es la adaptación de FI-CA para el sector público y abarca todo el ciclo financiero de los ingresos, desde la deuda inicial hasta la ejecución.",
+        "isCorrect": true
+      }
+    ],
+    "hint": "Recuerda que PSCD es una adaptación de un módulo más genérico de SAP y su propósito es abarcar todo el proceso financiero de los ingresos públicos."
+  },
+  {
+    "guid": "169c376d-3b74-4982-9a59-c45bcdfb282a",
+    "subjectId": "T34",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 4,
+    "question": "Dentro del modelo de datos de SAP TRM, existen cuatro entidades principales que estructuran la información. Si un ayuntamiento necesita gestionar el Impuesto sobre Bienes Inmuebles (IBI) de un ciudadano que posee tres propiedades, ¿cuál es la relación correcta y la función de las entidades 'Business Partner' (BP), 'Contract Account' y 'Contract Object' en este escenario específico?",
+    "answerOptions": [
+      {
+        "text": "El ciudadano es un 'Contract Object', cada propiedad es un 'Business Partner' y todos se agrupan bajo un único 'Contract Account' que gestiona los pagos del IBI.",
+        "rationale": "Esta opción invierte los roles fundamentales: el ciudadano es el BP y las propiedades son los objetos tributarios, no al revés.",
+        "isCorrect": false
+      },
+      {
+        "text": "El ciudadano es un 'Business Partner' (BP), y cada una de las tres propiedades se representa como un 'Contract Account' diferente, vinculado directamente al BP para la facturación individual del IBI.",
+        "rationale": "Aunque es posible, lo habitual es que las propiedades sean 'Contract Objects'. El 'Contract Account' agrupa la relación financiera, no representa el objeto físico.",
+        "isCorrect": false
+      },
+      {
+        "text": "El ciudadano es un 'Business Partner' (BP) que tiene un 'Contract Account' para agrupar su relación tributaria. Cada una de las tres propiedades se define como un 'Contract Object' distinto, vinculado a dicho 'Contract Account'.",
+        "rationale": "Esta es la estructura correcta: el BP representa al contribuyente, el Contract Account gestiona la relación financiera y cada bien imponible es un Contract Object.",
+        "isCorrect": true
+      },
+      {
+        "text": "El ciudadano es un 'Business Partner' (BP). Se crea un 'Contract Object' para el IBI en general, y dentro de este, se asocian las tres propiedades y un 'Contract Account' para los pagos domiciliados.",
+        "rationale": "Esta opción confunde la jerarquía; el objeto tributario ('Contract Object') es la propiedad individual, no el impuesto en sí mismo, y se vincula al 'Contract Account'.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piensa en la jerarquía lógica: ¿quién es el contribuyente, qué agrupa su relación financiera con el ayuntamiento y qué representa el bien físico que genera el impuesto?"
+  },
+  {
+    "guid": "943a8ef9-8453-4c69-be90-79f871d61957",
+    "subjectId": "T34",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 4,
+    "question": "La herramienta BRF+ (Business Rule Framework plus) es fundamental para el cálculo y la liquidación de tributos en SAP TRM. Considerando su propósito y funcionamiento, ¿cuál de las siguientes afirmaciones describe de forma más precisa cómo y por qué se utiliza BRF+ en el proceso de determinación de una cuota tributaria, como por ejemplo una tasa municipal?",
+    "answerOptions": [
+      {
+        "text": "BRF+ es una herramienta de programación en ABAP que permite a los desarrolladores crear funciones complejas para calcular impuestos, garantizando el máximo rendimiento en procesos masivos y la integración directa con la base de datos.",
+        "rationale": "Esta afirmación es incorrecta porque el texto especifica que BRF+ permite configurar la lógica de negocio *sin* necesidad de programación ABAP.",
+        "isCorrect": false
+      },
+      {
+        "text": "BRF+ actúa como el sistema de gestión documental donde se almacenan las normativas fiscales en formato electrónico (PDF, Word), permitiendo al sistema consultar las bases, exenciones y tipos aplicables durante el cálculo.",
+        "rationale": "Esta opción confunde BRF+ con un sistema de gestión documental (ECM). BRF+ es un motor de reglas de negocio, no un repositorio de documentos.",
+        "isCorrect": false
+      },
+      {
+        "text": "BRF+ funciona como un motor de reglas de negocio que permite a los usuarios funcionales definir la lógica fiscal (bases, exenciones, tipos) de un producto fiscal de forma configurable, separando las reglas de negocio del código del programa.",
+        "rationale": "Describe con exactitud el papel de BRF+ como un motor configurable que externaliza las reglas de negocio del código, permitiendo flexibilidad sin programación.",
+        "isCorrect": true
+      },
+      {
+        "text": "BRF+ es el componente de SAP TRM responsable de generar automáticamente los documentos PSCD y registrarlos en el Compte Contracte, una vez que el módulo de FI-CA ha calculado el importe final de la liquidación.",
+        "rationale": "El cálculo se realiza mediante BRF+, mientras que la generación de documentos PSCD es parte del proceso de 'Billing e Invoicing', posterior al cálculo.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considera la ventaja principal de esta herramienta en términos de flexibilidad y quién puede mantener las reglas fiscales."
+  },
+  {
+    "guid": "3942a45b-f85e-4631-bfb2-ab1584cce528",
+    "subjectId": "T34",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 4,
+    "question": "En el contexto de la implementación de SAP TRM en el Ajuntament de Barcelona, la solución se denomina 'HM' (Hisenda Municipal) y utiliza una arquitectura específica con varios componentes integrados. Si un técnico necesita investigar un posible error en el cálculo de un recargo aplicado a un contribuyente, ¿qué componente del 'Nucli funcional' debería analizar primero para entender cómo se generó el movimiento económico del recargo y en qué registro contable básico se materializó?",
+    "answerOptions": [
+      {
+        "text": "El componente Business Partner (BP), ya que centraliza toda la información del contribuyente y su historial financiero, permitiendo ver el origen de todos los recargos aplicados.",
+        "rationale": "Aunque el BP contiene el perfil del contribuyente, el detalle del movimiento contable y financiero específico se encuentra en otro componente.",
+        "isCorrect": false
+      },
+      {
+        "text": "El motor de reglas BRF+, porque es donde se define la lógica para aplicar recargos por impago, y su análisis mostraría por qué se activó la regla que generó el recargo.",
+        "rationale": "BRF+ define la lógica del cálculo, pero el registro contable final y el movimiento financiero se materializan en el componente central del sistema.",
+        "isCorrect": false
+      },
+      {
+        "text": "El componente FI-CA / PSCD, ya que es el corazón del sistema que controla el ciclo financiero y genera los 'documents PSCD', que son los registros contables básicos para cualquier movimiento, incluyendo un recargo.",
+        "rationale": "PSCD es el núcleo financiero donde se registran todos los movimientos económicos como deudas, pagos o recargos a través de los documentos PSCD.",
+        "isCorrect": true
+      },
+      {
+        "text": "El componente Case Management, puesto que cualquier proceso de reclamación o impago que genere un recargo debe estar obligatoriamente gestionado dentro de un expediente administrativo.",
+        "rationale": "Case Management se usa para expedientes complejos, pero un recargo estándar por impago es un proceso financiero automático gestionado directamente en PSCD.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Céntrate en el componente que el texto describe como 'el cor del sistema' y que maneja los registros contables básicos de cualquier movimiento económico."
+  },
+  {
+    "guid": "aae73cf8-7e88-4dfd-b14f-47e2212044c4",
+    "subjectId": "T34",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 4,
+    "question": "La evolución de SAP TRM hacia SAP S/4HANA introduce mejoras tecnológicas significativas. Una de las más relevantes es la simplificación de la integración entre la información fiscal, la contabilidad general y la presupuestaria. ¿Cuál de las siguientes opciones describe con mayor precisión el mecanismo técnico que facilita esta simplificación en S/4HANA?",
+    "answerOptions": [
+      {
+        "text": "Mediante la sustitución de BRF+ por SAP Cloud Platform Integration (CPI), que permite una conexión directa y en tiempo real entre los módulos de TRM y los de contabilidad general.",
+        "rationale": "CPI es una herramienta de integración con sistemas externos, no la solución para la simplificación de la integración interna entre módulos como FI, FM y TRM.",
+        "isCorrect": false
+      },
+      {
+        "text": "A través de la implementación de SAP Fiori como interfaz única, que consolida la visualización de datos de FI, FM y TRM en una sola pantalla para mejorar la experiencia de usuario.",
+        "rationale": "Fiori mejora la experiencia de usuario y la visualización, pero el cambio fundamental en la integración de datos reside en la arquitectura de la base de datos y la estructura de datos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Mediante el uso del Universal Journal (tabla ACDOCA) y Public Sector Management (PBFM), que unifican los registros contables y presupuestarios en una única fuente de verdad.",
+        "rationale": "El texto menciona explícitamente que en S/4HANA, el Universal Journal (ACDOCA) y PBFM unifican y simplifican la integración de FI y FM.",
+        "isCorrect": true
+      },
+      {
+        "text": "Gracias al rendimiento superior de la base de datos HANA, que permite ejecutar procesos de conciliación entre FI, FM y PSCD de forma más rápida, eliminando la necesidad de tablas agregadas.",
+        "rationale": "Aunque el rendimiento de HANA es una ventaja clave, la simplificación estructural proviene del Universal Journal, que es un cambio en el modelo de datos, no solo una mejora de velocidad.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Busca en el texto la tabla y el componente específicos que se mencionan en el contexto de la simplificación de FI/FM en entornos S/4HANA."
+  },
+  {
+    "guid": "a464d164-7801-4d6d-880d-50b8155d85f1",
+    "subjectId": "T34",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 4,
+    "question": "Durante un proceso de recaudación ejecutiva por impago de un tributo, el sistema SAP TRM debe gestionar una serie de acciones secuenciales y complejas. Si un contribuyente no ha pagado un impuesto y el sistema inicia un procedimiento de embargo, ¿qué combinación de componentes de SAP TRM sería la principal responsable de gestionar tanto el proceso financiero del impago como el expediente administrativo asociado al embargo?",
+    "answerOptions": [
+      {
+        "text": "El módulo FI-CA / PSCD para gestionar la aplicación de recargos y la contabilidad del embargo, y el componente de Business Partner (BP) para registrar el embargo en el historial del contribuyente.",
+        "rationale": "Aunque PSCD y BP están involucrados, esta opción omite el componente clave para la gestión de expedientes administrativos complejos como un embargo.",
+        "isCorrect": false
+      },
+      {
+        "text": "El componente de Dunning para enviar los avisos de impago y el motor BRF+ para calcular los intereses de demora y las costas del procedimiento de embargo.",
+        "rationale": "Dunning y BRF+ son parte del proceso, pero no gestionan el expediente administrativo ni la estructura documental del procedimiento de embargo.",
+        "isCorrect": false
+      },
+      {
+        "text": "El módulo FI-CA / PSCD para gestionar los procesos de reclamación y ejecución (Dunning/Enforcement), y el componente Case Management / Records Management para administrar el expediente administrativo del embargo.",
+        "rationale": "Esta opción combina correctamente el núcleo financiero (PSCD) para la ejecución del impago con Case Management para la gestión estructurada del expediente administrativo asociado.",
+        "isCorrect": true
+      },
+      {
+        "text": "El componente de Document Management (ECM) para almacenar la notificación del embargo y el Portal del Contribuyente para que este pueda consultar el estado de su deuda.",
+        "rationale": "ECM y el portal son componentes de soporte importantes, pero no son los responsables de ejecutar el proceso financiero ni de gestionar el flujo de trabajo del expediente.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Identifica los dos componentes clave que se mencionan para manejar, por un lado, las acciones financieras de cobro forzoso y, por otro, los expedientes y su documentación."
+  },
+  {
+    "guid": "ba453547-d65d-4928-b24c-3c13c5209354",
+    "subjectId": "T34",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 4,
+    "question": "El flujo funcional completo del ciclo de vida de un tributo en SAP TRM sigue una secuencia lógica de pasos. Considerando un tributo periódico como el IBI, que se genera masivamente, ¿cuál de las siguientes secuencias representa de forma más precisa y ordenada el proceso clave desde la determinación de la deuda hasta su contabilización final?",
+    "answerOptions": [
+      {
+        "text": "Declaración/Alta → Comptabilització a FI/FM → Càlcul i Liquidació (BRF+) → Facturació i creació del document PSCD → Pagament o Recaptació executiva.",
+        "rationale": "Esta secuencia es incorrecta porque la contabilización en FI/FM es uno de los pasos finales, no uno de los iniciales antes del cálculo.",
+        "isCorrect": false
+      },
+      {
+        "text": "Càlcul i Liquidació (BRF+) → Declaració / Alta del tribut → Facturació i creació del document PSCD → Pagament → Comptabilització a FI/FM.",
+        "rationale": "Esta secuencia altera el orden lógico; el alta del tributo y la determinación de la base deben preceder al cálculo y liquidación.",
+        "isCorrect": false
+      },
+      {
+        "text": "Determinació de base imposable → Càlcul i Liquidació (BRF+) → Facturació i creació del document PSCD → Pagament o Recaptació executiva → Comptabilització a FI/FM.",
+        "rationale": "Esta opción sigue el flujo lógico presentado en el documento, desde el cálculo inicial hasta la facturación, el cobro y la contabilización final en los módulos financieros.",
+        "isCorrect": true
+      },
+      {
+        "text": "Facturació i creació del document PSCD → Càlcul i Liquidació (BRF+) → Pagament o Recaptació executiva → Comptabilització a FI/FM → Declaració / Alta del tribut.",
+        "rationale": "Esta opción es ilógica, ya que sitúa la facturación y creación del documento contable antes del propio cálculo de la liquidación.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Revisa el flujo funcional resumido en el documento y asegúrate de que el orden de las fases principales (cálculo, facturación, pago, contabilización) sea el correcto."
+  },
+  {
+    "guid": "21e1fce2-9031-46af-bef1-5a337ad7a7ab",
+    "subjectId": "T34",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 4,
+    "question": "La integración de SAP TRM con otros sistemas es crucial para una gestión completa de los ingresos públicos. Si se requiere vincular los impuestos sobre bienes inmuebles con su ubicación geográfica exacta para análisis espaciales, o conectar con plataformas de pago externas para facilitar el pago en línea a los ciudadanos, ¿qué dos tipos de integración, mencionados en el texto, serían necesarios respectivamente para estas dos funcionalidades?",
+    "answerOptions": [
+      {
+        "text": "Integración con FI para la información geográfica y con FM para las plataformas de pago.",
+        "rationale": "FI y FM son integraciones contables y presupuestarias internas, no están diseñadas para la gestión de información geográfica ni para la conexión con pasarelas de pago.",
+        "isCorrect": false
+      },
+      {
+        "text": "Integración con GRC (Governance, Risk and Compliance) para la ubicación geográfica y con UI Logging para las plataformas de pago.",
+        "rationale": "GRC se enfoca en control interno y auditoría, mientras que UI Logging registra accesos. Ninguno de los dos cumple las funciones descritas.",
+        "isCorrect": false
+      },
+      {
+        "text": "Integración con GIS (Geographic Information System) para la ubicación geográfica y con PO / CPI (Process Orchestration / Cloud Platform Integration) para las plataformas de pago.",
+        "rationale": "El texto identifica explícitamente la integración con GIS para información geográfica (catastro) y el uso de herramientas como PO/CPI para conectar con sistemas externos como bancos o plataformas de pago.",
+        "isCorrect": true
+      },
+      {
+        "text": "Integración con CAM (Central Address Management) para la ubicación geográfica y con SAP Fiori para las plataformas de pago.",
+        "rationale": "CAM gestiona direcciones postales de forma centralizada, no información geoespacial. Fiori es la interfaz de usuario, no la herramienta de integración de backend con plataformas de pago.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Busca en la sección de 'Altres integracions' y 'Integracions tècniques' las siglas que corresponden a sistemas de información geográfica y a herramientas para conectar con sistemas externos."
+  },
+  {
+    "guid": "4bd80606-5eb6-4e78-9e48-5d03f8e40853",
+    "subjectId": "T34",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 4,
+    "question": "El concepto de 'Producte Fiscal' en SAP TRM es central para definir cómo se gestiona cada tributo. A su vez, la gestión de estos productos puede clasificarse en dos tipos principales según su naturaleza. Si un ayuntamiento gestiona tanto el Impuesto sobre Actividades Económicas (IAE), que es periódico y vinculado a una actividad, como una tasa por la expedición de un certificado de empadronamiento, que es puntual, ¿cómo se clasificarían estos dos tributos según la 'Tipus de gestió' descrita en el documento?",
+    "answerOptions": [
+      {
+        "text": "El IAE se gestionaría 'Per objecte' y la tasa 'Per objecte' también, ya que ambos generan un documento PSCD.",
+        "rationale": "Aunque ambos generan documentos PSCD, su naturaleza es distinta; uno está ligado a un objeto/actividad persistente y el otro es un evento puntual.",
+        "isCorrect": false
+      },
+      {
+        "text": "El IAE se gestionaría 'Per formulari', ya que requiere una declaración de alta, y la tasa 'Per objecte', porque el objeto es el propio certificado.",
+        "rationale": "Esta opción invierte las clasificaciones. Los tributos periódicos vinculados a una actividad o bien se gestionan por objeto, mientras que los puntuales suelen ser por formulario.",
+        "isCorrect": false
+      },
+      {
+        "text": "Tanto el IAE como la tasa se gestionarían 'Per formulari', dado que ambos pueden requerir la presentación de un documento por parte del ciudadano en algún momento.",
+        "rationale": "Esta clasificación es demasiado generalista. El texto diferencia claramente entre la gestión de tributos periódicos ligados a un objeto y los que son puntuales o autoliquidaciones.",
+        "isCorrect": false
+      },
+      {
+        "text": "El IAE se gestionaría 'Per objecte', al estar vinculado a una actividad económica, y la tasa 'Per formulari', al ser un tributo puntual generado por una solicitud (autoliquidación).",
+        "rationale": "Esta es la clasificación correcta según el texto: los tributos periódicos como IBI o IAE son 'per objecte', y las tasas puntuales o autoliquidaciones son 'per formulari'.",
+        "isCorrect": true
+      }
+    ],
+    "hint": "El texto distingue entre tributos periódicos vinculados a un bien o actividad y aquellos que son puntuales o se autoliquidan. Asocia cada ejemplo a su categoría."
+  },
+  {
+    "guid": "753d2d42-cfad-44cb-b291-fb4c5475c3f9",
+    "subjectId": "T34",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 4,
+    "question": "En la implementación del Ajuntament de Barcelona, se utiliza el componente UI Logging para el control de accesos y la seguridad. Teniendo en cuenta la naturaleza de los datos gestionados en un sistema de hacienda municipal, ¿cuál es el objetivo principal y la justificación para implementar una herramienta como UI Logging en el entorno HM (Hisenda Municipal)?",
+    "answerOptions": [
+      {
+        "text": "Registrar los errores de programación ABAP que ocurren en la interfaz de usuario para facilitar su depuración por parte del equipo técnico en el entorno de desarrollo (HMD).",
+        "rationale": "Aunque registrar errores es útil, el propósito principal de UI Logging en este contexto es la seguridad y auditoría, no la depuración de código.",
+        "isCorrect": false
+      },
+      {
+        "text": "Optimizar el rendimiento de las aplicaciones Fiori midiendo los tiempos de respuesta de la interfaz de usuario y detectando cuellos de botella en la comunicación con el backend.",
+        "rationale": "El objetivo de UI Logging no es la monitorización del rendimiento, sino el registro de la actividad del usuario por motivos de seguridad y cumplimiento normativo.",
+        "isCorrect": false
+      },
+      {
+        "text": "Garantizar la trazabilidad y la seguridad de los datos sensibles de los contribuyentes, registrando qué usuarios acceden a qué información y cuándo lo hacen, para fines de auditoría y cumplimiento de normativas de protección de datos.",
+        "rationale": "El texto lo asocia con 'control d'accessos i seguretat', lo cual se alinea perfectamente con la necesidad de auditar el acceso a datos fiscales confidenciales.",
+        "isCorrect": true
+      },
+      {
+        "text": "Crear un registro de las interacciones de los ciudadanos en el Portal del Contribuyente para analizar el comportamiento del usuario y mejorar la usabilidad de los servicios digitales ofrecidos.",
+        "rationale": "Si bien el análisis de usabilidad es importante, la función principal descrita para UI Logging en el documento es la seguridad y el control de accesos internos, no el análisis del comportamiento del ciudadano.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piensa en la sensibilidad de la información que gestiona una hacienda municipal y la necesidad de controlar quién accede a ella."
+  },
+  {
+    "guid": "f480aa5f-46b5-491f-8f62-129bf50f31d1",
+    "subjectId": "T34",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 4,
+    "question": "El documento establece que SAP TRM no es un módulo único, sino una solución integrada basada en varios componentes. Si se afirma que el componente fundamental para la gestión de cuentas a cobrar y pagar masivas, adaptado específicamente para el sector público, es el módulo FI (Financial Accounting), ¿por qué sería esta afirmación incorrecta o imprecisa según la arquitectura descrita?",
+    "answerOptions": [
+      {
+        "text": "La afirmación es imprecisa porque el módulo central no es FI, sino FI-CA (Contract Accounts Receivable and Payable) y, más específicamente, su adaptación para el sector público denominada PSCD.",
+        "rationale": "Esta opción corrige la imprecisión, identificando FI-CA/PSCD como el verdadero núcleo para la gestión masiva de cuentas a cobrar, a diferencia del módulo FI de contabilidad general.",
+        "isCorrect": true
+      },
+      {
+        "text": "La afirmación es incorrecta porque la gestión de cuentas a cobrar y pagar masivas se realiza en el módulo FM (Funds Management), que se encarga de la gestión presupuestaria de los ingresos.",
+        "rationale": "FM se ocupa de la imputación presupuestaria de los ingresos, no de la gestión operativa de las cuentas a cobrar masivas de los contribuyentes.",
+        "isCorrect": false
+      },
+      {
+        "text": "La afirmación es incorrecta porque el componente central es Business Partner (BP), que gestiona toda la relación con el contribuyente, incluyendo sus deudas y pagos.",
+        "rationale": "BP es el maestro de datos del contribuyente, pero el motor financiero que gestiona las cuentas y los movimientos económicos masivos es FI-CA/PSCD.",
+        "isCorrect": false
+      },
+      {
+        "text": "La afirmación es imprecisa porque, aunque FI es el módulo principal, requiere obligatoriamente de la integración con GRC para poder gestionar los procesos de cobro del sector público.",
+        "rationale": "GRC es un módulo para control y auditoría, no es el componente central ni obligatorio para la gestión de cuentas a cobrar masivas en TRM.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "El texto hace una distinción muy clara entre el módulo de contabilidad general y el componente especializado en la gestión de grandes volúmenes de partidas abiertas."
+  },
+  {
+    "guid": "3d5c6970-0e54-485a-990a-e89bbc7d1dae",
+    "subjectId": "T34",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 4,
+    "question": "En la gestión de un tributo como la plusvalía municipal (impost sobre l'increment del valor dels terrenys de naturalesa urbana), que es de tipo 'Per formulari' y requiere una autoliquidación por parte del ciudadano, ¿cuál de las siguientes descripciones refleja mejor cómo SAP TRM gestiona el proceso desde la presentación hasta el registro de la deuda?",
+    "answerOptions": [
+      {
+        "text": "El sistema genera de forma masiva los documentos PSCD para todas las posibles plusvalías y los activa cuando el ciudadano presenta el formulario correspondiente a través del portal.",
+        "rationale": "Este enfoque masivo corresponde a tributos periódicos como el IBI, no a tributos puntuales y autoliquidables como la plusvalía.",
+        "isCorrect": false
+      },
+      {
+        "text": "El ciudadano presenta el formulario, el sistema utiliza BRF+ para validar y calcular la cuota de la autoliquidación, y posteriormente genera un único documento PSCD que registra la deuda individual en el Contract Account.",
+        "rationale": "Esta secuencia describe correctamente el proceso para un tributo 'per formulari': recepción, cálculo con BRF+ y creación del registro de deuda individual.",
+        "isCorrect": true
+      },
+      {
+        "text": "La plusvalía se gestiona íntegramente en el módulo FI, y solo una vez cobrada se transfiere un resumen contable a PSCD para la consolidación de ingresos municipales.",
+        "rationale": "El proceso de liquidación y registro de la deuda de un tributo gestionado por TRM ocurre en PSCD, no en el módulo de contabilidad general FI.",
+        "isCorrect": false
+      },
+      {
+        "text": "Tras la presentación del formulario, se crea un expediente en Case Management que, tras ser aprobado manualmente por un gestor, desencadena el cálculo en BRF+ y la creación de la deuda.",
+        "rationale": "Aunque podría usarse Case Management para casos complejos, el proceso estándar de autoliquidación está automatizado y no requiere un expediente para cada caso.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Diferencia el proceso para tributos puntuales (autoliquidaciones) del proceso para tributos periódicos (generación masiva) y ten en cuenta el rol de BRF+."
+  }
+]

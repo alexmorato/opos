@@ -1,0 +1,467 @@
+[
+  {
+    "guid": "21e73a2d-b500-4dfe-b914-1b4f83d1b6e4",
+    "subjectId": "T33",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "¿Cuál es la función principal del add-on EA-PS (Enterprise Application for Public Sector) en el entorno SAP Financials?",
+    "answerOptions": [
+      {
+        "text": "Reemplazar por completo el módulo SAP Financials (SAP-FI) en las administraciones públicas.",
+        "rationale": "EA-PS no sustituye a SAP-FI, sino que funciona como una capa de extensión sobre él para añadir funcionalidades.",
+        "isCorrect": false
+      },
+      {
+        "text": "Englobar extensiones específicas para el Sector Público, como la gestión presupuestaria.",
+        "rationale": "El texto define EA-PS como un add-on que engloba extensiones específicas para adaptar el sistema estándar a las necesidades de la administración pública.",
+        "isCorrect": true
+      },
+      {
+        "text": "Gestionar exclusivamente la contabilidad analítica y de costes (CO) para entidades gubernamentales.",
+        "rationale": "La contabilidad analítica es solo una parte (CO), mientras que EA-PS incluye un conjunto más amplio de funcionalidades como FM, GM, PSCD, etc.",
+        "isCorrect": false
+      },
+      {
+        "text": "Actuar como la capa de base de datos optimizada para el almacenamiento de datos del sector público.",
+        "rationale": "EA-PS es un conjunto de funcionalidades de la capa de aplicación, no un componente de la capa de base de datos.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piensa en si EA-PS es un producto independiente o una mejora sobre algo ya existente."
+  },
+  {
+    "guid": "7642626f-f5a8-4cf4-b133-a1196f182898",
+    "subjectId": "T33",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "En la arquitectura de 3 capas de SAP, ¿qué componente es responsable de procesar la lógica de negocio y coordinar la comunicación con la base de datos?",
+    "answerOptions": [
+      {
+        "text": "La capa de presentación.",
+        "rationale": "Esta capa se encarga de la interfaz de usuario, es decir, de mostrar los datos y recibir las interacciones del usuario, pero no procesa la lógica.",
+        "isCorrect": false
+      },
+      {
+        "text": "La capa de aplicación.",
+        "rationale": "El texto indica que en esta capa reside la lógica de negocio, se procesan las operaciones y se coordina la comunicación con la base de datos.",
+        "isCorrect": true
+      },
+      {
+        "text": "La capa de base de datos.",
+        "rationale": "Esta capa se limita a almacenar de forma persistente los datos, pero no ejecuta la lógica de negocio del sistema.",
+        "isCorrect": false
+      },
+      {
+        "text": "El Switch Framework.",
+        "rationale": "Este mecanismo permite activar funcionalidades específicas, pero no es una de las tres capas fundamentales de la arquitectura.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considera dónde se ejecutan las reglas y validaciones del sistema, entre la interfaz y el almacenamiento."
+  },
+  {
+    "guid": "d58d5456-d227-473d-b12c-1d765641d488",
+    "subjectId": "T33",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "¿Cuál es la característica fundamental del módulo PSM-FM (Funds Management) en SAP EA-PS?",
+    "answerOptions": [
+      {
+        "text": "Registrar únicamente las facturas de proveedores y gestionar los pagos salientes.",
+        "rationale": "Esta función corresponde principalmente al módulo FI-AP (Account Payable), no a la gestión presupuestaria.",
+        "isCorrect": false
+      },
+      {
+        "text": "Gestionar el ciclo de vida completo de las subvenciones, tanto recibidas como otorgadas.",
+        "rationale": "La gestión específica de subvenciones es la tarea principal del módulo GM (Grants Management).",
+        "isCorrect": false
+      },
+      {
+        "text": "Controlar la disponibilidad de crédito y bloquear la ejecución del gasto si no existen fondos suficientes.",
+        "rationale": "El texto destaca que PSM-FM controla la disponibilidad de fondos en cada momento y bloquea el gasto si se excede el presupuesto.",
+        "isCorrect": true
+      },
+      {
+        "text": "Vincular las plazas de personal con su asignación presupuestaria para el control de la nómina.",
+        "rationale": "Esta funcionalidad específica la realiza el componente PBC (Position Budget Control) en integración con HCM y FM.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Este módulo es el pilar de la gestión presupuestaria y su principal objetivo es evitar desviaciones."
+  },
+  {
+    "guid": "a05caa3c-6589-48e3-ac8e-b5f7ee73c9f2",
+    "subjectId": "T33",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "Según el texto, ¿cuál es uno de los principales beneficios de la arquitectura funcional integrada de SAP ERP, donde los módulos comparten una base de datos común?",
+    "answerOptions": [
+      {
+        "text": "Permitir que cada módulo funcione de manera completamente independiente con su propia base de datos para mayor seguridad.",
+        "rationale": "El beneficio es precisamente el opuesto: la integración se logra a través de una base de datos *común*, no de bases de datos independientes.",
+        "isCorrect": false
+      },
+      {
+        "text": "Forzar el desarrollo de un sistema totalmente a medida para cada entidad pública.",
+        "rationale": "El texto indica que el uso de extensiones como EA-PS busca precisamente *evitar* la necesidad de desarrollar un sistema a medida desde cero.",
+        "isCorrect": false
+      },
+      {
+        "text": "Reducir la necesidad de formación técnica al simplificar la lógica de negocio en la capa de presentación.",
+        "rationale": "Aunque es eficiente, SAP es un sistema complejo cuya implementación se describe como un reto que requiere formación.",
+        "isCorrect": false
+      },
+      {
+        "text": "Proporcionar una visión única y actualizada de los datos, evitando duplicidades y errores.",
+        "rationale": "El documento menciona explícitamente que al compartir una base de datos común se evita la duplicidad y se obtiene una visión única y actualizada.",
+        "isCorrect": true
+      }
+    ],
+    "hint": "Piensa en los problemas que surgen cuando diferentes departamentos tienen su propia versión de los datos."
+  },
+  {
+    "guid": "acebee65-9612-4ee5-a4e4-60cba3bf64b2",
+    "subjectId": "T33",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "¿Qué funcionalidad clave aporta el componente BCS (Budget Control System) dentro de la gestión presupuestaria en SAP?",
+    "answerOptions": [
+      {
+        "text": "Permitir la adaptación dinámica del presupuesto durante el ejercicio mediante transferencias, suplementos o minoraciones de crédito.",
+        "rationale": "El texto define BCS como el motor que permite adaptar el presupuesto a lo largo del ejercicio con diversas operaciones de modificación de créditos.",
+        "isCorrect": true
+      },
+      {
+        "text": "Certificar la validez legal de las despesas, una función reservada exclusivamente para roles de Intervención.",
+        "rationale": "La certificación de la validez de los gastos es una función del componente PSM-EC (Expenditure Certification).",
+        "isCorrect": false
+      },
+      {
+        "text": "Registrar el plan contable y el libro mayor, incluyendo la generación de balanços y cuentas de resultados.",
+        "rationale": "Esta es la función principal del módulo FI-GL (General Ledger), el núcleo de la contabilidad financiera.",
+        "isCorrect": false
+      },
+      {
+        "text": "Gestionar de forma avanzada los ingresos masivos y los pagos, especialmente en entornos de recaudación tributaria.",
+        "rationale": "Esta funcionalidad corresponde al módulo PSCD (Public Sector Collections & Disbursements), a menudo usado por organismos tributarios.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Este componente es el 'motor' que permite ajustar el presupuesto una vez que ya está en ejecución."
+  },
+  {
+    "guid": "73028e3f-351a-4c97-9cf6-91404e0bd321",
+    "subjectId": "T33",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "¿Qué módulo de SAP Financials se encarga específicamente de la gestión de facturas emitidas a clientes, el seguimiento de deudas pendientes de cobrar y los cobramientos entrantes?",
+    "answerOptions": [
+      {
+        "text": "FI-AP (Account Payable).",
+        "rationale": "Este módulo gestiona las cuentas por pagar, es decir, las deudas con los proveedores, no los cobros de clientes.",
+        "isCorrect": false
+      },
+      {
+        "text": "FI-AR (Account Receivable).",
+        "rationale": "El texto lo define como el módulo responsable de las facturas a clientes, deudas pendientes de cobrar y cobramientos entrantes.",
+        "isCorrect": true
+      },
+      {
+        "text": "FI-GL (General Ledger).",
+        "rationale": "Aunque las operaciones de cobro se registran en el libro mayor, el módulo especializado en su gestión es FI-AR.",
+        "isCorrect": false
+      },
+      {
+        "text": "PSCD (Public Sector Collections & Disbursements).",
+        "rationale": "Este módulo está diseñado para ingresos masivos como impuestos, mientras que FI-AR gestiona la facturación general a clientes.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "El nombre del módulo en inglés da una pista clave sobre si se trata de cobrar ('receivable') o de pagar ('payable')."
+  },
+  {
+    "guid": "663d2eb7-ba1c-4e07-bb51-fe7711bcc372",
+    "subjectId": "T33",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "¿Cuál de los siguientes se describe como un beneficio clave de implementar SAP FI-EAPS en términos de control?",
+    "answerOptions": [
+      {
+        "text": "Aumentar la flexibilidad para que los gestores puedan exceder el presupuesto en casos justificados sin necesidad de aprobación.",
+        "rationale": "El sistema hace lo contrario: introduce controles estrictos para evitar precisamente que se gaste por encima de lo presupuestado.",
+        "isCorrect": false
+      },
+      {
+        "text": "Reforzar el control financiero asegurando que no se produzcan desviaciones presupuestarias no controladas.",
+        "rationale": "El texto menciona explícitamente como beneficio la mejora del control financiero y la prevención de desviaciones no controladas.",
+        "isCorrect": true
+      },
+      {
+        "text": "Reducir la transparencia en el uso de los fondos públicos para agilizar los procesos de compra.",
+        "rationale": "Uno de los beneficios destacados es el aumento de la transparencia y la rendición de cuentas, no su reducción.",
+        "isCorrect": false
+      },
+      {
+        "text": "Eliminar la necesidad de realizar auditorías gracias a la automatización completa de los registros.",
+        "rationale": "El sistema simplifica las auditorías al proporcionar trazabilidad completa, pero no elimina la necesidad de realizarlas.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Una de las principales razones para que el sector público adopte estos sistemas es garantizar el cumplimiento del presupuesto aprobado."
+  },
+  {
+    "guid": "4c61315b-d3e7-4d8f-8a96-d19441bc93c8",
+    "subjectId": "T33",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "Según el documento, ¿cuál es uno de los principales retos o dificultades al implementar SAP FI-EAPS en una organización?",
+    "answerOptions": [
+      {
+        "text": "La falta de integración con otros módulos de SAP como HCM o MM, requiriendo sistemas paralelos.",
+        "rationale": "El documento resalta la fuerte integración entre módulos como uno de sus puntos fuertes, no como una dificultad.",
+        "isCorrect": false
+      },
+      {
+        "text": "La incapacidad del sistema para adaptarse a las normativas locales, obligando a cambiar los procedimientos legales.",
+        "rationale": "El reto no es la incapacidad del sistema, sino la complejidad de parametrizarlo correctamente para que cumpla con la normativa local vigente.",
+        "isCorrect": false
+      },
+      {
+        "text": "La resistencia al cambio por parte de los usuarios debido a los controles más estrictos que introduce el sistema.",
+        "rationale": "El texto identifica explícitamente las 'resistencias internas pelos controls estrictes' y la gestión del cambio como una dificultad clave.",
+        "isCorrect": true
+      },
+      {
+        "text": "La simplicidad excesiva del sistema, que no cubre procesos complejos como la gestión de subvenciones o activos fijos.",
+        "rationale": "El documento describe SAP como un sistema complejo y potente, con módulos específicos (GM, AA) para gestionar precisamente esos procesos.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "La implementación de un sistema tan estructurado suele chocar con las formas de trabajar previas de las personas."
+  },
+  {
+    "guid": "933c3389-686e-4705-80b6-4b37e5d0929a",
+    "subjectId": "T33",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "¿Para qué se utiliza el mecanismo \"Switch Framework\" en el entorno SAP ERP?",
+    "answerOptions": [
+      {
+        "text": "Para cambiar rápidamente entre la interfaz de usuario SAP GUI y las aplicaciones Fiori.",
+        "rationale": "El cambio de interfaz de usuario es una elección en la capa de presentación, no la función de este framework que opera a nivel de funcionalidad del núcleo.",
+        "isCorrect": false
+      },
+      {
+        "text": "Para distribuir la carga de trabajo de manera óptima entre la capa de aplicación y la capa de base de datos.",
+        "rationale": "La distribución de carga es un beneficio de la arquitectura de 3 capas en general, no una función específica del Switch Framework.",
+        "isCorrect": false
+      },
+      {
+        "text": "Para habilitar funcionalidades sectoriales específicas manteniendo estable el núcleo de la aplicación.",
+        "rationale": "El texto lo describe como el mecanismo que permite habilitar funcionalidades específicas, como las del sector público, sin alterar la base del sistema.",
+        "isCorrect": true
+      },
+      {
+        "text": "Para gestionar la comunicación mediante protocolos estándar como HTTP(s) y TCP/IP entre las diferentes capas.",
+        "rationale": "Estos son protocolos de red estándar para la comunicación entre capas, no una herramienta de configuración de funcionalidades de SAP.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Este mecanismo permite 'encender' o 'apagar' paquetes de funcionalidades sin alterar el código base."
+  },
+  {
+    "guid": "3d6096b9-4f07-4cd9-820e-08692699d6ff",
+    "subjectId": "T33",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "¿Cuál es la principal función del módulo TRM (Treasury & Risk Management) y qué observación importante se hace sobre él en el texto?",
+    "answerOptions": [
+      {
+        "text": "Controlar los activos fijos de la organización, como inmuebles y equipos, y es una parte central de FI.",
+        "rationale": "El control de activos fijos corresponde al módulo FI-AA, no a TRM.",
+        "isCorrect": false
+      },
+      {
+        "text": "Gestionar la tesorería y las operaciones financieras, siendo un módulo independiente de FI.",
+        "rationale": "El texto lo define como el gestor de la tesorería y destaca explícitamente que es un módulo independiente de FI.",
+        "isCorrect": true
+      },
+      {
+        "text": "Gestionar los créditos iniciales y las obligaciones reconocidas, estando totalmente integrado en FI-GL.",
+        "rationale": "Esta es una función clave del módulo de presupuestos (FM), y TRM se caracteriza por su independencia respecto a FI.",
+        "isCorrect": false
+      },
+      {
+        "text": "Registrar todas las operaciones en el libro mayor, y es el componente más dependiente de FI.",
+        "rationale": "El registro central en el libro mayor es la función de FI-GL; TRM es notable por ser independiente.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Este módulo se centra en la relación con los bancos y el flujo de caja, y su relación con FI es particular."
+  },
+  {
+    "guid": "f7c40ff5-9234-4f12-bffc-4a70fe90debc",
+    "subjectId": "T33",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "¿Cómo se integra el módulo de gestión presupuestaria (FM) con la gestión de personal (HCM) en el sector público, según el documento?",
+    "answerOptions": [
+      {
+        "text": "A través del componente PBC (Position Budget Control), que vincula las plazas de personal con una asignación presupuestaria.",
+        "rationale": "El texto especifica que PBC es el componente que permite vincular las plazas con el presupuesto, integrando HCM con FM.",
+        "isCorrect": true
+      },
+      {
+        "text": "Mediante el módulo GM (Grants Management), que asigna subvenciones para cubrir los costes de personal.",
+        "rationale": "GM gestiona subvenciones, que es un caso de uso diferente al control presupuestario general de las nóminas de la plantilla.",
+        "isCorrect": false
+      },
+      {
+        "text": "Utilizando el módulo FI-AP (Account Payable) para registrar cada nómina como una factura de proveedor.",
+        "rationale": "El proceso de nómina es complejo y específico, no se gestiona como una simple factura de proveedor a través de FI-AP.",
+        "isCorrect": false
+      },
+      {
+        "text": "A través del Ledger Presupuestario, que registra los movimientos de nómina directamente sin necesidad de un componente intermedio.",
+        "rationale": "Si bien el impacto acaba en el ledger, el texto menciona explícitamente a PBC como el componente que realiza esta vinculación específica.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Existe un componente específico para asegurar que cada puesto de trabajo tiene su correspondiente financiación en el presupuesto."
+  },
+  {
+    "guid": "311e1d25-5989-4e36-b9d0-f0b1867489ed",
+    "subjectId": "T33",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "En la arquitectura de 3 capas, ¿qué tecnología de base de datos se menciona como característica de los entornos SAP modernos como S/4HANA?",
+    "answerOptions": [
+      {
+        "text": "SAP NetWeaver.",
+        "rationale": "NetWeaver se menciona como parte de la capa de aplicación (servidor de aplicaciones), no como la base de datos.",
+        "isCorrect": false
+      },
+      {
+        "text": "ABAP Platform.",
+        "rationale": "ABAP es el lenguaje de programación y la plataforma de la capa de aplicación, no una tecnología de base de datos.",
+        "isCorrect": false
+      },
+      {
+        "text": "HANA.",
+        "rationale": "El texto indica que la capa de base de datos utiliza bases de datos relacionales o, en entornos modernos, HANA.",
+        "isCorrect": true
+      },
+      {
+        "text": "OData y SAPUI5.",
+        "rationale": "Estas tecnologías se mencionan en relación con la capa de presentación Fiori, no con la capa de base de datos.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "El texto contrasta las bases de datos relacionales tradicionales con la opción más reciente y de alto rendimiento."
+  },
+  {
+    "guid": "c1b71ffc-1591-41b0-bf58-8c18dd2be669",
+    "subjectId": "T33",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "¿Qué procesos específicos gestiona el módulo FI-AA (Asset Accounting)?",
+    "answerOptions": [
+      {
+        "text": "El control de activos fijos, incluyendo amortizaciones, altas y bajas de elementos como inmuebles o equipos.",
+        "rationale": "El documento define claramente que FI-AA se encarga del control de activos fijos, mencionando amortizaciones, altas y bajas.",
+        "isCorrect": true
+      },
+      {
+        "text": "El registro y pago de facturas de proveedores, así como la conciliación de sus cuentas.",
+        "rationale": "Esta es la descripción del módulo FI-AP (Account Payable).",
+        "isCorrect": false
+      },
+      {
+        "text": "El análisis interno del uso de recursos por unidades gestoras, incluyendo centros de coste y órdenes.",
+        "rationale": "Esto corresponde al ámbito del módulo CO (Controlling) o contabilidad de gestión.",
+        "isCorrect": false
+      },
+      {
+        "text": "La gestión de la posición de caja y la conciliación de los movimientos bancarios.",
+        "rationale": "Esta es la función principal del módulo de tesorería, TRM (Treasury & Risk Management).",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Este módulo se ocupa de los bienes de la organización que tienen una vida útil prolongada y pierden valor con el tiempo."
+  },
+  {
+    "guid": "f9e4c82d-bf20-4e2c-8b61-8145921d60a7",
+    "subjectId": "T33",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "¿Qué actividad crítica se menciona que debe realizarse durante la fase del \"Blueprint\" en un proyecto de implementación de SAP?",
+    "answerOptions": [
+      {
+        "text": "Realizar la formación y el acompañamiento a los usuarios finales para gestionar la resistencia al cambio.",
+        "rationale": "La formación es una parte crucial del proyecto, pero generalmente ocurre más tarde, una vez que el sistema está diseñado y configurado.",
+        "isCorrect": false
+      },
+      {
+        "text": "Instalar la infraestructura de hardware y la base de datos HANA en los servidores de la organización.",
+        "rationale": "La instalación de la infraestructura es una tarea técnica, mientras que la fase de Blueprint se centra en el diseño funcional y de procesos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Activar las actualizaciones periódicas de SAP para reducir el riesgo de no-conformidades legales.",
+        "rationale": "La aplicación de actualizaciones es una tarea de mantenimiento continuo, no una actividad principal de la fase de diseño inicial.",
+        "isCorrect": false
+      },
+      {
+        "text": "Analizar los requerimientos locales para determinar si pueden cubrirse con la configuración estándar.",
+        "rationale": "El texto indica que en la fase de Blueprint se analizan los requerimientos para ver si se puede usar la configuración estándar, lo que define el alcance del proyecto.",
+        "isCorrect": true
+      }
+    ],
+    "hint": "Esta es la fase de diseño funcional, donde se traza el mapa de cómo el sistema responderá a las necesidades del negocio."
+  },
+  {
+    "guid": "26c0286c-8011-417e-bbc0-e662908c117a",
+    "subjectId": "T33",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "¿Qué ventaja clave ofrece SAP FI en relación con el registro de las transacciones financieras?",
+    "answerOptions": [
+      {
+        "text": "Cada hecho económico se refleja automáticamente en la contabilidad, eliminando la necesidad de conciliaciones manuales.",
+        "rationale": "El texto destaca que SAP FI facilita que cada hecho económico quede reflejado automáticamente, eliminando conciliaciones manuales.",
+        "isCorrect": true
+      },
+      {
+        "text": "Requiere que cada transacción sea registrada manualmente en tres módulos diferentes para asegurar la consistencia.",
+        "rationale": "La integración busca justamente lo contrario: un único registro que se propaga automáticamente a los módulos pertinentes.",
+        "isCorrect": false
+      },
+      {
+        "text": "Permite que los registros contables se realicen de forma asíncrona al final del día para no impactar el rendimiento.",
+        "rationale": "Una de las ventajas principales del sistema es la disponibilidad de la información en tiempo real, no diferida.",
+        "isCorrect": false
+      },
+      {
+        "text": "Centraliza todos los registros en el módulo CO (Controlling) y luego los transfiere a FI (Financials).",
+        "rationale": "El registro central y libro mayor se encuentra en FI (específicamente FI-GL), que es el núcleo de la contabilidad financiera.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piensa en cómo la integración en tiempo real afecta a la carga de trabajo del departamento de contabilidad."
+  }
+]

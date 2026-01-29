@@ -1,0 +1,374 @@
+[
+  {
+    "guid": "5b130be5-da1c-4ca6-a87a-90c22707b877",
+    "subjectId": "T33",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "En el contexto de la arquitectura SAP, un usuario de la intervención general accede al sistema a través de SAP GUI para consultar el estado de ejecución del presupuesto. El sistema procesa esta solicitud, aplica las validaciones de seguridad correspondientes, recupera los datos actualizados de la base de datos y los formatea para su visualización. ¿Cuál de las siguientes afirmaciones describe con mayor precisión la función de la 'Capa de Aplicación' en este escenario?",
+    "answerOptions": [
+      {
+        "text": "Es responsable de emmagatzemar de forma persistent totes les dades financeres i operatives, garantint la seva integritat i disponibilitat a través d'un sistema gestor com HANA.",
+        "rationale": "Aquesta descripció correspon a la funció de la capa de base de dades, que s'encarrega de l'emmagatzematge persistent de la informació.",
+        "isCorrect": false
+      },
+      {
+        "text": "Actua com la interfície d'usuari final, mostrant les dades sol·licitades a través de SAP GUI i rebent les interaccions de l'usuari, com clics o entrades de teclat.",
+        "rationale": "Aquesta funció pertany a la capa de presentació, que és la responsable de la interacció directa amb l'usuari final.",
+        "isCorrect": false
+      },
+      {
+        "text": "Conté la lògica de negoci, processa les operacions sol·licitades per l'usuari, valida les transaccions i coordina la comunicació entre la capa de presentació i la base de dades.",
+        "rationale": "La capa d'aplicació és on resideix el nucli del processament i les regles de negoci, actuant com a intermediari intel·ligent entre la interfície i l'emmagatzematge.",
+        "isCorrect": true
+      },
+      {
+        "text": "Gestiona exclusivament la comunicació de xarxa entre el client i el servidor mitjançant protocols estàndard com HTTP(s) o TCP/IP, assegurant la connectivitat.",
+        "rationale": "Si bé la comunicació es basa en aquests protocols, la funció principal de la capa d'aplicació és el processament de la lògica de negoci, no només la gestió de la xarxa.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Pensa en quina capa es troba el 'cervell' del sistema, on s'executen les regles i els càlculs."
+  },
+  {
+    "guid": "2150e061-b070-4b7c-a7d6-03facad928d3",
+    "subjectId": "T33",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Una entitat del sector públic implementa SAP EA-PS i necessita un control rigorós sobre el seu cicle pressupostari. Requereix una eina que no només registri els crèdits inicials, sinó que també bloquegi automàticament qualsevol intent de despesa que superi els fons disponibles per a una partida concreta. A més, ha de reflectir les diferents fases de la despesa (compromís, obligació reconeguda, pagament). Quin mòdul és el pilar central que proporciona aquesta funcionalitat específica?",
+    "answerOptions": [
+      {
+        "text": "CO (Controlling), ja que permet realitzar una anàlisi detallada de la rendibilitat i l'ús intern dels recursos per centres de cost.",
+        "rationale": "El mòdul CO se centra en la comptabilitat de gestió i el control intern de costos, però no en el control estricte del crèdit pressupostari públic.",
+        "isCorrect": false
+      },
+      {
+        "text": "FI-GL (General Ledger), perquè és el llibre major on es registren finalment totes les operacions comptables de l'organització.",
+        "rationale": "Encara que les operacions acaben registrades al FI-GL, aquest mòdul no realitza el control previ de disponibilitat de crèdit ni gestiona les fases de la despesa pública.",
+        "isCorrect": false
+      },
+      {
+        "text": "PSM-FM (Funds Management), dissenyat específicament per gestionar el cicle pressupostari complet, controlar la disponibilitat de fons i reflectir els estats de la despesa.",
+        "rationale": "Aquest mòdul és el component clau de SAP EA-PS per a la gestió pressupostària, oferint el control de disponibilitat i la traçabilitat del cicle de despesa.",
+        "isCorrect": true
+      },
+      {
+        "text": "TRM (Treasury & Risk Management), ja que gestiona els moviments bancaris i la posició de caixa, controlant els pagaments sortints.",
+        "rationale": "TRM s'ocupa de la gestió de la tresoreria i els fluxos de caixa, però no del control ex-ante de la disponibilitat pressupostària en les partides de despesa.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Busca el mòdul explícitament creat per a la gestió de pressupostos en el sector públic."
+  },
+  {
+    "guid": "19d6127c-47ba-4ff2-891c-7ffc3c5aca30",
+    "subjectId": "T33",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Durant l'exercici pressupostari, un ajuntament necessita realitzar ajustos freqüents al seu pressupost, com suplements de crèdit, transferències entre partides o minoracions. L'objectiu és mantenir la flexibilitat operativa sense perdre la transparència sobre el consum dels fons públics. Dins de l'ecosistema de SAP EA-PS, quin component específic actua com el 'motor de control pressupostari' que habilita aquestes adaptacions dinàmiques del pressupost?",
+    "answerOptions": [
+      {
+        "text": "El Ledger Pressupostari (Budgetary Ledger), ja que la seva funció és registrar tots els moviments per quadrar els estats comptables amb l'execució pressupostària.",
+        "rationale": "El Ledger Pressupostari registra les operacions per a la conciliació comptable, però no és l'eina que permet executar activament les modificacions de crèdit.",
+        "isCorrect": false
+      },
+      {
+        "text": "El mòdul GM (Grants Management), perquè facilita la gestió de fons amb finalitats específiques, com les subvencions rebudes.",
+        "rationale": "GM gestiona el cicle de vida de les subvencions, però no és el component general per a la modificació de les partides del pressupost ordinari.",
+        "isCorrect": false
+      },
+      {
+        "text": "El sistema BCS (Budget Control System), que permet adaptar el pressupost al llarg de l'exercici mitjançant operacions com suplements, transferències o minoracions.",
+        "rationale": "BCS és descrit explícitament com el motor que permet la gestió dinàmica i flexible del pressupost aprovat durant l'any fiscal.",
+        "isCorrect": true
+      },
+      {
+        "text": "El mòdul FI-AA (Asset Accounting), atès que controla els actius fixos i les seves amortitzacions, que tenen un impacte directe en el pressupost.",
+        "rationale": "FI-AA gestiona el cicle de vida dels actius fixos, però no és l'eina dissenyada per a realitzar modificacions pressupostàries generals.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Pensa en el component que no només gestiona el pressupost inicial, sinó que està dissenyat per a la seva modificació durant l'any."
+  },
+  {
+    "guid": "21d3ba04-2726-40d1-a33f-afc90af8b633",
+    "subjectId": "T33",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Una organització pública vol assegurar que cada plaça de la seva plantilla estigui directament vinculada a una assignació pressupostària específica, de manera que la despesa en nòmines quedi sota un control estricte. Aquesta vinculació ha d'estar integrada tant amb el mòdul de gestió de personal (HCM) com amb el de gestió pressupostària (FM). Quin component de SAP EA-PS està dissenyat per a complir aquest requeriment?",
+    "answerOptions": [
+      {
+        "text": "SAP HCM Pse (Public Sector España), ja que és l'add-on que adapta el mòdul de recursos humans a les particularitats legals espanyoles.",
+        "rationale": "HCM Pse adapta funcionalitats legals, però no és el component que realitza la vinculació directa entre una plaça individual i el seu crèdit pressupostari.",
+        "isCorrect": false
+      },
+      {
+        "text": "PSCD (Public Sector Collections & Disbursements), perquè gestiona pagaments massius, incloent-hi potencialment les nòmines del personal.",
+        "rationale": "PSCD està orientat a la gestió d'ingressos i pagaments massius, especialment en entorns fiscals, no al control pressupostari de les places de personal.",
+        "isCorrect": false
+      },
+      {
+        "text": "CO (Controlling), ja que permet imputar costos de personal a centres de cost per a una anàlisi interna de la despesa.",
+        "rationale": "Encara que CO pot analitzar costos de personal, no realitza el control pressupostari previ a nivell de plaça individual en integració amb FM.",
+        "isCorrect": false
+      },
+      {
+        "text": "PBC (Position Budget Control), ja que la seva funció específica és vincular cada plaça de personal amb la seva assignació pressupostària corresponent.",
+        "rationale": "PBC és l'eina dissenyada explícitament per a aquesta integració entre la gestió de places (HCM) i el control de fons (FM).",
+        "isCorrect": true
+      }
+    ],
+    "hint": "El nom del mòdul reflecteix directament la seva funció de controlar el pressupost per a cada lloc de treball."
+  },
+  {
+    "guid": "ad4641be-98e2-408c-9e0c-62c4ad808a9e",
+    "subjectId": "T33",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Un dels beneficis fonamentals de l'arquitectura funcional de SAP ERP és la seva capacitat per proporcionar una visió única i cohesionada de les dades en tota l'organització. Com s'aconsegueix principalment aquest avantatge, evitant duplicitats i errors comuns en sistemes descentralitzats?",
+    "answerOptions": [
+      {
+        "text": "Mitjançant l'ús de la tecnologia Switch Framework, que permet activar funcionalitats sectorials específiques de manera independent per a cada mòdul.",
+        "rationale": "Switch Framework permet l'adaptabilitat del sistema, però no és el mecanisme principal que garanteix la unicitat de la dada.",
+        "isCorrect": false
+      },
+      {
+        "text": "Gràcies a una arquitectura de 3 capes que separa la presentació, l'aplicació i la base de dades, millorant l'escalabilitat i la seguretat del sistema.",
+        "rationale": "L'arquitectura de 3 capes és un benefici tècnic important, però no explica per si mateixa com s'aconsegueix la visió única de la dada a nivell funcional.",
+        "isCorrect": false
+      },
+      {
+        "text": "A través de la compartició d'una base de dades comuna i integrada per a tots els components especialitzats (FI, MM, HCM, etc.).",
+        "rationale": "El fet que tots els mòduls accedeixin i registrin informació en una única base de dades centralitzada és el que elimina la redundància i assegura una font única de veritat.",
+        "isCorrect": true
+      },
+      {
+        "text": "Implementant interfícies de comunicació basades en protocols estàndard com HTTP(s) entre els diferents mòduls del sistema.",
+        "rationale": "Els protocols estàndard faciliten la comunicació tècnica, però no són la causa fonamental de la integració funcional i la unicitat de la dada.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Pensa en com es gestiona l'emmagatzematge de la informació perquè tots els departaments vegin el mateix."
+  },
+  {
+    "guid": "c2dca384-8c13-4328-984a-8fb4818460ec",
+    "subjectId": "T33",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "A la fase inicial d'un projecte d'implantació de SAP FI-EAPS, l'equip consultor i l'organització duen a terme una anàlisi exhaustiva per determinar si els requeriments legals i funcionals locals poden ser coberts amb la configuració estàndard del sistema o si requeriran desenvolupaments a mida. Segons el material, com s'anomena aquesta fase crítica del projecte?",
+    "answerOptions": [
+      {
+        "text": "Fase de parametrització, on s'ajusta el sistema segons les necessitats locals.",
+        "rationale": "La parametrització és l'activitat de configuració, però aquesta es basa en les decisions preses en una fase prèvia d'anàlisi.",
+        "isCorrect": false
+      },
+      {
+        "text": "Fase de gestió del canvi, on es prepara l'organització per a la nova eina.",
+        "rationale": "La gestió del canvi és crucial per a l'adopció, però no és la fase on s'analitzen tècnicament els requeriments enfront de la funcionalitat estàndard.",
+        "isCorrect": false
+      },
+      {
+        "text": "Fase del Blueprint, on s'analitzen els requeriments i es defineix l'abast de la solució.",
+        "rationale": "El text esmenta explícitament la fase del Blueprint com el moment on s'analitza la cobertura dels requeriments locals amb la configuració estàndard.",
+        "isCorrect": true
+      },
+      {
+        "text": "Fase d'integració de legacies, on es connecten els sistemes antics amb el nou SAP.",
+        "rationale": "La integració de sistemes heretats (legacies) és una tasca tècnica que es planifica a partir de les conclusions de la fase d'anàlisi.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Aquesta fase actua com el 'plànol' o 'disseny' de la futura solució."
+  },
+  {
+    "guid": "97dd4e8a-341b-430f-b347-d741ab171fd2",
+    "subjectId": "T33",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Una administració tributària utilitza SAP i necessita gestionar de forma eficient un volum molt elevat d'ingressos provinents d'impostos i taxes, així com els pagaments massius associats. El sistema ha de ser capaç de gestionar comptes corrents de contribuents i processos de recaptació complexos. Quin mòdul, que sovint treballa conjuntament amb TRM Tax & Revenue Management, està especialment dissenyat per a aquest tipus d'entorns fiscals?",
+    "answerOptions": [
+      {
+        "text": "FI-AR (Account Receivable), ja que gestiona les factures emeses a clients i el seu cobrament.",
+        "rationale": "FI-AR és adequat per a la gestió de deutors estàndard, però el text indica un mòdul més especialitzat per a ingressos massius i gestió fiscal.",
+        "isCorrect": false
+      },
+      {
+        "text": "GM (Grants Management), perquè permet registrar programes i justificar fons d'ingressos.",
+        "rationale": "GM està enfocat a la gestió de subvencions, que és un tipus d'ingrés molt específic i diferent de la recaptació tributària massiva.",
+        "isCorrect": false
+      },
+      {
+        "text": "PSCD (Public Sector Collections & Disbursements), que s'especialitza en la gestió avançada d'ingressos massius i pagaments en entorns fiscals.",
+        "rationale": "El text descriu PSCD com la solució específica per a entorns de recaptació i fiscals, sent útil per a organismes tributaris.",
+        "isCorrect": true
+      },
+      {
+        "text": "TRM (Treasury & Risk Management), perquè concilia els moviments bancaris i gestiona la posició de caixa.",
+        "rationale": "TRM gestiona la tresoreria, però no els processos de negoci subjacents a la recaptació massiva d'impostos i la gestió de comptes de contribuents.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Centra't en el mòdul descrit com a eina per a la gestió de recaptació i organismes tributaris."
+  },
+  {
+    "guid": "1490a64c-4e00-4a1f-95e0-bb269c204abe",
+    "subjectId": "T33",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "L'add-on EA-PS (Enterprise Application for Public Sector) s'activa sobre la plataforma SAP ERP estàndard. Quina és la principal finalitat d'utilitzar aquestes extensions en lloc de construir un sistema completament nou per al sector públic?",
+    "answerOptions": [
+      {
+        "text": "Permet reemplaçar completament els mòduls estàndard com FI i CO per versions exclusives del sector públic que funcionen de manera independent.",
+        "rationale": "EA-PS no reemplaça els mòduls estàndard, sinó que s'integra amb ells i els estén amb funcionalitats addicionals.",
+        "isCorrect": false
+      },
+      {
+        "text": "Facilita la connexió amb sistemes externs d'expedient electrònic, una funcionalitat que el nucli ERP estàndard no pot realitzar.",
+        "rationale": "La integració amb sistemes externs és possible en SAP ERP, i encara que EA-PS la utilitza, no és la raó principal de la seva existència.",
+        "isCorrect": false
+      },
+      {
+        "text": "Redueix el cost total de propietat en eliminar la necessitat de llicències per als mòduls financers estàndard com FI-GL o FI-AP.",
+        "rationale": "EA-PS és un add-on que s'afegeix a la plataforma ERP estàndard, no elimina la necessitat de llicenciar els mòduls base sobre els quals opera.",
+        "isCorrect": false
+      },
+      {
+        "text": "Evita la necessitat de desenvolupar un sistema totalment a mida, aprofitant el nucli estàndard i afegint extensions per adaptar-lo als procediments del sector públic.",
+        "rationale": "El text indica clarament que les extensions de funcionalitat eviten haver de desenvolupar un sistema completament a mida, la qual cosa és un avantatge clau.",
+        "isCorrect": true
+      }
+    ],
+    "hint": "Pensa en l'estratègia de 'reutilitzar i estendre' enfront de 'construir des de zero'."
+  },
+  {
+    "guid": "8d6ba3bf-9132-4f53-b84f-d4839aae2a0a",
+    "subjectId": "T33",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "En el context de la integració de mòduls a SAP, quan el departament de compres genera una sol·licitud de compra a través del mòdul MM (Materials Management), aquesta acció té un impacte directe i automàtic en el control pressupostari. Quina és la conseqüència immediata d'aquesta integració nativa entre MM i PSM-FM?",
+    "answerOptions": [
+      {
+        "text": "Es genera automàticament l'assentament comptable a la comptabilitat d'actius (FI-AA) per al material sol·licitat.",
+        "rationale": "L'assentament a FI-AA es produiria molt més tard, si el bé adquirit es classifica com un actiu fix, no en el moment de la sol·licitud.",
+        "isCorrect": false
+      },
+      {
+        "text": "El sistema comprova la disponibilitat de crèdit en la partida pressupostària corresponent i, si n'hi ha, registra un compromís de despesa.",
+        "rationale": "Aquesta és la funció clau de la integració: el cicle de subministraments s'integra amb el control pressupostari des del primer moment, verificant fons i creant un compromís.",
+        "isCorrect": true
+      },
+      {
+        "text": "S'actualitza la posició de caixa en el mòdul de tresoreria (TRM), anticipant la sortida de fons futura.",
+        "rationale": "La posició de caixa s'actualitza quan es programa o s'executa el pagament, no en la fase inicial de sol·licitud de compra.",
+        "isCorrect": false
+      },
+      {
+        "text": "El sistema envia una notificació al mòdul de vendes (SD) per registrar un ingrés previst equivalent a la compra.",
+        "rationale": "El mòdul de vendes (SD) gestiona el cicle d'ingressos, no el de despeses, per la qual cosa no té relació directa amb una sol·licitud de compra.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considera el primer pas del cicle de la despesa des del punt de vista pressupostari."
+  },
+  {
+    "guid": "34ea6a95-35b1-48af-99fc-50d4454a17b2",
+    "subjectId": "T33",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Una organització pública gestiona múltiples programes finançats per fons finalistes, on és crucial agrupar ingressos i despeses amb una finalitat específica per separat de la gestió general. A més, necessita un instrument que registri els moviments de manera que els estats comptables puguin quadrar amb l'execució pressupostària. Quines dues funcionalitats de SAP EA-PS són clau per a aquests requeriments?",
+    "answerOptions": [
+      {
+        "text": "PSM-EC (Expenditure Certification) i PSCD (Public Sector Collections & Disbursements).",
+        "rationale": "PSM-EC és per a la certificació de la despesa i PSCD per a la recaptació massiva, cap dels dos està dissenyat per a la gestió de fons finalistes ni per al quadre comptable-pressupostari.",
+        "isCorrect": false
+      },
+      {
+        "text": "La Comptabilitat de Fons (Fund Accounting) i el Ledger Pressupostari (Budgetary Ledger).",
+        "rationale": "La Comptabilitat de Fons permet agrupar ingressos i despeses per finalitat, i el Ledger Pressupostari és l'eina dissenyada per a registrar moviments que quadrin comptabilitat i pressupost.",
+        "isCorrect": true
+      },
+      {
+        "text": "BCS (Budget Control System) i RM (Records Management).",
+        "rationale": "BCS és el motor per a modificacions pressupostàries i RM és per a la gestió d'expedients; no compleixen directament aquestes funcions de segregació de fons i quadre.",
+        "isCorrect": false
+      },
+      {
+        "text": "FI-AP (Account Payable) i FI-AR (Account Receivable).",
+        "rationale": "FI-AP/AR gestionen els cicles de pagaments a proveïdors i cobraments de clients, però no ofereixen la funcionalitat específica de comptabilitat per fons ni el ledger pressupostari.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Busca els conceptes que parlen d'agrupar per 'finalitat' i de 'quadrar' la comptabilitat amb el pressupost."
+  },
+  {
+    "guid": "2ea32abd-1f08-476a-92e3-b302ce82b004",
+    "subjectId": "T33",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Un dels reptes més significatius en la implantació de SAP FI-EAPS és la resistència interna dins de l'organització. Segons el material, quina és la causa principal d'aquesta resistència al canvi per part dels usuaris?",
+    "answerOptions": [
+      {
+        "text": "La complexitat de la interfície d'usuari SAP Fiori en comparació amb sistemes antics més simples.",
+        "rationale": "Encara que l'aprenentatge d'una nova interfície pot ser un repte, el text no l'assenyala com la causa principal de la resistència, sinó un altre factor més relacionat amb el control.",
+        "isCorrect": false
+      },
+      {
+        "text": "L'elevat cost inicial de les llicències i la infraestructura, que genera escepticisme en el personal.",
+        "rationale": "El cost és identificat com un repte del projecte a nivell directiu i de planificació, però no com la causa directa de la resistència dels usuaris en el seu dia a dia.",
+        "isCorrect": false
+      },
+      {
+        "text": "La necessitat constant de formació tècnica a causa de les freqüents actualitzacions i canvis de versió del software.",
+        "rationale": "La formació contínua és un repte, però la font principal de resistència es deu a un canvi més fonamental en els processos de treball.",
+        "isCorrect": false
+      },
+      {
+        "text": "Els controls estrictes que introdueix el mòdul de gestió pressupostària (SAP FM), que limiten la flexibilitat prèvia.",
+        "rationale": "El text esmenta explícitament que les resistències internes sorgeixen pels controls estrictes que SAP FM imposa, com el bloqueig de la despesa sense crèdit.",
+        "isCorrect": true
+      }
+    ],
+    "hint": "Pensa en com un sistema que automatitza i bloqueja operacions pot afectar les maneres de treballar tradicionals."
+  },
+  {
+    "guid": "18f51b54-95ee-4cb5-99a3-0c048b2855e5",
+    "subjectId": "T33",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "A l'hora de gestionar les relacions amb proveïdors i el cicle de compres, SAP ofereix diversos mòduls. Si una entitat pública no només vol gestionar la compra de materials i l'emmagatzematge, sinó que també vol implementar una gestió de compres més estratègica, incloent fluxos d'aprovació electrònica i licitacions, quins dos mòduls o solucions serien els més indicats segons el text?",
+    "answerOptions": [
+      {
+        "text": "MM (Materials Management) per a la gestió de magatzem i PS (Project System) per a la gestió de projectes de compra.",
+        "rationale": "PS s'utilitza per a gestionar projectes, que poden incloure compres, però no és una eina específica per a la gestió estratègica de proveïdors o licitacions.",
+        "isCorrect": false
+      },
+      {
+        "text": "MM (Materials Management) per a compres i magatzem, i SRM (Supplier Relationship Management) o SAP Ariba per a una gestió més estratègica.",
+        "rationale": "El text presenta aquesta combinació: MM per a la gestió operativa i SRM o Ariba com la seva evolució per a una gestió més estratègica de les compres i proveïdors.",
+        "isCorrect": true
+      },
+      {
+        "text": "FI-AP (Account Payable) per al registre de factures i TRM (Treasury) per a la planificació dels pagaments.",
+        "rationale": "Aquests mòduls actuen en la part final del procés de compra (factura i pagament), no en la gestió estratègica de la relació amb proveïdors o la licitació.",
+        "isCorrect": false
+      },
+      {
+        "text": "CO (Controlling) per a l'anàlisi de costos de compra i RM (Records Management) per a la gestió de l'expedient de contractació.",
+        "rationale": "Aquests mòduls tenen funcions de suport (anàlisi de costos, gestió documental), però no són els mòduls principals per executar el procés de compres estratègiques.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Busca la combinació que cobreixi tant la gestió operativa de materials com la gestió estratègica de la relació amb el proveïdor."
+  }
+]
