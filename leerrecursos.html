@@ -571,11 +571,14 @@
     // Cargar todos los datos
     async function cargarDatos() {
       try {
+        // Agregar timestamp para evitar caché
+        const cacheBuster = `?v=${Date.now()}`;
+        
         // Cargar los tres JSONs en paralelo
         const [temesRes, apuntsRes, testsRes] = await Promise.all([
-          fetch('assets/opos24_temes.json'),
-          fetch('apunts_new/manifest.json'),
-          fetch('testfiles/manifest.json')
+          fetch(`assets/opos24_temes.json${cacheBuster}`),
+          fetch(`apunts_new/manifest.json${cacheBuster}`),
+          fetch(`testfiles/manifest.json${cacheBuster}`)
         ]);
 
         if (!temesRes.ok || !apuntsRes.ok || !testsRes.ok) {
