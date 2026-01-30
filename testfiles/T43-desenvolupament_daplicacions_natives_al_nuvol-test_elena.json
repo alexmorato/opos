@@ -1,0 +1,312 @@
+[
+  {
+    "guid": "1e8e8cb7-d43e-4a67-af81-68cd289b5d0b",
+    "subjectId": "T43",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Cuál es la diferencia clave entre la elasticidad y la escalabilidad en el contexto de las aplicaciones nativas en la nube?",
+    "answerOptions": [
+      {
+        "text": "La escalabilidad se refiere solo al crecimiento horizontal, y la elasticidad al vertical.",
+        "rationale": "Ambos conceptos pueden aplicarse tanto al escalado horizontal (añadir más instancias) como al vertical (añadir más recursos a una instancia).",
+        "isCorrect": false
+      },
+      {
+        "text": "No hay diferencia fundamental, son términos que se usan de forma intercambiable en entornos de nube.",
+        "rationale": "Aunque están relacionados, el material de origen distingue claramente entre la capacidad de crecer (escalabilidad) y la automatización de ese crecimiento (elasticidad).",
+        "isCorrect": false
+      },
+      {
+        "text": "La elasticidad implica un ajuste automático de los recursos en tiempo real, mientras que la escalabilidad es la capacidad general del sistema para crecer.",
+        "rationale": "Esta opción captura correctamente la esencia: la escalabilidad es la capacidad inherente de crecer, y la elasticidad añade la capa de automatización y adaptación dinámica a la demanda.",
+        "isCorrect": true
+      },
+      {
+        "text": "La elasticidad es la capacidad de añadir recursos manualmente, mientras que la escalabilidad permite que lo haga un orquestador.",
+        "rationale": "Esta descripción invierte los conceptos; la elasticidad es la que se asocia con la respuesta automática y dinámica, no manual.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piensa en quién o qué desencadena el cambio en la asignación de recursos para responder a la carga de trabajo."
+  },
+  {
+    "guid": "887cd0b3-081e-4a04-9b5b-a9d1807d72bc",
+    "subjectId": "T43",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Qué responsabilidad principal delegan los microservicios a un 'service mesh' como Istio o Linkerd?",
+    "answerOptions": [
+      {
+        "text": "La lógica de negocio específica de cada funcionalidad.",
+        "rationale": "La lógica de negocio es la responsabilidad central del propio microservicio, no algo que se pueda externalizar a la malla de servicios.",
+        "isCorrect": false
+      },
+      {
+        "text": "El almacenamiento persistente y la gestión de las bases de datos.",
+        "rationale": "La persistencia de datos es manejada por sistemas de bases de datos o almacenamiento, que son servicios de respaldo, no por el 'service mesh'.",
+        "isCorrect": false
+      },
+      {
+        "text": "El despliegue y la orquestación de los contenedores en el clúster.",
+        "rationale": "Esta función corresponde a un orquestador de contenedores como Kubernetes, que gestiona el ciclo de vida de los pods.",
+        "isCorrect": false
+      },
+      {
+        "text": "La gestión de la comunicación, la seguridad y la observabilidad del tráfico entre servicios.",
+        "rationale": "El 'service mesh' actúa como una capa de infraestructura dedicada a gestionar de forma transparente tareas como el enrutamiento, los reintentos, el cifrado y la telemetría de las comunicaciones.",
+        "isCorrect": true
+      }
+    ],
+    "hint": "Considera las tareas repetitivas y transversales que todos los microservicios necesitan para comunicarse de forma fiable."
+  },
+  {
+    "guid": "406b8ae3-87e2-469c-bad0-87332262223d",
+    "subjectId": "T43",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Según las buenas prácticas en entornos cloud-native, ¿qué tres pilares de datos forman la llamada 'tríada de la observabilidad'?",
+    "answerOptions": [
+      {
+        "text": "Logs, métricas y trazas (tracing).",
+        "rationale": "Estos tres tipos de telemetría (registros, mediciones numéricas y seguimiento de peticiones) proporcionan una visión completa del estado y comportamiento interno de un sistema distribuido.",
+        "isCorrect": true
+      },
+      {
+        "text": "Alertas, dashboards y pipelines de CI/CD.",
+        "rationale": "Estos son herramientas o resultados del proceso de observabilidad, pero no los tipos de datos fundamentales que se recopilan.",
+        "isCorrect": false
+      },
+      {
+        "text": "Contenedores, orquestadores y APIs.",
+        "rationale": "Estos son componentes de la arquitectura de una aplicación nativa en la nube, no los datos que se usan para monitorizarla.",
+        "isCorrect": false
+      },
+      {
+        "text": "Seguridad, rendimiento y coste.",
+        "rationale": "Estos son aspectos del sistema que se miden y analizan utilizando los datos de observabilidad, pero no son los datos en sí mismos.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Se trata de los tres tipos de información que un sistema expone al exterior para permitir entender lo que ocurre en su interior."
+  },
+  {
+    "guid": "9823c147-36a0-4ec5-b438-2eb97d20aa7d",
+    "subjectId": "T43",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Cuál es la principal ventaja de la arquitectura 'serverless' desde la perspectiva del equipo de desarrollo?",
+    "answerOptions": [
+      {
+        "text": "Ofrece un control total sobre el sistema operativo y el kernel del servidor.",
+        "rationale": "Al contrario, el modelo 'serverless' abstrae por completo el sistema operativo y la infraestructura subyacente.",
+        "isCorrect": false
+      },
+      {
+        "text": "Garantiza que no habrá latencia de arranque en frío ('cold start').",
+        "rationale": "El 'cold start' o tiempo de calentamiento es, de hecho, uno de los retos conocidos de las arquitecturas 'serverless'.",
+        "isCorrect": false
+      },
+      {
+        "text": "Abstrae completamente la gestión de la infraestructura, permitiendo enfocarse solo en el código.",
+        "rationale": "Al delegar la provisión, el mantenimiento y el escalado de servidores al proveedor de la nube, los desarrolladores pueden centrarse exclusivamente en la lógica de negocio.",
+        "isCorrect": true
+      },
+      {
+        "text": "Permite ejecutar procesos de muy larga duración sin límite de tiempo.",
+        "rationale": "Las plataformas 'serverless' suelen imponer límites de tiempo de ejecución a las funciones, haciéndolas más adecuadas para tareas cortas y efímeras.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "El propio nombre 'sin servidor' da una pista sobre lo que se elimina de la lista de preocupaciones del equipo."
+  },
+  {
+    "guid": "d0b52575-7bf6-4dad-adc4-cb4f325ae314",
+    "subjectId": "T43",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Qué práctica fundamental en el paradigma cloud-native permite gestionar la infraestructura de TI (redes, servidores, etc.) mediante ficheros de código versionables?",
+    "answerOptions": [
+      {
+        "text": "Integración Continua (CI).",
+        "rationale": "La Integración Continua se enfoca en automatizar la construcción y prueba del código de la aplicación, no de la infraestructura.",
+        "isCorrect": false
+      },
+      {
+        "text": "Infraestructura como Código (IaC).",
+        "rationale": "Esta práctica consiste en definir y provisionar la infraestructura de manera declarativa usando código, lo que permite automatizar, versionar y replicar entornos de forma fiable.",
+        "isCorrect": true
+      },
+      {
+        "text": "GitOps.",
+        "rationale": "GitOps es un modelo operativo que utiliza IaC, pero se centra específicamente en usar un repositorio Git como única fuente de verdad para el despliegue de aplicaciones e infraestructura.",
+        "isCorrect": false
+      },
+      {
+        "text": "Orquestación de contenedores.",
+        "rationale": "La orquestación gestiona el ciclo de vida de las aplicaciones dentro de una infraestructura ya existente, no la creación de esa infraestructura en sí.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piensa en cómo se puede tratar la creación de servidores y redes de la misma manera que el código de una aplicación."
+  },
+  {
+    "guid": "d1f651d1-b817-4b6b-a2a4-94d09311e942",
+    "subjectId": "T43",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Cuál es la característica fundamental que hace que los contenedores sean más ligeros y rápidos que las máquinas virtuales tradicionales?",
+    "answerOptions": [
+      {
+        "text": "No incluyen las dependencias de la aplicación, que se cargan en tiempo de ejecución.",
+        "rationale": "Los contenedores precisamente empaquetan la aplicación junto con todas sus dependencias para garantizar la portabilidad y consistencia.",
+        "isCorrect": false
+      },
+      {
+        "text": "Utilizan un hipervisor más eficiente que el de las máquinas virtuales.",
+        "rationale": "Los contenedores no requieren un hipervisor, ya que operan a nivel de sistema operativo, lo que contribuye a su eficiencia.",
+        "isCorrect": false
+      },
+      {
+        "text": "Comparten el kernel del sistema operativo anfitrión en lugar de encapsular uno completo.",
+        "rationale": "Al compartir el kernel del host, se elimina la sobrecarga de arrancar y mantener un sistema operativo completo para cada instancia, lo que los hace mucho más eficientes en recursos.",
+        "isCorrect": true
+      },
+      {
+        "text": "Solo pueden ejecutar aplicaciones escritas en lenguajes de programación específicos.",
+        "rationale": "Un contenedor puede ejecutar cualquier aplicación compilada o interpretada que sea compatible con el sistema operativo subyacente, independientemente del lenguaje.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "La diferencia clave radica en el nivel de aislamiento y en qué parte del sistema se virtualiza."
+  },
+  {
+    "guid": "7c1d4957-fdbd-47e4-9fba-e50f2eec9fb3",
+    "subjectId": "T43",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Dentro de la cultura DevOps, inseparable del desarrollo cloud-native, ¿cuál es el objetivo principal?",
+    "answerOptions": [
+      {
+        "text": "Sustituir completamente al equipo de operaciones por herramientas de automatización.",
+        "rationale": "DevOps busca la colaboración y la responsabilidad compartida entre roles, no la eliminación de uno de ellos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Romper las barreras entre los equipos de desarrollo (Dev) y operaciones (Ops) para agilizar la entrega de software.",
+        "rationale": "El fin último es crear un flujo de trabajo unificado y colaborativo que abarque todo el ciclo de vida de la aplicación, mejorando la velocidad y la calidad.",
+        "isCorrect": true
+      },
+      {
+        "text": "Centrarse exclusivamente en la seguridad del código desde el inicio del ciclo de vida.",
+        "rationale": "Este enfoque se conoce como DevSecOps, que es una extensión importante de DevOps, pero el objetivo original y central de DevOps es la unión de desarrollo y operaciones.",
+        "isCorrect": false
+      },
+      {
+        "text": "Documentar exhaustivamente cada cambio en la infraestructura antes de su despliegue manual.",
+        "rationale": "Si bien la documentación es importante, DevOps prioriza la automatización y la agilidad sobre los procesos manuales y la burocracia.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "El propio nombre 'DevOps' es una contracción de dos roles que tradicionalmente trabajaban en silos."
+  },
+  {
+    "guid": "662b770e-5c27-4921-8ab3-fd8af54ad005",
+    "subjectId": "T43",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "La arquitectura de microservicios introduce el concepto de 'escalabilidad específica'. ¿A qué se refiere?",
+    "answerOptions": [
+      {
+        "text": "A la capacidad de escalar de forma independiente solo los servicios que experimentan una alta demanda.",
+        "rationale": "Esto permite un uso mucho más eficiente de los recursos, ya que no es necesario escalar toda la aplicación monolítica cuando solo una parte de ella tiene mucha carga.",
+        "isCorrect": true
+      },
+      {
+        "text": "A que cada microservicio puede ser escrito en un lenguaje de programación específico.",
+        "rationale": "Esta característica se conoce como enfoque políglota y es otra ventaja de los microservicios, pero no se refiere a la escalabilidad.",
+        "isCorrect": false
+      },
+      {
+        "text": "A que solo se pueden escalar los servicios de forma vertical, añadiendo más CPU o RAM.",
+        "rationale": "La escalabilidad horizontal (añadir más instancias) es, de hecho, el método preferido y más común para escalar microservicios.",
+        "isCorrect": false
+      },
+      {
+        "text": "A que la escalabilidad es gestionada por un único componente centralizado para todos los servicios.",
+        "rationale": "El escalado se gestiona de forma descentralizada, servicio por servicio, lo que constituye una de sus principales fortalezas.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "¿Qué harías si solo el servicio de pago de tu aplicación tiene mucho tráfico, pero el de gestión de usuarios no?"
+  },
+  {
+    "guid": "c538d111-0898-441f-a9b4-4636acade1da",
+    "subjectId": "T43",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Cuál de los siguientes se considera uno de los mayores retos al adoptar arquitecturas nativas en la nube?",
+    "answerOptions": [
+      {
+        "text": "La imposibilidad de ejecutar aplicaciones en entornos locales (on-premise).",
+        "rationale": "Las arquitecturas nativas en la nube, especialmente con contenedores, facilitan los despliegues en entornos híbridos y multi-cloud.",
+        "isCorrect": false
+      },
+      {
+        "text": "La dependencia inevitable de un único proveedor de cloud (vendor lock-in).",
+        "rationale": "Aunque es un riesgo, el uso de estándares abiertos como Kubernetes y contenedores está diseñado precisamente para mitigar esta dependencia.",
+        "isCorrect": false
+      },
+      {
+        "text": "La reducción de la agilidad y la velocidad de despliegue debido a la automatización.",
+        "rationale": "El objetivo y el resultado de adoptar estas prácticas es, por el contrario, un aumento significativo de la agilidad y la frecuencia de los despliegues.",
+        "isCorrect": false
+      },
+      {
+        "text": "El aumento de la complejidad en la gestión y monitorización de un sistema distribuido.",
+        "rationale": "Pasar de un monolito a decenas de servicios interconectados introduce una complejidad operativa considerable que requiere nuevas herramientas y conocimientos.",
+        "isCorrect": true
+      }
+    ],
+    "hint": "Pasar de una sola aplicación a docenas de pequeños servicios comunicándose por red introduce nuevas dificultades."
+  },
+  {
+    "guid": "7735a97b-1a76-4fb9-9419-c98d9fb207de",
+    "subjectId": "T43",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En un pipeline de CI/CD, ¿en qué consiste una estrategia de despliegue 'Canary Release'?",
+    "answerOptions": [
+      {
+        "text": "En desplegar la nueva versión en un entorno idéntico y paralelo ('green') y luego cambiar todo el tráfico a él.",
+        "rationale": "Esta descripción corresponde a una estrategia de despliegue 'Blue-Green', no 'Canary'.",
+        "isCorrect": false
+      },
+      {
+        "text": "En reemplazar gradualmente las instancias antiguas por las nuevas una por una hasta completar la actualización.",
+        "rationale": "Este proceso se conoce como 'Rolling Update' y es una estrategia de despliegue gradual diferente.",
+        "isCorrect": false
+      },
+      {
+        "text": "En liberar la nueva versión a un pequeño subconjunto de usuarios para validarla antes de un despliegue general.",
+        "rationale": "Esta técnica permite probar la nueva versión en producción con un impacto limitado, monitorizando su rendimiento y errores antes de exponerla a todos los usuarios.",
+        "isCorrect": true
+      },
+      {
+        "text": "En desplegar todas las nuevas funcionalidades a la vez al final de un ciclo de desarrollo largo.",
+        "rationale": "Este es un enfoque tradicional de 'big bang release', contrario a las prácticas ágiles y de despliegue continuo.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "El nombre de esta técnica hace referencia a la práctica histórica de los mineros que usaban pájaros para detectar riesgos."
+  }
+]
