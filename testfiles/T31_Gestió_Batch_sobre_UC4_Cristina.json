@@ -1,0 +1,692 @@
+[
+  {
+    "guid": "a8707572-4dd2-46c2-b628-24004044d55d",
+    "subjectId": "T31",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "Què és un Agent en UC4?",
+    "answerOptions": [
+      {
+        "text": "El component central que guarda definicions d’objectes i planifica execucions.",
+        "isCorrect": false,
+        "rationale": "Això descriu el servidor central o Automation Engine, no el component que executa jobs als hosts."
+      },
+      {
+        "text": "El component instal·lat als hosts que executa jobs i reporta estat i logs a la plataforma.",
+        "isCorrect": true,
+        "rationale": "En UC4, l’Agent és el component instal·lat a les màquines que executa jobs i reporta estat i sortides al servidor."
+      },
+      {
+        "text": "El calendari corporatiu que defineix dies laborables i excepcions.",
+        "isCorrect": false,
+        "rationale": "Un calendari és un objecte de planificació; no executa jobs ni reporta estat."
+      },
+      {
+        "text": "L’objecte que agrupa tasks per definir dependències i paral·lelisme.",
+        "isCorrect": false,
+        "rationale": "Agrupar tasques i dependències és propi d’un workflow o JOBP, no d’un agent."
+      }
+    ]
+  },
+  {
+    "guid": "aeeeb4d3-cd1c-474b-92d9-48c05f035a89",
+    "subjectId": "T31",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "Què descriu millor un JOBS?",
+    "answerOptions": [
+      {
+        "text": "Un conjunt de regles de planificació associades a un calendari.",
+        "isCorrect": false,
+        "rationale": "Les regles de planificació i calendaris s’associen a schedules, no a la definició del job executable."
+      },
+      {
+        "text": "Un workflow que encadena passos amb condicions i dependències.",
+        "isCorrect": false,
+        "rationale": "Un workflow d’encadenament és un JOBP, no un JOBS."
+      },
+      {
+        "text": "Un contenidor de valors de configuració reutilitzables per molts processos.",
+        "isCorrect": false,
+        "rationale": "Un contenidor de valors reutilitzables encaixa amb variables o objectes de configuració, no amb un JOBS."
+      },
+      {
+        "text": "La definició d’un job executable, amb agent, paràmetres i credencials associades.",
+        "isCorrect": true,
+        "rationale": "Un JOBS és la definició d’un job executable: agent de destí, paràmetres d’execució i objectes associats."
+      }
+    ]
+  },
+  {
+    "guid": "cedde735-a266-4640-a064-230ce9c647ec",
+    "subjectId": "T31",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "Què és un JOBP?",
+    "answerOptions": [
+      {
+        "text": "Un workflow que orquestra múltiples tasques, dependències i condicions d’execució.",
+        "isCorrect": true,
+        "rationale": "Un JOBP és el workflow que orquestra passos, condicions i dependències entre tasques."
+      },
+      {
+        "text": "Un mecanisme per emmagatzemar credencials i assignar-les a execucions.",
+        "isCorrect": false,
+        "rationale": "L’emmagatzematge de credencials és un objecte diferent; el JOBP orquestra passos d’execució."
+      },
+      {
+        "text": "Una cua de concurrència per limitar quants jobs poden córrer alhora.",
+        "isCorrect": false,
+        "rationale": "Una cua de concurrència limita execucions, però no defineix dependències i lògica de flux."
+      },
+      {
+        "text": "Un objecte de calendari per definir dies d’execució vàlids.",
+        "isCorrect": false,
+        "rationale": "El calendari i dies vàlids són de CALE/JSCH, no del workflow."
+      }
+    ]
+  },
+  {
+    "guid": "54fdec24-5e76-4710-9f2e-826925968983",
+    "subjectId": "T31",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "Què és un JSCH?",
+    "answerOptions": [
+      {
+        "text": "Un agent lògic que representa un host i els seus recursos.",
+        "isCorrect": false,
+        "rationale": "Això descriu un agent o un objecte de destí; un JSCH defineix quan planificar execucions."
+      },
+      {
+        "text": "Un informe històric de durades, estats i codis de retorn.",
+        "isCorrect": false,
+        "rationale": "Un report històric és una sortida d’execució, no un objecte de planificació."
+      },
+      {
+        "text": "Un objecte de planificació que programa execucions, amb finestres horàries i vinculació a calendaris.",
+        "isCorrect": true,
+        "rationale": "Un JSCH és un objecte de planificació que programa quan s’han de llançar execucions, amb finestres i calendaris."
+      },
+      {
+        "text": "Un repositori central de scripts operatius compartits.",
+        "isCorrect": false,
+        "rationale": "Un repositori de scripts pot existir, però no és el mecanisme de planificació d’UC4."
+      }
+    ]
+  },
+  {
+    "guid": "c3b5e730-b4ae-4e38-8e45-54d99361520e",
+    "subjectId": "T31",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "Què és un CALE?",
+    "answerOptions": [
+      {
+        "text": "Un calendari que defineix dies vàlids i excepcions per a la planificació.",
+        "isCorrect": true,
+        "rationale": "Un CALE defineix dies vàlids i excepcions per a la planificació, de manera reutilitzable."
+      },
+      {
+        "text": "Un mètode de priorització que decideix quin job s’executa primer.",
+        "isCorrect": false,
+        "rationale": "La priorització es gestiona amb cues, prioritats i dependències; no és la funció del CALE."
+      },
+      {
+        "text": "Un tipus d’objecte per versionar workflows entre entorns.",
+        "isCorrect": false,
+        "rationale": "Versionar objectes entre entorns és una pràctica de gestió, però no és el rol del calendari."
+      },
+      {
+        "text": "Un sistema d’alertes que notifica quan hi ha errors de batch.",
+        "isCorrect": false,
+        "rationale": "Alertes i notificacions són part de monitoratge, no de definició de dies vàlids."
+      }
+    ]
+  },
+  {
+    "guid": "2b7fba7d-e8e3-4bf8-a7a2-57c1b629256f",
+    "subjectId": "T31",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "En un model de servei basat en UC4, quin criteri és més rellevant per decidir si un procés de negoci s’ha de portar al batch centralitzat en lloc de mantenir-lo com a script local d’aplicació?",
+    "answerOptions": [
+      {
+        "text": "Que s’executi en un servidor amb baixa ocupació i així sigui més ràpid.",
+        "isCorrect": false,
+        "rationale": "La baixa ocupació del servidor és un detall de capacitat; el criteri clau és la coordinació entre processos i sistemes."
+      },
+      {
+        "text": "Que estigui implementat en l’scripting habitual de l’equip i sigui fàcil d’ajustar.",
+        "isCorrect": false,
+        "rationale": "Que sigui fàcil d’ajustar localment no aporta govern, dependències i traçabilitat corporativa."
+      },
+      {
+        "text": "Que tingui dependències amb altres processos corporatius i requereixi coordinació horària i de recursos entre sistemes diferents.",
+        "isCorrect": true,
+        "rationale": "Quan hi ha dependències corporatives i coordinació entre sistemes i recursos, el batch centralitzat aporta control i traçabilitat."
+      },
+      {
+        "text": "Que tingui una durada molt curta i no calgui visibilitat operativa especial.",
+        "isCorrect": false,
+        "rationale": "La durada curta no elimina la necessitat de control i dependències quan el procés és crític o interconnectat."
+      }
+    ]
+  },
+  {
+    "guid": "f46eccfc-b204-4d17-810c-be463229af9e",
+    "subjectId": "T31",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "Quin avantatge ofereix UC4 respecte a cron quan es parla de compliment d’SLA de batch?",
+    "answerOptions": [
+      {
+        "text": "Control central: dependències, calendaris, prioritats i traçabilitat per gestionar l’SLA.",
+        "isCorrect": true,
+        "rationale": "UC4 aporta control central de calendaris, dependències, prioritats i evidència d’execució, imprescindible per gestionar l’SLA."
+      },
+      {
+        "text": "Unifica logs i alertes, però cada servidor continua gestionant l’ordre real d’execució.",
+        "isCorrect": false,
+        "rationale": "Unificar alertes ajuda, però el valor diferencial per SLA és governar dependències, calendaris i traçabilitat de punta a punta."
+      },
+      {
+        "text": "Millora la concurrència amb cues i límits, però la coordinació entre aplicacions queda fora.",
+        "isCorrect": false,
+        "rationale": "La concurrència és una peça; el punt crític és coordinar processos entre sistemes amb control central."
+      },
+      {
+        "text": "Reparteix càrrega entre agents i assegura que tots els jobs acaben dins la finestra.",
+        "isCorrect": false,
+        "rationale": "La plataforma pot ajudar a gestionar finestres, però no pot garantir per definició que tot acabi dins la finestra."
+      }
+    ]
+  },
+  {
+    "guid": "dba6484c-ce09-4a07-a2dd-9e35295e8d5d",
+    "subjectId": "T31",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "Des del punt de vista de disseny, quina és la millor pràctica quan un mateix procés de negoci ha de córrer sobre múltiples entorns DEV, TEST i PROD en UC4?",
+    "answerOptions": [
+      {
+        "text": "Mantenir un únic JOBP i canviar agents i paràmetres manualment quan es passa d’un entorn a l’altre.",
+        "isCorrect": false,
+        "rationale": "Canvis manuals d’agent i paràmetres incrementen risc d’errors en promocions i operació."
+      },
+      {
+        "text": "Utilitzar variables i configuració parametritzada, combinades amb convencions de noms i separació per entorn per reduir canvis manuals.",
+        "isCorrect": true,
+        "rationale": "Parametritzar amb variables i convencions per entorn redueix errors manuals i facilita promocions entre DEV/TEST/PROD."
+      },
+      {
+        "text": "Fer còpies d’objectes per entorn, amb noms iguals, i confiar en la documentació per evitar errors.",
+        "isCorrect": false,
+        "rationale": "Duplicar objectes amb noms iguals complica govern i pot portar a confusions d’entorn."
+      },
+      {
+        "text": "Executar el mateix workflow a PROD i simular DEV i TEST amb valors dins el codi dels scripts.",
+        "isCorrect": false,
+        "rationale": "Simular entorns dins scripts barreja configuració i lògica i fa més fràgil el manteniment."
+      }
+    ]
+  },
+  {
+    "guid": "d9208b31-2b39-4631-af9a-7672f577ec6e",
+    "subjectId": "T31",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "En un workflow UC4 que implementa un tancament diari, quin motiu justificaria separar-lo en diversos JOBP encadenats en lloc de tenir un únic workflow molt gran?",
+    "answerOptions": [
+      {
+        "text": "Per assegurar que tots els passos s’executin en paral·lel i així reduir la durada.",
+        "isCorrect": false,
+        "rationale": "Separar en diversos JOBP no implica paral·lelisme; això es defineix amb dependències i disseny del flux."
+      },
+      {
+        "text": "Per reduir el nombre d’alertes mostrades a la consola i evitar soroll operatiu.",
+        "isCorrect": false,
+        "rationale": "Reduir alertes no és el criteri de disseny; l’objectiu és modularitat i control."
+      },
+      {
+        "text": "Per concentrar tota la lògica en un sol punt i evitar reutilització entre aplicacions.",
+        "isCorrect": false,
+        "rationale": "Concentrar tota la lògica en un punt dificulta reutilització i escalabilitat del disseny."
+      },
+      {
+        "text": "Per facilitar la reutilització de sub-processos, limitar l’impacte de canvis locals i millorar llegibilitat i diagnòstic d’errors.",
+        "isCorrect": true,
+        "rationale": "Dividir en JOBP encadenats facilita reutilització, aïlla canvis locals i millora diagnòstic i mantenibilitat."
+      }
+    ]
+  },
+  {
+    "guid": "978c5663-1f10-4b95-a805-636d3f4e43c5",
+    "subjectId": "T31",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "Quina és la raó principal per associar un JSCH a un CALE en lloc d’una periodicitat simple?",
+    "answerOptions": [
+      {
+        "text": "Reutilitzar un calendari comú i reduir diferències entre àrees.",
+        "isCorrect": false,
+        "rationale": "Un calendari comú és útil, però la motivació principal és incorporar excepcions reals de planificació de manera consistent."
+      },
+      {
+        "text": "Aplicar dies laborables i excepcions com festius o tancaments sense tocar el schedule.",
+        "isCorrect": true,
+        "rationale": "Un calendari permet incorporar laborables i excepcions sense reconfigurar la planificació cada vegada que canvia el calendari real."
+      },
+      {
+        "text": "Definir la finestra horària i la vigència de la planificació de manera més precisa.",
+        "isCorrect": false,
+        "rationale": "La finestra horària es defineix al schedule; el calendari aporta criteri de dies vàlids i excepcions."
+      },
+      {
+        "text": "Ordenar execucions quan coincideixen processos i prioritzar els crítics automàticament.",
+        "isCorrect": false,
+        "rationale": "La priorització no s’obté del calendari; depèn de cues, prioritats i dependències."
+      }
+    ]
+  },
+  {
+    "guid": "284b1241-ae29-4cec-868e-145aba0ce495",
+    "subjectId": "T31",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "Un job de càrrega nocturna falla de tant en tant per timeout en la connexió a BD, però el procés és idempotent. Quin comportament és més raonable implementar al workflow?",
+    "answerOptions": [
+      {
+        "text": "Considerar-ho incidència funcional i derivar-ho a validació de negoci abans de reexecutar.",
+        "isCorrect": false,
+        "rationale": "Si és idempotent, reintentar primer és eficient; la validació funcional és més aviat per coherència de dades, no per un timeout transitori."
+      },
+      {
+        "text": "Reiniciar sempre tota la cadena des del principi per assegurar coherència.",
+        "isCorrect": false,
+        "rationale": "Reiniciar tota la cadena és una mesura més disruptiva i augmenta risc d’efectes col·laterals."
+      },
+      {
+        "text": "Cancel·lar el schedule futur fins que hi hagi un canvi de codi que elimini el timeout.",
+        "isCorrect": false,
+        "rationale": "Aturar la planificació futura és desproporcionat per a un error intermitent que pot gestionar-se amb reintents i escalat."
+      },
+      {
+        "text": "Fer reintents limitats amb espera entre intents i, si persisteix, escalar com a incidència tècnica amb evidència clara.",
+        "isCorrect": true,
+        "rationale": "Si és idempotent, reintents acotats amb espera redueixen soroll i, si persisteix, permeten escalar amb evidència clara."
+      }
+    ]
+  },
+  {
+    "guid": "d33d4043-d06f-48af-9ba3-cbdc91eb7c62",
+    "subjectId": "T31",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "Quina diferència operativa clau hi ha entre monitorar un JOBS aïllat i monitorar un JOBP complex que inclou diverses tasques i dependències?",
+    "answerOptions": [
+      {
+        "text": "El JOBS mostra el flux complet i el JOBP mostra únicament el resultat final.",
+        "isCorrect": false,
+        "rationale": "El flux complet i dependències els aporta el JOBP; un JOBS és una peça aïllada."
+      },
+      {
+        "text": "El JOBP permet veure el flux complet, el punt de bloqueig i facilita reexecució parcial segons disseny i permisos.",
+        "isCorrect": true,
+        "rationale": "Un JOBP dona visió del flux i del punt de bloqueig, i sovint permet reexecucions parcials segons el disseny i permisos."
+      },
+      {
+        "text": "El JOBS no genera cap tipus d’informació d’execució i el JOBP sí.",
+        "isCorrect": false,
+        "rationale": "Un JOBS sí genera informació d’execució; la diferència és el nivell d’orquestració i visibilitat del flux."
+      },
+      {
+        "text": "El JOBP obliga a reexecutar sempre tota la cadena i no admet actuacions per trams.",
+        "isCorrect": false,
+        "rationale": "No cal reexecutar tota la cadena sempre; es pot dissenyar per reprocessar parts o passos concrets."
+      }
+    ]
+  },
+  {
+    "guid": "14fbdd7d-4f83-4fe3-830b-8ec7f4def1a6",
+    "subjectId": "T31",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "En el context de JSCH, què significa que una tasca tingui estat ENDED_TIMEOUT associat a un Schedule?",
+    "answerOptions": [
+      {
+        "text": "Que la instància planificada no ha arribat a iniciar-se dins la finestra prevista i s’ha considerat vençuda.",
+        "isCorrect": true,
+        "rationale": "ENDED_TIMEOUT indica que la instància planificada no ha arrencat dins la finestra definida i es dona per vençuda."
+      },
+      {
+        "text": "Que el job ha acabat bé però no s’ha pogut guardar el report d’execució.",
+        "isCorrect": false,
+        "rationale": "Un final correcte no correspon a TIMEOUT; TIMEOUT reflecteix una condició temporal de planificació o execució."
+      },
+      {
+        "text": "Que el workflow s’ha executat dues vegades i una instància s’ha tancat per concurrència.",
+        "isCorrect": false,
+        "rationale": "La concurrència pot cancel·lar instàncies, però TIMEOUT està lligat a no iniciar dins la finestra definida."
+      },
+      {
+        "text": "Que el calendari associat ha quedat invalidat i cal tornar-lo a publicar.",
+        "isCorrect": false,
+        "rationale": "Un calendari invalidat afectaria elegibilitat de planificació, però l’estat descriu una instància que ha vençut."
+      }
+    ]
+  },
+  {
+    "guid": "8c640fa0-02a9-4edc-a277-5661059d5858",
+    "subjectId": "T31",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "Quan es defineixen cues i límits de concurrència al servei UC4, quin risc es vol evitar principalment?",
+    "answerOptions": [
+      {
+        "text": "Que els jobs s’executin en un ordre diferent al previst per la numeració dels noms.",
+        "isCorrect": false,
+        "rationale": "L’ordre no el marca la numeració del nom, sinó dependències i prioritats."
+      },
+      {
+        "text": "Que massa jobs exigents s’executin alhora i saturin CPU, IO o base de dades, degradant batch i altres serveis.",
+        "isCorrect": true,
+        "rationale": "Els límits de concurrència eviten saturació de CPU, IO o BD per execucions simultànies massa exigents."
+      },
+      {
+        "text": "Que el monitoratge mostri massa informació i l’operació perdi visibilitat dels crítics.",
+        "isCorrect": false,
+        "rationale": "Més informació al monitoratge no és el risc principal; el risc és capacitat i saturació."
+      },
+      {
+        "text": "Que els calendaris generin execucions redundants quan hi ha molts workflows actius.",
+        "isCorrect": false,
+        "rationale": "Els calendaris poden generar execucions, però la concurrència es controla per protegir recursos compartits."
+      }
+    ]
+  },
+  {
+    "guid": "c12d224f-484e-467d-9ee4-2caf7c0b8626",
+    "subjectId": "T31",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "En un escenari on un procés batch de facturació depèn que prèviament s’hagi tancat la comptabilitat, quina és la millor manera de reflectir aquesta dependència a UC4?",
+    "answerOptions": [
+      {
+        "text": "Programar-los a la mateixa hora i donar més prioritat a comptabilitat a la cua.",
+        "isCorrect": false,
+        "rationale": "La mateixa hora i prioritat no asseguren que la precondició s’hagi complert; cal dependència explícita."
+      },
+      {
+        "text": "Definir hores habituals i ajustar-les quan hi hagi desviacions de durada.",
+        "isCorrect": false,
+        "rationale": "Ajustar hores manualment és fràgil quan canvien durades o hi ha incidències."
+      },
+      {
+        "text": "Afegir una espera temporal basada en durada mitjana per evitar solapaments.",
+        "isCorrect": false,
+        "rationale": "Una espera basada en mitjanes no és fiable davant variabilitat; pot generar solapaments o retards innecessaris."
+      },
+      {
+        "text": "Fer que facturació s’activi quan comptabilitat hagi finalitzat amb èxit, amb condicions i gestió d’errors definida.",
+        "isCorrect": true,
+        "rationale": "La dependència s’ha de modelar per finalització amb èxit i condicions d’error, no amb hores fixes o esperes aproximades."
+      }
+    ]
+  },
+  {
+    "guid": "0a2b59d7-cfd6-409e-9d67-702f41469adc",
+    "subjectId": "T31",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "Si un agent UC4 d’un host crític cau mentre s’executa un job de batch, quin és el comportament més adequat del servei?",
+    "answerOptions": [
+      {
+        "text": "Marcar fallada tècnica, alertar, bloquejar la cadena dependent i decidir reexecució o reprocessament quan l’agent torni.",
+        "isCorrect": true,
+        "rationale": "La caiguda d’agent s’ha de tractar com a fallada tècnica: alerta, bloqueig de dependències i decisió de reexecució quan es recuperi."
+      },
+      {
+        "text": "Deixar la instància en espera fins al final de la finestra i actuar només si no es recupera a temps.",
+        "isCorrect": false,
+        "rationale": "Esperar fins al final de finestra pot fer perdre temps valuós i retardar dependències; cal diagnòstic i decisió operativa."
+      },
+      {
+        "text": "Llançar automàticament el mateix job a un altre host i donar la cadena per continuable amb la mateixa execució.",
+        "isCorrect": false,
+        "rationale": "Executar en un altre host pot no ser equivalent ni segur; la continuïtat depèn d’estat, dades i idempotència."
+      },
+      {
+        "text": "Cancel·lar el job i relançar tota la planificació del tancament per garantir coherència global.",
+        "isCorrect": false,
+        "rationale": "Relançar tot el tancament és una acció extrema i no sempre necessària; primer cal avaluar impacte i possibilitat de reexecució parcial."
+      }
+    ]
+  },
+  {
+    "guid": "ff7f30ca-53c8-438e-b54d-64943d575794",
+    "subjectId": "T31",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "Quina és la motivació principal per utilitzar objectes de variables VARA per parametritzar jobs i workflows UC4?",
+    "answerOptions": [
+      {
+        "text": "Permetre que el codi dels scripts es modifiqui des de la consola d’operació.",
+        "isCorrect": false,
+        "rationale": "VARA no està pensat per editar scripts en producció, sinó per separar configuració de la lògica."
+      },
+      {
+        "text": "Evitar duplicar definicions per diferències petites, facilitar canvis de configuració i centralitzar valors com paths o paràmetres.",
+        "isCorrect": true,
+        "rationale": "VARA centralitza paràmetres i evita duplicació: canvis de paths, credencials o valors es fan en un punt i s’apliquen consistentment."
+      },
+      {
+        "text": "Millorar el rendiment de l’agent perquè manté variables en memòria entre execucions.",
+        "isCorrect": false,
+        "rationale": "L’objectiu no és rendiment de l’agent; és govern i parametrització central."
+      },
+      {
+        "text": "Fer que els jobs heretin automàticament permisos d’usuari operatiu.",
+        "isCorrect": false,
+        "rationale": "Els permisos es gestionen per rols i autoritzacions; les variables no hereten permisos d’aquesta manera."
+      }
+    ]
+  },
+  {
+    "guid": "a5b38215-e12e-4838-9553-47a45c96ca97",
+    "subjectId": "T31",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "Quan es parla de revisar periòdicament la cartera de batch d’una organització, què implica des del punt de vista de servei de UC4?",
+    "answerOptions": [
+      {
+        "text": "Revisar càrregues i colls d’ampolla per reajustar cues i concurrència.",
+        "isCorrect": false,
+        "rationale": "Això és optimització de capacitat; és important, però no captura el sentit de revisar cartera i valor dels processos."
+      },
+      {
+        "text": "Revisar calendaris i planificacions per homogenitzar criteris entre àrees.",
+        "isCorrect": false,
+        "rationale": "Homogeneïtzar calendaris ajuda, però és una tasca d’estandardització, no el nucli d’una revisió de cartera."
+      },
+      {
+        "text": "Detectar automatitzacions obsoletes i simplificar o retirar cadenes que ja no aporten valor.",
+        "isCorrect": true,
+        "rationale": "Revisar la cartera vol dir avaluar utilitat i vigència: retirar o simplificar automatitzacions que ja no aporten valor o són redundants."
+      },
+      {
+        "text": "Incrementar automatitzacions per augmentar cobertura i ús de la plataforma.",
+        "isCorrect": false,
+        "rationale": "Augmentar automatització és una estratègia; la revisió de cartera primer avalua què mantenir, simplificar o retirar."
+      }
+    ]
+  },
+  {
+    "guid": "27458fe1-1676-4217-90cf-72b6c7209bc0",
+    "subjectId": "T31",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "Quin avantatge aporta disposar d’informes històrics sobre durades, codis de retorn i estats dels jobs UC4?",
+    "answerOptions": [
+      {
+        "text": "Ajustar finestres, detectar tendències i donar suport a capacitat i millores del batch.",
+        "isCorrect": true,
+        "rationale": "L’històric ajuda a ajustar finestres, detectar tendències i millorar capacitat i estabilitat del batch amb dades objectives."
+      },
+      {
+        "text": "Fer seguiment de costos i consum per planificar llicències i creixement de plataforma.",
+        "isCorrect": false,
+        "rationale": "El cost pot estimar-se, però el valor principal de l’històric és millorar finestres, fiabilitat i capacitat operativa."
+      },
+      {
+        "text": "Reduir el monitoratge operatiu perquè els patrons històrics ja indiquen incidències recurrents.",
+        "isCorrect": false,
+        "rationale": "Els patrons no substitueixen el monitoratge; serveixen per anticipar i ajustar, però cal detecció en temps real."
+      },
+      {
+        "text": "Simplificar l’operació perquè els informes substitueixen criteris d’èxit i d’error a les cadenes.",
+        "isCorrect": false,
+        "rationale": "Els informes no substitueixen criteris d’èxit ni el disseny de control d’errors del workflow."
+      }
+    ]
+  },
+  {
+    "guid": "62be2670-f1a9-42f0-b360-93961ac1ff51",
+    "subjectId": "T31",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "Quan un job programat en un JSCH no s’arriba a llançar, quin és el primer lloc lògic on un operador ha de mirar per entendre què ha passat?",
+    "answerOptions": [
+      {
+        "text": "La definició del Schedule i el vincle amb calendaris, finestres horàries i dates de validesa.",
+        "isCorrect": true,
+        "rationale": "Si no s’ha llançat, primer cal revisar schedule, calendaris, finestres i vigència, perquè pot no haver estat elegible per planificació."
+      },
+      {
+        "text": "El codi de l’aplicació, perquè pot estar fallant abans d’iniciar-se l’execució.",
+        "isCorrect": false,
+        "rationale": "Si el job no s’ha iniciat, el codi encara no ha tingut oportunitat d’executar-se; primer cal validar elegibilitat i planificació."
+      },
+      {
+        "text": "El registre d’incidències del CPD, per veure si hi ha hagut una aturada general.",
+        "isCorrect": false,
+        "rationale": "Un incident general podria afectar, però el pas inicial és verificar schedule i calendari per descartar causes de planificació."
+      },
+      {
+        "text": "L’estat dels agents d’entorns diferents, per descartar una configuració incorrecta global.",
+        "isCorrect": false,
+        "rationale": "Agents d’altres entorns no expliquen per què una execució concreta no és elegible; cal mirar el schedule d’aquell entorn."
+      }
+    ]
+  },
+  {
+    "guid": "619aff74-0a34-453c-beb1-50628a49d706",
+    "subjectId": "T31",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "Per què és important distingir, en un informe per direcció, entre volum de jobs i volum de processos de negoci coberts per UC4?",
+    "answerOptions": [
+      {
+        "text": "Perquè el volum de jobs està lligat al cost de llicència i el volum de processos no.",
+        "isCorrect": false,
+        "rationale": "Llicències poden dependre de diversos factors; el punt de gestió és entendre cobertura de processos i criticitat."
+      },
+      {
+        "text": "Perquè cada procés de negoci equival a un job i així el recompte és directe.",
+        "isCorrect": false,
+        "rationale": "No hi ha equivalència directa: un procés pot tenir molts jobs o subflows."
+      },
+      {
+        "text": "Perquè el volum de jobs és informació tècnica i no aporta cap valor de gestió.",
+        "isCorrect": false,
+        "rationale": "El volum de jobs aporta context tècnic, però no és la millor manera d’explicar valor de negoci i cobertura."
+      },
+      {
+        "text": "Perquè un procés de negoci pot implicar molts jobs tècnics, i és més rellevant saber quins processos clau estan automatitzats i amb quin nivell de servei.",
+        "isCorrect": true,
+        "rationale": "Un procés de negoci pot descompondre’s en molts jobs; per direcció és clau saber cobertura i criticitat, no només volum tècnic."
+      }
+    ]
+  },
+  {
+    "guid": "d9b8cda9-46c6-4151-b87b-af67ef1fa0be",
+    "subjectId": "T31",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "En un entorn UC4 amb diversos equips, quin risc hi ha si no queda clar qui és el propietari funcional d’un workflow de batch?",
+    "answerOptions": [
+      {
+        "text": "Canvis no coordinats i criteris diferents sobre com ha de funcionar el workflow.",
+        "isCorrect": false,
+        "rationale": "Canvis no coordinats poden passar, però l’efecte més crític és quedar-se sense criteri de decisió per execució, finestres i reprocessament."
+      },
+      {
+        "text": "Incidències que s’allarguen perquè l’escalat va botant entre equips.",
+        "isCorrect": false,
+        "rationale": "L’escalat pot complicar-se, però el problema de fons és manca de referent per decidir què fer i quan en cas d’incidència."
+      },
+      {
+        "text": "Decisions de prioritats, finestres i reprocessament queden sense referent i es generen bloquejos.",
+        "isCorrect": true,
+        "rationale": "Sense propietari funcional, decisions sobre prioritats, finestres i reprocessament queden orfes i provoquen bloquejos operatius."
+      },
+      {
+        "text": "Indicadors i informes poc fiables perquè no hi ha qui validi criteris i objectius.",
+        "isCorrect": false,
+        "rationale": "La fiabilitat d’indicadors és rellevant, però l’impacte immediat és operatiu: bloquejos i decisions pendents."
+      }
+    ]
+  },
+  {
+    "guid": "f3f3b672-0262-4345-b389-88eed572c7b8",
+    "subjectId": "T31",
+    "difficulty": 3,
+    "origin": "chatgptCristina",
+    "type": "test",
+    "question": "Quina evidència indicaria millor que la gestió del batch sobre UC4 s’està tractant com un servei corporatiu madur?",
+    "answerOptions": [
+      {
+        "text": "Hi ha monitoratge centralitzat, alertes i guàrdies d’operació amb procediments d’actuació.",
+        "isCorrect": false,
+        "rationale": "Monitoratge i guàrdies són importants, però no garanteixen govern de canvis ni compromisos formals de servei."
+      },
+      {
+        "text": "Hi ha SLA, calendaris corporatius, rols definits i procés de canvi per als fluxos crítics.",
+        "isCorrect": true,
+        "rationale": "Un servei madur es veu en govern: SLA, calendaris corporatius, rols clars i control de canvis per als fluxos crítics."
+      },
+      {
+        "text": "Hi ha estàndards comuns de nomenclatura, codis de retorn i runbooks per a les cadenes principals.",
+        "isCorrect": false,
+        "rationale": "Nomenclatura i runbooks aporten consistència, però no defineixen compromisos i control de canvis corporatiu."
+      },
+      {
+        "text": "Es revisen històrics i capacitat per ajustar finestres, dependències i concurrència de forma periòdica.",
+        "isCorrect": false,
+        "rationale": "Revisar històrics ajuda, però el salt a servei madur es veu en rols, SLA i govern del canvi."
+      }
+    ]
+  }
+]
