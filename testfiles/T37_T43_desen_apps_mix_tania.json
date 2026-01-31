@@ -1,0 +1,777 @@
+[
+  {
+    "guid": "a21d71c4-145b-4876-a743-7c145de52c6d",
+    "subjectId": "T37",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Cuál es la principal diferencia técnica entre una aplicación híbrida y una aplicación desarrollada con una herramienta Cross-Platform como Flutter o React Native?",
+    "answerOptions": [
+      {
+        "text": "Las apps híbridas utilizan un único código base en JavaScript, mientras que las Cross-Platform usan lenguajes como Dart o C#.",
+        "rationale": "Si bien los lenguajes pueden diferir, la distinción fundamental no radica en el lenguaje en sí, sino en cómo se renderiza la interfaz de usuario final.",
+        "isCorrect": false
+      },
+      {
+        "text": "Las apps híbridas se ejecutan dentro de un 'webview' nativo, mientras que las Cross-Platform compilan el código a componentes de interfaz de usuario nativos.",
+        "rationale": "Esta es la distinción clave; el uso de un 'webview' en las híbridas suele implicar un rendimiento inferior en comparación con la compilación a elementos nativos que realizan los frameworks Cross-Platform.",
+        "isCorrect": true
+      },
+      {
+        "text": "Las apps híbridas tienen acceso completo al hardware del dispositivo, mientras que las Cross-Platform tienen un acceso más limitado a través de APIs.",
+        "rationale": "Ambos enfoques buscan acceder al hardware, pero las herramientas Cross-Platform suelen ofrecer un acceso más directo y de mejor rendimiento a las APIs nativas que las híbridas.",
+        "isCorrect": false
+      },
+      {
+        "text": "Las apps híbridas se distribuyen como .apk o .ipa, mientras que las Cross-Platform se distribuyen como PWA a través del navegador.",
+        "rationale": "Ambos tipos de aplicaciones, híbridas y Cross-Platform, se empaquetan y distribuyen como aplicaciones nativas en las tiendas oficiales (.apk, .ipa, .aab).",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piensa en cómo cada tipo de aplicación dibuja los botones, listas y otros elementos visuales en la pantalla del dispositivo."
+  },
+  {
+    "guid": "c37d27f2-3ffe-4862-b709-37c2aacd243a",
+    "subjectId": "T37",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En el contexto de la seguridad de aplicaciones móviles, ¿qué describe mejor el principio de 'mínimo privilegio' aplicado por los sandboxes?",
+    "answerOptions": [
+      {
+        "text": "La aplicación solo puede ejecutarse en dispositivos que tengan la última versión del sistema operativo para garantizar la máxima seguridad.",
+        "rationale": "Este concepto se relaciona con la compatibilidad y las actualizaciones del sistema, no con los permisos de ejecución que una app tiene por defecto.",
+        "isCorrect": false
+      },
+      {
+        "text": "La aplicación tiene acceso por defecto a todos los recursos del sistema, pero el usuario puede revocar permisos individualmente.",
+        "rationale": "Esto es lo contrario al principio de mínimo privilegio; el sistema operativo restringe el acceso por defecto en lugar de otorgarlo.",
+        "isCorrect": false
+      },
+      {
+        "text": "La aplicación se ejecuta en un entorno aislado y por defecto no tiene acceso a datos de otras apps o recursos sensibles, necesitando permiso explícito.",
+        "rationale": "El sandbox asigna un espacio aislado y permisos restringidos desde el inicio, requiriendo autorización del usuario para acceder a funciones como la cámara o los contactos.",
+        "isCorrect": true
+      },
+      {
+        "text": "La aplicación utiliza un sistema de almacenamiento seguro como 'keychain' para guardar todas sus credenciales y datos de usuario.",
+        "rationale": "El uso de 'keychain' o 'secure storage' es una práctica de seguridad importante, pero es una consecuencia del entorno restrictivo, no la definición del principio de mínimo privilegio.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considera qué permisos tiene una aplicación justo después de ser instalada, antes de que el usuario interactúe con ella."
+  },
+  {
+    "guid": "8cfce60e-11ab-4733-badd-2e07bbdfe958",
+    "subjectId": "T37",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Una organización está desarrollando una aplicación cloud-native y necesita gestionar la comunicación, seguridad y observabilidad entre docenas de microservicios. ¿Qué tipo de herramienta sería la más adecuada para este propósito?",
+    "answerOptions": [
+      {
+        "text": "Un orquestador de contenedores como Kubernetes.",
+        "rationale": "Kubernetes gestiona el ciclo de vida de los contenedores, pero no se especializa en la gestión del tráfico y las políticas de comunicación entre ellos a este nivel de detalle.",
+        "isCorrect": false
+      },
+      {
+        "text": "Una herramienta de Infraestructura como Código (IaC) como Terraform.",
+        "rationale": "Terraform se utiliza para aprovisionar la infraestructura subyacente (servidores, redes), no para gestionar la lógica de comunicación entre los servicios de la aplicación.",
+        "isCorrect": false
+      },
+      {
+        "text": "Un 'service mesh' como Istio o Linkerd.",
+        "rationale": "Un 'service mesh' proporciona una capa de infraestructura dedicada a gestionar la comunicación entre servicios, ofreciendo descubrimiento, balanceo de carga, cifrado y telemetría.",
+        "isCorrect": true
+      },
+      {
+        "text": "Un pipeline de CI/CD como Jenkins o GitHub Actions.",
+        "rationale": "Las herramientas de CI/CD automatizan la construcción, prueba y despliegue del software, pero no gestionan la comunicación en tiempo de ejecución entre los microservicios desplegados.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Busca la tecnología diseñada específicamente para actuar como una capa de red inteligente entre los servicios, desacoplando la lógica de comunicación del código de la aplicación."
+  },
+  {
+    "guid": "e6f95b1f-4e74-48ba-971c-f2123a79f825",
+    "subjectId": "T37",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Cuál de las siguientes afirmaciones describe con mayor precisión una característica de la compilación 'ahead-of-time' (AOT) utilizada por frameworks como Flutter?",
+    "answerOptions": [
+      {
+        "text": "El código se compila a código máquina justo en el momento en que se necesita durante la ejecución, permitiendo optimizaciones dinámicas.",
+        "rationale": "Esta descripción corresponde a la compilación Just-In-Time (JIT), no a la AOT.",
+        "isCorrect": false
+      },
+      {
+        "text": "Genera ejecutables más pequeños porque solo se compila el código que se utiliza con más frecuencia en la aplicación.",
+        "rationale": "Al contrario, los ejecutables AOT suelen ser más grandes porque todo el código se compila previamente, independientemente de su frecuencia de uso.",
+        "isCorrect": false
+      },
+      {
+        "text": "El programa completo se transforma en código máquina nativo antes de su ejecución, lo que resulta en un tiempo de arranque más rápido.",
+        "rationale": "La principal ventaja de AOT es que elimina el paso de compilación en tiempo de ejecución, lo que permite que la aplicación se inicie y funcione más rápidamente desde el principio.",
+        "isCorrect": true
+      },
+      {
+        "text": "Requiere una máquina virtual para interpretar el código en tiempo de ejecución, lo que mejora la portabilidad entre sistemas operativos.",
+        "rationale": "La compilación AOT produce código nativo que no requiere una máquina virtual intermediaria, a diferencia de algunos enfoques JIT.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Relaciona el término 'ahead-of-time' con el momento en que se realiza la traducción del código fuente a un formato que el procesador puede ejecutar directamente."
+  },
+  {
+    "guid": "405700fc-8bc4-4e35-8a15-5a93c6a0f158",
+    "subjectId": "T37",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En una arquitectura de microservicios, ¿cuál es el principal desafío que soluciona un patrón como 'circuit breaker'?",
+    "answerOptions": [
+      {
+        "text": "La dificultad de desplegar nuevas versiones de un microservicio sin afectar a los demás componentes del sistema.",
+        "rationale": "Este problema se aborda con estrategias de despliegue como 'blue-green' o 'canary releases', no con el patrón 'circuit breaker'.",
+        "isCorrect": false
+      },
+      {
+        "text": "La necesidad de asegurar que los datos sean consistentes a través de múltiples bases de datos gestionadas por diferentes microservicios.",
+        "rationale": "La consistencia de datos se gestiona con patrones como 'Saga' o 'eventual consistency', que son diferentes al propósito de un 'circuit breaker'.",
+        "isCorrect": false
+      },
+      {
+        "text": "Evitar que la falla de un solo microservicio provoque fallos en cascada que colapsen toda la aplicación.",
+        "rationale": "Este patrón actúa como un interruptor que 'abre el circuito' cuando un servicio falla repetidamente, impidiendo que otros servicios continúen llamándolo y se vean afectados.",
+        "isCorrect": true
+      },
+      {
+        "text": "La complejidad de localizar dinámicamente las direcciones de red de otros microservicios en un entorno cloud.",
+        "rationale": "Este es el dominio de los mecanismos de 'service discovery' y los 'service registries', no del patrón 'circuit breaker'.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piensa en el mecanismo de un interruptor eléctrico que se desconecta para proteger un circuito de una sobrecarga."
+  },
+  {
+    "guid": "88fabb26-d223-4585-a430-8c124af825c7",
+    "subjectId": "T37",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Desde 2021, Google Play exige un nuevo formato para la publicación de aplicaciones Android. ¿Cuál es este formato y qué ventaja clave ofrece sobre el tradicional .apk?",
+    "answerOptions": [
+      {
+        "text": "El formato es .ipa, y permite la distribución unificada tanto en Android como en iOS.",
+        "rationale": "El formato .ipa es específico para el sistema operativo iOS de Apple, no para Android.",
+        "isCorrect": false
+      },
+      {
+        "text": "El formato es Android App Bundle (.aab), que genera dinámicamente APKs optimizados para cada dispositivo, reduciendo el tamaño de la descarga.",
+        "rationale": "El .aab es un formato de publicación que permite a Google Play entregar solo los recursos y el código necesarios para el dispositivo específico del usuario, optimizando el tamaño.",
+        "isCorrect": true
+      },
+      {
+        "text": "El formato es WebAssembly (.wasm), que permite ejecutar código de alto rendimiento directamente en el sistema operativo.",
+        "rationale": "WebAssembly (.wasm) es una tecnología para navegadores web que permite ejecutar código compilado, no un formato de distribución de apps para Google Play.",
+        "isCorrect": false
+      },
+      {
+        "text": "El formato es .jar, que contiene el bytecode de Kotlin/Java y es interpretado por la máquina virtual de Android.",
+        "rationale": "Aunque el código de Android se compila a bytecode, el formato de distribución final para las tiendas no es un archivo .jar directamente.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Este nuevo formato no es la aplicación final que el usuario instala, sino un paquete que la tienda utiliza para construir la aplicación final."
+  },
+  {
+    "guid": "880f45f5-8a1b-4cd1-899f-5c2ebf1f60e8",
+    "subjectId": "T37",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Qué tecnología es fundamental para que una Progressive Web App (PWA) pueda ofrecer funcionalidades offline y notificaciones push?",
+    "answerOptions": [
+      {
+        "text": "WebAssembly (WASM), ya que permite ejecutar código nativo en el navegador con un alto rendimiento.",
+        "rationale": "WASM mejora el rendimiento, pero no es la tecnología responsable de la capacidad offline o de las notificaciones push.",
+        "isCorrect": false
+      },
+      {
+        "text": "HTTPS, porque garantiza una comunicación segura y es un requisito para instalar la PWA.",
+        "rationale": "HTTPS es un prerrequisito de seguridad para las PWA, pero no proporciona la funcionalidad offline por sí mismo.",
+        "isCorrect": false
+      },
+      {
+        "text": "Service workers, que son scripts que el navegador ejecuta en segundo plano para gestionar la caché y las notificaciones.",
+        "rationale": "Los 'service workers' actúan como un proxy entre la aplicación web y la red, interceptando peticiones y permitiendo gestionar una caché para el uso offline y recibir notificaciones push.",
+        "isCorrect": true
+      },
+      {
+        "text": "El archivo manifest.json, que define el nombre de la app, los iconos y la URL de inicio.",
+        "rationale": "El 'manifest.json' es crucial para la experiencia de instalación de la PWA (cómo se ve en la pantalla de inicio), pero no gestiona la lógica de la funcionalidad offline.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considera qué componente actúa como un intermediario programable entre tu aplicación web y la red."
+  },
+  {
+    "guid": "03ec3924-f65f-4716-aa46-d0465f08197a",
+    "subjectId": "T37",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En el contexto del desarrollo cloud-native, ¿qué diferencia fundamental existe entre un contenedor y una máquina virtual tradicional?",
+    "answerOptions": [
+      {
+        "text": "Los contenedores encapsulan un sistema operativo completo, mientras que las máquinas virtuales comparten el sistema operativo del host.",
+        "rationale": "Esta afirmación invierte los conceptos; es la máquina virtual la que incluye un sistema operativo completo para el invitado.",
+        "isCorrect": false
+      },
+      {
+        "text": "Los contenedores comparten el kernel del sistema operativo host, mientras que cada máquina virtual tiene su propio kernel completo.",
+        "rationale": "Esta es la diferencia clave que hace que los contenedores sean mucho más ligeros y rápidos de iniciar que las máquinas virtuales.",
+        "isCorrect": true
+      },
+      {
+        "text": "Los contenedores solo pueden ejecutar aplicaciones basadas en Linux, mientras que las máquinas virtuales pueden ejecutar cualquier sistema operativo.",
+        "rationale": "Aunque Docker se originó en Linux, existen soluciones de contenedores para Windows, y la tecnología no está intrínsecamente limitada a un solo sistema operativo.",
+        "isCorrect": false
+      },
+      {
+        "text": "Los contenedores se gestionan con herramientas como Terraform, mientras que las máquinas virtuales se gestionan con Kubernetes.",
+        "rationale": "Las herramientas no definen la tecnología. De hecho, Kubernetes está diseñado para orquestar contenedores, no máquinas virtuales directamente.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piensa en el nivel de aislamiento y los recursos que cada tecnología virtualiza."
+  },
+  {
+    "guid": "1bdef875-dd47-4ce1-8bd2-b3b163a2058d",
+    "subjectId": "T37",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Según el material, ¿cuál de las siguientes opciones representa una limitación actual de las Progressive Web Apps (PWA) especialmente notable en el ecosistema de iOS?",
+    "answerOptions": [
+      {
+        "text": "La imposibilidad de funcionar sin conexión a internet, a diferencia de las apps nativas.",
+        "rationale": "Las PWA, a través de 'service workers', pueden ofrecer funcionalidad offline parcial, aunque su capacidad puede ser más limitada que la de una app nativa.",
+        "isCorrect": false
+      },
+      {
+        "text": "El alto coste y tiempo de desarrollo en comparación con las aplicaciones nativas para iOS.",
+        "rationale": "Generalmente, el desarrollo de PWA es más rápido y económico al ser multiplataforma, en contraste con el desarrollo nativo.",
+        "isCorrect": false
+      },
+      {
+        "text": "La dependencia de un 'webview' que reduce significativamente el rendimiento en dispositivos iOS.",
+        "rationale": "Las PWA se ejecutan en el navegador, no dentro de un 'webview' empaquetado en una app nativa, que es la arquitectura de las apps híbridas.",
+        "isCorrect": false
+      },
+      {
+        "text": "Restricciones en el envío de notificaciones push y un acceso más limitado a los permisos del hardware.",
+        "rationale": "Históricamente, iOS ha impuesto mayores limitaciones a las PWA en comparación con Android, especialmente en lo que respecta a las notificaciones en segundo plano y el acceso a ciertas APIs de hardware.",
+        "isCorrect": true
+      }
+    ],
+    "hint": "Considera las diferencias en el soporte que los principales sistemas operativos móviles ofrecen a las tecnologías web avanzadas."
+  },
+  {
+    "guid": "6c622f4a-4e2b-48c7-a200-9a12bea3645d",
+    "subjectId": "T37",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Qué describe mejor el concepto de 'elasticidad' en un sistema cloud-native, diferenciándolo de la 'escalabilidad'?",
+    "answerOptions": [
+      {
+        "text": "La capacidad del sistema para crecer añadiendo más recursos de CPU o RAM a una única instancia (escalado vertical).",
+        "rationale": "Esto describe el escalado vertical, que es una forma de escalabilidad, pero no captura la esencia de la elasticidad.",
+        "isCorrect": false
+      },
+      {
+        "text": "La capacidad de un sistema para escalar de forma automática y dinámica, añadiendo o quitando recursos en respuesta a la demanda en tiempo real.",
+        "rationale": "La elasticidad implica automatización y la capacidad tanto de crecer como de decrecer según la carga, a diferencia de la escalabilidad, que es solo la capacidad de crecer.",
+        "isCorrect": true
+      },
+      {
+        "text": "La capacidad de desplegar la aplicación en múltiples proveedores de nube (multi-cloud) para evitar la dependencia de un solo proveedor.",
+        "rationale": "Esto se refiere a una estrategia multi-cloud o de portabilidad, que es una ventaja de las arquitecturas cloud-native pero no define la elasticidad.",
+        "isCorrect": false
+      },
+      {
+        "text": "La capacidad del sistema para soportar un aumento de carga de trabajo añadiendo manualmente más instancias (escalado horizontal).",
+        "rationale": "Esto describe el escalado horizontal, una forma de escalabilidad, pero la clave de la elasticidad es que este proceso es automático y bidireccional.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Un sistema elástico se comporta como una goma: se estira cuando es necesario y vuelve a su tamaño original cuando la fuerza desaparece, sin intervención manual."
+  },
+  {
+    "guid": "e6f8172d-3fb1-41e4-a06c-ec927f68088c",
+    "subjectId": "T37",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En el desarrollo de APPs para la Administración Pública, ¿por qué se suelen preferir tecnologías multiplataforma como Flutter o .NET MAUI?",
+    "answerOptions": [
+      {
+        "text": "Porque ofrecen el mayor rendimiento posible, superando a las aplicaciones nativas en Java y Swift.",
+        "rationale": "Aunque el rendimiento de estas herramientas es muy bueno, las aplicaciones nativas generalmente siguen ofreciendo el rendimiento óptimo.",
+        "isCorrect": false
+      },
+      {
+        "text": "Porque permiten reutilizar un único código base para Android e iOS, reduciendo costes y alineándose con el principio de reutilización tecnológica.",
+        "rationale": "La eficiencia económica y el mantenimiento de un solo código son factores clave para el sector público, que a menudo se rige por principios de reutilización y sostenibilidad.",
+        "isCorrect": true
+      },
+      {
+        "text": "Porque son las únicas tecnologías que garantizan el cumplimiento de las normativas de accesibilidad europeas.",
+        "rationale": "El cumplimiento de la accesibilidad se puede lograr con cualquier tipo de tecnología (nativa, híbrida, etc.); no es una característica exclusiva de las plataformas multiplataforma.",
+        "isCorrect": false
+      },
+      {
+        "text": "Porque no requieren publicación en las tiendas oficiales de Google Play o App Store, simplificando la distribución.",
+        "rationale": "Las aplicaciones generadas con estas herramientas se distribuyen a través de las tiendas oficiales, al igual que las apps nativas.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considera los principios de eficiencia y sostenibilidad económica que suelen regir en el sector público."
+  },
+  {
+    "guid": "7a752f79-eb7f-4c18-a2a1-bd6686146c1a",
+    "subjectId": "T37",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Dentro de la metodología 'The Twelve-Factor App', ¿qué práctica se promueve para gestionar las configuraciones de la aplicación (credenciales de base de datos, claves de API, etc.)?",
+    "answerOptions": [
+      {
+        "text": "Almacenar la configuración directamente en el código fuente para facilitar el control de versiones.",
+        "rationale": "Este es un antipatrón explícitamente desaconsejado, ya que expone secretos y acopla la aplicación a un entorno específico.",
+        "isCorrect": false
+      },
+      {
+        "text": "Inyectar la configuración en la aplicación a través de variables de entorno.",
+        "rationale": "Este es uno de los factores clave, ya que permite desacoplar la configuración del código, haciendo que la misma compilación pueda desplegarse en diferentes entornos (desarrollo, producción) sin cambios.",
+        "isCorrect": true
+      },
+      {
+        "text": "Utilizar archivos de configuración estáticos (ej. config.json) que se empaquetan junto con la aplicación.",
+        "rationale": "Aunque es una práctica común, 'The Twelve-Factor App' la desaconseja porque dificulta los cambios de configuración sin tener que volver a desplegar la aplicación.",
+        "isCorrect": false
+      },
+      {
+        "text": "Delegar la gestión de la configuración a un 'service mesh' que la inyecta dinámicamente en tiempo de ejecución.",
+        "rationale": "Aunque un 'service mesh' puede gestionar parte de la configuración de red, la metodología promueve las variables de entorno como el mecanismo principal y más universal.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piensa en un mecanismo que permita que el mismo artefacto de software se ejecute en desarrollo, preproducción y producción sin necesidad de modificarlo."
+  },
+  {
+    "guid": "9e5f8b06-4505-41a4-af31-32a74a4bee00",
+    "subjectId": "T37",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Un desarrollador utiliza la pila ELK (Elasticsearch, Logstash, Kibana) y Jaeger en su aplicación cloud-native. ¿Qué pilar de la 'observabilidad' está cubriendo principalmente con Jaeger?",
+    "answerOptions": [
+      {
+        "text": "La agregación y centralización de registros (logs) de todos los microservicios.",
+        "rationale": "La pila ELK es la herramienta comúnmente utilizada para la gestión de logs, no Jaeger.",
+        "isCorrect": false
+      },
+      {
+        "text": "La recolección de métricas en tiempo real, como el uso de CPU y la latencia de las peticiones.",
+        "rationale": "Herramientas como Prometheus son el estándar para la recolección de métricas. Jaeger se enfoca en otro aspecto.",
+        "isCorrect": false
+      },
+      {
+        "text": "La visualización de datos y la creación de paneles de control (dashboards) para monitorizar la salud del sistema.",
+        "rationale": "Kibana (de la pila ELK) o Grafana son las herramientas principales para la visualización, no Jaeger.",
+        "isCorrect": false
+      },
+      {
+        "text": "El trazado distribuido (distributed tracing) para seguir el recorrido de una petición a través de múltiples servicios.",
+        "rationale": "Jaeger se especializa en el análisis de trazas, permitiendo identificar cuellos de botella y errores en sistemas distribuidos complejos.",
+        "isCorrect": true
+      }
+    ],
+    "hint": "La observabilidad se basa en tres pilares: logs, métricas y un tercero que permite seguir el 'viaje' de una solicitud."
+  },
+  {
+    "guid": "64fdce61-cf9b-4d1a-8da5-52b56fac7b3a",
+    "subjectId": "T37",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En Kubernetes, ¿qué diferencia a una estrategia de despliegue 'Canary Release' de una 'Rolling Update'?",
+    "answerOptions": [
+      {
+        "text": "En una 'Rolling Update' se despliegan dos versiones completas en paralelo, mientras que en 'Canary' se reemplaza una instancia a la vez.",
+        "rationale": "La descripción de dos versiones completas en paralelo corresponde más a una estrategia 'Blue-Green', no a 'Rolling Update'.",
+        "isCorrect": false
+      },
+      {
+        "text": "Una 'Rolling Update' reemplaza gradualmente todas las instancias antiguas por nuevas, mientras que 'Canary' dirige una pequeña parte del tráfico a la nueva versión para probarla.",
+        "rationale": "La clave del 'Canary' es la prueba con un subconjunto de usuarios antes de un despliegue completo, a diferencia del 'Rolling Update' cuyo objetivo es la sustitución gradual de todas las instancias.",
+        "isCorrect": true
+      },
+      {
+        "text": "Una 'Rolling Update' requiere duplicar la infraestructura, mientras que un 'Canary Release' reutiliza la infraestructura existente.",
+        "rationale": "Es la estrategia 'Blue-Green' la que típicamente requiere duplicar la infraestructura. Tanto 'Rolling Update' como 'Canary' suelen trabajar sobre la infraestructura existente.",
+        "isCorrect": false
+      },
+      {
+        "text": "Un 'Canary Release' es una estrategia automatizada de Kubernetes, mientras que una 'Rolling Update' debe gestionarse manualmente.",
+        "rationale": "Ambas estrategias pueden ser, y normalmente son, automatizadas en plataformas como Kubernetes, que tiene soporte nativo para 'Rolling Updates'.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piensa en la analogía del 'canario en la mina de carbón' para entender el propósito de una de estas estrategias."
+  },
+  {
+    "guid": "b97b579f-0643-4a95-a05e-15792b6b8f99",
+    "subjectId": "T37",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Un equipo de desarrollo de Java está creando microservicios para un entorno cloud-native y necesita tiempos de arranque muy rápidos y un bajo consumo de memoria. ¿Cuál de los siguientes frameworks emergentes estaría especialmente diseñado para estos requisitos?",
+    "answerOptions": [
+      {
+        "text": "Spring Boot con Spring Cloud.",
+        "rationale": "Aunque es un framework muy popular y adaptado al cloud, Spring Boot tradicionalmente tiene tiempos de arranque y consumo de memoria más altos debido a su uso de reflexión en tiempo de ejecución.",
+        "isCorrect": false
+      },
+      {
+        "text": "Django, utilizando su capacidad para crear APIs RESTful.",
+        "rationale": "Django es un framework para Python, no para Java, y aunque es potente, no está específicamente optimizado para los criterios de rendimiento mencionados.",
+        "isCorrect": false
+      },
+      {
+        "text": "Quarkus o Micronaut.",
+        "rationale": "Estos frameworks están diseñados para el cloud-native, utilizando compilación 'ahead-of-time' (AOT) para eliminar la reflexión y reducir drásticamente los tiempos de arranque y el consumo de memoria.",
+        "isCorrect": true
+      },
+      {
+        "text": "ASP.NET Core.",
+        "rationale": "ASP.NET Core es un framework de alto rendimiento del ecosistema .NET (C#), no de Java.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Busca los frameworks que aprovechan la compilación nativa (AOT) con herramientas como GraalVM para optimizar el rendimiento en contenedores y entornos serverless."
+  },
+  {
+    "guid": "5d232ebe-27ae-4e5a-9f1a-9c527a7d1193",
+    "subjectId": "T37",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Qué es un 'contenedor sidecar' en una arquitectura de contenedores como Kubernetes?",
+    "answerOptions": [
+      {
+        "text": "Un contenedor principal que ejecuta la lógica de negocio del microservicio.",
+        "rationale": "Esta es la definición del contenedor de la aplicación principal, no del 'sidecar'.",
+        "isCorrect": false
+      },
+      {
+        "text": "Un contenedor auxiliar que se ejecuta junto al contenedor principal para añadir funcionalidades como logging, proxy o monitorización.",
+        "rationale": "El 'sidecar' extiende o mejora el contenedor principal sin modificar su código, gestionando tareas transversales y compartiendo el ciclo de vida y la red del pod.",
+        "isCorrect": true
+      },
+      {
+        "text": "Un tipo de contenedor más ligero que una imagen de Docker, optimizado para funciones serverless.",
+        "rationale": "Un 'sidecar' es un patrón de diseño, no un tipo diferente de tecnología de contenedor. Utiliza las mismas imágenes de contenedor estándar.",
+        "isCorrect": false
+      },
+      {
+        "text": "Una instancia de un microservicio que se mantiene en espera para reemplazar a otra que ha fallado, garantizando alta disponibilidad.",
+        "rationale": "Este concepto se relaciona con la replicación y la tolerancia a fallos gestionada por el orquestador, no con el patrón 'sidecar'.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Imagina una motocicleta con un sidecar adjunto; la motocicleta funciona por sí sola, pero el sidecar añade una capacidad extra."
+  },
+  {
+    "guid": "7e34f5e3-d627-4a46-bef9-3295b9bdc525",
+    "subjectId": "T37",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Además de los 'sandboxes', ¿qué mecanismo específico de iOS define de forma declarativa los permisos que una aplicación puede utilizar, actuando como un control de seguridad adicional?",
+    "answerOptions": [
+      {
+        "text": "ProGuard, una herramienta para ofuscar el código y dificultar la ingeniería inversa.",
+        "rationale": "ProGuard (o su sucesor R8) es una herramienta de ofuscación de código principalmente utilizada en el ecosistema Android, no un mecanismo de permisos de iOS.",
+        "isCorrect": false
+      },
+      {
+        "text": "Certificate Pinning, una técnica para prevenir ataques 'man-in-the-middle'.",
+        "rationale": "El 'Certificate Pinning' es una práctica de seguridad de red importante, pero no define los permisos de la aplicación a nivel de sistema operativo.",
+        "isCorrect": false
+      },
+      {
+        "text": "Los 'entitlements', que son atributos de seguridad que declaran las capacidades que la app necesita.",
+        "rationale": "Los 'entitlements' son un fichero de configuración clave-valor que otorga a una aplicación permisos específicos para usar servicios como iCloud, notificaciones push o Apple Pay.",
+        "isCorrect": true
+      },
+      {
+        "text": "BiometricPrompt, la API estándar para gestionar la autenticación biométrica.",
+        "rationale": "BiometricPrompt es una API (principalmente de Android, con su equivalente FaceID/TouchID en iOS) para una función específica, no un mecanismo general de declaración de permisos.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Busca el término que se refiere a un archivo de propiedades que 'da derecho' a tu aplicación a usar ciertas tecnologías de Apple."
+  },
+  {
+    "guid": "e6743cf1-d5dc-4e66-aec3-25b1b722f9c8",
+    "subjectId": "T37",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En el contexto de DevOps, ¿cuál es el objetivo principal de la Integración Continua (CI)?",
+    "answerOptions": [
+      {
+        "text": "Desplegar automáticamente cada cambio de código directamente en el entorno de producción.",
+        "rationale": "El despliegue automático a producción es parte del Despliegue Continuo (CD), que es un paso posterior a la CI.",
+        "isCorrect": false
+      },
+      {
+        "text": "Fusionar y validar los cambios de código de múltiples desarrolladores en un repositorio central de forma frecuente y automatizada.",
+        "rationale": "La CI busca detectar errores de integración de forma temprana, ejecutando compilaciones y pruebas automáticas cada vez que se fusiona nuevo código.",
+        "isCorrect": true
+      },
+      {
+        "text": "Aprovisionar la infraestructura necesaria para la aplicación utilizando herramientas de Infraestructura como Código (IaC).",
+        "rationale": "El aprovisionamiento de infraestructura es una práctica DevOps, pero no es el objetivo central de la fase de Integración Continua.",
+        "isCorrect": false
+      },
+      {
+        "text": "Monitorizar el rendimiento de la aplicación en producción y generar alertas en caso de fallos.",
+        "rationale": "La monitorización y la observabilidad son prácticas de la fase de operaciones (Ops), que ocurren después del despliegue.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Céntrate en la primera palabra, 'Integración', y piensa en qué se está integrando y con qué propósito."
+  },
+  {
+    "guid": "8285f6e1-e3f5-4e87-b9e8-ae3fd3fdcf6a",
+    "subjectId": "T37",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Las plataformas Low-Code/No-Code, como Power Apps o AppSheet, son ideales para ciertos escenarios, pero presentan inconvenientes significativos. ¿Cuál es una de sus principales desventajas?",
+    "answerOptions": [
+      {
+        "text": "Requieren conocimientos avanzados de programación en lenguajes como Java o Swift.",
+        "rationale": "Precisamente, su principal ventaja es que eliminan o reducen la necesidad de programación avanzada.",
+        "isCorrect": false
+      },
+      {
+        "text": "El tiempo de desarrollo es muy lento, siendo superadas por el desarrollo nativo tradicional.",
+        "rationale": "Su punto fuerte es la rapidez en el desarrollo, permitiendo crear prototipos y aplicaciones sencillas en muy poco tiempo.",
+        "isCorrect": false
+      },
+      {
+        "text": "Generan aplicaciones con un rendimiento superior al de las aplicaciones nativas.",
+        "rationale": "El rendimiento de las aplicaciones generadas suele ser inferior al de las nativas, ya que operan sobre capas de abstracción.",
+        "isCorrect": false
+      },
+      {
+        "text": "Tienen limitaciones funcionales y generan una fuerte dependencia del proveedor de la plataforma.",
+        "rationale": "El desarrollador está atado a las funcionalidades, integraciones y modelo de precios del proveedor, y puede ser difícil migrar la aplicación a otra plataforma.",
+        "isCorrect": true
+      }
+    ],
+    "hint": "Considera qué sucede si quieres añadir una funcionalidad muy específica que la plataforma no ofrece, o si el proveedor cambia sus condiciones."
+  },
+  {
+    "guid": "715b7e74-9fd5-4e08-8a0c-f23b7b898f15",
+    "subjectId": "T37",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Un equipo está desarrollando una aplicación cloud-native y decide utilizar una base de datos NoSQL como MongoDB. ¿Qué característica de esta base de datos se alinea bien con la arquitectura de microservicios?",
+    "answerOptions": [
+      {
+        "text": "Su estricto cumplimiento de las propiedades ACID (Atomicidad, Consistencia, Aislamiento, Durabilidad) en todas las operaciones.",
+        "rationale": "Las bases de datos NoSQL como MongoDB a menudo relajan la consistencia estricta en favor de otras propiedades, aunque han mejorado mucho en este aspecto.",
+        "isCorrect": false
+      },
+      {
+        "text": "Su capacidad para escalar horizontalmente, distribuyendo los datos entre múltiples nodos de forma eficiente.",
+        "rationale": "El escalado horizontal es fundamental en entornos cloud-native para manejar grandes volúmenes de datos y carga, algo que las bases de datos NoSQL hacen muy bien.",
+        "isCorrect": true
+      },
+      {
+        "text": "La necesidad de definir un esquema rígido y predefinido antes de poder almacenar cualquier dato.",
+        "rationale": "Las bases de datos NoSQL como MongoDB son conocidas por su flexibilidad de esquema (o esquema dinámico), lo que permite iterar rápidamente.",
+        "isCorrect": false
+      },
+      {
+        "text": "Su diseño optimizado para ejecutarse en un único servidor de gran capacidad (escalado vertical).",
+        "rationale": "Las bases de datos relacionales tradicionales están más orientadas al escalado vertical, mientras que las NoSQL se diseñaron pensando en el escalado horizontal.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piensa en cómo se maneja un aumento masivo de usuarios en una aplicación moderna: ¿se compra un servidor más grande o se añaden más servidores?"
+  },
+  {
+    "guid": "8fef9528-1ceb-4eec-9b17-f7ed058a9e20",
+    "subjectId": "T37",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Cuál es el lenguaje de programación principal utilizado por el framework Cross-Platform Flutter, creado por Google?",
+    "answerOptions": [
+      {
+        "text": "Kotlin, ya que es el lenguaje preferido por Google para el desarrollo de Android.",
+        "rationale": "Aunque Kotlin es el lenguaje oficial para el desarrollo nativo de Android, Flutter utiliza su propio lenguaje específico.",
+        "isCorrect": false
+      },
+      {
+        "text": "JavaScript/TypeScript, aprovechando el ecosistema web para el desarrollo móvil.",
+        "rationale": "JavaScript/TypeScript es la base de React Native, el framework Cross-Platform de Meta, no de Flutter.",
+        "isCorrect": false
+      },
+      {
+        "text": "Swift, para garantizar la máxima compatibilidad y rendimiento en dispositivos iOS.",
+        "rationale": "Swift es el lenguaje para el desarrollo nativo de iOS, pero Flutter utiliza un lenguaje diferente para su base de código multiplataforma.",
+        "isCorrect": false
+      },
+      {
+        "text": "Dart, un lenguaje optimizado para la compilación AOT y el desarrollo de interfaces de usuario.",
+        "rationale": "Google creó Dart específicamente para potenciar Flutter, destacando por su rendimiento y facilidad para construir UIs complejas.",
+        "isCorrect": true
+      }
+    ],
+    "hint": "Este lenguaje fue creado por Google y está optimizado para las necesidades específicas de su framework de UI multiplataforma."
+  },
+  {
+    "guid": "1559bd41-d175-4dd7-8159-3a65674b7938",
+    "subjectId": "T37",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Una aplicación serverless se compone de funciones que se ejecutan en respuesta a eventos. ¿Cuál de las siguientes afirmaciones describe mejor el modelo de costes y escalado de esta arquitectura?",
+    "answerOptions": [
+      {
+        "text": "Se paga un coste fijo mensual por un conjunto de servidores que están siempre activos, independientemente del uso.",
+        "rationale": "Este modelo corresponde a una infraestructura tradicional o de IaaS, no a la filosofía 'pay-per-use' de serverless.",
+        "isCorrect": false
+      },
+      {
+        "text": "El escalado debe ser configurado y gestionado manualmente por el equipo de operaciones para responder a los picos de demanda.",
+        "rationale": "Una de las principales ventajas de serverless es que el proveedor de la nube gestiona el escalado de forma automática y transparente.",
+        "isCorrect": false
+      },
+      {
+        "text": "Se paga únicamente por el tiempo de ejecución efectivo de las funciones, y la plataforma escala automáticamente creando instancias paralelas según sea necesario.",
+        "rationale": "Este es el núcleo del modelo serverless: no hay coste si no hay ejecuciones, y el escalado es gestionado por el proveedor en función de los eventos entrantes.",
+        "isCorrect": true
+      },
+      {
+        "text": "El coste se basa en el número de contenedores desplegados, y el escalado se realiza añadiendo más contenedores al clúster.",
+        "rationale": "Este modelo de costes y escalado es típico de una arquitectura basada en contenedores y orquestadores como Kubernetes, no de una arquitectura serverless pura.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considera qué sucede a nivel de infraestructura y facturación cuando la aplicación no recibe ninguna petición."
+  },
+  {
+    "guid": "b675df42-06e5-4bc6-8c07-de3b6798db40",
+    "subjectId": "T37",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Dentro del itinerario propuesto por la CNCF, ¿cuál es el rol de herramientas como Prometheus y Grafana?",
+    "answerOptions": [
+      {
+        "text": "Orquestar y gestionar el despliegue de contenedores en un clúster de servidores.",
+        "rationale": "Esta función corresponde a Kubernetes, que es el orquestador estándar en el ecosistema de la CNCF.",
+        "isCorrect": false
+      },
+      {
+        "text": "Automatizar el ciclo de vida del software, desde la integración del código hasta el despliegue (CI/CD).",
+        "rationale": "Herramientas como Jenkins, Tekton o ArgoCD son las que se encargan de los pipelines de CI/CD.",
+        "isCorrect": false
+      },
+      {
+        "text": "Gestionar la comunicación y la seguridad entre microservicios a través de un service mesh.",
+        "rationale": "Istio o Linkerd son las herramientas que cumplen esta función dentro del ecosistema de la CNCF.",
+        "isCorrect": false
+      },
+      {
+        "text": "Garantizar la observabilidad del sistema, monitorizando métricas (Prometheus) y visualizándolas en paneles (Grafana).",
+        "rationale": "Prometheus se ha convertido en el estándar para la recolección de métricas en entornos cloud-native, y Grafana es la herramienta más popular para crear dashboards a partir de esos datos.",
+        "isCorrect": true
+      }
+    ],
+    "hint": "Estas herramientas ayudan a responder a la pregunta '¿qué está pasando dentro de mi sistema ahora mismo?'."
+  },
+  {
+    "guid": "cf0294e5-a27e-4e87-a35b-713ebe48c50f",
+    "subjectId": "T37",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Según el OWASP Mobile Top 10, ¿cuál de las siguientes prácticas representa una vulnerabilidad común en las aplicaciones móviles?",
+    "answerOptions": [
+      {
+        "text": "El uso obligatorio de HTTPS con validación de certificados para todas las comunicaciones de red.",
+        "rationale": "Esta es una buena práctica de seguridad que previene vulnerabilidades, no una vulnerabilidad en sí misma.",
+        "isCorrect": false
+      },
+      {
+        "text": "La implementación de autenticación biométrica segura utilizando APIs del sistema como FaceID.",
+        "rationale": "Utilizar las APIs biométricas del sistema de forma correcta es una medida de seguridad robusta, no una vulnerabilidad.",
+        "isCorrect": false
+      },
+      {
+        "text": "El almacenamiento inseguro de datos sensibles, como credenciales o tokens, en archivos de texto plano en el dispositivo.",
+        "rationale": "El almacenamiento inseguro es una de las principales vulnerabilidades, ya que permite que un atacante con acceso al dispositivo pueda robar información crítica fácilmente.",
+        "isCorrect": true
+      },
+      {
+        "text": "La ofuscación del código de la aplicación para dificultar la ingeniería inversa por parte de atacantes.",
+        "rationale": "La ofuscación de código es una técnica de protección que ayuda a mitigar los riesgos de seguridad, no es una vulnerabilidad.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piensa en qué pasaría si alguien pudiera acceder al sistema de archivos de tu teléfono. ¿Qué información no debería poder leer fácilmente?"
+  },
+  {
+    "guid": "55d9c7ef-58f0-4cd0-a00b-d0fa51096c3c",
+    "subjectId": "T37",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Al utilizar una herramienta de Infraestructura como Código (IaC) como Terraform, ¿cuál es el principal beneficio que se obtiene?",
+    "answerOptions": [
+      {
+        "text": "Reduce la latencia de red entre los microservicios al optimizar las rutas de comunicación.",
+        "rationale": "La optimización de la red es una tarea que se gestiona a otro nivel (por ejemplo, con un service mesh), no es el objetivo principal de las herramientas de IaC.",
+        "isCorrect": false
+      },
+      {
+        "text": "Permite definir la infraestructura (servidores, redes, bases de datos) en archivos de código versionables, haciendo los despliegues repetibles y consistentes.",
+        "rationale": "IaC trata la infraestructura como si fuera software, permitiendo versionarla, revisarla y desplegarla de forma automatizada, eliminando la configuración manual y los errores asociados.",
+        "isCorrect": true
+      },
+      {
+        "text": "Empaqueta la aplicación y sus dependencias en una unidad portable que funciona igual en cualquier entorno.",
+        "rationale": "Esta es la descripción de la contenedorización, que se realiza con herramientas como Docker, no con herramientas de IaC.",
+        "isCorrect": false
+      },
+      {
+        "text": "Analiza el código fuente de la aplicación en busca de vulnerabilidades de seguridad antes del despliegue.",
+        "rationale": "El análisis de seguridad del código es una práctica de DevSecOps que se realiza con herramientas específicas de SAST (Static Application Security Testing), no con Terraform.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considera cómo esta práctica elimina el problema del 'funciona en mi máquina' aplicado a la infraestructura."
+  }
+]
