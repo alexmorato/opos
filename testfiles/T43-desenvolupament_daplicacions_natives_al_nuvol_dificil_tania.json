@@ -1,0 +1,467 @@
+[
+  {
+    "guid": "ce3223d4-23bb-4103-9f45-c44084263332",
+    "subjectId": "T43",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Cuál es la característica principal que diferencia a los contenedores de las máquinas virtuales tradicionales según el material de origen?",
+    "answerOptions": [
+      {
+        "text": "Los contenedores encapsulan el kernel completo del sistema operativo, proporcionando un mayor aislamiento.",
+        "rationale": "Esta descripción corresponde a las máquinas virtuales; los contenedores operan de una manera más ligera.",
+        "isCorrect": false
+      },
+      {
+        "text": "Los contenedores no encapsulan el kernel, sino que lo comparten con el sistema anfitrión (host), haciéndolos más ligeros.",
+        "rationale": "Esta es la distinción clave que permite a los contenedores ser más eficientes en recursos y arrancar más rápido que las máquinas virtuales.",
+        "isCorrect": true
+      },
+      {
+        "text": "Los contenedores requieren un hipervisor para ejecutarse, mientras que las máquinas virtuales se ejecutan directamente sobre el hardware.",
+        "rationale": "Es al revés; las máquinas virtuales son las que dependen de un hipervisor, mientras que los contenedores utilizan el kernel del host.",
+        "isCorrect": false
+      },
+      {
+        "text": "Los contenedores solo pueden ejecutar aplicaciones de un único proveedor de nube, a diferencia de las máquinas virtuales que son portables.",
+        "rationale": "Una de las grandes ventajas de los contenedores es precisamente su portabilidad entre diferentes entornos y proveedores de nube.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piensa en qué componente del sistema operativo es compartido para lograr una mayor eficiencia."
+  },
+  {
+    "guid": "1eef708c-6e93-45a0-a4c6-57859a49572d",
+    "subjectId": "T43",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "En el contexto de la arquitectura de microservicios, ¿qué problema principal resuelve un mecanismo de \"descubrimiento de servicios\" (service discovery)?",
+    "answerOptions": [
+      {
+        "text": "Asegurar que la comunicación entre servicios esté siempre cifrada mediante TLS mutuo.",
+        "rationale": "Aunque es una función de seguridad importante, a menudo gestionada por un service mesh, el propósito central del descubrimiento es otro.",
+        "isCorrect": false
+      },
+      {
+        "text": "Permitir que los servicios se localicen y comuniquen entre sí de forma dinámica sin conocer sus direcciones IP fijas.",
+        "rationale": "En entornos dinámicos donde las IPs cambian, este mecanismo actúa como un directorio para que los servicios puedan encontrarse automáticamente.",
+        "isCorrect": true
+      },
+      {
+        "text": "Garantizar que cada microservicio gestione su propia base de datos para evitar dependencias.",
+        "rationale": "Esto describe el patrón de \"base de datos por servicio\", que es una práctica arquitectónica diferente al descubrimiento de servicios.",
+        "isCorrect": false
+      },
+      {
+        "text": "Distribuir la carga de trabajo de manera equitativa entre todas las instancias de un microservicio.",
+        "rationale": "Esta es la función de un balanceador de carga, que a menudo utiliza la información del descubrimiento de servicios para saber a dónde dirigir el tráfico.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considera qué sucede cuando las instancias de un servicio se crean o destruyen y sus direcciones de red cambian constantemente."
+  },
+  {
+    "guid": "66806135-f78f-45d0-9eb5-d2de9cfb8ff1",
+    "subjectId": "T43",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Una aplicación nativa en la nube se caracteriza por su observabilidad. ¿Cuáles son los tres pilares que componen la \"tríada de la observabilidad\"?",
+    "answerOptions": [
+      {
+        "text": "Monitorización, alertas y visualización.",
+        "rationale": "Estos son componentes importantes de un sistema de supervisión, pero la tríada se refiere a los tipos de datos generados por el sistema.",
+        "isCorrect": false
+      },
+      {
+        "text": "Logs, métricas y trazas.",
+        "rationale": "Estos tres tipos de telemetría, cuando se analizan conjuntamente, proporcionan una visión completa del estado interno de un sistema distribuido.",
+        "isCorrect": true
+      },
+      {
+        "text": "Rendimiento, disponibilidad y escalabilidad.",
+        "rationale": "Estos son atributos o características deseables de un sistema, no los datos que se utilizan para observar su comportamiento.",
+        "isCorrect": false
+      },
+      {
+        "text": "Integración continua, despliegue continuo y pruebas automatizadas.",
+        "rationale": "Estos elementos describen un pipeline de CI/CD, una práctica clave de DevOps, pero no los pilares de la observabilidad.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Se trata de los tres tipos de datos de telemetría que un sistema debe emitir para entender su comportamiento interno."
+  },
+  {
+    "guid": "b2b7172a-fc45-4b61-846f-bedc87f6f1d3",
+    "subjectId": "T43",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Cuál de las siguientes afirmaciones describe mejor la diferencia entre una estrategia de despliegue \"Rolling Update\" y una \"Canary Release\" en Kubernetes?",
+    "answerOptions": [
+      {
+        "text": "Rolling Update reemplaza todas las instancias antiguas a la vez, mientras que Canary Release lo hace gradualmente.",
+        "rationale": "Rolling Update es un proceso gradual; reemplazar todo a la vez sería una estrategia de tipo \"recreate\" con tiempo de inactividad.",
+        "isCorrect": false
+      },
+      {
+        "text": "Rolling Update actualiza la infraestructura subyacente, mientras que Canary Release solo actualiza el código de la aplicación.",
+        "rationale": "Ambas estrategias se centran en el despliegue de nuevas versiones de la aplicación, no necesariamente en la infraestructura.",
+        "isCorrect": false
+      },
+      {
+        "text": "Rolling Update reemplaza gradualmente todas las instancias con la nueva versión, mientras que Canary Release expone la nueva versión a un pequeño subconjunto de usuarios primero.",
+        "rationale": "Esta es la distinción clave: Rolling Update busca una transición completa y gradual, mientras que Canary Release es una técnica de prueba con usuarios reales antes del despliegue total.",
+        "isCorrect": true
+      },
+      {
+        "text": "Rolling Update es una estrategia manual, mientras que Canary Release siempre está completamente automatizada por la plataforma.",
+        "rationale": "Ambas estrategias pueden y suelen ser automatizadas en plataformas como Kubernetes para garantizar despliegues fiables.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Una estrategia busca una sustitución progresiva y total, mientras que la otra se enfoca en probar el impacto en un grupo reducido de usuarios."
+  },
+  {
+    "guid": "a74a6059-ac69-492b-92b4-f480158eede2",
+    "subjectId": "T43",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "En el contexto de la arquitectura serverless, ¿cuál es una de las principales responsabilidades que se abstrae del desarrollador y pasa al proveedor de la nube?",
+    "answerOptions": [
+      {
+        "text": "La escritura del código de la aplicación y la gestión de sus dependencias.",
+        "rationale": "El desarrollador sigue siendo responsable de escribir y empaquetar el código de la función y sus dependencias.",
+        "isCorrect": false
+      },
+      {
+        "text": "La definición de las APIs y los eventos que invocan las funciones.",
+        "rationale": "El desarrollador debe configurar qué eventos (como una petición HTTP) activarán la ejecución de su código.",
+        "isCorrect": false
+      },
+      {
+        "text": "La optimización del rendimiento del código para reducir la latencia.",
+        "rationale": "Aunque la plataforma gestiona la ejecución, la eficiencia del código sigue siendo una responsabilidad del desarrollador.",
+        "isCorrect": false
+      },
+      {
+        "text": "El aprovisionamiento, la configuración y el mantenimiento de los servidores donde se ejecuta el código.",
+        "rationale": "Esta es la esencia del modelo serverless: la plataforma gestiona de forma transparente toda la infraestructura subyacente.",
+        "isCorrect": true
+      }
+    ],
+    "hint": "El propio nombre \"serverless\" (sin servidor) da una pista sobre qué gestión se elimina para el equipo de desarrollo."
+  },
+  {
+    "guid": "c62ee362-6e97-45c1-ac8b-a611bcbf3d09",
+    "subjectId": "T43",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Según el material, herramientas como Quarkus y Micronaut son frameworks emergentes diseñados específicamente para el entorno cloud-native. ¿Qué objetivo común comparten?",
+    "answerOptions": [
+      {
+        "text": "Facilitar el desarrollo de aplicaciones monolíticas para que puedan ser migradas a la nube sin cambios.",
+        "rationale": "Estos frameworks están optimizados para microservicios y funciones serverless, no para aplicaciones monolíticas.",
+        "isCorrect": false
+      },
+      {
+        "text": "Proporcionar una capa de compatibilidad para ejecutar aplicaciones Java antiguas en contenedores modernos.",
+        "rationale": "Su enfoque está en crear nuevas aplicaciones altamente optimizadas, no en la retrocompatibilidad de sistemas legados.",
+        "isCorrect": false
+      },
+      {
+        "text": "Reducir los tiempos de arranque y el consumo de memoria, optimizando la ejecución en contenedores y plataformas serverless.",
+        "rationale": "Este es su principal objetivo: ser extremadamente eficientes en recursos para encajar perfectamente en arquitecturas dinámicas y efímeras.",
+        "isCorrect": true
+      },
+      {
+        "text": "Ofrecer un entorno de desarrollo integrado (IDE) completo para la programación en la nube.",
+        "rationale": "Son frameworks de programación (bibliotecas y herramientas), no entornos de desarrollo completos como Eclipse o VS Code.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piensa en las necesidades de un entorno donde los recursos se crean y destruyen rápidamente, como en serverless o con autoescalado."
+  },
+  {
+    "guid": "3a668a55-40df-4b25-a107-6153dac8b4c7",
+    "subjectId": "T43",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Cuál es la función de un \"contenedor sidecar\" en un pod de Kubernetes?",
+    "answerOptions": [
+      {
+        "text": "Ejecutar una instancia adicional del microservicio principal para proporcionar alta disponibilidad.",
+        "rationale": "La alta disponibilidad se logra ejecutando múltiples pods, no añadiendo un contenedor idéntico dentro del mismo pod.",
+        "isCorrect": false
+      },
+      {
+        "text": "Dividir la lógica de negocio de un microservicio en varios contenedores para mejorar la modularidad.",
+        "rationale": "Dividir la lógica de un solo microservicio se considera un antipatrón; el sidecar tiene una función de apoyo, no de negocio.",
+        "isCorrect": false
+      },
+      {
+        "text": "Añadir funcionalidades auxiliares (como logging o proxy) al contenedor principal sin modificar su código.",
+        "rationale": "El sidecar actúa como un asistente que se ejecuta junto al contenedor principal, compartiendo su ciclo de vida y recursos de red para extender su funcionalidad.",
+        "isCorrect": true
+      },
+      {
+        "text": "Contener una versión anterior de la aplicación para permitir un rollback rápido en caso de fallo.",
+        "rationale": "Las estrategias de rollback se gestionan a nivel de despliegue (deployment), no con contenedores adicionales dentro de un pod.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Imagina una moto con un sidecar: la moto es la aplicación principal, y el sidecar añade una capacidad extra sin ser la moto en sí."
+  },
+  {
+    "guid": "a4794adc-de6a-4fc2-9bae-2c69a721d975",
+    "subjectId": "T43",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Qué describe el principio de \"Infraestructura como Código\" (IaC) en el contexto cloud-native?",
+    "answerOptions": [
+      {
+        "text": "El uso de lenguajes de programación de bajo nivel para interactuar directamente con el hardware del servidor.",
+        "rationale": "IaC se basa en archivos de definición declarativos de alto nivel, no en programación de bajo nivel.",
+        "isCorrect": false
+      },
+      {
+        "text": "La práctica de definir y gestionar la infraestructura (servidores, redes, bases de datos) mediante archivos de código versionables.",
+        "rationale": "Este enfoque permite automatizar, replicar y versionar el aprovisionamiento de la infraestructura, tratándola como si fuera software.",
+        "isCorrect": true
+      },
+      {
+        "text": "Un método para escribir el código de la aplicación de tal manera que sea independiente del proveedor de la nube.",
+        "rationale": "Aunque la portabilidad es un objetivo, IaC se refiere específicamente a la gestión de la infraestructura, no al código de la aplicación en sí.",
+        "isCorrect": false
+      },
+      {
+        "text": "La compilación del sistema operativo y las aplicaciones en una única imagen de contenedor inmutable.",
+        "rationale": "Esto se refiere al proceso de creación de imágenes de contenedor, que es una parte del ecosistema, pero no la definición de IaC.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Este enfoque trata la configuración de servidores y redes de la misma manera que los desarrolladores tratan el código fuente de una aplicación."
+  },
+  {
+    "guid": "e1dda917-b6ea-4032-9a3c-f6d7c4387844",
+    "subjectId": "T43",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "En el itinerario recomendado por la CNCF, ¿qué herramientas como Istio o Linkerd aportan en la capa de \"Proxies de servicio y service mesh\"?",
+    "answerOptions": [
+      {
+        "text": "Definir, empaquetar y ejecutar contenedores de forma portable y ligera en cualquier entorno.",
+        "rationale": "Esta es la función de las herramientas de contenedorización como Docker o Podman, que se encuentran en una capa anterior.",
+        "isCorrect": false
+      },
+      {
+        "text": "Gestionar la comunicación entre microservicios, añadiendo seguridad, observabilidad y resiliencia de forma transparente.",
+        "rationale": "Un service mesh se encarga del tráfico entre servicios, gestionando aspectos como el cifrado, reintentos y telemetría sin tocar el código de la aplicación.",
+        "isCorrect": true
+      },
+      {
+        "text": "Automatizar el ciclo de vida del software, desde la integración del código hasta el despliegue en producción.",
+        "rationale": "Esta es la función de las herramientas de CI/CD como Jenkins o GitLab CI, que operan en la capa de automatización.",
+        "isCorrect": false
+      },
+      {
+        "text": "Orquestar el despliegue, escalado y mantenimiento de los contenedores a lo largo de un clúster de máquinas.",
+        "rationale": "Esta es la responsabilidad principal de Kubernetes, el orquestador que gestiona el ciclo de vida de los contenedores.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Estas herramientas actúan como una capa de red inteligente para controlar cómo se comunican los microservicios entre sí."
+  },
+  {
+    "guid": "1fd4a3c2-6979-48c7-8a98-06087030f1d2",
+    "subjectId": "T43",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "La metodología \"Twelve-Factor App\" está alineada con los principios cloud-native. ¿Cuál es uno de sus objetivos fundamentales?",
+    "answerOptions": [
+      {
+        "text": "Forzar el uso de un lenguaje de programación específico, como Java, para garantizar la compatibilidad.",
+        "rationale": "Esta metodología es agnóstica al lenguaje de programación; sus principios son aplicables a diversas tecnologías.",
+        "isCorrect": false
+      },
+      {
+        "text": "Crear aplicaciones que dependan fuertemente de los servicios específicos de un único proveedor de nube para maximizar el rendimiento.",
+        "rationale": "Al contrario, uno de sus objetivos es reducir el 'vendor lock-in' y aumentar la portabilidad de la aplicación.",
+        "isCorrect": false
+      },
+      {
+        "text": "Promover el desarrollo de aplicaciones monolíticas altamente cohesionadas para simplificar el despliegue.",
+        "rationale": "Sus principios, como la gestión de la configuración y la concurrencia, están estrechamente alineados con las arquitecturas de microservicios, no con los monolitos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Facilitar la portabilidad entre entornos, mejorar la escalabilidad horizontal y reducir la dependencia de un proveedor específico.",
+        "rationale": "Estos principios ayudan a construir aplicaciones robustas, escalables y mantenibles, diseñadas para operar eficazmente en la nube.",
+        "isCorrect": true
+      }
+    ],
+    "hint": "Piensa en las prácticas que harían una aplicación fácil de mover, escalar y mantener en cualquier entorno de nube."
+  },
+  {
+    "guid": "28f13ec9-7e74-42f5-b944-3355706fea13",
+    "subjectId": "T43",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Dentro de las prácticas de DevOps, ¿qué es la Integración Continua (CI)?",
+    "answerOptions": [
+      {
+        "text": "El proceso de desplegar automáticamente en producción cualquier versión que supere las pruebas.",
+        "rationale": "Esto describe el Despliegue Continuo (CD), que es el paso siguiente a una integración exitosa.",
+        "isCorrect": false
+      },
+      {
+        "text": "La creación de dos entornos de producción idénticos (blue/green) para realizar despliegues sin tiempo de inactividad.",
+        "rationale": "Blue-Green es una estrategia de despliegue, una técnica específica dentro del ámbito más amplio del CD.",
+        "isCorrect": false
+      },
+      {
+        "text": "La práctica de fusionar regularmente los cambios de código en un repositorio central, activando compilaciones y pruebas automáticas.",
+        "rationale": "El objetivo de la CI es validar la coherencia del código y detectar errores de integración de forma temprana y frecuente.",
+        "isCorrect": true
+      },
+      {
+        "text": "La monitorización constante de la aplicación en producción para detectar anomalías y garantizar la disponibilidad.",
+        "rationale": "Esto se relaciona con la observabilidad y las operaciones (Ops), mientras que la CI se centra en la fase de desarrollo e integración del código.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Se enfoca en la primera parte del pipeline de DevOps, asegurando que el código de múltiples desarrolladores funcione correctamente en conjunto."
+  },
+  {
+    "guid": "8f3d2b86-8440-4f7a-89ae-81704977a88e",
+    "subjectId": "T43",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "En una arquitectura de microservicios, ¿cuál es una de las principales ventajas de que cada equipo pueda elegir tecnologías diferentes para sus servicios (enfoque políglota)?",
+    "answerOptions": [
+      {
+        "text": "Garantiza que toda la aplicación sea más segura al diversificar las posibles vulnerabilidades.",
+        "rationale": "Aunque la diversificación puede tener efectos en la seguridad, su principal ventaja reside en la flexibilidad del desarrollo.",
+        "isCorrect": false
+      },
+      {
+        "text": "Reduce la complejidad general del sistema al no depender de un único ecosistema tecnológico.",
+        "rationale": "Este enfoque puede, de hecho, aumentar la complejidad operativa, ya que se deben mantener múltiples pilas tecnológicas.",
+        "isCorrect": false
+      },
+      {
+        "text": "Permite a los equipos utilizar la herramienta más adecuada para resolver un problema específico, acelerando el desarrollo.",
+        "rationale": "Esta flexibilidad permite optimizar cada servicio con la mejor tecnología para su función, lo que fomenta la agilidad y la innovación.",
+        "isCorrect": true
+      },
+      {
+        "text": "Simplifica la gestión de la consistencia de datos entre los diferentes microservicios.",
+        "rationale": "La gestión de la consistencia de datos es, en realidad, un desafío mayor en arquitecturas distribuidas y políglotas.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considera cómo la libertad de elección tecnológica puede impactar la eficiencia de un equipo para una tarea concreta."
+  },
+  {
+    "guid": "9627cabe-377f-4493-8d65-7a680c819040",
+    "subjectId": "T43",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "El documento distingue entre escalabilidad y elasticidad. ¿Cuál de las siguientes situaciones es un ejemplo claro de elasticidad?",
+    "answerOptions": [
+      {
+        "text": "Un administrador de sistemas añade manualmente dos servidores más al clúster en previsión de una campaña de marketing.",
+        "rationale": "Esta es una acción planificada y manual, lo que la define como escalabilidad, no elasticidad.",
+        "isCorrect": false
+      },
+      {
+        "text": "Una aplicación web, configurada con un Horizontal Pod Autoscaler, crea 5 nuevas instancias durante un pico de tráfico y las elimina cuando el tráfico disminuye.",
+        "rationale": "La capacidad de crecer y decrecer de forma automática y dinámica en respuesta a la carga es la definición exacta de elasticidad.",
+        "isCorrect": true
+      },
+      {
+        "text": "Un desarrollador optimiza el código de una aplicación para que consuma un 30% menos de CPU, permitiendo que el mismo servidor maneje más peticiones.",
+        "rationale": "Esto es una mejora de rendimiento o eficiencia, no una adaptación de la infraestructura a la demanda.",
+        "isCorrect": false
+      },
+      {
+        "text": "Una empresa migra su base de datos a un servidor con el doble de RAM y CPU para soportar el crecimiento del próximo año.",
+        "rationale": "Esto corresponde a una escalabilidad vertical planificada, no a una respuesta dinámica y automática.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "La clave de este concepto es la automatización y la capacidad de reaccionar en ambas direcciones: crecimiento y decrecimiento."
+  },
+  {
+    "guid": "55cb04b5-48b3-4aaf-961d-96c428abd3cf",
+    "subjectId": "T43",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "El framework Spring Boot utiliza el principio de \"convention over configuration\". ¿Qué significa este enfoque?",
+    "answerOptions": [
+      {
+        "text": "El desarrollador debe configurar explícitamente cada detalle de la aplicación mediante archivos YAML complejos.",
+        "rationale": "Este enfoque es lo contrario de 'convention over configuration', que busca minimizar la configuración explícita.",
+        "isCorrect": false
+      },
+      {
+        "text": "El framework asume decisiones de configuración predeterminadas si se siguen ciertas convenciones, simplificando el desarrollo.",
+        "rationale": "Al seguir las convenciones, gran parte de la configuración se vuelve automática, y el desarrollador solo necesita especificar lo que es diferente.",
+        "isCorrect": true
+      },
+      {
+        "text": "Toda la configuración de la aplicación se gestiona a través de una interfaz gráfica de usuario en lugar de archivos de texto.",
+        "rationale": "Este principio se refiere a la reducción de la necesidad de configuración en general, no a la forma en que se realiza.",
+        "isCorrect": false
+      },
+      {
+        "text": "Es obligatorio seguir un conjunto estricto de convenciones de nombrado y estructura de proyecto para que el código compile.",
+        "rationale": "Aunque seguir las convenciones es clave para que el principio funcione, no es una restricción de compilación, sino una forma de simplificar la configuración.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piensa en un sistema que toma decisiones por ti siempre y cuando sigas un camino ya establecido."
+  },
+  {
+    "guid": "e6130311-4132-44c5-b997-dcdb57351fc4",
+    "subjectId": "T43",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Cuál es uno de los principales retos o inconvenientes de adoptar una arquitectura cloud-native basada en microservicios?",
+    "answerOptions": [
+      {
+        "text": "La incapacidad de escalar los servicios de forma independiente, ya que todos deben crecer al mismo ritmo.",
+        "rationale": "Al contrario, una de sus grandes ventajas es precisamente la escalabilidad específica de cada servicio.",
+        "isCorrect": false
+      },
+      {
+        "text": "Una agilidad reducida en el desarrollo, dado que cualquier cambio afecta a toda la aplicación y requiere despliegues completos.",
+        "rationale": "Este es un problema típico de las arquitecturas monolíticas; los microservicios buscan aumentar la agilidad con despliegues independientes.",
+        "isCorrect": false
+      },
+      {
+        "text": "Un aumento significativo de la complejidad en la gestión, la comunicación entre servicios y la monitorización.",
+        "rationale": "Pasar de un sistema a decenas de servicios distribuidos introduce desafíos en comunicación, consistencia de datos y depuración.",
+        "isCorrect": true
+      },
+      {
+        "text": "La fuerte dependencia de un único proveedor de nube (vendor lock-in) debido al uso de contenedores.",
+        "rationale": "El uso de estándares como los contenedores y Kubernetes en realidad promueve la portabilidad y ayuda a evitar el 'vendor lock-in'.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considera cómo cambia la gestión del sistema al pasar de una única aplicación a docenas de pequeños servicios que deben colaborar."
+  }
+]

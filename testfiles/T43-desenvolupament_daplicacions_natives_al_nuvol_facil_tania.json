@@ -1,0 +1,467 @@
+[
+  {
+    "guid": "182025bd-300d-4626-bf5e-4e0582b8f9ef",
+    "subjectId": "T43",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Según la filosofía de desarrollo nativo en la nube (cloud-native), ¿cuál es la relación correcta entre una aplicación y el entorno cloud?",
+    "answerOptions": [
+      {
+        "text": "El cloud es principalmente la infraestructura donde se ejecuta la aplicación, proporcionando ventajas de autoescalado y resiliencia.",
+        "rationale": "Esta visión limita el cloud a ser solo un entorno de ejecución, mientras que el enfoque cloud-native lo considera parte integral del diseño y la metodología de desarrollo.",
+        "isCorrect": false
+      },
+      {
+        "text": "El cloud no es solo el entorno de ejecución, sino todo el conjunto de metodologías y tecnologías que definen cómo se construye y opera la aplicación.",
+        "rationale": "Esta opción captura la esencia del enfoque cloud-native, donde la nube influye en todo el ciclo de vida de la aplicación, desde la concepción hasta la ejecución y el mantenimiento.",
+        "isCorrect": true
+      },
+      {
+        "text": "Una aplicación cloud-native es aquella que se ha migrado desde un entorno on-premise para ejecutarse en contenedores en la nube, sin necesidad de rediseño.",
+        "rationale": "El simple hecho de contenerizar una aplicación y ejecutarla en la nube (conocido como \"lift and shift\") no la convierte en nativa de la nube, ya que no fue diseñada para aprovechar sus ventajas.",
+        "isCorrect": false
+      },
+      {
+        "text": "El cloud provee los mecanismos de resiliencia, mientras que el diseño de la aplicación y las metodologías de desarrollo siguen principios tradicionales.",
+        "rationale": "El enfoque cloud-native implica un cambio fundamental en cómo se diseñan y despliegan las aplicaciones, no solo en dónde se ejecutan.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considera si el \"cloud\" es solo un lugar de despliegue o un enfoque completo que abarca también el desarrollo."
+  },
+  {
+    "guid": "28b6d8a4-4547-4bde-b0db-6fc6fc53c4a9",
+    "subjectId": "T43",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En una arquitectura de microservicios, ¿cuál de los siguientes es uno de los desafíos de gestión más significativos que introduce este modelo?",
+    "answerOptions": [
+      {
+        "text": "Implementar mecanismos de descubrimiento de servicios (service discovery) para que puedan localizarse y comunicarse dinámicamente.",
+        "rationale": "En un entorno dinámico donde las instancias de servicios aparecen y desaparecen, es crucial tener un sistema automático para que los servicios se encuentren entre sí.",
+        "isCorrect": true
+      },
+      {
+        "text": "Garantizar que todos los microservicios estén desarrollados en el mismo lenguaje de programación (políglota) para asegurar la compatibilidad.",
+        "rationale": "El texto indica que una ventaja de los microservicios es precisamente la capacidad de usar diferentes tecnologías (ser políglota), por lo que forzar un único lenguaje no es un desafío inherente, sino una restricción.",
+        "isCorrect": false
+      },
+      {
+        "text": "Empaquetar todas las funcionalidades comunes en un único microservicio central para simplificar las actualizaciones y el mantenimiento.",
+        "rationale": "Crear un microservicio central para funcionalidades comunes puede generar un cuello de botella y un punto único de fallo, contradiciendo el principio de desacoplamiento.",
+        "isCorrect": false
+      },
+      {
+        "text": "Gestionar el kernel del sistema operativo que es compartido por todos los procesos de los diferentes microservicios.",
+        "rationale": "La gestión del kernel compartido es una característica del funcionamiento de los contenedores, no un desafío de la arquitectura de microservicios en sí misma.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "¿Cómo sabe un servicio dónde encontrar a otro si sus direcciones IP y puertos pueden cambiar constantemente en un entorno dinámico?"
+  },
+  {
+    "guid": "156282fc-3abf-4b80-9f7d-9349a837351a",
+    "subjectId": "T43",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Cuál es la diferencia fundamental que hace que un contenedor sea más ligero que una máquina virtual (VM)?",
+    "answerOptions": [
+      {
+        "text": "Los contenedores encapsulan un kernel completo y aislado, lo que les proporciona mayor seguridad que a las máquinas virtuales.",
+        "rationale": "Esta afirmación invierte el concepto; son las máquinas virtuales las que encapsulan un kernel completo, mientras que los contenedores lo comparten.",
+        "isCorrect": false
+      },
+      {
+        "text": "Las máquinas virtuales son más ligeras porque solo incluyen la aplicación y sus dependencias, sin el sistema operativo.",
+        "rationale": "Esta descripción corresponde a los contenedores, no a las máquinas virtuales, que sí incluyen un sistema operativo invitado completo.",
+        "isCorrect": false
+      },
+      {
+        "text": "Los contenedores comparten el kernel del sistema operativo del host, a diferencia de las máquinas virtuales que virtualizan un sistema operativo completo.",
+        "rationale": "Esta es la distinción clave: al no necesitar un sistema operativo invitado completo, los contenedores tienen una sobrecarga mucho menor en términos de recursos y tiempo de arranque.",
+        "isCorrect": true
+      },
+      {
+        "text": "Los contenedores requieren un hipervisor para ejecutarse directamente sobre el hardware, mientras que las máquinas virtuales utilizan un motor de contenedores.",
+        "rationale": "Esta opción invierte las tecnologías asociadas; las máquinas virtuales dependen de un hipervisor, mientras que los contenedores utilizan un motor de ejecución como containerd.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "La clave está en el nivel de abstracción y lo que se comparte con el sistema anfitrión."
+  },
+  {
+    "guid": "02b2329f-4ec6-40d1-8665-2f2d2d5858e0",
+    "subjectId": "T43",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En un ecosistema cloud-native, ¿cuál es la función principal de una herramienta como Kubernetes?",
+    "answerOptions": [
+      {
+        "text": "Definir y construir las imágenes de los contenedores a partir de un fichero de configuración como un Dockerfile.",
+        "rationale": "Esta es la función principal de herramientas de construcción de contenedores como Docker o Buildah, no de un orquestador como Kubernetes.",
+        "isCorrect": false
+      },
+      {
+        "text": "Gestionar la comunicación segura (mTLS) y la observabilidad del tráfico entre los microservicios.",
+        "rationale": "Aunque Kubernetes gestiona la red a nivel de clúster, la gestión avanzada del tráfico, la seguridad y la observabilidad a este nivel es una función de un Service Mesh como Istio o Linkerd.",
+        "isCorrect": false
+      },
+      {
+        "text": "Proveer una plataforma de ejecución de funciones serverless, abstrayendo por completo los servidores subyacentes.",
+        "rationale": "Aunque existen frameworks serverless que se ejecutan sobre Kubernetes, la función principal de Kubernetes es la orquestación de contenedores, no ser una plataforma FaaS (Function-as-a-Service) por sí mismo.",
+        "isCorrect": false
+      },
+      {
+        "text": "Orquestar contenedores, automatizando su despliegue, escalado y mantenimiento a través de un clúster de nodos.",
+        "rationale": "Kubernetes actúa como el \"cerebro\" del clúster, gestionando el ciclo de vida de las aplicaciones contenerizadas para asegurar su disponibilidad y resiliencia.",
+        "isCorrect": true
+      }
+    ],
+    "hint": "Piensa en la gestión de una flota de contenedores a gran escala, no en la creación de un solo contenedor."
+  },
+  {
+    "guid": "68b6d062-e178-43f9-bbd4-b042e7d966aa",
+    "subjectId": "T43",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Qué característica define principalmente a una arquitectura serverless o FaaS (Function-as-a-Service)?",
+    "answerOptions": [
+      {
+        "text": "El proveedor de la nube gestiona la infraestructura, ejecutando el código en respuesta a eventos y liberando los recursos cuando la ejecución termina.",
+        "rationale": "Esto captura la esencia del modelo serverless: ejecución efímera y basada en eventos, con una abstracción total de la infraestructura para el desarrollador.",
+        "isCorrect": true
+      },
+      {
+        "text": "El desarrollador aprovisiona y configura los servidores, pero el escalado de las funciones es gestionado automáticamente por la plataforma cloud.",
+        "rationale": "En un modelo serverless puro, el desarrollador no se preocupa en absoluto por la administración de servidores; la \"cero administración de infraestructura\" es un pilar fundamental.",
+        "isCorrect": false
+      },
+      {
+        "text": "El código de la aplicación se ejecuta de forma continua en servidores siempre activos (warm) para minimizar la latencia de arranque o \"cold start\".",
+        "rationale": "Aunque se pueden mantener instancias \"cálidas\", la naturaleza fundamental del modelo es efímera, y el \"cold start\" es precisamente uno de sus retos, no una característica definitoria.",
+        "isCorrect": false
+      },
+      {
+        "text": "Las aplicaciones se dividen en funciones que se despliegan en contenedores de larga duración gestionados por un orquestador como Kubernetes.",
+        "rationale": "Esto describe más bien una arquitectura de microservicios en contenedores. El modelo serverless abstrae incluso la noción de contenedor y su ciclo de vida.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "El nombre \"sin servidor\" es una pista sobre el nivel de responsabilidad del desarrollador en cuanto a la infraestructura subyacente."
+  },
+  {
+    "guid": "668c6b32-e83b-4d51-86a2-cd58a64cdfad",
+    "subjectId": "T43",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En el contexto de la observabilidad de sistemas distribuidos, ¿qué tres pilares de telemetría forman la llamada \"tríada de la observabilidad\"?",
+    "answerOptions": [
+      {
+        "text": "Logs, dashboards y alertas.",
+        "rationale": "Los dashboards (paneles de control) y las alertas son herramientas para visualizar y reaccionar a la telemetría, pero no son los tipos de datos fundamentales que se recopilan.",
+        "isCorrect": false
+      },
+      {
+        "text": "Logs, métricas y trazas (traces).",
+        "rationale": "Estos son los tres tipos de datos esenciales que, al ser analizados conjuntamente, permiten entender el estado interno y el comportamiento de un sistema complejo desde el exterior.",
+        "isCorrect": true
+      },
+      {
+        "text": "Métricas, monitorización y análisis de rendimiento.",
+        "rationale": "La monitorización es la acción de observar las métricas, y el análisis es el proceso de interpretarlas; no son tipos de telemetría en sí mismos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Trazas, perfiles de CPU (profiling) y volcados de memoria (memory dumps).",
+        "rationale": "El profiling y los memory dumps son técnicas de depuración muy específicas y profundas, pero no forman parte de los pilares estándar para la observabilidad continua del sistema.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Se trata de los tres tipos de datos que un sistema debe emitir para que su comportamiento pueda ser comprendido y diagnosticado."
+  },
+  {
+    "guid": "ab80756d-7629-4c3d-9a64-5c2bf6b1d97f",
+    "subjectId": "T43",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Cuál es la diferencia clave entre una estrategia de despliegue \"Rolling Update\" y una \"Canary Release\"?",
+    "answerOptions": [
+      {
+        "text": "Un Rolling Update despliega en un entorno paralelo completo y luego cambia el tráfico, mientras que un Canary Release mezcla instancias antiguas y nuevas.",
+        "rationale": "La descripción del despliegue en un entorno paralelo corresponde a la estrategia Blue-Green, no a un Rolling Update.",
+        "isCorrect": false
+      },
+      {
+        "text": "Un Canary Release reemplaza todas las instancias a la vez para realizar una prueba de carga, mientras que un Rolling Update lo hace de forma gradual.",
+        "rationale": "Esta afirmación invierte la naturaleza de una Canary Release, que es precisamente una estrategia de bajo riesgo que expone la nueva versión a un número muy limitado de usuarios.",
+        "isCorrect": false
+      },
+      {
+        "text": "En un Rolling Update se reemplazan gradualmente todas las instancias antiguas por la nueva versión, mientras que en un Canary se expone la nueva versión primero a un pequeño subconjunto de usuarios.",
+        "rationale": "Esto define correctamente ambas estrategias: una se centra en una transición gradual de todo el servicio, y la otra en una validación inicial con un grupo reducido de usuarios antes del despliegue completo.",
+        "isCorrect": true
+      },
+      {
+        "text": "Un Rolling Update es una técnica manual, mientras que un Canary Release siempre está automatizado por herramientas como Kubernetes.",
+        "rationale": "Ambas estrategias están diseñadas para ser automatizadas en pipelines de CI/CD modernos y son soportadas por orquestadores como Kubernetes.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piensa en la analogía del \"canario en la mina de carbón\" para una de estas estrategias, utilizada para detectar problemas de forma temprana."
+  },
+  {
+    "guid": "a9d9f47b-66d2-4943-a6fb-34f13c865109",
+    "subjectId": "T43",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Según la distinción realizada en el material, ¿qué diferencia a la elasticidad de la escalabilidad?",
+    "answerOptions": [
+      {
+        "text": "La escalabilidad se refiere al crecimiento horizontal (más instancias), mientras que la elasticidad se refiere al crecimiento vertical (más recursos por instancia).",
+        "rationale": "Esta opción confunde los dos conceptos con los tipos de escalado. Tanto la escalabilidad como la elasticidad pueden ser horizontales o verticales.",
+        "isCorrect": false
+      },
+      {
+        "text": "La elasticidad permite al sistema crecer pero no decrecer, mientras que la escalabilidad soporta tanto el crecimiento como la reducción de recursos.",
+        "rationale": "La elasticidad implica intrínsecamente la capacidad de adaptarse en ambas direcciones: crecer ante picos de demanda y decrecer para optimizar costes cuando la demanda baja.",
+        "isCorrect": false
+      },
+      {
+        "text": "La elasticidad es la capacidad de escalar de forma automática y dinámica según la demanda, mientras que la escalabilidad es la capacidad general del sistema para crecer.",
+        "rationale": "Esta es la definición precisa: la escalabilidad es la capacidad de manejar más carga, mientras que la elasticidad es la automatización de ese proceso en respuesta a la carga en tiempo real.",
+        "isCorrect": true
+      },
+      {
+        "text": "Un sistema elástico requiere intervención manual para crecer, mientras que un sistema escalable lo hace de forma automática y desatendida.",
+        "rationale": "Esta afirmación invierte completamente las definiciones proporcionadas en el texto, donde la elasticidad está ligada a la automatización.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Uno de los conceptos implica una respuesta automática a los cambios de carga, mientras que el otro es una capacidad inherente del diseño del sistema."
+  },
+  {
+    "guid": "0ee5c697-001c-4922-97ac-7ea44fd59459",
+    "subjectId": "T43",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Qué ventaja competitiva ofrecen los frameworks cloud-native emergentes como Quarkus o Micronaut frente a frameworks tradicionales como Spring Boot?",
+    "answerOptions": [
+      {
+        "text": "Están optimizados para un bajo consumo de memoria y tiempos de arranque muy reducidos, lo que los hace ideales para contenedores y serverless.",
+        "rationale": "Estos frameworks están diseñados desde cero para el ecosistema cloud-native, minimizando el uso de recursos y los tiempos de inicio para adaptarse a entornos efímeros.",
+        "isCorrect": true
+      },
+      {
+        "text": "Ofrecen una mayor compatibilidad con bases de datos monolíticas y arquitecturas tradicionales heredadas.",
+        "rationale": "Su diseño está orientado precisamente a lo contrario: arquitecturas de microservicios y bases de datos distribuidas y desacopladas.",
+        "isCorrect": false
+      },
+      {
+        "text": "Eliminan la necesidad de utilizar contenedores, permitiendo un despliegue directo y más simple en máquinas virtuales.",
+        "rationale": "Al contrario, están altamente optimizados para aprovechar al máximo las características de los entornos de contenedores como Kubernetes.",
+        "isCorrect": false
+      },
+      {
+        "text": "Introducen el principio de \"convention over configuration\", algo que los frameworks tradicionales no soportan.",
+        "rationale": "El texto menciona explícitamente que Spring Boot es un ejemplo de framework que sigue el principio de \"convention over configuration\", por lo que no es una ventaja exclusiva de los nuevos frameworks.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considera los requisitos de eficiencia de recursos en entornos donde las instancias pueden crearse y destruirse en segundos."
+  },
+  {
+    "guid": "4cf2051c-30d3-4861-ac58-74db3003db05",
+    "subjectId": "T43",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Qué función principal cumple una herramienta de Service Mesh como Istio o Linkerd en una arquitectura de microservicios?",
+    "answerOptions": [
+      {
+        "text": "Orquestar el despliegue, la replicación y el ciclo de vida de los contenedores que alojan los microservicios.",
+        "rationale": "Esta es la responsabilidad de un orquestador de contenedores como Kubernetes, no de un service mesh.",
+        "isCorrect": false
+      },
+      {
+        "text": "Almacenar y gestionar de forma centralizada los logs generados por todos los microservicios para su posterior análisis.",
+        "rationale": "Esta función la realizan sistemas de agregación de logs como la pila ELK (Elasticsearch, Logstash, Kibana) o servicios cloud como CloudWatch.",
+        "isCorrect": false
+      },
+      {
+        "text": "Gestionar la comunicación entre servicios, proporcionando seguridad, resiliencia y observabilidad de forma transparente a la aplicación.",
+        "rationale": "Un service mesh inyecta un proxy (sidecar) junto a cada servicio para controlar todo el tráfico de red, abstrayendo la lógica de comunicación del código de negocio.",
+        "isCorrect": true
+      },
+      {
+        "text": "Definir la infraestructura de red del clúster, como las subredes y las políticas de firewall, mediante un enfoque de Infraestructura como Código.",
+        "rationale": "Esta tarea corresponde a tecnologías de CNI (Container Network Interface) como Calico o Cilium, y a herramientas de IaC como Terraform.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Se centra en la capa de comunicación *entre* los servicios, no en su ejecución, su infraestructura o sus logs."
+  },
+  {
+    "guid": "2aa01940-2d73-4f8c-8b66-9e92d9a3f1b4",
+    "subjectId": "T43",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Dentro del ecosistema de Kubernetes, ¿qué es un contenedor \"sidecar\"?",
+    "answerOptions": [
+      {
+        "text": "Un contenedor auxiliar que se ejecuta en el mismo Pod que el contenedor principal para añadir funcionalidades como logging o proxy sin modificar la aplicación.",
+        "rationale": "El patrón sidecar permite desacoplar funcionalidades transversales (logs, métricas, seguridad) de la lógica de negocio, ejecutándolas en un contenedor separado pero estrechamente acoplado en el mismo Pod.",
+        "isCorrect": true
+      },
+      {
+        "text": "Un contenedor principal que contiene la lógica de negocio del microservicio y se comunica con otros Pods en el clúster.",
+        "rationale": "Esta es la descripción del contenedor de la aplicación principal, no del contenedor auxiliar que lo acompaña.",
+        "isCorrect": false
+      },
+      {
+        "text": "Una instancia replicada de un microservicio, desplegada en un Pod diferente, para proporcionar escalabilidad horizontal y alta disponibilidad.",
+        "rationale": "Esto describe una réplica o una instancia de un servicio, que es un concepto clave para la escalabilidad, pero no el patrón sidecar.",
+        "isCorrect": false
+      },
+      {
+        "text": "Un tipo de contenedor sin kernel, más ligero que Docker, diseñado específicamente para ejecutar funciones de red de alto rendimiento.",
+        "rationale": "El término \"sidecar\" se refiere a un patrón de diseño arquitectónico, no a una tecnología específica de tiempo de ejecución de contenedores.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Su nombre evoca un vehículo que va \"al lado\" del principal, compartiendo el viaje y proporcionando una función de apoyo."
+  },
+  {
+    "guid": "2990c4f9-e2ef-42e5-a53b-cbc517bae1a7",
+    "subjectId": "T43",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Cuál es uno de los objetivos principales de la metodología \"Twelve-Factor App\" para el desarrollo de aplicaciones SaaS?",
+    "answerOptions": [
+      {
+        "text": "Definir un estándar para la comunicación síncrona entre microservicios utilizando exclusivamente APIs RESTful.",
+        "rationale": "La metodología es más abstracta y se centra en principios de diseño de aplicaciones portables y escalables, sin prescribir tecnologías o protocolos de comunicación específicos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Establecer un conjunto de 12 herramientas obligatorias de la CNCF para el desarrollo, despliegue y monitorización.",
+        "rationale": "Se trata de un conjunto de 12 buenas prácticas o principios, no de un conjunto de herramientas tecnológicas específicas.",
+        "isCorrect": false
+      },
+      {
+        "text": "Forzar el uso de un lenguaje de programación y un conjunto de librerías específicos para garantizar la consistencia en el proyecto.",
+        "rationale": "Los principios de la Twelve-Factor App son agnósticos al lenguaje de programación y están diseñados para ser aplicables a una amplia variedad de tecnologías.",
+        "isCorrect": false
+      },
+      {
+        "text": "Crear aplicaciones portables que faciliten la escalabilidad horizontal y reduzcan la dependencia de un proveedor de nube específico (vendor lock-in).",
+        "rationale": "Al seguir estos principios, las aplicaciones se desacoplan de su entorno de ejecución, lo que mejora su mantenibilidad, portabilidad y capacidad de escalar.",
+        "isCorrect": true
+      }
+    ],
+    "hint": "Piensa en un conjunto de reglas que harían que una aplicación se pudiera mover y escalar fácilmente en cualquier plataforma en la nube."
+  },
+  {
+    "guid": "8a9e99cb-6e0e-4c65-8393-d497e6ddad67",
+    "subjectId": "T43",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "A pesar de sus múltiples ventajas, ¿cuál es uno de los principales inconvenientes o retos al adoptar un enfoque cloud-native?",
+    "answerOptions": [
+      {
+        "text": "Una menor resiliencia y disponibilidad, ya que el fallo de un único microservicio puede colapsar fácilmente todo el sistema.",
+        "rationale": "Al contrario, las arquitecturas cloud-native están diseñadas para ser más resilientes, aislando los fallos para que el impacto en el sistema global sea mínimo.",
+        "isCorrect": false
+      },
+      {
+        "text": "Un aumento significativo de la complejidad en la gestión del sistema, la monitorización distribuida y la depuración de errores.",
+        "rationale": "Pasar de un sistema monolítico a uno distribuido con decenas o cientos de servicios introduce una sobrecarga operativa y cognitiva que requiere nuevas herramientas y habilidades.",
+        "isCorrect": true
+      },
+      {
+        "text": "Una reducción en la agilidad del negocio debido a los largos y complejos ciclos de despliegue que requieren los contenedores.",
+        "rationale": "Uno de los principales beneficios buscados con el enfoque cloud-native es precisamente aumentar la agilidad y la velocidad de los despliegues a través de la automatización y CI/CD.",
+        "isCorrect": false
+      },
+      {
+        "text": "La imposibilidad de ejecutarse en entornos híbridos o multi-cloud, lo que provoca una fuerte dependencia de un único proveedor (vendor lock-in).",
+        "rationale": "El uso de estándares abiertos como los contenedores y Kubernetes tiene como objetivo facilitar la portabilidad y evitar el vendor lock-in, permitiendo despliegues en diferentes nubes.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Pasar de gestionar una sola aplicación a decenas de servicios interconectados tiene consecuencias importantes en la operativa diaria."
+  },
+  {
+    "guid": "8e09d8b1-7b0b-4208-851d-8bd4418bb409",
+    "subjectId": "T43",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Qué permite el enfoque de Infraestructura como Código (IaC) utilizando herramientas como Terraform o Ansible?",
+    "answerOptions": [
+      {
+        "text": "Escribir el código de la aplicación de tal manera que se adapte automáticamente a cualquier infraestructura subyacente sin necesidad de cambios.",
+        "rationale": "La portabilidad de la aplicación es un objetivo que se logra más con la contenerización, mientras que IaC se enfoca en la gestión de la infraestructura misma.",
+        "isCorrect": false
+      },
+      {
+        "text": "Empaquetar el código que define la infraestructura dentro de la imagen del contenedor para conseguir un despliegue atómico y unificado.",
+        "rationale": "La IaC gestiona los recursos externos a la aplicación (VMs, redes, balanceadores), no se empaqueta dentro del contenedor de la aplicación.",
+        "isCorrect": false
+      },
+      {
+        "text": "Monitorizar el estado de la infraestructura en tiempo real y generar código automáticamente para corregir cualquier desviación del estado deseado.",
+        "rationale": "Aunque las herramientas de IaC gestionan el estado, su función principal es definir y aprovisionar, no la monitorización activa y la autocorrección en tiempo real.",
+        "isCorrect": false
+      },
+      {
+        "text": "Definir y versionar los recursos de infraestructura (servidores, redes, BBDD) en ficheros de código, permitiendo su despliegue automatizado y reproducible.",
+        "rationale": "Este enfoque trata la infraestructura como si fuera software, lo que permite aplicar prácticas de DevOps como el control de versiones, la revisión de código y la automatización (CI/CD) al aprovisionamiento.",
+        "isCorrect": true
+      }
+    ],
+    "hint": "Este enfoque aplica las mismas prácticas que los desarrolladores usan para el código de la aplicación, pero aplicadas a los servidores, redes y bases de datos."
+  },
+  {
+    "guid": "9a93ad4b-744b-4e8a-a69b-74c054ee4f7b",
+    "subjectId": "T43",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Qué patrón de gestión de bases de datos es el más recomendado en las arquitecturas de microservicios cloud-native para mantener el desacoplamiento?",
+    "answerOptions": [
+      {
+        "text": "Utilizar una única base de datos SQL centralizada y altamente normalizada para garantizar la consistencia transaccional en toda la aplicación.",
+        "rationale": "Este es un patrón típico de las arquitecturas monolíticas que crea un fuerte acoplamiento entre servicios, algo que se busca evitar con los microservicios.",
+        "isCorrect": false
+      },
+      {
+        "text": "El patrón de \"base de datos por servicio\", donde cada microservicio es el propietario exclusivo de su propio esquema y datos.",
+        "rationale": "Este patrón garantiza la autonomía y el desacoplamiento de cada microservicio, permitiéndole evolucionar su modelo de datos de forma independiente.",
+        "isCorrect": true
+      },
+      {
+        "text": "Emplear exclusivamente bases de datos en memoria como Redis para todos los microservicios, con el fin de maximizar el rendimiento y la velocidad.",
+        "rationale": "Aunque Redis es útil para cachés o casos de uso específicos, no es adecuado como solución de persistencia para todos los tipos de datos; cada servicio debe elegir la tecnología de BBDD más apropiada.",
+        "isCorrect": false
+      },
+      {
+        "text": "Abstraer todo el acceso a datos a través de un único microservicio de persistencia que es consumido por todos los demás servicios.",
+        "rationale": "Esto centraliza la lógica de datos y crea un cuello de botella, convirtiendo a ese servicio en un \"monolito de datos\" y rompiendo la autonomía de los demás.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "¿Cómo puede un servicio cambiar su forma de almacenar datos sin afectar a los demás servicios?"
+  }
+]
