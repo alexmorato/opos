@@ -1,0 +1,777 @@
+[
+  {
+    "guid": "0a869f15-fd9e-49bc-8f32-a446197f0e1b",
+    "subjectId": "T34",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "En el contexto de un ayuntamiento, si se debe definir la lógica de una reducción en una multa de tráfico por pago anticipado, ¿qué componente de SAP sería el principal responsable de parametrizar esta regla de negocio?",
+    "answerOptions": [
+      {
+        "text": "SAP PS-CD, a través de sus funciones de gestión de deuda.",
+        "rationale": "PS-CD gestiona las consecuencias económicas de la deuda (recargos, intereses), pero no la normativa que define el importe original de la sanción o sus bonificaciones.",
+        "isCorrect": false
+      },
+      {
+        "text": "SAP TRM, utilizando el motor de reglas BRF+.",
+        "rationale": "TRM, con el apoyo de BRF+, se encarga de definir la lógica fiscal y normativa del ingreso, como las condiciones para aplicar bonificaciones o reducciones.",
+        "isCorrect": true
+      },
+      {
+        "text": "SAP FI, ya que afecta directamente a la contabilidad del ingreso.",
+        "rationale": "FI registra el asiento contable del ingreso una vez calculado, pero no participa en la definición de las reglas de cálculo fiscal.",
+        "isCorrect": false
+      },
+      {
+        "text": "Case Management, para gestionar el expediente de la sanción.",
+        "rationale": "Case Management se usaría para gestionar un caso complejo o un recurso sobre la multa, no para definir las reglas de cálculo estándar aplicables a todas las multas.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piensa en qué componente se encarga de la 'lógica fiscal' y la definición normativa del tributo, no de su cobro."
+  },
+  {
+    "guid": "d4f65e75-42b1-414d-85ee-b8b3248f4b55",
+    "subjectId": "T34",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Según el modelo de datos de SAP TRM/PS-CD, si el 'Business Partner' responde a '¿Quién paga?', ¿qué pilar fundamental responde a la pregunta '¿Sobre qué se aplica el tributo?'?",
+    "answerOptions": [
+      {
+        "text": "Product Definition",
+        "rationale": "Product Definition responde a '¿Qué se paga?', definiendo el tipo de ingreso (impuesto, tasa, etc.) y sus reglas.",
+        "isCorrect": false
+      },
+      {
+        "text": "Contract Account",
+        "rationale": "El Contract Account responde a '¿Dónde se gestiona la deuda?', siendo la cuenta económica del contribuyente.",
+        "isCorrect": false
+      },
+      {
+        "text": "Tax Object / Contract Object",
+        "rationale": "Este objeto representa el bien, actividad o hecho imponible (un inmueble, un vehículo, una actividad económica) sobre el que recae la obligación tributaria.",
+        "isCorrect": true
+      },
+      {
+        "text": "Documento PSCD",
+        "rationale": "El Documento PSCD representa el movimiento económico ('¿Qué movimiento?'), como un cargo o un abono, no el hecho imponible en sí.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considera cuál de las entidades representa el elemento físico o la actividad que origina la obligación de pago, como un inmueble en el caso del IBI."
+  },
+  {
+    "guid": "5530b37f-b755-445c-9c12-595a8064e447",
+    "subjectId": "T34",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Cuál es la distinción fundamental entre la función de SAP TRM (Tax & Revenue Management) y SAP PS-CD (Public Sector Collection and Disbursement) en la gestión de ingresos públicos?",
+    "answerOptions": [
+      {
+        "text": "TRM gestiona la contabilidad (FI) y el presupuesto (FM), mientras que PS-CD se integra con portales ciudadanos.",
+        "rationale": "Aunque se integran, la contabilidad y el presupuesto son funciones de FI/FM, no de TRM. La integración con portales es una capacidad general, no un diferenciador clave.",
+        "isCorrect": false
+      },
+      {
+        "text": "TRM define y calcula la obligación tributaria, y PS-CD gestiona la recaudación, los pagos y los impagos.",
+        "rationale": "Esta es la separación de responsabilidades clave: TRM se ocupa de la 'lógica fiscal' (el porqué y el cuánto), y PS-CD del 'motor económico' (el cómo se cobra y qué pasa si no se paga).",
+        "isCorrect": true
+      },
+      {
+        "text": "TRM es el núcleo para la gestión de contribuyentes (Business Partner), y PS-CD gestiona los objetos tributarios (Contract Object).",
+        "rationale": "Ambos módulos utilizan el Business Partner y el Contract Object. Esta no es su principal línea divisoria funcional.",
+        "isCorrect": false
+      },
+      {
+        "text": "TRM se encarga de la recaudación voluntaria y PS-CD se encarga exclusivamente de la recaudación ejecutiva.",
+        "rationale": "PS-CD gestiona todo el ciclo de recaudación, tanto el periodo voluntario como el ejecutivo, incluyendo pagos, dunning, intereses, etc.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Recuerda la analogía: uno es el que crea la factura con las reglas del juego, y el otro es el que la envía, la cobra y persigue si no se paga."
+  },
+  {
+    "guid": "97d341c9-624a-4717-8ba4-bd0a006d6c16",
+    "subjectId": "T34",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Un ciudadano no paga la tasa de basuras en el periodo voluntario. El ayuntamiento inicia el proceso de reclamación enviando avisos escalonados y calculando intereses de demora. ¿En qué módulo SAP se ejecutan estas acciones?",
+    "answerOptions": [
+      {
+        "text": "En SAP TRM, que gestiona el ciclo de vida completo del tributo.",
+        "rationale": "Aunque TRM gestiona el ciclo conceptual, las acciones operativas de reclamación de impagados (dunning) e intereses son una función específica de otro componente.",
+        "isCorrect": false
+      },
+      {
+        "text": "En SAP FI, porque son procesos que afectan a las cuentas a cobrar.",
+        "rationale": "FI contabiliza el resultado, pero el motor operativo para la gestión de cuentas de contribuyentes del sector público, con sus particularidades, reside en PS-CD.",
+        "isCorrect": false
+      },
+      {
+        "text": "En SAP PS-CD, a través de los procesos de 'dunning' y 'interest calculation'.",
+        "rationale": "PS-CD es el motor de recaudación y gestión de deuda, y específicamente contiene las funcionalidades para la reclamación de impagados (dunning) y el cálculo de intereses.",
+        "isCorrect": true
+      },
+      {
+        "text": "En Case Management, ya que un impago se trata como un expediente individual.",
+        "rationale": "Case Management se usaría para casos excepcionales que requieren intervención manual, como un recurso, no para el proceso masivo y automatizado de reclamación de impagos.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Identifica el módulo que funciona como el 'motor de recaudación' y se especializa en la gestión de partidas abiertas y deuda vencida."
+  },
+  {
+    "guid": "2518a75b-e780-4f18-9450-64f2c2c2cf6f",
+    "subjectId": "T34",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Al modelar la tasa por la ocupación de la vía pública con una terraza, el objeto 'terraza' se corresponde con el 'Contract Object'. ¿Qué objeto SAP representaría la cuenta económica única de la empresa propietaria, donde se registran todas sus deudas y pagos con el ayuntamiento?",
+    "answerOptions": [
+      {
+        "text": "Business Partner (BP)",
+        "rationale": "El Business Partner representa a la empresa (el 'quién'), pero no es la cuenta donde se gestionan los movimientos económicos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Product Definition",
+        "rationale": "Product Definition define la 'tasa por ocupación de vía pública' (el 'qué'), pero no es una cuenta.",
+        "isCorrect": false
+      },
+      {
+        "text": "Central Address Management (CAM)",
+        "rationale": "CAM gestiona las direcciones asociadas al BP, no la información financiera.",
+        "isCorrect": false
+      },
+      {
+        "text": "Contract Account",
+        "rationale": "El Contract Account es el núcleo de PS-CD y agrupa la relación económica con el contribuyente, consolidando todas sus partidas abiertas (deudas) y pagos.",
+        "isCorrect": true
+      }
+    ],
+    "hint": "Busca el concepto que funciona como el 'contenedor' de todas las transacciones financieras (deudas, pagos, compensaciones) de un contribuyente."
+  },
+  {
+    "guid": "4db46b61-4021-4425-974a-dfa0bc463d64",
+    "subjectId": "T34",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Un desarrollador necesita integrar el sistema SAP TRM del ayuntamiento con la base de datos del catastro para obtener información de los inmuebles. ¿Qué componentes de SAP se utilizarían típicamente para orquestar esta comunicación entre sistemas externos?",
+    "answerOptions": [
+      {
+        "text": "SAP BW o SAP SAC.",
+        "rationale": "BW y SAC son herramientas de Business Intelligence y analítica para explotar datos, no para la integración transaccional entre sistemas.",
+        "isCorrect": false
+      },
+      {
+        "text": "SAP FI y SAP FM.",
+        "rationale": "FI (Contabilidad Financiera) y FM (Gestión Presupuestaria) son módulos funcionales para la gestión económico-financiera, no plataformas de integración.",
+        "isCorrect": false
+      },
+      {
+        "text": "SAP PO o SAP CPI.",
+        "rationale": "Process Orchestration (PO) y Cloud Platform Integration (CPI) son las plataformas de middleware de SAP diseñadas para gestionar la integración entre sistemas SAP y no-SAP.",
+        "isCorrect": true
+      },
+      {
+        "text": "BRF+ y Case Management.",
+        "rationale": "BRF+ es un motor de reglas de negocio y Case Management gestiona expedientes. Ninguno es una herramienta para la integración de sistemas.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piensa en las herramientas de middleware o 'capa de integración' que SAP proporciona para conectar sus sistemas con el exterior."
+  },
+  {
+    "guid": "4e0948ef-95e4-4f5a-89fc-291012757fca",
+    "subjectId": "T34",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Al realizar la liquidación del IBI, el sistema genera miles de documentos de cargo que deben ser contabilizados y afectar al presupuesto de ingresos. ¿Cuál es la secuencia correcta de integración entre módulos para este proceso?",
+    "answerOptions": [
+      {
+        "text": "TRM genera la deuda -> PS-CD la gestiona -> FI la contabiliza -> FM imputa el presupuesto.",
+        "rationale": "Esta secuencia refleja el flujo lógico: TRM calcula, PS-CD crea el deudor en la cuenta corriente, FI lo registra en la contabilidad general y FM lo asigna a la partida presupuestaria correspondiente.",
+        "isCorrect": true
+      },
+      {
+        "text": "FI genera la deuda -> TRM la calcula -> PS-CD la cobra -> FM la presupuesta.",
+        "rationale": "El origen de la deuda no es FI, sino TRM, que es quien conoce la lógica del impuesto.",
+        "isCorrect": false
+      },
+      {
+        "text": "PS-CD genera y gestiona la deuda -> TRM la valida -> FI/FM la registran conjuntamente.",
+        "rationale": "PS-CD no genera la lógica de la deuda, solo recibe el resultado del cálculo de TRM para gestionarlo económicamente.",
+        "isCorrect": false
+      },
+      {
+        "text": "FM define el presupuesto -> TRM calcula la deuda para cumplirlo -> PS-CD la cobra -> FI la contabiliza.",
+        "rationale": "Aunque el presupuesto existe, TRM calcula la deuda basándose en la normativa fiscal (hechos imponibles), no para ajustarse a una cifra presupuestaria.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Sigue el ciclo de vida del ingreso: desde su cálculo normativo hasta su registro final en la contabilidad y el presupuesto."
+  },
+  {
+    "guid": "ff0751e5-b33f-4cd8-9e04-db35b48aecc0",
+    "subjectId": "T34",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Qué afirmación describe correctamente el rol de la Central Address Management (CAM) en el ecosistema de SAP TRM?",
+    "answerOptions": [
+      {
+        "text": "Es un módulo exclusivo de TRM para gestionar las direcciones de los objetos tributarios.",
+        "rationale": "CAM no es exclusivo de TRM, sino un servicio transversal para todo SAP. Además, gestiona direcciones de entidades como el Business Partner, no solo de objetos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Es un componente obsoleto, reemplazado por la gestión de direcciones dentro del Business Partner.",
+        "rationale": "El Business Partner utiliza CAM para la gestión de sus direcciones; no la reemplaza, sino que delega en ella.",
+        "isCorrect": false
+      },
+      {
+        "text": "Es el servicio central de SAP para la gestión unificada de direcciones, utilizado por el Business Partner para notificaciones.",
+        "rationale": "Esta definición es precisa. CAM proporciona una gestión de direcciones coherente y centralizada que es fundamental para procesos de TRM como las notificaciones y la correspondencia.",
+        "isCorrect": true
+      },
+      {
+        "text": "Es una herramienta de integración para conectar SAP con servicios de geolocalización externos.",
+        "rationale": "Aunque podría integrarse, su función principal no es la geolocalización, sino la gestión estandarizada de datos de direcciones postales dentro de SAP.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considera si la gestión de direcciones es una necesidad única de TRM o algo que muchos módulos de SAP podrían necesitar."
+  },
+  {
+    "guid": "dfa90704-c9df-4fa3-abf9-5915beb25dbe",
+    "subjectId": "T34",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "En el argot de SAP PS-CD, ¿qué significa el término 'Clearing'?",
+    "answerOptions": [
+      {
+        "text": "El proceso de reclamación de una deuda impagada mediante avisos.",
+        "rationale": "El proceso de reclamación de impagados se denomina 'Dunning'.",
+        "isCorrect": false
+      },
+      {
+        "text": "La anulación de una deuda por considerarse incobrable ('Write-off').",
+        "rationale": "La anulación es un proceso específico ('Write-off'), mientras que 'Clearing' tiene un significado más amplio relacionado con los pagos.",
+        "isCorrect": false
+      },
+      {
+        "text": "La compensación o conciliación de una partida abierta (deuda) con un pago recibido.",
+        "rationale": "'Clearing' es el acto de 'limpiar' o saldar una partida deudora aplicándole una partida acreedora, como un pago, dejando el saldo a cero.",
+        "isCorrect": true
+      },
+      {
+        "text": "El cálculo de intereses de demora sobre una partida vencida.",
+        "rationale": "El cálculo de intereses es una función separada, denominada 'Interest Calculation'.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piensa en el significado de 'limpiar' o 'saldar' una cuenta pendiente."
+  },
+  {
+    "guid": "e112a533-65c1-460d-8ab9-d26f984042be",
+    "subjectId": "T34",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Se detecta un error en una liquidación de IBI ya notificada. El contribuyente presenta un recurso administrativo. ¿Qué funcionalidad de SAP se utilizaría para gestionar el expediente de este recurso, asociar la documentación y seguir sus fases hasta la resolución?",
+    "answerOptions": [
+      {
+        "text": "El núcleo de SAP TRM, modificando directamente la liquidación original.",
+        "rationale": "Modificar directamente una liquidación notificada no es el procedimiento correcto; se debe gestionar formalmente a través de un expediente.",
+        "isCorrect": false
+      },
+      {
+        "text": "SAP ECM (Enterprise Content Management) de forma aislada.",
+        "rationale": "ECM gestiona los documentos (el PDF del recurso, la resolución), pero no el flujo del proceso o el expediente en sí.",
+        "isCorrect": false
+      },
+      {
+        "text": "SAP PS-CD, mediante un 'Promise to pay' (promesa de pago).",
+        "rationale": "Una promesa de pago es para gestionar un impago, no para tramitar un recurso administrativo contra la liquidación.",
+        "isCorrect": false
+      },
+      {
+        "text": "SAP Case Management, para tratar la situación como un caso excepcional.",
+        "rationale": "Case Management está diseñado para gestionar procesos no estandarizados o complejos que requieren seguimiento, como reclamaciones o recursos administrativos.",
+        "isCorrect": true
+      }
+    ],
+    "hint": "Considera qué herramienta está diseñada para situaciones que no siguen el flujo 100% automático y requieren la gestión de un 'expediente'."
+  },
+  {
+    "guid": "41074a33-8fb5-4794-a557-b3224700dfb9",
+    "subjectId": "T34",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Un usuario afirma que 'las sanciones y multas se gestionan exclusivamente con SAP PS-CD porque es el motor de recaudación'. ¿Por qué esta afirmación es incorrecta?",
+    "answerOptions": [
+      {
+        "text": "Porque las sanciones siempre se gestionan en un sistema externo y solo se integran con SAP.",
+        "rationale": "Aunque pueden integrarse, SAP TRM tiene la capacidad de modelar y gestionar sanciones internamente.",
+        "isCorrect": false
+      },
+      {
+        "text": "Porque PS-CD no puede gestionar los importes variables de las sanciones, solo importes fijos.",
+        "rationale": "PS-CD puede gestionar cualquier importe que reciba; el problema no está en su capacidad de gestionar la cuantía, sino en su falta de conocimiento de la lógica de negocio.",
+        "isCorrect": false
+      },
+      {
+        "text": "Porque la lógica de la sanción (tipificación, importes base, reducciones) se define en TRM, y PS-CD solo gestiona el cobro de la deuda resultante.",
+        "rationale": "Esta es la razón clave. PS-CD no conoce la normativa sancionadora. TRM define la sanción según la norma, y PS-CD gestiona el cobro de la cantidad que TRM ha calculado.",
+        "isCorrect": true
+      },
+      {
+        "text": "Porque las sanciones, al no ser tributos, se deben gestionar siempre en el módulo FI-AR (Cuentas a Cobrar) y no en PS-CD.",
+        "rationale": "PS-CD es la evolución de FI-CA para el sector público y es el módulo adecuado para gestionar este tipo de deudores masivos, sean tributarios o no.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Diferencia entre el módulo que conoce la 'normativa' y el que conoce los 'procesos de cobro'."
+  },
+  {
+    "guid": "40abff96-3087-400f-902b-cac80c167805",
+    "subjectId": "T34",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "De los cuatro objetos básicos del modelo TRM-PSCD (BP, Cuenta Contrato, Objeto Contrato, Documento PSCD), ¿cuál es el que efectivamente crea la 'partida abierta' (open item) en el sistema, representando la deuda exigible?",
+    "answerOptions": [
+      {
+        "text": "El Business Partner (BP).",
+        "rationale": "El BP es el sujeto de la obligación, pero el objeto en sí mismo no genera deuda ni partidas contables.",
+        "isCorrect": false
+      },
+      {
+        "text": "El Objeto Contrato.",
+        "rationale": "El Objeto Contrato es el hecho imponible; está asociado a la deuda, pero no es el registro transaccional que la crea.",
+        "isCorrect": false
+      },
+      {
+        "text": "La Cuenta Contrato.",
+        "rationale": "La Cuenta Contrato es donde 'vive' la partida abierta, pero no es el documento que la origina; es su contenedor.",
+        "isCorrect": false
+      },
+      {
+        "text": "El Documento PSCD.",
+        "rationale": "El Documento PSCD es el registro contable (el apunte) que materializa la obligación de pago, generando así la partida abierta que quedará pendiente en la Cuenta Contrato.",
+        "isCorrect": true
+      }
+    ],
+    "hint": "Piensa en cuál de estos elementos es un 'documento transaccional' que registra un movimiento económico."
+  },
+  {
+    "guid": "75aa703c-4aef-4e7d-8282-c2f89e255d24",
+    "subjectId": "T34",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Cuál de las siguientes afirmaciones sobre el acrónimo TRM en el universo SAP es una trampa de examen común?",
+    "answerOptions": [
+      {
+        "text": "TRM siempre se refiere a la gestión de ingresos públicos (Tax & Revenue Management).",
+        "rationale": "Esta afirmación es la base de la trampa. SAP utiliza el mismo acrónimo para dos módulos diferentes, lo que puede llevar a confusión.",
+        "isCorrect": false
+      },
+      {
+        "text": "TRM también puede referirse a Treasury & Risk Management, un módulo para tesorería corporativa.",
+        "rationale": "Esta es la aclaración a la trampa. La existencia de otro módulo con el mismo acrónimo pero con una función completamente diferente (gestión de inversiones, FX, etc.) es una fuente de preguntas de diferenciación.",
+        "isCorrect": true
+      },
+      {
+        "text": "TRM (Task & Resource Management) es el módulo logístico que se integra con TRM (Tax & Revenue Management).",
+        "rationale": "No existe un módulo estándar de SAP con el acrónimo TRM para Task & Resource Management que se integre de forma nativa de esta manera. Esto es un distractor inventado.",
+        "isCorrect": false
+      },
+      {
+        "text": "TRM es el acrónimo antiguo, ahora reemplazado completamente por SAP S/4HANA for Public Sector.",
+        "rationale": "Aunque la tecnología subyacente evoluciona con S/4HANA, el concepto funcional y el nombre de la solución (TRM) siguen vigentes en ese contexto.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Recuerda que los acrónimos en SAP a veces se reutilizan para contextos funcionales muy distintos."
+  },
+  {
+    "guid": "a86d087d-b4e1-423b-a6c6-74be25e6d0b2",
+    "subjectId": "T34",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Por qué es incorrecto afirmar que 'SAP TRM gestiona directamente el clearing de pagos'?",
+    "answerOptions": [
+      {
+        "text": "Porque el 'clearing' es un proceso manual que siempre se realiza en SAP FI.",
+        "rationale": "El 'clearing' puede ser automático y, en el contexto de deudores masivos del sector público, su motor principal no es FI estándar, sino PS-CD.",
+        "isCorrect": false
+      },
+      {
+        "text": "Porque 'clearing' es la conciliación de un pago con una deuda, una función operativa de recaudación gestionada por SAP PS-CD.",
+        "rationale": "Esta es la respuesta correcta. TRM genera la deuda, pero el proceso de recibir un pago y aplicarlo para saldar esa deuda ('clearing') es una función central de PS-CD.",
+        "isCorrect": true
+      },
+      {
+        "text": "Porque el 'clearing' solo se aplica a ingresos no tributarios, que no son el foco principal de TRM.",
+        "rationale": "El 'clearing' se aplica a cualquier tipo de partida abierta, sea tributaria o no, y TRM gestiona ambos tipos de ingresos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Porque el 'clearing' fue reemplazado por la funcionalidad de 'Promise to pay' en las nuevas versiones de SAP.",
+        "rationale": "'Promise to pay' es una herramienta para gestionar deudas vencidas, no un sustituto del proceso fundamental de conciliación de pagos.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Asocia cada acción a su módulo especialista: ¿quién se encarga de la 'operativa de cobros'?"
+  },
+  {
+    "guid": "6ae94388-7eac-4155-ac4b-f53c617ea108",
+    "subjectId": "T34",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "En un entorno SAP de un ayuntamiento con un paisaje de sistemas de 3 niveles (DEV, PRE, PRD), ¿cuál sería el flujo correcto para transportar un cambio en la configuración de una tasa municipal?",
+    "answerOptions": [
+      {
+        "text": "Se configura en PRE (Integración), se prueba en DEV (Desarrollo) y se pasa a PRD (Producción).",
+        "rationale": "Este flujo invierte el orden lógico. El desarrollo y la configuración inicial siempre ocurren en el entorno de desarrollo.",
+        "isCorrect": false
+      },
+      {
+        "text": "Se configura y prueba en DEV, y luego se transporta directamente a PRD para una implementación rápida.",
+        "rationale": "Omitir el entorno de preproducción (PRE/QAS) es una mala práctica que impide realizar pruebas de integración y aceptación de usuario, aumentando el riesgo de errores en producción.",
+        "isCorrect": false
+      },
+      {
+        "text": "Se configura en DEV, se transporta a PRE para pruebas de integración y de usuario, y finalmente se transporta a PRD.",
+        "rationale": "Este es el flujo estándar y seguro (DEV -> PRE -> PRD) que garantiza que los cambios son desarrollados, probados exhaustivamente en un entorno similar al real y luego implementados en producción.",
+        "isCorrect": true
+      },
+      {
+        "text": "Se configura en cada entorno (DEV, PRE, PRD) de forma manual e independiente para asegurar la coherencia.",
+        "rationale": "La configuración manual en cada entorno es propensa a errores e inconsistencias. El sistema de transportes de SAP está diseñado precisamente para mover los cambios de forma controlada y consistente.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piensa en el ciclo de vida estándar del desarrollo de software: desarrollar, probar y desplegar."
+  },
+  {
+    "guid": "943dc4b0-6195-4bb9-aa5f-f098be53bde7",
+    "subjectId": "T34",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Diferencia clave entre una 'tasa' y un 'precio público' desde la perspectiva de su gestión en SAP TRM.",
+    "answerOptions": [
+      {
+        "text": "Las tasas se gestionan en TRM y los precios públicos en PS-CD.",
+        "rationale": "Ambos son tipos de ingresos públicos y su lógica de negocio (definición, cálculo) se modelaría en TRM.",
+        "isCorrect": false
+      },
+      {
+        "text": "Las tasas son una obligación tributaria (coactiva) mientras que un precio público es una contraprestación voluntaria por un servicio.",
+        "rationale": "Esta es la distinción jurídica fundamental que impacta en su gestión. La tasa es de pago obligatorio si se da el hecho imponible, mientras que el precio público se paga si se decide voluntariamente recibir el servicio.",
+        "isCorrect": true
+      },
+      {
+        "text": "Las tasas siempre tienen un cálculo complejo en BRF+ y los precios públicos son siempre importes fijos.",
+        "rationale": "Esta es una generalización que no siempre es cierta. Una tasa puede ser un importe fijo y un precio público puede tener condiciones y bonificaciones complejas.",
+        "isCorrect": false
+      },
+      {
+        "text": "Las tasas se contabilizan en SAP FI y los precios públicos en SAP FM.",
+        "rationale": "Ambos tipos de ingreso se contabilizan en FI y se imputan presupuestariamente en FM.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considera la naturaleza de la obligación para el ciudadano: ¿está obligado a pagar o lo hace a cambio de algo que ha elegido recibir?"
+  },
+  {
+    "guid": "800f0fe2-c5b7-4591-8c91-fa7f80f2392d",
+    "subjectId": "T34",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Cuál de las siguientes funciones NO pertenece al núcleo de SAP PS-CD?",
+    "answerOptions": [
+      {
+        "text": "Gestión de planes de pago a plazos (Installment plans).",
+        "rationale": "La gestión de fraccionamientos y aplazamientos es una funcionalidad clave de PS-CD para la gestión de la deuda.",
+        "isCorrect": false
+      },
+      {
+        "text": "Definición de las reglas de cálculo de un impuesto (Product Definition).",
+        "rationale": "La definición de la normativa y las reglas de cálculo de un tributo es una función del núcleo de SAP TRM, no de PS-CD.",
+        "isCorrect": true
+      },
+      {
+        "text": "Reclamación de impagados (Dunning).",
+        "rationale": "El proceso de dunning es una de las funcionalidades más importantes y características de PS-CD.",
+        "isCorrect": false
+      },
+      {
+        "text": "Gestión de partidas abiertas (Open items).",
+        "rationale": "El concepto de partida abierta, que representa una deuda pendiente, es central en la arquitectura de PS-CD.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Separa las funciones relacionadas con la 'normativa fiscal' de las relacionadas con la 'gestión del cobro y la deuda'."
+  },
+  {
+    "guid": "e91b0ba4-c9f2-40cf-8008-841d4481f078",
+    "subjectId": "T34",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "En el flujo canónico de gestión de un ingreso, ¿qué paso ocurre inmediatamente después de la 'Liquidación / Valoración' (Assessment)?",
+    "answerOptions": [
+      {
+        "text": "El registro del contribuyente (Business Partner).",
+        "rationale": "El registro del contribuyente es uno de los primeros pasos, muy anterior al cálculo de la deuda.",
+        "isCorrect": false
+      },
+      {
+        "text": "La gestión de morosidad (Dunning).",
+        "rationale": "El dunning solo se inicia si, tras la emisión y notificación de la deuda, esta no se paga en el plazo establecido.",
+        "isCorrect": false
+      },
+      {
+        "text": "La emisión del deute / facturación (Billing / Receivable).",
+        "rationale": "Una vez que se ha calculado (valorado) cuánto se debe pagar, el siguiente paso lógico es generar formalmente esa deuda en el sistema para poder notificarla y cobrarla.",
+        "isCorrect": true
+      },
+      {
+        "text": "La conciliación del pago (Clearing).",
+        "rationale": "La conciliación del pago solo puede ocurrir después de que la deuda haya sido emitida, notificada y el contribuyente haya efectuado el pago.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Una vez que el sistema ha calculado el importe, ¿cuál es la siguiente acción para formalizar esa obligación?"
+  },
+  {
+    "guid": "a85bf0f1-8082-4e31-8cc6-48bc4fcb77f7",
+    "subjectId": "T34",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Se necesita un informe con la evolución de la tasa de morosidad en el IBI durante los últimos 5 años. ¿Qué componentes de SAP se utilizarían para la explotación analítica de estos datos históricos?",
+    "answerOptions": [
+      {
+        "text": "SAP TRM y SAP PS-CD directamente.",
+        "rationale": "Aunque los datos se originan en estos módulos, no son herramientas de explotación analítica o reporting avanzado (Business Intelligence).",
+        "isCorrect": false
+      },
+      {
+        "text": "SAP BW y/o SAP SAC.",
+        "rationale": "SAP Business Warehouse (BW) y SAP Analytics Cloud (SAC) son las soluciones de SAP para el análisis de datos, la creación de informes, cuadros de mando y KPIs.",
+        "isCorrect": true
+      },
+      {
+        "text": "SAP PO y SAP CPI.",
+        "rationale": "Estas son herramientas de integración de sistemas, no de análisis de datos.",
+        "isCorrect": false
+      },
+      {
+        "text": "SAP ECM y SAP Case Management.",
+        "rationale": "ECM gestiona documentos y Case Management gestiona expedientes; ninguno está diseñado para el análisis de datos agregados.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Busca las herramientas de la suite de SAP que están especializadas en Business Intelligence y analítica."
+  },
+  {
+    "guid": "5616f5df-b986-48fc-b44d-8fbe7c0a87a2",
+    "subjectId": "T34",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "La afirmación 'BW y SAC son módulos obligatorios para el funcionamiento de SAP TRM' es una trampa de examen. ¿Por qué es falsa?",
+    "answerOptions": [
+      {
+        "text": "Porque BW y SAC son módulos de integración, no de analítica.",
+        "rationale": "Esta afirmación es incorrecta; BW y SAC son precisamente módulos de analítica.",
+        "isCorrect": false
+      },
+      {
+        "text": "Porque TRM y PS-CD pueden funcionar operativamente sin ellos; son herramientas para el análisis y la explotación de datos, no para la operación transaccional.",
+        "rationale": "Esta es la razón correcta. El sistema puede recaudar impuestos y gestionar deudas sin BW/SAC. Estos últimos añaden la capa de inteligencia de negocio, que es muy valiosa pero no imprescindible para la operación diaria.",
+        "isCorrect": true
+      },
+      {
+        "text": "Porque BW ha sido reemplazado completamente por SAP Fiori como herramienta de reporting.",
+        "rationale": "Fiori es la interfaz de usuario de SAP, no un sistema de Business Warehouse. Puede mostrar informes, pero no reemplaza la funcionalidad de BW o SAC.",
+        "isCorrect": false
+      },
+      {
+        "text": "Porque solo son obligatorios si se gestionan impuestos, pero no para tasas o precios públicos.",
+        "rationale": "La necesidad de análisis de datos no depende del tipo de ingreso, sino de las necesidades de gestión de la organización. No hay una obligatoriedad técnica ligada al tipo de ingreso.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Distingue entre los componentes necesarios para que el sistema 'funcione' (operación) y los necesarios para 'analizar' la información que genera."
+  },
+  {
+    "guid": "db677e7c-3d52-4f4f-b805-0c7229699035",
+    "subjectId": "T34",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "En la tabla comparativa de responsabilidades, la celda de 'Intereses / recargos' tiene una cruz (❌) para TRM y un tick (✔️) para PS-CD. ¿Cuál es la justificación técnica de esta asignación?",
+    "answerOptions": [
+      {
+        "text": "TRM define los tipos de interés legal, pero PS-CD es el que los aplica sobre las partidas abiertas vencidas.",
+        "rationale": "Esta es la separación correcta de funciones. TRM podría parametrizar el 'qué' (el porcentaje de interés según normativa), pero el motor de PS-CD ejecuta el 'cuándo' y 'cómo' se aplica ese interés a una deuda concreta.",
+        "isCorrect": true
+      },
+      {
+        "text": "TRM solo calcula recargos, mientras que PS-CD solo calcula intereses.",
+        "rationale": "PS-CD es capaz de gestionar ambos conceptos, ya que son elementos asociados a la gestión de la deuda vencida.",
+        "isCorrect": false
+      },
+      {
+        "text": "Los intereses se consideran un proceso financiero puro, por lo que se gestionan en SAP FI, no en TRM ni en PS-CD.",
+        "rationale": "Aunque el resultado se contabiliza en FI, el motor de cálculo de intereses de demora para deudores masivos reside en PS-CD.",
+        "isCorrect": false
+      },
+      {
+        "text": "Es una asignación incorrecta; ambos módulos pueden calcular intereses y recargos indistintamente.",
+        "rationale": "La arquitectura de SAP establece una clara separación de funciones para evitar redundancias y asegurar la coherencia: la gestión de la deuda y sus consecuencias (intereses, recargos) es responsabilidad de PS-CD.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considera qué módulo tiene el control sobre el estado de la deuda (si está vencida o no) y, por tanto, puede activar el cálculo de penalizaciones."
+  },
+  {
+    "guid": "6c560bef-0687-4187-b46c-0be57d725b9d",
+    "subjectId": "T34",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "La combinación 'TRM + PS-CD' se describe como 'clásica en sector público'. ¿Qué capacidad fundamental aporta PS-CD que justifica esta afirmación?",
+    "answerOptions": [
+      {
+        "text": "La capacidad de definir tributos complejos con BRF+.",
+        "rationale": "La definición de tributos con BRF+ es una capacidad de TRM, no de PS-CD.",
+        "isCorrect": false
+      },
+      {
+        "text": "La gestión de grandes volúmenes de contribuyentes y deudas (contabilidad de deudores masivos).",
+        "rationale": "PS-CD está basado en FI-CA (Contract Accounts Receivable and Payable), una solución diseñada para gestionar eficientemente millones de transacciones y cuentas de deudores, algo típico en el sector público.",
+        "isCorrect": true
+      },
+      {
+        "text": "La integración nativa con sistemas de padrón y catastro.",
+        "rationale": "La integración se realiza a través de middleware como PO/CPI. Si bien es necesaria, no es la capacidad 'fundamental' del propio módulo PS-CD.",
+        "isCorrect": false
+      },
+      {
+        "text": "La provisión de portales de autoservicio para el contribuyente.",
+        "rationale": "Los portales son aplicaciones que consumen servicios de los módulos de backend (como TRM y PS-CD), pero no son una función del núcleo de PS-CD en sí.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piensa en el principal reto de una administración tributaria: la escala. ¿Qué módulo está diseñado para manejar un número masivo de transacciones?"
+  },
+  {
+    "guid": "d59a9fbc-85f5-42e6-8640-d18c0158b715",
+    "subjectId": "T34",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Si el 'Objeto Contrato' es un vehículo (para el IVTM) y el 'Business Partner' es su propietario, ¿qué representa la 'Cuenta Contrato' en este escenario?",
+    "answerOptions": [
+      {
+        "text": "El permiso de circulación del vehículo.",
+        "rationale": "El permiso de circulación sería un dato o atributo del Objeto Contrato, no una cuenta económica.",
+        "isCorrect": false
+      },
+      {
+        "text": "La normativa específica del IVTM para ese municipio.",
+        "rationale": "La normativa se define en la 'Product Definition' de TRM.",
+        "isCorrect": false
+      },
+      {
+        "text": "El registro donde se anota la deuda anual del IVTM del propietario y donde se aplicará su pago.",
+        "rationale": "La Cuenta Contrato agrupa la relación económica. En ella se registrará el cargo del impuesto y el abono del pago, gestionando el saldo pendiente del propietario.",
+        "isCorrect": true
+      },
+      {
+        "text": "El propio vehículo, de forma redundante con el Objeto Contrato.",
+        "rationale": "La Cuenta Contrato no representa el objeto físico, sino la relación económica asociada a él y a su propietario.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Recuerda que la Cuenta Contrato es el pilar que responde a la pregunta '¿Dónde se gestiona el dinero y la deuda?'."
+  },
+  {
+    "guid": "11071817-eddc-49da-a51e-ba0c9436554a",
+    "subjectId": "T34",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "De acuerdo con el material, ¿cuál de los siguientes NO es un beneficio principal de implementar SAP TRM?",
+    "answerOptions": [
+      {
+        "text": "Automatización de procesos fiscales y trazabilidad completa de la deuda.",
+        "rationale": "Estos son beneficios clave mencionados explícitamente, ya que el sistema gestiona todo el ciclo de vida del tributo de forma integrada.",
+        "isCorrect": false
+      },
+      {
+        "text": "Reducción de la necesidad de integración con otros módulos SAP como FI o FM.",
+        "rationale": "Al contrario, uno de sus puntos fuertes es la integración nativa y profunda con FI y FM. TRM no funciona de forma aislada, sino que depende de estos módulos.",
+        "isCorrect": true
+      },
+      {
+        "text": "Visión única del contribuyente y cumplimiento normativo.",
+        "rationale": "La centralización de la información en el Business Partner y la parametrización de las reglas fiscales en el sistema son beneficios destacados.",
+        "isCorrect": false
+      },
+      {
+        "text": "Escalabilidad para gestionar grandes volúmenes de contribuyentes e ingresos.",
+        "rationale": "La capacidad de manejar grandes volúmenes de datos, especialmente gracias a la combinación con PS-CD, es una de las razones de su uso en grandes administraciones.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piensa si SAP TRM es un sistema autónomo o si su poder reside en su capacidad para trabajar en conjunto con el resto del ecosistema SAP."
+  },
+  {
+    "guid": "688b25cf-4987-4c4a-89af-470b851386ce",
+    "subjectId": "T34",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Un consultor indica que para un nuevo precio público, las reglas de cálculo se definirán mediante desarrollo ABAP para mayor flexibilidad. ¿Por qué el uso de BRF+ sería una alternativa preferible según las buenas prácticas descritas?",
+    "answerOptions": [
+      {
+        "text": "Porque BRF+ es más rápido en tiempo de ejecución que el código ABAP.",
+        "rationale": "El rendimiento no es el principal argumento. El código ABAP compilado puede ser muy eficiente. La ventaja de BRF+ reside en otro aspecto.",
+        "isCorrect": false
+      },
+      {
+        "text": "Porque permite que los cambios normativos sean aplicados por configuración por usuarios funcionales, sin necesidad de desarrollo de código.",
+        "rationale": "Esta es la ventaja clave. Separa las reglas de negocio del código, permitiendo una mayor agilidad y menor dependencia del equipo técnico para adaptar el sistema a cambios en la normativa.",
+        "isCorrect": true
+      },
+      {
+        "text": "Porque BRF+ es el único método permitido por SAP para definir reglas en TRM.",
+        "rationale": "Aunque es el método estándar y recomendado, SAP es una plataforma flexible que permite extensiones y desarrollo a medida. No es el único método técnicamente posible, pero sí el preferido.",
+        "isCorrect": false
+      },
+      {
+        "text": "Porque BRF+ se integra directamente con sistemas de IA para cálculos predictivos.",
+        "rationale": "Aunque se podría integrar, la función principal de BRF+ no es la IA, sino la ejecución determinista de reglas de negocio predefinidas.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considera quién debe poder mantener y adaptar las reglas de cálculo cuando cambia la normativa fiscal, y con qué agilidad."
+  }
+]
