@@ -1,0 +1,374 @@
+[
+  {
+    "guid": "fbcaeba4-17c4-4573-98cb-266cea949aac",
+    "subjectId": "T44",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En una arquitectura de microserveis (MSA), com es gestiona normalment l'emmagatzematge de dades en comparació amb una arquitectura orientada a serveis (SOA) tradicional?",
+    "answerOptions": [
+      {
+        "text": "Tant en SOA com en MSA, tots els serveis comparteixen una única base de dades corporativa per garantir la consistència.",
+        "rationale": "Aquesta pràctica és més comuna en arquitectures SOA tradicionals, on es prioritza la compartició de recursos a nivell empresarial.",
+        "isCorrect": false
+      },
+      {
+        "text": "En MSA, cada microservei sol tenir el seu propi emmagatzematge de dades independent, mentre que en SOA és comú que els serveis comparteixin bases de dades.",
+        "rationale": "La descentralització de dades és un principi clau dels microserveis per garantir l'autonomia i el baix acoblament de cada servei.",
+        "isCorrect": true
+      },
+      {
+        "text": "L'arquitectura MSA requereix que totes les dades estiguin en memòria cau (caché), mentre que SOA utilitza bases de dades relacionals.",
+        "rationale": "Tot i que la memòria cau és útil en ambdues arquitectures, no és el mètode d'emmagatzematge de dades principal ni obligatori per a MSA.",
+        "isCorrect": false
+      },
+      {
+        "text": "En SOA, cada servei té la seva pròpia base de dades, mentre que en MSA es comparteix un bus de dades comú (ESB) per a l'accés a les dades.",
+        "rationale": "Aquesta descripció inverteix els rols; SOA sovint comparteix dades i utilitza un ESB per a la comunicació, no per a l'accés directe a les dades.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Pensa en el principi d'autonomia i com afecta la dependència entre serveis en cada tipus d'arquitectura."
+  },
+  {
+    "guid": "cf2b5a8e-1d11-4d22-b93a-adefd2c92329",
+    "subjectId": "T44",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Quin component d'una plataforma d'API Management actua com a punt d'entrada únic per a les peticions dels clients, aplicant polítiques de seguretat i redirigint el trànsit als serveis de backend corresponents?",
+    "answerOptions": [
+      {
+        "text": "El Portal del Desenvolupador (Developer Portal)",
+        "rationale": "El portal del desenvolupador és la interfície on els consumidors troben documentació i es subscriuen a les APIs, però no processa les peticions en temps real.",
+        "isCorrect": false
+      },
+      {
+        "text": "L'API Gateway (Passarel·la d'API)",
+        "rationale": "Aquesta és precisament la funció de l'API Gateway: actuar com a front-end, gestionar la seguretat, l'autenticació i l'encaminament de les peticions.",
+        "isCorrect": true
+      },
+      {
+        "text": "El Gestor d'APIs (API Manager)",
+        "rationale": "El Gestor d'APIs es refereix al conjunt d'eines per definir, publicar i gestionar el cicle de vida de les APIs, sent una part més àmplia que només la gestió del trànsit.",
+        "isCorrect": false
+      },
+      {
+        "text": "L'Enterprise Service Bus (ESB)",
+        "rationale": "Un ESB és un component central en SOA per a l'orquestració i transformació de missatges, mentre que l'API Gateway és més lleuger i enfocat a la gestió d'APIs, típic de microserveis.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considera quin element actua com a 'porter' o 'recepcionista' per a totes les trucades a les APIs."
+  },
+  {
+    "guid": "6b09a3d4-cd1a-46b2-bda4-ff9664cad60b",
+    "subjectId": "T44",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Quina de les següents opcions descriu millor una de les principals dificultats o problemes inherents a l'arquitectura de microserveis?",
+    "answerOptions": [
+      {
+        "text": "L'obligació d'utilitzar el mateix llenguatge de programació per a tots els serveis, limitant la innovació tecnològica.",
+        "rationale": "Al contrari, la flexibilitat tecnològica és un dels avantatges dels microserveis; aquest problema és característic de les arquitectures monolítiques.",
+        "isCorrect": false
+      },
+      {
+        "text": "La dificultat per escalar components individuals, ja que sempre s'ha d'escalar l'aplicació sencera.",
+        "rationale": "Aquesta és una limitació de l'arquitectura monolítica. Els microserveis destaquen per la seva capacitat d'escalat independent.",
+        "isCorrect": false
+      },
+      {
+        "text": "La complexitat en la gestió del desplegament, la monitorització i la consistència de dades en un entorn distribuït.",
+        "rationale": "La naturalesa distribuïda dels microserveis introdueix reptes operatius significatius, com la gestió de múltiples serveis, les proves i la consistència de dades.",
+        "isCorrect": true
+      },
+      {
+        "text": "Un petit canvi en una funció d'un servei impacta en tots els consumidors, hagin o no utilitzat la funció modificada.",
+        "rationale": "Aquest problema s'associa més a serveis SOA grans i monolítics, on un canvi en el contracte obliga a actualitzar tots els clients.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Pensa en els reptes que sorgeixen quan una aplicació deixa de ser un sol bloc per convertir-se en un conjunt de peces comunicades per la xarxa."
+  },
+  {
+    "guid": "183e1c58-462d-4bec-8097-52e6782520d7",
+    "subjectId": "T44",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "El patró de disseny 'Circuit Breaker' (tallacircuits) s'utilitza en arquitectures de microserveis principalment per a...",
+    "answerOptions": [
+      {
+        "text": "Gestionar transaccions distribuïdes que abasten múltiples serveis, assegurant la consistència de les dades.",
+        "rationale": "Per a la gestió de transaccions distribuïdes s'utilitzen altres patrons com SAGA.",
+        "isCorrect": false
+      },
+      {
+        "text": "Permetre que els serveis es localitzin dinàmicament els uns als altres en un entorn on les instàncies canvien constantment.",
+        "rationale": "Aquesta funció correspon al patró de Service Discovery.",
+        "isCorrect": false
+      },
+      {
+        "text": "Augmentar la resiliència del sistema evitant que les fallades d'un servei es propaguin en cascada a altres serveis.",
+        "rationale": "El Circuit Breaker detecta fallades repetides en un servei i atura temporalment les peticions cap a ell, protegint la resta del sistema.",
+        "isCorrect": true
+      },
+      {
+        "text": "Centralitzar l'autenticació i l'autorització de totes les peticions que arriben des de l'exterior.",
+        "rationale": "Aquesta és una de les responsabilitats principals d'un API Gateway.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Imagina un interruptor elèctric que salta per protegir la resta de la instal·lació quan hi ha un problema."
+  },
+  {
+    "guid": "6136e90c-ef57-4697-9d94-e92dd57aa312",
+    "subjectId": "T44",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Quina afirmació descriu correctament la relació entre l'especificació OpenAPI i l'eina Swagger?",
+    "answerOptions": [
+      {
+        "text": "OpenAPI és una especificació per a serveis SOAP, mentre que Swagger és per a serveis RESTful.",
+        "rationale": "OpenAPI està dissenyada específicament per a serveis RESTful, no per a SOAP, que utilitza WSDL.",
+        "isCorrect": false
+      },
+      {
+        "text": "Són dos estàndards competidors desenvolupats per empreses diferents per a la documentació d'APIs.",
+        "rationale": "Encara que van començar per separat, ara estan directament relacionats i no són competidors.",
+        "isCorrect": false
+      },
+      {
+        "text": "Swagger és un llenguatge de programació, mentre que OpenAPI és el framework que l'implementa.",
+        "rationale": "Cap dels dos és un llenguatge de programació; són especificacions i eines per descriure APIs.",
+        "isCorrect": false
+      },
+      {
+        "text": "L'especificació Swagger va ser donada per convertir-se en la base de l'estàndard conegut avui com a OpenAPI Specification.",
+        "rationale": "SmartBear va cedir l'especificació Swagger a la Linux Foundation, que la va reanomenar OpenAPI Specification, convertint-la en un estàndard de la indústria.",
+        "isCorrect": true
+      }
+    ],
+    "hint": "Pensa en l'evolució d'un producte que es converteix en un estàndard obert per a la comunitat."
+  },
+  {
+    "guid": "6cf07d4e-0aef-48e4-bf6d-4b6e17d9b3ac",
+    "subjectId": "T44",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En comparar la comunicació entre serveis, quina és una diferència clau entre l'orquestració (típica de SOA) i la coreografia (més comuna en MSA)?",
+    "answerOptions": [
+      {
+        "text": "L'orquestració utilitza comunicació asíncrona, mentre que la coreografia sempre és síncrona.",
+        "rationale": "Ambdós patrons poden utilitzar tant comunicació síncrona com asíncrona. La diferència rau en el control del flux.",
+        "isCorrect": false
+      },
+      {
+        "text": "En l'orquestració, un component central (com un ESB) dirigeix el flux, mentre que en la coreografia, els serveis reaccionen a esdeveniments de manera autònoma.",
+        "rationale": "L'orquestració implica un 'director' que coordina, mentre que la coreografia s'assembla a 'ballarins' que saben com reaccionar als moviments dels altres sense un director.",
+        "isCorrect": true
+      },
+      {
+        "text": "L'orquestració és un patró exclusiu per a microserveis, i la coreografia és exclusiva per a SOA.",
+        "rationale": "És justament al contrari; l'orquestració està fortament associada a SOA i l'ESB, mentre que la coreografia s'alinea millor amb la naturalesa descentralitzada dels microserveis.",
+        "isCorrect": false
+      },
+      {
+        "text": "La coreografia requereix un contracte WSDL, mentre que l'orquestració es basa en documents Swagger/OpenAPI.",
+        "rationale": "Els tipus de contracte (WSDL, OpenAPI) estan relacionats amb la tecnologia de l'API (SOAP, REST) i no defineixen el patró d'interacció (orquestració vs. coreografia).",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Pensa en la diferència entre una orquestra amb un director i un grup de ballarins de dansa improvisada."
+  },
+  {
+    "guid": "4ae97314-a857-4405-b478-ea2eef37d470",
+    "subjectId": "T44",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Per a quin dels següents escenaris seria més adequat triar una arquitectura monolítica en lloc d'una arquitectura de microserveis?",
+    "answerOptions": [
+      {
+        "text": "Una gran plataforma de comerç electrònic amb equips de desenvolupament distribuïts i necessitat d'escalar el servei de pagaments de forma independent.",
+        "rationale": "Aquest escenari complex, amb necessitat d'escalat independent i equips autònoms, és un cas d'ús ideal per a microserveis.",
+        "isCorrect": false
+      },
+      {
+        "text": "Una aplicació petita o un prototip desenvolupat per un equip reduït, on la rapidesa inicial de desenvolupament és prioritària i la complexitat és baixa.",
+        "rationale": "En aquest cas, la simplicitat inicial d'un monòlit supera la complexitat operativa que introduirien els microserveis.",
+        "isCorrect": true
+      },
+      {
+        "text": "Un sistema que requereix alta resiliència, on la fallada d'un component no ha d'afectar la disponibilitat de la resta de funcionalitats.",
+        "rationale": "L'aïllament de fallades és un dels principals avantatges dels microserveis, fent-los més resilients que un monòlit.",
+        "isCorrect": false
+      },
+      {
+        "text": "Una aplicació que necessita integrar diverses tecnologies i llenguatges de programació per aprofitar la millor eina per a cada tasca.",
+        "rationale": "La flexibilitat per utilitzar un 'stack' tecnològic divers per a cada component és una característica distintiva de l'arquitectura de microserveis.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considera quan la complexitat afegida d'una arquitectura distribuïda podria ser més un inconvenient que un avantatge."
+  },
+  {
+    "guid": "1bee63d1-55ea-421c-b254-64df0b87eecb",
+    "subjectId": "T44",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Quin protocol de seguretat està dissenyat específicament per a l'AUTORITZACIÓ, permetent que una aplicació actuï en nom d'un usuari per accedir a recursos protegits en un altre servei?",
+    "answerOptions": [
+      {
+        "text": "TLS (Transport Layer Security)",
+        "rationale": "TLS s'encarrega de xifrar la comunicació entre dos punts per garantir la privacitat i la integritat de les dades, però no gestiona l'autorització d'accés als recursos.",
+        "isCorrect": false
+      },
+      {
+        "text": "JWT (JSON Web Tokens)",
+        "rationale": "JWT és un format de token utilitzat per transmetre informació de manera segura, com ara la identitat o els permisos, però no és el protocol que defineix el flux d'autorització.",
+        "isCorrect": false
+      },
+      {
+        "text": "OAuth 2.0",
+        "rationale": "OAuth 2.0 és l'estàndard de la indústria per a la delegació d'autorització, permetent l'accés a APIs en nom d'un usuari sense compartir les seves credencials.",
+        "isCorrect": true
+      },
+      {
+        "text": "SOAP (Simple Object Access Protocol)",
+        "rationale": "SOAP és un protocol de missatgeria per a l'intercanvi d'informació estructurada, i encara que pot incorporar seguretat (WS-Security), no és un protocol d'autorització en si mateix.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Aquest estàndard és comú quan inicies sessió en un lloc web utilitzant el teu compte de Google o Facebook."
+  },
+  {
+    "guid": "79fee1b7-c4b0-403b-8252-c658522ab3ca",
+    "subjectId": "T44",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Quina és la principal contribució de tecnologies com Docker en una arquitectura de microserveis?",
+    "answerOptions": [
+      {
+        "text": "Automatitzar el flux de comunicació entre serveis, actuant com un Enterprise Service Bus (ESB).",
+        "rationale": "La gestió de la comunicació és responsabilitat de les APIs, API Gateways o Service Meshes, no dels contenidors.",
+        "isCorrect": false
+      },
+      {
+        "text": "Proporcionar un entorn d'execució aïllat i portàtil per a cada microservei, garantint la consistència entre entorns.",
+        "rationale": "Els contenidors empaqueten un servei i totes les seves dependències, la qual cosa simplifica el desplegament i evita problemes de 'a la meva màquina funciona'.",
+        "isCorrect": true
+      },
+      {
+        "text": "Definir el contracte de les APIs mitjançant un format estàndard com WSDL o OpenAPI.",
+        "rationale": "Aquesta funció la realitzen les especificacions d'API, no les tecnologies de contenidorització.",
+        "isCorrect": false
+      },
+      {
+        "text": "Escriure automàticament les proves unitàries i d'integració per a cada servei.",
+        "rationale": "Docker facilita l'execució de proves en entorns aïllats, però no les escriu automàticament.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Pensa en com s'empaqueta i es transporta un microservei per assegurar que funcioni igual a qualsevol lloc."
+  },
+  {
+    "guid": "f1573d51-0e50-4aee-a598-7b475c674582",
+    "subjectId": "T44",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En una arquitectura de microserveis, la comunicació entre serveis pot ser síncrona o asíncrona. Quina tecnologia s'associa principalment amb la comunicació ASÍNCRONA basada en esdeveniments?",
+    "answerOptions": [
+      {
+        "text": "API RESTful sobre HTTP",
+        "rationale": "Les APIs RESTful sobre HTTP són el paradigma més comú per a la comunicació síncrona, on el client espera una resposta immediata.",
+        "isCorrect": false
+      },
+      {
+        "text": "SOAP amb WSDL",
+        "rationale": "Tot i que SOAP pot operar sobre protocols asíncrons com JMS, la seva implementació més comuna sobre HTTP és síncrona.",
+        "isCorrect": false
+      },
+      {
+        "text": "Kubernetes",
+        "rationale": "Kubernetes és una plataforma per orquestrar contenidors, no un protocol o tecnologia de comunicació entre serveis.",
+        "isCorrect": false
+      },
+      {
+        "text": "Un Message Broker com Kafka o RabbitMQ",
+        "rationale": "Aquestes plataformes estan dissenyades per gestionar cues de missatges i fluxos d'esdeveniments, permetent que els serveis es comuniquin de manera desacoblada i sense esperar respostes immediates.",
+        "isCorrect": true
+      }
+    ],
+    "hint": "Considera quina eina actua com un 'carter' o una 'bústia de correus' entre els serveis."
+  },
+  {
+    "guid": "d41a529c-a084-4a04-aa0c-8377121e08d6",
+    "subjectId": "T44",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Què descriu el concepte d' 'interfície' o 'contracte' en una arquitectura orientada a serveis (SOA)?",
+    "answerOptions": [
+      {
+        "text": "La implementació interna de la lògica de negoci del servei.",
+        "rationale": "El contracte precisament amaga (abstreu) els detalls d'implementació, exposant només la funcionalitat.",
+        "isCorrect": false
+      },
+      {
+        "text": "Una descripció formal de les dades i funcions que ofereix un servei, que actua com un acord entre proveïdor i consumidor.",
+        "rationale": "El contracte (p. ex., un fitxer WSDL per a SOAP o OpenAPI per a REST) defineix què fa el servei i com interactuar-hi, sense revelar el 'com'.",
+        "isCorrect": true
+      },
+      {
+        "text": "La infraestructura de maquinari on s'executa el servei.",
+        "rationale": "L'arquitectura SOA busca la independència de la infraestructura; el contracte és una definició lògica, no física.",
+        "isCorrect": false
+      },
+      {
+        "text": "Una eina de programari que connecta directament les bases de dades de diferents aplicacions.",
+        "rationale": "La connexió es fa a través dels serveis definits pel contracte, no directament a les bases de dades.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Pensa en el que un consumidor necessita saber per utilitzar un servei, sense necessitat de veure'n el codi intern."
+  },
+  {
+    "guid": "c57fe1f7-dc8a-4e94-9e00-4a8cd077ad62",
+    "subjectId": "T44",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "D'acord amb els principis de disseny de microserveis, per què es recomana que cada servei tingui la seva pròpia base de dades?",
+    "answerOptions": [
+      {
+        "text": "Per reduir el cost total de llicències de bases de dades, ja que es poden utilitzar opcions de codi obert.",
+        "rationale": "Tot i que es poden fer servir bases de dades de codi obert, l'objectiu principal no és l'estalvi de costos, sinó un principi arquitectònic.",
+        "isCorrect": false
+      },
+      {
+        "text": "Per garantir un baix acoblament i permetre que cada servei pugui evolucionar i escalar de forma independent sense afectar els altres.",
+        "rationale": "Compartir una base de dades crea una forta dependència (acoblament) entre serveis. Tenir bases de dades separades assegura l'autonomia.",
+        "isCorrect": true
+      },
+      {
+        "text": "Perquè és un requisit tècnic obligatori de les plataformes d'orquestració com Kubernetes.",
+        "rationale": "Kubernetes pot gestionar serveis que comparteixen bases de dades, tot i que no és la pràctica recomanada en el disseny de microserveis purs.",
+        "isCorrect": false
+      },
+      {
+        "text": "Per simplificar la gestió de còpies de seguretat, ja que només cal fer una còpia d'una base de dades centralitzada.",
+        "rationale": "Aquesta afirmació descriu l'operació amb una base de dades compartida. Tenir bases de dades separades, de fet, pot complicar l'estratègia de còpies de seguretat.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considera com la compartició d'un recurs crític pot crear dependències no desitjades entre components que haurien de ser autònoms."
+  }
+]

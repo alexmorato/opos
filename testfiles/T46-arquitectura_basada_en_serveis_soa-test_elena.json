@@ -1,0 +1,374 @@
+[
+  {
+    "guid": "f3c1729b-4f4b-432b-9388-3c7b206b1e35",
+    "subjectId": "T46",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En una arquitectura SOA clásica, ¿cuál es la función principal de un Enterprise Service Bus (ESB) que lo diferencia de un API Gateway en una arquitectura de microservicios?",
+    "answerOptions": [
+      {
+        "text": "Actuar como un mediador central que realiza orquestación de servicios y transformaciones complejas de datos.",
+        "rationale": "El ESB es un componente central con lógica para mediar, transformar y orquestar flujos entre servicios, a diferencia del API Gateway, que suele ser un punto de entrada más ligero.",
+        "isCorrect": true
+      },
+      {
+        "text": "Gestionar exclusivamente el enrutamiento de peticiones a servicios RESTful que utilizan el formato JSON.",
+        "rationale": "Un ESB está diseñado para manejar múltiples protocolos (SOAP, JMS, REST) y formatos, no solo REST/JSON.",
+        "isCorrect": false
+      },
+      {
+        "text": "Servir como un simple punto de entrada para aplicar políticas de seguridad y limitar el número de peticiones.",
+        "rationale": "Esta descripción se ajusta más al rol típico de un API Gateway, que es menos complejo que un ESB.",
+        "isCorrect": false
+      },
+      {
+        "text": "Almacenar el estado de las transacciones de negocio para garantizar la consistencia entre todos los servicios.",
+        "rationale": "Aunque puede participar en la orquestación de transacciones, la función principal del ESB no es almacenar el estado, sino mediar la comunicación.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piensa en dónde reside la \"inteligencia\" y la lógica de integración en cada arquitectura."
+  },
+  {
+    "guid": "6003ac4d-8e0e-405a-926e-3639e2279537",
+    "subjectId": "T46",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Qué documento define formalmente el contrato de un servicio web basado en SOAP, especificando sus operaciones, mensajes y formatos de datos?",
+    "answerOptions": [
+      {
+        "text": "Un archivo WSDL (Web Services Description Language).",
+        "rationale": "WSDL es el estándar basado en XML que se utiliza para describir de manera formal y completa un servicio web SOAP.",
+        "isCorrect": true
+      },
+      {
+        "text": "Un archivo de especificación OpenAPI/Swagger.",
+        "rationale": "OpenAPI (anteriormente Swagger) es el estándar de facto para describir y documentar APIs RESTful, no servicios SOAP.",
+        "isCorrect": false
+      },
+      {
+        "text": "Un esquema JSON (JSON Schema).",
+        "rationale": "Un esquema JSON define la estructura de los datos en formato JSON, pero no describe las operaciones ni los protocolos del servicio como lo hace un contrato completo.",
+        "isCorrect": false
+      },
+      {
+        "text": "Un documento XML con la política de seguridad WS-Policy.",
+        "rationale": "WS-Policy define las políticas de seguridad de un servicio, pero no su contrato funcional completo (operaciones, mensajes, etc.).",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Este estándar utiliza XML para describir todos los aspectos de un servicio web tradicional."
+  },
+  {
+    "guid": "01c496fe-11ef-4818-9bc1-ddd8569305e9",
+    "subjectId": "T46",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Según el material, ¿cuál es la principal ventaja de JSON sobre XML que ha impulsado su adopción en las APIs modernas?",
+    "answerOptions": [
+      {
+        "text": "Es más ligero, legible y fácil de procesar, especialmente para clientes web y móviles.",
+        "rationale": "La simplicidad y menor verbosidad de JSON lo hacen más eficiente para transmitir datos y más fácil de manipular con lenguajes como JavaScript.",
+        "isCorrect": true
+      },
+      {
+        "text": "Ofrece un sistema de validación de esquemas mucho más robusto y estricto que XML.",
+        "rationale": "XML, junto con XSD (XML Schema Definition), tradicionalmente se ha considerado más robusto para la validación de estructuras de datos complejas.",
+        "isCorrect": false
+      },
+      {
+        "text": "Incorpora de forma nativa estándares de seguridad avanzada como WS-Security.",
+        "rationale": "WS-Security es una especificación diseñada para SOAP y XML; la seguridad en APIs basadas en JSON se implementa con otros estándares como OAuth2 y JWT.",
+        "isCorrect": false
+      },
+      {
+        "text": "Es el único formato de datos que puede ser transportado sobre el protocolo HTTP.",
+        "rationale": "El protocolo HTTP es agnóstico al formato de los datos y puede transportar XML, JSON, texto plano, binarios, etc.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considera la eficiencia y la facilidad de integración con las tecnologías utilizadas en los navegadores web."
+  },
+  {
+    "guid": "f65efeb4-ddb8-4060-9897-a36d1a93a85f",
+    "subjectId": "T46",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Qué característica fundamental distingue a la arquitectura de microservicios de la arquitectura SOA?",
+    "answerOptions": [
+      {
+        "text": "Cada servicio suele tener su propia base de datos y puede ser desplegado de forma completamente independiente.",
+        "rationale": "La autonomía es un principio clave de los microservicios, lo que incluye la gestión de sus propios datos y ciclos de despliegue independientes.",
+        "isCorrect": true
+      },
+      {
+        "text": "Utiliza un bus de servicios empresarial (ESB) como componente central para toda la comunicación.",
+        "rationale": "El uso de un ESB centralizado es característico de SOA, mientras que los microservicios favorecen una comunicación más directa o mediante brokers de mensajes.",
+        "isCorrect": false
+      },
+      {
+        "text": "Fomenta la reutilización de grandes servicios corporativos compartidos entre múltiples aplicaciones.",
+        "rationale": "Este es un objetivo principal de SOA; los microservicios se centran en servicios más pequeños y acotados a un contexto de aplicación específico.",
+        "isCorrect": false
+      },
+      {
+        "text": "La gobernanza es siempre centralizada y formal, definida a nivel de toda la organización.",
+        "rationale": "SOA tiende a una gobernanza centralizada, mientras que los microservicios promueven una gobernanza descentralizada donde cada equipo tiene más autonomía.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piensa en el nivel de autonomía y el acoplamiento de los componentes en cada modelo."
+  },
+  {
+    "guid": "ca9f0751-7e72-4493-a132-efb12d7c3f03",
+    "subjectId": "T46",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "De acuerdo con las buenas prácticas, ¿qué implica que un servicio sea diseñado como \"stateless\" (sin estado)?",
+    "answerOptions": [
+      {
+        "text": "Que cada petición debe contener toda la información necesaria para ser procesada, sin depender de interacciones previas.",
+        "rationale": "Un servicio sin estado no almacena información de sesión del cliente entre peticiones, lo que simplifica la escalabilidad y la resiliencia.",
+        "isCorrect": true
+      },
+      {
+        "text": "Que el servicio no puede conectarse a ninguna base de datos para persistir información.",
+        "rationale": "Ser \"stateless\" se refiere al estado de la sesión de interacción, no a la capacidad de leer o escribir datos en un almacenamiento persistente.",
+        "isCorrect": false
+      },
+      {
+        "text": "Que las respuestas del servicio siempre son idénticas sin importar los parámetros de entrada.",
+        "rationale": "La respuesta de un servicio debe depender de la información contenida en la petición; ser \"stateless\" no significa que la respuesta sea estática.",
+        "isCorrect": false
+      },
+      {
+        "text": "Que el servicio debe eliminar todos los registros de la petición (logs) una vez que ha enviado la respuesta.",
+        "rationale": "La gestión de logs es una cuestión de observabilidad y no está directamente relacionada con el principio de diseño \"stateless\".",
+        "isCorrect": false
+      }
+    ],
+    "hint": "El servidor no necesita \"recordar\" la conversación con el cliente entre una petición y la siguiente."
+  },
+  {
+    "guid": "2978e048-60f9-4e4e-a7ae-06fd228c6c1c",
+    "subjectId": "T46",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En el contexto de la administración pública, ¿qué caso de uso típico se facilita mediante una arquitectura SOA?",
+    "answerOptions": [
+      {
+        "text": "Crear una \"finestreta única\" (ventanilla única) que integra servicios de diferentes departamentos y administraciones.",
+        "rationale": "SOA permite orquestar y reutilizar servicios de distintos organismos para ofrecer trámites unificados al ciudadano, como en una ventanilla única digital.",
+        "isCorrect": true
+      },
+      {
+        "text": "Reemplazar todos los sistemas legados (legacy) por una única aplicación monolítica moderna.",
+        "rationale": "El objetivo de SOA es precisamente integrar sistemas heterogéneos, incluidos los legados, no necesariamente reemplazarlos todos a la vez.",
+        "isCorrect": false
+      },
+      {
+        "text": "Asegurar que todos los organismos públicos utilicen el mismo lenguaje de programación y la misma base de datos.",
+        "rationale": "La interoperabilidad, uno de los pilares de SOA, busca que sistemas con diferentes tecnologías puedan comunicarse, no forzarlos a ser homogéneos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Permitir que cada ayuntamiento desarrolle sus propios servicios sin necesidad de seguir estándares comunes.",
+        "rationale": "Al contrario, SOA en la administración pública se basa en estándares comunes, como el Esquema Nacional de Interoperabilidad, para funcionar correctamente.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piensa en cómo se pueden combinar diferentes servicios gubernamentales para simplificar un trámite para un ciudadano."
+  },
+  {
+    "guid": "3aff4bca-0c62-4c80-81be-d6375f572a18",
+    "subjectId": "T46",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Cuál es el principal riesgo de sobrecargar un ESB con lógica de negocio compleja?",
+    "answerOptions": [
+      {
+        "text": "Puede convertirse en un cuello de botella y un punto único de fallo, dificultando el mantenimiento.",
+        "rationale": "Centralizar la lógica en el bus lo hace crítico para el funcionamiento de todo el sistema, aumentando el riesgo y la rigidez de la arquitectura.",
+        "isCorrect": true
+      },
+      {
+        "text": "Simplifica la lógica de los servicios individuales, haciéndolos más fáciles de desarrollar.",
+        "rationale": "Aunque pueda parecer que simplifica los servicios, en realidad crea una fuerte dependencia del bus y oculta la lógica de negocio en una capa de infraestructura.",
+        "isCorrect": false
+      },
+      {
+        "text": "Es la práctica recomendada para maximizar la reutilización de código en una arquitectura SOA.",
+        "rationale": "La buena práctica es que la lógica de negocio resida en los servicios, y el ESB se encargue de la mediación y el enrutamiento, no de la lógica.",
+        "isCorrect": false
+      },
+      {
+        "text": "Mejora la seguridad global del sistema al tener todas las reglas de negocio en un único lugar.",
+        "rationale": "Aunque centraliza las reglas, también centraliza un punto de ataque y fallo, lo que puede ser contraproducente para la resiliencia y seguridad del sistema.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considera qué sucede cuando un componente central que es responsable de demasiadas tareas críticas se sobrecarga o falla."
+  },
+  {
+    "guid": "44ab7f65-b6f1-472b-b8c0-6c9cbe963ce9",
+    "subjectId": "T46",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Qué estándar de seguridad está específicamente diseñado para servicios web SOAP y se menciona como uno de sus puntos fuertes?",
+    "answerOptions": [
+      {
+        "text": "WS-Security",
+        "rationale": "WS-Security forma parte de la familia de especificaciones WS-* y proporciona un modelo para aplicar confidencialidad e integridad a los mensajes SOAP.",
+        "isCorrect": true
+      },
+      {
+        "text": "OAuth2",
+        "rationale": "OAuth2 es un estándar de autorización muy utilizado en APIs RESTful para delegar el acceso a recursos, pero no es específico de SOAP.",
+        "isCorrect": false
+      },
+      {
+        "text": "JWT (JSON Web Tokens)",
+        "rationale": "JWT es un estándar para crear tokens de acceso que afirman un conjunto de datos (claims) en formato JSON, comúnmente usado con OAuth2 en arquitecturas REST.",
+        "isCorrect": false
+      },
+      {
+        "text": "OpenID Connect",
+        "rationale": "OpenID Connect es una capa de identidad construida sobre OAuth2, utilizada para la autenticación de usuarios en sistemas modernos, principalmente REST.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Su nombre forma parte de la familia de especificaciones \"WS-*\" que extienden la funcionalidad de los servicios web."
+  },
+  {
+    "guid": "f03dd2ea-c857-4397-a11e-19ced4b6b1c2",
+    "subjectId": "T46",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En una arquitectura moderna, ¿cuál es la función principal de un API Manager?",
+    "answerOptions": [
+      {
+        "text": "Gobernar el ciclo de vida de las APIs, controlando el acceso, las versiones, la publicación y monitorizando su uso.",
+        "rationale": "Un API Manager es una plataforma de gobernanza que centraliza la gestión y exposición de las APIs de una organización.",
+        "isCorrect": true
+      },
+      {
+        "text": "Orquestar flujos de negocio complejos que involucran múltiples llamadas a servicios legados.",
+        "rationale": "La orquestación de flujos complejos es una función más característica de un ESB o un motor de procesos de negocio (BPM).",
+        "isCorrect": false
+      },
+      {
+        "text": "Ejecutar directamente el código de la lógica de negocio de las aplicaciones.",
+        "rationale": "La lógica de negocio reside en los servicios o aplicaciones de backend; el API Manager gestiona el acceso a ellos, pero no los ejecuta.",
+        "isCorrect": false
+      },
+      {
+        "text": "Descubrir servicios de forma dinámica en un entorno de contenedores como Kubernetes.",
+        "rationale": "El descubrimiento dinámico de servicios es una función de herramientas como Consul, Eureka o el DNS de Kubernetes, no del API Manager.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piensa en este componente como el panel de control para todas las APIs de una empresa, enfocado en la gestión y las políticas."
+  },
+  {
+    "guid": "740f9c9a-c063-4a94-8031-92f768c94510",
+    "subjectId": "T46",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿En qué escenario sería más apropiado elegir una arquitectura SOA en lugar de una de microservicios?",
+    "answerOptions": [
+      {
+        "text": "Para integrar un gran número de sistemas legados heterogéneos con una gobernanza central fuerte.",
+        "rationale": "SOA y su componente central, el ESB, están diseñados para la integración a nivel empresarial y la gobernanza centralizada, ideal para entornos corporativos complejos.",
+        "isCorrect": true
+      },
+      {
+        "text": "Cuando se requiere una alta escalabilidad independiente para cada funcionalidad de una nueva aplicación nativa en la nube.",
+        "rationale": "Este escenario es ideal para una arquitectura de microservicios, que permite escalar cada servicio de forma autónoma.",
+        "isCorrect": false
+      },
+      {
+        "text": "Si se trabaja con equipos de desarrollo pequeños y autónomos que practican el despliegue continuo (CI/CD).",
+        "rationale": "La autonomía de los equipos y la alta frecuencia de despliegues son características que se alinean perfectamente con la filosofía de los microservicios.",
+        "isCorrect": false
+      },
+      {
+        "text": "Para construir una aplicación móvil que necesita respuestas rápidas y un bajo consumo de datos.",
+        "rationale": "Para aplicaciones móviles, se suelen preferir APIs RESTful ligeras, que son más comunes en arquitecturas de microservicios que en SOA tradicional con SOAP.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considera qué arquitectura es más adecuada para la integración a nivel corporativo frente a la agilidad a nivel de aplicación."
+  },
+  {
+    "guid": "a20d08a5-ceba-4247-b723-f9f1dc7343f7",
+    "subjectId": "T46",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "La capacidad de que sistemas heterogéneos (con diferentes tecnologías y plataformas) puedan trabajar juntos usando estándares comunes se conoce como:",
+    "answerOptions": [
+      {
+        "text": "Interoperabilidad",
+        "rationale": "La interoperabilidad es un objetivo fundamental de SOA, permitiendo la comunicación entre sistemas diversos mediante protocolos y formatos estandarizados.",
+        "isCorrect": true
+      },
+      {
+        "text": "Escalabilidad",
+        "rationale": "La escalabilidad se refiere a la capacidad de un sistema para manejar una carga de trabajo creciente, no a la comunicación entre sistemas diferentes.",
+        "isCorrect": false
+      },
+      {
+        "text": "Abstracción",
+        "rationale": "La abstracción es el principio de ocultar los detalles de implementación de un servicio, lo cual contribuye a la interoperabilidad, pero no es el concepto en sí.",
+        "isCorrect": false
+      },
+      {
+        "text": "Composabilidad",
+        "rationale": "La composabilidad es la capacidad de combinar servicios más pequeños para crear procesos de negocio más complejos.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Este es uno de los principales beneficios de SOA, especialmente en el sector público donde coexisten muchas tecnologías diferentes."
+  },
+  {
+    "guid": "1a06be04-8ce6-473a-b14d-520ff4cf76cc",
+    "subjectId": "T46",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Qué práctica de diseño asegura que un cambio interno en la implementación de un servicio no afecte a las aplicaciones que lo consumen?",
+    "answerOptions": [
+      {
+        "text": "Bajo acoplamiento (Loose coupling)",
+        "rationale": "El bajo acoplamiento se logra al interactuar a través de un contrato estable (API), permitiendo que la lógica interna del servicio evolucione sin \"romper\" a sus clientes.",
+        "isCorrect": true
+      },
+      {
+        "text": "Alta cohesión (High cohesion)",
+        "rationale": "La alta cohesión significa que las responsabilidades de un servicio están bien definidas y relacionadas entre sí, lo cual es una buena práctica pero no aborda directamente la dependencia con los consumidores.",
+        "isCorrect": false
+      },
+      {
+        "text": "Descubrimiento de servicios (Service discovery)",
+        "rationale": "El descubrimiento de servicios permite localizar dinámicamente dónde se encuentra un servicio, pero no garantiza que los cambios en él no afecten a los clientes.",
+        "isCorrect": false
+      },
+      {
+        "text": "Gobernanza centralizada",
+        "rationale": "La gobernanza establece las reglas, pero es el principio de diseño de bajo acoplamiento el que protege a los consumidores de los cambios internos.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Este principio de diseño busca minimizar la dependencia entre los servicios y sus consumidores."
+  }
+]
