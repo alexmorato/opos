@@ -1,0 +1,374 @@
+[
+  {
+    "guid": "48be4f48-8a5c-4b89-8036-0b76d78fc2e7",
+    "subjectId": "T52",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 4,
+    "question": "¿Cuál es el propósito principal del Transport Management System (TMS) en el entorno SAP?",
+    "answerOptions": [
+      {
+        "text": "Monitorizar el rendimiento de la base de datos durante la importación de cambios.",
+        "rationale": "El monitoreo del rendimiento es una tarea de Basis, pero el TMS se enfoca específicamente en la logística de los cambios, no en el impacto en el rendimiento de la BBDD.",
+        "isCorrect": false
+      },
+      {
+        "text": "Compilar el código ABAP para asegurar que no contiene errores antes de moverlo.",
+        "rationale": "La compilación y verificación de sintaxis del código ABAP es una tarea del entorno de desarrollo, anterior a la gestión del transporte por parte del TMS.",
+        "isCorrect": false
+      },
+      {
+        "text": "Definir y supervisar la ruta por la que se mueven los cambios entre entornos.",
+        "rationale": "El TMS es el sistema que configura las rutas (por ejemplo, de Desarrollo a Calidad) y controla el flujo de las órdenes de transporte a través de ellas.",
+        "isCorrect": true
+      },
+      {
+        "text": "Asignar permisos a los desarrolladores para crear nuevas órdenes de transporte.",
+        "rationale": "La gestión de permisos y autorizaciones para usuarios se realiza a través del sistema de roles y perfiles (PFCG, SU01), no directamente en el TMS.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piensa en cómo SAP asegura que los cambios sigan un camino ordenado y controlado desde su creación hasta su puesta en producción."
+  },
+  {
+    "guid": "864297fe-1f3b-48aa-805f-4d7915197ae3",
+    "subjectId": "T52",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 4,
+    "question": "Un consultor funcional ha modificado la configuración de una sociedad financiera en el entorno de desarrollo (DEV) usando la transacción SPRO. ¿Qué tipo de orden de transporte se generará para mover este cambio?",
+    "answerOptions": [
+      {
+        "text": "Workbench",
+        "rationale": "Las órdenes de tipo Workbench se utilizan para objetos de desarrollo como programas o tablas, no para configuraciones funcionales del sistema.",
+        "isCorrect": false
+      },
+      {
+        "text": "Customizing",
+        "rationale": "La transacción SPRO se utiliza para la parametrización del sistema, y todos los cambios realizados allí se guardan en órdenes de transporte de tipo Customizing.",
+        "isCorrect": true
+      },
+      {
+        "text": "RFC (Remote Function Call)",
+        "rationale": "RFC es un mecanismo de comunicación entre sistemas, no un tipo de orden de transporte para mover configuraciones.",
+        "isCorrect": false
+      },
+      {
+        "text": "De copia de mandante",
+        "rationale": "Una copia de mandante es un proceso mucho más grande para duplicar un cliente entero y no se utiliza para mover cambios de configuración específicos.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "El material de origen distingue claramente entre los cambios relacionados con el desarrollo de código y los relacionados con la configuración del sistema."
+  },
+  {
+    "guid": "166344e9-61ef-4e9b-a288-8cdeadfb12f4",
+    "subjectId": "T52",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 4,
+    "question": "¿Qué tipo de objeto se incluiría típicamente en una orden de transporte de tipo Workbench?",
+    "answerOptions": [
+      {
+        "text": "La configuración de un nuevo tipo de pedido de ventas.",
+        "rationale": "La parametrización de procesos de negocio, como los tipos de pedido, corresponde a una orden de Customizing.",
+        "isCorrect": false
+      },
+      {
+        "text": "Un nuevo programa ABAP creado por un desarrollador.",
+        "rationale": "Los objetos del repositorio ABAP, como programas, funciones o tablas, son el contenido principal de las órdenes de Workbench.",
+        "isCorrect": true
+      },
+      {
+        "text": "La creación de un nuevo usuario con la transacción SU01.",
+        "rationale": "Los datos de usuario son datos maestros y generalmente no se transportan entre entornos, sino que se crean en cada uno de ellos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Un rol de seguridad modificado en la transacción PFCG.",
+        "rationale": "Aunque es una configuración técnica, los roles de seguridad a menudo se transportan, pero la categoría más representativa de Workbench son los objetos de desarrollo.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Este tipo de transporte se asocia directamente con las tareas y los objetos que crea un programador."
+  },
+  {
+    "guid": "ba7b10b7-3487-42a4-a860-b062b82680db",
+    "subjectId": "T52",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 4,
+    "question": "¿Cuál es la ruta de transporte estándar y recomendada que un administrador Basis configura y supervisa?",
+    "answerOptions": [
+      {
+        "text": "DEV → PRD → QA",
+        "rationale": "Mover cambios a producción (PRD) antes de probarlos en calidad (QA) eliminaría la fase de pruebas y sería extremadamente arriesgado.",
+        "isCorrect": false
+      },
+      {
+        "text": "QA → DEV → PRD",
+        "rationale": "El desarrollo (DEV) es siempre el punto de partida para cualquier cambio nuevo, por lo que esta secuencia es incorrecta.",
+        "isCorrect": false
+      },
+      {
+        "text": "PRD → QA → DEV",
+        "rationale": "Esta secuencia representa un flujo inverso, que no se utiliza para el despliegue de nuevos desarrollos o configuraciones.",
+        "isCorrect": false
+      },
+      {
+        "text": "DEV → QA → PRD",
+        "rationale": "Este flujo lógico asegura que los cambios se desarrollan, luego se prueban en un entorno de calidad y, una vez validados, se mueven al entorno productivo.",
+        "isCorrect": true
+      }
+    ],
+    "hint": "Los cambios se originan en un entorno, se validan en otro y finalmente se implementan en el sistema que usan los usuarios finales."
+  },
+  {
+    "guid": "d615a1de-b38b-45ef-861f-ce1d34263095",
+    "subjectId": "T52",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 4,
+    "question": "Según el texto, ¿qué beneficios clave aporta el uso del sistema \"Transport Organizer\"?",
+    "answerOptions": [
+      {
+        "text": "Control, trazabilidad y estabilidad.",
+        "rationale": "Estos tres pilares son la justificación para no permitir \"copiar y pegar\" y usar en su lugar un sistema estructurado de transportes.",
+        "isCorrect": true
+      },
+      {
+        "text": "Rapidez, seguridad y bajo coste.",
+        "rationale": "Aunque se busca la seguridad, el sistema de transportes prioriza el control sobre la rapidez, y el coste no es su objetivo principal.",
+        "isCorrect": false
+      },
+      {
+        "text": "Integración, monitorización y optimización.",
+        "rationale": "Estos son conceptos importantes en SAP Basis, pero no son los beneficios directos y fundamentales que proporciona el sistema de transportes.",
+        "isCorrect": false
+      },
+      {
+        "text": "Automatización, virtualización y escalabilidad.",
+        "rationale": "Si bien los transportes pueden ser automatizados, los beneficios principales mencionados en el texto se centran en la gobernanza del cambio.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "¿Por qué SAP impone un sistema formal para mover cambios en lugar de un método más directo?"
+  },
+  {
+    "guid": "6d58f2dd-96dc-430a-b301-726869832c0e",
+    "subjectId": "T52",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 4,
+    "question": "¿Qué afirmación describe correctamente la diferencia fundamental entre una orden de Workbench y una de Customizing?",
+    "answerOptions": [
+      {
+        "text": "Workbench es para cambios urgentes y Customizing para cambios planificados.",
+        "rationale": "La urgencia de un cambio es independiente de su tipo; tanto un desarrollo como una configuración pueden ser urgentes.",
+        "isCorrect": false
+      },
+      {
+        "text": "Workbench se importa de forma automática y Customizing requiere aprobación manual.",
+        "rationale": "Generalmente, ambos tipos de órdenes requieren una liberación y una importación manuales y controladas en los sistemas de destino.",
+        "isCorrect": false
+      },
+      {
+        "text": "Workbench transporta objetos de desarrollo, mientras que Customizing transporta parametrizaciones del sistema.",
+        "rationale": "Esta es la distinción clave: Workbench se ocupa del 'qué' (código, tablas) y Customizing del 'cómo' (configuración de procesos).",
+        "isCorrect": true
+      },
+      {
+        "text": "Workbench solo puede ser liberada por un desarrollador y Customizing solo por un consultor funcional.",
+        "rationale": "Las autorizaciones para liberar órdenes se basan en roles y perfiles, no están intrínsecamente ligadas al tipo de orden.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considera las responsabilidades distintas de un programador ABAP y un consultor que adapta los procesos de negocio."
+  },
+  {
+    "guid": "52ab9839-0e53-4b83-9719-840b8123f504",
+    "subjectId": "T52",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 4,
+    "question": "Si un desarrollador crea una nueva tabla en el diccionario de datos ABAP (transacción SE11), ¿en qué tipo de transporte se guardará este cambio?",
+    "answerOptions": [
+      {
+        "text": "Customizing",
+        "rationale": "Las tablas del diccionario son objetos del repositorio y se consideran desarrollo, no una parametrización funcional.",
+        "isCorrect": false
+      },
+      {
+        "text": "Workbench",
+        "rationale": "La creación o modificación de estructuras de datos como tablas es una tarea de desarrollo fundamental que se transporta mediante órdenes de Workbench.",
+        "isCorrect": true
+      },
+      {
+        "text": "IDoc",
+        "rationale": "Los IDocs son estructuras para el intercambio de datos de negocio entre sistemas, no para transportar objetos de desarrollo.",
+        "isCorrect": false
+      },
+      {
+        "text": "Spool",
+        "rationale": "El sistema de Spool gestiona las órdenes de impresión y no tiene relación con el transporte de objetos de desarrollo.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "La creación de estructuras en la base de datos se considera una actividad central de desarrollo, no de configuración funcional."
+  },
+  {
+    "guid": "2413b3a1-30f5-47d8-ac5e-425090adb2b5",
+    "subjectId": "T52",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 4,
+    "question": "¿Por qué es fundamental seguir una ruta de transporte estandarizada como DEV → QA → PRD?",
+    "answerOptions": [
+      {
+        "text": "Porque es la única configuración técnica que permite el TMS.",
+        "rationale": "El TMS es flexible y permite configurar rutas complejas, pero esta es la práctica recomendada por su lógica de gestión de riesgos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Para asegurar que los cambios se prueban adecuadamente antes de llegar a producción.",
+        "rationale": "El entorno de QA existe específicamente para validar que los cambios funcionan como se espera y no introducen errores en el sistema productivo.",
+        "isCorrect": true
+      },
+      {
+        "text": "Para sincronizar los datos maestros entre los diferentes sistemas.",
+        "rationale": "El sistema de transporte mueve cambios de configuración y desarrollo, no está diseñado para la sincronización de datos transaccionales o maestros.",
+        "isCorrect": false
+      },
+      {
+        "text": "Para cumplir con los requisitos de la licencia de software de SAP.",
+        "rationale": "Las licencias de SAP se basan en usuarios y uso del sistema, no en la configuración de las rutas de transporte.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piensa en la gestión de la calidad y la minimización de riesgos al introducir nuevas funcionalidades en un sistema crítico."
+  },
+  {
+    "guid": "32dce3d0-7f39-4e86-9454-30e5767078b5",
+    "subjectId": "T52",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 4,
+    "question": "La configuración realizada en la transacción SPRO, que es el centro de parametrización de SAP, se transporta mediante órdenes de tipo...",
+    "answerOptions": [
+      {
+        "text": "Workbench",
+        "rationale": "Las órdenes de Workbench son para objetos del repositorio (código, tablas), mientras que SPRO es para configurar el comportamiento del sistema.",
+        "isCorrect": false
+      },
+      {
+        "text": "RFC",
+        "rationale": "RFC es un protocolo de comunicación, no un tipo de orden de transporte utilizado para mover la configuración de SPRO.",
+        "isCorrect": false
+      },
+      {
+        "text": "Customizing",
+        "rationale": "SPRO es la herramienta principal para realizar configuraciones o 'customizing', y estos cambios se agrupan en este tipo de órdenes.",
+        "isCorrect": true
+      },
+      {
+        "text": "Seguridad",
+        "rationale": "Aunque la configuración de seguridad se transporta, el término genérico para los cambios realizados en SPRO es 'Customizing'.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "El propio nombre de la transacción (IMG - Implementation Guide) y su propósito están directamente relacionados con uno de los tipos de transporte."
+  },
+  {
+    "guid": "68d49a77-db0f-4552-8c02-415048c773f4",
+    "subjectId": "T52",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 4,
+    "question": "Según el texto, el sistema que sustituye al método de \"copiar y enganxar\" para mover código y configuración en SAP se denomina:",
+    "answerOptions": [
+      {
+        "text": "Profile Generator (PFCG)",
+        "rationale": "PFCG es la herramienta específica para crear y mantener roles y perfiles de seguridad, no para el transporte general de cambios.",
+        "isCorrect": false
+      },
+      {
+        "text": "SAP Solution Manager (SolMan)",
+        "rationale": "SolMan puede gestionar y orquestar el proceso de cambios (con ChaRM), pero el mecanismo técnico subyacente es otro.",
+        "isCorrect": false
+      },
+      {
+        "text": "RFC Engine",
+        "rationale": "El motor de RFC se encarga de la comunicación entre sistemas, no de empaquetar y mover desarrollos o configuraciones.",
+        "isCorrect": false
+      },
+      {
+        "text": "Transport Organizer",
+        "rationale": "Este es el nombre del sistema responsable de organizar, registrar y gestionar el movimiento de cambios a través del paisaje de sistemas.",
+        "isCorrect": true
+      }
+    ],
+    "hint": "El nombre del sistema describe precisamente su función: organizar el transporte de los cambios."
+  },
+  {
+    "guid": "df3dc0bb-d63d-4845-ac9d-7320b9ab60c8",
+    "subjectId": "T52",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 4,
+    "question": "¿Cuál es el rol principal de un consultor Basis en relación con el sistema de transportes?",
+    "answerOptions": [
+      {
+        "text": "Crear el contenido de las órdenes de transporte de Workbench y Customizing.",
+        "rationale": "La creación del contenido es responsabilidad de los desarrolladores (Workbench) y los consultores funcionales (Customizing).",
+        "isCorrect": false
+      },
+      {
+        "text": "Realizar las pruebas de usuario en el entorno de QA.",
+        "rationale": "Las pruebas funcionales y de usuario son realizadas por el equipo funcional o los usuarios clave del negocio.",
+        "isCorrect": false
+      },
+      {
+        "text": "Configurar y supervisar el TMS que define las rutas de transporte.",
+        "rationale": "El consultor Basis es responsable de la infraestructura técnica, lo que incluye la configuración, mantenimiento y supervisión del sistema de transportes.",
+        "isCorrect": true
+      },
+      {
+        "text": "Aprobar funcionalmente los cambios antes de que pasen a producción.",
+        "rationale": "La aprobación funcional es una responsabilidad del negocio o del líder del equipo funcional, no del administrador técnico del sistema.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "El rol de Basis se centra en la capa técnica que permite que el sistema funcione, no en el contenido funcional de los cambios."
+  },
+  {
+    "guid": "5ff492e5-47ad-4b35-b253-814ee21f23a5",
+    "subjectId": "T52",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 4,
+    "question": "Un desarrollador ha creado una nueva función en SAP para ser llamada por un sistema externo. ¿En qué tipo de orden de transporte se incluirá esta función?",
+    "answerOptions": [
+      {
+        "text": "Customizing, porque afecta a la integración con otros sistemas.",
+        "rationale": "Aunque el propósito sea la integración, el objeto creado (una función) es un elemento de desarrollo del repositorio ABAP.",
+        "isCorrect": false
+      },
+      {
+        "text": "En ninguna, las funciones se activan directamente en cada sistema.",
+        "rationale": "Todos los objetos de desarrollo deben ser transportados a través del paisaje de sistemas para garantizar la consistencia y el control.",
+        "isCorrect": false
+      },
+      {
+        "text": "Workbench, porque una función es un objeto de desarrollo.",
+        "rationale": "Las funciones, al igual que los programas y las tablas, son objetos del repositorio ABAP y, por lo tanto, se transportan en órdenes de Workbench.",
+        "isCorrect": true
+      },
+      {
+        "text": "IDoc, porque se usa para comunicación externa.",
+        "rationale": "Un IDoc es un formato de datos para el intercambio de información, no es un tipo de orden de transporte para mover código.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Pregúntate si la creación de una función es una tarea de configuración del sistema o de programación."
+  }
+]

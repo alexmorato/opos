@@ -1,0 +1,932 @@
+[
+  {
+    "guid": "faa004d3-3838-41f4-8c7b-588802c02ff8",
+    "subjectId": "T43",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Cuál es la diferencia fundamental entre la escalabilidad y la elasticidad en un entorno cloud-native?",
+    "answerOptions": [
+      {
+        "text": "La escalabilidad es la capacidad de crecer, mientras que la elasticidad es la automatización de ese crecimiento y decrecimiento según la demanda.",
+        "rationale": "La escalabilidad define el potencial de manejar más carga, mientras que la elasticidad implica la naturaleza dinámica y automática de adaptar los recursos sin intervención manual.",
+        "isCorrect": true
+      },
+      {
+        "text": "La escalabilidad se refiere únicamente al crecimiento vertical, mientras que la elasticidad se refiere al crecimiento horizontal.",
+        "rationale": "Ambos conceptos pueden aplicarse tanto a nivel horizontal como vertical; la distinción real radica en la automatización frente a la capacidad técnica.",
+        "isCorrect": false
+      },
+      {
+        "text": "La elasticidad es una característica de la infraestructura física, mientras que la escalabilidad es una característica del software.",
+        "rationale": "Tanto la elasticidad como la escalabilidad son principios que afectan tanto al diseño del software como a la gestión de la infraestructura en la nube.",
+        "isCorrect": false
+      },
+      {
+        "text": "No existe diferencia técnica; son sinónimos utilizados por diferentes proveedores de servicios en la nube.",
+        "rationale": "En ingeniería de sistemas, la distinción es crítica para entender cómo un sistema responde dinámicamente a picos de tráfico inesperados.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considera cuál de los dos conceptos implica que el sistema 'respira' de forma autónoma según el tráfico real."
+  },
+  {
+    "guid": "c30af8e4-460f-49af-8610-276319969483",
+    "subjectId": "T43",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En una arquitectura de microservicios, ¿qué problema específico busca resolver el patrón 'Circuit Breaker'?",
+    "answerOptions": [
+      {
+        "text": "La degradación del sistema completo debido a fallos en cascada causados por un servicio que no responde.",
+        "rationale": "Al detectar fallos repetidos, el 'Circuit Breaker' corta la comunicación con el servicio defectuoso para evitar que los recursos de otros servicios se agoten esperando respuestas.",
+        "isCorrect": true
+      },
+      {
+        "text": "La falta de consistencia de datos entre bases de datos distribuidas mediante transacciones atómicas.",
+        "rationale": "La consistencia en microservicios se suele gestionar con patrones como Saga, no con mecanismos de interrupción de flujo.",
+        "isCorrect": false
+      },
+      {
+        "text": "La necesidad de descubrir dinámicamente la dirección IP de nuevos contenedores desplegados.",
+        "rationale": "La localización de instancias dinámicas es responsabilidad del 'Service Discovery', no de la gestión de fallos de comunicación.",
+        "isCorrect": false
+      },
+      {
+        "text": "El exceso de latencia en la red mediante la compresión de paquetes entre servicios.",
+        "rationale": "Aunque mejora la fiabilidad percibida, su función principal no es optimizar el tamaño de los datos, sino aislar componentes defectuosos.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piensa en un interruptor eléctrico que protege una instalación cuando hay un cortocircuito en un solo electrodoméstico."
+  },
+  {
+    "guid": "e349ecd4-69c8-4623-951f-20b1e8b15922",
+    "subjectId": "T43",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Por qué se considera que los contenedores son más eficientes en el uso de recursos que las máquinas virtuales tradicionales?",
+    "answerOptions": [
+      {
+        "text": "Porque los contenedores comparten el kernel del sistema operativo host en lugar de emular hardware y ejecutar un SO completo.",
+        "rationale": "Al no requerir un sistema operativo invitado por cada instancia, el consumo de memoria y CPU se reduce drásticamente, permitiendo una mayor densidad.",
+        "isCorrect": true
+      },
+      {
+        "text": "Porque los contenedores eliminan la necesidad de tener librerías y dependencias instaladas dentro de ellos.",
+        "rationale": "Los contenedores precisamente incluyen todas las dependencias necesarias; su eficiencia no viene de quitarlas, sino de cómo se ejecutan sobre el host.",
+        "isCorrect": false
+      },
+      {
+        "text": "Porque los contenedores utilizan un hypervisor de tipo 1 que gestiona los recursos de forma directa sobre el hardware.",
+        "rationale": "Los contenedores no utilizan hypervisores para su ejecución, sino motores de contenedores que se apoyan en características del kernel como cgroups y namespaces.",
+        "isCorrect": false
+      },
+      {
+        "text": "Porque los contenedores solo pueden ejecutar código en lenguajes interpretados que no requieren compilación previa.",
+        "rationale": "Un contenedor es agnóstico al lenguaje de programación y puede ejecutar binarios compilados con el mismo rendimiento que un proceso nativo.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Analiza qué componente del sistema operativo se replica en una máquina virtual pero se comparte en un contenedor."
+  },
+  {
+    "guid": "b23db6e8-4382-43ff-8af9-810521e04c66",
+    "subjectId": "T43",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En el contexto de Kubernetes, ¿en qué consiste una estrategia de despliegue tipo 'Canary Release'?",
+    "answerOptions": [
+      {
+        "text": "En desplegar la nueva versión solo para un pequeño subconjunto de usuarios antes de extenderla a toda la infraestructura.",
+        "rationale": "Esta técnica permite validar el comportamiento de la nueva versión con tráfico real reduciendo el radio de impacto si ocurre un error.",
+        "isCorrect": true
+      },
+      {
+        "text": "En mantener dos entornos idénticos (azul y verde) y cambiar todo el tráfico de uno a otro mediante el balanceador.",
+        "rationale": "Esta descripción corresponde al modelo Blue-Green, donde el cambio es total y no gradual por subconjuntos de usuarios.",
+        "isCorrect": false
+      },
+      {
+        "text": "En actualizar las instancias una a una, asegurando que siempre haya una capacidad mínima disponible.",
+        "rationale": "Este proceso se conoce como 'Rolling Update', que busca la disponibilidad continua pero no necesariamente la validación con usuarios seleccionados.",
+        "isCorrect": false
+      },
+      {
+        "text": "En realizar copias de seguridad automáticas antes de cualquier modificación en el código de producción.",
+        "rationale": "Aunque es una buena práctica de operaciones, no define una estrategia de despliegue o entrega de software.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Recuerda el origen histórico de los mineros que usaban aves para detectar gases tóxicos antes que el resto del grupo."
+  },
+  {
+    "guid": "8dafa689-55ba-4521-a77e-9e249b4d1b9d",
+    "subjectId": "T43",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Cuál es el principal desafío técnico de las arquitecturas 'Serverless' relacionado con la latencia inicial?",
+    "answerOptions": [
+      {
+        "text": "El tiempo de arranque o 'cold start' de una función cuando no ha sido invocada recientemente.",
+        "rationale": "Dado que el proveedor destruye los recursos si no se usan, la primera petición tras un periodo de inactividad debe esperar a que el entorno se aprovisione.",
+        "isCorrect": true
+      },
+      {
+        "text": "La limitación de ancho de banda impuesta por el proveedor de servicios en la nube.",
+        "rationale": "Aunque existen límites, el problema de latencia característico de FaaS es el tiempo de preparación del entorno de ejecución.",
+        "isCorrect": false
+      },
+      {
+        "text": "La necesidad de mantener una conexión TCP abierta permanentemente con la base de datos.",
+        "rationale": "Serverless se basa en ejecuciones efímeras, por lo que mantener conexiones persistentes es a menudo imposible o un antipatrón.",
+        "isCorrect": false
+      },
+      {
+        "text": "La imposibilidad de ejecutar funciones en paralelo ante picos de tráfico.",
+        "rationale": "Precisamente una de las ventajas de Serverless es su escalado automático masivo mediante la creación de múltiples instancias de la función.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piensa en lo que ocurre cuando un motor está apagado y frío antes de poder empezar a trabajar a pleno rendimiento."
+  },
+  {
+    "guid": "f2d72adf-081a-4e93-add2-e338406f9bfd",
+    "subjectId": "T43",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Dentro de la tríada de la observabilidad, ¿cuál es la función principal de las 'trazas distribuidas'?",
+    "answerOptions": [
+      {
+        "text": "Seguir el recorrido completo de una petición a través de múltiples microservicios para identificar cuellos de botella.",
+        "rationale": "Las trazas permiten visualizar el flujo entre servicios y entender en qué punto exacto de la cadena de llamadas se produce un retraso o fallo.",
+        "isCorrect": true
+      },
+      {
+        "text": "Almacenar todos los eventos generados por una aplicación en un sistema de archivos centralizado.",
+        "rationale": "El almacenamiento de eventos cronológicos es la función de los logs agregados, no del tracing distribuido.",
+        "isCorrect": false
+      },
+      {
+        "text": "Cuantificar el uso de recursos como la CPU y la memoria en intervalos de tiempo específicos.",
+        "rationale": "La medición numérica de parámetros de salud del sistema es responsabilidad de las métricas.",
+        "isCorrect": false
+      },
+      {
+        "text": "Garantizar que el código fuente no contenga vulnerabilidades de seguridad antes del despliegue.",
+        "rationale": "La seguridad del código es parte de los procesos de DevSecOps y escaneo estático, no de la observabilidad en tiempo de ejecución.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Imagina que quieres saber en qué estación de transbordo se pierde una maleta durante un viaje con varias escalas ferroviarias."
+  },
+  {
+    "guid": "8c8340ca-de05-4e35-be60-cdc63571471f",
+    "subjectId": "T43",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Qué ventaja competitiva ofrece el uso de un 'Service Mesh' (malla de servicios) como Istio?",
+    "answerOptions": [
+      {
+        "text": "Desacopla la lógica de comunicación y seguridad (como el cifrado TLS mutuo) del código de la aplicación.",
+        "rationale": "Al usar sidecars, los desarrolladores no necesitan implementar seguridad o reintentos en su código, ya que la malla gestiona esto en la capa de red.",
+        "isCorrect": true
+      },
+      {
+        "text": "Permite que las aplicaciones monolíticas se conviertan automáticamente en microservicios sin cambios de código.",
+        "rationale": "El Service Mesh gestiona la comunicación entre servicios existentes, pero no puede refactorizar la arquitectura interna de una aplicación.",
+        "isCorrect": false
+      },
+      {
+        "text": "Optimiza las consultas SQL para que se ejecuten más rápido en la base de datos.",
+        "rationale": "El Service Mesh actúa a nivel de red (Capa 4/7) y no interviene en la lógica de optimización de motores de base de datos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Elimina la necesidad de utilizar contenedores al ejecutar código directamente sobre el hardware.",
+        "rationale": "De hecho, la mayoría de los Service Mesh están diseñados específicamente para ejecutarse dentro de orquestadores de contenedores como Kubernetes.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considera cómo se puede añadir seguridad en el transporte de datos sin que el programador tenga que escribir una sola línea de código de red."
+  },
+  {
+    "guid": "c0c1247b-1050-47a1-ae7a-e1ece772e40f",
+    "subjectId": "T43",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En la metodología de 'Twelve-Factor App', ¿cuál es el objetivo de tratar la configuración como variables de entorno?",
+    "answerOptions": [
+      {
+        "text": "Asegurar que el código sea idéntico entre entornos y que solo cambien los parámetros externos según el despliegue.",
+        "rationale": "Esto facilita la portabilidad y evita el riesgo de incluir credenciales o configuraciones específicas en el repositorio de código.",
+        "isCorrect": true
+      },
+      {
+        "text": "Aumentar la velocidad de ejecución de la aplicación al leer datos desde la memoria volátil.",
+        "rationale": "La lectura de variables de entorno no tiene un impacto significativo en el rendimiento comparado con archivos de configuración locales.",
+        "isCorrect": false
+      },
+      {
+        "text": "Permitir que el usuario final modifique el comportamiento de la aplicación desde su navegador.",
+        "rationale": "Las variables de entorno son configuraciones del servidor y no son accesibles ni modificables por el cliente final.",
+        "isCorrect": false
+      },
+      {
+        "text": "Eliminar la necesidad de utilizar bases de datos para almacenar estados persistentes.",
+        "rationale": "La configuración es distinta del estado de la aplicación; las bases de datos siguen siendo necesarias para la persistencia de datos de negocio.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piensa en cómo podrías usar el mismo ejecutable en 'Desarrollo' y en 'Producción' sin tener que recompilarlo."
+  },
+  {
+    "guid": "8392b04f-3aae-4b62-bfae-003efe2447fd",
+    "subjectId": "T43",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Cuál es la función del 'Control Plane' en un clúster de Kubernetes?",
+    "answerOptions": [
+      {
+        "text": "Tomar decisiones globales sobre el clúster, como la programación de pods y la respuesta a eventos.",
+        "rationale": "Es el 'cerebro' del sistema que se encarga de que el estado actual del clúster coincida con el estado deseado definido por el usuario.",
+        "isCorrect": true
+      },
+      {
+        "text": "Ejecutar los contenedores que componen la lógica de negocio del usuario.",
+        "rationale": "La ejecución de los contenedores es responsabilidad de los 'Worker Nodes' (plano de datos), no del plano de control.",
+        "isCorrect": false
+      },
+      {
+        "text": "Actuar como el balanceador de carga externo que recibe el tráfico de internet.",
+        "rationale": "Aunque coordina componentes de red, la recepción de tráfico externo suele recaer en Ingress Controllers o servicios de tipo LoadBalancer.",
+        "isCorrect": false
+      },
+      {
+        "text": "Almacenar únicamente los logs históricos de las aplicaciones para su auditoría.",
+        "rationale": "Aunque incluye la base de datos etcd para el estado, su función va mucho más allá del simple almacenamiento de logs.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Visualiza la diferencia entre el director de una orquesta y los músicos que tocan los instrumentos."
+  },
+  {
+    "guid": "45b39cd5-2d90-49aa-a9cc-279aa1a76518",
+    "subjectId": "T43",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Bajo el enfoque de 'Infraestructura como Código' (IaC), ¿qué ventaja aporta el uso de archivos declarativos?",
+    "answerOptions": [
+      {
+        "text": "Permiten versionar la infraestructura en Git y garantizar que el despliegue sea repetible y predecible.",
+        "rationale": "Al definir 'qué' queremos en lugar de 'cómo' hacerlo paso a paso, la herramienta se encarga de alcanzar ese estado de forma consistente.",
+        "isCorrect": true
+      },
+      {
+        "text": "Hacen que el hardware físico se repare automáticamente en caso de fallo de disco.",
+        "rationale": "La IaC gestiona la configuración lógica y el aprovisionamiento de recursos virtuales, pero no puede intervenir en fallos de hardware físico subyacente.",
+        "isCorrect": false
+      },
+      {
+        "text": "Reducen la necesidad de usar sistemas operativos en los servidores de la nube.",
+        "rationale": "La IaC precisamente suele configurar y preparar esos sistemas operativos; no los elimina.",
+        "isCorrect": false
+      },
+      {
+        "text": "Permiten que los desarrolladores escriban código sin necesidad de conocer los principios de redes o seguridad.",
+        "rationale": "Al contrario, la IaC requiere que las definiciones de red y seguridad estén explícitamente codificadas en los archivos de configuración.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considera qué pasaría si pudieras tratar la creación de un servidor de la misma manera que tratas el desarrollo de una funcionalidad de software."
+  },
+  {
+    "guid": "f9640629-db32-4d70-a13c-6d4f7b393962",
+    "subjectId": "T43",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Qué caracteriza a una arquitectura 'Event-Driven' (basada en eventos) en el contexto cloud-native?",
+    "answerOptions": [
+      {
+        "text": "Los servicios se comunican de forma asíncrona mediante la publicación y suscripción a eventos, lo que aumenta el desacoplamiento.",
+        "rationale": "Esto permite que el servicio emisor no necesite conocer quién consume la información ni esperar a que el proceso termine.",
+        "isCorrect": true
+      },
+      {
+        "text": "Todas las acciones del usuario deben ser procesadas en tiempo real de forma síncrona para evitar errores.",
+        "rationale": "La arquitectura de eventos suele favorecer el procesamiento asíncrono para mejorar la escalabilidad y la resiliencia.",
+        "isCorrect": false
+      },
+      {
+        "text": "Es una arquitectura donde el servidor web decide cuándo enviar datos al cliente sin que este los pida.",
+        "rationale": "Aunque se relaciona con WebSockets, el concepto de Event-Driven en microservicios se refiere principalmente a la comunicación entre componentes internos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Se basa en el uso exclusivo de bases de datos relacionales con triggers complejos.",
+        "rationale": "Aunque las bases de datos pueden generar eventos (CDC), la arquitectura se basa normalmente en brokers de mensajería como Kafka o RabbitMQ.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piensa en un sistema de avisos por altavoz en un aeropuerto donde el locutor no sabe exactamente quién está escuchando el mensaje."
+  },
+  {
+    "guid": "e6486646-667f-4849-9a8c-156f88f3c037",
+    "subjectId": "T43",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En un flujo de CI/CD, ¿cuál es la diferencia técnica entre 'Continuous Delivery' y 'Continuous Deployment'?",
+    "answerOptions": [
+      {
+        "text": "En 'Continuous Deployment' el paso a producción es automático tras pasar los tests, mientras que en 'Continuous Delivery' requiere una aprobación manual.",
+        "rationale": "Ambos automatizan la construcción y pruebas, pero el último paso de lanzamiento es lo que define el grado de automatización total.",
+        "isCorrect": true
+      },
+      {
+        "text": "No hay diferencia; son dos formas de llamar al mismo proceso de automatización de Jenkins.",
+        "rationale": "Existe una distinción estratégica clara basada en si el negocio decide cuándo liberar la versión o si el código fluye solo hasta el cliente.",
+        "isCorrect": false
+      },
+      {
+        "text": "'Continuous Delivery' solo aplica a aplicaciones móviles y 'Continuous Deployment' a aplicaciones web.",
+        "rationale": "Son metodologías aplicables a cualquier tipo de desarrollo de software independientemente de la plataforma de destino.",
+        "isCorrect": false
+      },
+      {
+        "text": "Uno se encarga de la integración del código y el otro del aprovisionamiento de las máquinas físicas.",
+        "rationale": "La integración es 'Continuous Integration' (CI); tanto Delivery como Deployment se ocupan de las fases posteriores a la integración exitosa.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "La clave está en si hay un 'botón rojo' que un humano debe pulsar para que el código llegue finalmente al usuario real."
+  },
+  {
+    "guid": "6c7f58ae-4227-4f9a-8925-befe3aff3a75",
+    "subjectId": "T43",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "El patrón 'Sidecar' es común en entornos de contenedores. ¿Cuál es su principal restricción operativa?",
+    "answerOptions": [
+      {
+        "text": "El contenedor sidecar debe compartir el mismo ciclo de vida (arranque y parada) que el contenedor principal dentro del Pod.",
+        "rationale": "Al estar en el mismo Pod, están ligados estrechamente; si el Pod se reinicia, ambos contenedores lo hacen simultáneamente.",
+        "isCorrect": true
+      },
+      {
+        "text": "El contenedor sidecar no puede tener acceso a los archivos locales del contenedor principal.",
+        "rationale": "Una de las ventajas del sidecar es precisamente que pueden compartir volúmenes de datos mediante montajes locales comunes.",
+        "isCorrect": false
+      },
+      {
+        "text": "El sidecar debe estar escrito obligatoriamente en el mismo lenguaje de programación que la aplicación principal.",
+        "rationale": "Los contenedores permiten total independencia tecnológica; un sidecar en Go puede dar soporte a una aplicación en Java.",
+        "isCorrect": false
+      },
+      {
+        "text": "Solo puede haber un contenedor sidecar por cada clúster de Kubernetes.",
+        "rationale": "Puede haber múltiples sidecars en un solo Pod, cada uno encargándose de una tarea auxiliar distinta (logs, proxy, seguridad).",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Reflexiona sobre la analogía de la moto con sidecar: ¿qué sucede con el sidecar si la moto se detiene o se mueve?"
+  },
+  {
+    "guid": "f4060067-ff8e-4d0a-a0f5-cdf4955b1ba3",
+    "subjectId": "T43",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Qué función cumple el estándar JWT (JSON Web Token) en la comunicación entre microservicios?",
+    "answerOptions": [
+      {
+        "text": "Permite transmitir de forma segura la identidad y permisos de un usuario de manera compacta y autónoma (sin estado).",
+        "rationale": "El token contiene toda la información necesaria (claims) para que el servicio receptor pueda validar la identidad sin consultar una base de datos central en cada llamada.",
+        "isCorrect": true
+      },
+      {
+        "text": "Es un protocolo de transporte que sustituye a HTTP para mejorar la velocidad de transferencia de archivos.",
+        "rationale": "JWT es un formato de token basado en JSON, no un protocolo de red o transporte de archivos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Sirve para cifrar toda la base de datos y evitar que los administradores vean los datos sensibles.",
+        "rationale": "JWT se usa para la autenticación y autorización en tránsito, no para el cifrado de datos en reposo en la base de datos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Es una herramienta de monitorización que mide el tiempo de respuesta de las APIs en milisegundos.",
+        "rationale": "Aunque se puede trazar, su propósito es la seguridad (identidad), no la medición de rendimiento o telemetría.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piensa en un carné de identidad que lleva impresos todos tus datos y un sello oficial, de modo que cualquiera puede verificar quién eres sin llamar a la policía."
+  },
+  {
+    "guid": "5f8c8995-3589-4317-9bae-737bf9fbc34b",
+    "subjectId": "T43",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Cuál es la principal característica de una arquitectura orientada a servicios (SOA) que la diferencia de los microservicios modernos?",
+    "answerOptions": [
+      {
+        "text": "El uso frecuente de un bus de servicios empresarial (ESB) centralizado para la orquestación y transformación de mensajes.",
+        "rationale": "SOA tiende a centralizar la inteligencia en el bus, mientras que los microservicios prefieren 'puntos finales inteligentes y tuberías tontas'.",
+        "isCorrect": true
+      },
+      {
+        "text": "SOA no permite el uso de servicios web ni protocolos basados en HTTP.",
+        "rationale": "SOA popularizó los servicios web, principalmente utilizando el protocolo SOAP sobre HTTP.",
+        "isCorrect": false
+      },
+      {
+        "text": "Los servicios en SOA siempre deben estar alojados en un único servidor físico monolítico.",
+        "rationale": "SOA ya proponía la distribución de servicios, aunque su gestión y despliegue solían ser menos ágiles que con los contenedores modernos.",
+        "isCorrect": false
+      },
+      {
+        "text": "SOA es una metodología exclusiva de bases de datos relacionales, mientras que los microservicios usan NoSQL.",
+        "rationale": "Ambas arquitecturas son agnósticas al tipo de base de datos, aunque los microservicios suelen aplicar el patrón 'Base de datos por servicio'.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Centra tu atención en si la lógica de integración está dispersa entre los servicios o concentrada en un componente intermedio fuerte."
+  },
+  {
+    "guid": "93293f86-cd1f-4d11-9833-188ea7a5371d",
+    "subjectId": "T43",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Qué significa que el protocolo REST sea 'stateless' (sin estado)?",
+    "answerOptions": [
+      {
+        "text": "Que cada petición del cliente al servidor debe contener toda la información necesaria para entenderla, sin depender de un contexto guardado en el servidor.",
+        "rationale": "Esto mejora la escalabilidad, ya que cualquier instancia del servidor puede atender cualquier petición sin necesidad de sincronizar sesiones.",
+        "isCorrect": true
+      },
+      {
+        "text": "Que el servidor no puede almacenar datos en una base de datos después de procesar una petición.",
+        "rationale": "El servidor puede y suele persistir datos; lo que no guarda es el 'estado de la sesión' del cliente entre peticiones sucesivas.",
+        "isCorrect": false
+      },
+      {
+        "text": "Que la conexión de red se corta inmediatamente después de enviar el primer byte de datos.",
+        "rationale": "La gestión de la conexión TCP/IP es independiente de la semántica sin estado del protocolo de aplicación REST.",
+        "isCorrect": false
+      },
+      {
+        "text": "Que solo se pueden realizar peticiones de lectura (GET), prohibiendo las modificaciones de datos.",
+        "rationale": "REST permite todas las operaciones CRUD (Create, Read, Update, Delete) mediante diferentes verbos HTTP.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Imagina que cada vez que vas a comprar pan, tienes que decir tu nombre y dirección porque el panadero olvida quién eres en cuanto sales por la puerta."
+  },
+  {
+    "guid": "d89c99b7-786f-4e5c-bc13-a98c24aac01e",
+    "subjectId": "T43",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En el modelo de seguridad de APIs, ¿cuál es la función principal de OAuth2?",
+    "answerOptions": [
+      {
+        "text": "Permitir que una aplicación acceda a recursos de un usuario en otro sitio sin que el usuario tenga que compartir sus credenciales (contraseña).",
+        "rationale": "Es un framework de autorización que delega el acceso mediante el uso de tokens de acceso temporales y limitados.",
+        "isCorrect": true
+      },
+      {
+        "text": "Cifrar el disco duro del servidor para evitar el robo físico de datos.",
+        "rationale": "OAuth2 se centra en la autorización de acceso a recursos web, no en la seguridad física o el cifrado de hardware.",
+        "isCorrect": false
+      },
+      {
+        "text": "Generar contraseñas aleatorias para que los usuarios las cambien cada 30 días.",
+        "rationale": "OAuth2 busca precisamente evitar el uso compartido o la gestión compleja de contraseñas mediante la delegación.",
+        "isCorrect": false
+      },
+      {
+        "text": "Establecer una conexión VPN segura entre dos centros de datos.",
+        "rationale": "Aunque es un mecanismo de seguridad, OAuth2 opera en la capa de aplicación para gestionar permisos de software, no a nivel de red privada.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Recuerda cuando una aplicación te pide permiso para 'Ver tus contactos de Google' sin pedirte tu contraseña de Gmail."
+  },
+  {
+    "guid": "328c43cc-128a-41ac-831a-3d8360205ee6",
+    "subjectId": "T43",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Para qué sirve la herramienta 'Helm' en el ecosistema de Kubernetes?",
+    "answerOptions": [
+      {
+        "text": "Como un gestor de paquetes que permite definir, instalar y actualizar aplicaciones complejas mediante plantillas (charts).",
+        "rationale": "Helm simplifica la gestión de los numerosos archivos YAML necesarios para desplegar una aplicación completa en Kubernetes.",
+        "isCorrect": true
+      },
+      {
+        "text": "Para monitorizar el tráfico de red y bloquear ataques de denegación de servicio.",
+        "rationale": "La monitorización y seguridad de red son funciones de herramientas como Prometheus o firewalls, no de un gestor de paquetes.",
+        "isCorrect": false
+      },
+      {
+        "text": "Para compilar código fuente de Java y convertirlo en imágenes de Docker automáticamente.",
+        "rationale": "La construcción de imágenes es tarea de herramientas de CI como Jenkins o Docker, no del gestor de despliegue Helm.",
+        "isCorrect": false
+      },
+      {
+        "text": "Como una base de datos distribuida que sustituye a etcd dentro del clúster.",
+        "rationale": "Helm es una herramienta de cliente y gestión de manifiestos, no un componente de almacenamiento del núcleo de Kubernetes.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piensa en el equivalente a 'apt' en Ubuntu o 'npm' en Node.js, pero aplicado a despliegues completos de infraestructura."
+  },
+  {
+    "guid": "dcaa87db-0248-4f81-a04a-cbcea519f32e",
+    "subjectId": "T43",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En observabilidad, ¿qué representa la mètrica de latencia '$p99$'?",
+    "answerOptions": [
+      {
+        "text": "El valor de tiempo por debajo del cual se encuentran el $99\\%$ de las peticiones analizadas.",
+        "rationale": "Es crucial para entender la experiencia de los usuarios que sufren los peores retardos, ignorando los valores promedio que pueden ocultar problemas.",
+        "isCorrect": true
+      },
+      {
+        "text": "El tiempo promedio de respuesta del $99\\%$ de los servidores disponibles.",
+        "rationale": "El percentil se aplica a la distribución de las peticiones individuales, no al número de servidores físicos.",
+        "isCorrect": false
+      },
+      {
+        "text": "La probabilidad del $99\\%$ de que un servidor falle en las próximas 24 horas.",
+        "rationale": "La latencia mide rendimiento temporal, mientras que la probabilidad de fallo se relaciona con métricas de disponibilidad (SLA).",
+        "isCorrect": false
+      },
+      {
+        "text": "El número de peticiones por segundo que el sistema puede procesar antes de colapsar.",
+        "rationale": "Esa métrica se conoce como 'throughput' o capacidad de procesamiento, y no es una medida de percentil de tiempo.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Se trata de una medida estadística que nos dice cómo le va a casi todo el mundo, excepto al $1\\%$ con peor suerte."
+  },
+  {
+    "guid": "e896d495-d198-4f73-a6cb-28f8d2822359",
+    "subjectId": "T43",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Al adoptar una estrategia de 'Base de datos por servicio', ¿qué reto fundamental de consistencia aparece?",
+    "answerOptions": [
+      {
+        "text": "La dificultad de mantener la integridad referencial y realizar transacciones que afecten a múltiples servicios simultáneamente.",
+        "rationale": "Al no haber una base de datos única, no se pueden usar 'JOINs' SQL tradicionales, requiriendo patrones de consistencia eventual o Sagas.",
+        "isCorrect": true
+      },
+      {
+        "text": "La imposibilidad de realizar copias de seguridad de los datos de forma independiente.",
+        "rationale": "Al contrario, este patrón facilita las copias de seguridad independientes por cada dominio funcional del negocio.",
+        "isCorrect": false
+      },
+      {
+        "text": "El aumento excesivo del coste de almacenamiento al duplicar el motor de base de datos.",
+        "rationale": "Aunque hay una sobrecarga, el reto principal es la lógica de negocio y la coordinación de datos, no el coste del almacenamiento físico.",
+        "isCorrect": false
+      },
+      {
+        "text": "La obligación de que todos los servicios utilicen exactamente el mismo motor de base de datos (ej. todos PostgreSQL).",
+        "rationale": "Una de las ventajas es precisamente la persistencia políglota, permitiendo que cada servicio elija la base de datos que mejor se adapte a sus necesidades.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piensa en qué sucede si intentas relacionar un cliente de una base de datos con un pedido que está en otra base de datos totalmente distinta."
+  },
+  {
+    "guid": "04d1a84b-658e-47be-a81b-31686a785081",
+    "subjectId": "T43",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Cuál es la función principal de un 'Ingress Controller' en un entorno de Kubernetes?",
+    "answerOptions": [
+      {
+        "text": "Gestionar el acceso externo a los servicios del clúster, proporcionando balanceo de carga, terminación SSL y nombres de dominio.",
+        "rationale": "Actúa como el punto de entrada que redirige el tráfico de internet hacia los servicios internos basándose en reglas de ruta o host.",
+        "isCorrect": true
+      },
+      {
+        "text": "Escalar el número de nodos físicos del clúster cuando la CPU supera un umbral determinado.",
+        "rationale": "El escalado de nodos es tarea del 'Cluster Autoscaler', no del controlador de tráfico de entrada (Ingress).",
+        "isCorrect": false
+      },
+      {
+        "text": "Proporcionar almacenamiento persistente a los contenedores que no tienen estado.",
+        "rationale": "El almacenamiento se gestiona mediante volúmenes, PersistentVolumes y StorageClasses, no a través del controlador de tráfico.",
+        "isCorrect": false
+      },
+      {
+        "text": "Ejecutar escaneos de seguridad en las imágenes de los contenedores antes de que se inicien.",
+        "rationale": "La seguridad de las imágenes se suele gestionar en el registro de contenedores (Container Registry) o mediante políticas de admisión.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Visualízalo como el recepcionista de un gran edificio de oficinas que decide a qué despacho debe ir cada visitante que entra por la puerta principal."
+  },
+  {
+    "guid": "2ab999b0-26be-4e35-bd48-979a868ad633",
+    "subjectId": "T43",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Qué diferencia a una base de datos NoSQL como Cassandra en un contexto cloud-native?",
+    "answerOptions": [
+      {
+        "text": "Su capacidad de escalado horizontal lineal y su diseño tolerante a fallos sin un punto único de fallo.",
+        "rationale": "Estas bases de datos están diseñadas para distribuirse en muchos nodos, lo que encaja perfectamente con la elasticidad de la nube.",
+        "isCorrect": true
+      },
+      {
+        "text": "Que solo puede ejecutarse en máquinas físicas locales y no en proveedores de nube pública.",
+        "rationale": "Al contrario, están optimizadas para entornos dinámicos y distribuidos como los que ofrecen los proveedores cloud.",
+        "isCorrect": false
+      },
+      {
+        "text": "Que obliga a utilizar el lenguaje SQL estándar para todas las operaciones de consulta.",
+        "rationale": "Cassandra utiliza CQL, que es similar a SQL pero adaptado a su modelo de datos columnar y distribuido, alejándose del estándar relacional puro.",
+        "isCorrect": false
+      },
+      {
+        "text": "Que no permite almacenar más de un gigabyte de información por cada tabla.",
+        "rationale": "Sistemas como Cassandra están diseñados precisamente para manejar volúmenes masivos de datos a escala de petabytes.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piensa en por qué una aplicación que crece masivamente preferiría añadir más servidores baratos en lugar de comprar uno solo muy potente y caro."
+  },
+  {
+    "guid": "a9129770-02e6-42f1-85f8-1c811eb1aab3",
+    "subjectId": "T43",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Cuál es la diferencia entre un contenedor 'init' y un contenedor principal en un Pod de Kubernetes?",
+    "answerOptions": [
+      {
+        "text": "Los contenedores init se ejecutan hasta completarse antes de que los contenedores de la aplicación se inicien.",
+        "rationale": "Se utilizan para tareas de preparación como esperar a que una base de datos esté lista o descargar archivos de configuración necesarios.",
+        "isCorrect": true
+      },
+      {
+        "text": "Los contenedores init son los únicos que tienen permiso para escribir en el disco duro.",
+        "rationale": "Cualquier contenedor del Pod puede escribir en volúmenes compartidos si tiene los permisos adecuados configurados en el manifiesto.",
+        "isCorrect": false
+      },
+      {
+        "text": "Un Pod solo puede tener un contenedor init, pero infinitos contenedores principales.",
+        "rationale": "Un Pod puede tener múltiples contenedores init que se ejecutan secuencialmente, uno tras otro, antes de la aplicación.",
+        "isCorrect": false
+      },
+      {
+        "text": "Los contenedores init se reinician automáticamente cada vez que la aplicación principal falla.",
+        "rationale": "Si un contenedor de aplicación falla, el Pod se gestiona según su política de reinicio, pero los init no vuelven a ejecutarse a menos que el Pod entero se recree.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considera la fase de preparación necesaria antes de que un servicio pueda empezar a aceptar tráfico."
+  },
+  {
+    "guid": "30b4a38e-f44c-4055-804e-278fff997071",
+    "subjectId": "T43",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En el contexto de la metodología GitOps, ¿quién es el responsable de aplicar los cambios en el clúster?",
+    "answerOptions": [
+      {
+        "text": "Un agente u operador interno que sincroniza el estado del clúster con lo definido en el repositorio de Git.",
+        "rationale": "Herramientas como ArgoCD observan el repositorio y, si hay diferencias, 'empujan' o 'tiran' de los cambios para que el clúster coincida con el código.",
+        "isCorrect": true
+      },
+      {
+        "text": "El desarrollador, que debe ejecutar comandos manuales desde su terminal local tras cada commit.",
+        "rationale": "GitOps busca eliminar las intervenciones manuales y las discrepancias de configuración mediante la automatización basada en el estado deseado.",
+        "isCorrect": false
+      },
+      {
+        "text": "El proveedor de la nube (ej. AWS o Google), que escanea el código y lo despliega automáticamente.",
+        "rationale": "Aunque los proveedores ofrecen herramientas, GitOps es un patrón de diseño que se implementa mediante software específico dentro del propio clúster.",
+        "isCorrect": false
+      },
+      {
+        "text": "Un firewall inteligente que detecta cambios en el tráfico y actualiza los servidores.",
+        "rationale": "Un firewall gestiona la seguridad perimetral, no la orquestación ni el despliegue de aplicaciones basándose en repositorios de código.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Imagina un sistema que constantemente compara una foto del 'estado ideal' con la 'realidad' y hace los ajustes necesarios para que sean iguales."
+  },
+  {
+    "guid": "f8e61e36-00ec-4278-af3c-2e5a39ed77ef",
+    "subjectId": "T43",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Qué problema de comunicación resuelve el componente 'Service Discovery' en microservicios?",
+    "answerOptions": [
+      {
+        "text": "La dificultad de localizar servicios cuyas direcciones IP y puertos cambian dinámicamente debido al autoescalado o reinicios.",
+        "rationale": "Proporciona un mecanismo (vía DNS o registro) para que el Servicio A encuentre al Servicio B sin conocer su ubicación física exacta de antemano.",
+        "isCorrect": true
+      },
+      {
+        "text": "La falta de ancho de banda para enviar archivos grandes entre diferentes centros de datos.",
+        "rationale": "El descubrimiento de servicios se ocupa de la conectividad y localización, no de la capacidad de transporte de datos de la red.",
+        "isCorrect": false
+      },
+      {
+        "text": "La necesidad de traducir automáticamente el código de un lenguaje de programación a otro en tiempo real.",
+        "rationale": "La comunicación entre microservicios es agnóstica al lenguaje; el Service Discovery no interviene en la lógica del código fuente.",
+        "isCorrect": false
+      },
+      {
+        "text": "La protección contra ataques de inyección de código en las interfaces web.",
+        "rationale": "La seguridad contra inyecciones es responsabilidad de los WAF (Web Application Firewalls) y de las prácticas de desarrollo seguro.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piensa en una agenda telefónica que se actualiza sola cada vez que alguien cambia su número de móvil."
+  },
+  {
+    "guid": "3dfe7707-996a-4342-b6c7-e244ca750536",
+    "subjectId": "T43",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Cuál es la principal ventaja de utilizar una arquitectura 'Polyglot Persistence' en microservicios?",
+    "answerOptions": [
+      {
+        "text": "Permitir que cada microservicio utilice el tipo de base de datos que mejor se adapte a su modelo de datos específico.",
+        "rationale": "Por ejemplo, un servicio de catálogo puede usar una base de datos de grafos mientras que un servicio de transacciones usa una relacional.",
+        "isCorrect": true
+      },
+      {
+        "text": "Ahorrar dinero al utilizar únicamente bases de datos de código abierto en todos los departamentos.",
+        "rationale": "La persistencia políglota no se refiere a la licencia del software, sino a la diversidad de paradigmas (relacional, documental, grafos, etc.).",
+        "isCorrect": false
+      },
+      {
+        "text": "Garantizar que todos los datos de la empresa se hablen en el mismo idioma para facilitar el análisis.",
+        "rationale": "Al contrario, esto puede complicar el análisis global, requiriendo procesos de ETL para unificar datos provenientes de tecnologías dispares.",
+        "isCorrect": false
+      },
+      {
+        "text": "Eliminar la necesidad de realizar copias de seguridad, ya que los datos están en formatos diferentes.",
+        "rationale": "Independientemente del formato o motor, la persistencia de datos siempre requiere estrategias de respaldo y recuperación ante desastres.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Se trata de elegir 'la herramienta adecuada para el trabajo adecuado' en lugar de intentar usar un martillo para todo."
+  },
+  {
+    "guid": "c87a745b-f604-4ad6-ac93-e66981288dd4",
+    "subjectId": "T43",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En el desarrollo cloud-native, ¿qué implica que una aplicación sea 'Observable' por diseño?",
+    "answerOptions": [
+      {
+        "text": "Que la aplicación expone métricas, logs y trazas de forma nativa para que sistemas externos entiendan su estado interno.",
+        "rationale": "No es solo monitorización pasiva; es la capacidad del software de ser interrogado sobre su comportamiento sin necesidad de cambios en el código.",
+        "isCorrect": true
+      },
+      {
+        "text": "Que el código fuente de la aplicación es público y puede ser leído por cualquier persona en internet.",
+        "rationale": "La observabilidad es un concepto técnico de operaciones y telemetría, no tiene relación con el modelo de licencia Open Source.",
+        "isCorrect": false
+      },
+      {
+        "text": "Que la aplicación tiene una interfaz gráfica muy detallada para que los administradores vean botones de colores.",
+        "rationale": "La observabilidad se centra en datos técnicos procesables (telemetría), a menudo consumidos por otros sistemas, no solo en la estética visual de un panel.",
+        "isCorrect": false
+      },
+      {
+        "text": "Que la aplicación graba video de la pantalla del usuario para detectar errores de usabilidad.",
+        "rationale": "Esto sería análisis de experiencia de usuario (UX); la observabilidad técnica se ocupa del rendimiento y salud del sistema de backend.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "No es solo mirar si algo está 'vivo' o 'muerto', sino poder explicar 'por qué' se siente mal sin abrirlo en quirófano."
+  },
+  {
+    "guid": "1c47c960-d6a8-46cb-bee2-ea1c2d6b7d31",
+    "subjectId": "T43",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En una arquitectura basada en servicios (SOA), ¿qué función cumple el documento WSDL?",
+    "answerOptions": [
+      {
+        "text": "Describe de forma técnica los métodos, parámetros y tipos de datos que ofrece un servicio basado en SOAP.",
+        "rationale": "Actúa como un contrato formal que permite a los clientes generar automáticamente el código necesario para consumir el servicio.",
+        "isCorrect": true
+      },
+      {
+        "text": "Es el lenguaje de programación utilizado para escribir la lógica de negocio de los microservicios.",
+        "rationale": "WSDL es un formato de definición basado en XML, no un lenguaje de programación de propósito general como Python o Java.",
+        "isCorrect": false
+      },
+      {
+        "text": "Sirve para documentar las APIs REST mediante una interfaz web interactiva para desarrolladores.",
+        "rationale": "La documentación interactiva de REST suele realizarse con Swagger u OpenAPI; WSDL es específico de servicios SOAP.",
+        "isCorrect": false
+      },
+      {
+        "text": "Es un protocolo de red que garantiza que los mensajes lleguen siempre en el orden correcto.",
+        "rationale": "WSDL describe la interfaz del servicio, pero la entrega de mensajes depende de protocolos de transporte y extensiones como WS-ReliableMessaging.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considéralo el 'manual de instrucciones' escrito en XML que un programa lee para saber cómo hablar con otro programa."
+  },
+  {
+    "guid": "99cd3408-02e6-4390-a7c6-d22c0a40fa1b",
+    "subjectId": "T43",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Por qué el 'acoplamiento fuerte' (tight coupling) se considera un riesgo en sistemas distribuidos?",
+    "answerOptions": [
+      {
+        "text": "Porque provoca que un cambio o fallo en un componente obligue a modificar o detenga a todos los demás componentes relacionados.",
+        "rationale": "El objetivo de Cloud Native es el 'loose coupling' para permitir que cada parte del sistema evolucione y escale de forma independiente.",
+        "isCorrect": true
+      },
+      {
+        "text": "Porque aumenta la velocidad de transmisión de datos al estar los componentes más cerca físicamente.",
+        "rationale": "El acoplamiento se refiere a la interdependencia lógica y de código, no a la proximidad física en el centro de datos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Porque permite que la base de datos se ejecute dentro del mismo contenedor que el servidor web.",
+        "rationale": "Aunque es un tipo de acoplamiento, en arquitecturas modernas esto se evita por razones de escalabilidad y gestión de recursos, no solo por el acoplamiento.",
+        "isCorrect": false
+      },
+      {
+        "text": "Porque garantiza que todos los microservicios utilicen la misma versión de la librería de seguridad.",
+        "rationale": "Forzar una versión única en todo el sistema es precisamente un síntoma de acoplamiento que impide la actualización independiente de los servicios.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piensa en un castillo de naipes: si todas las cartas dependen críticamente de las demás, ¿qué ocurre si quitas una?"
+  },
+  {
+    "guid": "90711deb-6ef3-4ccd-b026-5d121dd3b68e",
+    "subjectId": "T43",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Qué ventaja fundamental ofrece un 'API Gateway' frente a exponer cada microservicio directamente a internet?",
+    "answerOptions": [
+      {
+        "text": "Proporciona un punto único para gestionar la autenticación, el control de cuotas (rate limiting) y la abstracción de la estructura interna.",
+        "rationale": "Simplifica la vida al cliente (que solo ve una URL) y centraliza políticas transversales que de otro modo deberían repetirse en cada servicio.",
+        "isCorrect": true
+      },
+      {
+        "text": "Hace que el código de la base de datos sea invisible para los piratas informáticos.",
+        "rationale": "Aunque mejora la seguridad general, el código de la base de datos nunca debería estar expuesto directamente, con o sin Gateway.",
+        "isCorrect": false
+      },
+      {
+        "text": "Permite que los microservicios se ejecuten sin necesidad de usar el protocolo TCP/IP.",
+        "rationale": "El Gateway es un componente de red que sigue utilizando protocolos estándar como HTTP/HTTPS sobre TCP/IP.",
+        "isCorrect": false
+      },
+      {
+        "text": "Elimina la necesidad de tener servidores de frontend al procesar el HTML en el propio Gateway.",
+        "rationale": "El Gateway se encarga principalmente del enrutamiento de APIs; el renderizado de interfaces suele ser responsabilidad de aplicaciones cliente o servidores de frontend dedicados.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Visualiza una ventanilla única en una administración pública que te evita tener que ir despacho por despacho buscando al funcionario correcto."
+  }
+]

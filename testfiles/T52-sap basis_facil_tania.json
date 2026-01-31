@@ -1,0 +1,467 @@
+[
+  {
+    "guid": "e32a584d-cf9c-47c6-8ae0-ed356717b733",
+    "subjectId": "T52",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Según la arquitectura de 3 capas de SAP, ¿cuál es la consecuencia directa de un fallo en la capa de aplicación?",
+    "answerOptions": [
+      {
+        "text": "La interfaz de usuario (SAP GUI y Fiori) seguiría funcionando en modo de solo lectura, accediendo directamente a la base de datos.",
+        "rationale": "La capa de presentación necesita la capa de aplicación para interpretar y procesar cualquier acción del usuario; no puede comunicarse directamente con la base de datos.",
+        "isCorrect": false
+      },
+      {
+        "text": "El sistema se vuelve inoperativo, ya que es en esta capa donde se ejecuta toda la lógica de negocio y se procesan las transacciones.",
+        "rationale": "Esta capa es el cerebro del sistema, procesando las entradas del usuario y gestionando la comunicación con la base de datos. Sin ella, el sistema no puede funcionar.",
+        "isCorrect": true
+      },
+      {
+        "text": "Solo las nuevas conexiones de usuario se verían afectadas, pero las sesiones activas continuarían funcionando con normalidad.",
+        "rationale": "Un fallo en la capa de aplicación afecta a todos los procesos de negocio, tanto los nuevos como los que ya están en ejecución.",
+        "isCorrect": false
+      },
+      {
+        "text": "El sistema activaría automáticamente los servicios de la capa de base de datos para asumir temporalmente el procesamiento de la lógica de negocio.",
+        "rationale": "La capa de base de datos se especializa en el almacenamiento y recuperación de datos, no está diseñada para ejecutar la lógica de negocio de las aplicaciones SAP.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Recuerda qué función esencial cumple cada una de las tres capas y cómo interactúan entre sí."
+  },
+  {
+    "guid": "683c33b7-64d1-4682-9672-9c9cd3bb58b3",
+    "subjectId": "T52",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Un consultor funcional ha configurado nuevos tipos de documentos de ventas en el entorno de desarrollo (DEV). Para mover estos cambios al entorno de calidad (QA), ¿qué tipo de orden de transporte se debe utilizar?",
+    "answerOptions": [
+      {
+        "text": "Una orden de Workbench, ya que contiene objetos del repositorio ABAP.",
+        "rationale": "Las órdenes de Workbench se reservan para objetos de desarrollo como programas, tablas o funciones, no para la configuración funcional del sistema.",
+        "isCorrect": false
+      },
+      {
+        "text": "Una orden de Customizing, ya que agrupa la parametrización realizada a través de SPRO.",
+        "rationale": "La configuración de procesos de negocio, como la creación de tipos de documentos, se considera Customizing y se transporta mediante este tipo de órdenes.",
+        "isCorrect": true
+      },
+      {
+        "text": "Una llamada RFC, para ejecutar la configuración directamente en el sistema de destino.",
+        "rationale": "RFC es un mecanismo de comunicación entre sistemas para llamar funciones, no el sistema estandarizado para transportar configuraciones.",
+        "isCorrect": false
+      },
+      {
+        "text": "Un transporte de SAP Solution Manager (ChaRM), ya que es el único método permitido.",
+        "rationale": "ChaRM gestiona y controla el proceso de transporte, pero las órdenes subyacentes que mueve siguen siendo de tipo Workbench o Customizing.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piensa en la diferencia entre desarrollar un nuevo programa y configurar un proceso de negocio existente en SAP."
+  },
+  {
+    "guid": "a95f83e0-7bf2-4732-90cd-c49bc7f662bf",
+    "subjectId": "T52",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Cuál es la principal ventaja del almacenamiento columnar de SAP HANA en comparación con el almacenamiento por filas tradicional para procesos analíticos?",
+    "answerOptions": [
+      {
+        "text": "Mejora la velocidad de las transacciones OLTP al escribir registros completos de forma más eficiente.",
+        "rationale": "El almacenamiento por filas es generalmente más eficiente para transacciones que modifican registros enteros, mientras que el columnar destaca en la lectura de datos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Garantiza la consistencia de los datos al almacenar todas las columnas de una misma fila de forma contigua en memoria.",
+        "rationale": "El almacenamiento por filas es el que agrupa los datos de un registro de forma contigua; el columnar agrupa los valores de la misma columna.",
+        "isCorrect": false
+      },
+      {
+        "text": "Facilita la creación de aplicaciones web nativas gracias al motor XS Engine integrado.",
+        "rationale": "El motor XS Engine es un componente de HANA, pero su función no está directamente ligada a la forma en que se almacenan los datos (columnar vs. por filas).",
+        "isCorrect": false
+      },
+      {
+        "text": "Permite una alta compresión de datos y una lectura muy rápida de un subconjunto de columnas para una consulta.",
+        "rationale": "Al leer solo las columnas necesarias para un informe y gracias a la alta compresión por la repetición de valores, el rendimiento analítico mejora drásticamente.",
+        "isCorrect": true
+      }
+    ],
+    "hint": "Considera cómo un sistema de reporting consulta los datos para generar un informe: ¿necesita todas las columnas de una tabla o solo unas pocas?"
+  },
+  {
+    "guid": "5f7acfbb-b54c-475b-894f-b4478750cb6b",
+    "subjectId": "T52",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Qué afirmación describe correctamente la diferencia entre 'SAP on HANA' y 'S/4HANA'?",
+    "answerOptions": [
+      {
+        "text": "S/4HANA es el nombre técnico para cualquier ERP de SAP que utiliza la base de datos HANA, mientras que 'SAP on HANA' es un término de marketing.",
+        "rationale": "Esta opción invierte los conceptos. 'SAP on HANA' es el término técnico para ECC sobre HANA, y S/4HANA es un producto completamente nuevo.",
+        "isCorrect": false
+      },
+      {
+        "text": "'SAP on HANA' es el ERP clásico ECC funcionando sobre la base de datos HANA, mientras que S/4HANA es un nuevo ERP rediseñado para explotar las capacidades de HANA.",
+        "rationale": "Esta es la distinción clave: 'SAP on HANA' es un cambio de base de datos (lift-and-shift), mientras que S/4HANA es una transformación del propio ERP.",
+        "isCorrect": true
+      },
+      {
+        "text": "Ambos términos se refieren al mismo producto, pero 'SAP on HANA' es para instalaciones on-premise y S/4HANA es para la versión en la nube.",
+        "rationale": "S/4HANA tiene versiones tanto on-premise como cloud, por lo que esta distinción no es correcta. Los términos se refieren a productos y arquitecturas diferentes.",
+        "isCorrect": false
+      },
+      {
+        "text": "S/4HANA puede funcionar sobre Oracle o HANA, mientras que 'SAP on HANA' indica que la instalación está restringida exclusivamente a la base de datos de SAP.",
+        "rationale": "Al contrario, el texto especifica que S/4HANA funciona exclusivamente sobre SAP HANA, mientras que el ECC clásico (que puede ser 'SAP on HANA') podía correr en varias BBDD.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piensa si el cambio es solo en la base de datos o si también afecta a la aplicación (ERP)."
+  },
+  {
+    "guid": "97353594-389c-432d-b87a-92f0531561c8",
+    "subjectId": "T52",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En el contexto de la seguridad en SAP, ¿cuál es la función de la transacción PFCG (Profile Generator)?",
+    "answerOptions": [
+      {
+        "text": "Crear, modificar y asignar usuarios del sistema, estableciendo sus contraseñas y parámetros iniciales.",
+        "rationale": "Esta descripción corresponde a la transacción SU01 (Mantenimiento de usuarios).",
+        "isCorrect": false
+      },
+      {
+        "text": "Generar informes y análisis detallados sobre los permisos y autorizaciones asignados a los usuarios.",
+        "rationale": "Esta es la función principal del User Information System, accesible a través de la transacción SUIM.",
+        "isCorrect": false
+      },
+      {
+        "text": "Definir los roles de autorización, que son conjuntos de acciones permitidas, y generar los perfiles técnicos asociados.",
+        "rationale": "PFCG es la herramienta central para construir los roles funcionales y que el sistema genere automáticamente los perfiles de autorización correspondientes.",
+        "isCorrect": true
+      },
+      {
+        "text": "Monitorizar en tiempo real los conflictos de segregación de funciones (SoD) y alertar sobre posibles riesgos.",
+        "rationale": "Aunque la definición de roles en PFCG es clave para evitar conflictos SoD, la monitorización de estos se realiza con herramientas más especializadas, a menudo complementarias.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Esta herramienta es el punto de partida para construir el concepto de 'rol' en SAP, que luego se asigna a los usuarios."
+  },
+  {
+    "guid": "9cbc59c9-9f99-43f8-9c6f-4341edb992a6",
+    "subjectId": "T52",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Un administrador de sistemas necesita comprobar si hay procesos de diálogo bloqueados o que consumen muchos recursos en todos los servidores de aplicación de un sistema SAP. ¿Cuál sería la transacción más directa y adecuada para obtener esta visión global?",
+    "answerOptions": [
+      {
+        "text": "ST22, para analizar los dumps ABAP generados por procesos fallidos.",
+        "rationale": "ST22 es reactiva, se usa para analizar un problema después de que haya ocurrido (un 'dump'), no para ver el estado de los procesos en tiempo real.",
+        "isCorrect": false
+      },
+      {
+        "text": "SM50, para ver los procesos de trabajo del servidor de aplicación en el que está conectado actualmente.",
+        "rationale": "SM50 es muy útil, pero solo muestra los procesos del servidor de aplicación actual. Para una vista global, se necesita otro paso o transacción.",
+        "isCorrect": false
+      },
+      {
+        "text": "SM21, para revisar el log del sistema en busca de errores críticos o advertencias.",
+        "rationale": "El log del sistema (SM21) registra eventos importantes, pero no ofrece una vista dinámica y en tiempo real del estado y consumo de los procesos de trabajo.",
+        "isCorrect": false
+      },
+      {
+        "text": "SM66, para obtener una vista general y global de todos los procesos de trabajo activos en todas las instancias del sistema.",
+        "rationale": "SM66 (Global Work Process Overview) está diseñada específicamente para proporcionar una vista consolidada de todos los procesos en todos los servidores, ideal para el escenario descrito.",
+        "isCorrect": true
+      }
+    ],
+    "hint": "El escenario requiere una visión 'global' o 'en todas las instancias', no solo en el servidor actual."
+  },
+  {
+    "guid": "dedb764c-db1b-4da2-9cd0-ca95d3de82fb",
+    "subjectId": "T52",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Qué capacidad única ofrece el concepto HTAP (Hybrid Transactional/Analytical Processing) de SAP HANA?",
+    "answerOptions": [
+      {
+        "text": "Permite separar físicamente los datos transaccionales (OLTP) de los analíticos (OLAP) para optimizar el rendimiento de cada uno.",
+        "rationale": "HTAP busca precisamente lo contrario: unificar el procesamiento sobre un único conjunto de datos para evitar la duplicación y la latencia.",
+        "isCorrect": false
+      },
+      {
+        "text": "Ejecutar procesos transaccionales y analíticos complejos sobre el mismo conjunto de datos en tiempo real, sin duplicación.",
+        "rationale": "Esta es la definición de HTAP, eliminando la necesidad de sistemas separados (como un BW clásico) para la analítica y permitiendo informes en tiempo real.",
+        "isCorrect": true
+      },
+      {
+        "text": "Utilizar la memoria RAM para procesos OLTP y el almacenamiento en disco para procesos OLAP, gestionando los recursos de forma híbrida.",
+        "rationale": "HANA es una base de datos 'in-memory', lo que significa que tanto los datos OLTP como OLAP residen principalmente en la RAM para un acceso rápido.",
+        "isCorrect": false
+      },
+      {
+        "text": "Integrar bases de datos SQL y NoSQL en un único sistema híbrido de procesamiento.",
+        "rationale": "Aunque HANA tiene capacidades NoSQL, el término HTAP se refiere específicamente a la convergencia de las cargas de trabajo OLTP y OLAP.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piensa en el problema tradicional de tener que mover datos de un sistema transaccional a un sistema de reporting y cómo esta tecnología lo soluciona."
+  },
+  {
+    "guid": "dd792f48-a8aa-49c2-925e-0c1138d8a202",
+    "subjectId": "T52",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Cuál es el papel de SAP Solution Manager (SolMan) en relación con las tareas de un administrador SAP Basis?",
+    "answerOptions": [
+      {
+        "text": "SolMan es una herramienta que reemplaza al administrador Basis, automatizando todas sus tareas de monitorización, backup y seguridad.",
+        "rationale": "SolMan es una herramienta de apoyo y gestión, pero no reemplaza el rol técnico y fundamental del administrador Basis que gestiona la infraestructura subyacente.",
+        "isCorrect": false
+      },
+      {
+        "text": "Basis administra la infraestructura técnica fundamental, y SolMan utiliza esa base para ofrecer herramientas centralizadas de gestión del ciclo de vida de las aplicaciones (ALM).",
+        "rationale": "Esta opción describe correctamente la sinergia: Basis construye y mantiene la base técnica, y SolMan proporciona una capa de gestión y orquestación sobre ella.",
+        "isCorrect": true
+      },
+      {
+        "text": "SolMan se enfoca exclusivamente en la gestión de sistemas no-SAP, mientras que Basis se centra en los sistemas SAP.",
+        "rationale": "El texto indica que SolMan puede gestionar tanto sistemas SAP como no-SAP, actuando como un centro de gestión centralizado para todo el landscape.",
+        "isCorrect": false
+      },
+      {
+        "text": "Basis se encarga de la capa de aplicación ABAP, mientras que SolMan es responsable de la administración de la capa de aplicación Java.",
+        "rationale": "El rol de Basis abarca ambas capas (ABAP y Java), y SolMan es una herramienta de gestión para todo el paisaje, independientemente de la tecnología de la pila.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considera la relación entre la infraestructura (la base) y las herramientas de gestión que se ejecutan sobre ella."
+  },
+  {
+    "guid": "62f82adc-8bd6-41f3-a742-a7b50215846f",
+    "subjectId": "T52",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En una arquitectura SAP PI/PO, ¿qué componente es el responsable de la automatización de procesos de negocio complejos que involucran múltiples pasos y sistemas?",
+    "answerOptions": [
+      {
+        "text": "BRM (Business Rules Management), que gestiona las reglas de negocio dinámicas.",
+        "rationale": "BRM se centra en externalizar y gestionar las reglas de negocio (p. ej., 'si el importe > 1000, requiere aprobación'), pero no orquesta el flujo completo del proceso.",
+        "isCorrect": false
+      },
+      {
+        "text": "PI (Process Integration), que transforma y enruta los mensajes entre sistemas.",
+        "rationale": "PI es el núcleo de la integración y el intercambio de datos, pero la orquestación de flujos de trabajo de varios pasos es la especialidad de otro componente.",
+        "isCorrect": false
+      },
+      {
+        "text": "El Workbench de ABAP, que se utiliza para diseñar los flujos de trabajo internos.",
+        "rationale": "Aunque el Workbench de ABAP tiene herramientas de workflow, en el contexto de PI/PO, el componente de orquestación de procesos es específico de esa plataforma.",
+        "isCorrect": false
+      },
+      {
+        "text": "BPM (Business Process Management), que permite modelar y ejecutar flujos de trabajo de negocio de principio a fin.",
+        "rationale": "BPM es el componente de SAP PO diseñado específicamente para la orquestación y automatización de procesos de negocio que pueden abarcar diferentes sistemas y tareas.",
+        "isCorrect": true
+      }
+    ],
+    "hint": "La pregunta se refiere a la 'orquestación' de un proceso completo, no solo al intercambio de un mensaje o a la definición de una regla."
+  },
+  {
+    "guid": "3cccbeb0-d9aa-46e8-9954-631d392fa2ac",
+    "subjectId": "T52",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Una empresa necesita integrar su sistema SAP con un proveedor externo utilizando un formato de datos moderno basado en APIs. ¿Cuál sería la solución de integración estratégica y actual de SAP, según el texto?",
+    "answerOptions": [
+      {
+        "text": "SAP PI/PO on-premise, ya que es la herramienta más robusta y consolidada para cualquier tipo de integración.",
+        "rationale": "Aunque PI/PO es muy robusto, el texto lo posiciona como una solución más tradicional para entornos on-premise, mientras que SAP está desplazándose hacia otra solución.",
+        "isCorrect": false
+      },
+      {
+        "text": "SAP Integration Suite en la plataforma BTP, por ser una solución cloud-based, flexible y orientada a APIs modernas.",
+        "rationale": "El texto identifica a SAP Integration Suite como la evolución de PI/PO, operando en la nube (BTP) y siendo más adecuada para escenarios de integración modernos con APIs REST.",
+        "isCorrect": true
+      },
+      {
+        "text": "Conexiones RFC directas, ya que es el método más rápido para la comunicación entre sistemas SAP y no-SAP.",
+        "rationale": "RFC es un protocolo propietario de SAP y no es el estándar para la comunicación moderna con terceros basada en APIs web como REST o JSON.",
+        "isCorrect": false
+      },
+      {
+        "text": "SAP NetWeaver, ya que es la plataforma de integración que unifica todos los sistemas heterogéneos.",
+        "rationale": "SAP NetWeaver es la plataforma subyacente donde corre PI/PO, pero no es la solución de integración específica. La suite moderna está en BTP.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "El texto menciona una evolución de PI/PO hacia una solución basada en la nube. ¿Cuál es?"
+  },
+  {
+    "guid": "89e801c3-a1f5-496e-86e7-07f47a66abfd",
+    "subjectId": "T52",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Dentro de la arquitectura de SAP HANA, ¿qué función principal desempeña el componente 'Index Server'?",
+    "answerOptions": [
+      {
+        "text": "Gestionar el arranque y la parada de la instancia de HANA y supervisar el estado de todos los demás procesos.",
+        "rationale": "Esta función corresponde al servicio SAP Start Service (sapstartsrv), que actúa como un gestor de la instancia.",
+        "isCorrect": false
+      },
+      {
+        "text": "Gestionar la topología del sistema en un entorno distribuido y saber en qué nodo reside cada dato.",
+        "rationale": "La gestión de la topología y la distribución de datos entre nodos es la responsabilidad principal del Name Server.",
+        "isCorrect": false
+      },
+      {
+        "text": "Procesar las consultas SQL, gestionar las transacciones y manejar los motores de almacenamiento (columnar y por filas).",
+        "rationale": "El Index Server es el corazón de SAP HANA; es el proceso principal que se encarga de toda la gestión y procesamiento de datos.",
+        "isCorrect": true
+      },
+      {
+        "text": "Compilar los procedimientos SQLScript y los modelos de cálculo para optimizar su ejecución futura.",
+        "rationale": "Esta tarea específica de compilación y optimización de código la realiza el Compile Server.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piensa en cuál es el componente central que realiza el trabajo principal de procesamiento de datos en HANA."
+  },
+  {
+    "guid": "c73aa99b-f371-419e-86b1-b95fe56f7d24",
+    "subjectId": "T52",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Un sistema necesita realizar una llamada a una función en otro sistema SAP y no puede esperar una respuesta inmediata, pero debe garantizar que la llamada se ejecute exactamente una vez. ¿Qué tecnología de comunicación sería la más apropiada?",
+    "answerOptions": [
+      {
+        "text": "RFC síncrono (sRFC).",
+        "rationale": "El RFC síncrono espera una respuesta inmediata, lo que contradice el requisito del escenario.",
+        "isCorrect": false
+      },
+      {
+        "text": "IDoc.",
+        "rationale": "Los IDocs son un estándar para el intercambio de documentos de negocio y, aunque son asíncronos, el RFC transaccional es más específico para la llamada a funciones con garantía de entrega.",
+        "isCorrect": false
+      },
+      {
+        "text": "RFC transaccional (tRFC) o qRFC.",
+        "rationale": "Los RFC asíncronos como tRFC y qRFC están diseñados para no esperar respuesta y garantizar la entrega y ejecución de la función en el sistema remoto.",
+        "isCorrect": true
+      },
+      {
+        "text": "Webservice SOAP.",
+        "rationale": "Un webservice podría ser síncrono o asíncrono, pero el RFC es el mecanismo nativo y directo de SAP para la ejecución remota de módulos de funciones.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "El escenario requiere una comunicación asíncrona pero con garantía de entrega. Busca el tipo de RFC que cumple esta condición."
+  },
+  {
+    "guid": "e42fc9d3-0f17-42e4-8f90-22cc9f7e7263",
+    "subjectId": "T52",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "A pesar de ser una base de datos principalmente relacional (SQL), SAP HANA incorpora características NoSQL. ¿Cuál de las siguientes opciones es un ejemplo de esta capacidad?",
+    "answerOptions": [
+      {
+        "text": "La capacidad de realizar JOINs complejos entre múltiples tablas relacionales con alto rendimiento.",
+        "rationale": "La optimización de JOINs es una característica avanzada de los motores SQL, pero no es una capacidad NoSQL.",
+        "isCorrect": false
+      },
+      {
+        "text": "El soporte para transacciones ACID, que garantizan la consistencia de los datos.",
+        "rationale": "Las propiedades ACID son el pilar de las bases de datos relacionales (SQL), en contraposición a los modelos más flexibles de muchas bases de datos NoSQL.",
+        "isCorrect": false
+      },
+      {
+        "text": "La habilidad de almacenar y consultar datos en formato de documento JSON.",
+        "rationale": "El soporte para modelos de datos flexibles como los documentos JSON es una característica típica de las bases de datos NoSQL que HANA ha incorporado.",
+        "isCorrect": true
+      },
+      {
+        "text": "La optimización automática de consultas SQL para un rendimiento eficiente.",
+        "rationale": "La optimización de consultas es una función clave de los sistemas de gestión de bases de datos relacionales (RDBMS) y no se considera una característica NoSQL.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Las bases de datos NoSQL a menudo utilizan modelos de datos diferentes al de tablas y filas. ¿Cuál de estos modelos menciona el texto?"
+  },
+  {
+    "guid": "cecfcadb-28b9-4f83-9f54-3fb6e099df28",
+    "subjectId": "T52",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Cuál es la relación fundamental entre SAP NetWeaver y SAP Basis?",
+    "answerOptions": [
+      {
+        "text": "SAP NetWeaver es la base técnica, mientras que SAP Basis es una plataforma de integración que se ejecuta sobre NetWeaver.",
+        "rationale": "Esta opción invierte los roles. Basis es la base técnica fundamental.",
+        "isCorrect": false
+      },
+      {
+        "text": "Ambos son términos intercambiables para referirse a la capa técnica de cualquier sistema SAP.",
+        "rationale": "Aunque están estrechamente relacionados, no son intercambiables; tienen roles y alcances diferentes.",
+        "isCorrect": false
+      },
+      {
+        "text": "SAP Basis es la capa técnica fundamental, y SAP NetWeaver es una plataforma de aplicación más amplia que utiliza Basis para ofrecer capacidades de integración y desarrollo.",
+        "rationale": "Esta opción describe correctamente la jerarquía: Basis es el núcleo técnico, y NetWeaver es una plataforma construida sobre ese núcleo para añadir más funcionalidades.",
+        "isCorrect": true
+      },
+      {
+        "text": "SAP Basis gestiona los sistemas ABAP y SAP NetWeaver gestiona los sistemas Java.",
+        "rationale": "SAP Basis es la base para ambos tipos de sistemas (ABAP y Java), y NetWeaver es la plataforma de aplicación que puede tener pilas ABAP, Java o ambas.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piensa en qué es más fundamental y qué se construye encima para ofrecer más capacidades."
+  },
+  {
+    "guid": "209a960a-c83e-499b-b4fc-4b836e1d3c1e",
+    "subjectId": "T52",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Si una organización decide no implementar BPM y BRM dentro de su SAP PO, ¿cómo se suelen diseñar muchos de los flujos de procesos internos alternativamente, según el texto?",
+    "answerOptions": [
+      {
+        "text": "Utilizando SAP Solution Manager y su funcionalidad ChaRM.",
+        "rationale": "ChaRM se utiliza para la gestión de cambios y transportes, no para el diseño de flujos de procesos de negocio.",
+        "isCorrect": false
+      },
+      {
+        "text": "Mediante el desarrollo de aplicaciones nativas en la plataforma XS Advanced de HANA.",
+        "rationale": "XS Advanced es una plataforma moderna para el desarrollo de aplicaciones, pero el texto sugiere una herramienta más tradicional y directamente integrada en el ERP.",
+        "isCorrect": false
+      },
+      {
+        "text": "A través de las herramientas del Workbench del propio SAP.",
+        "rationale": "El texto menciona explícitamente que muchos flujos internos se diseñan con herramientas como el Workbench, que incluye, por ejemplo, SAP Business Workflow.",
+        "isCorrect": true
+      },
+      {
+        "text": "Configurando integraciones directas con RFC y IDocs sin una capa de orquestación.",
+        "rationale": "Aunque es posible, el texto menciona una herramienta específica para el diseño de flujos, no solo la creación de interfaces punto a punto.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "El texto menciona una herramienta clásica de desarrollo dentro del propio sistema SAP como alternativa a los componentes más avanzados de PO."
+  }
+]
