@@ -609,6 +609,10 @@
               toggleMultiSelect(idx);
             }
           }
+        } else if (e.key === 'g' || e.key === 'G') {
+          // Guardar dubte con tecla G
+          guardarDubte();
+          e.preventDefault();
         }
       });
       const header = document.getElementById('headerTitle');
@@ -1484,6 +1488,7 @@
         const userAnswer = answers[currentQuestion];
         // Si hay respuesta guardada, usar esa; si no, null (sin marcar opciones)
         addOrUpdateQuestionInHistorial(pregunta, userAnswer);
+        toast.showToast('✅ Pregunta guardada al dubtes!');
       }
     }
 
@@ -1696,6 +1701,9 @@
     function borrarUltimoError() {
       if (!historialFallos.length) {
         toast.showToast('No hi ha errors per esborrar.');
+        return;
+      }
+      if (!confirm('Segur que vols esborrar l\'últim error del historial?')) {
         return;
       }
       historialFallos.shift();
