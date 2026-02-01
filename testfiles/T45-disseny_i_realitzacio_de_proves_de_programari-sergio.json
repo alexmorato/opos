@@ -1,0 +1,808 @@
+[
+  {
+    "guid": "607dd340-9f63-4eda-a606-eb5ffbf09d25",
+    "subjectId": "T45",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Una administración pública despliega una nueva sede electrónica que cumple estrictamente con el pliego de prescripciones técnicas. Sin embargo, tras el lanzamiento, los ciudadanos reportan que el sistema no permite realizar el trámite de empadronamiento de forma intuitiva, obligándoles a acudir presencialmente. ¿Qué proceso ha fallado fundamentalmente en este escenario?",
+    "answerOptions": [
+      {
+        "text": "Verificación del sistema",
+        "rationale": "Este proceso se centra en comprobar si el software se ciñe a las especificaciones técnicas iniciales, lo cual sí se cumplió en este caso.",
+        "isCorrect": false
+      },
+      {
+        "text": "Validación del sistema",
+        "rationale": "Este proceso evalúa si el producto final satisface las necesidades reales y expectativas del usuario final, más allá de los requisitos técnicos.",
+        "isCorrect": true
+      },
+      {
+        "text": "Pruebas de regresión",
+        "rationale": "Estas pruebas se orientan a asegurar que cambios nuevos no dañen funcionalidades existentes, algo no relacionado con el diseño funcional inicial.",
+        "isCorrect": false
+      },
+      {
+        "text": "Pruebas unitarias",
+        "rationale": "Estas pruebas validan la lógica interna de componentes individuales, no la adecuación del producto global al propósito del usuario.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Diferencia entre construir el producto 'correctamente' y construir el producto 'correcto' para el ciudadano."
+  },
+  {
+    "guid": "a5e88d1b-aba6-41cb-bf82-f2b6640972a4",
+    "subjectId": "T45",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En un entorno de integración continua, el equipo de desarrollo modifica un microservicio encargado de la pasarela de pagos. Tras el despliegue, el módulo de facturación, que no fue modificado, empieza a generar errores de formato. ¿Qué tipo de pruebas habrían detectado este fallo antes de pasar a producción?",
+    "answerOptions": [
+      {
+        "text": "Pruebas de estrés",
+        "rationale": "Su objetivo es encontrar los límites de capacidad del sistema, no detectar errores funcionales colaterales por cambios en el código.",
+        "isCorrect": false
+      },
+      {
+        "text": "Pruebas de humo (Smoke testing)",
+        "rationale": "Son pruebas superficiales para validar la estabilidad básica de una construcción, pero no profundizan en efectos secundarios en otros módulos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Pruebas de regresión",
+        "rationale": "Se diseñan específicamente para verificar que las modificaciones en una parte del sistema no afecten negativamente a otras áreas que funcionaban correctamente.",
+        "isCorrect": true
+      },
+      {
+        "text": "Pruebas de caja blanca",
+        "rationale": "Aunque analizan la lógica interna, no están intrínsecamente ligadas a la verificación de efectos secundarios tras un cambio en otro módulo.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Este tipo de pruebas se enfocan en la estabilidad de las funcionalidades previamente validadas tras una actualización."
+  },
+  {
+    "guid": "518b20fc-cd39-4be9-9159-5cd1214e432b",
+    "subjectId": "T45",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Como técnico superior, se le encarga definir la estrategia de integración de un sistema ERP. El equipo decide empezar probando los módulos más internos (como el acceso a base de datos) y luego ir añadiendo módulos de mayor jerarquía. ¿Cómo se denomina técnicamente esta estrategia?",
+    "answerOptions": [
+      {
+        "text": "Estrategia Top-Down",
+        "rationale": "Esta estrategia comienza por los niveles superiores o interfaces externas y desciende hacia los componentes de bajo nivel.",
+        "isCorrect": false
+      },
+      {
+        "text": "Estrategia Big Bang",
+        "rationale": "Consiste en integrar todos los componentes simultáneamente, lo que dificulta enormemente el aislamiento de errores.",
+        "isCorrect": false
+      },
+      {
+        "text": "Estrategia Bottom-Up",
+        "rationale": "Inicia con los componentes de nivel inferior, requiriendo el uso de 'drivers' o controladores para simular los módulos superiores.",
+        "isCorrect": true
+      },
+      {
+        "text": "Estrategia de caja gris",
+        "rationale": "Es un enfoque de visibilidad del código, no una estrategia de integración de componentes en el ciclo de vida.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en la dirección del flujo de datos, desde la base hacia la interfaz."
+  },
+  {
+    "guid": "6c17d03b-fb2b-4134-a46f-77a72d27f686",
+    "subjectId": "T45",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Para validar un campo de entrada de una aplicación de gestión de subvenciones que solo acepta edades entre 18 y 65 años, usted decide diseñar casos de prueba para los valores 17, 18, 19, 64, 65 y 66. ¿Qué técnica de diseño de pruebas está aplicando?",
+    "answerOptions": [
+      {
+        "text": "Partición de equivalencia",
+        "rationale": "Esta técnica divide el rango en grupos donde se espera el mismo comportamiento, pero no se centra específicamente en los extremos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Análisis de valores límite",
+        "rationale": "Se enfoca en los bordes de los intervalos permitidos, ya que es donde estadísticamente se producen más errores de programación.",
+        "isCorrect": true
+      },
+      {
+        "text": "Fuzzing",
+        "rationale": "Consiste en introducir datos aleatorios o inesperados, no valores específicos cercanos a un rango definido.",
+        "isCorrect": false
+      },
+      {
+        "text": "Pruebas de transición de estados",
+        "rationale": "Evalúan los cambios entre diferentes estados de un proceso, no la validación de un rango numérico de entrada.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Esta técnica es especialmente útil para detectar errores de tipo 'off-by-one' o desigualdades mal implementadas."
+  },
+  {
+    "guid": "7486b2b8-0cf1-4883-88a2-7a2883281da1",
+    "subjectId": "T45",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Usted debe verificar la lógica de un sistema de concesión de hipotecas con múltiples condiciones cruzadas (ahorros, sueldo, edad, aval). La documentación técnica es confusa. ¿Qué herramienta de diseño de pruebas de caja negra le permitiría representar de forma exhaustiva todas las combinaciones de reglas de negocio?",
+    "answerOptions": [
+      {
+        "text": "Diagrama de flujo de datos",
+        "rationale": "Ayuda a entender el movimiento de datos, pero no es una técnica de diseño de casos de prueba para lógica condicional compleja.",
+        "isCorrect": false
+      },
+      {
+        "text": "Tablas de decisión",
+        "rationale": "Permiten mapear combinaciones de condiciones de entrada y sus acciones resultantes, garantizando que no queden escenarios sin probar.",
+        "isCorrect": true
+      },
+      {
+        "text": "Análisis de cobertura de caminos",
+        "rationale": "Es una técnica de caja blanca que requiere acceso total al código fuente para identificar rutas lógicas.",
+        "isCorrect": false
+      },
+      {
+        "text": "Pruebas de robustez",
+        "rationale": "Se centran en cómo el sistema maneja condiciones de error, no en la validación sistemática de reglas de negocio positivas.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considere una matriz que relacione causas y efectos de manera tabular."
+  },
+  {
+    "guid": "cbcdf5bd-850a-468b-b5ed-e82826dbf414",
+    "subjectId": "T45",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Ante la previsión de un aumento masivo de usuarios en la plataforma de matriculación universitaria, se decide someter al sistema a una carga de peticiones que supera el doble de su capacidad máxima teórica para observar cómo se comporta al fallar. ¿Cómo se clasifica esta prueba?",
+    "answerOptions": [
+      {
+        "text": "Prueba de carga (Load Testing)",
+        "rationale": "Estas pruebas miden el comportamiento bajo la carga máxima esperada, no necesariamente buscando el colapso del sistema.",
+        "isCorrect": false
+      },
+      {
+        "text": "Prueba de estrés (Stress Testing)",
+        "rationale": "Su objetivo es determinar los límites del sistema y observar su capacidad de recuperación ante condiciones extremas de sobrecarga.",
+        "isCorrect": true
+      },
+      {
+        "text": "Prueba de escalabilidad",
+        "rationale": "Mide la capacidad del sistema para crecer ante demandas mayores, pero no se enfoca en el comportamiento durante un fallo por exceso de carga.",
+        "isCorrect": false
+      },
+      {
+        "text": "Prueba de volumen",
+        "rationale": "Se centra en el manejo de grandes cantidades de datos almacenados, no necesariamente en la concurrencia de usuarios.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Busque el término que define llevar al sistema más allá de sus especificaciones de diseño."
+  },
+  {
+    "guid": "7d2c1449-37c5-40d7-a0c0-9a28656162ae",
+    "subjectId": "T45",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En el desarrollo de una aplicación para dispositivos móviles de salud pública, el equipo de QA detecta que el contraste de los botones no es suficiente para personas con visión reducida. ¿Bajo qué estándar de pruebas se debe documentar y corregir esta deficiencia?",
+    "answerOptions": [
+      {
+        "text": "Pruebas de usabilidad general",
+        "rationale": "Aunque están relacionadas, la usabilidad se centra en la facilidad de uso para el usuario promedio, no específicamente en discapacidades.",
+        "isCorrect": false
+      },
+      {
+        "text": "Pruebas de compatibilidad",
+        "rationale": "Validan que el software funcione en diferentes navegadores o sistemas operativos, no la interacción con usuarios diversos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Pruebas de accesibilidad (WCAG)",
+        "rationale": "Aseguran que el sistema pueda ser utilizado por personas con diversas discapacidades, siguiendo pautas internacionales como las WCAG.",
+        "isCorrect": true
+      },
+      {
+        "text": "Pruebas de seguridad",
+        "rationale": "Se encargan de la protección de datos y resistencia a ataques, sin relación con la interfaz visual de usuario.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Este concepto está ligado al derecho de todos los ciudadanos a acceder a los servicios digitales sin barreras."
+  },
+  {
+    "guid": "236ac260-8e2e-40a3-89ca-0c714452b787",
+    "subjectId": "T45",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "El equipo de desarrollo de una aplicación tributaria adopta una metodología donde primero se escriben los casos de prueba automatizados y luego se desarrolla el código necesario para que estos tests pasen. ¿Qué práctica están siguiendo?",
+    "answerOptions": [
+      {
+        "text": "Behavior-Driven Development (BDD)",
+        "rationale": "Se centra en el comportamiento desde el punto de vista del negocio usando lenguaje natural, no estrictamente en el ciclo de código y test técnico.",
+        "isCorrect": false
+      },
+      {
+        "text": "Test-Driven Development (TDD)",
+        "rationale": "Sigue el ciclo 'Rojo-Verde-Refactor', donde la prueba guía el diseño y la implementación del software.",
+        "isCorrect": true
+      },
+      {
+        "text": "Agile Testing",
+        "rationale": "Es un enfoque general de pruebas en marcos ágiles, pero no define específicamente el orden de escritura de tests y código.",
+        "isCorrect": false
+      },
+      {
+        "text": "Integración Continua (CI)",
+        "rationale": "Es una práctica de automatización del flujo de construcción y pruebas, pero no obliga a escribir los tests antes que el código.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "El nombre indica que la prueba 'conduce' o 'guía' el desarrollo."
+  },
+  {
+    "guid": "6727d49b-1b36-4728-9d6a-2b7013ac4b46",
+    "subjectId": "T45",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Para asegurar que una API REST de servicios sociales sea resistente a ataques de denegación de servicio por entradas malformadas, se utiliza una herramienta que envía datos aleatorios, masivos e inesperados a los endpoints. ¿Cómo se denomina esta técnica?",
+    "answerOptions": [
+      {
+        "text": "Análisis de vulnerabilidades",
+        "rationale": "Suele ser un proceso de escaneo pasivo o activo basado en bases de datos de fallos conocidos, no en la generación de datos aleatorios.",
+        "isCorrect": false
+      },
+      {
+        "text": "Fuzzing",
+        "rationale": "Es una técnica de pruebas de seguridad que utiliza entradas de datos inválidas o aleatorias para causar bloqueos o comportamientos inesperados.",
+        "isCorrect": true
+      },
+      {
+        "text": "Penetration Testing",
+        "rationale": "Es un ejercicio más amplio que simula un ataque real para explotar vulnerabilidades, no se limita a la inyección de datos aleatorios.",
+        "isCorrect": false
+      },
+      {
+        "text": "Static Analysis",
+        "rationale": "Consiste en revisar el código fuente sin ejecutarlo, mientras que el envío de datos a endpoints requiere la ejecución del sistema.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Esta técnica se basa en el 'ruido' o la aleatoriedad de los datos de entrada."
+  },
+  {
+    "guid": "d314d39c-0059-4439-8c79-00c4d23cc4d3",
+    "subjectId": "T45",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Tras realizar un cambio menor en el código para corregir una errata ortográfica en la interfaz, el responsable de QA solicita realizar una verificación rápida para asegurar que la funcionalidad principal del módulo sigue operativa. ¿Qué tipo de prueba es la más adecuada?",
+    "answerOptions": [
+      {
+        "text": "Sanity Testing",
+        "rationale": "Se utiliza para verificar de forma rápida y puntual que una funcionalidad específica sigue funcionando correctamente tras un cambio pequeño.",
+        "isCorrect": true
+      },
+      {
+        "text": "Smoke Testing",
+        "rationale": "Se realiza sobre nuevas versiones o builds completos para asegurar que el sistema no 'explota' al arrancar, no tras correcciones menores.",
+        "isCorrect": false
+      },
+      {
+        "text": "Prueba de aceptación",
+        "rationale": "Es un proceso formal y extenso realizado por el cliente para validar la entrega, excesivo para una corrección ortográfica.",
+        "isCorrect": false
+      },
+      {
+        "text": "Prueba de unidad",
+        "rationale": "Valida componentes aislados por el programador, pero el responsable de QA suele trabajar a un nivel más funcional.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Es una prueba de 'cordura' para confirmar que no se ha roto lo obvio."
+  },
+  {
+    "guid": "f08b0eab-e2b5-478e-87fb-8a0f0a7d9965",
+    "subjectId": "T45",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Un analista de pruebas tiene acceso a los diagramas de base de datos y al esquema de la API, pero no puede ver el código fuente en Java que procesa la información. Diseña pruebas basadas en este conocimiento parcial. ¿Qué enfoque está utilizando?",
+    "answerOptions": [
+      {
+        "text": "Caja negra",
+        "rationale": "Este enfoque no asume ningún conocimiento sobre la estructura interna, basándose únicamente en entradas y salidas.",
+        "isCorrect": false
+      },
+      {
+        "text": "Caja blanca",
+        "rationale": "Requiere conocimiento total y acceso al código fuente para realizar pruebas de rutas lógicas.",
+        "isCorrect": false
+      },
+      {
+        "text": "Caja gris",
+        "rationale": "Combina el enfoque funcional con el conocimiento de estructuras de datos internas o arquitectura para diseñar pruebas más efectivas.",
+        "isCorrect": true
+      },
+      {
+        "text": "Pruebas basadas en riesgos",
+        "rationale": "Es una estrategia de priorización, no un enfoque basado en el nivel de visibilidad del código o arquitectura.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Es un punto intermedio entre el desconocimiento total y la visibilidad completa del código."
+  },
+  {
+    "guid": "dc7f0b29-1454-4216-8882-73ac1584cf69",
+    "subjectId": "T45",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Al analizar las métricas de un proyecto de modernización tecnológica, se observa que el $\\text{Defect Leakage}$ es inusualmente alto. ¿Qué indica este valor para la dirección del proyecto?",
+    "answerOptions": [
+      {
+        "text": "Que las pruebas unitarias están siendo muy efectivas",
+        "rationale": "Un leakage alto significa precisamente lo contrario: que los errores no se detectan en las fases tempranas.",
+        "isCorrect": false
+      },
+      {
+        "text": "Que una gran cantidad de errores están pasando a fases posteriores o producción",
+        "rationale": "El leakage o 'fuga' mide los defectos que no fueron detectados por el equipo de QA y son encontrados después del lanzamiento.",
+        "isCorrect": true
+      },
+      {
+        "text": "Que el código es de alta calidad según el número de líneas de código (KLOC)",
+        "rationale": "La densidad de defectos y el leakage no garantizan la calidad del código, sino la efectividad del proceso de pruebas.",
+        "isCorrect": false
+      },
+      {
+        "text": "Que la eficiencia de eliminación de defectos (DRE) es óptima",
+        "rationale": "Un leakage alto implica necesariamente una DRE baja, ya que no se eliminan los defectos antes de la fase siguiente.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en términos de errores que 'escapan' del filtro del departamento de calidad."
+  },
+  {
+    "guid": "317b94f5-02a3-48c9-afb9-4c61a931da5f",
+    "subjectId": "T45",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Durante las pruebas de caja blanca de una función de cálculo de impuestos, el tester asegura que se han ejecutado tanto la parte verdadera como la falsa de todas las sentencias 'if'. ¿Qué nivel de cobertura ha alcanzado específicamente?",
+    "answerOptions": [
+      {
+        "text": "Cobertura de condiciones",
+        "rationale": "Esta cobertura requiere que cada expresión booleana individual dentro de una condición compleja se evalúe como verdadera y falsa.",
+        "isCorrect": false
+      },
+      {
+        "text": "Cobertura de caminos",
+        "rationale": "Es mucho más exhaustiva e implica probar todas las rutas posibles a través del código, no solo las opciones de una decisión.",
+        "isCorrect": false
+      },
+      {
+        "text": "Cobertura de branques (Branch coverage)",
+        "rationale": "Garantiza que cada punto de decisión (como un if) ha tomado todas las salidas posibles al menos una vez.",
+        "isCorrect": true
+      },
+      {
+        "text": "Cobertura de sentencias lógicas",
+        "rationale": "Es un término más genérico; la cobertura de ramas es la métrica específica para los flujos de control alternativos.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Se centra en los nodos de decisión del flujo de control."
+  },
+  {
+    "guid": "1b572af9-21b7-4fdd-b801-761cd4a49e4b",
+    "subjectId": "T45",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En el contexto de la integración de sistemas mediante microservicios, se decide implementar un sistema donde el módulo superior invoca a un módulo inferior que todavía no ha sido desarrollado. ¿Qué componente debe crear el equipo de desarrollo para poder probar el módulo superior?",
+    "answerOptions": [
+      {
+        "text": "Un controlador (Driver)",
+        "rationale": "Los drivers se usan en integración Bottom-Up para simular módulos superiores, no inferiores.",
+        "isCorrect": false
+      },
+      {
+        "text": "Un resguardo (Stub)",
+        "rationale": "Los stubs son programas simulados que sustituyen a los módulos de bajo nivel invocados por el componente bajo prueba.",
+        "isCorrect": true
+      },
+      {
+        "text": "Un oráculo de prueba",
+        "rationale": "Es un mecanismo para determinar si un resultado es correcto, no un sustituto de un componente ausente.",
+        "isCorrect": false
+      },
+      {
+        "text": "Una biblioteca de casos de prueba",
+        "rationale": "Es un repositorio de documentación y scripts, no una pieza de código funcional para simulación.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Es un 'cascarón' que devuelve una respuesta fija o predefinida para permitir la ejecución del padre."
+  },
+  {
+    "guid": "74211bd7-b0b1-48db-9e5e-6b1d7f5a5aa9",
+    "subjectId": "T45",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Un departamento de IT de una Generalitat utiliza JIRA para gestionar el ciclo de vida de los errores. Durante la fase de validación con el cliente, se encuentran varios fallos en los requisitos de negocio. ¿A qué tipo de pruebas pertenecen estos fallos?",
+    "answerOptions": [
+      {
+        "text": "Pruebas unitarias",
+        "rationale": "Estas se centran en el código técnico, no en el cumplimiento de los requisitos de negocio globales.",
+        "isCorrect": false
+      },
+      {
+        "text": "Pruebas de aceptación",
+        "rationale": "Son las pruebas realizadas por el usuario o cliente final para confirmar que el sistema cumple con lo pactado en los requisitos.",
+        "isCorrect": true
+      },
+      {
+        "text": "Pruebas de carga",
+        "rationale": "Miden el rendimiento técnico, no la lógica o el cumplimiento de las necesidades del negocio.",
+        "isCorrect": false
+      },
+      {
+        "text": "Pruebas de caja blanca",
+        "rationale": "El cliente final no realiza pruebas basadas en el conocimiento del código interno.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Es la última barrera antes de que el sistema se dé por finalizado oficialmente."
+  },
+  {
+    "guid": "8854afbb-f711-4fbc-b2f8-4c9612bb0471",
+    "subjectId": "T45",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Se desea automatizar la navegación de un usuario por el portal de transparencia para verificar que todos los enlaces funcionan y la información se muestra correctamente. ¿Cuál de estas herramientas es la más específica para este tipo de pruebas funcionales de interfaz?",
+    "answerOptions": [
+      {
+        "text": "JUnit",
+        "rationale": "Es un framework para pruebas unitarias en Java, no está diseñado para la interacción con el navegador web.",
+        "isCorrect": false
+      },
+      {
+        "text": "Selenium",
+        "rationale": "Es una de las herramientas de referencia para la automatización de navegadores web y pruebas de interfaz de usuario funcional.",
+        "isCorrect": true
+      },
+      {
+        "text": "JMeter",
+        "rationale": "Aunque puede automatizar peticiones, su enfoque principal es la medición del rendimiento y la carga, no la funcionalidad visual.",
+        "isCorrect": false
+      },
+      {
+        "text": "Wireshark",
+        "rationale": "Es un analizador de protocolos de red, útil para seguridad y depuración de red, pero no para pruebas funcionales de UI.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Herramienta que permite 'grabar' o programar acciones que un usuario haría en Chrome o Firefox."
+  },
+  {
+    "guid": "32b8fdec-2055-4bfe-bd2e-ec28edd0dbef",
+    "subjectId": "T45",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En un sistema de gestión de expedientes, un expediente puede pasar de 'Abierto' a 'En revisión', y de ahí a 'Aprobado' o 'Denegado'. No se puede pasar de 'Abierto' a 'Aprobado' directamente. ¿Qué técnica de diseño de casos de prueba es ideal para validar este flujo?",
+    "answerOptions": [
+      {
+        "text": "Partición de equivalencia",
+        "rationale": "Esta técnica sirve para reducir datos de entrada, no para validar la secuencia lógica de estados de un objeto.",
+        "isCorrect": false
+      },
+      {
+        "text": "Pruebas de transición de estados",
+        "rationale": "Se diseñan específicamente para verificar que los cambios de estado del sistema cumplen con las reglas de negocio establecidas.",
+        "isCorrect": true
+      },
+      {
+        "text": "Análisis de valores límite",
+        "rationale": "Se ocupa de valores numéricos en los bordes, no de la lógica secuencial de procesos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Pruebas de seguridad",
+        "rationale": "Se centran en el acceso no autorizado, no en la corrección procedimental de un flujo de trabajo administrativo.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Analice cómo se comporta el sistema cuando un objeto cambia su condición interna."
+  },
+  {
+    "guid": "21b037bd-c53f-4ab1-bec2-5cac996584d7",
+    "subjectId": "T45",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Como parte de una estrategia de 'Testing ágil', se decide que las pruebas deben integrarse en cada sprint. ¿Cuál es el principal beneficio de detectar un error en la fase de desarrollo en lugar de en la fase de mantenimiento?",
+    "answerOptions": [
+      {
+        "text": "Aumenta la complejidad del sistema",
+        "rationale": "La detección temprana no aumenta la complejidad, sino que ayuda a mantener un código más limpio y manejable.",
+        "isCorrect": false
+      },
+      {
+        "text": "Reduce drásticamente los costes de corrección",
+        "rationale": "Cuanto más tarde se detecta un error, más caro es arreglarlo debido a las dependencias creadas y el tiempo transcurrido.",
+        "isCorrect": true
+      },
+      {
+        "text": "Permite eliminar la necesidad de realizar pruebas de regresión",
+        "rationale": "Las pruebas de regresión siguen siendo necesarias para asegurar que futuros cambios no rompan lo ya desarrollado.",
+        "isCorrect": false
+      },
+      {
+        "text": "Mejora la velocidad de conexión a la base de datos",
+        "rationale": "La detección temprana de errores lógicos no tiene relación directa con el rendimiento de la infraestructura.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en el impacto económico y en el esfuerzo necesario para rehacer partes del sistema."
+  },
+  {
+    "guid": "8f54a168-e210-42b7-824b-d3b1b55d11e1",
+    "subjectId": "T45",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Un sistema de inteligencia artificial para el diseño de pruebas se encarga de actualizar automáticamente los scripts de automatización cuando detecta que un botón ha cambiado de color o de posición en la interfaz. ¿Cómo se denomina esta limitación o capacidad?",
+    "answerOptions": [
+      {
+        "text": "Testing visual y mantenimiento automático",
+        "rationale": "La IA permite reconocer cambios en la interfaz que no afectan a la funcionalidad y ajustar los scripts para evitar falsos positivos.",
+        "isCorrect": true
+      },
+      {
+        "text": "Fuzzing inteligente",
+        "rationale": "El fuzzing se encarga de datos de entrada aleatorios, no del mantenimiento de la interfaz de usuario.",
+        "isCorrect": false
+      },
+      {
+        "text": "Análisis estático de código",
+        "rationale": "Se realiza sobre el texto del código fuente, no sobre la representación visual de la aplicación ejecutándose.",
+        "isCorrect": false
+      },
+      {
+        "text": "Cobertura de condiciones por IA",
+        "rationale": "Es una métrica de caja blanca que mide la lógica interna, no los cambios en la apariencia del frontend.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Relacionado con la capacidad de los tests automatizados para no romperse ante cambios estéticos menores."
+  },
+  {
+    "guid": "c2e0f480-ce59-4a2a-8db6-0b19f9f76b0f",
+    "subjectId": "T45",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "La métrica $\\text{Defect Removal Efficiency (DRE)}$ de un proyecto es baja, a pesar de que se están realizando muchas pruebas unitarias. ¿Qué conclusión técnica debería extraer el jefe de proyecto?",
+    "answerOptions": [
+      {
+        "text": "Que el equipo de desarrollo es muy productivo escribiendo KLOC",
+        "rationale": "La productividad en líneas de código no garantiza la calidad ni la eficiencia en la detección de fallos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Que el proceso de pruebas no está filtrando los errores antes de que pasen a la siguiente fase",
+        "rationale": "Una DRE baja indica que los defectos detectados son pocos en comparación con los que acaban llegando a producción o fases tardías.",
+        "isCorrect": true
+      },
+      {
+        "text": "Que no es necesario realizar pruebas de integración",
+        "rationale": "Una DRE baja suele sugerir precisamente que faltan niveles de prueba más profundos, como la integración.",
+        "isCorrect": false
+      },
+      {
+        "text": "Que la cobertura de caminos es del cien por cien",
+        "rationale": "La cobertura total de caminos es casi imposible en sistemas complejos y no garantiza la ausencia de defectos lógicos.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "La DRE mide el porcentaje de errores eliminados antes de que lleguen al usuario final."
+  },
+  {
+    "guid": "f16801d3-604c-4772-96f6-c0aa0782541d",
+    "subjectId": "T45",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Se le solicita realizar una prueba que no se base en la funcionalidad esperada, sino en intentar corromper la memoria del servidor enviando tramas de red incompletas o fuera de protocolo. ¿Qué enfoque de pruebas está priorizando?",
+    "answerOptions": [
+      {
+        "text": "Pruebas de cumplimiento",
+        "rationale": "Estas verifican que se siguen normas y regulaciones, no buscan activamente el fallo del hardware.",
+        "isCorrect": false
+      },
+      {
+        "text": "Pruebas de robustez",
+        "rationale": "Evalúan la capacidad del sistema para comportarse de manera controlada ante condiciones de entrada anómalas o fallos del entorno.",
+        "isCorrect": true
+      },
+      {
+        "text": "Pruebas de regresión visual",
+        "rationale": "Se centran en la apariencia del sistema, no en la estabilidad de los protocolos de red o memoria.",
+        "isCorrect": false
+      },
+      {
+        "text": "Pruebas de usabilidad",
+        "rationale": "Miden la facilidad de aprendizaje del usuario, lo cual no tiene relación con la corrupción de memoria.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Es la resistencia del sistema ante lo inesperado o lo incorrecto."
+  },
+  {
+    "guid": "a6556b81-eba4-445d-931a-df40e748876a",
+    "subjectId": "T45",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En el marco de la metodología BDD (Behavior-Driven Development), el equipo utiliza el lenguaje Gherkin para definir los escenarios. ¿Cuál es la principal ventaja de esta práctica para el analista TIC?",
+    "answerOptions": [
+      {
+        "text": "Permite una comunicación fluida entre técnicos y perfiles de negocio",
+        "rationale": "BDD utiliza lenguaje natural estructurado que ambas partes pueden entender, facilitando la validación de requisitos.",
+        "isCorrect": true
+      },
+      {
+        "text": "Aumenta la velocidad de ejecución de las pruebas unitarias",
+        "rationale": "BDD suele ser más lento de ejecutar que los tests unitarios puros debido a la capa de abstracción de lenguaje natural.",
+        "isCorrect": false
+      },
+      {
+        "text": "Garantiza que no existan vulnerabilidades de inyección SQL",
+        "rationale": "BDD se centra en el comportamiento funcional, no es una herramienta específica para el análisis de seguridad técnica.",
+        "isCorrect": false
+      },
+      {
+        "text": "Reduce la necesidad de utilizar herramientas de gestión de versiones como Git",
+        "rationale": "Los archivos de escenarios BDD deben ser versionados igual que el código fuente; no sustituyen al control de versiones.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Busque el beneficio relacionado con el entendimiento mutuo entre desarrolladores y clientes."
+  },
+  {
+    "guid": "d5bbb132-e99b-4a1d-9a49-a35cd5fd0cc5",
+    "subjectId": "T45",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Un desarrollador utiliza PyTest para validar que su función de ordenación de listas funciona correctamente con diversos tipos de datos. ¿En qué nivel del proceso de pruebas se encuentra según el modelo clásico?",
+    "answerOptions": [
+      {
+        "text": "Pruebas de integración",
+        "rationale": "Estas probarían cómo la función de ordenación interactúa con otros módulos, como la base de datos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Pruebas unitarias",
+        "rationale": "Son pruebas de bajo nivel realizadas sobre las unidades más pequeñas de código, generalmente por el propio programador.",
+        "isCorrect": true
+      },
+      {
+        "text": "Pruebas funcionales",
+        "rationale": "Suelen validar requisitos completos de cara al usuario, no funciones aisladas de manipulación de datos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Pruebas de sistema",
+        "rationale": "Implican la validación de todo el software integrado en su entorno final.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Es el nivel de prueba más atómico y cercano al código fuente."
+  },
+  {
+    "guid": "a424bb21-8e7c-4748-ba7d-66f6a117782d",
+    "subjectId": "T45",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Durante una auditoría de seguridad, se descubre que el sistema no registra correctamente quién ha accedido a ciertos datos sensibles. ¿Qué tipo de prueba de seguridad debería haber detectado esta ausencia de trazabilidad?",
+    "answerOptions": [
+      {
+        "text": "Análisis de vulnerabilidad",
+        "rationale": "Suele detectar fallos técnicos como puertos abiertos o falta de parches, pero no necesariamente deficiencias en la lógica de logs.",
+        "isCorrect": false
+      },
+      {
+        "text": "Auditoría de controles de seguridad",
+        "rationale": "Verifica que los mecanismos de protección, como el registro de auditoría y la autenticación, estén correctamente implementados según la política.",
+        "isCorrect": true
+      },
+      {
+        "text": "Pruebas de inyección de código",
+        "rationale": "Intentan ejecutar comandos no autorizados, pero no miden si el sistema guarda o no rastro del acceso legal.",
+        "isCorrect": false
+      },
+      {
+        "text": "Pruebas de denegación de servicio",
+        "rationale": "Se enfocan en la disponibilidad del servicio, no en la confidencialidad o integridad de los registros de acceso.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en la verificación del cumplimiento de políticas de control y registro."
+  },
+  {
+    "guid": "244fc7bc-5d56-4ad6-adcc-09ec96908bcb",
+    "subjectId": "T45",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Un analista de sistemas propone priorizar las pruebas en el módulo de 'Cálculo de Nómina' debido a su complejidad legal y el alto impacto que tendría un fallo. ¿Qué estrategia está aplicando?",
+    "answerOptions": [
+      {
+        "text": "Pruebas basadas en riesgos",
+        "rationale": "Prioriza los esfuerzos de prueba en las áreas con mayor probabilidad de fallo o cuyas consecuencias sean más críticas para la organización.",
+        "isCorrect": true
+      },
+      {
+        "text": "Pruebas de cobertura total",
+        "rationale": "Intentan probar todo por igual, lo cual es ineficiente y a menudo imposible en entornos con recursos limitados.",
+        "isCorrect": false
+      },
+      {
+        "text": "Pruebas exploratorias",
+        "rationale": "Se basan en la intuición y experiencia del tester en el momento de la ejecución, no en un análisis formal previo de riesgos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Pruebas estructurales",
+        "rationale": "Es otro nombre para las pruebas de caja blanca basadas en la arquitectura del código, no en el valor de negocio o riesgo.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Se basa en la premisa de que no todo el código tiene la misma importancia crítica."
+  },
+  {
+    "guid": "e0ad9e22-02cd-41fe-af02-8ca7d5168069",
+    "subjectId": "T45",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Al integrar un sistema de terceros para la validación de firmas electrónicas, se decide realizar una integración de tipo 'Big Bang'. ¿Cuál es el riesgo principal asociado a esta decisión según el material de estudio?",
+    "answerOptions": [
+      {
+        "text": "Se requiere demasiado tiempo para escribir stubs y drivers",
+        "rationale": "El Big Bang precisamente evita el uso de stubs y drivers al intentar conectarlo todo a la vez, lo cual es parte de su riesgo.",
+        "isCorrect": false
+      },
+      {
+        "text": "Es extremadamente difícil aislar el origen de un error cuando este aparece",
+        "rationale": "Al integrar todos los módulos a la vez, si algo falla, puede deberse a cualquier componente o a cualquier interacción entre ellos.",
+        "isCorrect": true
+      },
+      {
+        "text": "Garantiza una cobertura de código del cien por cien desde el inicio",
+        "rationale": "La estrategia de integración no garantiza niveles de cobertura de código, que dependen de los casos de prueba diseñados.",
+        "isCorrect": false
+      },
+      {
+        "text": "Solo se puede aplicar en metodologías en cascada",
+        "rationale": "Aunque es poco recomendable, se puede aplicar en cualquier metodología, pero su riesgo sigue siendo muy alto.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en lo que sucede si conecta diez cables a la vez y salta un fusible."
+  }
+]

@@ -1,0 +1,870 @@
+[
+  {
+    "guid": "a9390ddf-5e81-47e8-8541-6e4a50b7558d",
+    "subjectId": "T39",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Como Técnico Superior, observa que su equipo de desarrollo despliega código con gran frecuencia, pero el tiempo medio de recuperación ($MTTR$) ante fallos es excesivamente alto. Según el marco DORA, ¿qué diagnóstico es el más acertado sobre la madurez del equipo?",
+    "answerOptions": [
+      {
+        "text": "El equipo prioriza la agilidad y el rendimiento de entrega sobre la estabilidad y la resiliencia operativa.",
+        "rationale": "Una alta frecuencia de despliegue indica buena velocidad, pero un $MTTR$ elevado refleja deficiencias en la capacidad de respuesta y recuperación, componentes clave de la estabilidad.",
+        "isCorrect": true
+      },
+      {
+        "text": "El equipo ha alcanzado un estado de optimización completa al centrarse en el 'Lead Time for Changes'.",
+        "rationale": "La optimización completa requiere un equilibrio entre las métricas de velocidad y las de estabilidad; centrarse solo en una no implica madurez total.",
+        "isCorrect": false
+      },
+      {
+        "text": "Existe un cuello de botella en la fase de integración continua que impide las pruebas automáticas.",
+        "rationale": "Si la frecuencia de despliegue es alta, la integración continua suele funcionar; el problema radica en la observabilidad o en los procesos de recuperación tras el fallo.",
+        "isCorrect": false
+      },
+      {
+        "text": "El equipo está aplicando correctamente el modelo CALMS centrándose exclusivamente en la automatización.",
+        "rationale": "El modelo CALMS exige cultura y compartición de conocimientos, no solo automatización, y busca resultados equilibrados en estabilidad.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considere el equilibrio necesario entre la rapidez de entrega y la capacidad de restaurar el servicio."
+  },
+  {
+    "guid": "900cb281-0a2f-4b5c-86e9-25a001084704",
+    "subjectId": "T39",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Se le solicita diseñar una estrategia para evitar el 'configuration drift' en los servidores de una nueva aplicación crítica de la Administración. ¿Qué enfoque técnico garantiza que los entornos sean idénticos y trazables?",
+    "answerOptions": [
+      {
+        "text": "Implementar infraestructura immutable sustituyendo instancias completas en cada despliegue a partir de imágenes base.",
+        "rationale": "La infraestructura immutable evita cambios manuales en caliente, asegurando que cada despliegue sea una copia exacta y reproducible de la definición original.",
+        "isCorrect": true
+      },
+      {
+        "text": "Utilizar scripts de configuración manual con control de versiones para documentar los cambios realizados en caliente.",
+        "rationale": "Los cambios manuales, aunque documentados, son propensos a errores humanos y no garantizan la consistencia absoluta entre entornos como lo hace la inmutabilidad.",
+        "isCorrect": false
+      },
+      {
+        "text": "Delegar la gestión de la configuración en un orquestador de contenedores que permita la edición directa de archivos en ejecución.",
+        "rationale": "Modificar archivos dentro de un contenedor en ejecución rompe el principio de efimeridad y genera divergencias que dificultan la recuperación ante desastres.",
+        "isCorrect": false
+      },
+      {
+        "text": "Aplicar políticas de seguridad restrictivas que impidan el acceso a los desarrolladores a los entornos de preproducción.",
+        "rationale": "Restringir el acceso es una medida de seguridad, pero no soluciona el problema técnico de la divergencia de configuración por procesos de actualización automatizados incompletos.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en el concepto donde los servidores no se modifican, sino que se reemplazan por otros nuevos."
+  },
+  {
+    "guid": "72b9ae5f-ea04-4ab4-b176-01dbd1f11004",
+    "subjectId": "T39",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En una reunión de gobernanza Cloud, el departamento financiero solicita imputar los costes exactos de infraestructura a cada departamento solicitante. ¿Qué técnica de FinOps debería proponer para realizar una carga interna real de estos costes?",
+    "answerOptions": [
+      {
+        "text": "Chargeback",
+        "rationale": "El chargeback consiste en la imputación real y contable de los costes a las unidades de negocio o departamentos que consumieron los recursos.",
+        "isCorrect": true
+      },
+      {
+        "text": "Showback",
+        "rationale": "El showback tiene un fin puramente informativo para concienciar sobre el gasto, pero no realiza una transferencia de presupuesto o cargo económico real.",
+        "isCorrect": false
+      },
+      {
+        "text": "Rightsizing",
+        "rationale": "Esta es una técnica de optimización técnica de recursos, no un método de asignación o reporte financiero entre departamentos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Tagging",
+        "rationale": "El etiquetado es una herramienta técnica necesaria para identificar el origen del gasto, pero no representa el proceso contable de imputación en sí mismo.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Diferencie entre simplemente mostrar el gasto y realizar una transferencia de responsabilidad financiera real."
+  },
+  {
+    "guid": "7271d91a-227d-4e93-bd2d-37fded2aa620",
+    "subjectId": "T39",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Para asegurar que la seguridad no sea un cuello de botella al final del ciclo de desarrollo, se decide adoptar un enfoque 'Shift-left'. ¿Cuál de estas acciones es característica de este paradigma?",
+    "answerOptions": [
+      {
+        "text": "Integrar el análisis estático de código y el escaneo de vulnerabilidades en las dependencias dentro del pipeline de CI.",
+        "rationale": "Mover la seguridad 'a la izquierda' significa realizar pruebas de seguridad en las fases más tempranas del desarrollo, como la integración continua.",
+        "isCorrect": true
+      },
+      {
+        "text": "Realizar auditorías de seguridad manuales exclusivamente sobre el entorno de producción antes de cada lanzamiento mayor.",
+        "rationale": "Este enfoque es tradicional y 'derecho' (shift-right tardío), lo que suele retrasar los lanzamientos al detectar problemas en etapas finales.",
+        "isCorrect": false
+      },
+      {
+        "text": "Implementar herramientas de monitorización y observabilidad como Prometheus para detectar ataques en tiempo real.",
+        "rationale": "Aunque es vital, la monitorización en producción es un enfoque 'shift-right' orientado a la operación y respuesta, no a la prevención temprana en el desarrollo.",
+        "isCorrect": false
+      },
+      {
+        "text": "Establecer un equipo de seguridad aislado que revise el código una vez que el equipo de Operaciones ha dado el visto bueno.",
+        "rationale": "Mantener silos aislados contradice la cultura DevOps y el principio de responsabilidad compartida en seguridad (DevSecOps).",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considere en qué momento del ciclo de vida se detectan los errores de forma más eficiente y económica."
+  },
+  {
+    "guid": "d4a30002-3311-4e24-a3a6-1f678922c349",
+    "subjectId": "T39",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En el marco de FinOps, ¿qué 'Persona' es la encargada de generar informes, conectar los equipos técnicos con los de negocio y actuar como el principal responsable de la implementación de las prácticas de gestión de costes?",
+    "answerOptions": [
+      {
+        "text": "FinOps Practitioner",
+        "rationale": "El Practitioner es el rol central que facilita la disciplina, analiza datos y coordina a todos los demás actores para maximizar el valor del cloud.",
+        "isCorrect": true
+      },
+      {
+        "text": "Product Owner",
+        "rationale": "El Product Owner es responsable del valor funcional del servicio y de entender su coste, pero no de liderar la práctica global de FinOps en la organización.",
+        "isCorrect": false
+      },
+      {
+        "text": "Procurement",
+        "rationale": "Este rol se centra en la negociación de contratos y condiciones con los proveedores de servicios cloud, no en la operativa diaria de optimización técnica.",
+        "isCorrect": false
+      },
+      {
+        "text": "Engineering and DevOps Team",
+        "rationale": "Estos equipos ejecutan las optimizaciones técnicas y consumen los recursos, pero requieren del Practitioner para la visión financiera cruzada y el reporte.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Es el perfil que actúa como puente y especialista en la metodología."
+  },
+  {
+    "guid": "67e1dc96-4979-4984-a9ab-3149bbe1e0e2",
+    "subjectId": "T39",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Usted está configurando un clúster de Kubernetes para un portal de trámites ciudadanos. Necesita que una tarea de limpieza de archivos temporales se ejecute todos los domingos a las 02:00. ¿Qué objeto de Kubernetes es el más adecuado?",
+    "answerOptions": [
+      {
+        "text": "CronJob",
+        "rationale": "El objeto CronJob permite programar la ejecución de Pods de forma puntual o recurrente basándose en un formato de tiempo cron.",
+        "isCorrect": true
+      },
+      {
+        "text": "DeploymentConfig",
+        "rationale": "Este objeto se utiliza para definir el estado deseado de una aplicación persistente y gestionar sus actualizaciones, no para tareas programadas.",
+        "isCorrect": false
+      },
+      {
+        "text": "ConfigMap",
+        "rationale": "Un ConfigMap almacena datos de configuración no confidenciales para ser usados por los pods, pero no tiene capacidad de ejecución por sí mismo.",
+        "isCorrect": false
+      },
+      {
+        "text": "StorageClass",
+        "rationale": "Se utiliza para definir diferentes perfiles de almacenamiento y aprovisionar volúmenes, sin relación con la programación de tareas temporales.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en el estándar de Unix para la planificación de tareas llevado al entorno de orquestación."
+  },
+  {
+    "guid": "8cc5d518-466c-492b-ab9c-f61260f3e0f6",
+    "subjectId": "T39",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Durante un análisis de costes cloud, se detecta que varias máquinas virtuales tienen un uso de CPU inferior al 10% de forma sostenida. ¿Qué acción de la fase 'Optimize' del ciclo FinOps debería aplicarse?",
+    "answerOptions": [
+      {
+        "text": "Rightsizing",
+        "rationale": "El rightsizing consiste en ajustar el tamaño de los recursos (instancias, bases de datos) a la demanda real para evitar el sobreaprovisionamiento.",
+        "isCorrect": true
+      },
+      {
+        "text": "Análisis de Unit Cost",
+        "rationale": "El Unit Cost es una métrica de valor que relaciona el coste con una unidad de negocio (ej. coste por trámite), no una acción directa de ajuste técnico.",
+        "isCorrect": false
+      },
+      {
+        "text": "Showback operativo",
+        "rationale": "El showback informaría al equipo del gasto que están generando, pero no resuelve técnicamente el exceso de capacidad contratada.",
+        "isCorrect": false
+      },
+      {
+        "text": "Savings Plans",
+        "rationale": "Los planes de ahorro son una optimización de tarifas mediante compromiso de uso, pero no eliminan el desperdicio técnico de recursos infrautilizados.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "La solución pasa por adecuar la capacidad técnica a la necesidad real del servicio."
+  },
+  {
+    "guid": "68d3c85e-3429-49fb-b6a5-75f7115e9e51",
+    "subjectId": "T39",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "El modelo CALMS es fundamental en DevOps. Si una organización está midiendo KPIs, logs y el retorno de inversión, pero los equipos no comparten el conocimiento ni la responsabilidad de los fallos, ¿qué pilar está fallando?",
+    "answerOptions": [
+      {
+        "text": "Sharing",
+        "rationale": "El pilar 'Sharing' se centra en la transferencia de conocimiento, la colaboración y la eliminación de la cultura de la culpa ante los errores.",
+        "isCorrect": true
+      },
+      {
+        "text": "Lean",
+        "rationale": "El pilar 'Lean' se enfoca en la eliminación de desperdicios y la mejora continua del flujo de trabajo, no necesariamente en la comunicación inter-equipo.",
+        "isCorrect": false
+      },
+      {
+        "text": "Measurement",
+        "rationale": "La medición (Measurement) es precisamente lo que la organización sí está haciendo bien según el enunciado, al monitorizar KPIs y métricas.",
+        "isCorrect": false
+      },
+      {
+        "text": "Automation",
+        "rationale": "La automatización se refiere a la eliminación de tareas manuales repetitivas, lo cual es independiente de la disposición de los equipos a compartir éxitos o fracasos.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considere la 'S' final del acrónimo y su enfoque humano."
+  },
+  {
+    "guid": "514fffb3-67ad-4c75-8ec0-28c970e8bc32",
+    "subjectId": "T39",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Un equipo de TIC desea implementar una arquitectura donde el repositorio Git sea la 'fuente única de verdad' para el estado de la infraestructura y las aplicaciones, permitiendo auditorías automáticas. ¿Cómo se denomina este paradigma?",
+    "answerOptions": [
+      {
+        "text": "GitOps",
+        "rationale": "GitOps extiende la IaC utilizando Git como el estado deseado del sistema, donde cualquier cambio en el repositorio se sincroniza automáticamente con el entorno real.",
+        "isCorrect": true
+      },
+      {
+        "text": "Continuous Delivery",
+        "rationale": "La entrega continua es el proceso de automatizar el paso a producción, pero no define necesariamente a Git como el gestor de estado de la infraestructura.",
+        "isCorrect": false
+      },
+      {
+        "text": "Chaos Engineering",
+        "rationale": "Esta disciplina se centra en inyectar fallos controlados para probar la resiliencia del sistema, no en la gestión declarativa de la configuración.",
+        "isCorrect": false
+      },
+      {
+        "text": "Immutable Infrastructure",
+        "rationale": "Es un concepto complementario que indica que los servidores no se cambian, pero GitOps es el marco operativo que utiliza Git para gestionar dicho estado.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Relacione el control de versiones con la operativa directa sobre el clúster."
+  },
+  {
+    "guid": "7575ffd2-06ef-4f7f-add5-1e3f261eba80",
+    "subjectId": "T39",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En la Administración Pública, la sostenibilidad es una 'Allied Persona' en FinOps. ¿Cuál es su función principal en colaboración con el equipo de gestión del gasto cloud?",
+    "answerOptions": [
+      {
+        "text": "Promover prácticas que reduzcan el impacto ecológico de las operaciones al reducir el consumo innecesario de energía en los centros de datos cloud.",
+        "rationale": "La sostenibilidad busca alinear la eficiencia de costes con la eficiencia energética y la reducción de la huella de carbono de los servicios digitales.",
+        "isCorrect": true
+      },
+      {
+        "text": "Asegurar que los contratos con proveedores cloud cumplan con las cláusulas de responsabilidad civil y protección de datos.",
+        "rationale": "Esta función corresponde más habitualmente a los equipos legales, de cumplimiento normativo o al CISO, no a la sostenibilidad ambiental.",
+        "isCorrect": false
+      },
+      {
+        "text": "Gestionar el ciclo de vida de los activos de hardware físico que se encuentran en el CPD propio (on-premise).",
+        "rationale": "La gestión de activos físicos corresponde a IT Asset Management (ITAM), mientras que FinOps se enfoca principalmente en el consumo variable cloud.",
+        "isCorrect": false
+      },
+      {
+        "text": "Supervisar que las inversiones tecnológicas aporten valor directo al negocio ciudadano mediante encuestas de satisfacción.",
+        "rationale": "Relacionar el valor con los objetivos financieros es tarea de IT Financial Management (ITFM) y de los Product Owners, no del rol de sostenibilidad.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en el impacto ambiental del consumo masivo de recursos de computación."
+  },
+  {
+    "guid": "d28b9e41-3e56-4157-9afe-01f843cd6cd4",
+    "subjectId": "T39",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Usted debe elegir una herramienta para realizar pruebas funcionales automatizadas que simulen el comportamiento de un ciudadano navegando por la sede electrónica. ¿Cuál es la opción más coherente con el entorno DevOps actual?",
+    "answerOptions": [
+      {
+        "text": "Selenium",
+        "rationale": "Selenium es el estándar para la automatización de navegadores y realización de pruebas de aceptación o funcionales de interfaz de usuario.",
+        "isCorrect": true
+      },
+      {
+        "text": "JUnit",
+        "rationale": "JUnit está orientado a pruebas unitarias de código Java, verificando componentes aislados del software, no el flujo funcional completo del usuario.",
+        "isCorrect": false
+      },
+      {
+        "text": "SonarQube",
+        "rationale": "Esta herramienta se especializa en el análisis estático de la calidad y seguridad del código, no en la ejecución de pruebas dinámicas funcionales.",
+        "isCorrect": false
+      },
+      {
+        "text": "Ansible",
+        "rationale": "Ansible es una herramienta de automatización de configuración y despliegue de infraestructura, no una plataforma de testing de aplicaciones.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Busque la herramienta que permite 'grabar' o programar acciones en un navegador web."
+  },
+  {
+    "guid": "7d490eb3-17fb-47e8-ad4d-816d571c80e7",
+    "subjectId": "T39",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Se detecta que un contenedor en producción falla porque se agota el espacio en disco debido a los logs. El técnico modifica el archivo de configuración dentro del contenedor y lo reinicia. Al poco tiempo, el error persiste. ¿Por qué?",
+    "answerOptions": [
+      {
+        "text": "Debido a la naturaleza efímera de los contenedores, los cambios realizados en el sistema de archivos de una instancia no persisten si el contenedor se recrea desde la imagen.",
+        "rationale": "Cualquier modificación manual dentro de un contenedor se pierde al reiniciarse o destruirse, ya que el contenedor vuelve al estado definido en su imagen base inmutable.",
+        "isCorrect": true
+      },
+      {
+        "text": "Porque el técnico no utilizó variables de entorno para modificar el nivel de log, que es la única forma de que Kubernetes acepte cambios.",
+        "rationale": "Aunque las variables de entorno son una buena práctica, la razón técnica del fallo es la falta de persistencia de la capa de escritura del contenedor.",
+        "isCorrect": false
+      },
+      {
+        "text": "Porque los logs de las aplicaciones Java siempre deben salir por la salida estándar y no pueden configurarse mediante archivos internos.",
+        "rationale": "Es una recomendación de diseño, pero no es una imposición técnica; el problema real es la inmutabilidad de la imagen base frente a cambios manuales.",
+        "isCorrect": false
+      },
+      {
+        "text": "Debido a que el recolector de basura de Kubernetes eliminó el ConfigMap que contenía la configuración del Log4J.",
+        "rationale": "El enunciado no menciona que existiera un ConfigMap; además, Kubernetes no elimina configuraciones activas a menos que se solicite explícitamente.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considere qué sucede con los datos escritos en la capa superior de un contenedor cuando este desaparece."
+  },
+  {
+    "guid": "30eb422f-227a-45f9-9989-52b51b4aa9f8",
+    "subjectId": "T39",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En el contexto de la fase 'Inform' de FinOps, ¿cuál es la principal diferencia entre una métrica de coste total y el 'Unit Cost'?",
+    "answerOptions": [
+      {
+        "text": "El Unit Cost relaciona el gasto cloud con una métrica de valor de negocio (ej. coste por expediente gestionado), permitiendo medir la eficiencia real.",
+        "rationale": "Mientras que el coste total solo indica cuánto gastamos, el Unit Cost nos dice si estamos siendo más o menos eficientes al producir un resultado de negocio.",
+        "isCorrect": true
+      },
+      {
+        "text": "El Unit Cost es el precio de una única instancia reservada, mientras que el coste total incluye el gasto bajo demanda.",
+        "rationale": "El Unit Cost es un concepto de economía de la unidad (Unit Economics), no se refiere al precio unitario de un componente de infraestructura.",
+        "isCorrect": false
+      },
+      {
+        "text": "El coste total es una métrica de ingeniería, mientras que el Unit Cost solo lo utilizan los departamentos de contabilidad.",
+        "rationale": "Ambas métricas son cruciales para la colaboración multidisciplinar que propone FinOps entre técnicos, finanzas y negocio.",
+        "isCorrect": false
+      },
+      {
+        "text": "No existe diferencia práctica, ya que ambos se obtienen directamente del AWS Cost Explorer o herramientas similares.",
+        "rationale": "Aunque se obtengan de datos similares, el cálculo del Unit Cost requiere integrar datos de negocio que el proveedor cloud no conoce por defecto.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en cómo determinaría si una aplicación es más eficiente que otra aunque su factura total sea mayor."
+  },
+  {
+    "guid": "58bc5b3f-873e-4416-a3cd-71f3cbbfb70e",
+    "subjectId": "T39",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Una administración quiere automatizar el despliegue de su infraestructura tanto en su CPD local (VMware) como en la nube pública de forma coherente. ¿Qué herramienta de 'Infraestructura como Código' (IaC) es más adecuada por su enfoque multicloud y declarativo?",
+    "answerOptions": [
+      {
+        "text": "Terraform",
+        "rationale": "Terraform es agnóstico al proveedor y utiliza un lenguaje declarativo (HCL) para gestionar recursos en múltiples nubes y entornos locales mediante proveedores.",
+        "isCorrect": true
+      },
+      {
+        "text": "Ansible",
+        "rationale": "Aunque puede provisionar, Ansible brilla más en la gestión de la configuración interna de los sistemas operativos una vez que la infraestructura ya existe.",
+        "isCorrect": false
+      },
+      {
+        "text": "Kubectl",
+        "rationale": "Es la herramienta de línea de comandos específica para interactuar con clústeres de Kubernetes, no para desplegar la infraestructura subyacente de red o cómputo.",
+        "isCorrect": false
+      },
+      {
+        "text": "Jenkins",
+        "rationale": "Jenkins es un servidor de automatización para pipelines de CI/CD, pero no es una herramienta diseñada específicamente para definir infraestructura como código.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Busque la herramienta que utiliza el concepto de 'proveedores' para conectar con distintas APIs de infraestructura."
+  },
+  {
+    "guid": "e4f52c86-bbf5-4eb8-9f2f-8c7b277e1971",
+    "subjectId": "T39",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Para mitigar riesgos en un paso a producción crítico, se decide desplegar la nueva versión solo para el 5% de los usuarios y monitorizar su comportamiento antes de completar la migración. ¿Cómo se llama esta técnica?",
+    "answerOptions": [
+      {
+        "text": "Canary Deployment",
+        "rationale": "El despliegue Canary consiste en introducir cambios de forma gradual para un subconjunto pequeño de usuarios para validar la estabilidad en producción.",
+        "isCorrect": true
+      },
+      {
+        "text": "Blue-Green Deployment",
+        "rationale": "Este método conmuta el 100% del tráfico de un entorno (Blue) a otro idéntico (Green) con la nueva versión, no es un despliegue progresivo por porcentajes.",
+        "isCorrect": false
+      },
+      {
+        "text": "Feature Toggles",
+        "rationale": "Son interruptores en el código que permiten activar funcionalidades, pero el despliegue Canary es la estrategia de infraestructura para el desvío de tráfico.",
+        "isCorrect": false
+      },
+      {
+        "text": "Rolling Update",
+        "rationale": "Sustituye pods antiguos por nuevos de forma secuencial en el clúster, pero normalmente no se asocia a una validación selectiva por grupo de usuarios.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Recuerde la analogía de las minas de carbón donde se usaban aves para detectar gases peligrosos antes que los humanos."
+  },
+  {
+    "guid": "5cf5c3aa-b488-479f-bb4f-924d4296e3da",
+    "subjectId": "T39",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Un organismo público presenta un modelo de madurez FinOps donde ya han automatizado las acciones de ahorro y las decisiones se basan en datos en tiempo real. Según el modelo de la FinOps Foundation, ¿en qué fase se encuentran?",
+    "answerOptions": [
+      {
+        "text": "Run",
+        "rationale": "La fase 'Run' representa la madurez máxima donde la automatización y la gobernanza basada en datos son la norma operativa diaria.",
+        "isCorrect": true
+      },
+      {
+        "text": "Walk",
+        "rationale": "En 'Walk', la organización ya optimiza activamente y hay implicación de la dirección, pero aún carece de la automatización avanzada de la fase posterior.",
+        "isCorrect": false
+      },
+      {
+        "text": "Crawl",
+        "rationale": "Es la fase inicial caracterizada por procesos manuales, visibilidad básica de costes y falta de políticas de optimización establecidas.",
+        "isCorrect": false
+      },
+      {
+        "text": "Optimized",
+        "rationale": "Aunque es un término descriptivo, el modelo oficial de FinOps utiliza la terminología 'Crawl, Walk, Run' para sus estadios de madurez.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Es la última etapa tras aprender a gatear y a caminar."
+  },
+  {
+    "guid": "88690272-3489-4b1f-9445-e0f02c6b10cd",
+    "subjectId": "T39",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Al integrar FinOps y DevOps, ¿qué beneficio aporta el uso de herramientas como Infracost en los pipelines de CI/CD?",
+    "answerOptions": [
+      {
+        "text": "Permite visualizar el impacto económico de un cambio en la infraestructura (IaC) antes de que sea aplicado en el entorno real.",
+        "rationale": "Integrar costes en el pipeline permite que los desarrolladores sean conscientes del gasto que generará su código de infraestructura antes del despliegue.",
+        "isCorrect": true
+      },
+      {
+        "text": "Automatiza el escalado horizontal de los pods en función del presupuesto restante del mes.",
+        "rationale": "El autoescalado suele basarse en métricas de rendimiento (CPU/RAM); basarlo solo en presupuesto podría comprometer la disponibilidad del servicio.",
+        "isCorrect": false
+      },
+      {
+        "text": "Garantiza que el código fuente no contenga secretos o contraseñas de las cuentas de facturación.",
+        "rationale": "Esta es una función de herramientas de seguridad (secret scanning), no de herramientas dedicadas al análisis de estimación de costes.",
+        "isCorrect": false
+      },
+      {
+        "text": "Sustituye la necesidad de realizar 'rightsizing' preventivo en los entornos de desarrollo.",
+        "rationale": "Infracost estima el coste, pero el 'rightsizing' sigue siendo necesario para asegurar que la estimación y el uso real sean eficientes.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en dar visibilidad de gasto 'a la izquierda' del ciclo de vida, igual que se hace con la seguridad."
+  },
+  {
+    "guid": "47156f0d-67a3-4903-b375-f25cc93ac968",
+    "subjectId": "T39",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En una arquitectura de microservicios, el equipo de operaciones tiene dificultades para entender por qué una petición de un ciudadano tarda tanto en completarse. ¿Qué pilar de la observabilidad permite seguir el rastro de una petición a través de múltiples servicios?",
+    "answerOptions": [
+      {
+        "text": "Trazabilidad distribuida (traces)",
+        "rationale": "Las trazas permiten reconstruir el camino de una solicitud a través de los distintos microservicios, identificando dónde se produce exactamente la latencia.",
+        "isCorrect": true
+      },
+      {
+        "text": "Métricas",
+        "rationale": "Las métricas dan una visión agregada del estado del sistema (ej. % de CPU), pero no permiten aislar el comportamiento de una petición individual específica.",
+        "isCorrect": false
+      },
+      {
+        "text": "Logs",
+        "rationale": "Los logs registran eventos discretos; aunque son útiles, sin un ID de correlación distribuido es muy difícil unir los logs de diferentes servicios.",
+        "isCorrect": false
+      },
+      {
+        "text": "Dashboards de Grafana",
+        "rationale": "Grafana es una herramienta de visualización, no un pilar de datos en sí mismo; visualiza los datos provenientes de métricas, logs o trazas.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Es el concepto que conecta los puntos entre distintos sistemas para una sola transacción."
+  },
+  {
+    "guid": "8ca327e5-ee1f-4518-8de2-3e7ede938e6b",
+    "subjectId": "T39",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Se desea escalar una plataforma ágil a nivel corporativo siguiendo un proceso cíclico de 7 fases. ¿Qué framework de los mencionados en el material soporta esta estructura?",
+    "answerOptions": [
+      {
+        "text": "SAFe DevOps",
+        "rationale": "El Scaled Agile Framework (SAFe) incluye un ciclo específico de DevOps diseñado para escalar estas prácticas a nivel de gran empresa o administración.",
+        "isCorrect": true
+      },
+      {
+        "text": "Modelo CALMS",
+        "rationale": "CALMS es un modelo de evaluación de cultura y principios (5 pilares), no un proceso cíclico de fases de ejecución operativa.",
+        "isCorrect": false
+      },
+      {
+        "text": "DORA Metrics",
+        "rationale": "DORA es un conjunto de capacidades y métricas para medir el rendimiento, no un framework de escalado de procesos empresariales.",
+        "isCorrect": false
+      },
+      {
+        "text": "GitOps Lifecycle",
+        "rationale": "GitOps es una técnica operativa para la gestión de infraestructura, pero no constituye un framework de agilidad empresarial completo.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Sus siglas significan 'Scaled Agile Framework'."
+  },
+  {
+    "guid": "63ae6c91-fe21-44c9-bf67-88e849ed1b3c",
+    "subjectId": "T39",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Dentro de los dominios de FinOps, ¿cuál se encarga específicamente de relacionar los costes de la nube con el valor que aportan al negocio, permitiendo tomar decisiones basadas en el retorno de inversión?",
+    "answerOptions": [
+      {
+        "text": "Quantify Business Value",
+        "rationale": "Este dominio se centra en dar sentido a los datos de coste vinculándolos a los objetivos y resultados de negocio de la organización.",
+        "isCorrect": true
+      },
+      {
+        "text": "Understand Cloud Usage and Cost",
+        "rationale": "Este dominio es el paso previo de visibilidad; entender qué gastamos antes de poder valorar si ese gasto es rentable o valioso.",
+        "isCorrect": false
+      },
+      {
+        "text": "Optimize Cloud Usage and Cost",
+        "rationale": "La optimización busca reducir el desperdicio, pero no necesariamente se encarga de la medición estratégica del valor de negocio.",
+        "isCorrect": false
+      },
+      {
+        "text": "Manage the FinOps Practice",
+        "rationale": "Se refiere a la mejora continua de la propia disciplina y cultura FinOps dentro de la organización, no al análisis del ROI de los servicios.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considere la acción de poner precio o magnitud al beneficio obtenido por el gasto."
+  },
+  {
+    "guid": "323bc0f3-ac12-4cc9-ae1f-09e820b1b164",
+    "subjectId": "T39",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Un organismo público utiliza Docker para empaquetar sus aplicaciones. ¿Cuál es la principal ventaja de este enfoque para el equipo de Calidad (QA)?",
+    "answerOptions": [
+      {
+        "text": "Garantiza que el software se ejecute en un entorno idéntico al de desarrollo, eliminando el problema de 'en mi máquina funciona'.",
+        "rationale": "Los contenedores encapsulan la aplicación y todas sus dependencias, asegurando la portabilidad y consistencia entre diferentes etapas del ciclo de vida.",
+        "isCorrect": true
+      },
+      {
+        "text": "Permite que las aplicaciones de Windows se ejecuten de forma nativa sobre kernels de Linux sin sobrecoste.",
+        "rationale": "Los contenedores comparten el kernel del host; para ejecutar aplicaciones de distintos SO de forma aislada y completa se requieren máquinas virtuales.",
+        "isCorrect": false
+      },
+      {
+        "text": "Sustituye por completo la necesidad de realizar pruebas unitarias y de integración.",
+        "rationale": "El uso de contenedores facilita el despliegue para las pruebas, pero no elimina la necesidad de validar la lógica del código.",
+        "isCorrect": false
+      },
+      {
+        "text": "Reduce automáticamente el coste de la factura cloud al comprimir el código fuente.",
+        "rationale": "El ahorro en contenedores viene de la eficiencia en el uso de recursos de la máquina, no de una compresión del código fuente.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en la consistencia ambiental que ofrece el empaquetado ligero."
+  },
+  {
+    "guid": "442a26e2-edf3-4d99-b880-7dc400182f14",
+    "subjectId": "T39",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En el ciclo de vida DevOps, ¿en qué fase se sitúa el uso de herramientas de control de versiones como Git para gestionar el código fuente?",
+    "answerOptions": [
+      {
+        "text": "Desarrollo (Develop)",
+        "rationale": "Git es la herramienta fundamental en la fase de desarrollo para la programación colaborativa, revisión de código y gestión de versiones.",
+        "isCorrect": true
+      },
+      {
+        "text": "Operaciones (Operate)",
+        "rationale": "Aunque existe GitOps, la función primaria de Git en el ciclo estándar es durante la creación del software, no en su monitorización operativa.",
+        "isCorrect": false
+      },
+      {
+        "text": "Integración Continua (CI)",
+        "rationale": "La CI se dispara *a partir* de los cambios en Git, pero la gestión del código en sí misma pertenece a la etapa de desarrollo/codificación.",
+        "isCorrect": false
+      },
+      {
+        "text": "Planificación (Plan)",
+        "rationale": "La planificación utiliza herramientas como Jira o Azure Boards; Git se usa una vez que la codificación ha comenzado.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Es la etapa donde los programadores escriben y guardan sus cambios."
+  },
+  {
+    "guid": "94ce59f7-523c-4819-8355-c458283365bb",
+    "subjectId": "T39",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Usted detecta que un entorno de desarrollo cloud se queda encendido durante todo el fin de semana sin que nadie lo utilice. ¿Qué práctica de FinOps es la más sencilla de implementar para mitigar este gasto?",
+    "answerOptions": [
+      {
+        "text": "Apagado automatizado",
+        "rationale": "Programar el apagado de recursos en horarios no laborales es una de las victorias rápidas (quick wins) más efectivas en la optimización de costes cloud.",
+        "isCorrect": true
+      },
+      {
+        "text": "Reserved Instances",
+        "rationale": "Las instancias reservadas son para cargas de trabajo constantes 24/7; para un entorno de desarrollo intermitente, es mejor el apagado o el pago por uso.",
+        "isCorrect": false
+      },
+      {
+        "text": "Tagging de seguridad",
+        "rationale": "El etiquetado de seguridad ayuda al cumplimiento, pero por sí solo no detiene el consumo de recursos activos e innecesarios.",
+        "isCorrect": false
+      },
+      {
+        "text": "Revisión de Unit Cost",
+        "rationale": "Revisar el coste unitario no soluciona el problema de desperdicio de recursos ociosos (idle), que es lo que ocurre en este caso práctico.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en la acción más directa para dejar de consumir electricidad y computación cuando no hay actividad."
+  },
+  {
+    "guid": "3871e3c7-0c36-4e0c-93b5-078a5d0ec63a",
+    "subjectId": "T39",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Cuál es la función del componente 'Feedback' dentro del ciclo de monitorización de DevOps?",
+    "answerOptions": [
+      {
+        "text": "Utilizar los datos de uso e incidencias reales para alimentar la siguiente fase de planificación y mejorar el producto continuamente.",
+        "rationale": "El feedback cierra el círculo DevOps, permitiendo que la experiencia real del usuario guíe las futuras mejoras y funcionalidades.",
+        "isCorrect": true
+      },
+      {
+        "text": "Enviar notificaciones automáticas a los desarrolladores cada vez que un test unitario falla en el pipeline.",
+        "rationale": "Esto es parte de la Integración Continua (CI), no de la fase de Monitor & Feedback que ocurre tras el despliegue en producción.",
+        "isCorrect": false
+      },
+      {
+        "text": "Permitir que el departamento financiero valide los costes de infraestructura antes de permitir un nuevo despliegue.",
+        "rationale": "Esta validación de costes es una integración de FinOps en el pipeline, pero no define la fase de retroalimentación de usuario/operación de DevOps.",
+        "isCorrect": false
+      },
+      {
+        "text": "Bloquear el acceso a la aplicación si se detecta que el rendimiento ha caído por debajo de un umbral crítico.",
+        "rationale": "Esto sería una acción de autocuración o gestión de incidentes, no la función de retroalimentación para la mejora del ciclo de desarrollo.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considere cómo se 'aprende' de lo que ya está funcionando en manos del ciudadano."
+  },
+  {
+    "guid": "56376b7a-f827-42ff-b813-50f395f069de",
+    "subjectId": "T39",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En la gestión de activos, el rol de 'IT Asset Management' (ITAM) colabora con FinOps. ¿Cuál es su aportación crítica en entornos híbridos?",
+    "answerOptions": [
+      {
+        "text": "Asegurar el cumplimiento y la optimización de las licencias de software que pueden trasladarse de entornos on-premise al cloud.",
+        "rationale": "ITAM se asegura de que el uso de licencias (como las de bases de datos o SO) sea eficiente y cumpla con los términos legales en cualquier ubicación.",
+        "isCorrect": true
+      },
+      {
+        "text": "Gestionar la configuración de los firewalls físicos en el centro de datos de la Generalitat.",
+        "rationale": "Esta es una tarea técnica de los equipos de red y seguridad, no de la gestión de activos tecnológicos desde una perspectiva FinOps.",
+        "isCorrect": false
+      },
+      {
+        "text": "Desarrollar el código de infraestructura (IaC) para el aprovisionamiento de máquinas virtuales.",
+        "rationale": "El desarrollo de IaC es responsabilidad de los equipos de Ingeniería y DevOps, no del rol de gestión de activos o ITAM.",
+        "isCorrect": false
+      },
+      {
+        "text": "Negociar los niveles de servicio (SLA) directamente con los proveedores de nube pública.",
+        "rationale": "La negociación de contratos y SLAs es función de Procurement (Compras) y de la Dirección TIC (Leadership).",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en el software que requiere un permiso de uso legal y cómo este se mueve entre nubes."
+  },
+  {
+    "guid": "f8856f7f-2645-4e12-b93f-273a565203bf",
+    "subjectId": "T39",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Se desea implementar un sistema de 'Entornos Efímeros' para las pruebas de los desarrolladores. ¿Cómo ayuda esto a la estrategia de FinOps?",
+    "answerOptions": [
+      {
+        "text": "Permite crear entornos temporales que solo existen durante la ejecución de las pruebas y se destruyen después, optimizando el coste.",
+        "rationale": "Los entornos efímeros evitan tener infraestructuras de test permanentemente encendidas y pagando por recursos que no se usan constantemente.",
+        "isCorrect": true
+      },
+      {
+        "text": "Garantiza que el código sea inmutable desde el primer commit hasta la producción.",
+        "rationale": "La inmutabilidad es una propiedad de la imagen, los entornos efímeros son una estrategia de despliegue temporal para ahorrar costes.",
+        "isCorrect": false
+      },
+      {
+        "text": "Sustituye a la monitorización proactiva al no dar tiempo a que aparezcan errores de rendimiento.",
+        "rationale": "Un entorno efímero no elimina la necesidad de monitorizar; de hecho, requiere automatización para asegurar que funciona correctamente en su corta vida.",
+        "isCorrect": false
+      },
+      {
+        "text": "Asegura que todos los desarrolladores utilicen el mismo hardware físico para sus pruebas.",
+        "rationale": "Al contrario, los entornos efímeros suelen desplegarse sobre nubes públicas o clústeres de contenedores, abstrayendo el hardware físico.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "La palabra 'efímero' es la clave para entender su duración y su impacto en la factura."
+  },
+  {
+    "guid": "03f445b5-8fbd-477a-8ffa-8df7e269699d",
+    "subjectId": "T39",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En el contexto de la integración de sistemas legados con servicios modernos en entornos híbridos, ¿qué práctica DevOps es fundamental para gestionar la red y los servidores de forma unificada?",
+    "answerOptions": [
+      {
+        "text": "Infraestructura como Código (IaC)",
+        "rationale": "IaC permite definir tanto recursos modernos en cloud como configuraciones en sistemas legados mediante archivos de código, unificando su gestión.",
+        "isCorrect": true
+      },
+      {
+        "text": "Chaos Engineering",
+        "rationale": "Aunque es útil para la resiliencia, no es la base para la gestión unificada de infraestructuras de distinta generación tecnológica.",
+        "isCorrect": false
+      },
+      {
+        "text": "Aislamiento total de silos por tipo de infraestructura.",
+        "rationale": "El aislamiento de silos es precisamente lo que DevOps intenta romper para mejorar la eficiencia y la comunicación.",
+        "isCorrect": false
+      },
+      {
+        "text": "Uso exclusivo de contenedores en todas las máquinas físicas antiguas.",
+        "rationale": "Muchos sistemas legados no pueden ser contenedorizados fácilmente debido a dependencias de hardware o sistema operativo antiguo.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Busque la técnica que trata la configuración de los sistemas como si fueran archivos de software."
+  },
+  {
+    "guid": "4f7b9e91-32d9-4d03-bcc2-593ca25ea365",
+    "subjectId": "T39",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Según el modelo DORA, si un equipo tiene un 'Lead Time for Changes' muy elevado, pero su 'Change Failure Rate' es casi cero, ¿qué se puede deducir?",
+    "answerOptions": [
+      {
+        "text": "El equipo es extremadamente cauteloso y probablemente realiza procesos manuales pesados de validación que retrasan la entrega.",
+        "rationale": "Un tiempo de entrega largo con pocos fallos suele indicar procesos de aprobación lentos o falta de automatización en el pipeline de despliegue.",
+        "isCorrect": true
+      },
+      {
+        "text": "El equipo ha alcanzado el nivel de 'Élite' al no introducir nunca errores en producción.",
+        "rationale": "Los equipos élite según DORA tienen baja tasa de fallos *y* tiempos de entrega muy cortos; la lentitud penaliza su clasificación.",
+        "isCorrect": false
+      },
+      {
+        "text": "La infraestructura utilizada es inmutable y eso impide que los cambios lleguen rápido a producción.",
+        "rationale": "La infraestructura inmutable, si está bien automatizada, debería acelerar los despliegues, no retrasarlos.",
+        "isCorrect": false
+      },
+      {
+        "text": "El equipo está sufriendo un alto número de rollbacks que no quedan registrados en las métricas.",
+        "rationale": "Si hubiera rollbacks, el 'Change Failure Rate' no sería casi cero, ya que un rollback implica que el cambio original falló.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considere la relación entre la velocidad de salida al mercado y la burocracia en el proceso de revisión."
+  }
+]
