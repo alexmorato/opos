@@ -1,0 +1,374 @@
+[
+  {
+    "guid": "8ce7ef53-b69a-49fb-a30c-49322513b9b0",
+    "subjectId": "T44",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Cuál es una diferencia fundamental en la orquestación y comunicación entre una arquitectura SOA y una de microservicios?",
+    "answerOptions": [
+      {
+        "text": "SOA utiliza comunicación REST/JSON, mientras que los microservicios prefieren SOAP/XML para mayor robustez.",
+        "rationale": "Esta afirmación invierte los protocolos de comunicación comúnmente asociados a cada arquitectura; los microservicios favorecen protocolos ligeros como REST/JSON.",
+        "isCorrect": false
+      },
+      {
+        "text": "Los microservicios suelen utilizar un API Gateway o comunicación por eventos, mientras que SOA se basa en un ESB (Enterprise Service Bus) centralizado.",
+        "rationale": "Esta opción describe correctamente el cambio de un componente centralizado y pesado (ESB en SOA) a soluciones más ligeras y descentralizadas (API Gateway, eventos) en microservicios.",
+        "isCorrect": true
+      },
+      {
+        "text": "Ambas arquitecturas utilizan un ESB para la comunicación, pero en microservicios es más ligero.",
+        "rationale": "La arquitectura de microservicios evita explícitamente el uso de un ESB centralizado, que es un pilar de la arquitectura SOA tradicional.",
+        "isCorrect": false
+      },
+      {
+        "text": "Los microservicios requieren una base de datos compartida para coordinarse, a diferencia de SOA.",
+        "rationale": "Uno de los principios clave de los microservicios es el patrón \"database per service\" para mantener la autonomía, lo contrario de una base de datos compartida.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piensa en el componente que actúa como el \"cerebro\" o intermediario principal de las comunicaciones en cada paradigma."
+  },
+  {
+    "guid": "7f0893d5-962c-4a70-9c3b-5a65b2eaf053",
+    "subjectId": "T44",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "En un ecosistema de microservicios, ¿cuál es el rol principal de Kubernetes en relación con Docker?",
+    "answerOptions": [
+      {
+        "text": "Orquestar los contenedores creados por Docker, gestionando su despliegue, escalado y supervisión a gran escala.",
+        "rationale": "Kubernetes funciona como un sistema de gestión para los contenedores (que Docker puede crear), automatizando su ciclo de vida en un clúster.",
+        "isCorrect": true
+      },
+      {
+        "text": "Empaquetar el código de un microservicio y todas sus dependencias en una unidad de software estándar.",
+        "rationale": "Esta es la función principal de Docker al crear una imagen y un contenedor, no el rol de Kubernetes.",
+        "isCorrect": false
+      },
+      {
+        "text": "Servir como el runtime que ejecuta un único contenedor en una máquina host.",
+        "rationale": "El motor de Docker (Docker Engine) es el responsable de ejecutar contenedores individuales; Kubernetes opera a un nivel superior, gestionando muchos contenedores.",
+        "isCorrect": false
+      },
+      {
+        "text": "Actuar como un registro privado para almacenar las imágenes de los contenedores de forma segura.",
+        "rationale": "Si bien Kubernetes necesita acceder a un registro (como Docker Hub o Nexus), no es su función ser ese registro.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Una herramienta construye el \"coche\" (contenedor), y la otra gestiona el \"tráfico\" de miles de coches en una ciudad (clúster)."
+  },
+  {
+    "guid": "e892cb7a-b88a-428b-b6e5-c0fc8ee97627",
+    "subjectId": "T44",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Cuál es el objetivo principal del patrón de diseño \"Circuit Breaker\"?",
+    "answerOptions": [
+      {
+        "text": "Reintentar automáticamente una petición a un servicio que ha fallado varias veces.",
+        "rationale": "Esta acción corresponde al patrón \"Retry\", que es una estrategia diferente para manejar fallos temporales.",
+        "isCorrect": false
+      },
+      {
+        "text": "Gestionar transacciones distribuidas que abarcan múltiples servicios mediante una serie de pasos y compensaciones.",
+        "rationale": "Esta es la descripción del patrón \"Saga\", utilizado para mantener la consistencia de los datos en operaciones complejas.",
+        "isCorrect": false
+      },
+      {
+        "text": "Evitar un fallo en cascada desconectando temporalmente la comunicación con un servicio que está fallando repetidamente.",
+        "rationale": "Al igual que un interruptor eléctrico, este patrón \"abre el circuito\" para proteger el sistema global de un componente defectuoso.",
+        "isCorrect": true
+      },
+      {
+        "text": "Separar las operaciones de lectura (queries) de las de escritura (commands) para optimizar el rendimiento.",
+        "rationale": "Este principio corresponde al patrón CQRS (Command Query Responsibility Segregation).",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Su nombre es análogo a un interruptor automático en un cuadro eléctrico que salta para proteger la instalación."
+  },
+  {
+    "guid": "9aa62281-5705-47b0-8c03-4043af36b0f3",
+    "subjectId": "T44",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Por qué se recomienda el patrón \"base de datos por servicio\" en arquitecturas de microservicios?",
+    "answerOptions": [
+      {
+        "text": "Para simplificar la gestión de transacciones distribuidas y garantizar la consistencia ACID en todo el sistema.",
+        "rationale": "En realidad, este patrón hace que las transacciones distribuidas sean más complejas, ya que no se puede depender de las garantías ACID de una única base de datos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Para reducir los costes de infraestructura, al no necesitar un servidor de base de datos central y potente.",
+        "rationale": "Generalmente, gestionar múltiples bases de datos puede aumentar la complejidad y el coste de la infraestructura en lugar de reducirlo.",
+        "isCorrect": false
+      },
+      {
+        "text": "Para garantizar la autonomía y el bajo acoplamiento, permitiendo que cada servicio evolucione y escale de forma independiente.",
+        "rationale": "Este es el beneficio principal; cada equipo puede gestionar su propio esquema de datos y tecnología de persistencia sin afectar a otros servicios.",
+        "isCorrect": true
+      },
+      {
+        "text": "Para cumplir con los estándares de seguridad que prohíben el almacenamiento de datos de diferentes dominios en una misma base de datos.",
+        "rationale": "Si bien puede ayudar a la seguridad, la razón fundamental es arquitectónica (autonomía y desacoplamiento), no una prohibición estándar.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considera cómo un cambio en el esquema de una base de datos compartida podría impactar a múltiples equipos y servicios."
+  },
+  {
+    "guid": "578d67b3-415d-466d-a2e6-0624316d1f62",
+    "subjectId": "T44",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Qué componente se enfoca principalmente en gestionar las comunicaciones INTERNAS entre microservicios (tráfico este-oeste)?",
+    "answerOptions": [
+      {
+        "text": "API Gateway",
+        "rationale": "El API Gateway es el punto de entrada para las peticiones EXTERNAS (tráfico norte-sur), gestionando la comunicación desde los clientes hacia los servicios.",
+        "isCorrect": false
+      },
+      {
+        "text": "Service Discovery",
+        "rationale": "Este componente actúa como un directorio para que los servicios se encuentren entre sí, pero no gestiona activamente el tráfico de comunicación entre ellos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Service Mesh",
+        "rationale": "Un Service Mesh proporciona una capa de infraestructura dedicada para hacer que la comunicación interna sea segura, rápida y fiable, controlando el tráfico entre servicios.",
+        "isCorrect": true
+      },
+      {
+        "text": "Load Balancer",
+        "rationale": "Un balanceador de carga distribuye el tráfico entre instancias de un mismo servicio, pero carece de las funcionalidades avanzadas de un Service Mesh como el tracing o la seguridad mTLS.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Este componente crea una capa de red dedicada para la comunicación dentro del clúster, a menudo usando un proxy \"sidecar\"."
+  },
+  {
+    "guid": "55d78444-54f0-411a-8d38-68600c194edb",
+    "subjectId": "T44",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "En seguridad de microservicios, ¿qué estándar se utiliza específicamente para la AUTENTICACIÓN de usuarios, construyéndose sobre otro que gestiona la AUTORIZACIÓN?",
+    "answerOptions": [
+      {
+        "text": "OAuth 2.0",
+        "rationale": "OAuth 2.0 es un framework para la autorización, es decir, para delegar el acceso a recursos. No define cómo autenticar al usuario.",
+        "isCorrect": false
+      },
+      {
+        "text": "OpenID Connect (OIDC)",
+        "rationale": "OIDC es una capa de identidad construida sobre OAuth 2.0 que permite a los clientes verificar la identidad del usuario final y obtener información básica de su perfil.",
+        "isCorrect": true
+      },
+      {
+        "text": "JWT (JSON Web Token)",
+        "rationale": "JWT es un formato de token, no un protocolo en sí mismo. Tanto OIDC como OAuth 2.0 pueden utilizar JWTs para transmitir información de forma segura.",
+        "isCorrect": false
+      },
+      {
+        "text": "TLS (Transport Layer Security)",
+        "rationale": "TLS se encarga de cifrar la comunicación en tránsito para proteger los datos, pero no se ocupa de la lógica de autenticación o autorización de los usuarios.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Uno te permite \"entrar por la puerta\" (autenticación) y el otro te da la \"llave\" para acceder a ciertas habitaciones (autorización). Necesitas el primero."
+  },
+  {
+    "guid": "c069522b-6577-4f50-be2e-f7cd15b0217c",
+    "subjectId": "T44",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Para qué desafío específico de la arquitectura de microservicios se utiliza principalmente el patrón Saga?",
+    "answerOptions": [
+      {
+        "text": "Para gestionar la consistencia de los datos en transacciones que abarcan múltiples servicios.",
+        "rationale": "El patrón Saga coordina una secuencia de transacciones locales en diferentes servicios y gestiona las compensaciones en caso de fallo para mantener la consistencia global.",
+        "isCorrect": true
+      },
+      {
+        "text": "Para descubrir dinámicamente la ubicación de las instancias de servicio en un entorno elástico.",
+        "rationale": "Esta función la realiza un Service Discovery o Service Registry, como Eureka o Consul.",
+        "isCorrect": false
+      },
+      {
+        "text": "Para migrar gradualmente una aplicación monolítica a microservicios sin interrumpir el servicio.",
+        "rationale": "Esta estrategia de migración se conoce como el patrón Strangler Fig (Higuera Estranguladora).",
+        "isCorrect": false
+      },
+      {
+        "text": "Para aislar recursos y limitar el impacto de un fallo en un servicio para que no afecte a los demás.",
+        "rationale": "Este concepto de aislamiento de fallos está relacionado con el patrón Bulkhead (Mamparo).",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Este patrón ayuda a resolver el problema de cómo mantener la integridad de los datos cuando una sola operación de negocio requiere cambios en varias bases de datos separadas."
+  },
+  {
+    "guid": "aa1f0b54-9e44-458b-bf4a-95f923e9f5cf",
+    "subjectId": "T44",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Cuál es una ventaja clave de utilizar comunicación asíncrona (p. ej., mediante Kafka) entre microservicios?",
+    "answerOptions": [
+      {
+        "text": "Garantiza una respuesta inmediata al cliente, mejorando la latencia en operaciones síncronas.",
+        "rationale": "La comunicación asíncrona, por definición, no espera una respuesta inmediata, lo que es característico de la comunicación síncrona (como una llamada REST directa).",
+        "isCorrect": false
+      },
+      {
+        "text": "Simplifica la lógica de las transacciones distribuidas al ser gestionadas por un bróker central.",
+        "rationale": "Aunque un bróker ayuda, la lógica de la consistencia eventual y el manejo de fallos en un sistema asíncrono puede añadir complejidad.",
+        "isCorrect": false
+      },
+      {
+        "text": "Aumenta la resiliencia y el desacoplamiento, permitiendo que los servicios operen incluso si otros están caídos temporalmente.",
+        "rationale": "Un servicio puede publicar un evento en el bróker y seguir funcionando sin depender de que el consumidor esté disponible en ese preciso instante.",
+        "isCorrect": true
+      },
+      {
+        "text": "Reduce la necesidad de un API Gateway, ya que los servicios se comunican directamente a través del bus de mensajes.",
+        "rationale": "El API Gateway sigue siendo crucial para gestionar las peticiones externas de los clientes, independientemente de si la comunicación interna es síncrona o asíncrona.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piensa en cómo funciona el envío de un SMS: lo envías y continúas con tus tareas, sin esperar a que el destinatario lo lea en ese momento."
+  },
+  {
+    "guid": "c50c5589-958e-4754-9f43-5b68662c301d",
+    "subjectId": "T44",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "La observabilidad en microservicios se basa en tres pilares fundamentales para entender el comportamiento de un sistema distribuido. ¿Cuáles son?",
+    "answerOptions": [
+      {
+        "text": "Despliegue, Escalado y Monitorización.",
+        "rationale": "Estos son procesos o actividades operativas importantes, pero no los tipos de datos fundamentales que constituyen la observabilidad.",
+        "isCorrect": false
+      },
+      {
+        "text": "Métricas, Logs (registros) y Traces (trazas).",
+        "rationale": "Estos tres tipos de telemetría proporcionan una visión completa: las métricas cuantifican el comportamiento, los logs registran eventos discretos y las trazas siguen el flujo de una petición a través de los servicios.",
+        "isCorrect": true
+      },
+      {
+        "text": "Alertas, Dashboards y Reportes.",
+        "rationale": "Estos son herramientas y artefactos que se construyen a partir de los datos de observabilidad, pero no son los pilares de datos en sí mismos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Seguridad, Rendimiento y Disponibilidad.",
+        "rationale": "Estos son atributos de calidad del sistema (conocidos como \"-ilidades\") que la observabilidad ayuda a medir y mejorar.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Uno te dice \"cuánto\" (un número), otro \"por qué\" (un mensaje detallado) y el último sigue el \"viaje\" de una petición de principio a fin."
+  },
+  {
+    "guid": "4de139e7-7705-4216-9f6a-ae93b457bd1e",
+    "subjectId": "T44",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Qué patrón de diseño se recomienda para migrar una aplicación monolítica a una arquitectura de microservicios de forma gradual y con bajo riesgo?",
+    "answerOptions": [
+      {
+        "text": "API Gateway Pattern",
+        "rationale": "El API Gateway es un componente clave de la arquitectura final, pero no describe la estrategia de migración en sí.",
+        "isCorrect": false
+      },
+      {
+        "text": "Bulkhead Pattern",
+        "rationale": "Este es un patrón de resiliencia para aislar componentes y evitar fallos en cascada, no una estrategia de migración.",
+        "isCorrect": false
+      },
+      {
+        "text": "Event Sourcing Pattern",
+        "rationale": "Este es un patrón para la persistencia de datos que puede ser útil en los nuevos microservicios, pero no es el enfoque global de la migración.",
+        "isCorrect": false
+      },
+      {
+        "text": "Strangler Fig Pattern (Patrón de la Higuera Estranguladora)",
+        "rationale": "Este patrón consiste en construir nuevas funcionalidades como microservicios alrededor del monolito, interceptando gradualmente las llamadas hasta que el sistema antiguo puede ser retirado.",
+        "isCorrect": true
+      }
+    ],
+    "hint": "El nombre de este patrón se inspira en una planta que crece sobre un árbol anfitrión hasta que finalmente lo reemplaza."
+  },
+  {
+    "guid": "699682ed-b1b5-40c4-8711-b170d91b69e4",
+    "subjectId": "T44",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "A pesar de sus ventajas, ¿cuál es uno de los principales inconvenientes o retos de una arquitectura de microservicios?",
+    "answerOptions": [
+      {
+        "text": "Un aumento significativo en la complejidad operativa y de orquestación.",
+        "rationale": "Gestionar, desplegar, monitorizar y asegurar un sistema distribuido con muchos componentes móviles es inherentemente más complejo que manejar una única aplicación.",
+        "isCorrect": true
+      },
+      {
+        "text": "Una menor flexibilidad tecnológica, ya que todos los servicios deben usar el mismo lenguaje y base de datos.",
+        "rationale": "Al contrario, una de sus grandes ventajas es el poliglotismo, que permite elegir la tecnología más adecuada para cada servicio.",
+        "isCorrect": false
+      },
+      {
+        "text": "Una escalabilidad reducida, ya que es difícil escalar partes individuales del sistema.",
+        "rationale": "La escalabilidad selectiva es uno de los beneficios clave; se puede escalar únicamente el servicio que tiene una alta demanda, optimizando recursos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Un acoplamiento más fuerte entre los diferentes módulos de la aplicación.",
+        "rationale": "El objetivo principal de esta arquitectura es lograr un bajo acoplamiento entre los servicios para que puedan funcionar y evolucionar de forma autónoma.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piensa en la diferencia entre gestionar un único restaurante grande y coordinar una cadena de veinte restaurantes pequeños."
+  },
+  {
+    "guid": "eb4811c7-9852-48bd-9b11-25d28d920f2a",
+    "subjectId": "T44",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Qué principio fundamental aplica el patrón CQRS (Command Query Responsibility Segregation)?",
+    "answerOptions": [
+      {
+        "text": "Almacenar la secuencia completa de eventos que han afectado a los datos, en lugar del estado actual.",
+        "rationale": "Esta es la definición del patrón Event Sourcing, que a menudo se utiliza junto con CQRS, pero es un concepto distinto.",
+        "isCorrect": false
+      },
+      {
+        "text": "Centralizar todas las peticiones de los clientes a través de un único punto de entrada para aplicar políticas transversales.",
+        "rationale": "Esta función corresponde al patrón API Gateway, que actúa como fachada del sistema.",
+        "isCorrect": false
+      },
+      {
+        "text": "Separar los modelos y la lógica para las operaciones de escritura (Commands) de las operaciones de lectura (Queries).",
+        "rationale": "Este patrón aboga por tener modelos distintos, y a menudo infraestructuras separadas, para modificar el estado del sistema y para consultarlo, optimizando cada lado para su propósito.",
+        "isCorrect": true
+      },
+      {
+        "text": "Mantener un registro actualizado de todas las instancias de servicio disponibles en el sistema.",
+        "rationale": "Esta es la responsabilidad del patrón Service Registry, que permite el descubrimiento dinámico de servicios.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Este patrón divide la responsabilidad del sistema en dos lados bien diferenciados: uno que cambia el estado y otro que lo consulta."
+  }
+]
