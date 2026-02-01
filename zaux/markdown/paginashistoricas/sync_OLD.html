@@ -134,73 +134,6 @@
       margin-top: 30px;
     }
 
-    /* Tabla de sincronización */
-    .sync-table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-bottom: 20px;
-      border-radius: 8px;
-      overflow: hidden;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
-    }
-    .sync-table thead th {
-      padding: 12px;
-      font-weight: bold;
-      font-size: 1rem;
-      text-align: center;
-      border: 1px solid #1a2030;
-    }
-    .sync-table tbody td {
-      padding: 10px 12px;
-      font-size: 0.95rem;
-      border: 1px solid #1a2030;
-    }
-    .sync-table .col-field {
-      background: #232b45;
-      color: #e7ecff;
-      font-weight: 600;
-      text-align: left;
-    }
-    .sync-table .col-local {
-      background: #1a3d2a;
-      color: #c8f5dd;
-      text-align: center;
-    }
-    .sync-table .col-servidor {
-      background: #1a2d4a;
-      color: #c8dbf5;
-      text-align: center;
-    }
-    .sync-table .col-merge {
-      background: #3a1a4a;
-      color: #e8c8f5;
-      text-align: center;
-    }
-    .sync-table .section-header {
-      background: #27304a !important;
-      color: #6ae0a7 !important;
-      font-weight: bold;
-      font-size: 1.05rem;
-      text-align: left !important;
-      padding: 12px !important;
-    }
-    .sync-table thead .col-field {
-      background: #27304a;
-      color: #9fb0ff;
-    }
-    .sync-table thead .col-local {
-      background: #2aebad;
-      color: #032217;
-    }
-    .sync-table thead .col-servidor {
-      background: #5a8fc7;
-      color: #fff;
-    }
-    .sync-table thead .col-merge {
-      background: #9b6ac7;
-      color: #fff;
-    }
-
     /* Botón hamburguesa */
     .menu-btn {
       position: fixed;
@@ -496,85 +429,83 @@
   <div class="container">
     <h2>🔄 Sincronització Sessió V2 (Firebase)</h2>
     
-    <!-- Tabla de Sincronización -->
-    <table class="sync-table">
-      <thead>
-        <tr>
-          <th class="col-field"></th>
-          <th class="col-local">📱 LOCAL</th>
-          <th class="col-servidor">☁️ SERVIDOR</th>
-          <th class="col-merge">🔀 MERGE</th>
-        </tr>
-      </thead>
-      <tbody>
-        <!-- Historial de Fallos -->
-        <tr>
-          <td colspan="4" class="section-header">Historial de Fallos</td>
-        </tr>
-        <tr>
-          <td class="col-field">Preguntes en historial</td>
-          <td class="col-local" id="localFallosPreguntas">0</td>
-          <td class="col-servidor" id="servidorFallosPreguntas">-</td>
-          <td class="col-merge" id="mergeFallosPreguntas">-</td>
-        </tr>
-        <tr>
-          <td class="col-field">Última actualització</td>
-          <td class="col-local" id="localFallosUltima">-</td>
-          <td class="col-servidor" id="servidorFallosUltima">-</td>
-          <td class="col-merge" id="mergeFallosUltima">-</td>
-        </tr>
-        <tr>
-          <td class="col-field">Total errors (suma count)</td>
-          <td class="col-local" id="localFallosTotal">0</td>
-          <td class="col-servidor" id="servidorFallosTotal">-</td>
-          <td class="col-merge" id="mergeFallosTotal">-</td>
-        </tr>
-        <tr>
-          <td class="col-field">Temes únics</td>
-          <td class="col-local" id="localFallosTemes">0</td>
-          <td class="col-servidor" id="servidorFallosTemes">-</td>
-          <td class="col-merge" id="mergeFallosTemes">-</td>
-        </tr>
-        
-        <!-- Historial Contestades -->
-        <tr>
-          <td colspan="4" class="section-header">Historial Contestades</td>
-        </tr>
-        <tr>
-          <td class="col-field">Preguntes respondides</td>
-          <td class="col-local" id="localContestadesPreguntas">0</td>
-          <td class="col-servidor" id="servidorContestadesPreguntas">-</td>
-          <td class="col-merge" id="mergeContestadesPreguntas">-</td>
-        </tr>
-        <tr>
-          <td class="col-field">Total respostes</td>
-          <td class="col-local" id="localContestadesTotal">0</td>
-          <td class="col-servidor" id="servidorContestadesTotal">-</td>
-          <td class="col-merge" id="mergeContestadesTotal">-</td>
-        </tr>
-        
-        <!-- Interaccions API -->
-        <tr hidden>
-          <td colspan="4" class="section-header">Interaccions API</td>
-        </tr>
-        <tr>
-          <td class="col-field">Última data</td>
-          <td class="col-local" id="localApiData">-</td>
-          <td class="col-servidor" id="servidorApiData">-</td>
-          <td class="col-merge" id="mergeApiData">-</td>
-        </tr>
-        <tr>
-          <td class="col-field">Intents restants / Interaccions</td>
-          <td class="col-local" id="localApiRestantes">-</td>
-          <td class="col-servidor">-</td>
-          <td class="col-merge" id="mergeApiInteracciones">-</td>
-        </tr>
-      </tbody>
-    </table>
+    <!-- Resumen Local -->
+    <div class="resumen-box">
+      <h3>📱 Sessió Local (Dispositiu)</h3>
+      
+      <div class="subsection">
+        <div class="subsection-title">Historial de Fallos</div>
+        <p><span class="label">Preguntes en historial:</span> <span id="localFallosPreguntas">0</span></p>
+        <p><span class="label">Última actualització:</span> <span id="localFallosUltima">-</span></p>
+        <p><span class="label">Total errors (suma count):</span> <span id="localFallosTotal">0</span></p>
+        <p><span class="label">Temes únics:</span> <span id="localFallosTemes">0</span></p>
+      </div>
+      
+      <div class="subsection">
+        <div class="subsection-title">Historial Contestades</div>
+        <p><span class="label">Preguntes respondides:</span> <span id="localContestadesPreguntas">0</span></p>
+        <p><span class="label">Total respostes:</span> <span id="localContestadesTotal">0</span></p>
+      </div>
+      
+      <div class="subsection">
+        <div class="subsection-title">Interaccions API</div>
+        <p><span class="label">Última data:</span> <span id="localApiData">-</span></p>
+        <p><span class="label">Intents restants:</span> <span id="localApiRestantes">-</span></p>
+      </div>
+    </div>
 
     <!-- Botón Descargar del Servidor -->
     <div class="btn-row">
       <button class="main-btn" id="btnDescargar" onclick="descargarDelServidor()">☁️⬇️ Descarregar Sessió del Servidor</button>
+    </div>
+
+    <!-- Resumen Servidor -->
+    <div class="resumen-box hidden" id="servidorBox">
+      <h3>☁️ Sessió Servidor</h3>
+      
+      <div class="subsection">
+        <div class="subsection-title">Historial de Fallos</div>
+        <p><span class="label">Preguntes en historial:</span> <span id="servidorFallosPreguntas">0</span></p>
+        <p><span class="label">Última actualització:</span> <span id="servidorFallosUltima">-</span></p>
+        <p><span class="label">Total errors (suma count):</span> <span id="servidorFallosTotal">0</span></p>
+        <p><span class="label">Temes únics:</span> <span id="servidorFallosTemes">0</span></p>
+      </div>
+      
+      <div class="subsection">
+        <div class="subsection-title">Historial Contestades</div>
+        <p><span class="label">Preguntes respondides:</span> <span id="servidorContestadesPreguntas">0</span></p>
+        <p><span class="label">Total respostes:</span> <span id="servidorContestadesTotal">0</span></p>
+      </div>
+      
+      <div class="subsection">
+        <div class="subsection-title">Interaccions API</div>
+        <p><span class="label">Última data:</span> <span id="servidorApiData">-</span></p>
+      </div>
+    </div>
+
+    <!-- Resumen Merge -->
+    <div class="resumen-box hidden" id="mergeBox">
+      <h3>🔀 Sessió Combinada (Merge)</h3>
+      
+      <div class="subsection">
+        <div class="subsection-title">Historial de Fallos</div>
+        <p><span class="label">Preguntes en historial:</span> <span id="mergeFallosPreguntas">0</span></p>
+        <p><span class="label">Última actualització:</span> <span id="mergeFallosUltima">-</span></p>
+        <p><span class="label">Total errors (suma count):</span> <span id="mergeFallosTotal">0</span></p>
+        <p><span class="label">Temes únics:</span> <span id="mergeFallosTemes">0</span></p>
+      </div>
+      
+      <div class="subsection">
+        <div class="subsection-title">Historial Contestades</div>
+        <p><span class="label">Preguntes respondides:</span> <span id="mergeContestadesPreguntas">0</span></p>
+        <p><span class="label">Total respostes:</span> <span id="mergeContestadesTotal">0</span></p>
+      </div>
+      
+      <div class="subsection">
+        <div class="subsection-title">Interaccions API</div>
+        <p><span class="label">Última data:</span> <span id="mergeApiData">-</span></p>
+        <p><span class="label">Interaccions:</span> <span id="mergeApiInteracciones">-</span></p>
+      </div>
     </div>
 
     <!-- Botones de Guardado -->
@@ -980,6 +911,8 @@
       // Interacciones API
       const resumenApi = calcularResumenApi(sesionServidor.interaccionesApi, false);
       document.getElementById('servidorApiData').textContent = resumenApi.fecha;
+
+      document.getElementById('servidorBox').classList.remove('hidden');
     }
 
     // ========================================
@@ -1066,10 +999,11 @@
       const resumenApi = calcularResumenApi(sesionMerge.interaccionesApi, false);
       document.getElementById('mergeApiData').textContent = resumenApi.fecha;
       document.getElementById('mergeApiInteracciones').textContent = resumenApi.interacciones;
+
+      document.getElementById('mergeBox').classList.remove('hidden');
     }
 
     function mostrarBotonesGuardar() {
-      document.getElementById('btnDescargar').classList.add('hidden');
       document.getElementById('botonesGuardar').classList.remove('hidden');
       document.getElementById('botonSobreescribir').classList.remove('hidden');
     }
