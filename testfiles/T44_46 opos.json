@@ -1,0 +1,405 @@
+[
+  {
+    "guid": "d4b62a55-1e2d-47a4-9db2-0b621b7e8e0a",
+    "subjectId": "T46",
+    "difficulty": 3,
+    "origin": "TS TIC 2019",
+    "type": "test",
+    "question": "Per a què serveix un API Manager?",
+    "answerOptions": [
+      {
+        "text": "Per gestionar el catàleg d’aplicacions d’una organització.",
+        "isCorrect": false,
+        "rationale": "Això és més propi d’un catàleg d’aplicacions/portfoli (APM), no d’un gestor d’APIs."
+      },
+      {
+        "text": "Per gestionar les integracions dels sistemes.",
+        "isCorrect": false,
+        "rationale": "La integració d’una forma més general s’associa més a ESB/iPaaS; l’API Manager governa i publica APIs."
+      },
+      {
+        "text": "Per a què els usuaris puguin demanar aplicacions, peticions i integracions.",
+        "isCorrect": false,
+        "rationale": "Això s’assembla més a un portal de demandes o ITSM, no al rol principal d’un API Manager."
+      },
+      {
+        "text": "Per a què els usuaris puguin consumir serveis, interconnectar mòduls i aplicacions i facilitar l’accés al backend, permetent re-utilització de serveis.",
+        "isCorrect": true,
+        "rationale": "Un API Manager facilita publicació/consum d’APIs, govern i reutilització, i accés controlat al backend."
+      }
+    ],
+    "hint": "API Manager = publicació + govern + consum segur d’APIs."
+  },
+  {
+    "guid": "b8dc5e07-67d0-4c27-8c8a-5f4b4d6f5b1e",
+    "subjectId": "T46",
+    "difficulty": 3,
+    "origin": "TS TIC 2019",
+    "type": "test",
+    "question": "Des d’un punt de vista de senzillesa de protocol i d’efectivitat en la interconnexió middleware entre sistemes, quin estàndard cal establir?",
+    "answerOptions": [
+      {
+        "text": "Sistema ETL (Extract, Transform, Load).",
+        "isCorrect": false,
+        "rationale": "ETL és per integració de dades (batch), no un estàndard de comunicació middleware entre sistemes."
+      },
+      {
+        "text": "Sistema CORBA (Common Object Request Broker Architecture).",
+        "isCorrect": false,
+        "rationale": "CORBA és middleware clàssic, però no destaca per simplicitat comparat amb REST."
+      },
+      {
+        "text": "Sistema SNMP (Simple Network Management Protocol).",
+        "isCorrect": false,
+        "rationale": "SNMP és per gestió/monitoratge de xarxa, no per interconnexió d’aplicacions."
+      },
+      {
+        "text": "Sistema API Restful (Application programming interface Representational State Transfer).",
+        "isCorrect": true,
+        "rationale": "REST és un enfoc simple i molt estès per interoperabilitat i comunicació entre sistemes via HTTP."
+      }
+    ],
+    "hint": "Si busquen simplicitat i ús generalitzat: REST."
+  },
+  {
+    "guid": "2ecb0e48-5db3-4f5f-8e1e-8f2a33f0c67b",
+    "subjectId": "T46",
+    "difficulty": 2,
+    "origin": "TS 2021",
+    "type": "test",
+    "question": "Quina és una implementació, vàlida per a una arquitectura d'aplicacions, orientada a serveis?",
+    "answerOptions": [
+      {
+        "text": "Es divideix en tres capes (presentació, negoci i dades) encapsulades en una única aplicació o instal·lable.",
+        "isCorrect": false,
+        "rationale": "Això descriu una arquitectura en capes monolítica, no orientada a serveis."
+      },
+      {
+        "text": "És una arquitectura basada en MVC (Model Vista Controlador) on l'aplicació retorna html a un navegador i aquest fa les peticions.",
+        "isCorrect": false,
+        "rationale": "MVC és un patró d’aplicació, però no implica orientació a serveis."
+      },
+      {
+        "text": "Com a mínim es divideix en dues parts: una aplicació client de frontend que consumeix els serveis i una aplicació de backend que publica els serveis.",
+        "isCorrect": true,
+        "rationale": "Orientació a serveis: backend exposa serveis/APIs i clients els consumeixen."
+      },
+      {
+        "text": "Totes les opcions anteriors són correctes.",
+        "isCorrect": false,
+        "rationale": "Les dues primeres opcions no descriuen pròpiament una arquitectura orientada a serveis."
+      }
+    ],
+    "hint": "SOA: serveis publicats + clients que els consumeixen."
+  },
+  {
+    "guid": "d5e2f3b4-86c9-4d4e-9f30-772c4eaeb6d5",
+    "subjectId": "T44",
+    "difficulty": 3,
+    "origin": "TS 2021",
+    "type": "test",
+    "question": "Quina de les següents opcions és un problema de l'arquitectura de microserveis?",
+    "answerOptions": [
+      {
+        "text": "La dificultat d'actualització. En implementar-se en un únic instal·lable (\"monòlit\") cada modificació afecta molts serveis.",
+        "isCorrect": false,
+        "rationale": "Això és un problema típic del monòlit, no dels microserveis."
+      },
+      {
+        "text": "L'obligació d'implementar tots els serveis en la mateixa tecnologia fa que moltes vegades no es pugui fer servir la tecnologia que millor s'adapta a la funcionalitat.",
+        "isCorrect": false,
+        "rationale": "En microserveis justament es pot usar tecnologia diferent per servei (poliglota)."
+      },
+      {
+        "text": "La dificultat d'evolucionar. No es pot modificar o actualitzar un component sense afectar la resta.",
+        "isCorrect": false,
+        "rationale": "Això també és més propi d’un monòlit; microserveis busquen desacoblament."
+      },
+      {
+        "text": "La complexitat addicional que comporten. Un gran nombre de serveis diferents en la mateixa aplicació pot fer que el desplegament d'aquests sigui més complicat que la seva pròpia implementació.",
+        "isCorrect": true,
+        "rationale": "Microserveis incrementen complexitat operativa (deploy, observabilitat, xarxa, versions, etc.)."
+      }
+    ],
+    "hint": "Microserveis: avantatges de desacoblament però més complexitat operativa."
+  },
+  {
+    "guid": "0e3e7f08-2f98-4fb4-ae38-5cbeb05a0d4c",
+    "subjectId": "T44",
+    "difficulty": 2,
+    "origin": "TS 2021",
+    "type": "test",
+    "question": "L'estàndard obert JWT per a la creació de tokens fa servir el format:",
+    "answerOptions": [
+      {
+        "text": "XML",
+        "isCorrect": false,
+        "rationale": "JWT no usa XML; és compacte per transportar-se fàcilment en HTTP headers."
+      },
+      {
+        "text": "HTML",
+        "isCorrect": false,
+        "rationale": "HTML és llenguatge de marcat web, no format de tokens."
+      },
+      {
+        "text": "WSDL",
+        "isCorrect": false,
+        "rationale": "WSDL descriu serveis SOAP, no és el format de JWT."
+      },
+      {
+        "text": "JSON",
+        "isCorrect": true,
+        "rationale": "JWT (JSON Web Token) utilitza JSON (header/payload) i després s’encodeja (Base64URL)."
+      }
+    ],
+    "hint": "JWT = JSON Web Token."
+  },
+  {
+    "guid": "2e93b2ea-070a-4a12-82c9-3d3ac5fd4f7e",
+    "subjectId": "T46",
+    "difficulty": 3,
+    "origin": "TM 2021",
+    "type": "test",
+    "question": "Davant el risc de perdre el control/govern de molts serveis publicats com APIs (normalment REST), quina peça de programari està especialment dissenyada per publicar, controlar l’accés, permetre la subscripció, i analitzar estadístiques d’ús i rendiment d’aquests serveis?",
+    "answerOptions": [
+      {
+        "text": "Firewall.",
+        "isCorrect": false,
+        "rationale": "Un firewall filtra tràfic, però no gestiona govern d’APIs, subscripcions i analítica d’ús."
+      },
+      {
+        "text": "Brocker de comunicacions.",
+        "isCorrect": false,
+        "rationale": "Un broker (missatgeria) ajuda a desacoblar, però no és l’eina específica de govern d’APIs."
+      },
+      {
+        "text": "Api Manager.",
+        "isCorrect": true,
+        "rationale": "API Manager governa, publica, controla accés (polítiques), subscripcions i mètriques."
+      },
+      {
+        "text": "Balancejador.",
+        "isCorrect": false,
+        "rationale": "Un balancejador distribueix càrrega, però no fa govern complet ni gestió de subscripcions."
+      }
+    ],
+    "hint": "Govern i control d’APIs = API Manager."
+  },
+  {
+    "guid": "2f4f32c7-37d3-4303-b0e8-1d219f6d5a55",
+    "subjectId": "T46",
+    "difficulty": 3,
+    "origin": "TM 2021",
+    "type": "test",
+    "question": "Quin protocol permet que una persona usuària del lloc A comparteixi un recurs del mateix lloc A amb el lloc B sense compartir la seva identitat completa i permet l’autorització d’una API de forma estàndard per a aplicacions d’escriptori, mòbils i web?",
+    "answerOptions": [
+      {
+        "text": "Oauth (Oauth 2.0, OpenID...).",
+        "isCorrect": true,
+        "rationale": "OAuth2 delega autorització (access tokens) sense revelar credencials/identitat completa al client."
+      },
+      {
+        "text": "ETSI.",
+        "isCorrect": false,
+        "rationale": "ETSI és un organisme/estàndards (telecom, seguretat), no el protocol d’autorització delegada per APIs."
+      },
+      {
+        "text": "Kerberos.",
+        "isCorrect": false,
+        "rationale": "Kerberos és autenticació en entorns corporatius, no el model típic d’autorització delegada API cross-site."
+      },
+      {
+        "text": "EAP.",
+        "isCorrect": false,
+        "rationale": "EAP és un marc d’autenticació (xarxes), no un protocol d’autorització d’APIs com OAuth2."
+      }
+    ],
+    "hint": "Autorització delegada i tokens per API: OAuth2."
+  },
+  {
+    "guid": "9d3e05b7-80c4-45e6-b819-8fcdb3fc3f4b",
+    "subjectId": "T46",
+    "difficulty": 3,
+    "origin": "TS Pràctic 2023",
+    "type": "test",
+    "question": "En una arquitectura orientada a Serveis (SOA), quin és el principal avantatge d’aquest tipus d’arquitectura?",
+    "answerOptions": [
+      {
+        "text": "Millorar la capacitat de mantenir la coherència de les dades a través de multiples aplicacions.",
+        "isCorrect": true,
+        "rationale": "SOA promou reutilització i integració de serveis, reduint duplicacions i afavorint coherència a través de serveis compartits."
+      },
+      {
+        "text": "Reduir el nombre de servidors necessaris per a l'execució de les aplicacions.",
+        "isCorrect": false,
+        "rationale": "SOA no garanteix menys servidors; pot requerir més infraestructura (bus, govern, serveis)."
+      },
+      {
+        "text": "Augmentar la complexitat dels processos de desenvolupament.",
+        "isCorrect": false,
+        "rationale": "Això seria un desavantatge, no un avantatge."
+      },
+      {
+        "text": "Reduir la necessitat de personal especialitzat en la gestió d'aplicacions.",
+        "isCorrect": false,
+        "rationale": "SOA requereix govern i gestió; no redueix necessàriament especialització."
+      }
+    ],
+    "hint": "SOA: serveis reutilitzables i integració per evitar silos."
+  },
+  {
+    "guid": "7ee4a7f2-a96a-4d23-86f4-15a0679fdf6c",
+    "subjectId": "T46",
+    "difficulty": 2,
+    "origin": "TS Pràctic 2023",
+    "type": "test",
+    "question": "Quina és la principal funció d'un API Manager?",
+    "answerOptions": [
+      {
+        "text": "Proporcionar una interfície gràfica per interactuar amb les API.",
+        "isCorrect": false,
+        "rationale": "Pot incloure portals, però la funció principal és governar i securitzar l’accés a APIs."
+      },
+      {
+        "text": "Controlar l'accés a les API i gestionar les polítiques de seguretat.",
+        "isCorrect": true,
+        "rationale": "API Manager aplica autenticació/autorització, quotas, rate limiting i polítiques."
+      },
+      {
+        "text": "Definir els protocols de comunicació per a les API.",
+        "isCorrect": false,
+        "rationale": "Els protocols (HTTP/REST, etc.) els defineix el disseny d’API; l’API Manager els governa, no els defineix."
+      },
+      {
+        "text": "Desenvolupar les API i proporcionar la seva implementació.",
+        "isCorrect": false,
+        "rationale": "L’API Manager no implementa APIs; les publica i gestiona."
+      }
+    ],
+    "hint": "API Manager: seguretat + govern + control de consum."
+  },
+  {
+    "guid": "d5c7a410-3c99-49d4-8b05-89683e0c6b6e",
+    "subjectId": "T46",
+    "difficulty": 2,
+    "origin": "TS Pràctic 2023",
+    "type": "test",
+    "question": "Què és una interfície en una arquitectura orientada a Serveis (SOA)?",
+    "answerOptions": [
+      {
+        "text": "Una eina que permet connectar diversos serveis entre ells.",
+        "isCorrect": false,
+        "rationale": "Això s’assembla més a middleware/ESB o integració, no a una interfície."
+      },
+      {
+        "text": "Un protocol de comunicació entre diversos serveis.",
+        "isCorrect": false,
+        "rationale": "El protocol (HTTP, AMQP, etc.) és diferent del contracte/interfície."
+      },
+      {
+        "text": "Un contracte entre el proveïdor i el consumidor del servei.",
+        "isCorrect": true,
+        "rationale": "La interfície defineix el contracte: operacions, inputs/outputs, condicions i expectatives."
+      },
+      {
+        "text": "Un component de maquinari.",
+        "isCorrect": false,
+        "rationale": "No té relació amb el concepte d’interfície de servei."
+      }
+    ],
+    "hint": "Interfície = contracte del servei."
+  },
+  {
+    "guid": "1c7f5d0a-b68f-46e1-a7f2-3e8b5d9f6a20",
+    "subjectId": "T46",
+    "difficulty": 3,
+    "origin": "TS Pràctic 2023",
+    "type": "test",
+    "question": "Quina opció és un estàndard dissenyat per permetre que una aplicació accedeixi a recursos allotjats per altres aplicacions web en nom d’una persona usuària?",
+    "answerOptions": [
+      {
+        "text": "Oauth (Oauth 2.0, OpenID...)",
+        "isCorrect": true,
+        "rationale": "OAuth2 és l’estàndard d’autorització delegada per accés a recursos en nom de l’usuari."
+      },
+      {
+        "text": "REST",
+        "isCorrect": false,
+        "rationale": "REST és un estil arquitectònic per APIs, no un estàndard d’autorització delegada."
+      },
+      {
+        "text": "Kerberos",
+        "isCorrect": false,
+        "rationale": "Kerberos és autenticació per tickets dins dominis/entorns corporatius."
+      },
+      {
+        "text": "GraphQL",
+        "isCorrect": false,
+        "rationale": "GraphQL és un llenguatge de consulta per APIs, no autorització delegada."
+      }
+    ],
+    "hint": "Accés ‘en nom de l’usuari’ amb tokens: OAuth2."
+  },
+  {
+    "guid": "7c4f1b86-9a95-44c3-a0a4-94d10a5a3d16",
+    "subjectId": "T46",
+    "difficulty": 2,
+    "origin": "TS Específic 2024",
+    "type": "test",
+    "question": "Què és l'API Manager en una arquitectura orientada a serveis?",
+    "answerOptions": [
+      {
+        "text": "Un framework de desenvolupament d’APIs.",
+        "isCorrect": false,
+        "rationale": "Un framework ajuda a construir APIs; l’API Manager governa i gestiona el seu cicle de vida i consum."
+      },
+      {
+        "text": "Una plataforma per a la gestió, supervisió i distribució d'APIs.",
+        "isCorrect": true,
+        "rationale": "Defineix perfectament el rol: gestió/govern, monitoratge i distribució/publicació."
+      },
+      {
+        "text": "Una plataforma d’administració de càrregues de treball (APIs) i serveis.",
+        "isCorrect": false,
+        "rationale": "Això s’assembla més a gestió d’execució/infra (workloads), no a govern d’APIs."
+      },
+      {
+        "text": "Una normativa de desenvolupament d’APIs",
+        "isCorrect": false,
+        "rationale": "No és una norma, és una plataforma/software."
+      }
+    ],
+    "hint": "API Manager: gestiona, monitora i publica APIs."
+  },
+  {
+    "guid": "3d3c25c4-0f19-4d88-9b5d-62df8c2a9f88",
+    "subjectId": "T46",
+    "difficulty": 2,
+    "origin": "TM Específic 2024",
+    "type": "test",
+    "question": "Quina de les següents opcions és un protocol de seguretat per APIs?",
+    "answerOptions": [
+      {
+        "text": "GraphQL",
+        "isCorrect": false,
+        "rationale": "GraphQL és un model d’API/consulta, no un protocol de seguretat."
+      },
+      {
+        "text": "REST",
+        "isCorrect": false,
+        "rationale": "REST és un estil arquitectònic, no un protocol de seguretat."
+      },
+      {
+        "text": "Oauth2",
+        "isCorrect": true,
+        "rationale": "OAuth2 és un estàndard/protocol d’autorització molt utilitzat per protegir APIs amb tokens."
+      },
+      {
+        "text": "HTTP",
+        "isCorrect": false,
+        "rationale": "HTTP és el protocol de transport, però no és un protocol de seguretat d’APIs (això seria TLS, OAuth2, etc.)."
+      }
+    ],
+    "hint": "Seguretat d’APIs amb tokens: OAuth2."
+  }
+]

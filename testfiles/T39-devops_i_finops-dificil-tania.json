@@ -1,0 +1,467 @@
+[
+  {
+    "guid": "1cb844d1-630e-4438-8e04-71469527e350",
+    "subjectId": "T39",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "En el contexto del modelo DORA para medir la madurez DevOps, ¿cuál de las siguientes combinaciones de métricas indicaría un equipo de alto rendimiento pero con potencial inestabilidad en producción?",
+    "answerOptions": [
+      {
+        "text": "Una alta 'Deployment Frequency' y un bajo 'Lead Time for Changes', combinados con un bajo 'Change Failure Rate' y un bajo 'Mean Time To Recovery' (MTTR).",
+        "rationale": "Esta combinación de métricas describe a un equipo de élite, que es rápido, eficiente y estable, no uno con potencial inestabilidad.",
+        "isCorrect": false
+      },
+      {
+        "text": "Una baja 'Deployment Frequency' y un alto 'Lead Time for Changes', combinados con un alto 'Change Failure Rate' y un alto 'Mean Time To Recovery' (MTTR).",
+        "rationale": "Este escenario representa un equipo de bajo rendimiento en todas las áreas, no uno de alto rendimiento con problemas específicos de estabilidad.",
+        "isCorrect": false
+      },
+      {
+        "text": "Una alta 'Deployment Frequency' y un bajo 'Lead Time for Changes', pero con un 'Change Failure Rate' elevado y un 'Mean Time To Recovery' (MTTR) alto.",
+        "rationale": "Esta opción refleja un equipo que entrega código rápidamente (alta velocidad), pero que introduce errores con frecuencia y tarda en recuperarse (baja estabilidad).",
+        "isCorrect": true
+      },
+      {
+        "text": "Una 'Deployment Frequency' variable y un 'Lead Time for Changes' bajo, con un 'Change Failure Rate' bajo pero un 'Mean Time To Recovery' (MTTR) muy alto.",
+        "rationale": "Aunque el MTTR alto indica un problema de estabilidad, la frecuencia de despliegue variable no apunta necesariamente a un equipo de alto rendimiento en velocidad.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Analiza la diferencia entre las métricas que miden la velocidad de entrega y las que miden la estabilidad del servicio."
+  },
+  {
+    "guid": "b231951d-3279-4645-84c7-bc1da24cd980",
+    "subjectId": "T39",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Según el marco de FinOps, ¿qué práctica se centra en atribuir los costes del cloud a los equipos o proyectos específicos con fines informativos y de concienciación, sin realizar una facturación interna formal?",
+    "answerOptions": [
+      {
+        "text": "Chargeback",
+        "rationale": "El Chargeback implica cargar internamente el coste a cada departamento, yendo más allá de la simple información y convirtiéndose en un proceso contable.",
+        "isCorrect": false
+      },
+      {
+        "text": "Rightsizing",
+        "rationale": "El Rightsizing es una técnica de optimización para ajustar el tamaño de los recursos, no un método para atribuir y comunicar costes.",
+        "isCorrect": false
+      },
+      {
+        "text": "Showback",
+        "rationale": "Esta práctica consiste en 'mostrar' el coste a los equipos para fomentar la responsabilidad, que es exactamente el propósito descrito.",
+        "isCorrect": true
+      },
+      {
+        "text": "Tagging",
+        "rationale": "El etiquetado (Tagging) es el mecanismo técnico que permite implementar Showback o Chargeback, pero no es la práctica de comunicación en sí misma.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piensa en la diferencia entre simplemente 'mostrar' los costes y 'cobrarlos' internamente."
+  },
+  {
+    "guid": "9c204891-8812-4805-9398-1911637888c9",
+    "subjectId": "T39",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "En la filosofía DevOps, el concepto de 'infraestructura inmutable' es fundamental. ¿Cuál de las siguientes acciones es CONTRARIA a este principio?",
+    "answerOptions": [
+      {
+        "text": "Crear una nueva imagen de contenedor con una versión actualizada de una librería y desplegar nuevos contenedores a partir de ella, reemplazando los antiguos.",
+        "rationale": "Este es el procedimiento estándar en infraestructura inmutable: reemplazar en lugar de modificar.",
+        "isCorrect": false
+      },
+      {
+        "text": "Acceder mediante SSH a una máquina virtual en producción para aplicar un parche de seguridad directamente en el sistema operativo.",
+        "rationale": "Modificar un servidor en funcionamiento introduce 'configuration drift' y viola el principio de inmutabilidad, que dicta que los servidores no se alteran tras su despliegue.",
+        "isCorrect": true
+      },
+      {
+        "text": "Utilizar una herramienta de IaC como Terraform para destruir un entorno de preproducción y volver a crearlo desde cero con una configuración actualizada.",
+        "rationale": "Este ciclo de destruir y recrear es una aplicación directa del concepto de inmutabilidad para garantizar la consistencia del entorno.",
+        "isCorrect": false
+      },
+      {
+        "text": "Desplegar una nueva versión de una aplicación utilizando una estrategia Blue-Green, donde el tráfico se conmuta a un entorno completamente nuevo.",
+        "rationale": "La estrategia Blue-Green se basa en la creación de un nuevo entorno idéntico, lo que se alinea perfectamente con la infraestructura inmutable.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "La inmutabilidad implica que una vez que algo es desplegado, no se modifica. Si se necesita un cambio, se reemplaza por completo."
+  },
+  {
+    "guid": "792d1693-1d73-4407-861e-74ac1c709b79",
+    "subjectId": "T39",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Cuál es la diferencia fundamental entre el enfoque de un pipeline de CI/CD tradicional y el de GitOps para gestionar despliegues en un clúster de Kubernetes?",
+    "answerOptions": [
+      {
+        "text": "En CI/CD tradicional el pipeline tiene la responsabilidad de aplicar los cambios en el clúster (modelo push), mientras que en GitOps un agente dentro del clúster se encarga de sincronizar su estado con el de Git (modelo pull).",
+        "rationale": "Esta opción describe correctamente la distinción clave: el modelo 'push' de CI/CD frente al modelo 'pull' o de reconciliación de GitOps.",
+        "isCorrect": true
+      },
+      {
+        "text": "GitOps no utiliza control de versiones, a diferencia de CI/CD tradicional que se basa en repositorios Git para almacenar el código fuente de la aplicación.",
+        "rationale": "Esta afirmación es incorrecta; GitOps se basa fundamentalmente en Git como única fuente de verdad para el estado del sistema.",
+        "isCorrect": false
+      },
+      {
+        "text": "CI/CD tradicional automatiza solo la integración de código, mientras que GitOps automatiza todo el ciclo de vida, incluyendo el testing y la seguridad.",
+        "rationale": "Un pipeline de CI/CD completo también automatiza el testing, la seguridad y el despliegue; la diferencia no radica en el alcance de la automatización, sino en el mecanismo de despliegue.",
+        "isCorrect": false
+      },
+      {
+        "text": "GitOps utiliza herramientas como Jenkins para orquestar el despliegue, mientras que CI/CD tradicional se apoya en herramientas como ArgoCD o Flux para aplicar cambios.",
+        "rationale": "Esta opción invierte las herramientas comúnmente asociadas a cada enfoque; ArgoCD y Flux son herramientas insignia del ecosistema GitOps.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Céntrate en quién tiene la autoridad para modificar el estado del clúster y desde dónde se inicia esa acción."
+  },
+  {
+    "guid": "b70f81a4-16d6-4c37-9923-4b62276a1ca5",
+    "subjectId": "T39",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Dentro del modelo de madurez FinOps 'Crawl, Walk, Run', ¿en qué fase una organización empezaría a tener un equipo multidisciplinar estable, procesos de chargeback establecidos y la toma de decisiones de arquitectura influenciada por KPIs de coste?",
+    "answerOptions": [
+      {
+        "text": "Fase Crawl (Gatear)",
+        "rationale": "En la fase Crawl, los procesos son mayoritariamente manuales y la visibilidad de costes es básica, lejos de la automatización y la gobernanza avanzada descritas.",
+        "isCorrect": false
+      },
+      {
+        "text": "Fase Walk (Caminar)",
+        "rationale": "La fase Walk implica la estandarización de procesos y optimizaciones activas como el rightsizing, pero el chargeback completo y la integración en la arquitectura son característicos de una fase más avanzada.",
+        "isCorrect": false
+      },
+      {
+        "text": "Fase Run (Correr)",
+        "rationale": "Esta es la fase más madura, donde FinOps está integrado en la cultura, los procesos están automatizados, existen KPIs en tiempo real y las decisiones de arquitectura consideran el coste como un factor clave.",
+        "isCorrect": true
+      },
+      {
+        "text": "Fase Optimize (Optimizar)",
+        "rationale": "Optimize es una de las fases del ciclo de vida de FinOps (Inform, Optimize, Operate), no una etapa del modelo de madurez (Crawl, Walk, Run).",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Asocia el nivel de integración cultural y automatización de los procesos FinOps con cada etapa del modelo de madurez."
+  },
+  {
+    "guid": "cd1f7580-0e7e-45e2-87de-51281228d870",
+    "subjectId": "T39",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "En un pipeline DevSecOps, la práctica de 'shift-left' se refiere a integrar la seguridad en las fases tempranas del ciclo de vida. ¿Cuál de las siguientes herramientas se utiliza principalmente para una actividad de seguridad 'shift-right'?",
+    "answerOptions": [
+      {
+        "text": "SonarQube",
+        "rationale": "SonarQube se utiliza para el análisis estático de la calidad y seguridad del código (SAST), una actividad característica de 'shift-left' que ocurre antes del despliegue.",
+        "isCorrect": false
+      },
+      {
+        "text": "Snyk o Trivy",
+        "rationale": "Estas herramientas analizan dependencias y vulnerabilidades en imágenes de contenedores, acciones que se realizan en las fases de construcción e integración, propias de 'shift-left'.",
+        "isCorrect": false
+      },
+      {
+        "text": "Prometheus y Grafana",
+        "rationale": "Estas herramientas se utilizan para el monitoreo y la observabilidad del sistema en producción, permitiendo detectar anomalías y comportamientos de seguridad inesperados en tiempo real, lo cual es una práctica 'shift-right'.",
+        "isCorrect": true
+      },
+      {
+        "text": "JUnit",
+        "rationale": "JUnit es un framework para pruebas unitarias en Java, que se ejecutan en la fase más temprana del desarrollo, siendo un claro ejemplo de 'shift-left'.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Diferencia entre las actividades de seguridad que se realizan antes del despliegue en producción y las que se realizan sobre el sistema en ejecución."
+  },
+  {
+    "guid": "4b1cb6b9-234e-400a-95cc-71af1897683c",
+    "subjectId": "T39",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "El modelo CALMS es una base conceptual para DevOps. Si un equipo ha automatizado sus pipelines de CI/CD y utiliza IaC, pero sufre de una comunicación deficiente entre desarrolladores y operaciones, con asignación de culpas, ¿qué pilar de CALMS está fallando principalmente?",
+    "answerOptions": [
+      {
+        "text": "A (Automation)",
+        "rationale": "El equipo ha implementado la automatización (CI/CD, IaC), por lo que este pilar, aunque siempre mejorable, no es la causa principal del problema descrito.",
+        "isCorrect": false
+      },
+      {
+        "text": "L (Lean)",
+        "rationale": "Aunque una mala comunicación puede generar desperdicio (un principio Lean), el núcleo del problema descrito es la falta de colaboración y confianza.",
+        "isCorrect": false
+      },
+      {
+        "text": "M (Measurement)",
+        "rationale": "La falta de métricas podría ser un síntoma, pero la descripción se centra en la interacción humana y la dinámica de equipo, no en la falta de medición.",
+        "isCorrect": false
+      },
+      {
+        "text": "C (Culture)",
+        "rationale": "La cultura es el pilar que aborda la colaboración, la confianza, la eliminación de silos y la responsabilidad compartida, que son los aspectos que fallan en el escenario.",
+        "isCorrect": true
+      }
+    ],
+    "hint": "Recuerda que DevOps no es solo herramientas, sino un cambio en la forma de trabajar y colaborar."
+  },
+  {
+    "guid": "7670eaa3-3850-4563-ad3c-8bb487d03732",
+    "subjectId": "T39",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Un equipo FinOps está analizando KPIs y observa un alto 'Cost per feature' y una baja 'Utilització efectiva'. ¿Qué acción de optimización sería la más directa y apropiada para abordar ambos problemas simultáneamente?",
+    "answerOptions": [
+      {
+        "text": "Implementar Savings Plans o Reserved Instances.",
+        "rationale": "Esto optimiza las tarifas y reduce el coste unitario, pero no aborda directamente el malbaratamiento de recursos provisionados y no utilizados ('Utilització efectiva').",
+        "isCorrect": false
+      },
+      {
+        "text": "Realizar un 'Rightsizing' de los recursos sobre-provisionados.",
+        "rationale": "Ajustar el tamaño de los recursos a su uso real reduce el desperdicio (mejorando la 'Utilització efectiva') y disminuye el coste total, lo que impacta positivamente en el coste por funcionalidad.",
+        "isCorrect": true
+      },
+      {
+        "text": "Mejorar el 'Tagging' de todos los recursos en el cloud.",
+        "rationale": "Un mejor etiquetado mejoraría la visibilidad y atribución de costes (fase 'Inform'), pero no es una acción de optimización que reduzca el gasto por sí misma.",
+        "isCorrect": false
+      },
+      {
+        "text": "Establecer un proceso de 'Chargeback' para facturar internamente.",
+        "rationale": "El chargeback aumenta la responsabilidad financiera, pero es una práctica de gobernanza ('Operate') que no soluciona el problema técnico subyacente del sobre-aprovisionamiento.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Busca la acción que se centra en eliminar el desperdicio de recursos que han sido asignados pero no se están utilizando."
+  },
+  {
+    "guid": "ab4742a9-94b0-41d1-b604-5141c05febc5",
+    "subjectId": "T39",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Un equipo quiere implementar un despliegue progresivo para una nueva funcionalidad crítica. Quieren activarla solo para el personal interno de la empresa antes de liberarla a todos los usuarios, sin necesidad de realizar un nuevo despliegue. ¿Qué técnica DevOps sería la más adecuada?",
+    "answerOptions": [
+      {
+        "text": "Despliegue Blue-Green",
+        "rationale": "El despliegue Blue-Green conmuta todo el tráfico de una versión a otra, afectando a todos los usuarios a la vez, por lo que no permite una activación selectiva por tipo de usuario.",
+        "isCorrect": false
+      },
+      {
+        "text": "Despliegue Canary",
+        "rationale": "Un despliegue Canary libera la nueva versión a un pequeño porcentaje de usuarios al azar, pero no permite una segmentación tan específica como 'solo personal interno' de forma inherente.",
+        "isCorrect": false
+      },
+      {
+        "text": "Feature Toggles (o Feature Flags)",
+        "rationale": "Esta técnica permite activar o desactivar funcionalidades en tiempo de ejecución para subconjuntos de usuarios específicos (como personal interno, usuarios beta, etc.), sin requerir un nuevo despliegue de código.",
+        "isCorrect": true
+      },
+      {
+        "text": "Rolling Update",
+        "rationale": "Una actualización gradual (rolling update) reemplaza las instancias antiguas por las nuevas de forma secuencial, pero eventualmente todos los usuarios recibirán la nueva versión sin una segmentación controlada.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piensa en una técnica que separe el despliegue del código de la activación de la funcionalidad."
+  },
+  {
+    "guid": "05fd3574-1133-46d6-8d8f-787c2b4c4f79",
+    "subjectId": "T39",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Según la FinOps Foundation, ¿cuál de los siguientes roles se clasifica como una 'Allied Persona', es decir, alguien que colabora con el equipo FinOps pero no forma parte de su núcleo directo?",
+    "answerOptions": [
+      {
+        "text": "FinOps Practitioner",
+        "rationale": "El FinOps Practitioner es el rol central en la implementación diaria de las prácticas FinOps, por lo que pertenece al núcleo del equipo.",
+        "isCorrect": false
+      },
+      {
+        "text": "Business Owner / Product Owner",
+        "rationale": "El Product Owner es un rol fundamental del equipo FinOps, responsable de entender el valor de negocio y el impacto del coste del cloud en su producto.",
+        "isCorrect": false
+      },
+      {
+        "text": "Engineering / DevOps Teams",
+        "rationale": "Los equipos de ingeniería son consumidores directos de los recursos cloud y actores clave en la optimización técnica, considerándose parte del núcleo operativo.",
+        "isCorrect": false
+      },
+      {
+        "text": "Sustainability (Sostenibilidad)",
+        "rationale": "El responsable de Sostenibilidad colabora con FinOps para reducir el impacto ecológico, pero su función principal está fuera del ámbito financiero-operativo, siendo una 'Allied Persona'.",
+        "isCorrect": true
+      }
+    ],
+    "hint": "Distingue entre los roles directamente implicados en la gestión del coste y el valor del cloud y aquellos que colaboran desde áreas adyacentes."
+  },
+  {
+    "guid": "9922cf49-e299-485a-929e-15b7b7523fb0",
+    "subjectId": "T39",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "En el contexto de la orquestación de contenedores con Kubernetes, ¿cuál es el beneficio principal que aporta a una estrategia DevOps en comparación con la gestión de contenedores Docker de forma individual?",
+    "answerOptions": [
+      {
+        "text": "Permite construir imágenes de contenedor de forma más eficiente y ligera que Docker.",
+        "rationale": "Kubernetes no construye imágenes; utiliza las imágenes creadas por motores de contenedores como Docker. Su función es gestionar los contenedores en ejecución.",
+        "isCorrect": false
+      },
+      {
+        "text": "Ofrece funcionalidades de autocuración (self-healing), escalado automático y gestión declarativa de despliegues a gran escala.",
+        "rationale": "Estas capacidades de gestión avanzada del ciclo de vida de las aplicaciones a escala son la principal aportación de un orquestador como Kubernetes.",
+        "isCorrect": true
+      },
+      {
+        "text": "Proporciona un sistema de control de versiones para los Dockerfiles, integrado de forma nativa.",
+        "rationale": "El control de versiones se gestiona con herramientas como Git, no con Kubernetes. Kubernetes gestiona el estado de los contenedores, no el código fuente de sus imágenes.",
+        "isCorrect": false
+      },
+      {
+        "text": "Reduce la necesidad de utilizar Infraestructura como Código (IaC), ya que gestiona toda la infraestructura de forma automática.",
+        "rationale": "Kubernetes complementa a las herramientas de IaC. IaC se usa para provisionar el propio clúster de Kubernetes, y luego Kubernetes gestiona las aplicaciones sobre él.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piensa en los desafíos que surgen cuando pasas de gestionar unos pocos contenedores en una máquina a gestionar cientos de ellos en un clúster."
+  },
+  {
+    "guid": "279a6972-2a92-4425-b929-c772fe38cbe4",
+    "subjectId": "T39",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "La 'Observabilidad' es una evolución del monitoreo tradicional. ¿Qué pilar de la observabilidad permite seguir la traza de una petición de un usuario a través de múltiples microservicios para diagnosticar cuellos de botella o errores?",
+    "answerOptions": [
+      {
+        "text": "Métricas (Metrics)",
+        "rationale": "Las métricas son agregados numéricos que miden el rendimiento (ej. uso de CPU, latencia), pero no muestran el recorrido completo de una petición individual.",
+        "isCorrect": false
+      },
+      {
+        "text": "Logs",
+        "rationale": "Los logs son registros de eventos discretos. Aunque son útiles, correlacionar logs de diferentes servicios para seguir una única petición puede ser extremadamente complejo.",
+        "isCorrect": false
+      },
+      {
+        "text": "Traçabilitat distribuïda (Traces)",
+        "rationale": "El tracing distribuido está diseñado específicamente para capturar el flujo de una petición a través de los diferentes componentes de un sistema distribuido.",
+        "isCorrect": true
+      },
+      {
+        "text": "Alertas (Alerting)",
+        "rationale": "Las alertas son notificaciones basadas en umbrales predefinidos de métricas o logs, pero no son un pilar de datos para entender el comportamiento del sistema.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Céntrate en cuál de los tres pilares de la observabilidad está diseñado para conectar eventos relacionados en un sistema distribuido."
+  },
+  {
+    "guid": "4a29f665-fae7-4b8e-8711-374c874c7c00",
+    "subjectId": "T39",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Cuál es la función principal de una herramienta como Ansible en un ecosistema DevOps, y en qué se diferencia de una herramienta como Terraform?",
+    "answerOptions": [
+      {
+        "text": "Ansible es una herramienta de orquestación de contenedores, mientras que Terraform se utiliza para la integración continua.",
+        "rationale": "Esta opción asigna funciones incorrectas a ambas herramientas. Kubernetes es para orquestación y Jenkins para CI.",
+        "isCorrect": false
+      },
+      {
+        "text": "Ansible se enfoca en la gestión de la configuración y el despliegue de software en recursos existentes, mientras que Terraform se especializa en el aprovisionamiento y gestión del ciclo de vida de la infraestructura.",
+        "rationale": "Esto describe correctamente la distinción principal: Ansible para la gestión de configuración (automatización procedural) y Terraform para el aprovisionamiento de infraestructura (IaC declarativa).",
+        "isCorrect": true
+      },
+      {
+        "text": "Ansible se utiliza para escribir pruebas de integración automatizadas, y Terraform para el análisis estático de la calidad del código.",
+        "rationale": "Esta opción confunde las herramientas de automatización de infraestructura con herramientas de testing (como Selenium) y calidad de código (como SonarQube).",
+        "isCorrect": false
+      },
+      {
+        "text": "Ambas herramientas tienen el mismo propósito de aprovisionar infraestructura, pero Ansible utiliza un lenguaje declarativo y Terraform uno procedural.",
+        "rationale": "Esta afirmación invierte la naturaleza de las herramientas; Terraform utiliza un lenguaje declarativo (HCL) mientras que Ansible, aunque puede ser declarativo, se basa en un enfoque más procedural (playbooks).",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piensa en la diferencia entre crear la 'casa' (infraestructura) y amueblarla y decorarla (configuración)."
+  },
+  {
+    "guid": "bdb927c3-ae2f-4339-9c04-b90ecf41c787",
+    "subjectId": "T39",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "En el ciclo de vida de FinOps (Informar, Optimizar, Operar), ¿en qué fase se ubica la creación de presupuestos dinámicos y la integración de las políticas de control de costes en los pipelines de CI/CD?",
+    "answerOptions": [
+      {
+        "text": "Informar (Inform)",
+        "rationale": "La fase de Informar se centra en la visibilidad, la atribución de costes y las alertas básicas, pero no en la integración proactiva en los procesos operativos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Optimizar (Optimize)",
+        "rationale": "La fase de Optimizar se enfoca en acciones para reducir el gasto, como el rightsizing o el uso de descuentos, pero la integración en la operativa diaria es un paso posterior.",
+        "isCorrect": false
+      },
+      {
+        "text": "Operar (Operate)",
+        "rationale": "Esta fase se caracteriza por arraigar FinOps en la cultura y los procesos de la organización, lo que incluye la automatización de políticas, presupuestos dinámicos y la integración con DevOps.",
+        "isCorrect": true
+      },
+      {
+        "text": "Governança (Governance)",
+        "rationale": "La gobernanza es un componente clave de la fase 'Operate', pero no es una de las tres fases principales del ciclo de vida de FinOps.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considera la fase que representa la madurez y la integración total de la disciplina FinOps en las operaciones diarias de la empresa."
+  },
+  {
+    "guid": "affe0d72-f330-4c27-8226-0efdf2cddc82",
+    "subjectId": "T39",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Un equipo de desarrollo necesita gestionar la configuración de su aplicación en Kubernetes de forma externa a la imagen del contenedor. ¿Cuál de las siguientes opciones NO es una práctica recomendada o un mecanismo estándar de Kubernetes para este propósito?",
+    "answerOptions": [
+      {
+        "text": "Utilizar 'ConfigMaps' para almacenar datos de configuración no sensibles como pares clave-valor.",
+        "rationale": "Los ConfigMaps son el mecanismo estándar de Kubernetes para externalizar la configuración y desacoplarla de la imagen del contenedor.",
+        "isCorrect": false
+      },
+      {
+        "text": "Inyectar la configuración a través de variables de entorno (environment variables) definidas en el manifiesto de despliegue.",
+        "rationale": "Las variables de entorno son una forma común y válida de pasar configuración a los contenedores dentro de un Pod.",
+        "isCorrect": false
+      },
+      {
+        "text": "Montar la configuración como ficheros en el contenedor utilizando 'Volumes' que apuntan a un 'ConfigMap' o a un 'Secret'.",
+        "rationale": "Montar volúmenes es otra técnica estándar para proporcionar ficheros de configuración a una aplicación sin incluirlos en la imagen.",
+        "isCorrect": false
+      },
+      {
+        "text": "Modificar el 'Dockerfile' para incluir un script que descarga el fichero de configuración desde una URL pública durante la construcción de la imagen.",
+        "rationale": "Incluir la configuración durante la construcción de la imagen ('baking-in') es una práctica desaconsejada, ya que acopla la imagen a un entorno específico y viola el principio de inmutabilidad.",
+        "isCorrect": true
+      }
+    ],
+    "hint": "Piensa en los mecanismos que permiten que la misma imagen de contenedor se ejecute en diferentes entornos (desarrollo, producción) sin ser reconstruida."
+  }
+]

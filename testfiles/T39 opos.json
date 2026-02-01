@@ -1,0 +1,498 @@
+[
+  {
+    "guid": "b9076e0c-c921-4101-9848-588596162a56",
+    "subjectId": "T39",
+    "difficulty": 3,
+    "origin": "TS TIC ESPECÍFIC 2019",
+    "type": "test",
+    "question": "La tècnica del pipeline, en l’àmbit de la cultura DEVOPS, ens facilita la implementació de:",
+    "answerOptions": [
+      {
+        "text": "Les proves d’acceptació dels usuaris.",
+        "isCorrect": false,
+        "rationale": "Les proves d’acceptació poden formar part del procés, però el pipeline s’associa sobretot a l’automatització CI/CD, no específicament a UAT."
+      },
+      {
+        "text": "Els contenidors d’aplicacions independents.",
+        "isCorrect": false,
+        "rationale": "Els contenidors són una tecnologia habitual, però el concepte de pipeline està orientat principalment al flux d’integració i entrega contínua."
+      },
+      {
+        "text": "L’arquitectura de les aplicacions basada en microserveis.",
+        "isCorrect": false,
+        "rationale": "Microserveis és un estil d’arquitectura; el pipeline no implica necessàriament microserveis."
+      },
+      {
+        "text": "El concepte d’entrega contínua de software.",
+        "isCorrect": true,
+        "rationale": "Un pipeline automatitza passos (build, test, deploy) i facilita la CI/CD, especialment l’entrega contínua."
+      }
+    ],
+    "hint": "Pipeline = automatització del camí fins a producció (CI/CD)."
+  },
+  {
+    "guid": "21b01386-4510-4fe0-8973-512218d62255",
+    "subjectId": "T39",
+    "difficulty": 4,
+    "origin": "TS TIC PRÀCTIC 2019",
+    "type": "test",
+    "question": "Per al Lot 2 ateses unes expectatives de canvi evolutiu molt elevades es decideix aplicar una sistemàtica DevOps per a actualització constant del programari que asseguri una posada en producció el més ràpid possible. Quin component dels següents NO estaria directament implicat en aquesta sistemàtica?",
+    "answerOptions": [
+      {
+        "text": "Repositori de versions del codi font.",
+        "isCorrect": false,
+        "rationale": "El control de versions és una peça clau en qualsevol flux CI/CD."
+      },
+      {
+        "text": "Eina de gestió de projectes amb mètodes àgils.",
+        "isCorrect": true,
+        "rationale": "Una eina àgil ajuda a planificar i gestionar, però no és un component directe del flux DevOps de CI/CD (build-test-deploy-operate)."
+      },
+      {
+        "text": "Quadre de comandament amb indicadors de rendiment de l’aplicació en producció.",
+        "isCorrect": false,
+        "rationale": "El monitoratge i mètriques de producció són part essencial de DevOps (feedback loop)."
+      },
+      {
+        "text": "Sistema de test unitari i d’integració.",
+        "isCorrect": false,
+        "rationale": "Les proves automatitzades són un pilar de CI/CD."
+      }
+    ],
+    "hint": "DevOps ‘directe’ = codi + build/test/deploy + monitoratge."
+  },
+  {
+    "guid": "9f894aa6-f548-4fa5-ab61-dd2ec02d0fc2",
+    "subjectId": "T39",
+    "difficulty": 4,
+    "origin": "TS TIC ESPECÍFIC 2021",
+    "type": "test",
+    "question": "Indiqueu quina de les següents afirmacions és FALSA pel que fa als contenidors i al sistema d’orquestració:",
+    "answerOptions": [
+      {
+        "text": "Permeten l’aprofitament dels recursos de les màquines, tot i que no suposen cap avantatge per implementar-hi l’alta disponibilitat.",
+        "isCorrect": true,
+        "rationale": "És falsa perquè els orquestradors (p. ex. Kubernetes) faciliten alta disponibilitat (replicació, reprogramació, self-healing)."
+      },
+      {
+        "text": "Faciliten el desplegament d’aplicacions i la integració contínua.",
+        "isCorrect": false,
+        "rationale": "Els contenidors i l’orquestració ajuden al desplegament repetible i a la CI."
+      },
+      {
+        "text": "Proporcionen un sistema àgil d’arrancar totes les peces d’una arquitectura.",
+        "isCorrect": false,
+        "rationale": "Permeten aixecar components de forma ràpida i automatitzada."
+      },
+      {
+        "text": "Ofereixen un sistema d’abstracció del programari sobre l’entorn de desplegament, facilitant així les proves.",
+        "isCorrect": false,
+        "rationale": "Un objectiu clau del contenidor és la portabilitat i coherència entre entorns."
+      }
+    ],
+    "hint": "Orquestració = HA + auto-recovery."
+  },
+  {
+    "guid": "423fad70-f461-4a94-816d-7def223f6b81",
+    "subjectId": "T39",
+    "difficulty": 2,
+    "origin": "TS TIC ESPECÍFIC 2021",
+    "type": "test",
+    "question": "Quina de les següents eines es fa servir per implementar pipelines dintre d’un sistema de CI/CD (Integració Contínua/Entrega Contínua)?",
+    "answerOptions": [
+      {
+        "text": "Quarkus.",
+        "isCorrect": false,
+        "rationale": "Quarkus és un framework/runtime per aplicacions Java, no una eina de pipelines."
+      },
+      {
+        "text": "SonarQube.",
+        "isCorrect": false,
+        "rationale": "SonarQube fa inspecció/qualitat de codi, no orquestra pipelines per si sol."
+      },
+      {
+        "text": "Jenkins.",
+        "isCorrect": true,
+        "rationale": "Jenkins és una eina clàssica per definir i executar pipelines CI/CD."
+      },
+      {
+        "text": "Maven.",
+        "isCorrect": false,
+        "rationale": "Maven és una eina de build/dependències; pot ser part del pipeline però no és l’eina de pipeline."
+      }
+    ],
+    "hint": "Pipeline CI/CD: Jenkins/GitLab CI/GitHub Actions..."
+  },
+  {
+    "guid": "4af172b9-79b8-4cd3-8a66-38882e0a64e2",
+    "subjectId": "T39",
+    "difficulty": 2,
+    "origin": "TS TIC PRÀCTIC 2021",
+    "type": "test",
+    "question": "Es vol utilitzar alguna tecnologia per organitzar el desenvolupament, gestionant-ne els canvis i facilitant el desenvolupament d'un grup de programadors/ores. Quina és la tecnologia CORRECTA d'entre les següents?",
+    "answerOptions": [
+      {
+        "text": "PANTHER: Conjunt d'eines Android per al desenvolupament corporatiu.",
+        "isCorrect": false,
+        "rationale": "No és l’opció estàndard de control de versions."
+      },
+      {
+        "text": "PUSH: Eina per incorporar canvis en el desenvolupament.",
+        "isCorrect": false,
+        "rationale": "‘Push’ és una acció habitual en Git, però no una tecnologia de gestió de versions per si mateixa."
+      },
+      {
+        "text": "GIT: Eina open source per a la gestió descentralitzada de versions.",
+        "isCorrect": true,
+        "rationale": "Git és l’eina de control de versions distribuït més comuna."
+      },
+      {
+        "text": "GestVers: L’estàndard europeu per a la gestió de versions de software programari a l'administració pública.",
+        "isCorrect": false,
+        "rationale": "No és un estàndard real de referència per a control de versions."
+      }
+    ],
+    "hint": "Gestió de versions distribuïda: Git."
+  },
+  {
+    "guid": "1efeee7f-7b89-4dd6-b6a4-63d53c739462",
+    "subjectId": "T39",
+    "difficulty": 3,
+    "origin": "TM TIC ESPECÍFIC 2021",
+    "type": "test",
+    "question": "Quan treballem amb contenidors tota la configuració i parametrització del programari ha d’anar fora de la imatge. Quina de les següents NO és una opció possible per facilitar aquesta configuració?",
+    "answerOptions": [
+      {
+        "text": "Volums.",
+        "isCorrect": false,
+        "rationale": "Els volums permeten injectar fitxers/configuració externs a la imatge."
+      },
+      {
+        "text": "Variables d’entorn.",
+        "isCorrect": false,
+        "rationale": "Les variables d’entorn són un mecanisme habitual per parametritzar en runtime."
+      },
+      {
+        "text": "Config maps.",
+        "isCorrect": false,
+        "rationale": "Els ConfigMaps (p. ex. Kubernetes) serveixen per aportar configuració externa."
+      },
+      {
+        "text": "Valors dintre de la recepta o fitxer de construcció de la imatge (Dockerfile).",
+        "isCorrect": true,
+        "rationale": "Si la configuració queda al Dockerfile, queda dins de la imatge (no externa), i es perd flexibilitat per entorn."
+      }
+    ],
+    "hint": "Config fora de la imatge = per entorn (dev/prod)."
+  },
+  {
+    "guid": "23ab4825-ced6-4bcf-9f95-6384159a7b19",
+    "subjectId": "T39",
+    "difficulty": 3,
+    "origin": "TM TIC PRÀCTIC 2021",
+    "type": "test",
+    "question": "Fa sis mesos que va començar el projecte del nou CPD i ja estem en disposició de desplegar les primeres màquines. Tot el desplegament es farà de forma automatitzada. Es pretén que tot el CPD estigui definit per codi. Així com la seva gestió i administració. Quina de les següents eines opensource permet el desplegament i la configuració d’infraestructura, aplicacions, xarxes tant de màquines virtuals com contenidors?",
+    "answerOptions": [
+      {
+        "text": "Yaml: llenguatge de serialització (format com XML/JSON) per definir fitxers de configuració o intercanvi de dades.",
+        "isCorrect": false,
+        "rationale": "YAML és un format, no una eina d’automatització/desplegament."
+      },
+      {
+        "text": "Ansible.",
+        "isCorrect": true,
+        "rationale": "Ansible és una eina open source d’automatització i gestió de configuració (IaC)."
+      },
+      {
+        "text": "Python.",
+        "isCorrect": false,
+        "rationale": "Python és un llenguatge; es pot usar per automatitzar, però no és una eina IaC per si mateixa en aquest context."
+      },
+      {
+        "text": "Json: format d’intercanvi de dades per comunicació entre aplicacions.",
+        "isCorrect": false,
+        "rationale": "JSON és un format, no una eina de desplegament."
+      }
+    ],
+    "hint": "IaC/automatització: Ansible, Terraform, Puppet..."
+  },
+  {
+    "guid": "de23ccfd-abea-4d33-b81a-a30cabd33efc",
+    "subjectId": "T39",
+    "difficulty": 4,
+    "origin": "TM TIC PRÀCTIC 2021",
+    "type": "test",
+    "question": "Acaba d’aparèixer una alerta en un dels contenidors del portal. El contenidor es queda sense espai pels logs en DEBUG guardats dins del contenidor. En Jordi entra al contenidor, modifica el fitxer de configuració de Log4J, surt, esborra el contenidor i torna a instanciar la imatge. Però el problema es repeteix. Per què la solució aplicada per en Jordi NO ha funcionat?",
+    "answerOptions": [
+      {
+        "text": "Segurament no va guardar correctament el fitxer de documentació a causa dels permisos de l’usuari amb el qual va entrar al contenidor.",
+        "isCorrect": false,
+        "rationale": "Podria passar, però no és la causa principal que explica el comportament típic dels contenidors en reiniciar-los des d’una imatge."
+      },
+      {
+        "text": "Els contenidors són efímers. Tot el que es modifica dintre d’un contenidor no es guarda a la imatge. Així en tornar a instanciar de nou la imatge es torna a la configuració tal com estava.",
+        "isCorrect": true,
+        "rationale": "Els canvis dins d’un contenidor en execució no persisteixen a la imatge; en recrear, es torna a l’estat original de la imatge."
+      },
+      {
+        "text": "Hauria d’haver tret la llibreria de logs i la configuració, ja que en aquest context els logs han de sortir per la sortida estàndard.",
+        "isCorrect": false,
+        "rationale": "És una bona pràctica, però no és la raó directa del fracàs en aquest escenari."
+      },
+      {
+        "text": "En comptes de fer un reinici hauria d’haver fet un eliminar i tornar a instanciar la imatge.",
+        "isCorrect": false,
+        "rationale": "Això és precisament el que va fer; el problema és que la imatge no incorpora els canvis."
+      }
+    ],
+    "hint": "Canvis dins el contenidor no = canvis a la imatge."
+  },
+  {
+    "guid": "b50fe2e3-362e-49fc-98d3-eb17e4def0d5",
+    "subjectId": "T39",
+    "difficulty": 2,
+    "origin": "TS TIC PRÀCTIC 2023",
+    "type": "test",
+    "question": "El primer que es planteja l'equip és la infraestructura que suportarà el projecte. El projecte ha de ser àgil (tant des de la gestió de projectes com de la configuració de la infraestructura). Quina seria la forma CORRECTA de gestionar la infraestructura en un entorn àgil i segur?",
+    "answerOptions": [
+      {
+        "text": "Gestionar manualment la configuració de la infraestructura.",
+        "isCorrect": false,
+        "rationale": "La gestió manual és lenta, propensa a errors i difícil d’auditar/reproduir."
+      },
+      {
+        "text": "Utilitzar una eina de gestió de la configuració per automatitzar la configuració i la implementació.",
+        "isCorrect": true,
+        "rationale": "L’automatització (IaC/config management) és clau per agilitat, consistència i seguretat."
+      },
+      {
+        "text": "Depurar només les aplicacions en una infraestructura diferent de la de producció.",
+        "isCorrect": false,
+        "rationale": "És una pràctica parcial; no resol la gestió de la infraestructura de forma àgil i segura."
+      },
+      {
+        "text": "Evitar la implementació d'eines de monitoratge per reduir els costos.",
+        "isCorrect": false,
+        "rationale": "El monitoratge és essencial per operació i seguretat; eliminar-lo augmenta riscos."
+      }
+    ],
+    "hint": "Infra àgil i segura = automatització + IaC."
+  },
+  {
+    "guid": "5ccf687b-bf96-4347-bbe2-15a5b1b78d03",
+    "subjectId": "T39",
+    "difficulty": 2,
+    "origin": "TS TIC PRÀCTIC 2023",
+    "type": "test",
+    "question": "Quina de les següents tecnologies d’automatització està especialment enfocada per al desplegament i configuració de tota mena d’infraestructura a partir de codi?",
+    "answerOptions": [
+      {
+        "text": "Yaml.",
+        "isCorrect": false,
+        "rationale": "YAML és un format de definició/configuració, no una tecnologia d’automatització en si."
+      },
+      {
+        "text": "Ansible.",
+        "isCorrect": true,
+        "rationale": "Ansible és una eina d’automatització i gestió de configuració enfocada a IaC."
+      },
+      {
+        "text": "Bash.",
+        "isCorrect": false,
+        "rationale": "Bash permet scripts, però no és una plataforma IaC/automatització especialitzada."
+      },
+      {
+        "text": "Kubectl.",
+        "isCorrect": false,
+        "rationale": "kubectl és una eina de gestió de Kubernetes, no una tecnologia general d’IaC per a tota mena d’infra."
+      }
+    ],
+    "hint": "Eina IaC/config management típica: Ansible."
+  },
+  {
+    "guid": "59037193-ff51-40ac-99ba-f5fda889a0ee",
+    "subjectId": "T39",
+    "difficulty": 2,
+    "origin": "TS TIC PRÀCTIC 2023",
+    "type": "test",
+    "question": "Es planteja fer servir la filosofia anomenada DevOps (Desenvolupament i Operacions). Quina és la principal finalitat d’aquesta filosofia?",
+    "answerOptions": [
+      {
+        "text": "Augmentar la qualitat de les aplicacions.",
+        "isCorrect": false,
+        "rationale": "Sovint millora la qualitat, però és un efecte; la finalitat principal és col·laboració i flux continu."
+      },
+      {
+        "text": "Reduir el temps de desenvolupament de les aplicacions.",
+        "isCorrect": false,
+        "rationale": "Pot reduir lead time, però no és l’objectiu principal enunciable com a definició base."
+      },
+      {
+        "text": "Millorar la col·laboració entre els equips de desenvolupament i operacions.",
+        "isCorrect": true,
+        "rationale": "DevOps busca trencar silos i millorar col·laboració per entregar més ràpid i de forma fiable."
+      },
+      {
+        "text": "Reduir el cost dels servidors on s'executen les aplicacions.",
+        "isCorrect": false,
+        "rationale": "No és l’objectiu central de DevOps."
+      }
+    ],
+    "hint": "DevOps = cultura + col·laboració + automatització."
+  },
+  {
+    "guid": "184df04f-06f8-438c-9334-6416e5215211",
+    "subjectId": "T39",
+    "difficulty": 2,
+    "origin": "TS TIC PRÀCTIC 2023",
+    "type": "test",
+    "question": "Caldrà disposar d’una eina de qualitat de codi. Quin dels següents productes està enfocat únicament en la inspecció continua de la qualitat del codi?",
+    "answerOptions": [
+      {
+        "text": "Gitlab.",
+        "isCorrect": false,
+        "rationale": "GitLab és una plataforma DevOps (repos, CI/CD, etc.), no només inspecció de qualitat."
+      },
+      {
+        "text": "Jenkins.",
+        "isCorrect": false,
+        "rationale": "Jenkins és CI/CD (orquestració pipelines), no inspecció de qualitat en si."
+      },
+      {
+        "text": "Maven.",
+        "isCorrect": false,
+        "rationale": "Maven és build i dependències, no inspecció de qualitat."
+      },
+      {
+        "text": "Sonarqube.",
+        "isCorrect": true,
+        "rationale": "SonarQube està especialitzat en inspecció contínua i mètriques de qualitat del codi (bugs, smells, cobertura...)."
+      }
+    ],
+    "hint": "Inspecció contínua de qualitat: SonarQube."
+  },
+  {
+    "guid": "22e33b19-c83c-411b-b04d-e0665958fcfe",
+    "subjectId": "T39",
+    "difficulty": 3,
+    "origin": "TS TIC PRÀCTIC 2023",
+    "type": "test",
+    "question": "Es proposa implementar des de l’inici proves de validació d’usuari, anomenades també proves funcionals, per ajudar que arribin a producció encara menys errors del software. En aquest context àgil i de software lliure, quina de les següents eines, o conjunt d'eines, seria una bona opció?",
+    "answerOptions": [
+      {
+        "text": "Junit.",
+        "isCorrect": false,
+        "rationale": "JUnit és principalment per proves unitàries en Java, no proves funcionals d’usuari (E2E/UI)."
+      },
+      {
+        "text": "Maven.",
+        "isCorrect": false,
+        "rationale": "Maven és una eina de build; no és una eina de proves funcionals d’usuari."
+      },
+      {
+        "text": "Sonarqube.",
+        "isCorrect": false,
+        "rationale": "SonarQube és qualitat de codi, no proves funcionals."
+      },
+      {
+        "text": "Selenium.",
+        "isCorrect": true,
+        "rationale": "Selenium és una suite per automatitzar proves funcionals (E2E) sobre interfícies web."
+      }
+    ],
+    "hint": "Proves funcionals/UI automatitzades: Selenium."
+  },
+  {
+    "guid": "fad80ecc-8e7f-4bff-bee7-5aefaf4d2690",
+    "subjectId": "T39",
+    "difficulty": 3,
+    "origin": "TS TIC PRÀCTIC 2023",
+    "type": "test",
+    "question": "Existeix un producte per generar PDFs que només pot instal·lar-se sobre Windows. Quina tecnologia permet desplegar software de diferents sistemes operatius complets (Linux, Windows, Mac...) de forma completament independent sobre un mateix hardware?",
+    "answerOptions": [
+      {
+        "text": "Contenidors.",
+        "isCorrect": false,
+        "rationale": "Els contenidors comparteixen el kernel de l’host; no executen sistemes operatius complets diferents."
+      },
+      {
+        "text": "Màquines virtuals.",
+        "isCorrect": true,
+        "rationale": "La virtualització permet executar SO complets diferents sobre el mateix hardware mitjançant un hipervisor."
+      },
+      {
+        "text": "Chroot.",
+        "isCorrect": false,
+        "rationale": "Chroot aïlla el sistema de fitxers, però no virtualitza un SO complet."
+      },
+      {
+        "text": "Big IP.",
+        "isCorrect": false,
+        "rationale": "Big-IP és una família de productes de xarxa (load balancing, ADC), no virtualització de SO."
+      }
+    ],
+    "hint": "SO complet diferent sobre mateix hardware = virtualització."
+  },
+  {
+    "guid": "c18936be-6f17-48f3-b93d-541bd37f3187",
+    "subjectId": "T39",
+    "difficulty": 2,
+    "origin": "TS TIC PRÀCTIC 2023",
+    "type": "test",
+    "question": "Hem decidit desplegar en contenidors. Quina de les següents plataformes NO està ideada ni dissenyada per desplegar contenidors?",
+    "answerOptions": [
+      {
+        "text": "Rancher.",
+        "isCorrect": false,
+        "rationale": "Rancher és una plataforma de gestió de Kubernetes i entorns de contenidors."
+      },
+      {
+        "text": "Open Shift.",
+        "isCorrect": false,
+        "rationale": "OpenShift és una plataforma Kubernetes orientada a contenidors."
+      },
+      {
+        "text": "IMB Cloud Platform.",
+        "isCorrect": false,
+        "rationale": "És una plataforma de cloud/execució que pot donar suport a entorns de contenidors segons el producte."
+      },
+      {
+        "text": "VMware vSAN.",
+        "isCorrect": true,
+        "rationale": "vSAN és una solució d’emmagatzematge definit per software, no una plataforma de desplegament/orquestració de contenidors."
+      }
+    ],
+    "hint": "vSAN = storage, no plataforma de contenidors."
+  },
+  {
+    "guid": "8e19e1a7-c7da-4e82-b8ef-677fc2cd5042",
+    "subjectId": "T39",
+    "difficulty": 3,
+    "origin": "TS TIC PRÀCTIC 2023",
+    "type": "test",
+    "question": "Kubernetes permet l’execució de processos per lots. Quin és l’objecte de Kubernetes que permet l’execució d’1 o diversos contenidors (en Pods) a una hora programada puntual o recurrentment?",
+    "answerOptions": [
+      {
+        "text": "ConfigMap.",
+        "isCorrect": false,
+        "rationale": "ConfigMap és per configuració (claus/valors o fitxers), no per planificar execucions."
+      },
+      {
+        "text": "StorageClass.",
+        "isCorrect": false,
+        "rationale": "StorageClass defineix aprovisionament d’emmagatzematge, no planificació temporal."
+      },
+      {
+        "text": "DeploymentConfig.",
+        "isCorrect": false,
+        "rationale": "És un objecte associat a OpenShift per desplegaments, no per scheduling de jobs."
+      },
+      {
+        "text": "CronJob.",
+        "isCorrect": true,
+        "rationale": "CronJob programa Jobs en horaris puntuals o recurrents (tipus cron)."
+      }
+    ],
+    "hint": "Batch programat a Kubernetes: CronJob."
+  }
+]
