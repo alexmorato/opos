@@ -353,7 +353,7 @@
     downloadBtn.addEventListener('click', function() {
       let data = output.textContent;
       if (!data) return;
-      // Nombre: temaId-nombre_sin_caracteres_raros_trim30-test.json
+      // Nombre: temaId-nombre_sin_caracteres_raros_trim30-userName-test.json
       const temaSel = document.getElementById('temaSelect');
       const temaId = temaSel ? temaSel.value : 'tema';
       // Buscar nombre del tema
@@ -369,7 +369,13 @@
       temaNombre = temaNombre.normalize('NFD').replace(/[^\w\s-]/g, '').replace(/\s+/g, '_').toLowerCase();
       const MAX_LEN = 45;
       if (temaNombre.length > MAX_LEN) temaNombre = temaNombre.slice(0, MAX_LEN);
-      const filename = `${temaId}-${temaNombre}-test.json`;
+      
+      // Obtener nombre del usuario logado
+      let userName = localStorage.getItem(LS_KEYS.USER_NAME) || 'user';
+      userName = userName.normalize('NFD').replace(/[^\w\s-]/g, '').replace(/\s+/g, '_').toLowerCase();
+      if (userName.length > 20) userName = userName.slice(0, 20);
+      
+      const filename = `${temaId}-${temaNombre}-test-${userName}.json`;
       // Descargar
       const blob = new Blob([data], {type: 'application/json'});
       const url = URL.createObjectURL(blob);
