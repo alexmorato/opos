@@ -1,0 +1,653 @@
+[
+  {
+    "guid": "24c8b73d-f4fb-49d5-8da4-2ea40b64e1ff",
+    "subjectId": "T62",
+    "difficulty": 3,
+    "origin": "T62_ Internet_i_els_seus_components_Cristina.docx",
+    "type": "test",
+    "question": "Què és un protocol de xarxa?",
+    "answerOptions": [
+      {
+        "text": "Un model o disseny que descriu com s’organitzen capes i components d’una xarxa",
+        "isCorrect": false,
+        "rationale": "Això descriu un model o arquitectura de xarxa (com OSI o TCP/IP), que organitza funcions per capes, però no és un protocol concret amb missatges i formats definits."
+      },
+      {
+        "text": "Un conjunt de regles i formats que permeten que dos sistemes es comuniquin",
+        "isCorrect": true,
+        "rationale": "Un protocol és precisament un conjunt de regles, formats de missatge i procediments (per exemple, com s’inicia una connexió o com es codifiquen dades) perquè dos sistemes puguin comunicar-se."
+      },
+      {
+        "text": "Un conjunt de valors de configuració d’un equip de xarxa, com adreça IP i passarel·la",
+        "isCorrect": false,
+        "rationale": "Són paràmetres de configuració d’un host o d’un dispositiu (IP, passarel·la, etc.). La configuració pot afectar la comunicació, però no defineix el llenguatge de la comunicació."
+      },
+      {
+        "text": "Un sistema de noms per identificar hosts i serveis i facilitar-ne la localització",
+        "isCorrect": false,
+        "rationale": "Això descriu un servei de resolució de noms com DNS. És un component d’Internet, però no el concepte general de “protocol” (tot i que DNS sí que utilitza protocols)."
+      }
+    ],
+    "hint": "Pensa en regles i formats de comunicació entre equips."
+  },
+  {
+    "guid": "3172017b-5fb6-4e85-a245-75417f7ee99b",
+    "subjectId": "T62",
+    "difficulty": 3,
+    "origin": "T62_ Internet_i_els_seus_components_Cristina.docx",
+    "type": "test",
+    "question": "Què és DNS?",
+    "answerOptions": [
+      {
+        "text": "Un sistema per xifrar el trànsit web perquè no el puguin llegir tercers",
+        "isCorrect": false,
+        "rationale": "Xifrar el trànsit web correspon a TLS/HTTPS. DNS no xifra el trànsit web; resol noms a dades com adreces IP."
+      },
+      {
+        "text": "Un servei que converteix noms de domini en adreces IP i altres dades associades",
+        "isCorrect": true,
+        "rationale": "DNS (Domain Name System) és el sistema distribuït que resol noms de domini a adreces IP i altres registres (MX, CNAME, TXT, etc.)."
+      },
+      {
+        "text": "Un mecanisme per assignar IP automàticament als equips quan s’encenen",
+        "isCorrect": false,
+        "rationale": "Assignar IP automàticament quan un equip s’encén és DHCP. DNS pot ser un paràmetre que DHCP lliura, però no fa l’assignació d’IP."
+      },
+      {
+        "text": "Un protocol per decidir rutes entre encaminadors d’Internet",
+        "isCorrect": false,
+        "rationale": "Decidir rutes entre encaminadors és routing (OSPF, IS-IS, BGP, etc.). DNS no calcula rutes; treballa a nivell de noms i registres."
+      }
+    ],
+    "hint": "Servei que tradueix noms com www.exemple.cat a IP."
+  },
+  {
+    "guid": "a45746fb-08fa-4cff-a58a-74b8bc603556",
+    "subjectId": "T62",
+    "difficulty": 3,
+    "origin": "T62_ Internet_i_els_seus_components_Cristina.docx",
+    "type": "test",
+    "question": "Què descriu millor un nom de domini?",
+    "answerOptions": [
+      {
+        "text": "Una etiqueta humana que identifica un recurs i es resol via DNS a informació com adreces IP",
+        "isCorrect": true,
+        "rationale": "Un domini és una etiqueta humana (com exemple.cat) que, mitjançant DNS, es resol a informació tècnica com adreces IP o altres registres."
+      },
+      {
+        "text": "Una adreça IP escrita en format abreujat per fer-la més fàcil de recordar",
+        "isCorrect": false,
+        "rationale": "Una adreça IP no és un domini: és un identificador numèric. Un domini pot apuntar a una o més IP, però no n’és una abreviació."
+      },
+      {
+        "text": "Una URL completa que inclou el protocol i la ruta del recurs dins del servidor",
+        "isCorrect": false,
+        "rationale": "Una URL inclou més coses que el domini: protocol (https), host, i sovint ruta i paràmetres. El domini és només part del que forma una URL."
+      },
+      {
+        "text": "Un nom d’host local que es resol automàticament dins la xarxa, per exemple amb mDNS",
+        "isCorrect": false,
+        "rationale": "La resolució local (mDNS/LLMNR) pot resoldre noms a la LAN, però un nom de domini, en general, fa referència a la jerarquia global delegada i resolta per DNS."
+      }
+    ],
+    "hint": "És una etiqueta llegible que es resol via DNS."
+  },
+  {
+    "guid": "e123f6c8-290d-4c2f-ab20-4c010805e8a4",
+    "subjectId": "T62",
+    "difficulty": 3,
+    "origin": "T62_ Internet_i_els_seus_components_Cristina.docx",
+    "type": "test",
+    "question": "Què és un certificat digital en navegació web?",
+    "answerOptions": [
+      {
+        "text": "Un fitxer que conté la clau privada del servidor perquè els clients puguin xifrar amb ella",
+        "isCorrect": false,
+        "rationale": "La clau privada no s’ha de distribuir: el servidor la manté protegida. El certificat conté la clau pública i informació d’identitat, no la clau privada."
+      },
+      {
+        "text": "Un document que vincula una identitat, domini/organització amb una clau pública, signat per una autoritat de certificació",
+        "isCorrect": true,
+        "rationale": "Un certificat vincula una identitat (domini/organització) amb una clau pública i està signat per una autoritat de certificació, cosa que permet validar la identitat en TLS."
+      },
+      {
+        "text": "Un mecanisme per convertir HTTP en UDP per reduir latència",
+        "isCorrect": false,
+        "rationale": "No converteix protocols de transport. TLS funciona habitualment sobre TCP (o sobre QUIC en el cas d’HTTP/3), però el certificat no canvia HTTP a UDP."
+      },
+      {
+        "text": "Un registre DNS que sempre apunta a la IP real del servidor.",
+        "isCorrect": false,
+        "rationale": "Un registre DNS pot indicar on anar (A/AAAA/CNAME), però un certificat no és un registre DNS ni “apunta” a la IP real del servidor."
+      }
+    ],
+    "hint": "Relaciona identitat (domini) amb clau pública i una signatura."
+  },
+  {
+    "guid": "abd11428-7aa0-43d8-ac9f-427130353544",
+    "subjectId": "T62",
+    "difficulty": 3,
+    "origin": "T62_ Internet_i_els_seus_components_Cristina.docx",
+    "type": "test",
+    "question": "Quina opció diferencia millor IPv4 i IPv6?",
+    "answerOptions": [
+      {
+        "text": "IPv4 fa servir adreces de 32 bits i IPv6 de 128 bits, amb espai d’adreçament molt més gran a IPv6",
+        "isCorrect": true,
+        "rationale": "IPv4 utilitza adreces de 32 bits i IPv6 de 128 bits. Això dona a IPv6 un espai d’adreçament enormement més gran."
+      },
+      {
+        "text": "IPv4 incorpora autoconfiguració d’adreça a la pila; IPv6 acostuma a delegar l’assignació en DHCP",
+        "isCorrect": false,
+        "rationale": "És al revés del que sol passar: IPv6 té autoconfiguració (SLAAC) i pot usar DHCPv6; IPv4 acostuma a dependre més de DHCP en xarxes d’usuari."
+      },
+      {
+        "text": "IPv4 es desplega habitualment amb adreces globals enrutable; IPv6 s’utilitza sobretot amb adreces privades darrere de NAT",
+        "isCorrect": false,
+        "rationale": "IPv4 s’ha recolzat molt en NAT i adreces privades per l’escassetat d’IP públiques. IPv6 està pensat per adreces globals sense necessitat de NAT com a solució base."
+      },
+      {
+        "text": "IPv6 utilitza una capçalera mínima de 20 bytes; IPv4 amplia funcionalitat amb capçaleres d’extensió",
+        "isCorrect": false,
+        "rationale": "La capçalera mínima d’IPv4 és de 20 bytes. IPv6 té una capçalera fixa de 40 bytes i amplia funcionalitat amb capçaleres d’extensió, no a l’inrevés."
+      }
+    ],
+    "hint": "La diferència clau és la mida d’adreça."
+  },
+  {
+    "guid": "836685ed-3c21-4dba-b97f-5817e8eab832",
+    "subjectId": "T62",
+    "difficulty": 3,
+    "origin": "T62_ Internet_i_els_seus_components_Cristina.docx",
+    "type": "test",
+    "question": "Què és DHCP?",
+    "answerOptions": [
+      {
+        "text": "Un mètode de xifrat d’extrem a extrem per a correu electrònic",
+        "isCorrect": false,
+        "rationale": "El xifrat d’extrem a extrem per correu és un altre àmbit (per exemple S/MIME o PGP). DHCP no xifra: configura paràmetres de xarxa."
+      },
+      {
+        "text": "Un sistema per traduir noms de domini a adreces IP i registres associats",
+        "isCorrect": false,
+        "rationale": "Traduir noms de domini a IP és DNS. DHCP pot lliurar quin DNS s’ha d’usar, però no resol noms."
+      },
+      {
+        "text": "Un protocol de routing que decideix el camí dels paquets entre sistemes autònoms",
+        "isCorrect": false,
+        "rationale": "Decidir el camí dels paquets entre sistemes autònoms és funció de protocols de routing (BGP, etc.). DHCP no fa routing."
+      },
+      {
+        "text": "Un protocol que assigna automàticament paràmetres de xarxa als dispositius, com IP, màscara, passarel·la i DNS",
+        "isCorrect": true,
+        "rationale": "DHCP assigna automàticament paràmetres de xarxa a dispositius (IP, màscara, passarel·la, DNS) mitjançant una concessió temporal."
+      }
+    ],
+    "hint": "Servei que assigna IP, màscara, passarel·la i DNS automàticament."
+  },
+  {
+    "guid": "a6d5a479-d4bc-4ed4-8751-743775a794ea",
+    "subjectId": "T62",
+    "difficulty": 3,
+    "origin": "T62_ Internet_i_els_seus_components_Cristina.docx",
+    "type": "test",
+    "question": "Què és TLS?",
+    "answerOptions": [
+      {
+        "text": "Un protocol de la capa d’aplicació que defineix com es resolen noms de domini",
+        "isCorrect": false,
+        "rationale": "Resoldre noms de domini és DNS. TLS és un protocol de seguretat, no de resolució de noms."
+      },
+      {
+        "text": "Un protocol de seguretat que proporciona xifrat, integritat i autenticació per protegir comunicacions.",
+        "isCorrect": true,
+        "rationale": "TLS proporciona xifrat, integritat i autenticació, evitant que tercers llegeixin o manipulin el trànsit i ajudant a validar el servidor (i opcionalment el client)."
+      },
+      {
+        "text": "Un protocol de transport que substitueix UDP quan es requereix ordre de lliurament",
+        "isCorrect": false,
+        "rationale": "TLS no substitueix UDP ni és un protocol de transport. Funciona sobre TCP en molts casos, i sobre QUIC en HTTP/3, però el seu rol és de seguretat."
+      },
+      {
+        "text": "Un mecanisme per assignar adreces IP públiques als dispositius dins una LAN",
+        "isCorrect": false,
+        "rationale": "Assignar IP públiques dins una LAN no ho fa TLS. Això té a veure amb adreçament, NAT o configuració del proveïdor."
+      }
+    ],
+    "hint": "Protocol de seguretat que s’utilitza a HTTPS."
+  },
+  {
+    "guid": "383544ab-b182-4e82-be5d-8bfe3922b0e2",
+    "subjectId": "T62",
+    "difficulty": 3,
+    "origin": "T62_ Internet_i_els_seus_components_Cristina.docx",
+    "type": "test",
+    "question": "Què descriu millor la commutació de paquets a Internet?",
+    "answerOptions": [
+      {
+        "text": "Un camí físic dedicat entre origen i destí durant tota la comunicació",
+        "isCorrect": false,
+        "rationale": "Un camí dedicat durant tota la comunicació és commutació de circuits (com telefonia clàssica), no el model principal d’Internet."
+      },
+      {
+        "text": "Les dades es divideixen en paquets que poden seguir rutes diferents i es reagrupen al final",
+        "isCorrect": true,
+        "rationale": "En commutació de paquets, el missatge es fragmenta en paquets que poden seguir rutes diferents i es reordenen a destí, permetent ús eficient de la xarxa."
+      },
+      {
+        "text": "Cada missatge viatja íntegre i es reenviat node a node com una unitat indivisible",
+        "isCorrect": false,
+        "rationale": "Enviar el missatge íntegre com una unitat és més propi de commutació de missatges (store-and-forward), no del model habitual d’Internet basat en paquets."
+      },
+      {
+        "text": "La transmissió depèn d’un canal reservat per franges horàries fixes",
+        "isCorrect": false,
+        "rationale": "Reservar franges horàries fixes correspon a tècniques de multiplexació temporal o circuits, no a la commutació de paquets d’Internet."
+      }
+    ],
+    "hint": "Les dades es divideixen en paquets i s’encaminen de forma independent."
+  },
+  {
+    "guid": "21883a76-ba04-4daf-8247-7373ec922bd1",
+    "subjectId": "T62",
+    "difficulty": 3,
+    "origin": "T62_ Internet_i_els_seus_components_Cristina.docx",
+    "type": "test",
+    "question": "Per a què s’utilitza principalment BGP a Internet?",
+    "answerOptions": [
+      {
+        "text": "Per resoldre noms de domini a adreces IP dins d’una xarxa local",
+        "isCorrect": false,
+        "rationale": "Resoldre noms de domini és DNS. BGP no resol noms; anuncia rutes IP."
+      },
+      {
+        "text": "Per assignar automàticament adreces IP als dispositius d’una LAN",
+        "isCorrect": false,
+        "rationale": "Assignar IP automàticament a una LAN és DHCP. BGP treballa entre xarxes, no per configuració d’hosts."
+      },
+      {
+        "text": "Per xifrar el trànsit web entre client i servidor",
+        "isCorrect": false,
+        "rationale": "Xifrar trànsit web és TLS/HTTPS. BGP no és un protocol de xifrat."
+      },
+      {
+        "text": "Per intercanviar informació de rutes entre sistemes autònoms",
+        "isCorrect": true,
+        "rationale": "BGP intercanvia rutes entre Sistemes Autònoms (AS) i permet aplicar polítiques (peering, transit, preferències) per decidir per on encaminar prefixes IP."
+      }
+    ],
+    "hint": "Protocol de routing interdomini entre Sistemes Autònoms."
+  },
+  {
+    "guid": "d78d02e3-20f8-4826-9eeb-02a430614362",
+    "subjectId": "T62",
+    "difficulty": 3,
+    "origin": "T62_ Internet_i_els_seus_components_Cristina.docx",
+    "type": "test",
+    "question": "Quina afirmació diferencia millor TCP i UDP?",
+    "answerOptions": [
+      {
+        "text": "TCP proporciona lliurament fiable i ordenat; UDP envia datagrames amb menor control de fiabilitat",
+        "isCorrect": true,
+        "rationale": "TCP ofereix lliurament fiable i ordenat amb control de congestió; UDP envia datagrames amb menys control, sovint amb menys latència i menys sobrecàrrega."
+      },
+      {
+        "text": "TCP s’utilitza per a resolució de noms; UDP s’utilitza per a adreçament IP",
+        "isCorrect": false,
+        "rationale": "La resolució de noms és DNS i l’adreçament és IP. TCP i UDP són protocols de transport, no de resolució ni d’adreçament."
+      },
+      {
+        "text": "TCP és un protocol de capa d’enllaç; UDP és un protocol de capa física",
+        "isCorrect": false,
+        "rationale": "Capa d’enllaç i capa física són Ethernet/Wi‑Fi i el medi. TCP i UDP són de capa de transport."
+      },
+      {
+        "text": "TCP defineix el format dels dominis; UDP defineix registres DNS",
+        "isCorrect": false,
+        "rationale": "Formats de dominis i registres són de DNS. TCP/UDP no defineixen semàntica de dominis ni registres."
+      }
+    ],
+    "hint": "TCP gestiona fiabilitat i ordre; UDP és més lleuger."
+  },
+  {
+    "guid": "2a0d01fb-99a7-4c70-8455-b4df5fc7688d",
+    "subjectId": "T62",
+    "difficulty": 3,
+    "origin": "T62_ Internet_i_els_seus_components_Cristina.docx",
+    "type": "test",
+    "question": "Què és un Sistema Autònom a Internet?",
+    "answerOptions": [
+      {
+        "text": "Un servidor que actua com a autoritat de certificació per a TLS",
+        "isCorrect": false,
+        "rationale": "Una autoritat de certificació emet certificats per TLS, però això no defineix un Sistema Autònom."
+      },
+      {
+        "text": "Un tipus de domini de nivell superior administrat per un registre",
+        "isCorrect": false,
+        "rationale": "Un TLD és una categoria de domini (com .com o .cat). Un Sistema Autònom és una entitat de routing, no de nomenclatura DNS."
+      },
+      {
+        "text": "Un conjunt de prefixes IP sota una mateixa política de routing identificat per un ASN",
+        "isCorrect": true,
+        "rationale": "Un Sistema Autònom és un conjunt de prefixes IP sota una política de routing comuna, identificat per un ASN, i és la unitat bàsica del routing interdomini."
+      },
+      {
+        "text": "Un mecanisme per convertir noms d’host en adreces MAC",
+        "isCorrect": false,
+        "rationale": "Convertir noms d’host a MAC és funció d’ARP (IPv4) o Neighbor Discovery (IPv6), no d’un AS."
+      }
+    ],
+    "hint": "Agrupació de prefixes IP amb una política de routing comuna i un ASN."
+  },
+  {
+    "guid": "501a33a1-b239-4a6b-9bc5-04cb23ea2f90",
+    "subjectId": "T62",
+    "difficulty": 3,
+    "origin": "T62_ Internet_i_els_seus_components_Cristina.docx",
+    "type": "test",
+    "question": "Què fa un resolvedor recursiu de DNS?",
+    "answerOptions": [
+      {
+        "text": "Publica la zona d’un domini i respon de manera definitiva pels seus registres",
+        "isCorrect": false,
+        "rationale": "Això descriu un servidor autoritatiu, que publica una zona i respon de manera definitiva pels seus registres."
+      },
+      {
+        "text": "Consulta altres servidors en nom del client i acostuma a mantenir una memòria cau de respostes",
+        "isCorrect": true,
+        "rationale": "El resolvedor recursiu fa consultes en nom del client (arrel, TLD, autoritatius), retorna la resposta i sovint la guarda en memòria cau per accelerar consultes futures."
+      },
+      {
+        "text": "Actua com a encaminador d’última milla per enviar paquets cap a Internet",
+        "isCorrect": false,
+        "rationale": "Un encaminador d’última milla envia paquets IP cap a Internet; no fa resolució recursiva de noms DNS com a funció principal."
+      },
+      {
+        "text": "Emet certificats per validar el nom d’un domini en connexions xifrades",
+        "isCorrect": false,
+        "rationale": "Emetre certificats és feina d’una CA, no d’un resolvedor DNS."
+      }
+    ],
+    "hint": "Consulta altres servidors per tu i acostuma a fer cache."
+  },
+  {
+    "guid": "d6c63db5-b787-4e4d-a116-d32e37ce6e21",
+    "subjectId": "T62",
+    "difficulty": 3,
+    "origin": "T62_ Internet_i_els_seus_components_Cristina.docx",
+    "type": "test",
+    "question": "Què és un domini de nivell superior?",
+    "answerOptions": [
+      {
+        "text": "L’última etiqueta de la jerarquia de dominis, com com, org o cat",
+        "isCorrect": true,
+        "rationale": "El domini de nivell superior (TLD) és l’etiqueta final en la jerarquia DNS (com com, org, cat), just abans de l’arrel implícita."
+      },
+      {
+        "text": "El nom del host que identifica una màquina dins d’una xarxa local",
+        "isCorrect": false,
+        "rationale": "El nom d’host identifica una màquina dins d’un domini o dins d’una LAN, però no és un TLD."
+      },
+      {
+        "text": "El fitxer local que el sistema operatiu consulta abans de DNS",
+        "isCorrect": false,
+        "rationale": "El fitxer hosts és una resolució local prèvia o alternativa a DNS; no és part de la jerarquia de dominis com un TLD."
+      },
+      {
+        "text": "El conjunt de ports reservats per a serveis estàndard",
+        "isCorrect": false,
+        "rationale": "Els ports reservats (well-known ports) pertanyen a la gestió de serveis de transport (TCP/UDP), no a DNS."
+      }
+    ],
+    "hint": "És l’última etiqueta d’un domini, com .com o .cat."
+  },
+  {
+    "guid": "607fc3ea-5937-4a74-8d20-d6349f2070a6",
+    "subjectId": "T62",
+    "difficulty": 3,
+    "origin": "T62_ Internet_i_els_seus_components_Cristina.docx",
+    "type": "test",
+    "question": "En DNS, què indica el TTL d’un registre?",
+    "answerOptions": [
+      {
+        "text": "El temps màxim d’una connexió TCP abans de tancar-se automàticament",
+        "isCorrect": false,
+        "rationale": "La durada d’una connexió TCP no té relació amb el TTL d’un registre DNS."
+      },
+      {
+        "text": "El límit d’encaminadors que pot travessar un paquet IP",
+        "isCorrect": false,
+        "rationale": "El límit d’encaminadors que pot travessar un paquet és el camp TTL/Hop Limit d’IP, no el TTL de DNS."
+      },
+      {
+        "text": "La durada del certificat utilitzat per xifrar consultes DNS",
+        "isCorrect": false,
+        "rationale": "La durada d’un certificat és una propietat de TLS/PKI. El TTL de DNS controla cache, no xifrat ni certificats."
+      },
+      {
+        "text": "El temps durant el qual una resposta pot romandre a la memòria cau abans de tornar a consultar",
+        "isCorrect": true,
+        "rationale": "El TTL indica durant quant temps un resolvedor pot mantenir la resposta en memòria cau abans de tornar a consultar els servidors DNS."
+      }
+    ],
+    "hint": "És el temps que una resposta es pot guardar a la memòria cau."
+  },
+  {
+    "guid": "5e90b487-f6e2-4c14-9b75-a6147984c25c",
+    "subjectId": "T62",
+    "difficulty": 3,
+    "origin": "T62_ Internet_i_els_seus_components_Cristina.docx",
+    "type": "test",
+    "question": "Quina opció descriu correctament la diferència entre un registre A i un registre CNAME?",
+    "answerOptions": [
+      {
+        "text": "A apunta a un servidor de correu; CNAME apunta a un servidor web",
+        "isCorrect": false,
+        "rationale": "Els registres de correu són MX. Un registre A no és específic de correu ni un CNAME de web; són conceptes de resolució de noms."
+      },
+      {
+        "text": "A defineix una clau pública; CNAME defineix una signatura digital",
+        "isCorrect": false,
+        "rationale": "Claus públiques i signatures són àmbit de criptografia (DNSSEC/TLS). A i CNAME no emmagatzemen signatures com a funció principal."
+      },
+      {
+        "text": "A associa un nom a una adreça IPv4; CNAME crea un àlies cap a un altre nom canònic",
+        "isCorrect": true,
+        "rationale": "Un registre A associa un nom a una adreça IPv4. Un CNAME crea un àlies que apunta a un altre nom canònic, i la resolució continua sobre aquell nom."
+      },
+      {
+        "text": "A emmagatzema text lliure; CNAME emmagatzema una adreça IPv6",
+        "isCorrect": false,
+        "rationale": "Text lliure és TXT i IPv6 és AAAA. A i CNAME no corresponen a aquests tipus de registre."
+      }
+    ],
+    "hint": "A apunta a IPv4; CNAME és un àlies cap a un altre nom."
+  },
+  {
+    "guid": "10bec2b4-ff97-4d02-bbb2-7983ec2a644e",
+    "subjectId": "T62",
+    "difficulty": 3,
+    "origin": "T62_ Internet_i_els_seus_components_Cristina.docx",
+    "type": "test",
+    "question": "Què és un FQDN?",
+    "answerOptions": [
+      {
+        "text": "Un identificador numèric de 32 bits per a encaminament a Internet",
+        "isCorrect": false,
+        "rationale": "Un identificador numèric de 32 bits seria una adreça IPv4; no és un nom de domini complet."
+      },
+      {
+        "text": "Un nom de domini complet amb tota la seva jerarquia fins al domini arrel implícit",
+        "isCorrect": true,
+        "rationale": "Un FQDN és un nom de domini complet (host + domini + TLD) amb tota la jerarquia fins a l’arrel implícita, per evitar ambigüitats."
+      },
+      {
+        "text": "Una URL completa amb protocol, host i ruta del recurs",
+        "isCorrect": false,
+        "rationale": "Una URL és més ampla: inclou protocol, host i sovint ruta i paràmetres. Un FQDN és només el nom complet, no la URL sencera."
+      },
+      {
+        "text": "Un alias local definit al navegador per abreujar adreces",
+        "isCorrect": false,
+        "rationale": "Un àlies local del navegador no és un concepte estàndard de DNS; un FQDN és un identificador DNS complet i globalment resoluble."
+      }
+    ],
+    "hint": "Nom complet amb tota la jerarquia de dominis fins a l’arrel."
+  },
+  {
+    "guid": "9801a4d5-fe20-49d1-acc7-51a05b9977a3",
+    "subjectId": "T62",
+    "difficulty": 3,
+    "origin": "T62_ Internet_i_els_seus_components_Cristina.docx",
+    "type": "test",
+    "question": "Per a què serveix ICMP principalment?",
+    "answerOptions": [
+      {
+        "text": "Per comunicar errors i informació de control a la capa IP, com en proves de connectivitat",
+        "isCorrect": true,
+        "rationale": "ICMP s’utilitza per missatges de control i errors relacionats amb IP, i és clau en eines com ping o traceroute per diagnosi de connectivitat i camins."
+      },
+      {
+        "text": "Per negociar claus simètriques a l’inici d’una connexió xifrada",
+        "isCorrect": false,
+        "rationale": "La negociació de claus i el xifrat són funcions de protocols de seguretat com TLS. ICMP no negocia claus ni xifra trànsit."
+      },
+      {
+        "text": "Per encapsular trames Ethernet en enllaços de llarga distància",
+        "isCorrect": false,
+        "rationale": "Encapsular Ethernet en enllaços és un altre àmbit (PPP, MPLS, túnels). ICMP no encapsula trames Ethernet."
+      },
+      {
+        "text": "Per autenticar usuaris en serveis web",
+        "isCorrect": false,
+        "rationale": "Autenticar usuaris en serveis web es fa amb mecanismes d’aplicació (OAuth, SAML, OIDC). ICMP no gestiona identitats d’usuari."
+      }
+    ],
+    "hint": "Missatges de control i errors a la capa IP (ping/traceroute)."
+  },
+  {
+    "guid": "1c8dec39-9127-4f34-b07e-d6dbeddbb423",
+    "subjectId": "T62",
+    "difficulty": 3,
+    "origin": "T62_ Internet_i_els_seus_components_Cristina.docx",
+    "type": "test",
+    "question": "Què descriu millor NAT?",
+    "answerOptions": [
+      {
+        "text": "Un mecanisme per sincronitzar el temps entre equips d’una xarxa",
+        "isCorrect": false,
+        "rationale": "Sincronitzar el temps és NTP. NAT no gestiona hora; gestiona traducció d’adreces."
+      },
+      {
+        "text": "Un protocol per distribuir rutes entre encaminadors d’una mateixa organització",
+        "isCorrect": false,
+        "rationale": "Distribuir rutes dins d’una organització és routing interior (OSPF, IS-IS). NAT no és un protocol de routing."
+      },
+      {
+        "text": "Una traducció d’adreces que permet mapar adreces privades a una o més adreces públiques",
+        "isCorrect": true,
+        "rationale": "NAT tradueix adreces (i sovint ports) per permetre que moltes adreces privades surtin a Internet mitjançant una o poques adreces públiques."
+      },
+      {
+        "text": "Un sistema jeràrquic per delegar dominis a registres i registradors",
+        "isCorrect": false,
+        "rationale": "Delegar dominis i gestionar la jerarquia és DNS. NAT opera a nivell d’IP/transport, no de noms."
+      }
+    ],
+    "hint": "Traducció d’adreces privades a públiques."
+  },
+  {
+    "guid": "60c6a4a2-3ffb-461c-95b5-5596f35ce8ba",
+    "subjectId": "T62",
+    "difficulty": 3,
+    "origin": "T62_ Internet_i_els_seus_components_Cristina.docx",
+    "type": "test",
+    "question": "Quin objectiu aporta DNSSEC?",
+    "answerOptions": [
+      {
+        "text": "Reduir la latència de DNS substituint UDP per TCP en totes les consultes",
+        "isCorrect": false,
+        "rationale": "Forçar TCP no redueix latència de forma general, i DNSSEC no tracta d’això: tracta de validar que la resposta és autèntica."
+      },
+      {
+        "text": "Xifrar el contingut de les respostes DNS perquè no es puguin llegir",
+        "isCorrect": false,
+        "rationale": "DNSSEC no xifra el contingut de DNS; aporta signatures perquè el client pugui validar integritat i autenticitat."
+      },
+      {
+        "text": "Evitar la memòria cau i forçar que totes les respostes siguin consultades a l’autoritat",
+        "isCorrect": false,
+        "rationale": "DNSSEC no elimina la memòria cau; els resolvers poden seguir fent cache. El que canvia és que la resposta es pot validar criptogràficament."
+      },
+      {
+        "text": "Aportar autenticitat i integritat a les dades DNS mitjançant signatures criptogràfiques",
+        "isCorrect": true,
+        "rationale": "DNSSEC afegeix signatures criptogràfiques als registres DNS per garantir que la resposta no ha estat manipulada i que prové de la zona autoritzada."
+      }
+    ],
+    "hint": "Aporta integritat i autenticitat a respostes DNS."
+  },
+  {
+    "guid": "c4ab77fc-5a73-4a09-9d21-57ad36c38dd2",
+    "subjectId": "T62",
+    "difficulty": 3,
+    "origin": "T62_ Internet_i_els_seus_components_Cristina.docx",
+    "type": "test",
+    "question": "Què és DoH?",
+    "answerOptions": [
+      {
+        "text": "Un protocol per assignar dominis de nivell superior a països",
+        "isCorrect": false,
+        "rationale": "L’assignació de TLD o ccTLD depèn de processos de governança d’Internet (IANA/ICANN), no de DoH."
+      },
+      {
+        "text": "Una tècnica de compressió de respostes DNS per reduir trànsit",
+        "isCorrect": false,
+        "rationale": "La compressió de respostes és un mecanisme diferent. DoH és un transport de DNS, no una tècnica de compressió."
+      },
+      {
+        "text": "Un mecanisme per fer consultes DNS encapsulades sobre HTTPS",
+        "isCorrect": true,
+        "rationale": "DoH (DNS over HTTPS) encapsula consultes DNS dins d’HTTPS, aprofitant TLS per protegir-les i fent-les semblar trànsit web."
+      },
+      {
+        "text": "Un mètode per publicar zones DNS directament des d’un navegador",
+        "isCorrect": false,
+        "rationale": "Publicar zones DNS ho fan servidors autoritatius i registres/registradors; DoH és per consultar DNS, no per publicar zones."
+      }
+    ],
+    "hint": "DNS encapsulat sobre HTTPS."
+  },
+  {
+    "guid": "afad8be7-a020-4746-bdf7-942fe179bfd9",
+    "subjectId": "T62",
+    "difficulty": 3,
+    "origin": "T62_ Internet_i_els_seus_components_Cristina.docx",
+    "type": "test",
+    "question": "Què és un IXP?",
+    "answerOptions": [
+      {
+        "text": "Un punt d’intercanvi on diverses xarxes es connecten per fer peering i intercanviar trànsit",
+        "isCorrect": true,
+        "rationale": "Un IXP (Internet Exchange Point) és un punt d’intercanvi on diverses xarxes es connecten per establir peering i intercanviar trànsit de manera eficient."
+      },
+      {
+        "text": "Un servidor arrel de DNS responsable d’assignar dominis a registradors",
+        "isCorrect": false,
+        "rationale": "Els servidors arrel de DNS gestionen la zona arrel i apunten a TLD, però no són punts d’intercanvi de trànsit ni assignen dominis a registradors com a funció principal d’IXP."
+      },
+      {
+        "text": "Un protocol d’aplicació per transferir fitxers entre clients i servidors",
+        "isCorrect": false,
+        "rationale": "Transferir fitxers és funció de protocols com FTP/SFTP/HTTP. Un IXP és infraestructura d’interconnexió de xarxes."
+      },
+      {
+        "text": "Una base de dades central que conté totes les rutes d’Internet en temps real",
+        "isCorrect": false,
+        "rationale": "Internet no té una base de dades central amb totes les rutes en temps real. Les rutes es distribueixen de manera descentralitzada via protocols com BGP."
+      }
+    ],
+    "hint": "Punt físic on xarxes fan peering i intercanvien trànsit."
+  }
+]
