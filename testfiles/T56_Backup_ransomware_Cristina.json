@@ -1,0 +1,777 @@
+[
+  {
+    "guid": "backup-1",
+    "subjectId": "Informatica",
+    "difficulty": 2,
+    "origin": "T56_Backup_ransomware_Cristina",
+    "type": "test",
+    "question": "Quina definició descriu millor una còpia de seguretat o backup?",
+    "answerOptions": [
+      {
+        "text": "Una còpia de fitxers pensada sobretot per compartir i versionar documents entre equips",
+        "isCorrect": false,
+        "rationale": "Això descriu més aviat un sistema de control de versions com Git, no el propòsit principal d'un backup."
+      },
+      {
+        "text": "Una rèplica que manté un entorn alternatiu operatiu per assumir càrrega de producció",
+        "isCorrect": false,
+        "rationale": "Això descriu un sistema de failover o alta disponibilitat, no una còpia de seguretat."
+      },
+      {
+        "text": "Una còpia de dades i configuracions orientada a poder restaurar informació o serveis després d'una pèrdua o corrupció",
+        "isCorrect": true,
+        "rationale": "Correcte. L'objectiu principal d'un backup és permetre la recuperació després d'una pèrdua, incident o corrupció de dades."
+      },
+      {
+        "text": "Un arxiu històric que es conserva per requeriments legals i consulta puntual",
+        "isCorrect": false,
+        "rationale": "Tot i que les còpies poden servir per a compliment legal, no és la seva funció principal o definició."
+      }
+    ],
+    "hint": "Pensa en l'objectiu principal: recuperar després d'una pèrdua."
+  },
+  {
+    "guid": "backup-2",
+    "subjectId": "Informatica",
+    "difficulty": 3,
+    "origin": "T56_Backup_ransomware_Cristina",
+    "type": "test",
+    "question": "Què expressa el RPO d'un servei?",
+    "answerOptions": [
+      {
+        "text": "La pèrdua màxima de dades admissible mesurada en temps respecte l'últim punt recuperable",
+        "isCorrect": true,
+        "rationale": "Correcte. L'RPO (Recovery Point Objective) mesura el màxim de dades que es pot permetre perdre des de l'últim backup vàlid fins a l'incident."
+      },
+      {
+        "text": "El temps màxim per tornar el servei operatiu després d'una interrupció",
+        "isCorrect": false,
+        "rationale": "Això és la definició de l'RTO (Recovery Time Objective)."
+      },
+      {
+        "text": "La freqüència amb què cal generar punts recuperables per mantenir la pèrdua de dades dins l'objectiu",
+        "isCorrect": false,
+        "rationale": "Tot i que està relacionat, això és una conseqüència de l'RPO, no la seva definició."
+      },
+      {
+        "text": "El temps màxim permès per executar la còpia dins la finestra nocturna",
+        "isCorrect": false,
+        "rationale": "Això fa referència a la planificació i finestra de backups, no a l'RPO."
+      }
+    ],
+    "hint": "RPO està relacionat amb la pèrdua de dades, no amb el temps d'aturada."
+  },
+  {
+    "guid": "backup-3",
+    "subjectId": "Informatica",
+    "difficulty": 3,
+    "origin": "T56_Backup_ransomware_Cristina",
+    "type": "test",
+    "question": "En un pla de recuperació, què descriu el RTO?",
+    "answerOptions": [
+      {
+        "text": "La pèrdua màxima de dades admissible mesurada en temps respecte l'últim punt recuperable",
+        "isCorrect": false,
+        "rationale": "Aquesta és la definició de l'RPO."
+      },
+      {
+        "text": "El volum màxim de dades que es pot restaurar per hora",
+        "isCorrect": false,
+        "rationale": "Això podria ser una mètrica de rendiment de restauració, però no és l'RTO."
+      },
+      {
+        "text": "El període durant el qual s'han de conservar punts recuperables",
+        "isCorrect": false,
+        "rationale": "Això està relacionat amb les polítiques de retenció."
+      },
+      {
+        "text": "El temps màxim acceptable d'aturada fins que el servei torna operatiu",
+        "isCorrect": true,
+        "rationale": "Correcte. L'RTO (Recovery Time Objective) defineix el temps màxim acceptable que el servei pot estar aturat després d'un incident."
+      }
+    ],
+    "hint": "RTO està relacionat amb el temps que el servei està aturat."
+  },
+  {
+    "guid": "backup-4",
+    "subjectId": "Informatica",
+    "difficulty": 2,
+    "origin": "T56_Backup_ransomware_Cristina",
+    "type": "test",
+    "question": "Quin enunciat és més correcte sobre una còpia completa?",
+    "answerOptions": [
+      {
+        "text": "Genera sempre una restauració més ràpida que altres tipus perquè es restaura en una sola operació",
+        "isCorrect": false,
+        "rationale": "No sempre és més ràpida; depèn de factors com la mida, la connexió i l'emmagatzematge."
+      },
+      {
+        "text": "Conté el conjunt complet de dades seleccionades i permet restaurar sense necessitar altres còpies del mateix cicle",
+        "isCorrect": true,
+        "rationale": "Correcte. Aquesta és la característica principal d'una còpia completa: és autònoma per a la restauració."
+      },
+      {
+        "text": "Copia els canvis des de l'última còpia completa i redueix la finestra de còpia a la meitat",
+        "isCorrect": false,
+        "rationale": "Això descriu una còpia diferencial o incremental, no una completa."
+      },
+      {
+        "text": "Manté una dependència directa amb instantànies d'emmagatzematge per ser consistent",
+        "isCorrect": false,
+        "rationale": "Les còpies completes no tenen per què dependre d'instantànies; poden ser independents."
+      }
+    ],
+    "hint": "Una còpia completa és autosuficient per a la restauració."
+  },
+  {
+    "guid": "backup-5",
+    "subjectId": "Informatica",
+    "difficulty": 3,
+    "origin": "T56_Backup_ransomware_Cristina",
+    "type": "test",
+    "question": "Quina descripció s'ajusta millor a una còpia incremental?",
+    "answerOptions": [
+      {
+        "text": "Copia els canvis des de l'última còpia completa i creix amb el pas dels dies",
+        "isCorrect": false,
+        "rationale": "Aquesta descripció s'ajusta més a una còpia diferencial."
+      },
+      {
+        "text": "Copia els canvis des de l'última còpia, independentment que fos completa o incremental",
+        "isCorrect": true,
+        "rationale": "Correcte. Una còpia incremental sempre copia només els canvis des de l'última còpia de qualsevol tipus."
+      },
+      {
+        "text": "Copia només les dades noves des de la darrera còpia completa i és independent de les incrementals anteriors",
+        "isCorrect": false,
+        "rationale": "Si fos independent de les incrementals anteriors, seria una còpia diferencial."
+      },
+      {
+        "text": "Captura l'estat del volum al mateix sistema d'emmagatzematge per restauració ràpida",
+        "isCorrect": false,
+        "rationale": "Això descriu una instantània (snapshot)."
+      }
+    ],
+    "hint": "L'incremental copia canvis des de l'última còpia de qualsevol tipus."
+  },
+  {
+    "guid": "backup-6",
+    "subjectId": "Informatica",
+    "difficulty": 3,
+    "origin": "T56_Backup_ransomware_Cristina",
+    "type": "test",
+    "question": "Tens una còpia completa de diumenge i incrementals cada dia. Per restaurar l'estat de dijous, què és el més habitual?",
+    "answerOptions": [
+      {
+        "text": "Només la incremental de dijous, perquè inclou tot l'històric del període",
+        "isCorrect": false,
+        "rationale": "Una incremental només conté canvis des de l'última còpia, no tot l'històric."
+      },
+      {
+        "text": "La completa de diumenge i l'incremental de dijous",
+        "isCorrect": false,
+        "rationale": "Això no seria suficient; faltarien les incrementals dels dies intermedis."
+      },
+      {
+        "text": "La completa de diumenge i totes les incrementals fins dijous inclosa",
+        "isCorrect": true,
+        "rationale": "Correcte. Amb còpies incrementals, es necessita la completa i TOTES les incrementals successives fins al punt desitjat."
+      },
+      {
+        "text": "La completa de diumenge i qualsevol incremental entre dilluns i dijous",
+        "isCorrect": false,
+        "rationale": "Calen TOTES les incrementals, no qualsevol d'elles."
+      }
+    ],
+    "hint": "Amb incrementals, necessites tota la cadena des de l'última completa fins al punt desitjat."
+  },
+  {
+    "guid": "backup-7",
+    "subjectId": "Informatica",
+    "difficulty": 3,
+    "origin": "T56_Backup_ransomware_Cristina",
+    "type": "test",
+    "question": "Tens una còpia completa de diumenge i diferencials cada dia. Per restaurar l'estat de dijous, què necessites?",
+    "answerOptions": [
+      {
+        "text": "La còpia completa de diumenge i la diferencial de dijous",
+        "isCorrect": true,
+        "rationale": "Correcte. Una còpia diferencial conté tots els canvis des de l'última completa, per tant només es necessita la completa i l'última diferencial."
+      },
+      {
+        "text": "La diferencial de dijous i la diferencial de dimecres per completar canvis",
+        "isCorrect": false,
+        "rationale": "Les diferencials no s'acumulen entre elles; cada una conté tots els canvis des de l'última completa."
+      },
+      {
+        "text": "La còpia completa de diumenge, la diferencial de dilluns i la diferencial de dijous",
+        "isCorrect": false,
+        "rationale": "Només es necessita l'última diferencial, ja que conté tots els canvis acumulats."
+      },
+      {
+        "text": "La còpia completa de diumenge i totes les diferencials fins dijous inclosa",
+        "isCorrect": false,
+        "rationale": "No calen totes les diferencials, només l'última."
+      }
+    ],
+    "hint": "La diferencial conté tots els canvis des de l'última completa."
+  },
+  {
+    "guid": "backup-8",
+    "subjectId": "Informatica",
+    "difficulty": 3,
+    "origin": "T56_Backup_ransomware_Cristina",
+    "type": "test",
+    "question": "Quin exemple compleix millor l'estratègia 3-2-1?",
+    "answerOptions": [
+      {
+        "text": "Producció en disc, còpia en un segon volum del mateix sistema i còpia en un tercer volum del mateix clúster",
+        "isCorrect": false,
+        "rationale": "No compleix: totes les còpies estan en la mateixa ubicació i probablement mateix tipus de suport."
+      },
+      {
+        "text": "Producció en disc, còpia en NAS local i còpia en un altre NAS a la mateixa sala tècnica",
+        "isCorrect": false,
+        "rationale": "No compleix: totes estan a la mateixa ubicació física."
+      },
+      {
+        "text": "Producció en disc, còpia en disc i còpia en object storage, totes dins la mateixa ubicació física",
+        "isCorrect": false,
+        "rationale": "Compleix els 2 tipus de suport però falta la ubicació diferent."
+      },
+      {
+        "text": "Producció en disc, còpia en repositori de disc separat i còpia en cinta o object storage en una ubicació diferent",
+        "isCorrect": true,
+        "rationale": "Correcte. 3 còpies, 2 tipus de suport (disc i cinta/object storage), 1 ubicació diferent."
+      }
+    ],
+    "hint": "Recorda: 3 còpies, 2 tipus de suport, 1 còpia en ubicació diferent."
+  },
+  {
+    "guid": "backup-9",
+    "subjectId": "Informatica",
+    "difficulty": 2,
+    "origin": "T56_Backup_ransomware_Cristina",
+    "type": "test",
+    "question": "Què defineix principalment una política de retenció de còpies?",
+    "answerOptions": [
+      {
+        "text": "La freqüència amb què es fan còpies completes i la compressió aplicada",
+        "isCorrect": false,
+        "rationale": "Això es refereix a la planificació i optimització, no a la retenció."
+      },
+      {
+        "text": "Durante quant temps es conserven còpies, com es roten i en quines condicions expiren",
+        "isCorrect": true,
+        "rationale": "Correcte. La política de retenció estableix el cicle de vida de les còpies: temps de conservació, rotació i expiració."
+      },
+      {
+        "text": "El mètode de xifrat utilitzat per assegurar la confidencialitat de les còpies durant el seu emmagatzematge",
+        "isCorrect": false,
+        "rationale": "Això és part de la política de seguretat, no específicament de retenció."
+      },
+      {
+        "text": "La ubicació geogràfica dels servidors de còpia per complir amb normatives de sobirania de dades",
+        "isCorrect": false,
+        "rationale": "Això està relacionat amb el compliment legal i la localització, no amb la retenció."
+      }
+    ],
+    "hint": "Pensa en el cicle de vida de les còpies: quant de temps es guarden i quan es reemplacen."
+  },
+  {
+    "guid": "backup-10",
+    "subjectId": "Informatica",
+    "difficulty": 3,
+    "origin": "T56_Backup_ransomware_Cristina",
+    "type": "test",
+    "question": "Quin és el valor principal de la immutabilitat davant ransomware?",
+    "answerOptions": [
+      {
+        "text": "Millora l'eficiència d'emmagatzematge amb deduplicació",
+        "isCorrect": false,
+        "rationale": "La deduplicació és una tècnica d'optimització diferent."
+      },
+      {
+        "text": "Acelera el procés de restauració total",
+        "isCorrect": false,
+        "rationale": "La immutabilitat no acelera la restauració, la protegeix."
+      },
+      {
+        "text": "Impedir modificacions o esborrats durant un període definit",
+        "isCorrect": true,
+        "rationale": "Correcte. La immutabilitat protegeix les còpies contra esborrat o xifrat per part de ransomware."
+      },
+      {
+        "text": "Sincronitza automàticament les còpies amb el entorn de producció",
+        "isCorrect": false,
+        "rationale": "Això descriu la replicació, no la immutabilitat."
+      }
+    ],
+    "hint": "Immutabilitat vol dir 'que no es pot canviar'."
+  },
+  {
+    "guid": "backup-11",
+    "subjectId": "Informatica",
+    "difficulty": 3,
+    "origin": "T56_Backup_ransomware_Cristina",
+    "type": "test",
+    "question": "Quin enunciat descriu millor l'air gap aplicat a còpies de seguretat?",
+    "answerOptions": [
+      {
+        "text": "Separar el repositori de còpies perquè no sigui accessible des del mateix entorn operatiu habitual",
+        "isCorrect": true,
+        "rationale": "Correcte. Un air gap és una separació (física o lògica) que impedeix l'accés directe des de la xarxa de producció."
+      },
+      {
+        "text": "Mantenir el repositori connectat a la xarxa de producció però amb credencials diferents",
+        "isCorrect": false,
+        "rationale": "Això no és un veritable air gap, ja que segueix accessible des de la xarxa."
+      },
+      {
+        "text": "Crear una rèplica activa de les dades a un altre centre de dades amb accés en temps real",
+        "isCorrect": false,
+        "rationale": "Això descriu replicació, no air gap."
+      },
+      {
+        "text": "Desconnectar el suport d'emmagatzematge físic o lògic de la xarxa principal després de la còpia",
+        "isCorrect": false,
+        "rationale": "Tot i que està relacionat, l'air gap es refereix més a la separació permanent que a la desconnexió puntual."
+      }
+    ],
+    "hint": "Air gap significa una separació que impedeix l'accés directe."
+  },
+  {
+    "guid": "backup-12",
+    "subjectId": "Informatica",
+    "difficulty": 3,
+    "origin": "T56_Backup_ransomware_Cristina",
+    "type": "test",
+    "question": "Quina pràctica és més eficaç per reduir el risc que un atacant afecti també el sistema de còpies?",
+    "answerOptions": [
+      {
+        "text": "Fer servir els mateixos certificats SSL que a producció per millorar compatibilitat",
+        "isCorrect": false,
+        "rationale": "Això podria facilitar l'atac si es comprometen les claus."
+      },
+      {
+        "text": "Mantindre les còpies sempre enllaçades al domini corporatiu per facilitar la gestió",
+        "isCorrect": false,
+        "rationale": "Això augmenta el risc perquè un atac al domini afectaria també les còpies."
+      },
+      {
+        "text": "Programar còpies automàtiques completament integrades amb Active Directory",
+        "isCorrect": false,
+        "rationale": "Si l'AD es compromet, l'atacant podria controlar també les còpies."
+      },
+      {
+        "text": "Separar comptes, rols i aplicar MFA a comptes privilegiats del sistema de còpies",
+        "isCorrect": true,
+        "rationale": "Correcte. Aïllar els comptes i afegir autenticació multifactor dificulta que un atacant accedeixi als sistemes de backup."
+      }
+    ],
+    "hint": "Pensa en aïllar els sistemes de còpies dels de producció."
+  },
+  {
+    "guid": "backup-13",
+    "subjectId": "Informatica",
+    "difficulty": 3,
+    "origin": "T56_Backup_ransomware_Cristina",
+    "type": "test",
+    "question": "Quina afirmació és més precisa sobre una instantània d'emmagatzematge?",
+    "answerOptions": [
+      {
+        "text": "És un punt temporal al mateix sistema d'emmagatzematge, útil per recuperació ràpida però condicionat al risc del propi sistema",
+        "isCorrect": true,
+        "rationale": "Correcte. Una instantània (snapshot) és ràpida i útil, però no és una còpia independent; un fall del sistema l'afectarà."
+      },
+      {
+        "text": "És una còpia exportada a un suport físicament separat i preparada per conservació a llarg termini",
+        "isCorrect": false,
+        "rationale": "Això descriu una còpia de seguretat tradicional, no una instantània."
+      },
+      {
+        "text": "És una còpia incremental que incorpora automàticament retenció immutable",
+        "isCorrect": false,
+        "rationale": "Les instantànies no són necessàriament incrementals ni tenen retenció immutable."
+      },
+      {
+        "text": "És una rèplica en un segon centre que substitueix la necessitat de còpies independents",
+        "isCorrect": false,
+        "rationale": "Això descriu replicació, no instantànies."
+      }
+    ],
+    "hint": "Una instantània normalment no és una còpia física independent."
+  },
+  {
+    "guid": "backup-14",
+    "subjectId": "Informatica",
+    "difficulty": 3,
+    "origin": "T56_Backup_ransomware_Cristina",
+    "type": "test",
+    "question": "Quina pràctica dona més evidència que les còpies són recuperables quan realment calgui?",
+    "answerOptions": [
+      {
+        "text": "Emmagatzemar les còpies en dos repositoris diferents per redundància",
+        "isCorrect": false,
+        "rationale": "La redundància augmenta la disponibilitat, però no demostra que les còpies siguin vàlides."
+      },
+      {
+        "text": "Conservar els logs de còpia detallats durant períodes més llargs",
+        "isCorrect": false,
+        "rationale": "Els logs indiquen que es van fer còpies, no que es puguin restaurar correctament."
+      },
+      {
+        "text": "Fer restauracions de prova periòdiques i verificar dades i aplicacions amb criteris definits",
+        "isCorrect": true,
+        "rationale": "Correcte. La prova pràctica de restauració és l'única manera de verificar realment la recuperabilitat."
+      },
+      {
+        "text": "Augmentar la freqüència de les còpies incrementals per minimitzar pèrdua de dades",
+        "isCorrect": false,
+        "rationale": "Això millora l'RPO, però no garanteix que les còpies es puguin restaurar."
+      }
+    ],
+    "hint": "La millor manera de saber si alguna cosa funciona és provant-la."
+  },
+  {
+    "guid": "backup-15",
+    "subjectId": "Informatica",
+    "difficulty": 3,
+    "origin": "T56_Backup_ransomware_Cristina",
+    "type": "test",
+    "question": "Quin enunciat és més correcte sobre el xifratge en còpies de seguretat?",
+    "answerOptions": [
+      {
+        "text": "El xifratge redueix el volum efectiu de dades i accelera la còpia",
+        "isCorrect": false,
+        "rationale": "El xifratge normalment afegeix sobrecàrrega i no redueix el volum (la compressió sí que ho fa)."
+      },
+      {
+        "text": "El xifratge evita que un atacant pugui eliminar còpies si obté permisos al repositori",
+        "isCorrect": false,
+        "rationale": "El xifratge protegeix la confidencialitat, no la disponibilitat o integritat contra esborrat."
+      },
+      {
+        "text": "El xifratge garanteix integritat operativa i substitueix els controls d'accés",
+        "isCorrect": false,
+        "rationale": "El xifratge no substitueix els controls d'accés; són controls complementaris."
+      },
+      {
+        "text": "El xifratge protegeix la confidencialitat, però cal una bona gestió de claus i controls d'accés separats",
+        "isCorrect": true,
+        "rationale": "Correcte. El xifratge protegeix contra l'accés no autoritzat a les dades, però requereix una gestió segura de claus i altres controls."
+      }
+    ],
+    "hint": "El xifratge protegeix la confidencialitat, però no ho és tot."
+  },
+  {
+    "guid": "backup-16",
+    "subjectId": "Informatica",
+    "difficulty": 3,
+    "origin": "T56_Backup_ransomware_Cristina",
+    "type": "test",
+    "question": "Quin concepte descriu una còpia completa reconstruïda al repositori combinant una completa anterior i incrementals?",
+    "answerOptions": [
+      {
+        "text": "Còpia diferencial",
+        "isCorrect": false,
+        "rationale": "La diferencial copia tots els canvis des de l'última completa, no es reconstrueix."
+      },
+      {
+        "text": "Còpia completa sintètica",
+        "isCorrect": true,
+        "rationale": "Correcte. Una còpia completa sintètica es crea combinant una completa anterior amb incrementals."
+      },
+      {
+        "text": "Còpia incremental",
+        "isCorrect": false,
+        "rationale": "La incremental només conté canvis, no és una completa reconstruïda."
+      },
+      {
+        "text": "Còpia en cascada",
+        "isCorrect": false,
+        "rationale": "Aquest no és un terme estàndard per a aquest concepte."
+      }
+    ],
+    "hint": "Sintètica vol dir 'creada artificialment'."
+  },
+  {
+    "guid": "backup-17",
+    "subjectId": "Informatica",
+    "difficulty": 2,
+    "origin": "T56_Backup_ransomware_Cristina",
+    "type": "test",
+    "question": "Quin objectiu persegueix un esquema de retenció tipus diari, setmanal i mensual?",
+    "answerOptions": [
+      {
+        "text": "Reduir el temps de còpia evitant la conservació de punts recents",
+        "isCorrect": false,
+        "rationale": "L'esquema GFS no redueix el temps de còpia; és una estratègia de retenció."
+      },
+      {
+        "text": "Mantenir un únic punt recuperable estable i eliminar versions intermèdies",
+        "isCorrect": false,
+        "rationale": "Justament el contrari: manté múltiples punts a diferents intervals."
+      },
+      {
+        "text": "Cobrir recuperacions recents i també necessitats d'històric amb horitzons diferents",
+        "isCorrect": true,
+        "rationale": "Correcte. L'esquema GFS cobreix necessitats a curt (diari), mitjà (setmanal) i llarg termini (mensual)."
+      },
+      {
+        "text": "Assegurar que totes les còpies tenen el mateix període de conservació per coherència",
+        "isCorrect": false,
+        "rationale": "Justament tenen períodes de conservació diferents."
+      }
+    ],
+    "hint": "Aquest esquema serveix per diferents necessitats de temps."
+  },
+  {
+    "guid": "backup-18",
+    "subjectId": "Informatica",
+    "difficulty": 3,
+    "origin": "T56_Backup_ransomware_Cristina",
+    "type": "test",
+    "question": "Quin enunciat és més encertat sobre rèplica i backup davant ransomware?",
+    "answerOptions": [
+      {
+        "text": "La rèplica pot reduir RPO i millorar recuperació, però pot propagar corrupció i calen còpies independents",
+        "isCorrect": true,
+        "rationale": "Correcte. La rèplica és ràpida però propaga errors; es necessiten backups independents com a segona línia de defensa."
+      },
+      {
+        "text": "La rèplica és immutable per disseny i cobreix retenció i restauració històrica",
+        "isCorrect": false,
+        "rationale": "La rèplica no és immutable per disseny; normalment és sincronitzada i canviant."
+      },
+      {
+        "text": "La rèplica aporta retenció a llarg termini i redueix la necessitat de proves de restauració",
+        "isCorrect": false,
+        "rationale": "La rèplica no substitueix la necessitat de proves de restauració ni la retenció a llarg termini."
+      },
+      {
+        "text": "La rèplica resol el risc operatiu perquè evita haver de gestionar claus i catàlegs",
+        "isCorrect": false,
+        "rationale": "La rèplica també requereix gestió i no resol tots els riscos operatius."
+      }
+    ],
+    "hint": "La rèplica copia ràpidament tot, tant el bo com el dolent."
+  },
+  {
+    "guid": "backup-19",
+    "subjectId": "Informatica",
+    "difficulty": 3,
+    "origin": "T56_Backup_ransomware_Cristina",
+    "type": "test",
+    "question": "Què és especialment crític protegir per facilitar una recuperació fiable després d'un incident greu?",
+    "answerOptions": [
+      {
+        "text": "Les plantilles de planificació de còpies, per poder reconstruir horaris",
+        "isCorrect": false,
+        "rationale": "Encara que útils, no són tan crítiques com els metadades de les còpies."
+      },
+      {
+        "text": "El sistema de monitoratge, perquè la restauració depèn de les alertes",
+        "isCorrect": false,
+        "rationale": "El monitoratge és important, però sense les còpies i els seus metadades no es pot restaurar."
+      },
+      {
+        "text": "Els informes de rendiment del repositori, per dimensionar la recuperació",
+        "isCorrect": false,
+        "rationale": "Aquests informes no són essencials per a la recuperació."
+      },
+      {
+        "text": "El catàleg o inventari de còpies i, si n'hi ha, les claus de xifratge associades",
+        "isCorrect": true,
+        "rationale": "Correcte. Sense el catàleg no es pot saber quines còpies existeixen, i sense les claus no es poden llegir les còpies xifrades."
+      }
+    ],
+    "hint": "Pensa en què necessites per trobar i poder llegir les còpies."
+  },
+  {
+    "guid": "backup-20",
+    "subjectId": "Informatica",
+    "difficulty": 3,
+    "origin": "T56_Backup_ransomware_Cristina",
+    "type": "test",
+    "question": "Quin disseny és més robust contra ransomware en entorns moderns?",
+    "answerOptions": [
+      {
+        "text": "Conservar moltes còpies al mateix servidor per facilitar l'accés ràpid",
+        "isCorrect": false,
+        "rationale": "Si el servidor es compromet, totes les còpies podrien ser afectades."
+      },
+      {
+        "text": "Tenir una còpia immutable amb comptes separats i una còpia fora de la ubicació principal",
+        "isCorrect": true,
+        "rationale": "Correcte. Combina immutabilitat, segregació d'accés i air gap/ubicació diferent."
+      },
+      {
+        "text": "Mantenir una rèplica sincronitzada en un segon centre de dades",
+        "isCorrect": false,
+        "rationale": "La rèplica propaga ràpidament el ransomware si la producció es veu afectada."
+      },
+      {
+        "text": "Augmentar la freqüència de les còpies al mateix sistema d'emmagatzematge",
+        "isCorrect": false,
+        "rationale": "Si el sistema d'emmagatzematge es veu afectat, totes les còpies ho estaran."
+      }
+    ],
+    "hint": "Combina diverses capes de protecció."
+  },
+  {
+    "guid": "backup-21",
+    "subjectId": "Informatica",
+    "difficulty": 3,
+    "origin": "T56_Backup_ransomware_Cristina",
+    "type": "test",
+    "question": "Què afegeix l'estratègia 3-2-1-1-0 respecte 3-2-1?",
+    "answerOptions": [
+      {
+        "text": "Un segon repositori local per reduir RTO en restauracions petites",
+        "isCorrect": false,
+        "rationale": "No es refereix específicament a un segon repositori local."
+      },
+      {
+        "text": "Una còpia en un format diferent per facilitar migracions tecnològiques",
+        "isCorrect": false,
+        "rationale": "Tot i que pot ser útil, no és el que defineix 3-2-1-1-0."
+      },
+      {
+        "text": "Una còpia addicional que sigui immutable o fora de línia i un objectiu de zero errors mitjançant verificació",
+        "isCorrect": true,
+        "rationale": "Correcte. Afegeix una còpia immutable/air gap i l'objectiu de verificar que no hi hagi errors."
+      },
+      {
+        "text": "Un increment de la retenció perquè sempre hi hagi com a mínim 30 punts recuperables",
+        "isCorrect": false,
+        "rationale": "No especifica un número concret de punts de recuperació."
+      }
+    ],
+    "hint": "Afegeix una còpia extra amb protecció especial i un objectiu de qualitat."
+  },
+  {
+    "guid": "backup-22",
+    "subjectId": "Informatica",
+    "difficulty": 2,
+    "origin": "T56_Backup_ransomware_Cristina",
+    "type": "test",
+    "question": "En plecs de contractació municipals és habitual exigir un pla de contingència per garantir continuïtat del servei durant activació o transició. Quin objectiu persegueix principalment aquesta exigència?",
+    "answerOptions": [
+      {
+        "text": "Assegurar que hi ha procediments i recursos per mantenir o recuperar el servei si apareixen incidències durant la posada en marxa",
+        "isCorrect": true,
+        "rationale": "Correcte. L'objectiu és anticipar i planificar com actuar davant incidents durant fases crítiques."
+      },
+      {
+        "text": "Incrementar el volum de còpies completes per reduir dependències tècniques",
+        "isCorrect": false,
+        "rationale": "No és l'objectiu principal d'un pla de contingència."
+      },
+      {
+        "text": "Garantir que els logs del servei es conserven com a mínim cinc anys",
+        "isCorrect": false,
+        "rationale": "Això forma part de les polítiques de retenció, no del pla de contingència."
+      },
+      {
+        "text": "Forçar que el proveïdor utilitzi un únic producte de backup homologat",
+        "isCorrect": false,
+        "rationale": "No és l'objectiu d'un pla de contingència."
+      }
+    ],
+    "hint": "El pla de contingència anticipa problemes i estableix com actuar."
+  },
+  {
+    "guid": "backup-23",
+    "subjectId": "Informatica",
+    "difficulty": 2,
+    "origin": "T56_Backup_ransomware_Cristina",
+    "type": "test",
+    "question": "En documentació municipal es pot requerir col·laboració amb el procés de gestió d'incidències de seguretat TIC establert pel BIT. Quina implicació és més coherent?",
+    "answerOptions": [
+      {
+        "text": "Executar còpies a demanda quan ho demanin els usuaris finals del servei",
+        "isCorrect": false,
+        "rationale": "No està directament relacionat amb la gestió d'incidents."
+      },
+      {
+        "text": "Coordinar notificació, evidències i actuacions amb els circuits d'incidents i els rols definits per l'organització",
+        "isCorrect": true,
+        "rationale": "Correcte. La col·laboració amb el BIT implica actuar dins del seu marc establert de gestió d'incidents."
+      },
+      {
+        "text": "Prioritzar restauracions parcials abans que validacions de consistència aplicativa",
+        "isCorrect": false,
+        "rationale": "Això és una decisió operativa, no part de la col·laboració amb el BIT."
+      },
+      {
+        "text": "Delegar l'aprovació de canvis en el proveïdor per reduir temps de resposta",
+        "isCorrect": false,
+        "rationale": "No està directament relacionat amb la gestió d'incidents del BIT."
+      }
+    ],
+    "hint": "El BIT estableix protocols oficials per incidents; cal coordinar-se amb ells."
+  },
+  {
+    "guid": "backup-24",
+    "subjectId": "Informatica",
+    "difficulty": 2,
+    "origin": "T56_Backup_ransomware_Cristina",
+    "type": "test",
+    "question": "En contractes públics es pot demanar que el programari compleixi l'ENS de nivell mitjà o acrediti que està en procés de certificació. Quina lectura és més adequada?",
+    "answerOptions": [
+      {
+        "text": "Que el programari ha d'estar publicat com a codi obert amb traçabilitat completa",
+        "isCorrect": false,
+        "rationale": "L'ENS no exigeix específicament codi obert."
+      },
+      {
+        "text": "Que el servei ha de garantir disponibilitat contínua amb rèplica síncrona obligatòria",
+        "isCorrect": false,
+        "rationale": "L'ENS estableix mesures proporcionades al nivell de seguretat, no exigències específiques com aquesta."
+      },
+      {
+        "text": "Que totes les dades han d'estar anonimitzades abans de fer còpies de seguretat",
+        "isCorrect": false,
+        "rationale": "L'anonimització no és un requisit universal de l'ENS."
+      },
+      {
+        "text": "Que s'han d'aplicar mesures i controls de seguretat proporcionats, i evidenciar compliment segons el marc ENS",
+        "isCorrect": true,
+        "rationale": "Correcte. L'ENS estableix un marc de controls de seguretat que s'han d'aplicar i poder demostrar."
+      }
+    ],
+    "hint": "L'ENS és un marc de seguretat amb controls que cal aplicar i demostrar."
+  },
+  {
+    "guid": "backup-25",
+    "subjectId": "Informatica",
+    "difficulty": 2,
+    "origin": "T56_Backup_ransomware_Cristina",
+    "type": "test",
+    "question": "En polítiques de seguretat d'entitats municipals vinculades a l'ENS, quin element de governança és típic i rellevant per a còpies i recuperació?",
+    "answerOptions": [
+      {
+        "text": "Existència d'una política de seguretat aprovada, amb rols i responsabilitats definits i marc de compliment",
+        "isCorrect": true,
+        "rationale": "Correcte. La base de la governança és una política formal amb responsabilitats definides."
+      },
+      {
+        "text": "Centralització de totes les còpies en un únic centre de dades per millorar el control",
+        "isCorrect": false,
+        "rationale": "La centralització pot anar en contra dels principis de redundància i resiliència."
+      },
+      {
+        "text": "Obligació de contractar només proveïdors amb certificació ISO 27001",
+        "isCorrect": false,
+        "rationale": "Encara que pot ser una bona pràctica, no és un element típic específic de governança en aquest context."
+      },
+      {
+        "text": "Priorització de l'estalvi de costos sobre la redundància geogràfica",
+        "isCorrect": false,
+        "rationale": "En seguretat, normalment es prioritzen els objectius de seguretat sobre l'estalvi de costos."
+      }
+    ],
+    "hint": "La governança estableix les normes, rols i responsabilitats."
+  }
+]
