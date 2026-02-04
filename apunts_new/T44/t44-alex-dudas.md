@@ -218,3 +218,14 @@ Modelo basado en **eventos y mensajería**, donde el emisor no espera respuesta 
 > **La comunicación síncrona es bloqueante y acoplada en el tiempo; la asíncrona es no bloqueante, resiliente y desacoplada.**
 
 ---
+## UDDI (Universal Description, Discovery, and Integration)
+
+**UDDI** 📇:  
+Estándar OASIS para registro y descubrimiento de servicios web SOAP que funciona como un "directorio público" o "páginas amarillas" de servicios empresariales.
+
+**Componentes estructurales** 🏗️:  
+Organiza la información en **páginas blancas** (datos del proveedor), **páginas amarillas** (clasificación por industria) y **páginas verdes** (detalles técnicos WSDL y endpoints).
+
+### 📝 Frase clave de examen
+
+> **UDDI fue el intento de crear un DNS universal para servicios web SOAP, que fracasó por complejidad y falta de adopción, siendo reemplazado por registros privados y API Portals.**
