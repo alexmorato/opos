@@ -25,7 +25,7 @@ Mecanismo que permite localizar dinámicamente servicios disponibles en una arqu
 **Client-Side Discovery** 🧩:  
 Modelo de service discovery en el que el cliente consulta un registro de servicios y decide a qué instancia conectarse.
 
-### 📝 Frase clave de examen
+📝 **Frase clave** de examen:
 
 > **En client-side discovery el cliente localiza y selecciona directamente la instancia del servicio.**
 
@@ -39,7 +39,7 @@ El *service discovery* (especialmente **client-side discovery**) es fundamental 
 **SOA** 🏢:  
 La localización de servicios suele ser más estática y centralizada (ESB, endpoints conocidos), por lo que el service discovery no es un elemento clave.
 
-### 📝 Frase clave de examen
+📝 **Frase clave** de examen:
 
 > **El service discovery es un patrón característico de arquitecturas de microservicios, no de SOA tradicional.**
 
@@ -52,7 +52,7 @@ Modelo de transacciones que garantiza Atomicidad, Consistencia, Aislamiento y Du
 **SAGA** 🔄:  
 Patrón de gestión de transacciones distribuidas que divide una operación en múltiples transacciones locales con acciones de compensación ante fallos.
 
-### 📝 Frase clave de examen
+📝 **Frase clave** de examen:
 
 > **ACID garantiza consistencia fuerte; SAGA prioriza escalabilidad y tolerancia a fallos en sistemas distribuidos.**
 
@@ -62,7 +62,7 @@ Patrón de gestión de transacciones distribuidas que divide una operación en m
 **Service Façade** 🧩:  
 Patrón de diseño que proporciona una interfaz simplificada y unificada frente a uno o varios servicios complejos, ocultando su lógica interna.
 
-### 📝 Frase clave de examen
+📝 **Frase clave** de examen:
 
 > **Service Façade simplifica el acceso a servicios complejos mediante una interfaz única.**
 
@@ -76,7 +76,7 @@ Patrón de resiliencia que define una respuesta alternativa cuando un servicio o
 - El servicio de recomendaciones no responde  
 - Se muestra una lista de productos genéricos o en caché en lugar de fallar la aplicación
 
-### 📝 Frase clave de examen
+📝 **Frase clave** de examen:
 
 > **El patrón Fallback permite degradar el servicio de forma controlada ante fallos.**
 
@@ -86,7 +86,7 @@ Patrón de resiliencia que define una respuesta alternativa cuando un servicio o
 **DLQ (Dead Letter Queue)** 📬:  
 Cola donde se almacenan mensajes que no han podido ser procesados correctamente tras varios intentos.
 
-### 📝 Frase clave de examen
+📝 **Frase clave** de examen:
 
 > **La DLQ permite aislar mensajes fallidos sin bloquear el flujo normal del sistema.**
 
@@ -96,7 +96,7 @@ Cola donde se almacenan mensajes que no han podido ser procesados correctamente 
 **Bulkhead Pattern** 🚢:  
 Patrón de resiliencia que aísla componentes o recursos para evitar que el fallo de uno afecte al resto del sistema.
 
-### 📝 Frase clave de examen
+📝 **Frase clave** de examen:
 
 > **El patrón Bulkhead limita el impacto de fallos mediante aislamiento de recursos.**
 
@@ -106,7 +106,7 @@ Patrón de resiliencia que aísla componentes o recursos para evitar que el fall
 **Canonical Data Model (CDM)** 🧩:  
 Modelo de datos común y estandarizado que permite la interoperabilidad entre sistemas heterogéneos reduciendo dependencias punto a punto.
 
-### 📝 Frase clave de examen
+📝 **Frase clave** de examen:
 
 > **El CDM desacopla sistemas mediante un modelo de datos común compartido.**
 
@@ -119,7 +119,7 @@ Modelo de datos común y estandarizado para integrar sistemas y reducir acoplami
 **DDD (Domain-Driven Design)** 🧠:  
 Enfoque de diseño que modela el software a partir del dominio de negocio, usando contextos delimitados y modelos propios.
 
-### 📝 Frase clave de examen
+📝 **Frase clave** de examen:
 
 > **CDM busca estandarizar datos entre sistemas; DDD prioriza la autonomía del dominio y evita modelos globales.**
 
@@ -129,7 +129,7 @@ Enfoque de diseño que modela el software a partir del dominio de negocio, usand
 **Loose Coupling** 🔗:  
 Principio de diseño que minimiza las dependencias entre componentes para facilitar cambios, escalabilidad y mantenimiento.
 
-### 📝 Frase clave de examen
+📝 **Frase clave** de examen:
 
 > **El loose coupling permite evolucionar sistemas sin afectar al resto de componentes.**
 
@@ -139,7 +139,7 @@ Principio de diseño que minimiza las dependencias entre componentes para facili
 **CQRS** 🔀:  
 Patrón arquitectónico que separa las operaciones de escritura (commands) de las de lectura (queries) en modelos distintos.
 
-### 📝 Frase clave de examen
+📝 **Frase clave** de examen:
 
 > **CQRS separa lectura y escritura para mejorar escalabilidad y rendimiento.**
 
@@ -152,7 +152,7 @@ Unidad básica de trabajo en el tracing distribuido que representa una operació
 **Trace Context** 🧭:  
 Información de contexto que se propaga entre servicios para correlacionar todos los spans de una misma petición.
 
-### 📝 Frase clave de examen
+📝 **Frase clave** de examen:
 
 > **Un trace se compone de múltiples spans correlacionados mediante el trace context.**
 
@@ -162,7 +162,7 @@ Información de contexto que se propaga entre servicios para correlacionar todos
 **AMQP** 📬:  
 Protocolo estándar de mensajería que permite la comunicación asíncrona y fiable entre sistemas mediante colas y brokers.
 
-### 📝 Frase clave de examen
+📝 **Frase clave** de examen:
 
 > **AMQP garantiza mensajería fiable y desacoplada entre aplicaciones.**
 
@@ -178,7 +178,7 @@ Herramienta de gobierno que permite gestionar el ciclo de vida de las APIs, apli
 **API Portal** 🌐:  
 Interfaz orientada a desarrolladores donde se documentan las APIs y se facilita su descubrimiento, prueba y consumo.
 
-### 📝 Frase clave de examen
+📝 **Frase clave** de examen:
 
 > **El API Gateway ejecuta políticas en tiempo real, el API Manager gobierna las APIs y el API Portal facilita su consumo.**
 
@@ -191,7 +191,7 @@ Patrón de arquitectura (típico de microservicios) donde cada servicio posee y 
 **Impacto en consistencia** ⚖️:  
 Se pierde la consistencia fuerte ACID entre servicios y se adopta **consistencia eventual**, normalmente mediante eventos o patrones como SAGA.
 
-### 📝 Frase clave de examen
+📝 **Frase clave** de examen:
 
 > **Database per Service elimina transacciones ACID globales y favorece la consistencia eventual para mejorar desacoplamiento y escalabilidad.**
 
@@ -213,7 +213,7 @@ Modelo basado en **eventos y mensajería**, donde el emisor no espera respuesta 
 - Mejora resiliencia y desacoplamiento
 - Uso típico de **RabbitMQ, Kafka**
 
-### 📝 Frase clave de examen
+📝 **Frase clave** de examen:
 
 > **La comunicación síncrona es bloqueante y acoplada en el tiempo; la asíncrona es no bloqueante, resiliente y desacoplada.**
 
@@ -226,6 +226,24 @@ Estándar OASIS para registro y descubrimiento de servicios web SOAP que funcion
 **Componentes estructurales** 🏗️:  
 Organiza la información en **páginas blancas** (datos del proveedor), **páginas amarillas** (clasificación por industria) y **páginas verdes** (detalles técnicos WSDL y endpoints).
 
-### 📝 Frase clave de examen
+📝 **Frase clave** de examen:
 
 > **UDDI fue el intento de crear un DNS universal para servicios web SOAP, que fracasó por complejidad y falta de adopción, siendo reemplazado por registros privados y API Portals.**
+---
+## mTLS (Mutual TLS)
+
+**mTLS (Mutual TLS)** 🤝:  
+Extensión del protocolo TLS donde ambas partes (cliente y servidor) se autentican mutuamente mediante certificados X.509, no solo el servidor como en TLS estándar.
+
+📝 **Frase clave** de examen:
+
+> **mTLS proporciona autenticación bidireccional basada en certificados, esencial para comunicaciones seguras en arquitecturas de microservicios y entornos zero-trust.**
+---
+## Service Mesh
+
+**Service Mesh** 🌐:  
+Capa de infraestructura dedicada que gestiona la comunicación entre microservicios mediante sidecar proxies, proporcionando observabilidad, seguridad y control de tráfico de forma transparente.
+
+📝 **Frase clave** de examen:
+
+> **Un service mesh desacopla las preocupaciones transversales de la comunicación de servicios mediante proxies sidecar que implementan funcionalidades como discovery, load balancing, mTLS y telemetría sin modificar el código de los servicios.**
