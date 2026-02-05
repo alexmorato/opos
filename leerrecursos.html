@@ -194,6 +194,7 @@
       border: 1px solid #27304a;
       border-radius: 8px;
       transition: all 0.3s;
+      cursor: pointer;
     }
     .recurso-item:hover {
       border-color: #6ae0a7;
@@ -889,9 +890,9 @@
             <div class="recursos-title">📊 Presentacions</div>
             <div class="recursos-list">
               ${tema.recursos.slides.map((slide, idx) => `
-                <div class="recurso-item" id="recurso-slides-${tema.tema}-${slide.dir.replace(/[^a-zA-Z0-9]/g, '_')}">
+                <div class="recurso-item" id="recurso-slides-${tema.tema}-${slide.dir.replace(/[^a-zA-Z0-9]/g, '_')}" onclick='abrirSlides("${tema.tema}", "${slide.dir}", ${JSON.stringify(slide.imgs)})'>
                   <div class="recurso-name">${slide.dir}</div>
-                  <button class="recurso-btn btn-slides" onclick='abrirSlides("${tema.tema}", "${slide.dir}", ${JSON.stringify(slide.imgs)})'>
+                  <button class="recurso-btn btn-slides" onclick='event.stopPropagation(); abrirSlides("${tema.tema}", "${slide.dir}", ${JSON.stringify(slide.imgs)})'>
                     👁️ Veure
                   </button>
                 </div>
@@ -908,9 +909,9 @@
             <div class="recursos-title">🖼️ Infografies</div>
             <div class="recursos-list">
               ${tema.recursos.infografies.map((info, idx) => `
-                <div class="recurso-item" id="recurso-info-${tema.tema}-${info.file.replace(/[^a-zA-Z0-9]/g, '_')}">
+                <div class="recurso-item" id="recurso-info-${tema.tema}-${info.file.replace(/[^a-zA-Z0-9]/g, '_')}" onclick="abrirInfografia('${tema.tema}', '${info.file}')">
                   <div class="recurso-name">${info.file}</div>
-                  <button class="recurso-btn btn-info" onclick="abrirInfografia('${tema.tema}', '${info.file}')">
+                  <button class="recurso-btn btn-info" onclick="event.stopPropagation(); abrirInfografia('${tema.tema}', '${info.file}')">
                     👁️ Veure
                   </button>
                 </div>
@@ -927,9 +928,9 @@
             <div class="recursos-title">📝 Apunts</div>
             <div class="recursos-list">
               ${tema.recursos.apunts.map((apunt, idx) => `
-                <div class="recurso-item" id="recurso-apunts-${tema.tema}-${apunt.file.replace(/[^a-zA-Z0-9]/g, '_')}">
+                <div class="recurso-item" id="recurso-apunts-${tema.tema}-${apunt.file.replace(/[^a-zA-Z0-9]/g, '_')}" onclick="abrirApunts('${tema.tema}', '${apunt.file}')">
                   <div class="recurso-name">${apunt.file}</div>
-                  <button class="recurso-btn btn-apunts" onclick="abrirApunts('${tema.tema}', '${apunt.file}')">
+                  <button class="recurso-btn btn-apunts" onclick="event.stopPropagation(); abrirApunts('${tema.tema}', '${apunt.file}')">
                     📖 Llegir
                   </button>
                 </div>
@@ -946,9 +947,9 @@
             <div class="recursos-title">✅ Tests</div>
             <div class="recursos-list">
               ${tema.recursos.tests.map((test, idx) => `
-                <div class="recurso-item" id="recurso-test-${tema.tema}-${test.file.replace(/[^a-zA-Z0-9]/g, '_')}">
+                <div class="recurso-item" id="recurso-test-${tema.tema}-${test.file.replace(/[^a-zA-Z0-9]/g, '_')}" onclick="abrirTest('${tema.tema}', '${test.file}')">
                   <div class="recurso-name">${test.name}</div>
-                  <button class="recurso-btn btn-test" onclick="abrirTest('${tema.tema}', '${test.file}')">
+                  <button class="recurso-btn btn-test" onclick="event.stopPropagation(); abrirTest('${tema.tema}', '${test.file}')">
                     ▶️ Fer test
                   </button>
                 </div>
@@ -965,9 +966,9 @@
             <div class="recursos-title">🔗 Enllaços web</div>
             <div class="recursos-list">
               ${tema.recursos.urls.map((urlData, idx) => `
-                <div class="recurso-item" id="recurso-url-${tema.tema}-${idx}">
+                <div class="recurso-item" id="recurso-url-${tema.tema}-${idx}" onclick="abrirURL('${tema.tema}', '${encodeURIComponent(urlData.url)}', '${encodeURIComponent(urlData.name)}', ${idx})">
                   <div class="recurso-name">${urlData.name}</div>
-                  <button class="recurso-btn btn-url" onclick="abrirURL('${tema.tema}', '${encodeURIComponent(urlData.url)}', '${encodeURIComponent(urlData.name)}')">
+                  <button class="recurso-btn btn-url" onclick="event.stopPropagation(); abrirURL('${tema.tema}', '${encodeURIComponent(urlData.url)}', '${encodeURIComponent(urlData.name)}', ${idx})">
                     🌐 Obrir
                   </button>
                 </div>
@@ -1027,9 +1028,9 @@
         });
     };
 
-    window.abrirURL = function(temaId, encodedUrl, encodedName) {
-      // Guardar recurso clicado
-      guardarUltimoRecursoClicado('url', temaId, encodedUrl);
+    window.abrirURL = function(temaId, encodedUrl, encodedName, idx) {
+      // Guardar recurso clicado usando el índice como identificador
+      guardarUltimoRecursoClicado('url', temaId, idx);
       // Guardar URL y nombre en localStorage para la página iframe
       const url = decodeURIComponent(encodedUrl);
       const name = decodeURIComponent(encodedName);
