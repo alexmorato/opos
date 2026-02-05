@@ -1,0 +1,312 @@
+[
+  {
+    "guid": "2ba9a418-c3e2-4465-bb4d-5719fffad83b",
+    "subjectId": "T40",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Según el material, una característica fundamental del Modelo Entidad-Relació (MER) es su independencia de la tecnología. ¿Qué implica esto en la práctica?",
+    "answerOptions": [
+      {
+        "text": "El modelo conceptual puede ser implementado directamente sin necesidad de un Sistema de Gestión de Bases de Dades (SGBD).",
+        "rationale": "El MER es un modelo conceptual que debe ser traducido a un modelo lógico (como el relacional) antes de ser implementado en un SGBD.",
+        "isCorrect": false
+      },
+      {
+        "text": "Permite a los diseñadores centrarse en la estructura de la información sin estar limitados por un SGBD específico durante la fase conceptual.",
+        "rationale": "Esta independencia es una ventaja clave, ya que el diseño se enfoca en los requisitos del negocio ('el qué') antes de decidir sobre la tecnología de implementación ('el cómo').",
+        "isCorrect": true
+      },
+      {
+        "text": "El MER generado es compatible automáticamente con cualquier SGBD, ya sea relacional, en red u orientado a objetos.",
+        "rationale": "Aunque el modelo conceptual es traducible a varios modelos lógicos, no es automáticamente compatible; requiere un proceso de transformación específico para cada tipo de SGBD.",
+        "isCorrect": false
+      },
+      {
+        "text": "El diseño de la base de datos no necesita considerar aspectos como las claves primarias hasta la fase de implementación física.",
+        "rationale": "El MER sí considera conceptos como las claves primarias (atributos clave) en la fase de diseño conceptual para asegurar la identificabilidad única de las entidades.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considera la diferencia entre el diseño conceptual y la implementación física de una base de datos."
+  },
+  {
+    "guid": "6c636123-8064-4066-89d1-ceec7ebe6b0e",
+    "subjectId": "T40",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Cuál de las siguientes afirmaciones describe correctamente la diferencia entre un atributo compuesto y un atributo multivaluado?",
+    "answerOptions": [
+      {
+        "text": "Un atributo compuesto puede tener varios valores, mientras que uno multivaluado se descompone en partes más pequeñas.",
+        "rationale": "Esta descripción invierte las definiciones de ambos tipos de atributos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Un atributo compuesto se puede dividir en sub-atributos con significado propio, mientras que uno multivaluado puede almacenar múltiples valores para una sola instancia de entidad.",
+        "rationale": "Esta opción define correctamente ambos conceptos; por ejemplo, 'Dirección' (compuesto) se divide en 'calle' y 'ciudad', mientras que 'Teléfono' (multivaluado) puede almacenar varios números.",
+        "isCorrect": true
+      },
+      {
+        "text": "Los atributos compuestos se representan con una elipse de doble línea y los multivaluados con una elipse puntejada.",
+        "rationale": "La notación descrita es incorrecta. La doble elipse es para atributos multivaluados y la elipse puntejada es para atributos derivados.",
+        "isCorrect": false
+      },
+      {
+        "text": "Ambos tipos de atributos se tratan de la misma manera al transformarlos al modelo relacional, creando una nueva tabla para ellos.",
+        "rationale": "Aunque ambos requieren un tratamiento especial, la forma de transformarlos al modelo relacional es diferente. Los compuestos se suelen descomponer en columnas, mientras que los multivaluados sí requieren una nueva tabla.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piensa en el ejemplo de una dirección frente a varios números de teléfono para una misma persona."
+  },
+  {
+    "guid": "506b429c-69a1-4dcc-9d04-a63446b8bbfa",
+    "subjectId": "T40",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En el contexto del MER, ¿qué caracteriza a una entidad débil?",
+    "answerOptions": [
+      {
+        "text": "Es una entidad que no tiene atributos y solo existe para conectar otras dos entidades.",
+        "rationale": "Una entidad débil sí tiene atributos, pero estos no son suficientes por sí solos para formar una clave primaria.",
+        "isCorrect": false
+      },
+      {
+        "text": "Se representa con un rombo de doble línea e indica una relación opcional.",
+        "rationale": "Una entidad débil se representa con un rectángulo de doble línea. El rombo de doble línea representa la relación identificativa en la que participa.",
+        "isCorrect": false
+      },
+      {
+        "text": "Su existencia e identificación dependen de otra entidad, llamada entidad fuerte, a través de una relación identificativa.",
+        "rationale": "Esta es la definición central de una entidad débil; necesita la clave primaria de la entidad fuerte, junto con su propio discriminante, para ser identificada unívocamente.",
+        "isCorrect": true
+      },
+      {
+        "text": "Es una entidad conceptual o abstracta, en contraposición a una entidad física.",
+        "rationale": "Una entidad puede ser débil independientemente de si es física (ej. 'Habitación' en un 'Edificio') o conceptual.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considera cómo se identifica de forma única una instancia de esta entidad, como un aula dentro de un edificio."
+  },
+  {
+    "guid": "d5d13204-4ba3-4751-b774-b6b53c7830e4",
+    "subjectId": "T40",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Al implementar una base de datos relacional, ¿por qué una relación de muchos a muchos (N:M) requiere un tratamiento especial?",
+    "answerOptions": [
+      {
+        "text": "Porque viola las reglas de normalización y siempre introduce redundancia de datos.",
+        "rationale": "La relación en sí no viola las reglas; el tratamiento especial con una tabla de enlace es precisamente para cumplir con la normalización y evitar redundancia.",
+        "isCorrect": false
+      },
+      {
+        "text": "Porque el modelo relacional no permite que una tabla tenga más de una clave foránea.",
+        "rationale": "Una tabla en el modelo relacional puede tener múltiples claves foráneas, pero esto no resuelve directamente una relación N:M.",
+        "isCorrect": false
+      },
+      {
+        "text": "Porque requiere la creación de una entidad intermedia (o tabla de enlace) que transforme la relación N:M en dos relaciones 1:N.",
+        "rationale": "Esta es la solución estándar. La tabla de enlace contiene las claves primarias de las dos entidades originales, permitiendo que una instancia de cada una se relacione con múltiples instancias de la otra.",
+        "isCorrect": true
+      },
+      {
+        "text": "Porque este tipo de relación solo puede existir entre una entidad fuerte y una entidad débil.",
+        "rationale": "Las relaciones N:M pueden ocurrir entre dos entidades fuertes, como 'Alumnos' y 'Asignaturas'.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piensa en cómo se vincularían las tablas 'Alumnos' y 'Asignaturas' en un modelo relacional."
+  },
+  {
+    "guid": "3a8d8d5b-ebe0-4c28-8465-5e8c51e8f572",
+    "subjectId": "T40",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Cuál es la principal diferencia de enfoque entre la notación de Chen y la de Pata de Gallo (Crow's Foot)?",
+    "answerOptions": [
+      {
+        "text": "Chen representa las relaciones con líneas y Crow's Foot con rombos.",
+        "rationale": "Es al revés; Chen utiliza rombos para las relaciones, mientras que Crow's Foot usa solo una línea con símbolos en los extremos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Chen es más conceptual con símbolos distintos para entidades, atributos y relaciones, mientras que Crow's Foot es más compacta, integrando atributos en el rectángulo de la entidad.",
+        "rationale": "Esta opción resume la diferencia clave: Chen separa visualmente cada componente (rectángulos, óvalos, rombos), mientras que Crow's Foot es más integrada y se usa a menudo en herramientas CASE por su legibilidad en diagramas complejos.",
+        "isCorrect": true
+      },
+      {
+        "text": "Chen no puede representar cardinalidades N:M, mientras que Crow's Foot sí puede.",
+        "rationale": "Ambas notaciones son perfectamente capaces de representar todos los tipos de cardinalidad, incluyendo N:M.",
+        "isCorrect": false
+      },
+      {
+        "text": "La notación de Chen se utiliza para el diseño físico y la de Crow's Foot para el diseño conceptual.",
+        "rationale": "Ambas son notaciones para el diseño conceptual (diagramas ER). La elección entre ellas suele depender de la preferencia o la herramienta utilizada.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Compara cómo se representan los atributos y las relaciones en los ejemplos gráficos de ambas notaciones."
+  },
+  {
+    "guid": "df9d571b-efe7-454c-8994-486f72f76973",
+    "subjectId": "T40",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Qué representa un atributo derivado en un MER y cómo se suele tratar en la implementación física?",
+    "answerOptions": [
+      {
+        "text": "Es un atributo que no se puede dividir; se almacena directamente en la base de datos.",
+        "rationale": "Esta descripción corresponde a un atributo simple, no a uno derivado.",
+        "isCorrect": false
+      },
+      {
+        "text": "Es un atributo que puede tener múltiples valores; se implementa creando una tabla separada.",
+        "rationale": "Esta descripción corresponde a un atributo multivaluado.",
+        "isCorrect": false
+      },
+      {
+        "text": "Es un atributo cuyo valor se calcula a partir de otros; generalmente no se almacena para evitar redundancia.",
+        "rationale": "Correcto. Un ejemplo clásico es 'Edad', que se calcula a partir de 'Fecha de Nacimiento' y la fecha actual. Almacenarlo crearía datos que necesitarían ser actualizados constantemente.",
+        "isCorrect": true
+      },
+      {
+        "text": "Es un atributo clave que identifica la entidad; siempre se almacena y se le crea un índice.",
+        "rationale": "Esta descripción corresponde a un atributo clave o clave primaria.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considera el atributo 'edad' que puede obtenerse a partir de la 'fecha de nacimiento'."
+  },
+  {
+    "guid": "ac21cf37-c108-4625-9aaf-d0a1a789c4f1",
+    "subjectId": "T40",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En el contexto de las extensiones del MER, ¿cuál es la diferencia fundamental entre especialización y generalización?",
+    "answerOptions": [
+      {
+        "text": "La especialización es un proceso ascendente (bottom-up) que crea superclases, mientras que la generalización es un proceso descendente (top-down) que crea subclases.",
+        "rationale": "Esta afirmación invierte los conceptos. La especialización es descendente y la generalización es ascendente.",
+        "isCorrect": false
+      },
+      {
+        "text": "Ambos procesos son idénticos en resultado y método, la diferencia de nombre es solo una convención.",
+        "rationale": "Aunque el diagrama resultante es idéntico (una jerarquía de superclase/subclase), el proceso mental y la dirección del diseño son opuestos.",
+        "isCorrect": false
+      },
+      {
+        "text": "La especialización se representa con un triángulo y la generalización con un círculo.",
+        "rationale": "Ambos conceptos se representan con el mismo símbolo gráfico, un triángulo, que indica una relación 'ES UN'.",
+        "isCorrect": false
+      },
+      {
+        "text": "La especialización parte de una entidad para crear subgrupos específicos (descendente), mientras que la generalización agrupa entidades existentes con características comunes en una nueva superclase (ascendente).",
+        "rationale": "Esta opción describe correctamente la diferencia en el proceso de diseño: la especialización descompone y la generalización sintetiza.",
+        "isCorrect": true
+      }
+    ],
+    "hint": "Piensa si estás partiendo de una entidad general para detallarla, o agrupando varias entidades específicas."
+  },
+  {
+    "guid": "0f89660e-30df-4512-a168-2641a2a1c9ae",
+    "subjectId": "T40",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Se está modelando un sistema donde un 'Alumno' practica un 'Deporte', y un 'Profesor' puede entrenar esa práctica específica (un alumno en un deporte concreto). ¿Por qué se utilizaría una agregación en este escenario?",
+    "answerOptions": [
+      {
+        "text": "Para convertir la entidad 'Profesor' en una entidad débil dependiente de 'Alumno' y 'Deporte'.",
+        "rationale": "La agregación no convierte una entidad existente en débil; trata una relación como una entidad para poder relacionarla con otras.",
+        "isCorrect": false
+      },
+      {
+        "text": "Porque es la única forma de representar una relación ternaria entre 'Alumno', 'Deporte' y 'Profesor'.",
+        "rationale": "Se podría usar una relación ternaria, pero la agregación es preferible para evitar redundancia, ya que no todas las prácticas de deporte por parte de un alumno tienen un entrenador.",
+        "isCorrect": false
+      },
+      {
+        "text": "Para tratar la relación 'Practica' (entre Alumno y Deporte) como una entidad de nivel superior, permitiendo que esta se relacione con 'Profesor'.",
+        "rationale": "Esta es la función de la agregación. Permite modelar una relación sobre otra relación, reflejando que el 'entrenamiento' se aplica al hecho de que un 'alumno practica un deporte'.",
+        "isCorrect": true
+      },
+      {
+        "text": "Para simplificar la cardinalidad, convirtiendo una relación N:M en dos relaciones 1:1.",
+        "rationale": "La agregación no cambia las cardinalidades de la relación original, sino que permite que la relación como un todo participe en otra relación.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considera que se quiere establecer una relación no con 'Alumno' o 'Deporte' por separado, sino con la combinación de ambos."
+  },
+  {
+    "guid": "755acc9c-0e35-4d4a-abe8-cf968de6e5f6",
+    "subjectId": "T40",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En las restricciones de especialización/generalización, ¿qué significa que un conjunto de subclases sea 'Disjunto' (D) y 'Total' (T)?",
+    "answerOptions": [
+      {
+        "text": "Que una instancia de la superclase puede pertenecer a varias subclases a la vez, y algunas instancias pueden no pertenecer a ninguna.",
+        "rationale": "Esto describe una restricción Encabalgada (Solapada) y Parcial (E, P).",
+        "isCorrect": false
+      },
+      {
+        "text": "Que una instancia de la superclase no puede pertenecer a más de una subclase a la vez, y toda instancia debe pertenecer a alguna subclase.",
+        "rationale": "Esta opción define correctamente 'Disjunto' (una u otra, pero no ambas) y 'Total' (toda instancia de la superclase debe ser de al menos un tipo de subclase).",
+        "isCorrect": true
+      },
+      {
+        "text": "Que una instancia de la superclase puede pertenecer a varias subclases, y es obligatorio que pertenezca al menos a una.",
+        "rationale": "Esto describe una restricción Encabalgada (Solapada) y Total (E, T).",
+        "isCorrect": false
+      },
+      {
+        "text": "Que una instancia de la superclase no puede pertenecer a más de una subclase, y es posible que no pertenezca a ninguna.",
+        "rationale": "Esto describe una restricción Disjunta y Parcial (D, P).",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piensa en un ejemplo como 'Vehículo' con subclases 'Coche' y 'Moto'. ¿Puede un vehículo ser ambos a la vez? ¿Hay vehículos que no sean ni coche ni moto?"
+  },
+  {
+    "guid": "9e3adc1e-f273-4223-8e66-70fa9ecf2ee8",
+    "subjectId": "T40",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Cuál es una de las limitaciones principales del MER mencionada en el material de origen?",
+    "answerOptions": [
+      {
+        "text": "Es demasiado complejo para que lo entiendan los usuarios no técnicos.",
+        "rationale": "Al contrario, una de sus ventajas es que su naturaleza diagramática facilita la comunicación con personal no técnico.",
+        "isCorrect": false
+      },
+      {
+        "text": "No puede representar relaciones de cardinalidad uno a uno (1:1).",
+        "rationale": "El MER puede representar sin problemas todos los tipos de cardinalidad, incluyendo 1:1, 1:N y N:M.",
+        "isCorrect": false
+      },
+      {
+        "text": "Se enfoca en la estructura estática de los datos y no modela bien los aspectos dinámicos o de comportamiento de un sistema.",
+        "rationale": "El texto indica que el MER es excelente para la estructura de datos, pero para modelar procesos, flujos de trabajo o eventos temporales, se necesitarían otras herramientas como diagramas UML de actividad.",
+        "isCorrect": true
+      },
+      {
+        "text": "Es un modelo de bajo nivel que depende fuertemente del SGBD elegido.",
+        "rationale": "El MER es un modelo de alto nivel y una de sus características clave es precisamente su independencia del SGBD.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considera si un diagrama ER te dice 'qué' datos se guardan o 'cómo' cambian esos datos con el tiempo."
+  }
+]

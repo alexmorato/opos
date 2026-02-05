@@ -1,0 +1,312 @@
+[
+  {
+    "guid": "f518b194-32e9-4ed0-9313-0a34c9dedf65",
+    "subjectId": "T47",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En el paradigma de Data Mesh, ¿cuál es el propósito fundamental del principio de 'Gobernanza Federada' (Federated Governance)?",
+    "answerOptions": [
+      {
+        "text": "Centralizar todas las decisiones sobre la gestión y calidad de los datos en un único equipo directivo para asegurar la máxima consistencia.",
+        "rationale": "Este enfoque describe un modelo de gobernanza centralizado, que es precisamente lo que la Data Mesh busca evitar en favor de un equilibrio entre control global y autonomía local.",
+        "isCorrect": false
+      },
+      {
+        "text": "Eliminar por completo las normativas de gobernanza de datos para permitir que cada dominio opere con total libertad y agilidad.",
+        "rationale": "La ausencia total de gobernanza conduciría a un ecosistema de datos caótico e inconsistente, dificultando la interoperabilidad y la confianza.",
+        "isCorrect": false
+      },
+      {
+        "text": "Establecer un equilibrio entre la autonomía de los dominios y la necesidad de estándares globales que garanticen la interoperabilidad, seguridad y cumplimiento normativo.",
+        "rationale": "Este modelo combina la agilidad de los dominios descentralizados con un conjunto de reglas comunes definidas de forma colaborativa para que el ecosistema de datos funcione como un todo coherente.",
+        "isCorrect": true
+      },
+      {
+        "text": "Gestionar exclusivamente la infraestructura tecnológica de la plataforma de autoservicio, dejando la gobernanza de los datos a cada equipo de dominio.",
+        "rationale": "La gobernanza federada abarca mucho más que la infraestructura; se centra en las políticas, estándares y reglas sobre los propios datos para asegurar su consistencia y fiabilidad.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en cómo una federación de estados funciona: cada estado tiene autonomía, pero todos siguen una constitución común."
+  },
+  {
+    "guid": "42b2c85a-65bc-4c96-980b-69af5a7323cf",
+    "subjectId": "T47",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Qué tipo de dominio de datos tiene la responsabilidad principal de tomar datos brutos de un sistema origen, como un CRM o un ERP, y exponerlos sin aplicar transformaciones significativas?",
+    "answerOptions": [
+      {
+        "text": "Dominio de datos agregado (Aggregate Data Domain)",
+        "rationale": "Este tipo de dominio se especializa en combinar y transformar datos de múltiples fuentes, no en reflejar una única fuente sin cambios.",
+        "isCorrect": false
+      },
+      {
+        "text": "Dominio de datos alineado con la fuente (Source-Aligned Data Domain)",
+        "rationale": "Su objetivo es preservar el contexto original y la integridad de los datos tal como se generan, actuando como una réplica fidedigna del sistema operacional.",
+        "isCorrect": true
+      },
+      {
+        "text": "Dominio de datos alineado con el consumidor (Consumer-Aligned Data Domain)",
+        "rationale": "Este dominio se enfoca en preparar y modelar datos para un caso de uso específico, lo que a menudo implica transformaciones y optimizaciones.",
+        "isCorrect": false
+      },
+      {
+        "text": "Dominio de datos analítico (Analytical Data Domain)",
+        "rationale": "Aunque todos los dominios en Data Mesh gestionan datos analíticos, este término no corresponde a una de las tres tipologías principales descritas en la arquitectura.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Este tipo de dominio actúa como el punto de entrada de los datos al 'mesh', manteniendo la fidelidad con su origen."
+  },
+  {
+    "guid": "c5d58ea8-9b45-4e02-9daf-3134e4117f0c",
+    "subjectId": "T47",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "De acuerdo con el principio 'Datos como Producto', ¿qué característica es esencial para que un conjunto de datos sea considerado un producto de datos de calidad?",
+    "answerOptions": [
+      {
+        "text": "Debe ser fácilmente descubrible, comprensible, fiable y accesible a través de interfaces bien definidas.",
+        "rationale": "Al tratar los datos como un producto, se adopta una mentalidad orientada al consumidor, donde la facilidad de uso, la confianza y la accesibilidad son primordiales.",
+        "isCorrect": true
+      },
+      {
+        "text": "Debe contener únicamente datos en bruto, sin ningún tipo de limpieza o transformación, para que los consumidores tengan total flexibilidad.",
+        "rationale": "Los productos de datos son curados y preparados para ser útiles, lo que a menudo implica limpieza y transformación, en lugar de ser simplemente datos brutos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Su acceso debe estar restringido a un único equipo central de TI que gestione todas las peticiones.",
+        "rationale": "Este enfoque crearía un cuello de botella, algo contrario a los principios de autoservicio y autonomía de la Data Mesh.",
+        "isCorrect": false
+      },
+      {
+        "text": "Debe estar físicamente almacenado en la misma base de datos que los demás productos para facilitar las uniones (joins).",
+        "rationale": "La Data Mesh promueve un almacenamiento de datos políglota y distribuido; la interoperabilidad se logra a través de estándares y APIs, no de la coubicación física.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considere qué cualidades esperaría de un producto físico o digital que compra en el mercado."
+  },
+  {
+    "guid": "bf014eb8-0417-45f7-80a6-98971d4e3b79",
+    "subjectId": "T47",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Cuál es uno de los principales desafíos culturales y organizativos al implementar una arquitectura Data Mesh?",
+    "answerOptions": [
+      {
+        "text": "La dificultad técnica para centralizar todos los datos en un único data lake.",
+        "rationale": "Data Mesh se aleja del modelo de data lake centralizado, por lo que este no sería un desafío de su implementación.",
+        "isCorrect": false
+      },
+      {
+        "text": "La resistencia de los equipos de negocio a compartir sus datos con otros dominios.",
+        "rationale": "Aunque la colaboración es clave, el reto principal radica en la asunción de nuevas responsabilidades por parte de estos equipos.",
+        "isCorrect": false
+      },
+      {
+        "text": "La necesidad de que los equipos de dominio adquieran nuevas habilidades y asuman la responsabilidad sobre el ciclo de vida de sus datos analíticos.",
+        "rationale": "Este cambio de mentalidad y la adquisición de nuevas competencias (gestión de pipelines, calidad de datos, etc.) es una transformación significativa para equipos tradicionalmente no técnicos.",
+        "isCorrect": true
+      },
+      {
+        "text": "La falta de herramientas de software en el mercado que soporten arquitecturas de datos distribuidas.",
+        "rationale": "Existen numerosas herramientas y tecnologías (especialmente nativas de la nube) que pueden dar soporte a una implementación de Data Mesh; el reto es más organizativo que tecnológico.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "La transición no es solo tecnológica; implica un cambio en las responsabilidades y capacidades de los equipos."
+  },
+  {
+    "guid": "09ab96f8-b2ed-4c9c-8b15-073ab95a764e",
+    "subjectId": "T47",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "La arquitectura Data Mesh a menudo se compara con la arquitectura de microservicios. ¿Cuál es la analogía principal entre un 'dominio de datos' en Data Mesh y un 'microservicio'?",
+    "answerOptions": [
+      {
+        "text": "Ambos deben estar escritos en el mismo lenguaje de programación y usar la misma base de datos para funcionar correctamente.",
+        "rationale": "Tanto los microservicios como los dominios de datos promueven la autonomía tecnológica, permitiendo el uso de diferentes herramientas siempre que se respeten las interfaces comunes.",
+        "isCorrect": false
+      },
+      {
+        "text": "Ambos son componentes autónomos, con propiedad descentralizada, que exponen sus capacidades (datos o funcionalidades) a través de interfaces bien definidas.",
+        "rationale": "Esta es la esencia de la comparación: descomponer un monolito (de aplicación o de datos) en unidades más pequeñas, gestionables, autónomas e interoperables.",
+        "isCorrect": true
+      },
+      {
+        "text": "El objetivo principal de ambos es procesar datos transaccionales en tiempo real y no están diseñados para datos analíticos.",
+        "rationale": "Mientras que los microservicios gestionan datos operativos, el enfoque principal de Data Mesh es precisamente la gestión de datos analíticos a escala.",
+        "isCorrect": false
+      },
+      {
+        "text": "Tanto los dominios de datos como los microservicios son gestionados y desplegados por un único equipo central de operaciones (Ops).",
+        "rationale": "Ambos paradigmas abogan por equipos de producto autónomos (DevOps, DataOps) que son responsables del ciclo de vida completo de su componente.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Ambos paradigmas buscan resolver los problemas de las arquitecturas monolíticas mediante la descentralización y la modularidad."
+  },
+  {
+    "guid": "b1bad9b8-2802-4f44-85df-2ebc11ee726c",
+    "subjectId": "T47",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Dentro de una Data Mesh, ¿qué mecanismo es fundamental para facilitar la 'descubribilidad' (discoverability) y evitar la duplicación de esfuerzos entre dominios?",
+    "answerOptions": [
+      {
+        "text": "Un bus de eventos (event stream) como Kafka.",
+        "rationale": "Aunque un bus de eventos es una forma de comunicación, no sirve como un índice centralizado para buscar y entender todos los productos de datos disponibles.",
+        "isCorrect": false
+      },
+      {
+        "text": "Un comité de arquitectura de datos que aprueba cada nuevo producto de datos.",
+        "rationale": "Este enfoque crearía un cuello de botella y va en contra del principio de autonomía y agilidad que busca la Data Mesh.",
+        "isCorrect": false
+      },
+      {
+        "text": "Un catálogo de datos centralizado o federado.",
+        "rationale": "El catálogo actúa como un 'mercado' interno donde los consumidores pueden buscar, entender y acceder a los productos de datos que ofrecen los diferentes dominios.",
+        "isCorrect": true
+      },
+      {
+        "text": "La estandarización de una única tecnología de base de datos para toda la organización.",
+        "rationale": "La estandarización de la base de datos no garantiza que los usuarios sepan qué datos existen o qué significan; además, Data Mesh favorece un enfoque políglota.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en cómo encontraría un libro en una biblioteca muy grande y distribuida."
+  },
+  {
+    "guid": "fa95d5d4-d73f-4189-b76b-a9fb78a29b5d",
+    "subjectId": "T47",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Cuál de las siguientes afirmaciones describe mejor un 'Dominio de datos alineado con el consumidor' (Consumer-Aligned Data Domain)?",
+    "answerOptions": [
+      {
+        "text": "Crea una vista de 360 grados del cliente combinando datos de ventas, marketing y soporte.",
+        "rationale": "La creación de una vista de 360 grados es el ejemplo clásico de un dominio de datos agregado, ya que combina datos de múltiples fuentes.",
+        "isCorrect": false
+      },
+      {
+        "text": "Replica los logs de una aplicación web en su formato original para análisis forense.",
+        "rationale": "Replicar datos de una única fuente sin modificaciones sustanciales es la función de un dominio alineado con la fuente.",
+        "isCorrect": false
+      },
+      {
+        "text": "Proporciona un conjunto de datos pre-procesado y optimizado específicamente para entrenar un modelo de machine learning de recomendación.",
+        "rationale": "Este dominio se enfoca en las necesidades de un consumidor particular (el equipo de ML), preparando los datos para un caso de uso concreto y facilitando su consumo.",
+        "isCorrect": true
+      },
+      {
+        "text": "Es el responsable de definir los estándares de calidad de datos para toda la organización.",
+        "rationale": "La definición de estándares globales es una función de la gobernanza federada, no de un tipo específico de dominio de datos.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Este tipo de dominio piensa primero en el caso de uso final y adapta los datos para él."
+  },
+  {
+    "guid": "c702c215-595b-48e3-a677-f29ce471c602",
+    "subjectId": "T47",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Una ventaja clave de la arquitectura Data Mesh es la 'mejora de la escalabilidad'. ¿Cómo se logra esto principalmente?",
+    "answerOptions": [
+      {
+        "text": "Comprimiendo todos los datos en un único data warehouse altamente optimizado.",
+        "rationale": "Este es un enfoque de escalado vertical y centralizado, mientras que Data Mesh propone un modelo de escalado distribuido.",
+        "isCorrect": false
+      },
+      {
+        "text": "Permitiendo que cada dominio escale su propia infraestructura y pipelines de forma independiente, evitando cuellos de botella centrales.",
+        "rationale": "Al distribuir la carga de trabajo entre múltiples dominios autónomos, la arquitectura en su conjunto puede crecer de manera más sostenible y eficiente.",
+        "isCorrect": true
+      },
+      {
+        "text": "Limitando la cantidad de datos que cada dominio puede producir para mantener el rendimiento general del sistema.",
+        "rationale": "Limitar los datos iría en contra del objetivo de obtener valor de ellos; la escalabilidad se logra gestionando el crecimiento, no limitándolo.",
+        "isCorrect": false
+      },
+      {
+        "text": "Utilizando una única tecnología cloud que escala automáticamente para toda la organización.",
+        "rationale": "Aunque las tecnologías cloud son un habilitador, la escalabilidad en Data Mesh proviene de su diseño arquitectónico distribuido, no solo de la tecnología subyacente.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considere cómo escalar una organización: ¿contratando a una sola persona para hacer todo el trabajo o creando equipos autónomos que puedan crecer de forma independiente?"
+  },
+  {
+    "guid": "babd1144-2580-4f1b-8bfe-4ef56674cc4e",
+    "subjectId": "T47",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En el contexto de la comunicación entre dominios, ¿qué son los 'contratos de datos' (data contracts)?",
+    "answerOptions": [
+      {
+        "text": "Un acuerdo formal entre un productor de datos y sus consumidores que define el esquema, la semántica y las expectativas de calidad para garantizar la estabilidad.",
+        "rationale": "Este mecanismo es clave para mantener la confianza y la interoperabilidad, asegurando que los cambios en un producto de datos no rompan las aplicaciones de los consumidores de forma inesperada.",
+        "isCorrect": true
+      },
+      {
+        "text": "Un documento legal que regula la venta de datos del dominio a empresas externas.",
+        "rationale": "Aunque existen acuerdos legales para la venta de datos, en el contexto de Data Mesh, un 'contrato de datos' es un acuerdo técnico y de gobernanza interno.",
+        "isCorrect": false
+      },
+      {
+        "text": "La documentación interna que solo el equipo del dominio productor utiliza para gestionar sus pipelines.",
+        "rationale": "La documentación es parte del contrato, pero el contrato en sí es un acuerdo explícito y compartido con los consumidores, no solo un documento interno.",
+        "isCorrect": false
+      },
+      {
+        "text": "Un software que valida automáticamente la calidad de los datos en el data lake central.",
+        "rationale": "La validación de la calidad es una parte importante, pero un contrato de datos es un concepto más amplio que un simple software de validación y se aplica en un entorno descentralizado.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en un contrato de API: define cómo dos servicios deben interactuar para no fallar."
+  },
+  {
+    "guid": "f5b016f8-5b0c-4f13-9a80-84e39593c2aa",
+    "subjectId": "T47",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Cuál es la función principal de la 'Plataforma de Datos de Autoservicio' (Self-Serve Data Infrastructure Platform) en Data Mesh?",
+    "answerOptions": [
+      {
+        "text": "Realizar todas las transformaciones de datos (ETL) para todos los dominios de la organización.",
+        "rationale": "Esta es la función de un equipo de datos centralizado tradicional, mientras que la plataforma de autoservicio busca empoderar a los dominios para que ellos mismos realicen sus transformaciones.",
+        "isCorrect": false
+      },
+      {
+        "text": "Proporcionar a los equipos de dominio las herramientas y capacidades (almacenamiento, procesamiento, etc.) para que puedan construir y gestionar sus propios productos de datos de forma autónoma.",
+        "rationale": "La plataforma abstrae la complejidad de la infraestructura, permitiendo que los equipos de dominio se centren en crear valor a partir de los datos sin ser expertos en infraestructura.",
+        "isCorrect": true
+      },
+      {
+        "text": "Actuar como el único punto de acceso para que los usuarios de negocio consuman datos a través de dashboards.",
+        "rationale": "La plataforma proporciona las herramientas para construir productos de datos, que pueden ser consumidos de muchas maneras, no solo a través de un portal de BI central.",
+        "isCorrect": false
+      },
+      {
+        "text": "Almacenar una copia de seguridad centralizada de todos los productos de datos generados por los dominios.",
+        "rationale": "Aunque la plataforma puede ofrecer capacidades de respaldo, su función principal es habilitar la creación y operación de productos de datos, no solo actuar como un repositorio de backups.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Esta plataforma busca reducir la dependencia de los equipos de dominio de un equipo central de infraestructura."
+  }
+]

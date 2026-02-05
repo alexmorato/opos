@@ -1,0 +1,374 @@
+[
+  {
+    "guid": "a799d5a8-02a8-4676-a543-e4bfaeb61923",
+    "subjectId": "T53",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Una entidad bancaria necesita un sistema de base de datos que garantice la integridad de las transacciones financieras, asegurando que una transferencia de fondos se complete en su totalidad o no se realice en absoluto. ¿Qué conjunto de propiedades es fundamental para este requisito?",
+    "answerOptions": [
+      {
+        "text": "Propiedades BASE (Basically Available, Soft-state, Eventually Consistent)",
+        "rationale": "El modelo BASE prioriza la disponibilidad sobre la consistencia inmediata, lo cual no es aceptable para operaciones financieras que requieren exactitud en todo momento.",
+        "isCorrect": false
+      },
+      {
+        "text": "Propiedades ACID (Atomicidad, Consistencia, Aislamiento, Durabilidad)",
+        "rationale": "Las propiedades ACID están diseñadas para garantizar la fiabilidad de las transacciones. La Atomicidad, en particular, asegura el principio de 'todo o nada' requerido.",
+        "isCorrect": true
+      },
+      {
+        "text": "Principios del Teorema CAP (Consistencia, Disponibilidad, Tolerancia a particiones)",
+        "rationale": "El teorema CAP describe las concesiones en sistemas distribuidos, pero no es un conjunto de propiedades que una base de datos implementa para garantizar transacciones como lo hace ACID.",
+        "isCorrect": false
+      },
+      {
+        "text": "Características de escalabilidad horizontal y esquema flexible",
+        "rationale": "Aunque son características importantes de algunas bases de datos, no garantizan por sí mismas la integridad transaccional que un sistema bancario requiere.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piensa en el modelo que prioriza la fiabilidad y la corrección de los datos por encima de todo, fundamental en entornos transaccionales."
+  },
+  {
+    "guid": "de276b68-b65d-409e-94fd-be6ef3ddc5c7",
+    "subjectId": "T53",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Cuál es la principal diferencia en el enfoque de escalabilidad entre las bases de datos SQL tradicionales y las NoSQL?",
+    "answerOptions": [
+      {
+        "text": "Las SQL escalan verticalmente (mejorando el hardware de un único servidor), mientras que las NoSQL escalan horizontalmente (añadiendo más servidores).",
+        "rationale": "Este es el paradigma fundamental: SQL tradicionalmente se fortalece (scale-up), mientras que NoSQL se expande (scale-out) para manejar mayores cargas.",
+        "isCorrect": true
+      },
+      {
+        "text": "Ambos tipos de bases de datos escalan principalmente de forma horizontal.",
+        "rationale": "La escalabilidad horizontal es una característica distintiva y nativa de los sistemas NoSQL, mientras que en SQL es más compleja de implementar.",
+        "isCorrect": false
+      },
+      {
+        "text": "Las NoSQL escalan verticalmente, mientras que las SQL lo hacen de forma horizontal.",
+        "rationale": "Esta afirmación invierte los conceptos de escalabilidad asociados a cada tipo de base de datos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Ninguno de los dos tipos está diseñado para una escalabilidad significativa.",
+        "rationale": "Tanto SQL como NoSQL tienen estrategias de escalabilidad, pero sus enfoques y fortalezas difieren considerablemente.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considera si es más fácil mejorar una máquina existente o distribuir la carga entre varias máquinas nuevas."
+  },
+  {
+    "guid": "e3e19ac4-f338-43bf-9202-74d868f39508",
+    "subjectId": "T53",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Una aplicación necesita almacenar una gran cantidad de datos de sensores de IoT, donde cada lectura es un registro con una marca de tiempo. ¿Qué tipo de base de datos no relacional estaría optimizada para este caso de uso?",
+    "answerOptions": [
+      {
+        "text": "De grafos",
+        "rationale": "Las bases de datos de grafos son ideales para analizar relaciones complejas, no para almacenar secuencias de datos cronológicos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Temporal o de series temporales (TSDB)",
+        "rationale": "Las TSDB están específicamente diseñadas para manejar, almacenar y consultar eficientemente datos que están indexados por tiempo, como las lecturas de sensores.",
+        "isCorrect": true
+      },
+      {
+        "text": "Documental",
+        "rationale": "Aunque una base de datos documental podría almacenar estos datos, no está tan optimizada para consultas y agregaciones basadas en el tiempo como una TSDB.",
+        "isCorrect": false
+      },
+      {
+        "text": "Relacional",
+        "rationale": "Una base de datos relacional podría tener problemas de rendimiento con el volumen masivo de escrituras y las consultas de rangos de tiempo típicas de los datos de IoT.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Busca el modelo de base de datos cuyo propósito principal es gestionar datos que evolucionan con el tiempo."
+  },
+  {
+    "guid": "307a4c4a-f42e-4e0f-8c59-9a9fc5f4f1e4",
+    "subjectId": "T53",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Según el Teorema CAP, un sistema distribuido solo puede garantizar dos de tres propiedades simultáneamente. Si una red sufre una división (partición), ¿qué dos propiedades entran en conflicto directo?",
+    "answerOptions": [
+      {
+        "text": "Consistencia y Disponibilidad",
+        "rationale": "Durante una partición, el sistema debe elegir: o deja de responder (pierde Disponibilidad) para evitar datos inconsistentes, o sigue respondiendo (mantiene Disponibilidad) a riesgo de que los datos diverjan entre las particiones (pierde Consistencia).",
+        "isCorrect": true
+      },
+      {
+        "text": "Disponibilidad y Tolerancia a particiones",
+        "rationale": "La Tolerancia a particiones es la capacidad de soportar la división de la red; la Disponibilidad es una de las propiedades que podría sacrificarse para mantener otra.",
+        "isCorrect": false
+      },
+      {
+        "text": "Consistencia y Tolerancia a particiones",
+        "rationale": "La Tolerancia a particiones es la condición del fallo de red; la Consistencia es una de las propiedades que podría tener que ceder ante este fallo.",
+        "isCorrect": false
+      },
+      {
+        "text": "Atomicidad y Durabilidad",
+        "rationale": "Atomicidad y Durabilidad son propiedades del modelo ACID, no los componentes del Teorema CAP.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piensa en la elección que debe hacer un sistema cuando los nodos no pueden comunicarse entre sí: ¿responde con datos posiblemente obsoletos o espera a que se resuelva la comunicación?"
+  },
+  {
+    "guid": "b9b40068-7f28-4e31-9506-e941579cd8dc",
+    "subjectId": "T53",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Qué base de datos se caracteriza por ser un motor de búsqueda y analítica distribuido que trabaja con documentos JSON y es comúnmente utilizado para análisis de logs y búsqueda de texto completo?",
+    "answerOptions": [
+      {
+        "text": "Redis",
+        "rationale": "Redis es una base de datos en memoria de tipo clave-valor, optimizada para velocidad y usada a menudo como caché, no como motor de búsqueda de texto.",
+        "isCorrect": false
+      },
+      {
+        "text": "Cassandra",
+        "rationale": "Cassandra es una base de datos de tipo columnar ancho, diseñada para alta disponibilidad y escalabilidad masiva, pero no es un motor de búsqueda por naturaleza.",
+        "isCorrect": false
+      },
+      {
+        "text": "Elasticsearch",
+        "rationale": "Elasticsearch está construido sobre Apache Lucene y está diseñado específicamente para la indexación y búsqueda de grandes volúmenes de datos, incluyendo texto no estructurado.",
+        "isCorrect": true
+      },
+      {
+        "text": "Neo4j",
+        "rationale": "Neo4j es una base de datos de grafos, especializada en gestionar y consultar relaciones complejas entre entidades.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Esta herramienta a menudo forma parte de la suite ELK (o Elastic Stack) para la monitorización y análisis."
+  },
+  {
+    "guid": "9f657b55-e134-46a0-ac15-86541d771c6f",
+    "subjectId": "T53",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Cuál de las siguientes afirmaciones describe correctamente el concepto de 'esquema flexible' en las bases de datos NoSQL?",
+    "answerOptions": [
+      {
+        "text": "Significa que los datos se almacenan sin ningún tipo de estructura, como un archivo de texto plano.",
+        "rationale": "Las bases de datos NoSQL manejan datos semiestructurados o con estructuras variables, pero no son para datos completamente sin estructura.",
+        "isCorrect": false
+      },
+      {
+        "text": "Los registros dentro de una misma colección o tabla pueden tener campos diferentes y no es necesario predefinir una estructura rígida.",
+        "rationale": "Esta es la esencia de la flexibilidad de esquema: permite que la estructura de los datos evolucione sin necesidad de migraciones de esquema complejas como en SQL.",
+        "isCorrect": true
+      },
+      {
+        "text": "Se debe definir un esquema al principio, pero se puede modificar fácilmente con comandos DDL.",
+        "rationale": "Esto describe cómo se gestiona el esquema en bases de datos SQL. La flexibilidad de NoSQL a menudo no requiere una definición inicial.",
+        "isCorrect": false
+      },
+      {
+        "text": "El esquema se aplica únicamente durante la lectura de los datos (schema-on-read), pero no durante la escritura.",
+        "rationale": "Aunque el concepto de 'schema-on-read' existe en el mundo Big Data, la característica principal de NoSQL es la capacidad de almacenar documentos con diferentes estructuras.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Compara cómo se guardaría la información de dos usuarios diferentes, donde uno tiene un campo 'profesión' y el otro no, en una misma colección."
+  },
+  {
+    "guid": "2d91c5dd-ad70-48b9-90e0-ba5067cbeead",
+    "subjectId": "T53",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Si una aplicación requiere analizar las conexiones en una red social para encontrar 'amigos de amigos' o detectar patrones de fraude, ¿qué tipo de base de datos NoSQL sería la más eficiente?",
+    "answerOptions": [
+      {
+        "text": "Documental (p. ej. MongoDB)",
+        "rationale": "Aunque se pueden modelar relaciones, las consultas recursivas o de múltiples saltos para analizar conexiones no son su punto fuerte.",
+        "isCorrect": false
+      },
+      {
+        "text": "De grafos (p. ej. Neo4j)",
+        "rationale": "Este modelo está específicamente diseñado para representar entidades (nodos) y las conexiones entre ellas (aristas), haciendo que las consultas de relaciones sean extremadamente rápidas.",
+        "isCorrect": true
+      },
+      {
+        "text": "Clave-valor (p. ej. Redis)",
+        "rationale": "Este modelo es muy simple y rápido para búsquedas directas por clave, pero no es adecuado para explorar relaciones complejas entre diferentes claves.",
+        "isCorrect": false
+      },
+      {
+        "text": "De columnas anchas (p. ej. Cassandra)",
+        "rationale": "Está optimizada para manejar cantidades masivas de datos en clústeres, pero no para consultas que atraviesan relaciones complejas.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Elige el modelo de datos que se especializa en representar y consultar las relaciones entre diferentes entidades."
+  },
+  {
+    "guid": "f616d09a-b9c2-4988-843f-a07677a91994",
+    "subjectId": "T53",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En el lenguaje SQL, los comandos se dividen en sublenguajes como DDL, DML y DCL. ¿A qué sublenguaje pertenecen las instrucciones `GRANT` y `REVOKE`?",
+    "answerOptions": [
+      {
+        "text": "DDL (Data Definition Language)",
+        "rationale": "DDL se utiliza para definir y modificar la estructura de la base de datos, con comandos como `CREATE`, `ALTER` y `DROP`.",
+        "isCorrect": false
+      },
+      {
+        "text": "DML (Data Manipulation Language)",
+        "rationale": "DML se utiliza para manipular los datos dentro de las tablas, con comandos como `INSERT`, `UPDATE` y `DELETE`.",
+        "isCorrect": false
+      },
+      {
+        "text": "DCL (Data Control Language)",
+        "rationale": "DCL se encarga de la gestión de permisos y la seguridad de la base de datos, siendo `GRANT` y `REVOKE` sus comandos principales.",
+        "isCorrect": true
+      },
+      {
+        "text": "TCL (Transaction Control Language)",
+        "rationale": "TCL gestiona las transacciones, con comandos como `COMMIT` y `ROLLBACK`.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piensa en qué tipo de tarea se relaciona con la administración de los derechos de acceso de los usuarios."
+  },
+  {
+    "guid": "a39f4f44-faa1-4ae2-8811-08a7a6cfeaae",
+    "subjectId": "T53",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Hadoop es una tecnología a menudo mencionada en el contexto de Big Data junto a bases de datos NoSQL como HBase. ¿Cuál es la definición correcta de Hadoop?",
+    "answerOptions": [
+      {
+        "text": "Es un sistema de gestión de bases de datos (SGBD) NoSQL de tipo columnar.",
+        "rationale": "Esta descripción se ajusta más a HBase, que se ejecuta sobre Hadoop, pero no a Hadoop en sí.",
+        "isCorrect": false
+      },
+      {
+        "text": "Es un entorno de trabajo (framework) para procesar grandes volúmenes de datos de forma distribuida, que incluye un sistema de archivos (HDFS) y un modelo de procesamiento (MapReduce).",
+        "rationale": "Hadoop no es una base de datos, sino un ecosistema para el almacenamiento y procesamiento distribuido de Big Data.",
+        "isCorrect": true
+      },
+      {
+        "text": "Es un tipo de base de datos relacional optimizada para data warehousing.",
+        "rationale": "Hadoop no es una base de datos relacional; su enfoque es el procesamiento de datos a gran escala, a menudo no estructurados o semiestructurados.",
+        "isCorrect": false
+      },
+      {
+        "text": "Es un servicio en la nube para el almacenamiento de objetos, similar a Amazon S3.",
+        "rationale": "Aunque HDFS es un sistema de archivos, Hadoop es un framework completo de procesamiento, no solo un servicio de almacenamiento de objetos.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considera si esta herramienta es para almacenar datos en un formato específico o para procesar datos de manera general en un clúster."
+  },
+  {
+    "guid": "dcca94fd-12c2-49d3-b541-af717120dc19",
+    "subjectId": "T53",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Algunas bases de datos relacionales modernas como PostgreSQL han incorporado soporte para tipos de datos como JSON. ¿Qué implica esta característica?",
+    "answerOptions": [
+      {
+        "text": "Que PostgreSQL se ha convertido en una base de datos NoSQL de tipo documental.",
+        "rationale": "Aunque añade funcionalidades NoSQL, su núcleo sigue siendo relacional y basado en el modelo SQL y las propiedades ACID.",
+        "isCorrect": false
+      },
+      {
+        "text": "Que es posible almacenar datos semiestructurados dentro de una columna en una tabla relacional y consultarlos, combinando lo mejor de ambos mundos.",
+        "rationale": "Esta capacidad híbrida permite a los sistemas SQL manejar datos flexibles sin abandonar el modelo relacional, ofreciendo una mayor versatilidad.",
+        "isCorrect": true
+      },
+      {
+        "text": "Que todas las tablas en PostgreSQL ahora deben usar un esquema flexible basado en JSON.",
+        "rationale": "El soporte para JSON es una opción para columnas específicas, no un cambio en el modelo fundamental de la base de datos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Que ya no es necesario utilizar un lenguaje SQL para interactuar con la base de datos.",
+        "rationale": "La interacción principal sigue siendo a través de SQL, aunque con extensiones para poder consultar los datos dentro de los campos JSON.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piensa en cómo una tecnología establecida puede adaptarse para incorporar características de modelos más nuevos sin perder su identidad original."
+  },
+  {
+    "guid": "d01d7005-4492-447f-a061-0fec7231c836",
+    "subjectId": "T53",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Para qué tipo de procesamiento están optimizadas las bases de datos OLAP (Online Analytical Processing)?",
+    "answerOptions": [
+      {
+        "text": "Para un gran número de transacciones cortas y frecuentes, como las de un cajero automático o una tienda online.",
+        "rationale": "Este tipo de carga de trabajo corresponde al procesamiento OLTP (Online Transaction Processing), que se centra en las operaciones del día a día.",
+        "isCorrect": false
+      },
+      {
+        "text": "Para consultas complejas y análisis de grandes volúmenes de datos históricos, a menudo utilizando estructuras como cubos de datos.",
+        "rationale": "OLAP está diseñado para Business Intelligence y soporte a la toma de decisiones, priorizando la velocidad de lectura y agregación de datos.",
+        "isCorrect": true
+      },
+      {
+        "text": "Para el almacenamiento de datos no estructurados como imágenes o vídeos.",
+        "rationale": "Las bases de datos OLAP trabajan con datos estructurados organizados de forma multidimensional para el análisis, no con blobs binarios.",
+        "isCorrect": false
+      },
+      {
+        "text": "Para la gestión de relaciones complejas en redes, como en las redes sociales.",
+        "rationale": "El análisis de relaciones es el punto fuerte de las bases de datos de grafos, no de los sistemas OLAP.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "La 'A' en OLAP significa 'Analítico'. ¿Qué tipo de operaciones se realizan en un análisis de datos?"
+  },
+  {
+    "guid": "7f90cc4e-5e3c-43f9-b3e9-96ca8b15881f",
+    "subjectId": "T53",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "El modelo de consistencia BASE, asociado a sistemas NoSQL, prioriza la disponibilidad. ¿Qué significa la propiedad 'Soft-state' (Estado Suave) en este contexto?",
+    "answerOptions": [
+      {
+        "text": "El estado de la base de datos es fácil de modificar y no requiere hardware potente.",
+        "rationale": "El término 'suave' no se refiere a la facilidad de uso o a los requisitos de hardware, sino a la naturaleza cambiante del estado del sistema.",
+        "isCorrect": false
+      },
+      {
+        "text": "El estado del sistema puede cambiar con el tiempo sin una entrada explícita, debido a la propagación de actualizaciones (consistencia eventual).",
+        "rationale": "A diferencia de un sistema ACID donde el estado es consistente hasta la siguiente transacción, en un sistema BASE el estado es fluido mientras las réplicas se sincronizan.",
+        "isCorrect": true
+      },
+      {
+        "text": "La base de datos utiliza software para gestionar el estado, en lugar de mecanismos de hardware.",
+        "rationale": "Esta distinción no es el significado de 'Soft-state' en el acrónimo BASE.",
+        "isCorrect": false
+      },
+      {
+        "text": "Las transacciones no son duraderas y pueden perderse si el sistema falla.",
+        "rationale": "Esto se relaciona más con la Durabilidad de ACID; 'Soft-state' se refiere a la consistencia del sistema en un momento dado.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Esta propiedad describe cómo el estado de un sistema distribuido no es fijo, sino que está en proceso de converger."
+  }
+]
