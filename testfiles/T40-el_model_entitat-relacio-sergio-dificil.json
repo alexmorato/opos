@@ -1,0 +1,932 @@
+[
+  {
+    "guid": "a3116497-5028-45ef-950a-0fba00ef7892",
+    "subjectId": "T40",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "En el diseño de un inventario para un centro de datos, se requiere modelar los 'Racks' que se encuentran dentro de cada 'Sala'. Se determina que los racks no tienen un identificador global único y solo se distinguen por un número correlativo dentro de su respectiva sala. ¿Cómo debería representarse la entidad 'Rack' en el modelo Chen?",
+    "answerOptions": [
+      {
+        "text": "Como una entidad fuerte con un atributo clave propio que garantice unicidad absoluta.",
+        "rationale": "Las entidades fuertes deben poseer atributos que las identifiquen de forma independiente sin depender de otras entidades del sistema.",
+        "isCorrect": false
+      },
+      {
+        "text": "Como una entidad débil representada con un doble rectángulo.",
+        "rationale": "Al no poder identificarse por sí misma y depender de la existencia de la 'Sala', se ajusta a la definición de entidad débil y su representación gráfica correspondiente.",
+        "isCorrect": true
+      },
+      {
+        "text": "Como un atributo multivaluado de la entidad 'Sala'.",
+        "rationale": "Aunque un rack pertenece a una sala, suele tener sus propios atributos (como altura o material), lo que requiere una entidad y no solo un listado de valores.",
+        "isCorrect": false
+      },
+      {
+        "text": "Como una especialización de la entidad 'Infraestructura'.",
+        "rationale": "La especialización se basa en jerarquías de tipos, no en la dependencia de identificación entre objetos físicos distintos.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considere qué sucede con la identidad del Rack si la Sala desaparece del sistema."
+  },
+  {
+    "guid": "93d8497d-7ff7-422a-b547-b530945a15b4",
+    "subjectId": "T40",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Se le encarga diseñar un sistema de gestión de recursos humanos. Al modelar la entidad 'Empleado', se observa que un empleado puede poseer varios títulos académicos que deben registrarse de forma independiente. ¿Qué tipo de atributo es el más adecuado para los títulos?",
+    "answerOptions": [
+      {
+        "text": "Atributo compuesto.",
+        "rationale": "Este tipo de atributo se utiliza para desglosar una propiedad en partes menores, no para almacenar múltiples instancias de la misma propiedad.",
+        "isCorrect": false
+      },
+      {
+        "text": "Atributo derivado.",
+        "rationale": "Los atributos derivados se calculan a partir de otros datos y no representan información primaria recolectada directamente.",
+        "isCorrect": false
+      },
+      {
+        "text": "Atributo multivaluado.",
+        "rationale": "Permite que una única instancia de la entidad 'Empleado' se asocie con diversos valores para la característica 'Títulos'.",
+        "isCorrect": true
+      },
+      {
+        "text": "Atributo de valor único.",
+        "rationale": "Limitaría al empleado a poseer solo un título, lo cual contradice el requerimiento de negocio planteado.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en la notación de doble elipse utilizada en el modelo de Chen."
+  },
+  {
+    "guid": "4f0e85a7-f26b-4dec-be16-8715aa57cc8a",
+    "subjectId": "T40",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Durante el análisis de una plataforma de e-learning, se detecta que un 'Profesor' puede impartir varios 'Cursos', y un 'Curso' puede ser impartido por diversos 'Profesores'. ¿Cómo debe resolverse esta relación al pasar al modelo lógico relacional?",
+    "answerOptions": [
+      {
+        "text": "Incluyendo la clave del curso como atributo en la entidad profesor.",
+        "rationale": "Esto solo permitiría que un profesor impartiera un curso, ignorando la naturaleza de muchos a muchos de la relación.",
+        "isCorrect": false
+      },
+      {
+        "text": "Creando una entidad intermedia o tabla de enlace.",
+        "rationale": "Las relaciones con cardinalidad $N:M$ requieren una estructura intermedia para gestionar las asociaciones múltiples sin generar redundancia inconsistente.",
+        "isCorrect": true
+      },
+      {
+        "text": "Fusionando ambas entidades en una sola para evitar la relación.",
+        "rationale": "La fusión de entidades con conceptos distintos viola los principios de normalización y claridad del modelo entidad-relación.",
+        "isCorrect": false
+      },
+      {
+        "text": "Utilizando una relación $1:1$ para simplificar el acceso a los datos.",
+        "rationale": "Forzar una cardinalidad $1:1$ falsearía la realidad del negocio, donde la colaboración docente es múltiple.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Recuerde las limitaciones mencionadas sobre las relaciones de tipo $N:M$ en bases de datos relacionales."
+  },
+  {
+    "guid": "62c5c95f-de6e-41ee-9607-0f93f6d63402",
+    "subjectId": "T40",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "En un sistema de gestión hospitalaria, se decide que la entidad 'Persona' se divida en 'Médico' y 'Paciente'. Si se establece que una persona no puede ser médico y paciente simultáneamente, ¿qué propiedad de la especialización se está aplicando?",
+    "answerOptions": [
+      {
+        "text": "Especialización total.",
+        "rationale": "La totalidad se refiere a si toda instancia de la superclase debe pertenecer obligatoriamente a alguna subclase.",
+        "isCorrect": false
+      },
+      {
+        "text": "Especialización parcial.",
+        "rationale": "La parcialidad indica que pueden existir instancias en la superclase que no encajen en ninguna de las subclases definidas.",
+        "isCorrect": false
+      },
+      {
+        "text": "Subclases solapadas.",
+        "rationale": "El solapamiento permitiría que una instancia perteneciera a dos o más categorías al mismo tiempo.",
+        "isCorrect": false
+      },
+      {
+        "text": "Subclases disjuntas.",
+        "rationale": "La disyunción garantiza que las categorías sean mutuamente excluyentes, impidiendo la duplicidad de roles en la misma instancia.",
+        "isCorrect": true
+      }
+    ],
+    "hint": "Considere el uso de la etiqueta 'D' en los diagramas para representar esta restricción."
+  },
+  {
+    "guid": "bf8b1eff-7a4c-4d05-8d91-f754d13fea95",
+    "subjectId": "T40",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Usted está revisando un diagrama en notación Crow's Foot. Observa una línea que conecta 'Proyecto' con 'Tarea' donde el extremo cercano a 'Tarea' tiene un círculo seguido de una pata de gallo. ¿Qué significa esto?",
+    "answerOptions": [
+      {
+        "text": "Que un proyecto debe tener obligatoriamente al menos una tarea.",
+        "rationale": "El círculo indica una cardinalidad mínima de cero, lo que implica opcionalidad, no obligatoriedad.",
+        "isCorrect": false
+      },
+      {
+        "text": "Que una tarea puede estar asociada a múltiples proyectos de forma obligatoria.",
+        "rationale": "La interpretación de los símbolos debe hacerse mirando hacia la entidad adyacente al símbolo, no hacia la opuesta.",
+        "isCorrect": false
+      },
+      {
+        "text": "Que un proyecto puede tener asociadas cero o más tareas.",
+        "rationale": "En Crow's Foot, el círculo representa el mínimo (cero) y la pata de gallo el máximo (muchos).",
+        "isCorrect": true
+      },
+      {
+        "text": "Que la relación entre proyectos y tareas es de uno a uno.",
+        "rationale": "La pata de gallo es el símbolo específico para representar la multiplicidad 'muchos'.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Diferencie entre el símbolo de cardinalidad mínima (más alejado de la entidad) y máxima (más cercano)."
+  },
+  {
+    "guid": "3c1d9f7a-b14c-476b-8825-713e138374b5",
+    "subjectId": "T40",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "En el contexto de una Administración Pública, se modela la entidad 'Vehículo' con los atributos 'Matrícula', 'Marca' y 'Antigüedad'. Si 'Antigüedad' se calcula dinámicamente cada vez que se consulta el sistema basándose en la fecha de matriculación, ¿cómo se representa en Chen?",
+    "answerOptions": [
+      {
+        "text": "Como una elipse con trazo punteado.",
+        "rationale": "Esta es la notación estándar para atributos derivados, indicando que su valor no se almacena sino que se computa.",
+        "isCorrect": true
+      },
+      {
+        "text": "Como una elipse subrayada para indicar su importancia.",
+        "rationale": "El subrayado está reservado exclusivamente para los atributos clave o identificadores únicos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Como una elipse doble debido a que el valor cambia con el tiempo.",
+        "rationale": "La elipse doble representa atributos multivaluados, no atributos cuyo valor es único pero calculado.",
+        "isCorrect": false
+      },
+      {
+        "text": "Dentro de un rombo, ya que implica una operación lógica.",
+        "rationale": "Los rombos se utilizan para representar relaciones entre entidades, no características internas de las mismas.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en la diferencia visual entre un dato estático y uno que 'nace' de otro."
+  },
+  {
+    "guid": "39a3ab89-db92-4481-9ba1-9caeb153b44b",
+    "subjectId": "T40",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Un técnico senior le pide que aplique el concepto de 'Agregación' en un modelo que representa las tutorías. Un 'Alumno' tiene una 'Relación de Prácticas' con una 'Empresa', y un 'Tutor' debe supervisar esa relación específica. ¿Por qué usar agregación?",
+    "answerOptions": [
+      {
+        "text": "Para permitir que una relación sea tratada como una entidad de nivel superior y pueda relacionarse con otras.",
+        "rationale": "La agregación abstrae una relación existente para que pueda participar en nuevas interrelaciones como si fuera un objeto independiente.",
+        "isCorrect": true
+      },
+      {
+        "text": "Para evitar el uso de claves externas en el modelo físico.",
+        "rationale": "La agregación es un concepto del modelo conceptual (MER) y no tiene como objetivo principal la gestión técnica de claves externas.",
+        "isCorrect": false
+      },
+      {
+        "text": "Para indicar que un alumno pertenece físicamente a una empresa.",
+        "rationale": "La agregación no define pertenencia física o composición, sino una abstracción de asociaciones lógicas.",
+        "isCorrect": false
+      },
+      {
+        "text": "Para reducir el número de entidades en el diagrama mediante la fusión de tablas.",
+        "rationale": "La agregación suele añadir una capa de complejidad estructural al diagrama para ganar precisión semántica, no para simplificarlo visualmente.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considere la necesidad de conectar un 'Tutor' no con un alumno, sino con el vínculo 'Alumno-Empresa'."
+  },
+  {
+    "guid": "842b6a33-cfdf-469e-b418-15ff4dc5c011",
+    "subjectId": "T40",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Al diseñar una base de datos para una cadena logística, se define que cada 'Envío' debe tener obligatoriamente un 'Transportista' asignado, pero un 'Transportista' puede no tener envíos asignados en un momento dado. ¿Qué tipo de participaciones existen?",
+    "answerOptions": [
+      {
+        "text": "Participación total de Transportista y parcial de Envío.",
+        "rationale": "Si el envío requiere obligatoriamente al transportista, es el envío el que tiene participación total.",
+        "isCorrect": false
+      },
+      {
+        "text": "Participación parcial en ambas entidades.",
+        "rationale": "Esto permitiría la existencia de envíos sin transportista, lo cual viola el requisito de obligatoriedad planteado.",
+        "isCorrect": false
+      },
+      {
+        "text": "Participación total de Envío y parcial de Transportista.",
+        "rationale": "La totalidad en Envío asegura que cada instancia participe en la relación, mientras que la parcialidad en Transportista permite su existencia independiente.",
+        "isCorrect": true
+      },
+      {
+        "text": "Participación total en ambas entidades.",
+        "rationale": "Obligaría a que todos los transportistas registrados tuvieran siempre al menos un envío, lo cual no es un requisito.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Identifique cuál de las dos entidades no puede existir 'sola' dentro de la relación."
+  },
+  {
+    "guid": "b7d50eac-4473-4a7c-af87-49c25b64c8c4",
+    "subjectId": "T40",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Se desea modelar una estructura jerárquica de empleados donde un 'Director' supervisa a varios 'Empleados', y cada 'Empleado' es supervisado por un único 'Director'. Sabiendo que tanto directores como empleados están en la misma entidad, ¿qué tipo de relación es?",
+    "answerOptions": [
+      {
+        "text": "Relación ternaria.",
+        "rationale": "Una relación ternaria involucra tres entidades distintas participando en el mismo vínculo.",
+        "isCorrect": false
+      },
+      {
+        "text": "Relación reflexiva o recursiva.",
+        "rationale": "Ocurre cuando una entidad se relaciona consigo misma, permitiendo modelar jerarquías dentro del mismo conjunto de datos.",
+        "isCorrect": true
+      },
+      {
+        "text": "Especialización disjunta.",
+        "rationale": "Aunque define roles, la especialización no describe el vínculo de supervisión activa entre las instancias.",
+        "isCorrect": false
+      },
+      {
+        "text": "Relación de agregación.",
+        "rationale": "La agregación se usa para relacionar una relación previa con otra entidad, no para jerarquías simples de una sola entidad.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en una línea que sale de la entidad 'Empleado' y vuelve a entrar en ella a través de un rombo."
+  },
+  {
+    "guid": "4ab1f020-5f43-47ef-8277-97384254105d",
+    "subjectId": "T40",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "En el modelo entidad-relación, ¿cuál es la principal ventaja de que sea un modelo de 'alto nivel' e independiente del SGBD?",
+    "answerOptions": [
+      {
+        "text": "Permite generar automáticamente el código SQL optimizado para cualquier motor.",
+        "rationale": "El MER es conceptual; la generación de código depende de herramientas de ingeniería de software y del diseño físico posterior.",
+        "isCorrect": false
+      },
+      {
+        "text": "Facilita centrarse en la semántica de la información sin las restricciones técnicas de una implementación específica.",
+        "rationale": "Al ser independiente de la tecnología, permite que el diseño refleje fielmente la realidad del negocio antes de considerar limitaciones de software.",
+        "isCorrect": true
+      },
+      {
+        "text": "Garantiza que la base de datos no ocupará demasiado espacio en disco.",
+        "rationale": "La eficiencia del almacenamiento es una preocupación del diseño físico y la configuración del hardware, no del modelo conceptual.",
+        "isCorrect": false
+      },
+      {
+        "text": "Elimina la necesidad de definir tipos de datos para los atributos.",
+        "rationale": "Incluso en el MER, definir el dominio (conjunto de valores permitidos) es parte fundamental de la definición de atributos.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en el propósito de la fase de diseño conceptual en el ciclo de vida de una base de datos."
+  },
+  {
+    "guid": "25d3ffe2-07f7-4119-b71f-ea127cf6262f",
+    "subjectId": "T40",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Al modelar una entidad 'Dirección', se decide que sea un atributo compuesto por 'Calle', 'Ciudad' y 'Código Postal'. ¿Cuál es el beneficio de esta decisión frente a tratarlo como un atributo simple?",
+    "answerOptions": [
+      {
+        "text": "Permite realizar búsquedas y filtrados más precisos por cada sub-elemento de la dirección.",
+        "rationale": "Al desglosar la información, se facilita el tratamiento individual de sus componentes, mejorando la granularidad de los datos.",
+        "isCorrect": true
+      },
+      {
+        "text": "Reduce el número total de atributos en la tabla resultante.",
+        "rationale": "Al contrario, un atributo compuesto se traduce habitualmente en múltiples columnas en el modelo relacional.",
+        "isCorrect": false
+      },
+      {
+        "text": "Evita tener que usar valores nulos en el sistema.",
+        "rationale": "La composición de atributos no afecta inherentemente a la obligatoriedad o nulidad de los datos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Es la única forma de representar direcciones en bases de datos relacionales.",
+        "rationale": "Una dirección puede representarse como un string simple, aunque sea menos eficiente para el análisis de datos.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considere qué pasaría si un usuario quisiera filtrar clientes solo por una ciudad específica."
+  },
+  {
+    "guid": "a81b1a29-83b5-498d-89d2-f4ecd95458c9",
+    "subjectId": "T40",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "En una base de datos de una universidad, la entidad 'Estudiante' hereda propiedades de la entidad 'Persona'. Si el sistema permite que una persona sea 'Estudiante' y 'Profesor' a la vez, ¿cómo se clasifica esta especialización?",
+    "answerOptions": [
+      {
+        "text": "Como una especialización disjunta.",
+        "rationale": "La disyunción prohibiría explícitamente la coexistencia de ambos roles para la misma persona.",
+        "isCorrect": false
+      },
+      {
+        "text": "Como una especialización solapada.",
+        "rationale": "El solapamiento (marcado con una 'S' o 'O') permite que una instancia de la superclase pertenezca a múltiples subclases simultáneamente.",
+        "isCorrect": true
+      },
+      {
+        "text": "Como una agregación de roles.",
+        "rationale": "La agregación es un concepto diferente que trata relaciones como entidades, no jerarquías de tipos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Como una entidad débil.",
+        "rationale": "La condición de ser estudiante no depende de la identificación por otra entidad, sino de una categorización de tipo.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en la etiqueta que se coloca junto al triángulo de especialización en el diagrama."
+  },
+  {
+    "guid": "a994a849-584b-4a7b-a4aa-783fe4bea3c1",
+    "subjectId": "T40",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Usted encuentra en un diagrama Chen una línea doble que conecta una entidad débil con un rombo. ¿Cuál es el significado técnico de esta representación?",
+    "answerOptions": [
+      {
+        "text": "Es una relación de muchos a muchos que requiere una tabla intermedia.",
+        "rationale": "La cardinalidad se indica con letras ($N$, $M$), no con el grosor o duplicidad de las líneas de conexión.",
+        "isCorrect": false
+      },
+      {
+        "text": "Indica que la relación es identificativa para la entidad débil.",
+        "rationale": "La línea doble resalta que la entidad débil no solo participa en la relación, sino que depende de ella para ser única en el sistema.",
+        "isCorrect": true
+      },
+      {
+        "text": "Representa que todos los atributos de la entidad son obligatorios.",
+        "rationale": "La obligatoriedad de los atributos se define en el dominio y las restricciones de la columna, no en la línea de relación.",
+        "isCorrect": false
+      },
+      {
+        "text": "Indica una relación de herencia entre la entidad fuerte y la débil.",
+        "rationale": "La herencia se representa mediante triángulos, mientras que las relaciones dependen de rombos.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Relacione el símbolo con el concepto de dependencia de existencia e identificación."
+  },
+  {
+    "guid": "1dbd1c3e-e932-4a7d-8c20-ff7cc747f173",
+    "subjectId": "T40",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Se define una relación entre 'Departamento' y 'Empleado' como $1:N$. Si se especifica que el departamento tiene una participación parcial en la relación, ¿qué implica esto para los departamentos?",
+    "answerOptions": [
+      {
+        "text": "Que un empleado puede trabajar en varios departamentos a la vez.",
+        "rationale": "La cardinalidad $1:N$ desde departamento a empleado ya impide que un empleado esté en más de un departamento.",
+        "isCorrect": false
+      },
+      {
+        "text": "Que puede haber departamentos que no tengan ningún empleado asignado.",
+        "rationale": "La participación parcial significa que no todas las instancias de la entidad deben estar vinculadas a través de esa relación.",
+        "isCorrect": true
+      },
+      {
+        "text": "Que todos los departamentos deben tener al menos un empleado.",
+        "rationale": "Eso describiría una participación total, no parcial.",
+        "isCorrect": false
+      },
+      {
+        "text": "Que los empleados son los que identifican al departamento.",
+        "rationale": "La identificación es un concepto de entidades débiles y atributos clave, no de participación en relaciones estándar.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Recuerde la distinción entre 'opcional' y 'obligatorio' en el contexto de las instancias de una entidad."
+  },
+  {
+    "guid": "95230fde-7ca6-4319-8d64-c22138eec238",
+    "subjectId": "T40",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "En la notación Crow's Foot, ¿cómo se representa una relación donde una instancia de A se debe asociar con exactamente una instancia de B?",
+    "answerOptions": [
+      {
+        "text": "Con una pata de gallo y una línea simple.",
+        "rationale": "La pata de gallo siempre indica multiplicidad 'muchos', lo cual contradice el requerimiento de 'exactamente una'.",
+        "isCorrect": false
+      },
+      {
+        "text": "Con dos líneas verticales perpendiculares a la línea de relación.",
+        "rationale": "La primera línea indica el mínimo (uno, obligatorio) y la segunda el máximo (uno).",
+        "isCorrect": true
+      },
+      {
+        "text": "Con un círculo y una línea vertical.",
+        "rationale": "El círculo indica que el mínimo es cero, permitiendo que la asociación sea opcional.",
+        "isCorrect": false
+      },
+      {
+        "text": "Con una línea discontinua sin símbolos adicionales.",
+        "rationale": "Las líneas discontinuas en algunas metodologías indican relaciones no identificativas, pero Crow's Foot usa símbolos específicos en los extremos.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en la combinación de símbolos que representa 'mínimo uno' y 'máximo uno'."
+  },
+  {
+    "guid": "c51872fe-e8fc-4134-adfe-79d4751afb81",
+    "subjectId": "T40",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Un consultor sugiere utilizar un 'Atributo Multivaluado' para almacenar las direcciones IP de un servidor. ¿Cuál es el principal inconveniente de este enfoque si luego se quiere buscar servidores por una subred específica?",
+    "answerOptions": [
+      {
+        "text": "No se pueden almacenar más de dos valores en un atributo multivaluado.",
+        "rationale": "Por definición, un atributo multivaluado puede contener cualquier número de instancias.",
+        "isCorrect": false
+      },
+      {
+        "text": "Dificulta la eficiencia de las consultas y viola la primera forma normal en el modelo relacional.",
+        "rationale": "Almacenar múltiples valores en un solo 'campo' conceptual complica el filtrado y la indexación individual de esos valores.",
+        "isCorrect": true
+      },
+      {
+        "text": "Obliga a que todos los servidores tengan el mismo número de direcciones IP.",
+        "rationale": "La estructura multivaluada permite flexibilidad en la cantidad de datos por instancia.",
+        "isCorrect": false
+      },
+      {
+        "text": "Impide que las direcciones IP tengan atributos propios como 'Tipo' o 'Fecha de asignación'.",
+        "rationale": "Aunque es cierto, el inconveniente principal planteado en la pregunta se refiere a la capacidad de búsqueda y normalización.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considere qué ocurre cuando se intenta aplicar operaciones de base de datos sobre una lista no estructurada dentro de un atributo."
+  },
+  {
+    "guid": "f8426f9a-f642-4f49-9dcd-f71c16252f0f",
+    "subjectId": "T40",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "En un diagrama ER de una biblioteca, la relación 'Préstamo' conecta 'Usuario' y 'Libro'. Se añade un atributo 'Fecha_Devolución' a la relación. ¿Qué significa que un atributo pertenezca a la relación y no a una de las entidades?",
+    "answerOptions": [
+      {
+        "text": "Que la fecha es la misma para todos los libros del sistema.",
+        "rationale": "Los atributos de relación son específicos de cada par (o tupla) de instancias relacionadas, no globales.",
+        "isCorrect": false
+      },
+      {
+        "text": "Que el atributo solo tiene sentido cuando se produce el vínculo entre ambas entidades.",
+        "rationale": "La fecha de devolución no es una propiedad intrínseca del usuario ni del libro, sino del acto del préstamo en sí.",
+        "isCorrect": true
+      },
+      {
+        "text": "Que es un atributo derivado del identificador del usuario.",
+        "rationale": "Las fechas suelen ser datos de entrada o eventos, no necesariamente cálculos basados en la identidad del sujeto.",
+        "isCorrect": false
+      },
+      {
+        "text": "Que la relación 'Préstamo' se ha convertido automáticamente en una entidad débil.",
+        "rationale": "Tener atributos no cambia la naturaleza de la relación a entidad débil; eso requeriría un cambio estructural en el modelado.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Pregúntese: ¿Podríamos saber la fecha de devolución si no existiera un préstamo concreto?"
+  },
+  {
+    "guid": "5687df38-1fd8-4ce4-a482-883d92e5b1af",
+    "subjectId": "T40",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Usted está modelando un proceso de fabricación. Una 'Máquina' produce 'Piezas'. Se detecta que hay una relación de muchos a muchos ($N:M$). Si desea registrar la 'Cantidad de material usado' en cada proceso de producción, ¿dónde debería ubicar este atributo?",
+    "answerOptions": [
+      {
+        "text": "En la entidad 'Máquina'.",
+        "rationale": "La máquina puede producir muchas piezas distintas con cantidades de material diferentes, por lo que no es una propiedad estática de la máquina.",
+        "isCorrect": false
+      },
+      {
+        "text": "En la entidad 'Pieza'.",
+        "rationale": "Diferentes máquinas podrían usar distintas cantidades de material para la misma pieza, por lo que no es una propiedad única de la pieza.",
+        "isCorrect": false
+      },
+      {
+        "text": "En la relación 'Produce' que une a ambas.",
+        "rationale": "El dato pertenece a la interacción específica entre una máquina y una pieza durante un evento de producción.",
+        "isCorrect": true
+      },
+      {
+        "text": "Como un atributo derivado de la entidad 'Fábrica'.",
+        "rationale": "La fábrica es un contexto demasiado general para un dato tan específico de una línea de producción.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en qué elemento del diagrama representa la unión de los dos factores productivos."
+  },
+  {
+    "guid": "b20ea43a-633b-486f-931a-af9998147d5d",
+    "subjectId": "T40",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Al realizar una 'Generalización' de las entidades 'Camión' y 'Motocicleta' hacia la entidad 'Vehículo', ¿qué dirección sigue el proceso de diseño?",
+    "answerOptions": [
+      {
+        "text": "Descendente (Top-down).",
+        "rationale": "El diseño descendente parte de lo general para llegar a lo específico, lo cual es propio de la especialización.",
+        "isCorrect": false
+      },
+      {
+        "text": "Ascendente (Bottom-up).",
+        "rationale": "La generalización identifica similitudes en entidades existentes para sintetizarlas en una categoría superior.",
+        "isCorrect": true
+      },
+      {
+        "text": "Lateral (Horizontal).",
+        "rationale": "Este término no se utiliza para describir procesos de jerarquización de entidades en el modelo ER.",
+        "isCorrect": false
+      },
+      {
+        "text": "Circular.",
+        "rationale": "Los procesos de abstracción en bases de datos son jerárquicos y tienen un sentido claro de flujo de información.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Imagine si está construyendo el modelo desde las piezas pequeñas hacia el concepto global o al revés."
+  },
+  {
+    "guid": "73085961-921d-4465-b667-752cf2059b74",
+    "subjectId": "T40",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "En el contexto de la integridad de los datos, ¿qué representa un 'valor nulo' en un atributo de una entidad?",
+    "answerOptions": [
+      {
+        "text": "Que el valor es numéricamente igual a cero.",
+        "rationale": "El cero es un valor definido; el nulo representa la ausencia total de valor o información.",
+        "isCorrect": false
+      },
+      {
+        "text": "La ausencia de un valor aplicable o conocido para esa instancia.",
+        "rationale": "Indica que para ese atributo concreto, en esa instancia particular, no se dispone de información.",
+        "isCorrect": true
+      },
+      {
+        "text": "Un error crítico que impide el funcionamiento del SGBD.",
+        "rationale": "Los SGBD modernos están diseñados para gestionar nulos, siempre que la restricción 'NOT NULL' no esté activa.",
+        "isCorrect": false
+      },
+      {
+        "text": "Que el atributo es automáticamente un identificador clavo.",
+        "rationale": "Por regla general, los atributos clave no pueden contener valores nulos porque perderían su capacidad de identificación.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en un formulario donde un campo no obligatorio se deja vacío."
+  },
+  {
+    "guid": "59aae122-ebc5-4ed9-8d0c-2c607e848134",
+    "subjectId": "T40",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Un diagrama muestra una especialización total marcada con una 'T'. Si la superclase es 'Dispositivo' y las subclases son 'Laptop' y 'Tablet', ¿qué implica esta 'T'?",
+    "answerOptions": [
+      {
+        "text": "Que un dispositivo puede ser Laptop o Tablet, pero no ambos.",
+        "rationale": "Eso describiría la propiedad de disyunción, no de totalidad.",
+        "isCorrect": false
+      },
+      {
+        "text": "Que cada registro en 'Dispositivo' debe pertenecer obligatoriamente a 'Laptop' o a 'Tablet'.",
+        "rationale": "La totalidad asegura que no existen instancias en la superclase que queden 'huérfanas' de una categoría específica.",
+        "isCorrect": true
+      },
+      {
+        "text": "Que el tiempo de respuesta de las consultas sobre dispositivos es total.",
+        "rationale": "Este es un concepto de rendimiento físico que no tiene relación con las etiquetas semánticas del MER.",
+        "isCorrect": false
+      },
+      {
+        "text": "Que las tablas de Laptop y Tablet se fusionarán en una sola.",
+        "rationale": "La transformación a modelo relacional es posterior y la 'T' solo define una regla de negocio sobre los datos.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considere si puede existir un 'Dispositivo' genérico que no sea ni Laptop ni Tablet."
+  },
+  {
+    "guid": "f9116885-01c6-4ba3-bde3-36c7a946ca7d",
+    "subjectId": "T40",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Cuál es la función del 'Dominio' de un atributo en el MER?",
+    "answerOptions": [
+      {
+        "text": "Definir el nombre único del atributo en toda la base de datos.",
+        "rationale": "El nombre es una etiqueta identificativa; el dominio se refiere a la naturaleza del contenido.",
+        "isCorrect": false
+      },
+      {
+        "text": "Especificar el conjunto de valores permitidos para dicho atributo.",
+        "rationale": "El dominio establece los límites lógicos y de tipo (ej: números enteros positivos) para asegurar la integridad.",
+        "isCorrect": true
+      },
+      {
+        "text": "Determinar qué usuarios tienen permiso para ver el atributo.",
+        "rationale": "La gestión de permisos es parte de la administración del SGBD y no del modelo entidad-relación conceptual.",
+        "isCorrect": false
+      },
+      {
+        "text": "Indicar si el atributo es una clave primaria o foránea.",
+        "rationale": "Eso se define mediante la identificación de claves y relaciones, no a través del dominio del dato.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en las reglas que impiden introducir texto en un campo de 'Edad'."
+  },
+  {
+    "guid": "2adf08de-65e2-4eab-bc60-3e65db2094bf",
+    "subjectId": "T40",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "En un sistema de gestión de incidencias, se tiene la entidad 'Técnico' y la entidad 'Incidencia'. Un técnico puede resolver muchas incidencias y una incidencia puede ser resuelta por un solo técnico. ¿Cómo se clasifica el 'grado' de esta relación?",
+    "answerOptions": [
+      {
+        "text": "Grado uno.",
+        "rationale": "El grado se refiere al número de entidades participantes, no a la cardinalidad de la relación.",
+        "isCorrect": false
+      },
+      {
+        "text": "Binaria.",
+        "rationale": "Participan dos entidades distintas ('Técnico' e 'Incidencia'), lo que la define como una relación de grado dos o binaria.",
+        "isCorrect": true
+      },
+      {
+        "text": "Recursiva.",
+        "rationale": "Sería recursiva si el técnico se relacionara con otros técnicos en la misma tabla.",
+        "isCorrect": false
+      },
+      {
+        "text": "Ternaria.",
+        "rationale": "Requeriría la participación de una tercera entidad, como 'Departamento' o 'Cliente', de forma directa en el rombo.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Cuente cuántos rectángulos están conectados al rombo de la relación."
+  },
+  {
+    "guid": "7dcfabd3-daef-43dd-93f1-d59ab137a62e",
+    "subjectId": "T40",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Se observa que en una relación $1:1$ entre 'Empleado' y 'Coche_Empresa', el empleado tiene participación total pero el coche tiene participación parcial. ¿Qué decisión de diseño refleja esto?",
+    "answerOptions": [
+      {
+        "text": "Que todos los empleados deben tener asignado un coche.",
+        "rationale": "La participación total en la entidad 'Empleado' obliga a que cada instancia de esta entidad esté presente en la relación.",
+        "isCorrect": true
+      },
+      {
+        "text": "Que todos los coches de la empresa están siendo usados.",
+        "rationale": "La participación parcial en 'Coche_Empresa' permite que existan coches en el inventario sin estar asignados a ningún empleado.",
+        "isCorrect": false
+      },
+      {
+        "text": "Que varios empleados pueden compartir el mismo coche.",
+        "rationale": "La cardinalidad $1:1$ prohíbe explícitamente compartir el recurso entre múltiples instancias.",
+        "isCorrect": false
+      },
+      {
+        "text": "Que la entidad coche depende para su identificación de la entidad empleado.",
+        "rationale": "La participación se refiere a la presencia en la relación, no a la dependencia de identificación propia de las entidades débiles.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Analice qué sucede con un empleado que no tiene coche según estas reglas."
+  },
+  {
+    "guid": "c53fc0b4-ad3f-46a5-b11e-0c1b9fa1ce65",
+    "subjectId": "T40",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Al comparar las notaciones Chen y Crow's Foot, ¿cuál es la diferencia fundamental en la representación de los atributos?",
+    "answerOptions": [
+      {
+        "text": "Chen utiliza ovalos externos; Crow's Foot los llista dentro del rectángulo de la entidad.",
+        "rationale": "Chen separa visualmente los atributos de la entidad, mientras que Crow's Foot los integra para una lectura más compacta y cercana al modelo relacional.",
+        "isCorrect": true
+      },
+      {
+        "text": "Chen no permite representar claves primarias; Crow's Foot sí.",
+        "rationale": "Ambas notaciones permiten identificar claves (subrayado en Chen, PK o línea separadora en Crow's Foot).",
+        "isCorrect": false
+      },
+      {
+        "text": "Crow's Foot solo permite atributos simples.",
+        "rationale": "Ambas pueden representar la complejidad de los datos, aunque Crow's Foot suele simplificarlos para el diseño lógico.",
+        "isCorrect": false
+      },
+      {
+        "text": "Chen representa los atributos dentro del rombo de relación.",
+        "rationale": "En Chen, los atributos se conectan a entidades o rombos mediante elipses, no se escriben dentro de ellos.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en la apariencia visual: una 'nube' de círculos vs una lista estructurada."
+  },
+  {
+    "guid": "66640deb-2149-4006-9fa9-274f63ed7dd8",
+    "subjectId": "T40",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Una limitación del MER es que refleja solo la 'estructura estática' de los datos. ¿Qué significa esto para un técnico que analiza flujos de trabajo?",
+    "answerOptions": [
+      {
+        "text": "Que el modelo no puede representar la evolución temporal ni los procesos que modifican los datos.",
+        "rationale": "El MER describe qué datos existen y cómo se vinculan, pero no los estados intermedios, disparadores (triggers) ni el flujo operativo.",
+        "isCorrect": true
+      },
+      {
+        "text": "Que los datos de la base de datos nunca pueden actualizarse.",
+        "rationale": "La base de datos es dinámica; es el 'modelo' el que representa un esquema fijo de organización.",
+        "isCorrect": false
+      },
+      {
+        "text": "Que es imposible representar relaciones entre más de dos entidades.",
+        "rationale": "El MER soporta relaciones ternarias y n-arias perfectamente en su estructura estática.",
+        "isCorrect": false
+      },
+      {
+        "text": "Que el servidor de base de datos debe estar apagado durante el diseño.",
+        "rationale": "Es una interpretación errónea del término 'estático', que se refiere al esquema lógico y no al estado físico del hardware.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Diferencie entre la 'foto' de la estructura y la 'película' del proceso de negocio."
+  },
+  {
+    "guid": "0aef345a-cce2-4a79-ad0f-d52a94e60b7b",
+    "subjectId": "T40",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Se le solicita modelar un sistema donde un 'Proyecto' es realizado por un 'Equipo', y este proyecto utiliza 'Herramientas'. Si la asignación de herramientas depende tanto del proyecto como del equipo simultáneamente, ¿qué estructura es la más correcta?",
+    "answerOptions": [
+      {
+        "text": "Tres relaciones independientes de uno a muchos.",
+        "rationale": "Esto no capturaría la interdependencia de los tres elementos en un mismo evento o contexto.",
+        "isCorrect": false
+      },
+      {
+        "text": "Una relación ternaria que conecte las tres entidades.",
+        "rationale": "Las relaciones n-arias permiten modelar asociaciones donde participan más de dos entidades de forma conjunta.",
+        "isCorrect": true
+      },
+      {
+        "text": "Una entidad débil llamada 'Herramienta' que dependa del 'Proyecto'.",
+        "rationale": "Las herramientas suelen tener existencia propia e independiente de un proyecto concreto.",
+        "isCorrect": false
+      },
+      {
+        "text": "Eliminar la entidad 'Equipo' para simplificar el modelo.",
+        "rationale": "La eliminación de una entidad relevante conlleva la pérdida de información crítica para el sistema.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en un rombo central del que salen líneas hacia tres rectángulos diferentes."
+  },
+  {
+    "guid": "a01120bd-a2e3-482a-9254-fcaf7095d94e",
+    "subjectId": "T40",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "En un sistema operativo, un 'Archivo' pertenece a un 'Directorio', y un 'Directorio' puede contener muchos 'Archivos'. Si un archivo no puede existir sin un directorio padre que lo identifique por su nombre, ¿cómo se define esta relación?",
+    "answerOptions": [
+      {
+        "text": "Relación de especialización total.",
+        "rationale": "La especialización trata sobre tipos de objetos, no sobre la ubicación o contenedores de los mismos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Relación identificativa de una entidad débil.",
+        "rationale": "El archivo es una entidad débil que requiere del directorio para su identificación completa y existencia en el sistema de archivos.",
+        "isCorrect": true
+      },
+      {
+        "text": "Atributo derivado del tipo string.",
+        "rationale": "Un archivo tiene demasiada complejidad (permisos, tamaño, fechas) para ser solo un atributo de un directorio.",
+        "isCorrect": false
+      },
+      {
+        "text": "Relación muchos a muchos con agregación.",
+        "rationale": "Normalmente un archivo está en un único directorio en un momento dado, lo que apunta a una relación $1:N$ de dependencia.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considere la dependencia de existencia: si borramos el directorio, sus archivos desaparecen."
+  },
+  {
+    "guid": "deb32b26-e3e9-4666-9965-cf16357e1448",
+    "subjectId": "T40",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "En el modelo de herencia, ¿qué es la 'herencia de propiedades'?",
+    "answerOptions": [
+      {
+        "text": "La capacidad de las subclases de poseer los mismos atributos y relaciones que su superclase.",
+        "rationale": "Garantiza que la información común no se duplique y que las entidades hijas mantengan la estructura de la entidad padre.",
+        "isCorrect": true
+      },
+      {
+        "text": "El proceso de copiar manualmente los datos de una tabla a otra.",
+        "rationale": "La herencia es un concepto de diseño lógico, no una operación manual de gestión de datos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Una restricción que impide a las subclases tener atributos propios.",
+        "rationale": "Al contrario, el propósito de la especialización es permitir que las subclases tengan características específicas adicionales.",
+        "isCorrect": false
+      },
+      {
+        "text": "Un método para eliminar la clave primaria de las entidades hijas.",
+        "rationale": "Las subclases suelen compartir el mismo identificador que la superclase para mantener la integridad referencial.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en lo que 'recibe' un hijo de su padre en términos de características."
+  },
+  {
+    "guid": "c94fd18c-2024-4301-b95a-65bb335700b4",
+    "subjectId": "T40",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Cuál es la característica esencial que distingue a una entidad de un simple conjunto de datos en el MER?",
+    "answerOptions": [
+      {
+        "text": "Su capacidad de ser almacenada en un formato de archivo CSV.",
+        "rationale": "El formato de almacenamiento es irrelevante para la definición conceptual de entidad.",
+        "isCorrect": false
+      },
+      {
+        "text": "Su capacidad de ser identificada de manera única frente a otros objetos del mundo real.",
+        "rationale": "La identidad única es el pilar que permite distinguir instancias y establecer relaciones precisas.",
+        "isCorrect": true
+      },
+      {
+        "text": "Que siempre debe representar un objeto físico y tangible.",
+        "rationale": "Las entidades pueden ser intangibles, como una 'Cuenta Bancaria' o un 'Curso'.",
+        "isCorrect": false
+      },
+      {
+        "text": "Que no puede tener más de cinco atributos asociados.",
+        "rationale": "No existe un límite teórico para el número de atributos que puede describir una entidad.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Recuerde la definición de entidad como 'objeto del mundo real con existencia independiente'."
+  }
+]

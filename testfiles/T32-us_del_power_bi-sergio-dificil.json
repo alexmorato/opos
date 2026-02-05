@@ -1,0 +1,870 @@
+[
+  {
+    "guid": "85e0c1fd-c629-45e6-b7be-d6b804fd8c65",
+    "subjectId": "T32",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Un departamento gubernamental requiere que los informes de auditoría interna nunca salgan de su infraestructura física debido a regulaciones de soberanía de datos. ¿Qué componente de la arquitectura de Power BI debería implementarse para cumplir con este requisito estrictamente local?",
+    "answerOptions": [
+      {
+        "text": "Power BI Report Server",
+        "rationale": "Esta solución permite hospedar informes en servidores locales (on-premises) dentro de la infraestructura corporativa sin necesidad de publicarlos en la nube.",
+        "isCorrect": true
+      },
+      {
+        "text": "Power BI Gateway",
+        "rationale": "El Gateway actúa solo como un puente para que el servicio en la nube acceda a datos locales, pero el informe seguiría residiendo en el servicio cloud.",
+        "isCorrect": false
+      },
+      {
+        "text": "Power BI Service con capacidad Premium",
+        "rationale": "Aunque Premium ofrece aislamiento, sigue siendo un servicio SaaS basado en la nube pública de Microsoft.",
+        "isCorrect": false
+      },
+      {
+        "text": "Power BI Desktop con archivos compartidos",
+        "rationale": "Compartir archivos brutos no constituye una plataforma de servidor gestionada ni segura para la distribución de inteligencia de negocio.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en la opción que ofrece un portal web alojado internamente en la organización."
+  },
+  {
+    "guid": "fa110c3c-83f3-4e63-9bf8-226efc7a2f2e",
+    "subjectId": "T32",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Durante la fase de preparación de datos, un analista necesita realizar transformaciones complejas de limpieza y normalización antes de que los datos lleguen al modelo. ¿Qué lenguaje es el más adecuado para definir esta lógica de extracción y transformación?",
+    "answerOptions": [
+      {
+        "text": "Lenguaje M",
+        "rationale": "Es el lenguaje funcional utilizado por Power Query para toda la lógica de obtención y transformación de datos (ETL).",
+        "isCorrect": true
+      },
+      {
+        "text": "Lenguaje DAX",
+        "rationale": "Este lenguaje se utiliza una vez los datos están cargados para crear cálculos analíticos y medidas sobre el modelo, no para el proceso de limpieza inicial.",
+        "isCorrect": false
+      },
+      {
+        "text": "SQL avanzado",
+        "rationale": "Aunque SQL puede transformar datos en el origen, dentro de las herramientas internas de Power BI para ETL, el motor nativo es M.",
+        "isCorrect": false
+      },
+      {
+        "text": "Scripts de Python",
+        "rationale": "Python puede usarse en Power Query, pero el lenguaje base y más eficiente que estructura todos los pasos de la consulta es M.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considere el lenguaje que se genera automáticamente al aplicar pasos en el Editor de Power Query."
+  },
+  {
+    "guid": "fc6b4018-1178-4239-83ee-81ac4466faee",
+    "subjectId": "T32",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "En un despliegue corporativo, se desea permitir que un grupo de usuarios pueda crear nuevos informes y cuadros de mando, además de programar actualizaciones de datos, pero sin capacidad para alterar los permisos de acceso de otros usuarios. ¿Qué rol de Workspace es el más adecuado?",
+    "answerOptions": [
+      {
+        "text": "Contributor",
+        "rationale": "Este rol permite crear, editar y eliminar contenido y programar refrescos, pero restringe la gestión de permisos y la publicación de aplicaciones.",
+        "isCorrect": true
+      },
+      {
+        "text": "Member",
+        "rationale": "Este rol tiene permisos adicionales para gestionar el acceso de otros usuarios (con roles inferiores) y publicar aplicaciones del área de trabajo.",
+        "isCorrect": false
+      },
+      {
+        "text": "Viewer",
+        "rationale": "Es un rol puramente de consumo que no permite la creación de contenido ni la gestión de actualizaciones de datos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Admin",
+        "rationale": "El rol de administrador otorga control total, incluyendo la eliminación del propio workspace, lo cual excede las necesidades descritas.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Busque el rol diseñado específicamente para desarrolladores que no tienen responsabilidades de administración de seguridad."
+  },
+  {
+    "guid": "9a9ca004-8ec6-475e-ae17-1a2d344c11f2",
+    "subjectId": "T32",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Se ha detectado una ambigüedad en el modelo de datos porque existen dos tablas conectadas mediante dos relaciones distintas (una por fecha de pedido y otra por fecha de envío). ¿Cómo gestiona Power BI esta situación por defecto?",
+    "answerOptions": [
+      {
+        "text": "Solo una relación puede estar activa, mientras que la otra permanece inactiva",
+        "rationale": "Power BI requiere una única ruta de filtrado activa entre tablas para evitar resultados ambiguos en los cálculos.",
+        "isCorrect": true
+      },
+      {
+        "text": "Ambas relaciones se activan automáticamente permitiendo filtrado bidireccional",
+        "rationale": "El filtrado bidireccional no resuelve la ambigüedad de tener múltiples rutas de relación entre dos tablas.",
+        "isCorrect": false
+      },
+      {
+        "text": "El modelo bloquea la carga de datos hasta que una de las tablas se duplique",
+        "rationale": "No es necesario duplicar tablas; el motor permite mantener relaciones inactivas que pueden invocarse mediante fórmulas.",
+        "isCorrect": false
+      },
+      {
+        "text": "Se crea una relación compuesta que combina ambos campos de fecha",
+        "rationale": "Las relaciones compuestas no son una solución estándar para manejar múltiples dimensiones temporales entre las mismas entidades.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en cómo el motor de DAX asegura que los filtros sigan un camino predecible."
+  },
+  {
+    "guid": "b6d054f1-7454-4e8d-8504-2d16d2b4fb48",
+    "subjectId": "T32",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "La dirección financiera solicita una visualización que permita desglosar el margen de beneficio según múltiples dimensiones (producto, región, canal) y que identifique automáticamente qué categorías contribuyen más a las desviaciones. ¿Qué herramienta analítica asistida por IA es la óptima?",
+    "answerOptions": [
+      {
+        "text": "Decomposition Tree",
+        "rationale": "Este visual permite desglosar una métrica de forma jerárquica y utiliza IA para encontrar en qué dimensiones se encuentran los valores más altos o bajos.",
+        "isCorrect": true
+      },
+      {
+        "text": "Smart Narrative",
+        "rationale": "Esta herramienta genera descripciones textuales automáticas, pero no permite la exploración interactiva y jerárquica solicitada.",
+        "isCorrect": false
+      },
+      {
+        "text": "Q&A (Natural Language Query)",
+        "rationale": "Aunque es potente para responder preguntas puntuales, no ofrece una estructura visual de árbol para el análisis de causas raíz.",
+        "isCorrect": false
+      },
+      {
+        "text": "Clustering",
+        "rationale": "El clustering agrupa datos por similitud, pero no está diseñado específicamente para el desglose jerárquico de métricas de negocio.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Recuerde el visual que 'descompone' un valor según diversos atributos de forma visual y sucesiva."
+  },
+  {
+    "guid": "11fa5929-f02d-4166-9e3f-866003280766",
+    "subjectId": "T32",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Para cumplir con la Ley de Protección de Datos, los jefes de zona solo deben visualizar los registros de ventas de sus respectivos municipios. ¿Qué funcionalidad técnica permite implementar este filtrado dinámico basándose en la identidad del usuario?",
+    "answerOptions": [
+      {
+        "text": "Row-Level Security (RLS)",
+        "rationale": "RLS permite definir roles con filtros DAX que restringen las filas de datos visibles según el usuario que inicia sesión.",
+        "isCorrect": true
+      },
+      {
+        "text": "Object-Level Security (OLS)",
+        "rationale": "OLS se utiliza para ocultar tablas o columnas completas, no para filtrar filas específicas dentro de una tabla basándose en valores geográficos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Filtros de nivel de informe",
+        "rationale": "Los filtros de informe pueden ser modificados o eliminados por los usuarios con permisos de edición, por lo que no garantizan seguridad real.",
+        "isCorrect": false
+      },
+      {
+        "text": "Shared Workspaces",
+        "rationale": "Los workspaces gestionan el acceso al archivo del informe, pero no el acceso granular a los datos contenidos en el modelo.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en la medida de seguridad que actúa a nivel de fila mediante expresiones de filtro."
+  },
+  {
+    "guid": "20371d6f-73a2-4cda-a148-8a2723f643e6",
+    "subjectId": "T32",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Un gestor de almacén necesita ver datos que se actualizan cada pocos segundos provenientes de sensores IoT de temperatura. ¿Cuál es el tipo de dataset adecuado para esta necesidad de visualización inmediata sin latencia de refresco programado?",
+    "answerOptions": [
+      {
+        "text": "Streaming datasets",
+        "rationale": "Están diseñados específicamente para visualizar datos en tiempo real con una latencia mínima mediante el envío directo de datos al servicio.",
+        "isCorrect": true
+      },
+      {
+        "text": "Import datasets",
+        "rationale": "Los datasets de importación requieren un proceso de actualización que tiene límites de frecuencia diaria, lo que impide el tiempo real.",
+        "isCorrect": false
+      },
+      {
+        "text": "DirectQuery",
+        "rationale": "Aunque consulta la fuente en vivo, sigue dependiendo del tiempo de respuesta de la base de datos y de la interacción del usuario para refrescar.",
+        "isCorrect": false
+      },
+      {
+        "text": "Live Connection",
+        "rationale": "Esta conexión se usa principalmente para modelos ya existentes en Analysis Services, no para la ingesta de flujo de datos continuo de sensores.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considere la opción que permite 'empujar' datos hacia el informe de forma constante."
+  },
+  {
+    "guid": "2f103a1f-4671-4d6d-9a83-07957d02ab63",
+    "subjectId": "T32",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Al diseñar un modelo semántico siguiendo el estándar DAMA-DMBOK, ¿cuál es el objetivo principal de centralizar los indicadores clave en un modelo único?",
+    "answerOptions": [
+      {
+        "text": "Garantizar la coherencia semántica y la reutilización de métricas",
+        "rationale": "Un modelo semántico asegura que todos los departamentos utilicen la misma definición técnica para un KPI, evitando discrepancias en los informes.",
+        "isCorrect": true
+      },
+      {
+        "text": "Optimizar el espacio de almacenamiento en el Power BI Gateway",
+        "rationale": "El Gateway no almacena datos de forma permanente, por lo que la centralización semántica no tiene como fin el ahorro de espacio en este componente.",
+        "isCorrect": false
+      },
+      {
+        "text": "Eliminar la necesidad de utilizar el lenguaje DAX en los informes",
+        "rationale": "El modelo semántico precisamente se apoya en DAX para definir las métricas que luego serán reutilizadas.",
+        "isCorrect": false
+      },
+      {
+        "text": "Permitir que los usuarios no técnicos editen la estructura de las tablas",
+        "rationale": "El modelo semántico suele ser gestionado por especialistas para asegurar su integridad; los usuarios finales consumen el modelo ya definido.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en la importancia de que una 'Venta Neta' signifique lo mismo para toda la organización."
+  },
+  {
+    "guid": "b36920cf-ae68-4f07-b2e4-290454263e3e",
+    "subjectId": "T32",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Un analista senior desea crear una medida que calcule las ventas del mismo periodo del año anterior para realizar comparativas de rendimiento. ¿Qué familia de funciones de DAX debería emplear?",
+    "answerOptions": [
+      {
+        "text": "Time Intelligence functions",
+        "rationale": "Funciones como $SAMEPERIODLASTYEAR()$ o $DATEADD()$ están diseñadas para realizar cálculos temporales comparativos de forma sencilla.",
+        "isCorrect": true
+      },
+      {
+        "text": "Statistical functions",
+        "rationale": "Se usan para cálculos de desviaciones, medias o distribuciones, pero no manejan inherentemente el contexto temporal comparativo.",
+        "isCorrect": false
+      },
+      {
+        "text": "Information functions",
+        "rationale": "Estas funciones devuelven datos sobre el entorno o los valores (como si un valor es blanco), no realizan lógica de agregación temporal.",
+        "isCorrect": false
+      },
+      {
+        "text": "Filter functions puras",
+        "rationale": "Aunque se usan filtros, las funciones específicas de inteligencia temporal son las que simplifican y automatizan el desplazamiento en el calendario.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Busque las funciones que requieren una tabla de fechas dedicada para funcionar correctamente."
+  },
+  {
+    "guid": "e702eb61-8c58-4077-8db6-edef9bd73f49",
+    "subjectId": "T32",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "En el contexto de Microsoft Fabric, ¿qué ventaja principal ofrece a las organizaciones que tienen usuarios sin licencia individual de Power BI Pro?",
+    "answerOptions": [
+      {
+        "text": "Permitir que usuarios sin licencia interactúen con informes en capacidades Fabric",
+        "rationale": "Fabric permite el consumo de contenido por parte de usuarios gratuitos si el contenido está alojado en una capacidad dedicada contratada por la empresa.",
+        "isCorrect": true
+      },
+      {
+        "text": "Convertir automáticamente todos los informes de Excel en dashboards de Power BI",
+        "rationale": "Fabric unifica herramientas de datos, pero no realiza migraciones automáticas de archivos Office a objetos de Power BI sin intervención.",
+        "isCorrect": false
+      },
+      {
+        "text": "Eliminar la necesidad de utilizar Power BI Desktop para el diseño",
+        "rationale": "Power BI Desktop sigue siendo la herramienta fundamental de creación y diseño profesional, independientemente de Fabric.",
+        "isCorrect": false
+      },
+      {
+        "text": "Sustituir por completo la necesidad de gateways para datos locales",
+        "rationale": "Incluso en Fabric, si los datos residen en servidores privados (on-premise), se sigue necesitando un puente de conexión seguro.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Relacione esta ventaja con la democratización del acceso a la información a gran escala."
+  },
+  {
+    "guid": "6e75e755-b817-4596-8704-5f24be578994",
+    "subjectId": "T32",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Un informe de Power BI muestra un rendimiento muy lento al cargar visuales que contienen millones de registros. Al analizar el modelo, se observa que se han creado múltiples 'columnas calculadas' con DAX para categorizar datos. ¿Cuál sería la recomendación técnica para optimizar el rendimiento?",
+    "answerOptions": [
+      {
+        "text": "Mover la lógica de categorización a Power Query (lenguaje M) o a la fuente de datos",
+        "rationale": "Las columnas calculadas en DAX no se comprimen tan eficientemente y pueden penalizar el rendimiento del modelo en comparación con las transformaciones en la fase de carga.",
+        "isCorrect": true
+      },
+      {
+        "text": "Convertir todas las columnas calculadas en medidas de DAX",
+        "rationale": "Las medidas se calculan en tiempo de ejecución; si se usan para categorizar filas individuales en grandes volúmenes, el rendimiento de los visuales empeorará drásticamente.",
+        "isCorrect": false
+      },
+      {
+        "text": "Utilizar un 'Gateway Personal' para acelerar el procesamiento de las fórmulas",
+        "rationale": "El Gateway es para la transferencia de datos, no tiene relación con la velocidad de procesamiento del motor analítico una vez los datos están cargados.",
+        "isCorrect": false
+      },
+      {
+        "text": "Cambiar el modo de conexión de 'Import' a 'DirectQuery'",
+        "rationale": "DirectQuery suele ser más lento para el usuario final debido a que debe consultar la base de datos origen para cada interacción.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en el principio de realizar las transformaciones 'lo más cerca posible de la fuente'."
+  },
+  {
+    "guid": "10ab2438-ebe2-4274-a63d-dbe529fce492",
+    "subjectId": "T32",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Cuál es la diferencia fundamental entre un 'Dashboard' y un 'Report' en el entorno de Power BI Service?",
+    "answerOptions": [
+      {
+        "text": "Los Reports permiten interactividad detallada (drill-down), mientras que los Dashboards son vistas de monitorización de alto nivel",
+        "rationale": "Los informes son para análisis profundo y exploración, mientras que los dashboards consolidan métricas clave en una sola página para visualización ejecutiva.",
+        "isCorrect": true
+      },
+      {
+        "text": "Los Dashboards pueden crearse en Power BI Desktop, pero los Reports solo en el Service",
+        "rationale": "Es al revés: los informes se diseñan principalmente en Desktop, mientras que los dashboards se construyen exclusivamente en el Service (nube).",
+        "isCorrect": false
+      },
+      {
+        "text": "Un Dashboard está vinculado a un único dataset, mientras que un Report puede combinar varios",
+        "rationale": "Un informe se basa en un solo dataset, mientras que un dashboard puede contener visuales provenientes de múltiples informes y datasets.",
+        "isCorrect": false
+      },
+      {
+        "text": "Solo los Reports admiten alertas de datos programadas para dispositivos móviles",
+        "rationale": "Las alertas de datos son una funcionalidad característica de los Dashboards, no de los informes convencionales.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considere cuál de los dos es una colección de 'pines' o visuales fijados desde diferentes orígenes."
+  },
+  {
+    "guid": "ecb2d48c-876a-4ec9-8058-a46f0c55b12c",
+    "subjectId": "T32",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Se requiere integrar un visual específico de Power BI dentro de una aplicación de gestión propia de la organización para que los empleados no tengan que cambiar de entorno. ¿Qué tecnología facilita esta integración técnica?",
+    "answerOptions": [
+      {
+        "text": "Power BI Embedded",
+        "rationale": "Esta solución está diseñada para que los desarrolladores inserten contenido visual de Power BI dentro de aplicaciones personalizadas mediante APIs.",
+        "isCorrect": true
+      },
+      {
+        "text": "Power BI Report Builder",
+        "rationale": "Se utiliza para crear informes paginados para impresión, no para la integración de visuales en aplicaciones web dinámicas.",
+        "isCorrect": false
+      },
+      {
+        "text": "Power BI Mobile Apps",
+        "rationale": "Son aplicaciones nativas para consumir informes, no una tecnología para 'embeber' visuales en software de terceros.",
+        "isCorrect": false
+      },
+      {
+        "text": "Power BI Gateway (Standard)",
+        "rationale": "Su función es la conectividad de datos, no la exposición de interfaces visuales hacia el exterior.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Busque el término que describe la acción de 'incrustar' contenido en otro sistema."
+  },
+  {
+    "guid": "d20c5fea-4f59-4ae0-9a1c-3204d33570be",
+    "subjectId": "T32",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Por qué es una buena práctica técnica marcar una tabla como 'Tabla de Fechas' (Date Table) dentro del modelo de Power BI?",
+    "answerOptions": [
+      {
+        "text": "Para habilitar correctamente las funciones de Time Intelligence de DAX",
+        "rationale": "Marcar la tabla asegura que Power BI entienda la continuidad temporal y permite el funcionamiento preciso de cálculos como acumulados anuales.",
+        "isCorrect": true
+      },
+      {
+        "text": "Para que el Power BI Service traduzca automáticamente los meses a diferentes idiomas",
+        "rationale": "La traducción de idiomas no depende de marcar la tabla, sino de la configuración regional o de la creación manual de columnas de traducción.",
+        "isCorrect": false
+      },
+      {
+        "text": "Para reducir el tamaño del archivo $.pbix$ eliminando duplicados temporales",
+        "rationale": "Marcar la tabla no reduce el tamaño; de hecho, a menudo se recomienda desactivar las 'fechas automáticas' para ahorrar espacio.",
+        "isCorrect": false
+      },
+      {
+        "text": "Para permitir que los visuales de mapa geocodifiquen las fechas en el tiempo",
+        "rationale": "No existe relación entre la geocodificación de mapas y la validación técnica de una tabla de dimensiones temporales.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en lo que sucede con los cálculos de 'Año hasta la fecha' (YTD) si falta un día en el calendario."
+  },
+  {
+    "guid": "440edaf4-6c65-4758-b166-88575107d198",
+    "subjectId": "T32",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Usted debe configurar un sistema de actualización de datos para un modelo que consume información de una base de datos Oracle situada en un servidor local. ¿Qué requisito de red es fundamental para el Power BI Gateway?",
+    "answerOptions": [
+      {
+        "text": "Capacidad de realizar conexiones salientes desde el servidor local hacia el servicio en la nube",
+        "rationale": "El Gateway utiliza conexiones de salida hacia el bus de servicio de Azure; no requiere abrir puertos de entrada en el cortafuegos corporativo.",
+        "isCorrect": true
+      },
+      {
+        "text": "Abrir puertos de entrada específicos en el firewall para que el servicio cloud 'llame' al servidor",
+        "rationale": "Esta configuración sería un riesgo de seguridad; el Gateway evita esto iniciando él mismo la comunicación hacia fuera.",
+        "isCorrect": false
+      },
+      {
+        "text": "Disponer de una IP pública estática asignada directamente al servidor de la base de datos",
+        "rationale": "El Gateway elimina la necesidad de exponer las bases de datos internas a internet mediante IPs públicas.",
+        "isCorrect": false
+      },
+      {
+        "text": "Configurar una red VPN permanente entre el PC del usuario y el servidor Oracle",
+        "rationale": "La VPN puede ser necesaria para el desarrollo en Desktop, pero para el servicio automatizado en la nube, el Gateway es la solución estándar.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Recuerde que el Gateway actúa como un 'puente seguro' que evita agujeros en el firewall de entrada."
+  },
+  {
+    "guid": "a59ba798-5624-4433-83fb-97cc4db4e0b8",
+    "subjectId": "T32",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Un usuario avanzado necesita realizar una exploración de datos 'ad hoc' para encontrar patrones ocultos sin usar informes predefinidos. ¿Qué característica del BI moderno le permite hacer esto de forma autónoma?",
+    "answerOptions": [
+      {
+        "text": "Self-service BI",
+        "rationale": "El BI de autoservicio empodera a los usuarios de negocio para acceder, transformar y analizar datos sin depender constantemente de TI.",
+        "isCorrect": true
+      },
+      {
+        "text": "Enterprise Reporting",
+        "rationale": "Este concepto se refiere a informes estáticos y estandarizados distribuidos de forma masiva, lo opuesto a la exploración flexible.",
+        "isCorrect": false
+      },
+      {
+        "text": "Data Governance",
+        "rationale": "La gobernanza establece las reglas y políticas, pero no es la herramienta o capacidad que permite la exploración técnica de los datos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Operaciones de Negocio",
+        "rationale": "Se refiere a la ejecución diaria de la empresa (datos crudos), no al proceso analítico de descubrimiento de conocimiento.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en el concepto representado por el 'paraguas' que cubre el análisis y el reporting autónomo."
+  },
+  {
+    "guid": "a4c53686-e106-4948-8519-97c116cc5f0c",
+    "subjectId": "T32",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Se observa que una consulta de Power Query tarda demasiado tiempo porque realiza múltiples combinaciones (joins) de tablas muy grandes. ¿Qué técnica de optimización debería aplicarse para que el motor de la base de datos origen realice el trabajo pesado?",
+    "answerOptions": [
+      {
+        "text": "Query Folding",
+        "rationale": "Es el proceso por el cual Power Query traduce los pasos de transformación a SQL para que se ejecuten directamente en el servidor de origen.",
+        "isCorrect": true
+      },
+      {
+        "text": "Data Buffering",
+        "rationale": "Cargar datos en memoria (buffer) puede ser útil en casos muy específicos, pero no permite aprovechar la potencia de cálculo del servidor origen.",
+        "isCorrect": false
+      },
+      {
+        "text": "Incremental Refresh",
+        "rationale": "La actualización incremental mejora la velocidad de carga posterior, pero no optimiza la eficiencia de la consulta de transformación inicial.",
+        "isCorrect": false
+      },
+      {
+        "text": "Manual Partitioning",
+        "rationale": "Aunque ayuda en grandes volúmenes, no es la característica nativa de Power Query para delegar el procesamiento al motor SQL.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considere la capacidad de 'plegado' de consultas hacia la fuente."
+  },
+  {
+    "guid": "df8ca62d-85ce-446e-ae6b-2b00c8457764",
+    "subjectId": "T32",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "En la jerarquía de Business Intelligence, ¿cuál es la diferencia principal entre 'Información' y 'Conocimiento'?",
+    "answerOptions": [
+      {
+        "text": "El conocimiento incorpora experiencia y valores para orientar la acción, mientras que la información son datos procesados con contexto",
+        "rationale": "La información nos dice qué sucede; el conocimiento nos permite entender por qué y decidir qué hacer al respecto.",
+        "isCorrect": true
+      },
+      {
+        "text": "La información es subjetiva y el conocimiento es puramente objetivo",
+        "rationale": "En realidad, los datos son los más objetivos; la información y el conocimiento suelen incorporar capas de interpretación humana.",
+        "isCorrect": false
+      },
+      {
+        "text": "La información reside en las bases de datos y el conocimiento en los cuadros de mando",
+        "rationale": "Ambos pueden representarse en herramientas, pero el conocimiento es un marco mental que combina información con habilidades y valores.",
+        "isCorrect": false
+      },
+      {
+        "text": "No existe diferencia técnica; ambos términos se usan indistintamente en la pirámide de BI",
+        "rationale": "La pirámide de BI distingue claramente niveles de maduración: Datos > Información > Conocimiento > Sabiduría.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en qué nivel de la pirámide se encuentra el 'marco para incorporar nuevas experiencias'."
+  },
+  {
+    "guid": "ce27a784-c452-44cb-b5eb-1c844dcb5bb3",
+    "subjectId": "T32",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Un analista de datos utiliza scripts de R dentro de Power BI Desktop para crear una visualización avanzada que no existe en la galería estándar. ¿Qué precaución debe tener al publicar este informe en el Power BI Service?",
+    "answerOptions": [
+      {
+        "text": "Es probable que necesite un Gateway Personal para poder actualizar los datos en la nube",
+        "rationale": "Por motivos de seguridad, el servicio cloud suele requerir un gateway personal para ejecutar y refrescar scripts de R/Python.",
+        "isCorrect": true
+      },
+      {
+        "text": "El informe dejará de funcionar porque el Service solo admite lenguaje M y DAX",
+        "rationale": "El servicio admite R y Python, pero con limitaciones de seguridad y requisitos de infraestructura específicos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Debe exportar el visual como una imagen estática antes de publicar",
+        "rationale": "Los visuales de R pueden ser dinámicos en el Service, no es necesario convertirlos en imágenes fijas.",
+        "isCorrect": false
+      },
+      {
+        "text": "Debe pagar una licencia adicional de 'Data Science Pro' para activar R en la nube",
+        "rationale": "No existe tal licencia; las capacidades de script dependen de la configuración del Gateway y la suscripción estándar/premium.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Reflexione sobre las limitaciones de seguridad de ejecutar código de terceros en servidores compartidos de Microsoft."
+  },
+  {
+    "guid": "e4be1fbe-7725-46ac-ba20-893f9e0c63b7",
+    "subjectId": "T32",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Cuál es la función primordial de un 'Data Mart' dentro de la arquitectura de un sistema de BI empresarial?",
+    "answerOptions": [
+      {
+        "text": "Ofrecer un subconjunto de datos orientado a un área de negocio específica",
+        "rationale": "A diferencia del Data Warehouse global, el Data Mart se especializa en un departamento (ej. Ventas, RRHH) para facilitar su análisis.",
+        "isCorrect": true
+      },
+      {
+        "text": "Sustituir al ERP como fuente de entrada de transacciones diarias",
+        "rationale": "Los Data Marts son para lectura y análisis, nunca para la grabación de transacciones operativas del día a día.",
+        "isCorrect": false
+      },
+      {
+        "text": "Almacenar exclusivamente los metadatos y las reglas de gobernanza",
+        "rationale": "Los metadatos suelen tener sus propios procesos de gestión; el Data Mart contiene datos de negocio estructurados.",
+        "isCorrect": false
+      },
+      {
+        "text": "Actuar como un sistema de copia de seguridad en tiempo real del Data Warehouse",
+        "rationale": "Su propósito es analítico y de segmentación departamental, no de redundancia o backup técnico.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en la diferencia entre un gran almacén centralizado y una 'tienda' especializada en una sola sección."
+  },
+  {
+    "guid": "73d8a805-08cd-44aa-a808-30301680f86b",
+    "subjectId": "T32",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "En una arquitectura híbrida de Power BI, ¿cuál es la principal diferencia entre una conexión 'DirectQuery' y una 'Live Connection'?",
+    "answerOptions": [
+      {
+        "text": "DirectQuery se conecta a bases de datos relacionales; Live Connection se conecta a modelos multidimensionales o tabulares ya definidos",
+        "rationale": "Live Connection se utiliza para conectar con Analysis Services o datasets de Power BI ya existentes, heredando su lógica y medidas.",
+        "isCorrect": true
+      },
+      {
+        "text": "DirectQuery descarga los datos al modelo; Live Connection los deja en el origen",
+        "rationale": "Ambas dejan los datos en el origen; es el modo 'Import' el que descarga los datos al modelo interno de Power BI.",
+        "isCorrect": false
+      },
+      {
+        "text": "Solo Live Connection permite combinar múltiples fuentes de datos en el mismo informe",
+        "rationale": "Al contrario, Live Connection suele restringirse a una única fuente lógica, mientras que DirectQuery permite modelos compuestos.",
+        "isCorrect": false
+      },
+      {
+        "text": "DirectQuery no requiere Gateway para datos locales; Live Connection sí",
+        "rationale": "Ambas requieren Gateway si la fuente de datos (ya sea SQL o Analysis Services) reside en la infraestructura local de la empresa.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en qué tipo de conexión se utiliza cuando el 'modelo semántico' ya ha sido creado fuera de Power BI Desktop."
+  },
+  {
+    "guid": "40cdcc96-6e6f-4f06-a9fe-904be3442aa9",
+    "subjectId": "T32",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Usted está configurando un 'Informe Paginado' mediante Power BI Report Builder. ¿Cuál es el caso de uso principal que justifica esta herramienta frente a los informes estándar de Power BI?",
+    "answerOptions": [
+      {
+        "text": "Generar documentos listos para impresión con tablas que se extienden por múltiples páginas",
+        "rationale": "Los informes paginados ($ .rdl $) están optimizados para el diseño 'pixel-perfect' y la impresión de grandes volúmenes de datos detallados.",
+        "isCorrect": true
+      },
+      {
+        "text": "Crear visualizaciones altamente interactivas con filtrado cruzado automático",
+        "rationale": "Para interactividad y exploración visual, los informes estándar ($ .pbix $) son muy superiores a los paginados.",
+        "isCorrect": false
+      },
+      {
+        "text": "Reducir la latencia en la visualización de datos de sensores en tiempo real",
+        "rationale": "Los informes paginados son tradicionalmente más estáticos y no están diseñados para escenarios de streaming en tiempo real.",
+        "isCorrect": false
+      },
+      {
+        "text": "Facilitar el modelado de relaciones complejas entre múltiples fuentes de datos",
+        "rationale": "El modelado de datos se realiza en el dataset; el Report Builder se centra en la capa de presentación y formato del documento.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en documentos como facturas o listados detallados que deben enviarse en formato PDF."
+  },
+  {
+    "guid": "674235f8-be6d-49ee-9622-403e669f76dc",
+    "subjectId": "T32",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Se requiere que el sistema de BI envíe una notificación automática al teléfono móvil del Director de Producción cuando el número de incidentes de seguridad supere un umbral crítico. ¿En qué elemento de Power BI se debe configurar esto?",
+    "answerOptions": [
+      {
+        "text": "En un visual de tipo KPI dentro de un Dashboard",
+        "rationale": "Las alertas de datos solo pueden configurarse sobre tiles (mosaicos) específicos de Dashboards en el servicio de Power BI.",
+        "isCorrect": true
+      },
+      {
+        "text": "Directamente en el Editor de Power Query mediante lenguaje M",
+        "rationale": "Power Query se encarga de la transformación de datos, no tiene capacidades nativas para la gestión de notificaciones de usuario final.",
+        "isCorrect": false
+      },
+      {
+        "text": "En el menú de formato de un gráfico de barras de un Informe (Report)",
+        "rationale": "Los informes estándar no soportan la configuración de alertas automáticas basadas en umbrales de métricas.",
+        "isCorrect": false
+      },
+      {
+        "text": "Utilizando una medida DAX con la función $ALERT()$",
+        "rationale": "No existe la función $ALERT()$ en DAX; DAX solo realiza cálculos matemáticos y lógicos sobre los datos.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Recuerde que esta funcionalidad es exclusiva de la vista consolidada que se gestiona en la nube."
+  },
+  {
+    "guid": "2d0af606-6e94-4655-a262-883ab47a2185",
+    "subjectId": "T32",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Al implementar Power BI en una gran organización, el departamento de TI está preocupado por el consumo de recursos de los servidores de origen. ¿Qué ventaja ofrece el modo 'Import' en este sentido?",
+    "answerOptions": [
+      {
+        "text": "Libera al servidor de origen de la carga de procesar consultas analíticas cada vez que un usuario interactúa",
+        "rationale": "Al importar los datos a la memoria de Power BI, las interacciones de los usuarios se resuelven internamente sin tocar la base de datos origen.",
+        "isCorrect": true
+      },
+      {
+        "text": "Garantiza que los datos mostrados son siempre idénticos a los del sistema transaccional en el segundo exacto",
+        "rationale": "Esta es una desventaja del modo Import, ya que los datos solo están tan actualizados como el último proceso de refresco realizado.",
+        "isCorrect": false
+      },
+      {
+        "text": "Permite ignorar por completo la configuración de seguridad del cortafuegos corporativo",
+        "rationale": "Incluso para importar datos, se deben cumplir los protocolos de seguridad y conectividad (como el uso de Gateways).",
+        "isCorrect": false
+      },
+      {
+        "text": "Aumenta automáticamente la velocidad de escritura en el ERP origen",
+        "rationale": "Power BI es una herramienta de lectura; no tiene impacto positivo ni negativo en la velocidad de escritura de los sistemas operacionales.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en dónde se ejecutan los cálculos cuando el usuario cambia un filtro en el informe."
+  },
+  {
+    "guid": "ae410c3c-390c-4e32-adcf-4c0f70b9f558",
+    "subjectId": "T32",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Cuál es la función del lenguaje de fórmulas DAX dentro del motor de Power BI?",
+    "answerOptions": [
+      {
+        "text": "Definir cálculos y agregaciones complejas que comprenden el contexto de filtro del informe",
+        "rationale": "DAX es 'context-aware', lo que significa que el resultado de una fórmula cambia según los filtros aplicados en la interfaz visual.",
+        "isCorrect": true
+      },
+      {
+        "text": "Gestionar la conexión segura entre el Gateway y las bases de datos locales",
+        "rationale": "La gestión de la conexión es una tarea de infraestructura del Gateway y del servicio, no de un lenguaje de modelado.",
+        "isCorrect": false
+      },
+      {
+        "text": "Crear la estructura de tablas y columnas durante el proceso de ETL",
+        "rationale": "Esta es la función de Power Query (M); DAX actúa sobre la estructura ya creada para añadir capas de inteligencia analítica.",
+        "isCorrect": false
+      },
+      {
+        "text": "Configurar la interfaz de usuario y los colores de los temas del informe",
+        "rationale": "El diseño visual se gestiona mediante las opciones de formato de la interfaz y archivos JSON de temas, no mediante código DAX.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Recuerde que DAX significa 'Data Analysis Expressions' y se asemeja a las fórmulas de Excel pero con mayor potencia."
+  },
+  {
+    "guid": "be746865-1e81-460b-8bd0-4c931bfd3916",
+    "subjectId": "T32",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "En el contexto de la inteligencia de negocios avanzada, ¿qué técnica se utiliza para descubrir relaciones no evidentes o predecir comportamientos futuros basándose en datos históricos?",
+    "answerOptions": [
+      {
+        "text": "Minería de datos (Data Mining)",
+        "rationale": "Utiliza algoritmos estadísticos y de aprendizaje automático para encontrar patrones y tendencias ocultas en grandes volúmenes de información.",
+        "isCorrect": true
+      },
+      {
+        "text": "Procesamiento analítico online (OLAP)",
+        "rationale": "OLAP se centra en la consulta rápida y multidimensional de datos conocidos, no necesariamente en el descubrimiento de patrones ocultos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Reporting transaccional",
+        "rationale": "Se limita a listar hechos ocurridos (qué pasó), sin capacidad predictiva ni de descubrimiento de relaciones complejas.",
+        "isCorrect": false
+      },
+      {
+        "text": "Integración de datos (ETL)",
+        "rationale": "Es la fase de preparación y movimiento de datos, necesaria para el análisis pero no es el proceso de descubrimiento en sí.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en el proceso de 'excavar' en los datos para encontrar valor oculto."
+  },
+  {
+    "guid": "635980e2-995f-4784-a621-3990642edd18",
+    "subjectId": "T32",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Como técnico de BI, se le pide que asegure que el acceso a los informes sea cifrado y que solo los usuarios autenticados mediante el sistema corporativo puedan entrar. ¿Qué integración es recomendada?",
+    "answerOptions": [
+      {
+        "text": "Integración con Microsoft Entra (Azure Active Directory)",
+        "rationale": "Permite aprovechar el Single Sign-On (SSO) corporativo, el cifrado de datos y el cumplimiento de normativas de seguridad de acceso.",
+        "isCorrect": true
+      },
+      {
+        "text": "Uso de contraseñas locales guardadas en cada archivo $.pbix$",
+        "rationale": "Power BI no utiliza contraseñas locales por archivo; la seguridad se gestiona a nivel de plataforma y servicio.",
+        "isCorrect": false
+      },
+      {
+        "text": "Publicación del informe en la web pública para fácil acceso",
+        "rationale": "Esta práctica expone los datos a cualquier persona en internet y no permite la autenticación de usuarios específicos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Configuración de una clave de cifrado manual en el Power BI Gateway",
+        "rationale": "Aunque el Gateway cifra datos en tránsito, la autenticación y control de acceso de los usuarios dependen del proveedor de identidad (Entra ID).",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considere el servicio de identidad en la nube estándar para todo el ecosistema de Microsoft 365."
+  },
+  {
+    "guid": "8c74d554-22ec-4d9c-9ad9-3e85755c0ede",
+    "subjectId": "T32",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Un informe de ventas debe mostrar la evolución mensual del último año. ¿Cuál es el visual más adecuado para representar esta tendencia temporal?",
+    "answerOptions": [
+      {
+        "text": "Gráfico de líneas (Line Chart)",
+        "rationale": "Los gráficos de líneas son el estándar para visualizar cambios y tendencias a lo largo de intervalos de tiempo continuos.",
+        "isCorrect": true
+      },
+      {
+        "text": "Gráfico de sectores (Pie Chart)",
+        "rationale": "Estos gráficos muestran la composición de un total en un momento dado, pero son ineficientes para mostrar evoluciones temporales.",
+        "isCorrect": false
+      },
+      {
+        "text": "Treemap",
+        "rationale": "Se utiliza para mostrar datos jerárquicos y proporciones relativas mediante rectángulos, no para series de tiempo.",
+        "isCorrect": false
+      },
+      {
+        "text": "Gráfico de dispersión (Scatter Chart)",
+        "rationale": "Se emplea principalmente para analizar la correlación entre dos variables numéricas, no para la visualización estándar de tendencias.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en el visual que conecta puntos de datos para enfatizar la dirección del cambio."
+  }
+]

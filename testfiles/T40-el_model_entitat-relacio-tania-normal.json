@@ -1,0 +1,467 @@
+[
+  {
+    "guid": "4fe54dfc-2b61-4c70-a646-b1a7a2dbbe5d",
+    "subjectId": "T40",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Cuál es la característica primordial del Modelo Entidad-Relación (MER) respecto a su implementación técnica?",
+    "answerOptions": [
+      {
+        "text": "Su dependencia directa del Sistema de Gestión de Bases de Datos (SGBD) que se elija.",
+        "rationale": "El MER se define precisamente por ser un modelo de alto nivel que abstrae las limitaciones técnicas del software específico.",
+        "isCorrect": false
+      },
+      {
+        "text": "Su independencia total de la tecnología específica que se utilizará para la base de datos.",
+        "rationale": "Al ser un modelo conceptual de alto nivel, permite centrarse en la información y sus reglas de negocio sin considerar el SGBD.",
+        "isCorrect": true
+      },
+      {
+        "text": "Su capacidad para definir procesos dinámicos y temporales dentro del sistema físico.",
+        "rationale": "El MER refleja principalmente la estructura estática de los datos, siendo esta una de sus limitaciones conocidas.",
+        "isCorrect": false
+      },
+      {
+        "text": "Su optimización automática para el almacenamiento en estructuras de archivos binarios.",
+        "rationale": "El almacenamiento físico pertenece al nivel interno o físico, mientras que el MER opera en el nivel conceptual.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considere si el diseño conceptual de Peter Chen cambia si decidimos usar Oracle, MySQL o PostgreSQL."
+  },
+  {
+    "guid": "0dea8460-6b30-47e5-be7b-54bd7050be55",
+    "subjectId": "T40",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En la notación de Chen, ¿cómo se representan gráficamente los atributos derivados?",
+    "answerOptions": [
+      {
+        "text": "Mediante una elipse de trazo continuo con el nombre del atributo subrayado.",
+        "rationale": "Esta representación corresponde habitualmente a los atributos clave o identificadores principales de la entidad.",
+        "isCorrect": false
+      },
+      {
+        "text": "Mediante una elipse de trazo punteado o discontinuo conectada a la entidad.",
+        "rationale": "El trazo discontinuo indica que el valor no se almacena directamente, sino que se calcula a partir de otros datos existentes.",
+        "isCorrect": true
+      },
+      {
+        "text": "Mediante una doble elipse conectada a la entidad para indicar su origen múltiple.",
+        "rationale": "La doble elipse se reserva específicamente para los atributos multivaluados que pueden contener varios valores simultáneos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Mediante un rombo punteado que indica una relación implícita con otros atributos.",
+        "rationale": "Los rombos se utilizan exclusivamente para representar relaciones entre entidades, no para características internas o atributos.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en el símbolo que sugiere que la información no es 'sólida' o fija, sino que se obtiene de otra parte."
+  },
+  {
+    "guid": "bfcfce76-ebf7-405f-9033-322648b51e54",
+    "subjectId": "T40",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Una entidad que no puede identificarse de manera única solamente por sus propios atributos se denomina:",
+    "answerOptions": [
+      {
+        "text": "Entidad fuerte o regular, ya que requiere de una clave forana externa obligatoria.",
+        "rationale": "Las entidades fuertes son precisamente aquellas que pueden definirse por sí mismas mediante sus propios atributos clave.",
+        "isCorrect": false
+      },
+      {
+        "text": "Entidad asociativa, pues sirve únicamente para resolver relaciones de muchos a muchos.",
+        "rationale": "Aunque las entidades asociativas resuelven relaciones, la imposibilidad de auto-identificación define a las entidades débiles.",
+        "isCorrect": false
+      },
+      {
+        "text": "Entidad débil, y se representa gráficamente mediante un doble rectángulo.",
+        "rationale": "Las entidades débiles dependen de una entidad fuerte y su clave se forma combinando una clave parcial con la de la entidad fuerte.",
+        "isCorrect": true
+      },
+      {
+        "text": "Entidad abstracta, ya que solo existe durante la fase de especialización del modelo.",
+        "rationale": "El término 'abstracta' no es una clasificación estándar del MER para referirse a la dependencia de identificación.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Recuerde qué tipo de entidad necesita 'apoyarse' en otra para tener una identidad completa en el sistema."
+  },
+  {
+    "guid": "98a65fc0-f2c8-466f-ab9b-f2de1e1703d6",
+    "subjectId": "T40",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Al transformar una relación 1:N del MER al modelo relacional, ¿cuál es el procedimiento estándar correcto?",
+    "answerOptions": [
+      {
+        "text": "Crear una tabla intermedia que contenga las claves primarias de ambas entidades relacionadas.",
+        "rationale": "La creación de una tabla asociativa o intermedia es la regla específica para transformar relaciones de tipo muchos a muchos (N:M).",
+        "isCorrect": false
+      },
+      {
+        "text": "Colocar la clave primaria de la entidad del lado 'N' como clave forana en la tabla del lado '1'.",
+        "rationale": "Esto causaría redundancia e inconsistencia, ya que el lado '1' no podría almacenar múltiples referencias del lado 'N' en una celda.",
+        "isCorrect": false
+      },
+      {
+        "text": "Colocar la clave primaria de la entidad del lado '1' como clave forana en la tabla del lado 'N'.",
+        "rationale": "Esta técnica permite que cada registro del lado 'N' apunte a su único registro relacionado del lado '1', respetando la cardinalidad.",
+        "isCorrect": true
+      },
+      {
+        "text": "Fusionar ambas entidades en una sola tabla para evitar el uso de claves foranas innecesarias.",
+        "rationale": "Fusionar tablas solo suele ser una opción en relaciones 1:1 con participación total, pero en 1:N generaría una redundancia masiva.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en qué lado de la relación (el que tiene uno o el que tiene muchos) debe guardar la 'dirección' del otro para no repetir datos."
+  },
+  {
+    "guid": "67abf146-c27f-4e86-91e1-c39b53d98562",
+    "subjectId": "T40",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Qué diferencia fundamental existe entre los procesos de especialización y generalización?",
+    "answerOptions": [
+      {
+        "text": "La especialización es un proceso ascendente (bottom-up) y la generalización es descendente (top-down).",
+        "rationale": "Es al contrario: la especialización desglosa una entidad general en sub-conceptos, siendo un enfoque descendente.",
+        "isCorrect": false
+      },
+      {
+        "text": "La especialización es un proceso descendente (top-down) y la generalización es ascendente (bottom-up).",
+        "rationale": "La especialización parte de una superclase hacia subclasses, mientras que la generalización agrupa entidades similares en una superclase.",
+        "isCorrect": true
+      },
+      {
+        "text": "La especialización genera herencia de atributos, mientras que la generalización la elimina para simplificar.",
+        "rationale": "Ambos procesos resultan en una estructura de jerarquía que mantiene la herencia de propiedades de la superclase a la subclase.",
+        "isCorrect": false
+      },
+      {
+        "text": "La especialización se representa con un rombo y la generalización con un triángulo en el diagrama.",
+        "rationale": "Ambas abstracciones utilizan habitualmente el símbolo del triángulo para indicar la jerarquía entre tipos de entidad.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en la dirección del diseño: ¿cuál va de lo general a lo específico y cuál hace lo opuesto?"
+  },
+  {
+    "guid": "44bfeeb3-8e70-42e8-b5a1-b1a24c784328",
+    "subjectId": "T40",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En la notación Crow's Foot (Pota de Gall), ¿qué indica el símbolo situado en el extremo de la línea más alejado de una entidad?",
+    "answerOptions": [
+      {
+        "text": "Indica la cardinalidad máxima permitida para esa relación específica.",
+        "rationale": "La cardinalidad máxima se representa con el símbolo más cercano a la entidad (la 'pata de gallo' o la línea vertical).",
+        "isCorrect": false
+      },
+      {
+        "text": "Indica la cardinalidad mínima, determinando si la participación es obligatoria u opcional.",
+        "rationale": "El símbolo más externo (un círculo para 0 o una línea para 1) define el mínimo de instancias que deben o pueden participar.",
+        "isCorrect": true
+      },
+      {
+        "text": "Representa el nombre del rol que desempeña la entidad dentro de la interrelación.",
+        "rationale": "Los roles suelen escribirse como texto sobre la línea, no mediante símbolos gráficos de cardinalidad en los extremos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Identifica si la entidad es fuerte (línea continua) o débil (línea discontinua).",
+        "rationale": "La distinción entre fuerte y débil suele recaer en la forma del rectángulo de la entidad, no en la posición de los símbolos de cardinalidad.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Recuerde que en esta notación hay dos símbolos por extremo; uno mide el techo (máximo) y otro el suelo (mínimo)."
+  },
+  {
+    "guid": "51e458e0-04c5-4eca-bd06-04523e4b7616",
+    "subjectId": "T40",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Dentro del contexto del MER, ¿cómo se define técnicamente un 'valor nulo' en un atributo?",
+    "answerOptions": [
+      {
+        "text": "Como un valor numérico equivalente a cero o una cadena de texto vacía para ahorrar espacio.",
+        "rationale": "El nulo es un marcador especial; el cero o el vacío son valores válidos dentro de sus respectivos dominios.",
+        "isCorrect": false
+      },
+      {
+        "text": "Como la ausencia de valor, indicando que la información es desconocida, inexistente o no aplicable.",
+        "rationale": "El valor nulo señala que no hay un dato asignado del dominio para esa instancia específica en ese momento.",
+        "isCorrect": true
+      },
+      {
+        "text": "Como un error de integridad referencial que debe ser corregido mediante una clave forana.",
+        "rationale": "Aunque existen restricciones 'NOT NULL', un valor nulo no es per se un error, sino un estado de la información.",
+        "isCorrect": false
+      },
+      {
+        "text": "Como el valor por defecto que toma un atributo clave cuando no se especifica un identificador.",
+        "rationale": "Los atributos clave (claus primàries) nunca pueden ser nulos, ya que deben identificar de forma única a la entidad.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considere la diferencia entre tener 'cero euros' en una cuenta y 'no saber' cuánto dinero hay en la cuenta."
+  },
+  {
+    "guid": "5cffd3a2-afed-44c8-ab59-ec49927ebdec",
+    "subjectId": "T40",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿En qué situación es especialmente útil emplear el mecanismo de 'Agregación de Entidades'?",
+    "answerOptions": [
+      {
+        "text": "Cuando una entidad tiene tantos atributos que es necesario agruparlos en sub-elipses para mayor claridad.",
+        "rationale": "El agrupamiento de atributos se resuelve con atributos compuestos, no con el mecanismo de agregación de nivel superior.",
+        "isCorrect": false
+      },
+      {
+        "text": "Cuando se desea transformar una relación binaria en una ternaria para simplificar el esquema lógico.",
+        "rationale": "La agregación no simplifica el grado de la relación, sino que permite tratar una relación como un objeto independiente.",
+        "isCorrect": false
+      },
+      {
+        "text": "Cuando una relación entre dos entidades debe participar, a su vez, en otra relación con una tercera entidad.",
+        "rationale": "La agregación abstrae una relación y sus entidades participantes como si fueran una única entidad de nivel superior.",
+        "isCorrect": true
+      },
+      {
+        "text": "Cuando el modelo requiere que una entidad subclasse herede atributos de múltiples superclases distintas.",
+        "rationale": "Ese concepto se refiere a la herencia múltiple en especializaciones, no a la agregación asociativa.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en una relación que, por sus características, necesita comportarse como si fuera una 'cosa' o entidad para conectarse con otros elementos."
+  },
+  {
+    "guid": "cede1314-53f0-4bdf-9454-edd40b610830",
+    "subjectId": "T40",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Si una especialización se define como 'Total' (T) y 'Disjunta' (D), ¿qué restricción se está imponiendo a las instancias?",
+    "answerOptions": [
+      {
+        "text": "Cada instancia de la superclase puede pertenecer a varias subclases, pero debe pertenecer al menos a una.",
+        "rationale": "El término 'Disjunta' prohíbe explícitamente que una instancia pertenezca a más de una subclase simultáneamente.",
+        "isCorrect": false
+      },
+      {
+        "text": "Cada instancia de la superclase debe pertenecer exactamente a una sola de las subclases disponibles.",
+        "rationale": "Total implica que debe estar en alguna subclase, y Disjunta implica que no puede estar en más de una.",
+        "isCorrect": true
+      },
+      {
+        "text": "Algunas instancias de la superclase pueden no pertenecer a ninguna subclase si así se requiere.",
+        "rationale": "Esto describiría una especialización 'Parcial' (P), lo cual contradice la restricción de 'Totalidad' (T) planteada.",
+        "isCorrect": false
+      },
+      {
+        "text": "Las subclases no heredan los atributos de la superclase para garantizar que los datos sean disjuntos.",
+        "rationale": "La herencia es intrínseca a la especialización; las restricciones D y T solo afectan a la pertenencia de las instancias.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Analice por separado qué significa que no pueda haber 'solapamiento' y que no pueda haber 'instancias sueltas' fuera de las subclases."
+  },
+  {
+    "guid": "e421d274-5961-4a31-a524-3610c6ada3ec",
+    "subjectId": "T40",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Respecto a la transformación al modelo relacional, ¿cómo se gestiona una entidad débil?",
+    "answerOptions": [
+      {
+        "text": "Se crea una tabla independiente cuya clave primaria es exclusivamente su propio discriminador o clave parcial.",
+        "rationale": "La clave parcial no garantiza unicidad global, por lo que no puede ser la clave primaria única en el modelo relacional.",
+        "isCorrect": false
+      },
+      {
+        "text": "Se crea una tabla que incluye sus atributos y la clave primaria de la entidad fuerte de la que depende.",
+        "rationale": "La clave primaria de la entidad débil se forma mediante la concatenación de la clave de la fuerte y su propia clave parcial.",
+        "isCorrect": true
+      },
+      {
+        "text": "No se crea una tabla, sino que sus atributos se añaden directamente como columnas a la tabla de la entidad fuerte.",
+        "rationale": "Esto solo sería posible si la relación fuera 1:1, pero las entidades débiles suelen tener relaciones 1:N con la fuerte.",
+        "isCorrect": false
+      },
+      {
+        "text": "Se transforma en una vista lógica que une la entidad fuerte con un atributo multivaluado complejo.",
+        "rationale": "Las entidades débiles tienen existencia propia como tipos de objeto y requieren su propia estructura de tabla física.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Recuerde que la identidad de la entidad débil es 'prestada'. ¿Cómo se refleja ese préstamo en las columnas de una tabla?"
+  },
+  {
+    "guid": "9b0c10ad-4002-488b-8f2e-36559cc82d25",
+    "subjectId": "T40",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En el contexto de las relaciones, ¿qué define el 'Grado de una relación'?",
+    "answerOptions": [
+      {
+        "text": "El número máximo de instancias de una entidad que pueden asociarse con otra entidad.",
+        "rationale": "Esta es la definición de cardinalidad máxima, no del grado de la relación.",
+        "isCorrect": false
+      },
+      {
+        "text": "El número de atributos que posee la relación cuando esta tiene propiedades propias.",
+        "rationale": "Los atributos de una relación describen la asociación, pero no determinan su grado jerárquico.",
+        "isCorrect": false
+      },
+      {
+        "text": "El número de entidades distintas que participan activamente en dicha relación.",
+        "rationale": "Las relaciones pueden ser binarias (grado 2), ternarias (grado 3) o, en general, n-arias según el número de participantes.",
+        "isCorrect": true
+      },
+      {
+        "text": "La jerarquía de importancia entre la entidad superclase y sus subclases asociadas.",
+        "rationale": "La jerarquía de especialización es un mecanismo de abstracción distinto al concepto de grado de relación asociativa.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en términos como 'binaria' o 'ternaria' y qué es lo que se cuenta para usar esos nombres."
+  },
+  {
+    "guid": "5f51a7a6-eb9a-4069-92d8-88724cb67725",
+    "subjectId": "T40",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Un atributo que puede ser descompuesto en sub-componentes con significado propio (como una dirección) se clasifica como:",
+    "answerOptions": [
+      {
+        "text": "Atributo multivaluado, ya que contiene múltiples piezas de información independientes.",
+        "rationale": "Un atributo multivaluado contiene varios valores del mismo tipo (ej. varios teléfonos), no componentes de distinta naturaleza.",
+        "isCorrect": false
+      },
+      {
+        "text": "Atributo compuesto, permitiendo una visión jerárquica de sus elementos internos.",
+        "rationale": "Los atributos compuestos agrupan atributos simples que forman una unidad lógica superior (ej. Calle, Ciudad y CP forman Dirección).",
+        "isCorrect": true
+      },
+      {
+        "text": "Atributo derivado, porque su valor final depende de la suma de sus partes constituyentes.",
+        "rationale": "Los derivados se calculan mediante algoritmos o lógica (ej. edad desde fecha), no por simple agrupación estructural.",
+        "isCorrect": false
+      },
+      {
+        "text": "Atributo de dominio complejo, que requiere obligatoriamente una entidad débil para ser modelado.",
+        "rationale": "Aunque es complejo, el modelo permite representarlo como atributo sin necesidad de crear nuevas entidades subordinadas.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Diferencie entre tener 'muchos de lo mismo' y tener 'una cosa formada por varias piezas diferentes'."
+  },
+  {
+    "guid": "58b31910-b6b5-44cb-9f25-8e98ec3488e1",
+    "subjectId": "T40",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Cuál es una limitación reconocida del Modelo Entitat-Relació?",
+    "answerOptions": [
+      {
+        "text": "La imposibilidad de representar relaciones de muchos a muchos sin usar lenguajes de programación.",
+        "rationale": "El MER representa perfectamente las relaciones N:M mediante rombos; la restricción surge solo al pasar al modelo relacional.",
+        "isCorrect": false
+      },
+      {
+        "text": "Su incapacidad para ser transformado de manera eficiente a un esquema de base de datos lógico.",
+        "rationale": "Al contrario, el MER es la base sólida y preferida para realizar el diseño del modelo relacional posterior.",
+        "isCorrect": false
+      },
+      {
+        "text": "Que solo refleja la estructura estática de los datos, omitiendo procesos y aspectos temporales.",
+        "rationale": "El MER describe 'qué' datos hay y cómo se relacionan, pero no 'cómo' cambian o fluyen a través del tiempo o procesos.",
+        "isCorrect": true
+      },
+      {
+        "text": "Su estricta dependencia del hardware, lo que impide su uso en entornos de computación en la nube.",
+        "rationale": "El MER es independiente de la tecnología y del hardware, siendo aplicable a cualquier entorno de almacenamiento de datos.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense si el diagrama muestra el 'estado' de la información o el 'movimiento/algoritmo' que la transforma."
+  },
+  {
+    "guid": "9dc1a48b-be78-46f1-807b-bc346a0738e4",
+    "subjectId": "T40",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En la notación (min, max) para cardinalidades, ¿qué representa el valor (0, N)?",
+    "answerOptions": [
+      {
+        "text": "Una participación obligatoria donde cada instancia debe relacionarse con un número indeterminado de objetos.",
+        "rationale": "El 0 indica precisamente que la participación es opcional, no obligatoria.",
+        "isCorrect": false
+      },
+      {
+        "text": "Una participación opcional sin un límite máximo definido de instancias relacionadas.",
+        "rationale": "Mínimo 0 significa que puede no haber relación, y máximo N significa que puede haber infinitas asociaciones.",
+        "isCorrect": true
+      },
+      {
+        "text": "Una relación inexistente que ha sido marcada para su eliminación en la fase de normalización.",
+        "rationale": "Es una restricción de integridad válida que define la flexibilidad de la relación en el mundo real.",
+        "isCorrect": false
+      },
+      {
+        "text": "Que la entidad es débil y requiere al menos N instancias de la entidad fuerte para existir.",
+        "rationale": "Las entidades débiles suelen tener una participación obligatoria (mínimo 1) respecto a su entidad identificadora.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considere qué significa que el 'suelo' de la relación sea la nada y el 'techo' sea ilimitado."
+  },
+  {
+    "guid": "82eb0e03-1a68-45fc-b7fd-2759434fa603",
+    "subjectId": "T40",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Al pasar del MER al Modelo Relacional, ¿qué sucede con las relaciones Muchos a Muchos (N:M)?",
+    "answerOptions": [
+      {
+        "text": "Se resuelven añadiendo una clave forana en la tabla que tenga mayor número de registros.",
+        "rationale": "Esto no funcionaría, ya que una sola columna de clave forana no puede almacenar múltiples referencias simultáneas.",
+        "isCorrect": false
+      },
+      {
+        "text": "Requieren obligatoriamente la creación de una nueva tabla asociativa con las claves de ambas entidades.",
+        "rationale": "Esta tabla intermedia permite registrar cada par de asociaciones de forma independiente, resolviendo la cardinalidad N:M.",
+        "isCorrect": true
+      },
+      {
+        "text": "Se simplifican eliminando una de las entidades y convirtiéndola en un atributo multivaluado de la otra.",
+        "rationale": "El modelo relacional estándar no soporta atributos multivaluados (Primera Forma Normal), por lo que esta solución es inválida.",
+        "isCorrect": false
+      },
+      {
+        "text": "Se implementan mediante el uso de punteros físicos si el SGBD es de tipo relacional puro.",
+        "rationale": "El modelo relacional se basa en valores de datos (claves foranas), no en punteros de memoria físicos.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en por qué una tabla normal 'se queda corta' cuando un registro de A necesita apuntar a muchos de B y viceversa."
+  }
+]

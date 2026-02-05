@@ -1,0 +1,467 @@
+[
+  {
+    "guid": "08a38364-86e3-457b-9d07-a8bc95fa2336",
+    "subjectId": "T36",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Cuál de las llamadas \"5 V\" del Big Data se centra específicamente en garantizar que los datos sean fiables y de alta calidad a través de procesos de limpieza y trazabilidad?",
+    "answerOptions": [
+      {
+        "text": "Valor",
+        "rationale": "Esta dimensión se refiere a la utilidad de los datos para la toma de decisiones, no a su fiabilidad técnica intrínseca.",
+        "isCorrect": false
+      },
+      {
+        "text": "Variedad",
+        "rationale": "Esta característica describe la heterogeneidad de los formatos (estructurados, semiestructurados y no estructurados) presentes en el sistema.",
+        "isCorrect": false
+      },
+      {
+        "text": "Veracidad",
+        "rationale": "La veracidad implica el manejo de la incertidumbre, la calidad y la fiabilidad de los datos recolectados.",
+        "isCorrect": true
+      },
+      {
+        "text": "Velocidad",
+        "rationale": "Este concepto trata sobre el ritmo al que se generan y deben procesarse los flujos de datos.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Esta característica está directamente relacionada con el concepto de \"data quality\" mencionado en el texto."
+  },
+  {
+    "guid": "5bf1bc60-3d66-42d5-94e8-a55a04d299ce",
+    "subjectId": "T36",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En el contexto de un Data Lake, ¿qué significa el principio de diseño conocido como \"schema-on-read\"?",
+    "answerOptions": [
+      {
+        "text": "Los datos deben ser transformados y modelados según un esquema rígido antes de ser almacenados.",
+        "rationale": "Este enfoque corresponde al 'schema-on-write', típico de los Data Warehouses tradicionales.",
+        "isCorrect": false
+      },
+      {
+        "text": "El esquema o estructura de los datos solo se define y aplica en el momento en que los datos son consultados.",
+        "rationale": "Permite almacenar datos en bruto (raw) y darles forma según la necesidad específica del análisis posterior.",
+        "isCorrect": true
+      },
+      {
+        "text": "El sistema detecta automáticamente el esquema de los archivos en el momento de la carga mediante metadatos.",
+        "rationale": "Aunque existen herramientas de autodescubrimiento, el concepto clave es la postergación de la validación del esquema hasta el consumo.",
+        "isCorrect": false
+      },
+      {
+        "text": "Solo se permiten lecturas de datos que cumplan con un esquema de catálogo previamente validado por el Data Steward.",
+        "rationale": "Esto describe una política de gobernanza estricta, pero no la flexibilidad técnica del acceso al Data Lake.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en si el orden de prioridad es la estructura previa o la flexibilidad de almacenamiento."
+  },
+  {
+    "guid": "ed0758b6-f61f-460e-ace5-33666c5e7cfd",
+    "subjectId": "T36",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Qué tecnología o concepto representa la evolución que combina la flexibilidad y bajo coste del Data Lake con las capacidades de gestión de datos y transacciones ACID de un Data Warehouse?",
+    "answerOptions": [
+      {
+        "text": "Curated Data Lake",
+        "rationale": "Aunque mejora la organización mediante capas, no necesariamente implementa transacciones ACID de forma nativa como un warehouse.",
+        "isCorrect": false
+      },
+      {
+        "text": "Data Lakehouse",
+        "rationale": "Es la arquitectura híbrida que permite ejecutar BI y ML sobre una única plataforma con soporte para transacciones y SQL rápido.",
+        "isCorrect": true
+      },
+      {
+        "text": "Raw Data Lake",
+        "rationale": "Se limita al almacenamiento de datos en bruto sin las garantías transaccionales ni el rendimiento de consultas estructuradas.",
+        "isCorrect": false
+      },
+      {
+        "text": "Smart Data Lake",
+        "rationale": "Este término se refiere al uso de IA para la gestión de metadatos, no específicamente a la convergencia técnica con el Data Warehouse.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Se trata de un término compuesto que une los dos mundos del almacenamiento de datos."
+  },
+  {
+    "guid": "512149cb-f9d3-416f-b483-a54a998aefe7",
+    "subjectId": "T36",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Dentro del marco de gobernanza DAMA-DMBOK, ¿qué rol es el responsable operativo de velar por la calidad, coherencia y gestión diaria de los datos dentro de una organización?",
+    "answerOptions": [
+      {
+        "text": "Data Owner",
+        "rationale": "El propietario del dato suele tener una responsabilidad a nivel estratégico y de negocio, delegando la gestión operativa.",
+        "isCorrect": false
+      },
+      {
+        "text": "Data Custodian",
+        "rationale": "Este perfil es de naturaleza más técnica, centrado en la infraestructura, seguridad y el almacenamiento físico.",
+        "isCorrect": false
+      },
+      {
+        "text": "Data Steward",
+        "rationale": "Actúa como el custodio funcional que garantiza que los datos sean fiables, accesibles y cumplan con las normativas.",
+        "isCorrect": true
+      },
+      {
+        "text": "DPO (Delegado de Protección de Datos)",
+        "rationale": "Su función se centra específicamente en el cumplimiento normativo de la privacidad y el RGPD, no en la gestión de calidad operativa.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Este perfil actúa como un 'administrador' o 'supervisor' funcional del dato."
+  },
+  {
+    "guid": "83f2bd83-b1fa-451d-b6af-cf693d46b3c7",
+    "subjectId": "T36",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Cuál es la principal diferencia técnica entre el modelo de procesamiento de Apache Spark y el MapReduce original de Hadoop?",
+    "answerOptions": [
+      {
+        "text": "Spark utiliza un modelo de programación basado en capas, mientras que MapReduce es lineal.",
+        "rationale": "Ambos pueden implementar pipelines complejos, la diferencia crítica reside en la gestión del hardware.",
+        "isCorrect": false
+      },
+      {
+        "text": "MapReduce solo permite procesar datos estructurados, mientras que Spark acepta datos no estructurados.",
+        "rationale": "Ambos frameworks son capaces de procesar diversos tipos de datos en un entorno Big Data.",
+        "isCorrect": false
+      },
+      {
+        "text": "Spark procesa la información principalmente en memoria RAM, siendo significativamente más rápido que el procesamiento en disco de MapReduce.",
+        "rationale": "La computación in-memory de Spark elimina la latencia de escritura/lectura constante en disco entre etapas del proceso.",
+        "isCorrect": true
+      },
+      {
+        "text": "Spark es un sistema de almacenamiento distribuido, mientras que MapReduce es un motor de búsqueda.",
+        "rationale": "Ambos son motores de procesamiento; el almacenamiento en Hadoop suele recaer en HDFS.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en qué componente de hardware hace que Spark sea más eficiente para tareas iterativas."
+  },
+  {
+    "guid": "0bd9e7ff-2c3d-470c-8178-6c6095150c3a",
+    "subjectId": "T36",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En una Arquitectura Lambda de Big Data, ¿cuál es el propósito fundamental de la denominada 'Speed Layer'?",
+    "answerOptions": [
+      {
+        "text": "Procesar grandes volúmenes de datos históricos para garantizar la máxima precisión de los resultados.",
+        "rationale": "Esta es la función de la 'Batch Layer', que compensa la posible falta de exactitud del procesamiento rápido.",
+        "isCorrect": false
+      },
+      {
+        "text": "Procesar los datos en tiempo real a medida que llegan para ofrecer una vista inmediata, aunque sea de forma incremental.",
+        "rationale": "Se encarga de compensar la latencia de la capa de batch proporcionando resultados sobre los datos más recientes.",
+        "isCorrect": true
+      },
+      {
+        "text": "Actuar como un buffer de almacenamiento para los datos que no pueden ser procesados por el clúster de Hadoop.",
+        "rationale": "El almacenamiento es responsabilidad de capas de persistencia; la Speed Layer es puramente de cómputo.",
+        "isCorrect": false
+      },
+      {
+        "text": "Optimizar el acceso SQL para que las herramientas de visualización como Power BI funcionen más rápido.",
+        "rationale": "La optimización de consultas suele ocurrir en la 'Serving Layer', que consolida los resultados de Batch y Speed.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Esta capa trata de minimizar la latencia de los datos recién capturados."
+  },
+  {
+    "guid": "9e148264-570b-4ba8-8ed6-c100d755cccd",
+    "subjectId": "T36",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Qué caracteriza fundamentalmente a la Arquitectura Kappa en comparación con la Arquitectura Lambda?",
+    "answerOptions": [
+      {
+        "text": "Utiliza tres capas de procesamiento en lugar de dos para aumentar la redundancia.",
+        "rationale": "Kappa simplifica la arquitectura, no la complica con más capas de procesamiento.",
+        "isCorrect": false
+      },
+      {
+        "text": "Sustituye el almacenamiento en la nube por sistemas on-premise para mejorar la latencia.",
+        "rationale": "La ubicación física de la infraestructura no define el modelo lógico de la arquitectura Kappa.",
+        "isCorrect": false
+      },
+      {
+        "text": "Elimina la capa de procesamiento por lotes (batch), tratando todo el procesamiento como un flujo continuo o streaming.",
+        "rationale": "Reduce el mantenimiento al utilizar un único pipeline de código para todos los datos.",
+        "isCorrect": true
+      },
+      {
+        "text": "Se basa exclusivamente en bases de datos relacionales para garantizar la integridad referencial de los flujos.",
+        "rationale": "Kappa suele utilizar logs de eventos distribuidos y motores de streaming, no BD relacionales tradicionales.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en la simplificación del flujo de datos a un único camino."
+  },
+  {
+    "guid": "424b6d20-f3e5-4390-b064-7399944a75fe",
+    "subjectId": "T36",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Qué componente del núcleo (Core) de Apache Hadoop se encarga de la gestión y planificación de recursos en el clúster distribuido?",
+    "answerOptions": [
+      {
+        "text": "HDFS",
+        "rationale": "HDFS es el sistema de archivos distribuido encargado exclusivamente del almacenamiento.",
+        "isCorrect": false
+      },
+      {
+        "text": "Hadoop Common",
+        "rationale": "Contiene las bibliotecas y utilidades de Java necesarias para los demás módulos, pero no gestiona recursos.",
+        "isCorrect": false
+      },
+      {
+        "text": "MapReduce",
+        "rationale": "Es el modelo de programación y framework para el procesamiento paralelo de datos.",
+        "isCorrect": false
+      },
+      {
+        "text": "YARN",
+        "rationale": "Yet Another Resource Negotiator es la capa que gestiona el hardware del clúster y asigna recursos a las aplicaciones.",
+        "isCorrect": true
+      }
+    ],
+    "hint": "Sus siglas significan 'Yet Another Resource Negotiator'."
+  },
+  {
+    "guid": "13be31fa-ecf2-4bf9-9046-a4780d608936",
+    "subjectId": "T36",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En el contexto de formatos de almacenamiento para Big Data, ¿cuál es la ventaja principal del formato Apache Parquet?",
+    "answerOptions": [
+      {
+        "text": "Es un formato de texto plano que permite ser editado fácilmente con cualquier editor de texto.",
+        "rationale": "Parquet es un formato binario, no legible directamente por humanos sin herramientas específicas.",
+        "isCorrect": false
+      },
+      {
+        "text": "Es un formato orientado a filas ideal para operaciones de inserción individual frecuente.",
+        "rationale": "Los formatos orientados a filas como Avro son mejores para escrituras, mientras que Parquet es columnar.",
+        "isCorrect": false
+      },
+      {
+        "text": "Es un formato columnar que permite una alta compresión y una lectura eficiente de columnas específicas en análisis masivos.",
+        "rationale": "Almacena datos del mismo tipo juntos, optimizando las consultas analíticas que solo requieren ciertos campos.",
+        "isCorrect": true
+      },
+      {
+        "text": "Garantiza que el esquema de los datos sea inmutable y no pueda ser modificado nunca.",
+        "rationale": "Parquet soporta la evolución de esquemas, aunque su fuerte es la eficiencia en la lectura analítica.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considere la diferencia entre leer un registro completo o solo una propiedad de todos los registros."
+  },
+  {
+    "guid": "8e5c07f3-71d0-47f5-935a-8a54ea58e6e3",
+    "subjectId": "T36",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Por qué el modelo ELT (Extract, Load, Transform) es preferido sobre el ETL tradicional en las arquitecturas modernas de Data Lake?",
+    "answerOptions": [
+      {
+        "text": "Porque permite realizar la limpieza de datos antes de que ocupen espacio en el almacenamiento central.",
+        "rationale": "Esta es la descripción de ETL; ELT carga los datos antes de limpiarlos o transformarlos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Porque aprovecha la escalabilidad y potencia de cálculo del propio Data Lake para realizar las transformaciones tras la carga.",
+        "rationale": "Permite mayor rapidez de ingesta y mantiene el dato original (raw) para futuros usos no previstos.",
+        "isCorrect": true
+      },
+      {
+        "text": "Porque elimina la necesidad de motores de procesamiento distribuido como Spark.",
+        "rationale": "Al contrario, el ELT suele depender fuertemente de estos motores para realizar la 'T' final.",
+        "isCorrect": false
+      },
+      {
+        "text": "Porque reduce la complejidad de la gobernanza al no requerir metadatos durante la extracción.",
+        "rationale": "La gobernanza es igual de necesaria o incluso más compleja en entornos ELT para evitar el 'Data Swamp'.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en dónde reside la capacidad de cómputo más potente en un sistema moderno."
+  },
+  {
+    "guid": "46848ee2-3940-477c-820d-8b3ddcd48855",
+    "subjectId": "T36",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Un riesgo común en la implementación de Data Lakes es la creación de un 'Data Swamp' (pantano de datos). ¿A qué se refiere este término?",
+    "answerOptions": [
+      {
+        "text": "A un sistema donde los datos se han corrompido físicamente debido a fallos en el almacenamiento en la nube.",
+        "rationale": "El término no se refiere a integridad física, sino a la falta de organización lógica.",
+        "isCorrect": false
+      },
+      {
+        "text": "A un repositorio donde se han almacenado volúmenes masivos de datos sin metadatos, organización ni gobernanza clara.",
+        "rationale": "Esto hace que los datos sean imposibles de localizar o entender, perdiendo todo su valor para el negocio.",
+        "isCorrect": true
+      },
+      {
+        "text": "A un Data Lake que ha superado su capacidad de escalabilidad horizontal y no puede aceptar más datos.",
+        "rationale": "Los Data Lakes modernos en la nube tienen escalabilidad virtualmente ilimitada.",
+        "isCorrect": false
+      },
+      {
+        "text": "A una base de datos NoSQL que intenta procesar transacciones ACID sin éxito.",
+        "rationale": "El concepto de Data Swamp es específico de la arquitectura de lagos de datos, no de bases de datos individuales.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Imagine un lugar donde se arrojan cosas sin etiquetar y luego se intentan buscar."
+  },
+  {
+    "guid": "c173c039-3c5c-4144-a159-7381681760b0",
+    "subjectId": "T36",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Cuál de las siguientes herramientas se define como una base de datos NoSQL distribuida que se ejecuta sobre HDFS para proporcionar acceso aleatorio a grandes volúmenes de datos?",
+    "answerOptions": [
+      {
+        "text": "Apache Hive",
+        "rationale": "Hive es una infraestructura de data warehouse que proporciona SQL, no es una base de datos NoSQL de acceso aleatorio.",
+        "isCorrect": false
+      },
+      {
+        "text": "Apache HBase",
+        "rationale": "HBase es la base de datos de tipo columna-familia que permite lecturas y escrituras rápidas y aleatorias sobre Hadoop.",
+        "isCorrect": true
+      },
+      {
+        "text": "Apache Flink",
+        "rationale": "Flink es un motor de procesamiento de flujos (streaming), no un sistema de almacenamiento de base de datos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Apache Storm",
+        "rationale": "Storm es un sistema de computación distribuida en tiempo real para flujos de datos, similar a Flink.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Esta herramienta es utilizada por CityOS para el tratamiento distribuido sobre HDFS."
+  },
+  {
+    "guid": "891a8b72-2385-4cee-b632-d70dada5db48",
+    "subjectId": "T36",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En el ecosistema de Big Data, ¿para qué se utiliza principalmente Apache Kafka?",
+    "answerOptions": [
+      {
+        "text": "Para el almacenamiento de larga duración de vídeos y archivos multimedia no estructurados.",
+        "rationale": "Para esto se utilizan sistemas de Object Storage como Amazon S3 o Azure Data Lake Storage.",
+        "isCorrect": false
+      },
+      {
+        "text": "Para la visualización de datos mediante dashboards interactivos y mapas de calor.",
+        "rationale": "Esta es la función de herramientas como Power BI, Tableau o Grafana.",
+        "isCorrect": false
+      },
+      {
+        "text": "Como una plataforma de ingesta y mensajería distribuida para construir pipelines de datos en tiempo real.",
+        "rationale": "Kafka permite desacoplar las fuentes de datos de los sistemas de procesamiento mediante un modelo de publicación/suscripción.",
+        "isCorrect": true
+      },
+      {
+        "text": "Como un motor de búsqueda de texto completo para logs de servidores.",
+        "rationale": "Aunque Kafka puede mover logs, la búsqueda de texto completo es la especialidad de Elasticsearch.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en un 'sistema circulatorio' que transporta eventos entre aplicaciones."
+  },
+  {
+    "guid": "90433de1-4e46-425c-8f2e-83eb9bbe2220",
+    "subjectId": "T36",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Qué tecnología emergente permite realizar actualizaciones y borrados (upserts) de forma eficiente sobre un Data Lake, manteniendo un historial para consultas de 'time travel'?",
+    "answerOptions": [
+      {
+        "text": "Apache Hudi",
+        "rationale": "Hudi está diseñado para gestionar conjuntos de datos que cambian con frecuencia sobre un sistema de archivos distribuido.",
+        "isCorrect": true
+      },
+      {
+        "text": "Apache Avro",
+        "rationale": "Avro es un formato de serialización de datos, no un motor de gestión de tablas con historial transaccional.",
+        "isCorrect": false
+      },
+      {
+        "text": "Google BigQuery",
+        "rationale": "BigQuery es un almacén de datos (Data Warehouse) empresarial, no una capa de gestión sobre un Data Lake abierto.",
+        "isCorrect": false
+      },
+      {
+        "text": "Apache Airflow",
+        "rationale": "Airflow es una herramienta de orquestación de flujos de trabajo (workflows), no un formato o gestor de tablas.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Sus siglas significan 'Hadoop Upserts Deletes and Incrementals'."
+  },
+  {
+    "guid": "da39c81f-f6fe-4a4f-b292-9bee8b2a07fe",
+    "subjectId": "T36",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "El concepto de 'Data Mesh' propone un cambio de paradigma en la gestión de datos a gran escala. ¿Cuál es su propuesta principal?",
+    "answerOptions": [
+      {
+        "text": "Centralizar todos los datos en un único punto bajo el control total de un departamento de infraestructura TIC.",
+        "rationale": "Data Mesh se opone explícitamente a la centralización monolítica de los datos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Sustituir el procesamiento en la nube por una red de dispositivos IoT que procesen datos localmente.",
+        "rationale": "Esto describe el 'Edge Computing', no el modelo organizacional de Data Mesh.",
+        "isCorrect": false
+      },
+      {
+        "text": "Distribuir la propiedad de los datos por dominios funcionales, tratando los datos como un producto gestionado por cada equipo de negocio.",
+        "rationale": "Fomenta la descentralización y la responsabilidad directa de cada dominio sobre la calidad y el acceso a sus propios datos.",
+        "isCorrect": true
+      },
+      {
+        "text": "Eliminar el uso de SQL para forzar a todos los analistas a programar en Python o R.",
+        "rationale": "Data Mesh es agnóstico a la tecnología de consulta, centrándose en el modelo de gobierno y propiedad.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en la 'soberanía por dominio' mencionada en el texto."
+  }
+]

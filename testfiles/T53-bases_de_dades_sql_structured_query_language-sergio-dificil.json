@@ -1,0 +1,777 @@
+[
+  {
+    "guid": "3c5ff269-7a8b-4f7d-84d7-01617be9379b",
+    "subjectId": "T53",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Durante una migración de datos, se identifica que en una tabla de 'Proyectos' existe una columna con una lista de nombres de empleados separados por comas para cada proyecto. ¿Qué principio del modelo relacional se está vulnerando primordialmente en este diseño?",
+    "answerOptions": [
+      {
+        "text": "La primera forma normal ($1NF$)",
+        "rationale": "El diseño infringe la atomicidad de los datos, ya que la $1NF$ exige que cada columna contenga solo valores indivisibles y prohíbe los grupos repetitivos o listas en un solo campo.",
+        "isCorrect": true
+      },
+      {
+        "text": "La integridad referencial",
+        "rationale": "Aunque complica las relaciones, la integridad referencial se refiere a la validez de las claves foráneas, no a la estructura interna de los campos de datos.",
+        "isCorrect": false
+      },
+      {
+        "text": "La segunda forma normal ($2NF$)",
+        "rationale": "La $2NF$ se centra en eliminar dependencias parciales de la clave primaria, pero el problema de los valores multivaluados debe resolverse en una etapa previa.",
+        "isCorrect": false
+      },
+      {
+        "text": "El principio de durabilidad",
+        "rationale": "La durabilidad es una propiedad de las transacciones $ACID$ que garantiza la persistencia en disco, no tiene relación con la normalización de tablas.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considere la regla que establece que cada atributo de una tupla debe ser un valor atómico."
+  },
+  {
+    "guid": "ec7fa6da-e1b8-4bf3-b9dc-127276e14240",
+    "subjectId": "T53",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "En un entorno de banca electrónica, se realiza una transferencia entre cuentas. El sistema resta el saldo de la cuenta origen pero, debido a un fallo de red, no llega a sumarlo en la cuenta destino. ¿Qué propiedad $ACID$ debe intervenir para revertir la operación inicial?",
+    "answerOptions": [
+      {
+        "text": "Aislamiento ($Isolation$)",
+        "rationale": "Esta propiedad asegura que las transacciones concurrentes no interfieran entre sí, pero no gestiona la integridad de una transacción individual fallida.",
+        "isCorrect": false
+      },
+      {
+        "text": "Consistencia",
+        "rationale": "Aunque el resultado final sería inconsistente, la propiedad que garantiza que el conjunto de operaciones se trate como una unidad indivisible es otra.",
+        "isCorrect": false
+      },
+      {
+        "text": "Atomicidad",
+        "rationale": "La atomicidad garantiza el principio de 'todo o nada', asegurando que si una parte de la transacción falla, todas las operaciones previas se deshagan automáticamente.",
+        "isCorrect": true
+      },
+      {
+        "text": "Durabilidad",
+        "rationale": "La durabilidad asegura que una transacción ya confirmada no se pierda, pero aquí la transacción aún no se ha completado con éxito.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Reflexione sobre el concepto de unidad lógica de trabajo indivisible."
+  },
+  {
+    "guid": "c8e87cfc-be74-4ce3-9b26-6ae0620112b7",
+    "subjectId": "T53",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Como técnico de base de datos, le solicitan diseñar un sistema para una red social que debe analizar conexiones de amistad y detectar fraudes en cadenas de recomendaciones. ¿Qué modelo de base de datos $NoSQL$ es el más eficiente para estas consultas de caminos complejos?",
+    "answerOptions": [
+      {
+        "text": "Documental",
+        "rationale": "Aunque es flexible, el modelo documental requiere realizar costosas operaciones de unión o múltiples consultas para navegar por niveles profundos de relaciones.",
+        "isCorrect": false
+      },
+      {
+        "text": "Orientada a grafos",
+        "rationale": "Este modelo utiliza nodos y aristas para representar entidades y sus conexiones, permitiendo recorrer relaciones de forma nativa y extremadamente rápida.",
+        "isCorrect": true
+      },
+      {
+        "text": "Clave-valor",
+        "rationale": "Este modelo es excelente para búsquedas simples por identificador único, pero no posee estructuras para representar o consultar vínculos entre datos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Wide-column",
+        "rationale": "Está optimizado para grandes volúmenes de datos y agregaciones, pero no para la navegación recursiva a través de múltiples niveles de relación.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Identifique el modelo que trata los vínculos entre datos como elementos de primer nivel."
+  },
+  {
+    "guid": "9739f3f3-09d9-4af3-8a34-e754913b2274",
+    "subjectId": "T53",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Una administración pública despliega una red de sensores $IoT$ que genera millones de registros por segundo. El sistema requiere alta disponibilidad y escalabilidad horizontal masiva, aceptando que los datos tarden unos segundos en sincronizarse entre todos los nodos. ¿Qué modelo de consistencia describe esta situación?",
+    "answerOptions": [
+      {
+        "text": "Consistencia estricta $ACID$",
+        "rationale": "El modelo $ACID$ prioriza la consistencia inmediata sobre la disponibilidad y escalabilidad horizontal masiva en sistemas distribuidos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Consistencia eventual ($BASE$)",
+        "rationale": "El modelo $BASE$ prioriza la disponibilidad y permite que el sistema converja hacia un estado coherente con el tiempo, ideal para sistemas distribuidos a gran escala.",
+        "isCorrect": true
+      },
+      {
+        "text": "Aislamiento de transacciones",
+        "rationale": "El aislamiento se refiere a la visibilidad de datos entre hilos de ejecución concurrentes, no a la propagación de datos entre nodos geográficos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Integritat referencial física",
+        "rationale": "Este concepto es propio de modelos relacionales rígidos para asegurar que los punteros entre tablas sean siempre válidos.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Busque el acrónimo que representa la filosofía de disponibilidad básica y estado suave."
+  },
+  {
+    "guid": "afaa245b-7ed9-48d7-b86d-7034b49d3fef",
+    "subjectId": "T53",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Usted debe modificar la estructura de una base de datos corporativa para añadir una restricción de verificación ($CHECK$) que impida salarios negativos. ¿A qué sublenguaje de $SQL$ pertenece la instrucción necesaria para este cambio estructural?",
+    "answerOptions": [
+      {
+        "text": "$DML$ (Data Manipulation Language)",
+        "rationale": "El $DML$ se utiliza para operar con los datos dentro de las tablas ($INSERT$, $UPDATE$), no para modificar la definición de los contenedores.",
+        "isCorrect": false
+      },
+      {
+        "text": "$DQL$ (Data Query Language)",
+        "rationale": "El $DQL$ se limita exclusivamente a la recuperación y consulta de información mediante la sentencia $SELECT$.",
+        "isCorrect": false
+      },
+      {
+        "text": "$DDL$ (Data Definition Language)",
+        "rationale": "El $DDL$ incluye comandos como $ALTER$ $TABLE$, que permiten modificar la definición del esquema y las restricciones de integridad de la base de datos.",
+        "isCorrect": true
+      },
+      {
+        "text": "$TCL$ (Transaction Control Language)",
+        "rationale": "El $TCL$ gestiona el flujo de las transacciones ($COMMIT$, $ROLLBACK$), pero no las alteraciones físicas de los objetos de la base de datos.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Diferencie entre el lenguaje que manipula el contenido y el que define la estructura."
+  },
+  {
+    "guid": "86384482-60a2-437e-9307-47b628c8e4bb",
+    "subjectId": "T53",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "En el contexto del teorema $CAP$, un sistema distribuido sufre una partición de red. Si el administrador decide que el sistema debe seguir aceptando escrituras aunque no pueda garantizar que todos los nodos devuelvan el mismo valor inmediatamente, ¿qué dos propiedades está garantizando?",
+    "answerOptions": [
+      {
+        "text": "Consistencia y Disponibilidad ($CA$)",
+        "rationale": "La combinación $CA$ no es posible en un sistema distribuido real durante una partición, ya que ignora la tolerancia a fallos de red.",
+        "isCorrect": false
+      },
+      {
+        "text": "Disponibilidad y Tolerancia a Particiones ($AP$)",
+        "rationale": "Al elegir que el sistema siga respondiendo (Disponibilidad) a pesar de la desconexión entre nodos (Tolerancia a Particiones), se sacrifica la consistencia inmediata.",
+        "isCorrect": true
+      },
+      {
+        "text": "Consistencia y Tolerancia a Particiones ($CP$)",
+        "rationale": "Un sistema $CP$ dejaría de responder o daría error si no pudiera garantizar que la información es idéntica en todos los nodos operativos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Atomicidad y Durabilidad",
+        "rationale": "Estas son propiedades del modelo $ACID$ y no forman parte de las dimensiones evaluadas directamente por el teorema $CAP$ para sistemas distribuidos.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considere qué sucede con la respuesta del sistema cuando hay un fallo de comunicación."
+  },
+  {
+    "guid": "e6c35228-cc5d-46ce-98cb-1fcf80977bfb",
+    "subjectId": "T53",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Una empresa utiliza un sistema $ERP$ para gestionar las ventas diarias en sus tiendas físicas, donde se realizan miles de pequeñas actualizaciones por minuto. ¿Qué modelo de procesamiento es el más adecuado para esta carga de trabajo?",
+    "answerOptions": [
+      {
+        "text": "$OLAP$ (Online Analytical Processing)",
+        "rationale": "El procesamiento $OLAP$ está optimizado para consultas complejas y análisis de grandes volúmenes de datos históricos, no para transacciones frecuentes.",
+        "isCorrect": false
+      },
+      {
+        "text": "$OLTP$ (Online Transaction Processing)",
+        "rationale": "El modelo $OLTP$ está diseñado específicamente para gestionar transacciones rápidas, frecuentes y en tiempo real, manteniendo la integridad operativa diaria.",
+        "isCorrect": true
+      },
+      {
+        "text": "Procesamiento Columnar $NoSQL$",
+        "rationale": "Aunque es potente, el almacenamiento por columnas es más eficiente para lecturas masivas de pocos atributos que para actualizaciones de registros completos.",
+        "isCorrect": false
+      },
+      {
+        "text": "$BDOO$ (Base de Datos Orientada a Objetos)",
+        "rationale": "Este modelo se centra en la integración con lenguajes de programación, pero no define el modelo de procesamiento transaccional frente al analítico.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en el acrónimo que describe la gestión operativa del 'día a día'."
+  },
+  {
+    "guid": "3eb9912d-ebc4-455a-b86c-0f50efd8c69f",
+    "subjectId": "T53",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Se detecta que en una tabla de 'Facturas', el campo 'NombreProveedor' depende funcionalmente del campo 'IDProveedor', el cual no es la clave primaria de la tabla (la clave es 'IDFactura'). ¿Qué regla de normalización se está incumpliendo?",
+    "answerOptions": [
+      {
+        "text": "La segunda forma normal ($2NF$)",
+        "rationale": "La $2NF$ trata sobre dependencias parciales respecto a una clave compuesta; aquí la dependencia es entre campos no clave.",
+        "isCorrect": false
+      },
+      {
+        "text": "La tercera forma normal ($3NF$)",
+        "rationale": "La $3NF$ prohíbe las dependencias transitivas, es decir, que un campo no clave dependa de otro campo no clave en lugar de depender únicamente de la clave primaria.",
+        "isCorrect": true
+      },
+      {
+        "text": "La integridad de entidad",
+        "rationale": "Esta integridad asegura que la clave primaria no sea nula y sea única, lo cual no está relacionado con la dependencia funcional mencionada.",
+        "isCorrect": false
+      },
+      {
+        "text": "El principio de aislamiento distribuitivo",
+        "rationale": "Este concepto no pertenece a las formas normales de bases de datos relacionales, sino a la teoría de sistemas distribuidos.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Analice la relación entre atributos que no forman parte de la clave principal."
+  },
+  {
+    "guid": "c13712bb-f573-43f0-a7e7-83ee7286d695",
+    "subjectId": "T53",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Desea implementar una solución para almacenar perfiles de usuario que cambian frecuentemente su estructura, añadiendo campos nuevos para algunos usuarios pero no para otros (por ejemplo, preferencias de esquí, alergias o títulos académicos). ¿Qué tecnología $NoSQL$ facilitaría esto sin migraciones de esquema?",
+    "answerOptions": [
+      {
+        "text": "Clave-valor como Redis",
+        "rationale": "Aunque es flexible, recuperar solo una parte del perfil o realizar consultas por atributos internos es ineficiente en un modelo de clave-valor puro.",
+        "isCorrect": false
+      },
+      {
+        "text": "Documental como MongoDB",
+        "rationale": "Las bases de datos documentales almacenan objetos (como $JSON$) que permiten esquemas dinámicos donde cada registro puede tener campos totalmente distintos.",
+        "isCorrect": true
+      },
+      {
+        "text": "Relacional como MariaDB",
+        "rationale": "Las bases de datos relacionales requieren una definición de esquema fija y cada cambio estructural suele requerir comandos $ALTER$ $TABLE$ complejos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Deductiva como Datalog",
+        "rationale": "Este tipo de base de datos se basa en reglas lógicas e inferencias, no en la flexibilidad de almacenamiento de datos semiestructurados.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considere el tipo de base de datos que utiliza estructuras similares a objetos de programación para persistir datos."
+  },
+  {
+    "guid": "4317985c-58e5-423b-a0d0-7281b9680862",
+    "subjectId": "T53",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Cuál es la función principal de la propiedad de 'Aislamiento' ($Isolation$) dentro de un motor de base de datos relacional robusto?",
+    "answerOptions": [
+      {
+        "text": "Garantizar que los datos se guarden físicamente en el disco duro",
+        "rationale": "Esta es la función de la durabilidad, no del aislamiento.",
+        "isCorrect": false
+      },
+      {
+        "text": "Evitar que transacciones simultáneas vean estados intermedios e inconsistentes de otras transacciones",
+        "rationale": "El aislamiento asegura que, aunque haya concurrencia, cada transacción se ejecute como si fuera la única, evitando interferencias entre procesos.",
+        "isCorrect": true
+      },
+      {
+        "text": "Asegurar que las claves foráneas siempre apunten a registros existentes",
+        "rationale": "Esto se conoce como integridad referencial y es una restricción lógica del esquema, no una propiedad transaccional de concurrencia.",
+        "isCorrect": false
+      },
+      {
+        "text": "Permitir que el esquema de la base de datos sea modificado sin detener el servicio",
+        "rationale": "Aunque es una característica deseable, esto se relaciona con la disponibilidad y la gestión de cambios en caliente, no con el aislamiento $ACID$.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en lo que sucede cuando dos usuarios intentan modificar el mismo dato al mismo tiempo."
+  },
+  {
+    "guid": "983fed73-c0aa-454b-bf71-d41ce6c32631",
+    "subjectId": "T53",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Usted trabaja en un proyecto de análisis de series temporales para monitorizar el rendimiento de servidores. Necesita almacenar métricas de CPU y memoria cada milisegundo. ¿Qué tipo de base de datos es la más especializada para este escenario?",
+    "answerOptions": [
+      {
+        "text": "Base de datos Geoespacial",
+        "rationale": "Las bases geoespaciales están optimizadas para coordenadas y mapas, no para la ingesta secuencial de métricas temporales.",
+        "isCorrect": false
+      },
+      {
+        "text": "$TSDB$ (Time Series Database) como InfluxDB",
+        "rationale": "Las $TSDB$ están optimizadas para registrar eventos que ocurren en el tiempo, permitiendo agregaciones y compresiones eficientes de datos secuenciales.",
+        "isCorrect": true
+      },
+      {
+        "text": "Base de datos de Grafos",
+        "rationale": "Los grafos se centran en las conexiones entre entidades, lo cual es irrelevante para una lista lineal de métricas de rendimiento de un servidor.",
+        "isCorrect": false
+      },
+      {
+        "text": "Base de datos Multidimensional ($MOLAP$)",
+        "rationale": "Aunque sirven para análisis, los cubos $OLAP$ no están diseñados para la ingesta masiva en tiempo real con granularidad de milisegundos.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Busque la categoría diseñada para datos que evolucionan y se registran cronológicamente."
+  },
+  {
+    "guid": "9fc039fa-fea1-4e2b-ba92-36406448ab81",
+    "subjectId": "T53",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "En una arquitectura NewSQL como Google Spanner o CockroachDB, ¿qué beneficio principal se busca obtener frente a las bases de datos SQL tradicionales?",
+    "answerOptions": [
+      {
+        "text": "Eliminar por completo el lenguaje $SQL$ para usar una $API$ $REST$",
+        "rationale": "NewSQL mantiene el uso del lenguaje $SQL$ estándar como interfaz principal para los desarrolladores.",
+        "isCorrect": false
+      },
+      {
+        "text": "Mantener las garantías $ACID$ permitiendo a la vez escalabilidad horizonal masiva",
+        "rationale": "Las NewSQL combinan lo mejor de ambos mundos: la robustez transaccional del modelo relacional y la capacidad de crecimiento en clúster de las NoSQL.",
+        "isCorrect": true
+      },
+      {
+        "text": "Sustituir el almacenamiento en disco por almacenamiento exclusivo en memoria",
+        "rationale": "Aunque pueden ser rápidas, el enfoque de NewSQL no es solo el uso de memoria RAM, sino la arquitectura distribuida con consistencia fuerte.",
+        "isCorrect": false
+      },
+      {
+        "text": "Permitir que los datos no tengan ningún esquema definido",
+        "rationale": "A diferencia de muchas NoSQL, NewSQL suele trabajar con esquemas estructurados para garantizar la integridad de los datos.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considere la necesidad de transacciones seguras en sistemas que crecen añadiendo más servidores."
+  },
+  {
+    "guid": "00828dda-2ad0-4508-a9c3-0875d1b74bf0",
+    "subjectId": "T53",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Para mejorar el rendimiento de una aplicación de catálogo de productos, se decide implementar una capa de 'caché' que guarde los datos más consultados en memoria RAM. ¿Qué tipo de base de datos NoSQL es la más común para este propósito?",
+    "answerOptions": [
+      {
+        "text": "Clave-valor (como Redis)",
+        "rationale": "Las bases de datos clave-valor son extremadamente rápidas y sencillas, ideales para actuar como memorias intermedias debido a su baja latencia.",
+        "isCorrect": true
+      },
+      {
+        "text": "Documental (como CouchDB)",
+        "rationale": "Aunque es posible, la sobrecarga de procesar documentos complejos suele ser mayor que la de un simple acceso por clave única en caché.",
+        "isCorrect": false
+      },
+      {
+        "text": "Multidimensional",
+        "rationale": "Los modelos multidimensionales son para análisis complejo de negocio y no para el acceso rápido y volátil que requiere una caché.",
+        "isCorrect": false
+      },
+      {
+        "text": "Deductiva",
+        "rationale": "Las bases deductivas están orientadas a la lógica formal y no tienen como objetivo la velocidad de acceso masivo en memoria para catálogos.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Identifique el modelo que funciona mediante parejas de identificadores y contenidos simples."
+  },
+  {
+    "guid": "be8d3da7-ada9-4888-ad26-d43a3cba2aea",
+    "subjectId": "T53",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Un SGBD garantiza que, ante un fallo catastrófico de energía inmediatamente posterior a la confirmación de una transacción, los datos no se pierdan. ¿Qué propiedad $ACID$ se encarga de este compromiso?",
+    "answerOptions": [
+      {
+        "text": "Consistencia",
+        "rationale": "La consistencia asegura que no se violen las reglas lógicas, pero no se ocupa de la persistencia física ante fallos de hardware.",
+        "isCorrect": false
+      },
+      {
+        "text": "Atomicidad",
+        "rationale": "La atomicidad asegura que se realicen todos los pasos de la transacción, pero no garantiza que sigan ahí si el disco falla tras la confirmación.",
+        "isCorrect": false
+      },
+      {
+        "text": "Durabilidad",
+        "rationale": "La durabilidad garantiza que una vez que el sistema confirma el éxito de una operación ($COMMIT$), los cambios son permanentes y resistentes a fallos.",
+        "isCorrect": true
+      },
+      {
+        "text": "Independencia Física",
+        "rationale": "Esta es una función del SGBD para separar la visión lógica del almacenamiento real, no una propiedad del ciclo de vida de la transacción.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Relacione el concepto con la persistencia en medios de almacenamiento no volátiles."
+  },
+  {
+    "guid": "c9efba70-1f27-48cd-b6b5-edd268b87f1a",
+    "subjectId": "T53",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "En un sistema distribuido, se utiliza la técnica de 'Sharding'. ¿En qué consiste fundamentalmente esta técnica para mejorar el rendimiento?",
+    "answerOptions": [
+      {
+        "text": "Hacer copias exactas de la misma base de datos en diez servidores distintos",
+        "rationale": "Esto se conoce como replicación y sirve principalmente para alta disponibilidad y lectura, no para dividir la carga de escritura.",
+        "isCorrect": false
+      },
+      {
+        "text": "Dividir un conjunto de datos en fragmentos más pequeños y repartirlos entre diferentes servidores",
+        "rationale": "El sharding permite escalar horizontalmente distribuyendo la carga de datos y consultas entre múltiples nodos de forma que ninguno sea un cuello de botella.",
+        "isCorrect": true
+      },
+      {
+        "text": "Convertir todas las tablas relacionales en archivos de texto plano para acceso rápido",
+        "rationale": "El sharding no cambia el formato de los datos, sino su ubicación física dentro de un clúster de servidores.",
+        "isCorrect": false
+      },
+      {
+        "text": "Eliminar las claves foráneas para que las consultas sean más rápidas",
+        "rationale": "Aunque a veces se hace en NoSQL, el sharding es una técnica de particionamiento de datos, no una política de diseño de restricciones.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en la estrategia de 'divide y vencerás' aplicada al almacenamiento en clúster."
+  },
+  {
+    "guid": "7363ac7b-4448-4463-ba97-e8592f4fd771",
+    "subjectId": "T53",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Cuál es la principal debilidad de las bases de datos relacionales tradicionales cuando se enfrentan a aplicaciones de escala global con millones de usuarios simultáneos?",
+    "answerOptions": [
+      {
+        "text": "Su incapacidad para realizar consultas complejas con $JOIN$",
+        "rationale": "Al contrario, su fortaleza es precisamente la capacidad de realizar uniones y consultas complejas gracias al modelo relacional.",
+        "isCorrect": false
+      },
+      {
+        "text": "La dificultad de escalar horizontalmente manteniendo las propiedades $ACID$ estrictas",
+        "rationale": "Mantenener la consistencia total y el aislamiento entre múltiples servidores distribuidos geográficamente es computacionalmente muy costoso y lento.",
+        "isCorrect": true
+      },
+      {
+        "text": "Que solo pueden almacenar datos de tipo numérico",
+        "rationale": "Las bases de datos SQL soportan una gran variedad de tipos de datos, incluyendo texto, fechas, binarios e incluso JSON en versiones modernas.",
+        "isCorrect": false
+      },
+      {
+        "text": "Que requieren licencias gratuitas de código abierto obligatoriamente",
+        "rationale": "Existen bases de datos SQL tanto de pago (Oracle) como de código abierto (PostgreSQL); el modelo de licencia no es una limitación técnica intrínseca.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considere las limitaciones de las bases de datos de un solo servidor frente al crecimiento en red."
+  },
+  {
+    "guid": "f81ce564-faa4-4b67-b972-33d37a3208ca",
+    "subjectId": "T53",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Usted debe configurar un sistema que permita generar informes de ventas históricos comparando diferentes regiones, productos y años mediante técnicas de 'drill-down'. ¿Qué modelo de base de datos es el más apropiado?",
+    "answerOptions": [
+      {
+        "text": "Base de datos Deductiva",
+        "rationale": "Estas bases se usan para sistemas expertos y lógica, no para la agregación masiva de datos de negocio.",
+        "isCorrect": false
+      },
+      {
+        "text": "Base de datos Multidimensional ($OLAP$)",
+        "rationale": "Los cubos multidimensionales están diseñados específicamente para el análisis de datos desde múltiples perspectivas y jerarquías.",
+        "isCorrect": true
+      },
+      {
+        "text": "Base de datos de Clave-Valor",
+        "rationale": "Es imposible realizar análisis de tendencias y comparativas regionales de forma directa en un modelo que solo entiende de claves únicas.",
+        "isCorrect": false
+      },
+      {
+        "text": "Base de datos Temporal",
+        "rationale": "Aunque los informes tienen un componente temporal, las bases temporales se centran en la evolución de registros individuales, no en el análisis agregado de negocio.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Identifique el modelo basado en 'cubs de dades' mencionado en la teoría."
+  },
+  {
+    "guid": "b26e1582-10f6-454f-9e1a-5c496a5bdd79",
+    "subjectId": "T53",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "En el lenguaje SQL, la instrucción $GRANT$ permite dar permisos a un usuario sobre una tabla específica. ¿A qué categoría de sentencias pertenece?",
+    "answerOptions": [
+      {
+        "text": "$DML$",
+        "rationale": "El $DML$ gestiona el contenido de las tablas, no quién puede acceder a ellas.",
+        "isCorrect": false
+      },
+      {
+        "text": "$DCL$ (Data Control Language)",
+        "rationale": "El $DCL$ se encarga de la seguridad y el control de acceso, incluyendo la concesión ($GRANT$) y revocación ($REVOKE$) de privilegios.",
+        "isCorrect": true
+      },
+      {
+        "text": "$TCL$",
+        "rationale": "El $TCL$ se ocupa del éxito o fracaso de las operaciones en grupo, no del control de seguridad de los usuarios.",
+        "isCorrect": false
+      },
+      {
+        "text": "$DDL$",
+        "rationale": "El $DDL$ define objetos (tablas, índices), mientras que el control de acceso a esos objetos ya definidos es competencia del $DCL$.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en las siglas relacionadas con el 'control' de la base de datos."
+  },
+  {
+    "guid": "557aac54-4a38-43ba-a7c8-838b4df2d036",
+    "subjectId": "T53",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Si una base de datos NoSQL se define como 'Básicamente Disponible' ($Basically$ $Available$) según el modelo $BASE$, ¿qué significa esto para el usuario final?",
+    "answerOptions": [
+      {
+        "text": "Que el sistema nunca puede fallar bajo ninguna circunstancia",
+        "rationale": "Ningún sistema es infalible; la disponibilidad básica reconoce que puede haber fallos pero prioriza dar una respuesta.",
+        "isCorrect": false
+      },
+      {
+        "text": "Que el sistema responderá siempre, aunque la información no sea la más reciente",
+        "rationale": "La disponibilidad básica asegura una respuesta del sistema en lugar de un error de 'timeout', incluso si el nodo consultado tiene datos desactualizados.",
+        "isCorrect": true
+      },
+      {
+        "text": "Que los datos se borran automáticamente después de ser leídos una vez",
+        "rationale": "Esta es una característica de algunos sistemas de colas de mensajes, pero no tiene relación con el modelo $BASE$ de bases de datos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Que el sistema requiere autenticación básica por nombre y contraseña",
+        "rationale": "El término 'Basically Available' se refiere a la arquitectura distribuida y disponibilidad de red, no a protocolos de seguridad.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Relacione el concepto con la prioridad de respuesta frente a la precisión absoluta en tiempo real."
+  },
+  {
+    "guid": "e0452d07-d029-4fb5-bda7-1e9768ce84a2",
+    "subjectId": "T53",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Como administrador, necesita asegurar la independencia física de los datos en su SGBD. ¿Cuál de las siguientes acciones representa una aplicación de este concepto?",
+    "answerOptions": [
+      {
+        "text": "Cambiar el nombre de una columna sin que las aplicaciones dejen de funcionar",
+        "rationale": "Esto se refiere a la independencia lógica, ya que afecta a la estructura conceptual de la tabla.",
+        "isCorrect": false
+      },
+      {
+        "text": "Mover los archivos de datos de un disco mecánico a una cabina de almacenamiento $SSD$ sin alterar las consultas $SQL$",
+        "rationale": "La independencia física permite modificar el almacenamiento interno o las estructuras de archivos sin impactar en cómo el usuario o la aplicación ven los datos.",
+        "isCorrect": true
+      },
+      {
+        "text": "Permitir que dos usuarios modifiquen la misma fila simultáneamente sin bloquearse",
+        "rationale": "Esto es una función del control de concurrència y aislamiento, no de la independencia física de los datos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Garantizar que si se borra un cliente, se borren también sus pedidos de forma automática",
+        "rationale": "Esta es una regla de integridad referencial (borrado en cascada), una restricción lógica del modelo.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Diferencie entre la estructura lógica (tablas/columnas) y el soporte hardware o formato de archivo."
+  },
+  {
+    "guid": "4f811ab1-2a19-4459-8d18-447b5b4a594a",
+    "subjectId": "T53",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Se le asigna la tarea de diseñar el almacenamiento para una aplicación de mensajería instantánea global. El requisito es que los mensajes se entreguen instantáneamente y el sistema nunca se detenga, aunque un usuario en Japón vea un mensaje un segundo después que un usuario en España. ¿Qué compromiso del teorema $CAP$ es aceptable aquí?",
+    "answerOptions": [
+      {
+        "text": "Priorizar la Consistencia sobre la Disponibilidad ($CP$)",
+        "rationale": "Si priorizara la consistencia, el mensaje no se enviaría si no se pudiera confirmar su llegada idéntica a todos los nodos del mundo a la vez.",
+        "isCorrect": false
+      },
+      {
+        "text": "Priorizar la Disponibilidad y la Tolerancia a Particiones ($AP$)",
+        "rationale": "En mensajería, es preferible que el sistema funcione siempre ($A$) y soporte fallos de red ($P$), asumiendo una consistencia eventual donde el dato llega un poco después.",
+        "isCorrect": true
+      },
+      {
+        "text": "Eliminar la Tolerancia a Particiones ($CA$)",
+        "rationale": "Un sistema global sin tolerancia a particiones es imposible, ya que los fallos de red entre continentes son inevitables.",
+        "isCorrect": false
+      },
+      {
+        "text": "Usar un sistema $OLAP$ de cubos multidimensionales",
+        "rationale": "Los sistemas $OLAP$ son para análisis estadístico y no sirven para la comunicación transaccional en tiempo real de mensajería.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Reflexione sobre si es más crítico que el chat 'no se cuelgue' o que sea 'exactamente síncrono'."
+  },
+  {
+    "guid": "b742e148-15aa-4e5f-9f7a-90d91150862e",
+    "subjectId": "T53",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Cuál es la característica principal de una base de datos de 'Columnas Amples' ($Wide-column$) como Apache Cassandra frente a una SQL tradicional?",
+    "answerOptions": [
+      {
+        "text": "Solo permite una columna por cada tabla",
+        "rationale": "Al contrario, permite familias de columnas dinámicas que pueden variar entre registros, no una sola columna.",
+        "isCorrect": false
+      },
+      {
+        "text": "Almacena los datos en familias de columnas y está diseñada para escalabilidad masiva en $Big$ $Data$",
+        "rationale": "Este modelo permite gestionar volúmenes petabyte distribuyendo las columnas de forma eficiente entre muchos nodos, a diferencia del esquema de filas rígido.",
+        "isCorrect": true
+      },
+      {
+        "text": "Es la única que permite usar el lenguaje $CQL$",
+        "rationale": "Aunque Cassandra usa $CQL$, el lenguaje no es la característica definitoria de su arquitectura física de almacenamiento.",
+        "isCorrect": false
+      },
+      {
+        "text": "Requiere que todas las columnas tengan exactamente la misma longitud de caracteres",
+        "rationale": "La flexibilidad de longitud y tipo es precisamente una de las ventajas de los modelos NoSQL frente a los campos de longitud fija de algunos sistemas antiguos.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Relacione el término con la gestión de grandes volúmenes de datos tipo $IoT$ o $Logs$."
+  },
+  {
+    "guid": "3fdf2e5f-f5ce-4b8d-bb72-12847f82834c",
+    "subjectId": "T53",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "En una base de datos relacional, ¿para qué se utiliza fundamentalmente una 'Clave Foránea' ($Foreign$ $Key$)?",
+    "answerOptions": [
+      {
+        "text": "Para cifrar los datos sensibles de la tabla",
+        "rationale": "El cifrado es una medida de seguridad independiente de la estructura de claves de la base de datos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Para establecer un vínculo jerárquico o relacional entre dos tablas",
+        "rationale": "Las claves foráneas permiten relacionar registros de una tabla con los de otra, garantizando que los datos vinculados sean coherentes.",
+        "isCorrect": true
+      },
+      {
+        "text": "Para identificar de forma única cada fila de una tabla",
+        "rationale": "Esa es la definición y función de la clave primaria ($Primary$ $Key$).",
+        "isCorrect": false
+      },
+      {
+        "text": "Para acelerar las búsquedas de texto libre",
+        "rationale": "Esa función corresponde a los índices de texto ($Full-text$ $Indexes$), no a las claves foráneas.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en cómo conectar la tabla de 'Pedidos' con la de 'Clientes'."
+  },
+  {
+    "guid": "6276d82c-8dfc-4f17-accb-16862d78e02c",
+    "subjectId": "T53",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Una aplicación web de gran éxito experimenta lentitud. El equipo decide implementar 'Replicación Asíncrona'. ¿Qué efecto tendrá esto en la base de datos?",
+    "answerOptions": [
+      {
+        "text": "Las escrituras serán más lentas porque deben confirmarse en todos los nodos",
+        "rationale": "Eso ocurriría en la replicación síncrona; la asíncrona permite que la escritura sea rápida en el nodo principal.",
+        "isCorrect": false
+      },
+      {
+        "text": "Mejorará la velocidad de lectura pero podría haber inconsistencias temporales entre nodos",
+        "rationale": "Al replicar de forma asíncrona, las copias pueden tardar unos instantes en actualizarse, permitiendo lecturas rápidas pero no siempre idénticas al instante.",
+        "isCorrect": true
+      },
+      {
+        "text": "Se perderá la capacidad de usar el lenguaje $SQL$",
+        "rationale": "La replicación es una técnica de infraestructura y no afecta a la interfaz de lenguaje de la base de datos.",
+        "isCorrect": false
+      },
+      {
+        "text": "La base de datos dejará de cumplir la regla de Durabilidad",
+        "rationale": "La durabilidad sigue cumpliéndose en cada nodo individual una vez confirmada la operación localmente.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considere la diferencia entre realizar una tarea inmediatamente o delegarla para más tarde."
+  },
+  {
+    "guid": "7b4ca2ab-2e5d-43fc-98cc-05890172e424",
+    "subjectId": "T53",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Un desarrollador utiliza la instrucción $ROLLBACK$ tras un error en un proceso de actualización masiva. ¿Cuál es el resultado esperado?",
+    "answerOptions": [
+      {
+        "text": "Se eliminan definitivamente todos los registros de la tabla",
+        "rationale": "Esa sería la función de un comando $DROP$ o $TRUNCATE$, no de un control de transacción.",
+        "isCorrect": false
+      },
+      {
+        "text": "La base de datos vuelve al estado anterior al inicio de la transacción actual",
+        "rationale": "El $ROLLBACK$ deshace todos los cambios realizados durante la transacción que aún no han sido confirmados, manteniendo la integridad de los datos.",
+        "isCorrect": true
+      },
+      {
+        "text": "Se crea una copia de seguridad en un archivo externo",
+        "rationale": "El comando para copias de seguridad depende del SGBD (como $mysqldump$), pero no es una función del lenguaje $TCL$.",
+        "isCorrect": false
+      },
+      {
+        "text": "Se cierran todas las conexiones activas de los usuarios",
+        "rationale": "El $ROLLBACK$ solo afecta a la transacción de la sesión actual, no al estado de conexión de otros usuarios.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en la acción de 'deshacer' en un editor de texto pero aplicada a datos."
+  }
+]

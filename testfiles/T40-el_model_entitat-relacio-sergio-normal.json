@@ -1,0 +1,808 @@
+[
+  {
+    "guid": "07804927-a490-4c35-8b6a-5917a2fe1b4f",
+    "subjectId": "T40",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Cuál es la principal ventaja de que el Modelo Entidad-Relación (MER) sea un modelo de datos de alto nivel?",
+    "answerOptions": [
+      {
+        "text": "Permite la implementación física automática en cualquier SGBD.",
+        "rationale": "El MER se centra en el diseño conceptual y lógico, no en la automatización de la implementación física.",
+        "isCorrect": false
+      },
+      {
+        "text": "Independencia de la tecnología específica que se utilizará para la base de datos.",
+        "rationale": "Al ser un modelo conceptual, permite a los diseñadores centrarse en la estructura de la información sin las limitaciones de un software específico.",
+        "isCorrect": true
+      },
+      {
+        "text": "Elimina la necesidad de definir tipos de datos para los atributos.",
+        "rationale": "Aunque es de alto nivel, el dominio y el tipo de los atributos siguen siendo fundamentales para la integridad de los datos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Sustituye por completo al modelo relacional en la fase de implementación.",
+        "rationale": "El MER sirve como base conceptual, pero generalmente se transforma en un modelo relacional antes de la implementación.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considera qué aspecto del diseño permite enfocarse solo en la información y no en el software."
+  },
+  {
+    "guid": "77f683e7-1178-4d7d-971f-ef0f142b977b",
+    "subjectId": "T40",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En el contexto de las entidades, ¿qué define a una 'entidad débil'?",
+    "answerOptions": [
+      {
+        "text": "Es una entidad que carece de atributos descriptivos.",
+        "rationale": "Las entidades débiles pueden tener muchos atributos descriptivos; su debilidad reside en su identificación.",
+        "isCorrect": false
+      },
+      {
+        "text": "No puede identificarse de forma única solo por sus propios atributos.",
+        "rationale": "Su existencia e identificación dependen de una entidad fuerte relacionada.",
+        "isCorrect": true
+      },
+      {
+        "text": "Es una entidad que solo tiene relaciones 1:1 con otras entidades.",
+        "rationale": "El tipo de cardinalidad no define si una entidad es débil o fuerte, sino su dependencia de identificación.",
+        "isCorrect": false
+      },
+      {
+        "text": "Se representa gráficamente con una elipse punteada.",
+        "rationale": "Las entidades débiles se representan con un doble rectángulo; las elipses punteadas son para atributos derivados.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piensa en la dependencia que tiene este tipo de objeto respecto a otros para poder distinguirse."
+  },
+  {
+    "guid": "5f50dcc1-ade4-40cb-bb52-1a4ec2f7db3a",
+    "subjectId": "T40",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Si un atributo 'Dirección' se divide en 'Calle', 'Ciudad' y 'Código Postal', ¿de qué tipo de atributo se trata?",
+    "answerOptions": [
+      {
+        "text": "Atributo multivaluado",
+        "rationale": "Un atributo multivaluado permite varios valores del mismo tipo (ej. varios teléfonos), no se divide en sub-partes distintas.",
+        "isCorrect": false
+      },
+      {
+        "text": "Atributo derivado",
+        "rationale": "Los atributos derivados se calculan a partir de otros, no se fragmentan en componentes menores.",
+        "isCorrect": false
+      },
+      {
+        "text": "Atributo compuesto",
+        "rationale": "Los atributos compuestos son aquellos que pueden subdividirse en sub-atributos con significado propio.",
+        "isCorrect": true
+      },
+      {
+        "text": "Atributo clave",
+        "rationale": "Un atributo clave es un identificador único, y aunque puede ser compuesto, la definición de subdivisión apunta a su estructura.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Recuerda el término para los elementos que están formados por varias partes más simples."
+  },
+  {
+    "guid": "bebb6b6c-af18-4635-8d0c-16cac66b3329",
+    "subjectId": "T40",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Qué representa la cardinalidad en una relación entre dos entidades?",
+    "answerOptions": [
+      {
+        "text": "El número de atributos que posee cada entidad.",
+        "rationale": "La cardinalidad se refiere a la asociación entre instancias de entidades, no a la cantidad de sus características.",
+        "isCorrect": false
+      },
+      {
+        "text": "El número de instancias de una entidad que pueden asociarse con una instancia de otra.",
+        "rationale": "Define las reglas de negocio sobre cómo se conectan los registros (1:1, 1:N, N:M).",
+        "isCorrect": true
+      },
+      {
+        "text": "Si la participación de la entidad es obligatoria u opcional.",
+        "rationale": "Eso describe la modalidad o participación, no la cardinalidad máxima.",
+        "isCorrect": false
+      },
+      {
+        "text": "La jerarquía de herencia entre una superclase y una subclase.",
+        "rationale": "La jerarquía se gestiona mediante especialización y generalización, no mediante cardinalidades estándar.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piensa en las proporciones numéricas (como 'uno a muchos') que vinculan a los sujetos del sistema."
+  },
+  {
+    "guid": "2ead9f89-746e-4577-a53c-7f56bfa26bca",
+    "subjectId": "T40",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Cómo se gestiona una relación Muchos a Muchos (N:M) al pasar al modelo relacional?",
+    "answerOptions": [
+      {
+        "text": "Se añade una clave foránea en la entidad con menos registros.",
+        "rationale": "Las claves foráneas directas solo funcionan bien en relaciones 1:1 o 1:N.",
+        "isCorrect": false
+      },
+      {
+        "text": "Se requiere la creación de una entidad intermedia o tabla de enlace.",
+        "rationale": "La tabla intermedia descompone la relación N:M en dos relaciones 1:N para mantener la integridad.",
+        "isCorrect": true
+      },
+      {
+        "text": "Se fusionan ambas entidades en una sola tabla de gran tamaño.",
+        "rationale": "Fusionar entidades independientes causaría una redundancia de datos masiva e incoherencias.",
+        "isCorrect": false
+      },
+      {
+        "text": "Se convierte uno de los atributos en un atributo multivaluado.",
+        "rationale": "El modelo relacional estándar no soporta atributos multivaluados directamente en una celda.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Recuerda qué elemento adicional es necesario para conectar múltiples registros con otros múltiples registros."
+  },
+  {
+    "guid": "69f136ea-f91f-4a4c-ac64-1a5bb1aef482",
+    "subjectId": "T40",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En la notación de Chen, ¿qué símbolo se utiliza para identificar un atributo derivado?",
+    "answerOptions": [
+      {
+        "text": "Una elipse con línea continua.",
+        "rationale": "Este símbolo se utiliza para atributos normales o descriptivos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Una elipse con trazo punteado.",
+        "rationale": "El trazo discontinuo o punteado indica que el valor no se almacena físicamente, sino que se calcula.",
+        "isCorrect": true
+      },
+      {
+        "text": "Una elipse doble.",
+        "rationale": "La elipse doble representa atributos multivaluados, que pueden contener varios valores.",
+        "isCorrect": false
+      },
+      {
+        "text": "Un rombo conectado a la entidad.",
+        "rationale": "Los rombos representan relaciones entre entidades, no características individuales.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Busca el estilo de línea que sugiere que el dato no es 'fijo' o 'sólido', sino que proviene de otro lugar."
+  },
+  {
+    "guid": "a5217122-19ae-4899-8ded-3d6d7f54b2a5",
+    "subjectId": "T40",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Cuál es la principal diferencia entre los procesos de 'especialización' y 'generalización'?",
+    "answerOptions": [
+      {
+        "text": "La especialización es un proceso ascendente y la generalización descendente.",
+        "rationale": "Es al revés; la especialización desglosa (descendente) y la generalización agrupa (ascendente).",
+        "isCorrect": false
+      },
+      {
+        "text": "El resultado final de ambos procesos es estructuralmente distinto.",
+        "rationale": "El resultado (superclase/subclase) es idéntico; solo cambia la metodología de diseño.",
+        "isCorrect": false
+      },
+      {
+        "text": "La especialización deriva de un diseño descendente y la generalización de uno ascendente.",
+        "rationale": "La especialización busca diferencias en una entidad; la generalización busca rasgos comunes entre varias.",
+        "isCorrect": true
+      },
+      {
+        "text": "La generalización solo se aplica a atributos y la especialización a relaciones.",
+        "rationale": "Ambos procesos se aplican al nivel de entidades y sus jerarquías completas.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piensa en el sentido del flujo de diseño: de lo general a lo específico o viceversa."
+  },
+  {
+    "guid": "5cac8e52-5bcd-465d-82a3-a1267973f753",
+    "subjectId": "T40",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Qué implica que una relación tenga una 'participación total' por parte de una entidad?",
+    "answerOptions": [
+      {
+        "text": "Que la entidad tiene todos los atributos posibles del sistema.",
+        "rationale": "La participación se refiere a la presencia de instancias en una relación, no a la cantidad de atributos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Que cada instancia de esa entidad debe estar obligatoriamente relacionada con alguna de la otra entidad.",
+        "rationale": "Es una restricción de existencia que obliga a que todo registro participe en la asociación.",
+        "isCorrect": true
+      },
+      {
+        "text": "Que la relación es de tipo Muchos a Muchos obligatoriamente.",
+        "rationale": "La participación total puede darse en cualquier tipo de cardinalidad (1:1, 1:N, etc.).",
+        "isCorrect": false
+      },
+      {
+        "text": "Que la entidad no puede tener atributos clave.",
+        "rationale": "Todas las entidades fuertes deben tener atributos clave, independientemente de su participación.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Relaciona este concepto con la obligatoriedad de que un objeto 'exista' dentro de un vínculo."
+  },
+  {
+    "guid": "6924ed35-7e6e-40b9-8c46-af094e5a99c4",
+    "subjectId": "T40",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En la notación Crow's Foot (Pata de Gallo), ¿qué indica el símbolo de un círculo 'o' en el extremo de una línea de relación?",
+    "answerOptions": [
+      {
+        "text": "Cardinalidad máxima de uno.",
+        "rationale": "La cardinalidad uno se representa con una línea vertical (|).",
+        "isCorrect": false
+      },
+      {
+        "text": "Opcionalidad (cardinalidad mínima de cero).",
+        "rationale": "El círculo indica que una instancia puede no estar relacionada con ninguna instancia de la otra entidad.",
+        "isCorrect": true
+      },
+      {
+        "text": "Cardinalidad de muchos.",
+        "rationale": "El símbolo de 'muchos' es la propia 'pata de gallo' (<).",
+        "isCorrect": false
+      },
+      {
+        "text": "Que la entidad es una entidad débil.",
+        "rationale": "La debilidad se suele indicar en la estructura de la entidad o mediante la relación identificativa, no con un círculo de opcionalidad.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Este símbolo visualmente sugiere un 'vacío' o la ausencia de una conexión obligatoria."
+  },
+  {
+    "guid": "632c6580-a47d-45c8-bfdb-d6cbbeb6a6c1",
+    "subjectId": "T40",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Qué característica define a las subclases 'disjuntas' en una jerarquía de herencia?",
+    "answerOptions": [
+      {
+        "text": "Una instancia de la superclase puede pertenecer a varias subclases a la vez.",
+        "rationale": "Eso describe a las subclases solapadas (encavalcades).",
+        "isCorrect": false
+      },
+      {
+        "text": "Una instancia de la superclase solo puede pertenecer a una subclase como máximo.",
+        "rationale": "El término 'disjunto' implica que los conjuntos de instancias de las subclases no tienen elementos en común.",
+        "isCorrect": true
+      },
+      {
+        "text": "Todas las instancias de la superclase deben pertenecer a una subclase.",
+        "rationale": "Eso define una especialización 'total', que es independiente de si es disjunta o solapada.",
+        "isCorrect": false
+      },
+      {
+        "text": "Las subclases no heredan los atributos de la superclase.",
+        "rationale": "Por definición de herencia, las subclases siempre heredan atributos y relaciones de su superclase.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considera si un elemento puede 'estar en dos sitios al mismo tiempo' o si los grupos son mutuamente excluyentes."
+  },
+  {
+    "guid": "6fb2bbe2-384d-4aeb-bb22-8b1e69daf031",
+    "subjectId": "T40",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Cuál es el propósito de la 'Agregación' en el modelado Entidad-Relación?",
+    "answerOptions": [
+      {
+        "text": "Sumar los valores numéricos de los atributos de una entidad.",
+        "rationale": "La agregación es un concepto estructural de modelado, no una operación aritmética de datos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Permitir que una relación sea tratada como una entidad de nivel superior para relacionarse con otras.",
+        "rationale": "Se usa cuando una relación entre entidades debe participar a su vez en otra relación.",
+        "isCorrect": true
+      },
+      {
+        "text": "Agrupar varias bases de datos en un solo sistema de gestión.",
+        "rationale": "El MER se aplica al diseño de un sistema individual, no a la federación de bases de datos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Convertir atributos multivaluados en entidades independientes.",
+        "rationale": "Aunque es una técnica común, no es la definición técnica de agregación en el MER.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Imagina una situación donde un 'vínculo' entre dos cosas necesita actuar como si fuera 'un solo objeto' para conectarse con un tercero."
+  },
+  {
+    "guid": "8cb823d0-1261-4f4b-9c4f-e590e489a4f9",
+    "subjectId": "T40",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Qué representa el 'grado' de una relación?",
+    "answerOptions": [
+      {
+        "text": "El nivel de importancia de la relación para el negocio.",
+        "rationale": "El grado es una medida técnica de la estructura, no una valoración de negocio.",
+        "isCorrect": false
+      },
+      {
+        "text": "El número de atributos que tiene la relación.",
+        "rationale": "Aunque las relaciones pueden tener atributos, el grado cuenta entidades participantes.",
+        "isCorrect": false
+      },
+      {
+        "text": "El número de entidades que participan en dicha relación.",
+        "rationale": "Determina si la relación es binaria (2), ternaria (3) o n-aria (más de 3).",
+        "isCorrect": true
+      },
+      {
+        "text": "La cantidad máxima de registros permitidos en la tabla resultante.",
+        "rationale": "El número de registros es dinámico y no está limitado por el grado de la relación.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Cuenta cuántas cajas (entidades) están conectadas al mismo rombo (relación)."
+  },
+  {
+    "guid": "59a82c41-383c-41fa-81e4-1480effc0878",
+    "subjectId": "T40",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Qué diferencia a la notación de Chen de la de Crow's Foot respecto a los atributos?",
+    "answerOptions": [
+      {
+        "text": "En Chen no se representan los atributos.",
+        "rationale": "Ambas notaciones representan atributos, pero lo hacen de forma visualmente distinta.",
+        "isCorrect": false
+      },
+      {
+        "text": "En Crow's Foot los atributos se listan dentro del rectángulo de la entidad.",
+        "rationale": "Crow's Foot integra los atributos en la caja de la entidad, mientras Chen usa elipses externas.",
+        "isCorrect": true
+      },
+      {
+        "text": "Chen utiliza códigos PK para identificar claves primarias.",
+        "rationale": "Chen utiliza el subrayado; las siglas PK son más comunes en Crow's Foot o modelos relacionales.",
+        "isCorrect": false
+      },
+      {
+        "text": "Crow's Foot no permite representar atributos multivaluados.",
+        "rationale": "Aunque la representación varía, ambos modelos conceptuales deben ser capaces de capturar la misma información.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piensa en cuál de los dos modelos parece una 'lista' y cuál parece un 'mapa con globos'."
+  },
+  {
+    "guid": "cd226101-da7b-4112-bb31-11f82672cd52",
+    "subjectId": "T40",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En un diagrama ER, ¿qué indica una línea doble que une una entidad débil con su relación identificativa?",
+    "answerOptions": [
+      {
+        "text": "Que la relación es redundante.",
+        "rationale": "Las líneas dobles en este contexto indican dependencia o participación, no redundancia.",
+        "isCorrect": false
+      },
+      {
+        "text": "Que existe una participación total y una dependencia de identificación.",
+        "rationale": "Refuerza que la entidad débil no puede existir ni identificarse sin su entidad fuerte asociada.",
+        "isCorrect": true
+      },
+      {
+        "text": "Que la cardinalidad es obligatoriamente Muchos a Muchos.",
+        "rationale": "La simbología de la línea (simple/doble) suele referirse a la participación, no a la cardinalidad máxima.",
+        "isCorrect": false
+      },
+      {
+        "text": "Que la entidad tiene dos claves primarias distintas.",
+        "rationale": "Una entidad débil no tiene una clave primaria completa propia, sino una clave parcial.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Refleja la conexión vital y obligatoria entre un subordinado y su superior."
+  },
+  {
+    "guid": "0fb7499d-a973-4764-9bca-809ee75c0a91",
+    "subjectId": "T40",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Cuál de los siguientes es un ejemplo de atributo multivaluado?",
+    "answerOptions": [
+      {
+        "text": "La fecha de nacimiento de un empleado.",
+        "rationale": "Una persona solo puede tener una única fecha de nacimiento.",
+        "isCorrect": false
+      },
+      {
+        "text": "El número de bastidor de un coche.",
+        "rationale": "Es un identificador único y solo existe uno por coche.",
+        "isCorrect": false
+      },
+      {
+        "text": "Los idiomas que habla un profesor.",
+        "rationale": "Una misma persona puede hablar varios idiomas, lo que genera múltiples valores para el mismo atributo.",
+        "isCorrect": true
+      },
+      {
+        "text": "El precio total de una factura calculado a partir de los productos.",
+        "rationale": "Este sería un atributo derivado, no multivaluado.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Busca una característica que pueda tener varias entradas para el mismo individuo."
+  },
+  {
+    "guid": "fd4746c4-82f7-4add-a821-c007a91a3a35",
+    "subjectId": "T40",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Qué es el 'dominio' de un atributo?",
+    "answerOptions": [
+      {
+        "text": "El nombre único que recibe el atributo en el sistema.",
+        "rationale": "El nombre es el identificador del atributo, no su dominio.",
+        "isCorrect": false
+      },
+      {
+        "text": "El conjunto de valores permitidos para ese atributo.",
+        "rationale": "Define el tipo de dato y el rango de valores que puede tomar una característica (ej. enteros positivos).",
+        "isCorrect": true
+      },
+      {
+        "text": "La entidad a la que pertenece el atributo.",
+        "rationale": "La pertenencia es una relación de propiedad, no el dominio de valores.",
+        "isCorrect": false
+      },
+      {
+        "text": "El servidor donde se almacena físicamente el dato.",
+        "rationale": "El MER es independiente de la implementación física y de la ubicación del servidor.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Es el 'espacio' o 'rango' de respuestas posibles para una pregunta sobre ese dato."
+  },
+  {
+    "guid": "29dfa289-ad0b-4da7-88f2-2239e4a59678",
+    "subjectId": "T40",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En una relación 1:N entre 'Cliente' y 'Pedido', ¿cuál es la interpretación correcta?",
+    "answerOptions": [
+      {
+        "text": "Un cliente solo puede realizar un pedido.",
+        "rationale": "La 'N' en el lado de pedidos indica que un cliente puede tener múltiples pedidos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Cada pedido puede pertenecer a varios clientes diferentes.",
+        "rationale": "El '1' en el lado del cliente indica que el pedido está vinculado a un único cliente.",
+        "isCorrect": false
+      },
+      {
+        "text": "Un cliente puede tener varios pedidos, pero cada pedido es de un solo cliente.",
+        "rationale": "Refleja fielmente la cardinalidad 1 a Muchos en este contexto de negocio.",
+        "isCorrect": true
+      },
+      {
+        "text": "No se pueden realizar pedidos si el cliente no tiene atributos multivaluados.",
+        "rationale": "Los atributos de las entidades no condicionan la posibilidad de establecer relaciones.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Analiza quién puede tener 'muchos' de qué, y si ese 'qué' puede pertenecer a 'muchos' de quién."
+  },
+  {
+    "guid": "e571f353-7504-4596-89d3-6ad9b2568e37",
+    "subjectId": "T40",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Qué indica el término 'Herencia de propiedades' en el MER?",
+    "answerOptions": [
+      {
+        "text": "Que las entidades fuertes copian los atributos de las entidades débiles.",
+        "rationale": "La herencia fluye de superclases (generales) a subclases (específicas).",
+        "isCorrect": false
+      },
+      {
+        "text": "La transmisión de atributos y relaciones de una superclase a sus subclases.",
+        "rationale": "Permite que las subclases tengan automáticamente las características de la entidad general sin redefinirlas.",
+        "isCorrect": true
+      },
+      {
+        "text": "Que los atributos derivados heredan el valor de los atributos clave.",
+        "rationale": "Los atributos derivados se calculan, no heredan mediante jerarquías de clase.",
+        "isCorrect": false
+      },
+      {
+        "text": "El proceso de mover datos de una base de datos antigua a una nueva.",
+        "rationale": "Eso es una migración de datos, no herencia en el modelado conceptual.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piensa en el legado que deja un 'padre' (entidad superior) a sus 'hijos' (entidades inferiores)."
+  },
+  {
+    "guid": "493a170a-376d-4749-bc94-c272e4b78443",
+    "subjectId": "T40",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Si una especialización es 'Parcial', ¿qué significa respecto a las instancias?",
+    "answerOptions": [
+      {
+        "text": "Que solo se han definido algunos atributos de las subclases.",
+        "rationale": "La parcialidad se refiere a la pertenencia de las instancias, no a la definición de sus atributos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Que algunas instancias de la superclase pueden no pertenecer a ninguna subclase.",
+        "rationale": "No es obligatorio que cada registro de la entidad superior sea clasificado en las categorías inferiores.",
+        "isCorrect": true
+      },
+      {
+        "text": "Que la entidad solo participa en la mitad de las relaciones.",
+        "rationale": "La participación en relaciones es un concepto distinto de la cobertura en una especialización.",
+        "isCorrect": false
+      },
+      {
+        "text": "Que la base de datos solo almacena una parte de la información.",
+        "rationale": "El modelo MER busca representar toda la información necesaria, no solo una parte.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considera si es obligatorio que 'todo' elemento general deba encajar en una de las categorías específicas."
+  },
+  {
+    "guid": "03556753-b5b7-4206-acfa-5a1bf04f2624",
+    "subjectId": "T40",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En el MER, ¿qué es un atributo 'atómico'?",
+    "answerOptions": [
+      {
+        "text": "Un atributo que pertenece a una entidad física.",
+        "rationale": "La naturaleza atómica depende de la divisibilidad del dato, no del tipo de entidad.",
+        "isCorrect": false
+      },
+      {
+        "text": "Un atributo simple que no se puede subdividir más.",
+        "rationale": "Es la unidad mínima de información con significado (ej. la edad).",
+        "isCorrect": true
+      },
+      {
+        "text": "Un atributo que cambia constantemente de valor.",
+        "rationale": "Eso sería un atributo volátil; atómico se refiere a su estructura indivisible.",
+        "isCorrect": false
+      },
+      {
+        "text": "La clave primaria de una entidad fuerte.",
+        "rationale": "Las claves pueden ser compuestas, por lo que no son necesariamente atómicas.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Recuerda el concepto de 'átomo' como algo que no se puede romper en partes más pequeñas."
+  },
+  {
+    "guid": "a2e5716e-8c0c-479b-b86f-1a9ab1bb831c",
+    "subjectId": "T40",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Qué representa un rombo con doble línea en algunos diagramas ER extendidos?",
+    "answerOptions": [
+      {
+        "text": "Una relación entre dos entidades débiles.",
+        "rationale": "No es el estándar; el doble rombo suele asociarse a la relación que identifica a una entidad débil.",
+        "isCorrect": false
+      },
+      {
+        "text": "Una relación identificativa de una entidad débil con su entidad fuerte.",
+        "rationale": "Señala que la relación no es solo asociativa, sino fundamental para la identidad de la entidad débil.",
+        "isCorrect": true
+      },
+      {
+        "text": "Una relación que contiene atributos derivados.",
+        "rationale": "Los atributos de las relaciones se representan igual que los de las entidades (elipses).",
+        "isCorrect": false
+      },
+      {
+        "text": "Una relación ternaria simplificada.",
+        "rationale": "Las relaciones ternarias se representan con un rombo normal conectado a tres entidades.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Es el tipo de conexión que 'da nombre' o 'identifica' a un objeto dependiente."
+  },
+  {
+    "guid": "6332af60-7507-4987-8eb9-47684bac57f6",
+    "subjectId": "T40",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Cuál es una limitación reconocida del Modelo Entidad-Relación?",
+    "answerOptions": [
+      {
+        "text": "No permite representar relaciones Muchos a Muchos.",
+        "rationale": "El MER las representa perfectamente, aunque su implementación relacional requiera pasos extra.",
+        "isCorrect": false
+      },
+      {
+        "text": "Solo refleja la estructura estática, no los procesos ni el paso del tiempo.",
+        "rationale": "El MER describe qué datos hay, pero no cómo fluyen o cómo cambian a través de las operaciones del sistema.",
+        "isCorrect": true
+      },
+      {
+        "text": "Es demasiado complejo para ser entendido por usuarios no técnicos.",
+        "rationale": "Al contrario, una de sus ventajas es facilitar la comunicación entre técnicos y usuarios.",
+        "isCorrect": false
+      },
+      {
+        "text": "Obliga a utilizar un SGBD específico desde el principio.",
+        "rationale": "Es independiente de la tecnología, lo cual es una de sus mayores fortalezas.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piensa en si este diagrama muestra 'quién es quién' o 'qué hace quién y cuándo'."
+  },
+  {
+    "guid": "c8a2327f-e833-4a24-bd91-1f2fba8a0aaa",
+    "subjectId": "T40",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Qué se entiende por 'Domini' de un atributo en catalán (Dominio en castellano)?",
+    "answerOptions": [
+      {
+        "text": "La importancia del atributo dentro de la tabla.",
+        "rationale": "El dominio no es una medida de jerarquía o importancia.",
+        "isCorrect": false
+      },
+      {
+        "text": "El rango de valores válidos que puede tomar el atributo.",
+        "rationale": "Establece las restricciones de contenido para asegurar la calidad de los datos.",
+        "isCorrect": true
+      },
+      {
+        "text": "La dirección de memoria donde reside el atributo.",
+        "rationale": "El MER no se ocupa de aspectos de gestión de memoria de bajo nivel.",
+        "isCorrect": false
+      },
+      {
+        "text": "El nombre del esquema al que pertenece la entidad.",
+        "rationale": "Eso sería el espacio de nombres o esquema, no el dominio del atributo.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Es como las 'reglas de juego' sobre qué tipo de información puede entrar en ese campo."
+  },
+  {
+    "guid": "3edeeaaa-c642-46a7-b2ee-7aa9297ab1bc",
+    "subjectId": "T40",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En la jerarquía de herencia, ¿qué etiqueta se usa para denotar una especialización 'Total'?",
+    "answerOptions": [
+      {
+        "text": "D",
+        "rationale": "La 'D' se utiliza para especializaciones disjuntas (disjoint).",
+        "isCorrect": false
+      },
+      {
+        "text": "S",
+        "rationale": "La 'S' (de overlapping/solapada) indica que las instancias pueden estar en varias subclases.",
+        "isCorrect": false
+      },
+      {
+        "text": "T",
+        "rationale": "La 'T' indica que la especialización es total (todas las instancias de la superclase están en alguna subclase).",
+        "isCorrect": true
+      },
+      {
+        "text": "P",
+        "rationale": "La 'P' se usa para especializaciones parciales.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Es la inicial de la palabra que significa que 'todo' el conjunto está cubierto."
+  },
+  {
+    "guid": "dcf01034-938e-4278-94f9-1ff6c3e93929",
+    "subjectId": "T40",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Qué indica el valor 'Null' en un atributo?",
+    "answerOptions": [
+      {
+        "text": "Que el valor es el número cero.",
+        "rationale": "Cero es un valor numérico real; Null indica la ausencia de cualquier valor.",
+        "isCorrect": false
+      },
+      {
+        "text": "La ausencia de un valor aplicable o conocido.",
+        "rationale": "Se usa cuando un dato es opcional o no se dispone de la información en ese momento.",
+        "isCorrect": true
+      },
+      {
+        "text": "Que el atributo es una clave primaria.",
+        "rationale": "Las claves primarias nunca pueden ser Null por definición de integridad.",
+        "isCorrect": false
+      },
+      {
+        "text": "Un error crítico que detiene la base de datos.",
+        "rationale": "Null es un estado normal y esperado en el diseño de bases de datos para manejar datos faltantes.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "No es un valor vacío o un espacio, sino un marcador de que 'no hay nada' ahí."
+  },
+  {
+    "guid": "2e8cd7c0-6877-4f4c-b2bf-faf121f263cf",
+    "subjectId": "T40",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Cómo se representa gráficamente una relación ternaria en notación Chen?",
+    "answerOptions": [
+      {
+        "text": "Con tres rombos conectados entre sí.",
+        "rationale": "Cada rombo es una relación distinta; una relación ternaria es una sola asociación.",
+        "isCorrect": false
+      },
+      {
+        "text": "Con un rombo conectado mediante líneas a tres rectángulos de entidad.",
+        "rationale": "El rombo central simboliza el vínculo único que une a las tres entidades participantes.",
+        "isCorrect": true
+      },
+      {
+        "text": "Con un triángulo que contiene las siglas '3-REL'.",
+        "rationale": "Los triángulos se reservan para especialización/generalización, no para relaciones n-arias.",
+        "isCorrect": false
+      },
+      {
+        "text": "Mediante una entidad intermedia con tres claves primarias.",
+        "rationale": "Eso sería la representación en el modelo relacional, no el diseño gráfico en Chen.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Visualiza un centro de conexión que tiene tres brazos extendiéndose hacia los sujetos."
+  }
+]

@@ -1,0 +1,932 @@
+[
+  {
+    "guid": "00eb1305-d438-4a99-8ddb-e390a4165612",
+    "subjectId": "T36",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Como responsable de la arquitectura de datos de una administración local, se le pide diseñar un sistema que permita almacenar tanto informes de gestión estructurados como grabaciones de cámaras de tráfico y sensores IoT sin procesar. ¿Qué concepto de almacenamiento se ajusta mejor a esta necesidad de flexibilidad y bajo coste inicial?",
+    "answerOptions": [
+      {
+        "text": "Data Warehouse",
+        "rationale": "Este modelo requiere que los datos estén previamente procesados y estructurados siguiendo un esquema rígido antes de ser almacenados.",
+        "isCorrect": false
+      },
+      {
+        "text": "Data Lake",
+        "rationale": "Permite el almacenamiento de datos en su formato original (en bruto), soportando estructuras tanto estructuradas como no estructuradas de forma económica.",
+        "isCorrect": true
+      },
+      {
+        "text": "Base de datos relacional convencional",
+        "rationale": "Las bases de datos relacionales no son óptimas para almacenar grandes volúmenes de datos no estructurados como vídeo o audio de sensores en tiempo real.",
+        "isCorrect": false
+      },
+      {
+        "text": "Data Mart",
+        "rationale": "Es una subdivisión de un Data Warehouse orientada a un área específica, por lo que hereda la necesidad de datos ya procesados.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en un repositorio centralizado que acepta datos 'en bruto' de diversas fuentes."
+  },
+  {
+    "guid": "934e92fd-fede-42e3-b91d-464fefa89ee0",
+    "subjectId": "T36",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Su equipo está analizando una ingente cantidad de logs de servidores de aplicaciones para detectar intrusiones en tiempo real. Los datos llegan a una velocidad que supera la capacidad de escritura de los sistemas de disco tradicionales. ¿Qué tecnología de ingesta sería la más apropiada para actuar como búfer y sistema de mensajería distribuida?",
+    "answerOptions": [
+      {
+        "text": "Apache Hive",
+        "rationale": "Hive es una herramienta de almacenamiento tipo Data Warehouse sobre Hadoop orientada a consultas SQL, no a la ingesta en tiempo real.",
+        "isCorrect": false
+      },
+      {
+        "text": "Apache Kafka",
+        "rationale": "Es una plataforma diseñada específicamente para la construcción de sistemas de procesamiento de eventos y flujo de datos en tiempo real.",
+        "isCorrect": true
+      },
+      {
+        "text": "Apache Sqoop",
+        "rationale": "Sqoop se utiliza para transferir datos de forma masiva entre Hadoop y bases de datos relacionales, no para streaming de eventos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Amazon Redshift",
+        "rationale": "Es un servicio de almacenamiento estructurado para análisis (Data Warehouse), no una herramienta de ingesta de flujos continuos.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considere una solución que gestione flujos de eventos basándose en el modelo de publicación y suscripción."
+  },
+  {
+    "guid": "6565406d-c544-4881-988a-41b6cf25d67c",
+    "subjectId": "T36",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "En una auditoría de protección de datos (RGPD), se le solicita explicar cómo se garantiza que los datos de salud de los ciudadanos no se pierdan tras un error de escritura y que las transacciones sean consistentes. ¿Qué tipo de tecnología de entorno de datos emergente añadiría capacidades ACID a su Data Lake actual?",
+    "answerOptions": [
+      {
+        "text": "Raw Data Lake",
+        "rationale": "Un Data Lake clásico o en bruto suele carecer de soporte nativo para transacciones ACID y gestión de estados consistentes.",
+        "isCorrect": false
+      },
+      {
+        "text": "Delta Lake",
+        "rationale": "Es una capa de almacenamiento que añade transacciones ACID, manejo de metadatos y control de versiones sobre un Data Lake existente.",
+        "isCorrect": true
+      },
+      {
+        "text": "Apache Storm",
+        "rationale": "Storm es un motor de computación distribuida en tiempo real, pero no gestiona la consistencia transaccional del almacenamiento persistente.",
+        "isCorrect": false
+      },
+      {
+        "text": "HDFS",
+        "rationale": "HDFS es un sistema de archivos distribuido que prioriza el rendimiento en lecturas/escrituras masivas sobre las propiedades transaccionales complejas.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Busque una solución que combine las ventajas de un Data Lake con la fiabilidad de un Data Warehouse."
+  },
+  {
+    "guid": "4d1303aa-7da7-413d-8d33-e210c7d92c9b",
+    "subjectId": "T36",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "El departamento de Servicios Sociales necesita cruzar datos de múltiples fuentes (registros civiles, peticiones web y encuestas telefónicas en audio) para predecir zonas de riesgo de exclusión. ¿Qué característica de las 5 V del Big Data representa mejor este desafío de integrar formatos tan dispares?",
+    "answerOptions": [
+      {
+        "text": "Volumen",
+        "rationale": "El volumen se refiere a la cantidad masiva de datos (Teras o Petas), no a la diversidad de sus formatos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Variedad",
+        "rationale": "Se refiere a la coexistencia de datos estructurados (tablas), semi-estructurados (JSON) y no estructuradas (audio).",
+        "isCorrect": true
+      },
+      {
+        "text": "Veracidad",
+        "rationale": "La veracidad se centra en la calidad y fiabilidad de la información, no en su estructura física.",
+        "isCorrect": false
+      },
+      {
+        "text": "Velocidad",
+        "rationale": "La velocidad alude al ritmo de generación y procesamiento de la información.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en la naturaleza heterogénea de la información que se recibe."
+  },
+  {
+    "guid": "32da5da5-24cc-4d85-abcc-712a48a96fc1",
+    "subjectId": "T36",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Durante la implementación de un clúster de Big Data on-premise, se debe elegir un sistema de archivos que permita que los datos se repliquen en varios nodos para evitar pérdidas ante fallos de hardware. ¿Cuál es el componente del núcleo de Hadoop diseñado para este propósito?",
+    "answerOptions": [
+      {
+        "text": "YARN",
+        "rationale": "YARN es el gestor de recursos y planificador de tareas, no el sistema de almacenamiento.",
+        "isCorrect": false
+      },
+      {
+        "text": "HDFS",
+        "rationale": "Es el sistema de archivos distribuido de Hadoop que garantiza escalabilidad y tolerancia a fallos mediante la replicación.",
+        "isCorrect": true
+      },
+      {
+        "text": "MapReduce",
+        "rationale": "MapReduce es el modelo de programación para el procesamiento paralelo de los datos, no el sistema de archivos.",
+        "isCorrect": false
+      },
+      {
+        "text": "HBase",
+        "rationale": "Es una base de datos NoSQL que corre sobre HDFS, pero el sistema de archivos base sigue siendo HDFS.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Se trata del acrónimo de 'Hadoop Distributed File System'."
+  },
+  {
+    "guid": "d2156a56-0e07-4dce-a162-7c6d5e3f6102",
+    "subjectId": "T36",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "En un proyecto de Smart City para la monitorización de la calidad del aire, los científicos de datos requieren acceder a los datos sin que estos hayan sido transformados, para poder realizar análisis exploratorios libres de sesgos de procesamiento previo. ¿En qué zona o capa del Data Lake deberían trabajar?",
+    "answerOptions": [
+      {
+        "text": "Cleansed Layer",
+        "rationale": "Esta capa ya ha pasado por un proceso de limpieza y validación, por lo que los datos ya están alterados respecto al original.",
+        "isCorrect": false
+      },
+      {
+        "text": "Business Layer",
+        "rationale": "Aquí los datos están estructurados específicamente para las necesidades del negocio, perdiendo su naturaleza bruta.",
+        "isCorrect": false
+      },
+      {
+        "text": "Raw Layer",
+        "rationale": "Es la capa donde se almacenan los datos en su formato original o 'en crudo' tal como provienen de la fuente.",
+        "isCorrect": true
+      },
+      {
+        "text": "Sandboxing Layer",
+        "rationale": "Aunque es un área de experimentación, el origen de los datos no transformados es conceptualmente la capa de datos brutos.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Recuerde el término que se utiliza para los datos que no han sido 'cocinados' o tratados."
+  },
+  {
+    "guid": "f0d0020c-7874-42be-af90-49885b46b8f3",
+    "subjectId": "T36",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Para cumplir con el marco DAMA-DMBOK2, su organización decide nombrar a una figura responsable de velar por la calidad, coherencia y cumplimiento normativo de los datos de padrón en el día a día operativo. ¿Qué rol de gobernanza está definiendo?",
+    "answerOptions": [
+      {
+        "text": "Data Owner",
+        "rationale": "El Data Owner tiene una responsabilidad de nivel estratégico y de propiedad legal, no necesariamente operativa diaria.",
+        "isCorrect": false
+      },
+      {
+        "text": "Data Steward",
+        "rationale": "Es el responsable operativo encargado de gestionar, supervisar y garantizar la calidad y utilidad de los datos.",
+        "isCorrect": true
+      },
+      {
+        "text": "Data Custodian",
+        "rationale": "Su perfil es más técnico, encargándose de la infraestructura, seguridad y el almacenamiento físico.",
+        "isCorrect": false
+      },
+      {
+        "text": "DPO (Delegado de Protección de Datos)",
+        "rationale": "Se centra específicamente en el cumplimiento de la normativa de protección de datos personales y privacidad.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Busque el término que significa 'comisario' o 'custodio funcional' de la información."
+  },
+  {
+    "guid": "8fefa563-3c35-4df2-91f0-83e3343258fe",
+    "subjectId": "T36",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "La infraestructura actual de procesamiento de su ayuntamiento tarda horas en generar informes porque debe leer y escribir constantemente en disco. Se le propone migrar a un motor que trabaje 'in-memory' para acelerar los procesos analíticos. ¿Cuál es la opción más coherente?",
+    "answerOptions": [
+      {
+        "text": "Hadoop MapReduce",
+        "rationale": "MapReduce procesa la información en disco, lo que lo hace más lento en procesos iterativos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Apache Spark",
+        "rationale": "Spark destaca por su capacidad de procesar datos en memoria, lo que le otorga un rendimiento superior al de MapReduce.",
+        "isCorrect": true
+      },
+      {
+        "text": "Apache Hive",
+        "rationale": "Aunque es útil para consultas, es una capa de abstracción que tradicionalmente corre sobre MapReduce o motores similares.",
+        "isCorrect": false
+      },
+      {
+        "text": "Apache Ambari",
+        "rationale": "Es una herramienta de administración y monitorización de clústeres, no un motor de procesamiento de datos.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en el motor de procesamiento distribuido basado en RDD (Resilient Distributed Dataset)."
+  },
+  {
+    "guid": "816f0ab2-7311-442d-990a-f6d5bc064f37",
+    "subjectId": "T36",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Se desea implementar un sistema de alertas que avise a la policía local en menos de un segundo cuando un sensor de ruido detecte un nivel superior a cierto umbral. No se puede esperar a que los datos se guarden en bloques para procesarlos. ¿Qué arquitectura de procesamiento es la más simplificada para este caso exclusivo de streaming?",
+    "answerOptions": [
+      {
+        "text": "Arquitectura Lambda",
+        "rationale": "Esta arquitectura mantiene dos capas paralelas (batch y speed), lo que añade complejidad innecesaria si solo se busca tiempo real.",
+        "isCorrect": false
+      },
+      {
+        "text": "Arquitectura Kappa",
+        "rationale": "Propone un único camino de procesamiento mediante flujos de datos (streaming), eliminando la capa de procesamiento por lotes.",
+        "isCorrect": true
+      },
+      {
+        "text": "Arquitectura Monolítica",
+        "rationale": "No es un término propio de las arquitecturas de procesamiento masivo de datos Big Data mencionadas.",
+        "isCorrect": false
+      },
+      {
+        "text": "Arquitectura Medallón",
+        "rationale": "Aunque se usa en Data Lakes, no define la estrategia de procesamiento temporal (batch/streaming) como tal.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Es la arquitectura que considera que todo es un flujo continuo de información."
+  },
+  {
+    "guid": "c5ad7638-fa4f-4ecd-b453-1f306cb19f4a",
+    "subjectId": "T36",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Para optimizar las consultas analíticas sobre grandes conjuntos de datos en el Data Lake, se recomienda utilizar formatos de almacenamiento que guarden la información por columnas en lugar de por filas. ¿Cuál de los siguientes formatos abiertos es el más estándar para este uso con Apache Spark?",
+    "answerOptions": [
+      {
+        "text": "CSV",
+        "rationale": "Es un formato de texto plano orientado a filas, poco eficiente para grandes volúmenes y consultas analíticas parciales.",
+        "isCorrect": false
+      },
+      {
+        "text": "Avro",
+        "rationale": "Es un formato binario orientado a filas, ideal para serialización y transmisión, pero no para lectura columnar analítica.",
+        "isCorrect": false
+      },
+      {
+        "text": "Parquet",
+        "rationale": "Es un formato de almacenamiento columnar muy optimizado para la lectura analítica y la compresión de datos.",
+        "isCorrect": true
+      },
+      {
+        "text": "JSON",
+        "rationale": "Es un formato semi-estructurado de texto, muy flexible pero con un alto coste de almacenamiento y procesamiento comparado con Parquet.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Es un formato columnar que empieza por la letra 'P'."
+  },
+  {
+    "guid": "1f4bd1d4-e476-4cac-a1e1-f8b85f29fbe3",
+    "subjectId": "T36",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Un organismo público quiere analizar las relaciones e influencias entre diferentes cargos electos y empresas contratistas basándose en datos de licitaciones públicas. ¿Qué tipo de base de datos NoSQL sería la más eficiente para realizar consultas de profundidad sobre estas conexiones?",
+    "answerOptions": [
+      {
+        "text": "Orientada a documentos",
+        "rationale": "Aunque flexible, no está optimizada para recorrer múltiples niveles de relaciones complejas entre entidades.",
+        "isCorrect": false
+      },
+      {
+        "text": "Clave-valor",
+        "rationale": "Solo permite acceder a datos mediante una clave única, lo que imposibilita el análisis de redes de contacto de forma nativa.",
+        "isCorrect": false
+      },
+      {
+        "text": "En Grafo",
+        "rationale": "Utiliza nodos y aristas para representar entidades y sus relaciones, permitiendo analizar patrones de conexión de forma óptima.",
+        "isCorrect": true
+      },
+      {
+        "text": "Orientada a columnas",
+        "rationale": "Son excelentes para agregaciones masivas, pero no para navegar por las interrelaciones jerárquicas o en red.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en una estructura matemática de nodos y aristas como la usada en Neo4j."
+  },
+  {
+    "guid": "a7d98d95-bfe4-4122-9412-c16f8107944a",
+    "subjectId": "T36",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "El sistema de información de una Smart City utiliza Elasticsearch para que los técnicos puedan buscar rápidamente términos específicos dentro de millones de informes de incidencias ciudadanas. ¿Cuál es la principal característica de este motor que facilita esta tarea?",
+    "answerOptions": [
+      {
+        "text": "Es una base de datos relacional con ACID estricto",
+        "rationale": "Elasticsearch es un motor de búsqueda NoSQL, no una base de datos relacional tradicional.",
+        "isCorrect": false
+      },
+      {
+        "text": "Es un motor de búsqueda y analítica distribuido de tipo RESTful",
+        "rationale": "Permite indexar y analizar en tiempo real grandes volúmenes de datos complejos y realizar búsquedas de texto completo.",
+        "isCorrect": true
+      },
+      {
+        "text": "Requiere definir un esquema rígido antes de la ingesta",
+        "rationale": "Elasticsearch destaca por su capacidad de trabajar sin esquemas predefinidos, detectando la forma de los datos dinámicamente.",
+        "isCorrect": false
+      },
+      {
+        "text": "Está diseñado exclusivamente para almacenamiento de larga duración",
+        "rationale": "Aunque almacena datos, su fuerte es la indexación para búsqueda rápida y análisis en tiempo real.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Su nombre sugiere su elasticidad para realizar búsquedas."
+  },
+  {
+    "guid": "49221a7a-0002-40c9-b5d1-689ceec3e5d2",
+    "subjectId": "T36",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Usted está evaluando la viabilidad de un proyecto Big Data. Se le presenta un escenario con $10^9$ registros de transacciones simples de transporte público al día, pero todos con el mismo formato estructurado y procesados una vez por semana en modo offline. Según el material, ¿qué elemento podría cuestionar que esto sea 'puro' Big Data?",
+    "answerOptions": [
+      {
+        "text": "El volumen de datos es demasiado pequeño",
+        "rationale": "Mil millones de registros diarios es un volumen masivo compatible con Big Data.",
+        "isCorrect": false
+      },
+      {
+        "text": "La falta de velocidad en tiempo real y la baja variedad",
+        "rationale": "Si los datos son solo estructurados y se procesan por lotes semanales (sin alta velocidad ni variedad), el BI tradicional podría ser suficiente.",
+        "isCorrect": true
+      },
+      {
+        "text": "El uso de tecnologías distribuidas",
+        "rationale": "El uso de tecnologías distribuidas es precisamente una señal de entorno Big Data, no una contraindicación.",
+        "isCorrect": false
+      },
+      {
+        "text": "La ausencia de metadatos",
+        "rationale": "Incluso en Big Data hay metadatos; su ausencia no descalifica el proyecto, pero sí lo hace menos gobernable.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Recuerde que a veces el Big Data se confunde con BI tradicional de gran volumen."
+  },
+  {
+    "guid": "96ccb708-53eb-4692-a573-5e70c517a82a",
+    "subjectId": "T36",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "En el contexto de la gobernanza de datos, se desea implementar una técnica que permita realizar análisis estadísticos sobre datos de impuestos sin identificar individualmente a los ciudadanos, cumpliendo así con el RGPD. ¿Cómo se denomina esta técnica avanzada?",
+    "answerOptions": [
+      {
+        "text": "Data Lineage",
+        "rationale": "Se refiere a la trazabilidad del origen y transformación de los datos, no a la protección de la identidad.",
+        "isCorrect": false
+      },
+      {
+        "text": "Privacidad diferencial",
+        "rationale": "Es una técnica para proteger datos personales en entornos Big Data permitiendo extraer información agregada sin revelar identidades.",
+        "isCorrect": true
+      },
+      {
+        "text": "Catalogación de metadatos",
+        "rationale": "Es el proceso de inventariar los datos disponibles, no una técnica de anonimización o protección.",
+        "isCorrect": false
+      },
+      {
+        "text": "Data Stewardship",
+        "rationale": "Es una práctica de gestión y supervisión, no una técnica criptográfica o estadística específica.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Busque un concepto que involucre la protección de la privacidad a través de la adición de ruido matemático o anonimato."
+  },
+  {
+    "guid": "122923bc-9c00-4d6b-8f6a-ff60d27d4eb5",
+    "subjectId": "T36",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Se ha detectado que el Data Lake de la Generalitat se está convirtiendo en un 'Data Swamp' (pantano de datos) debido a que los usuarios no encuentran la información útil. ¿Qué componente del Data Lake se ha descuidado probablemente?",
+    "answerOptions": [
+      {
+        "text": "La capa de almacenamiento físico (HDFS)",
+        "rationale": "El pantano de datos es un problema de organización y metadatos, no de la capacidad de guardar bits en el disco.",
+        "isCorrect": false
+      },
+      {
+        "text": "La capa de metadatos y catalogación",
+        "rationale": "Sin etiquetas, identificadores y metadatos adecuados, el Data Lake se vuelve imposible de navegar y explotar.",
+        "isCorrect": true
+      },
+      {
+        "text": "La potencia de procesamiento de Spark",
+        "rationale": "Tener más CPUs no ayuda a encontrar datos si estos no están correctamente indexados y descritos.",
+        "isCorrect": false
+      },
+      {
+        "text": "La conectividad a Internet del proveedor cloud",
+        "rationale": "Es un problema interno de gestión de activos de datos, no de conectividad externa.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en la 'etiqueta' que ayuda a localizar un libro en una biblioteca desordenada."
+  },
+  {
+    "guid": "ea6f3ce4-495b-4ae3-98ac-87a9e46d19de",
+    "subjectId": "T36",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Su equipo técnico necesita decidir qué base de datos NoSQL utilizar para almacenar perfiles de ciudadanos donde cada registro puede tener campos muy diferentes (algunos tienen correo, otros redes sociales, otros múltiples direcciones). ¿Cuál es la categoría más flexible para este propósito?",
+    "answerOptions": [
+      {
+        "text": "Clave-valor pura",
+        "rationale": "Es demasiado simple; solo asocia una clave a un bloque de datos opaco, dificultando consultas por campos internos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Orientada a documentos (JSON/BSON)",
+        "rationale": "Permite almacenar datos semi-estructurados con esquemas flexibles donde cada documento puede tener campos distintos.",
+        "isCorrect": true
+      },
+      {
+        "text": "BBDD Relacional con SQL",
+        "rationale": "Obliga a definir columnas fijas para todas las filas, lo que genera muchos valores nulos e inflexibilidad.",
+        "isCorrect": false
+      },
+      {
+        "text": "Orientada a columnas tipo Cassandra",
+        "rationale": "Aunque permite variabilidad, su diseño está más orientado a grandes agregaciones y escalabilidad horizontal masiva que a la flexibilidad de esquemas anidados.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en formatos como los usados en MongoDB."
+  },
+  {
+    "guid": "a49c07e2-af42-4746-baee-18b0c696d6e3",
+    "subjectId": "T36",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "En la fase de diseño de un sistema Big Data para Salud, se debate entre usar un Data Lakehouse o un Data Warehouse tradicional. ¿Cuál es el argumento técnico principal a favor del Lakehouse?",
+    "answerOptions": [
+      {
+        "text": "Que solo permite datos estructurados",
+        "rationale": "Eso es una característica del Data Warehouse tradicional, no una ventaja del Lakehouse.",
+        "isCorrect": false
+      },
+      {
+        "text": "Que combina la flexibilidad del Data Lake con el soporte SQL y transacciones del Warehouse",
+        "rationale": "El Data Lakehouse es un híbrido que permite analítica avanzada y BI sobre un único entorno integrado.",
+        "isCorrect": true
+      },
+      {
+        "text": "Que es significativamente más caro de mantener",
+        "rationale": "Generalmente se busca lo contrario: reducir costes al no tener que duplicar datos en dos sistemas distintos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Que no soporta herramientas de Machine Learning",
+        "rationale": "Al contrario, una de sus grandes bazas es dar soporte nativo a ML y analítica avanzada.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considere la fusión de lo mejor de los dos mundos del almacenamiento."
+  },
+  {
+    "guid": "3cdd97d2-6cfb-4d55-8aab-01ed4de815dd",
+    "subjectId": "T36",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Usted debe configurar un pipeline para procesar lecturas de contadores inteligentes cada $5$ minutos. El sistema debe poder recalculas datos históricos si se descubre un error en el algoritmo de cálculo meses después. ¿Qué arquitectura le permitiría hacer esto de forma más robusta pero con mayor coste de mantenimiento?",
+    "answerOptions": [
+      {
+        "text": "Arquitectura Kappa",
+        "rationale": "Aunque es más simple, puede tener dificultades para reprocesar cálculos históricos muy complejos de forma eficiente si no está bien diseñada.",
+        "isCorrect": false
+      },
+      {
+        "text": "Arquitectura Lambda",
+        "rationale": "Al tener una 'Batch Layer' dedicada, permite procesar grandes volúmenes históricos con alta precisión, compensando la 'Speed Layer'.",
+        "isCorrect": true
+      },
+      {
+        "text": "Procesamiento en serie simple",
+        "rationale": "No es una arquitectura de Big Data capaz de manejar la carga y el histórico mencionado.",
+        "isCorrect": false
+      },
+      {
+        "text": "Arquitectura basada en API REST",
+        "rationale": "Es una forma de comunicación, no una arquitectura de organización de procesamiento batch/streaming.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en el modelo que utiliza dos caminos distintos para los datos."
+  },
+  {
+    "guid": "085f3bfc-48a1-4e26-b237-aa175ce40e8d",
+    "subjectId": "T36",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Durante un incidente de seguridad, se requiere saber exactamente qué procesos ETL transformaron un dato erróneo que acabó en un informe del Alcalde. ¿Qué herramienta o concepto de gobernanza proporciona esta información?",
+    "answerOptions": [
+      {
+        "text": "Data Quality",
+        "rationale": "Mide si el dato es correcto, pero no necesariamente explica cómo llegó a ser así.",
+        "isCorrect": false
+      },
+      {
+        "text": "Data Lineage",
+        "rationale": "Proporciona la trazabilidad completa del origen, las transformaciones y el uso de los datos a lo largo de su vida.",
+        "isCorrect": true
+      },
+      {
+        "text": "Data Ethics",
+        "rationale": "Se ocupa del uso moral y legal de los datos, no del rastro técnico de sus transformaciones.",
+        "isCorrect": false
+      },
+      {
+        "text": "Data Discovery",
+        "rationale": "Es el proceso de encontrar nuevos datos, no de rastrear el camino de los ya existentes.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Busque el término que significa 'linaje' o 'estirpe' del dato."
+  },
+  {
+    "guid": "6ff64ba6-064e-4efb-a0f4-8320103715c8",
+    "subjectId": "T36",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Se decide utilizar un lenguaje de programación para el análisis estadístico de los datos de movilidad urbana que sea capaz de trabajar de forma vectorial y que sea estándar en la comunidad científica. Según el material proporcionado, ¿cuál debería ser la elección?",
+    "answerOptions": [
+      {
+        "text": "Java",
+        "rationale": "Aunque Hadoop está escrito en Java, no es el lenguaje optimizado específicamente para cálculos estadísticos vectoriales.",
+        "isCorrect": false
+      },
+      {
+        "text": "Lenguaje R",
+        "rationale": "Es un lenguaje orientado a objetos que trabaja vectorialmente, especializado en estadística y gráficos.",
+        "isCorrect": true
+      },
+      {
+        "text": "C++",
+        "rationale": "Es un lenguaje de propósito general de alto rendimiento, pero no es el estándar para minería de datos estadística mencionado.",
+        "isCorrect": false
+      },
+      {
+        "text": "HiveQL",
+        "rationale": "Es un lenguaje de consulta tipo SQL para Hive, no un lenguaje de programación estadística vectorial.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Es una sola letra que suele ir asociada al mundo de la estadística."
+  },
+  {
+    "guid": "b2e95c41-b066-477e-8ffd-e542b92f28e7",
+    "subjectId": "T36",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "La unidad de IT de una gran diputación quiere descentralizar la propiedad de los datos, permitiendo que cada departamento (Salud, Urbanismo, Hacienda) gestione sus propios datos como un 'producto' pero bajo estándares comunes. ¿Qué modelo moderno de gestión está intentando aplicar?",
+    "answerOptions": [
+      {
+        "text": "Data Lake Centralizado",
+        "rationale": "Este modelo concentra la gestión en una única unidad TIC central, justo lo contrario a lo planteado.",
+        "isCorrect": false
+      },
+      {
+        "text": "Data Mesh",
+        "rationale": "Promueve la soberanía por dominio funcional, donde cada equipo gestiona sus datos como productos distribuidos.",
+        "isCorrect": true
+      },
+      {
+        "text": "Data Warehouse departamental",
+        "rationale": "Aunque es distribuido, suele implicar silos de datos aislados sin la gobernanza federada que define al Data Mesh.",
+        "isCorrect": false
+      },
+      {
+        "text": "Data Swamp",
+        "rationale": "Es una consecuencia negativa de una mala gestión, no un modelo de organización intencionado.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en el concepto de 'malla' de datos."
+  },
+  {
+    "guid": "f3504007-205f-4589-a599-e6e305920709",
+    "subjectId": "T36",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "En un entorno de nube de Microsoft Azure, se le solicita implementar un clúster para procesar datos de Big Data basado en Apache Spark pero con una plataforma optimizada. ¿Qué servicio específico de Azure debería elegir?",
+    "answerOptions": [
+      {
+        "text": "Azure Data Lake Storage",
+        "rationale": "Este es el servicio de almacenamiento, no la plataforma de procesamiento analítico Spark.",
+        "isCorrect": false
+      },
+      {
+        "text": "Azure Databricks",
+        "rationale": "Es la plataforma de análisis de Big Data en Azure basada específicamente en Apache Spark.",
+        "isCorrect": true
+      },
+      {
+        "text": "Azure SQL Database",
+        "rationale": "Es una base de datos relacional administrada, no un entorno de procesamiento masivo distribuido tipo Spark.",
+        "isCorrect": false
+      },
+      {
+        "text": "Azure Active Directory",
+        "rationale": "Es un servicio de gestión de identidades y accesos, sin relación directa con el procesamiento de Spark.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Es una colaboración entre Microsoft y los creadores originales de Spark."
+  },
+  {
+    "guid": "0f150326-9c63-4841-92a2-e472400ce9a0",
+    "subjectId": "T36",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Para mejorar la gobernanza de un Data Lake distribuido, se utiliza una herramienta que permite catalogar las metadatos y asegurar que se cumple con las políticas de acceso. Según el material, ¿cuál de estas opciones es una herramienta de código abierto para este fin?",
+    "answerOptions": [
+      {
+        "text": "Apache Kafka",
+        "rationale": "Se encarga de la transmisión de mensajes, no de la gestión de catálogos de metadatos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Apache Atlas",
+        "rationale": "Es un framework para gestionar metadatos y gobernanza de datos en el ecosistema Hadoop.",
+        "isCorrect": true
+      },
+      {
+        "text": "Apache Flink",
+        "rationale": "Es un motor de procesamiento de flujos de datos (streaming), no una herramienta de catalogación.",
+        "isCorrect": false
+      },
+      {
+        "text": "Apache Zeppelin",
+        "rationale": "Es una herramienta de visualización y libretas interactivas (notebooks), no de gobernanza.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Su nombre recuerda a un personaje mitológico que cargaba con el mundo."
+  },
+  {
+    "guid": "6187dd7f-6064-423d-8725-8dc32f7a7352",
+    "subjectId": "T36",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Se desea contratar un entorno de Data Lake donde el proveedor se encargue de la seguridad física, el hardware y el rendimiento, pagando solo por el uso realizado. ¿Cómo se define este tipo de despliegue?",
+    "answerOptions": [
+      {
+        "text": "On-premise (local)",
+        "rationale": "En el modelo local, la empresa es responsable de toda la infraestructura y el mantenimiento.",
+        "isCorrect": false
+      },
+      {
+        "text": "Al núvol (Cloud)",
+        "rationale": "El hardware y software están en el proveedor, se accede por Internet y se paga por uso, delegando el mantenimiento.",
+        "isCorrect": true
+      },
+      {
+        "text": "Híbrido estricto",
+        "rationale": "Aunque es una opción, la descripción de delegar toda la responsabilidad y el pago por uso define al modelo Cloud puro.",
+        "isCorrect": false
+      },
+      {
+        "text": "Federado",
+        "rationale": "La federación se refiere al modelo de gestión y gobernanza, no necesariamente a la ubicación física o modelo de pago.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en servicios como Amazon S3 o Azure Data Lake."
+  },
+  {
+    "guid": "7340ce68-cdb8-4423-b3de-6430b9a8d59b",
+    "subjectId": "T36",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "En el procesamiento de datos con Hadoop, ¿qué fase intermedia se encarga de redistribuir y balancear los datos entre los procesos de 'mapeo' y 'reducción'?",
+    "answerOptions": [
+      {
+        "text": "Ingestión",
+        "rationale": "Es la entrada de datos al sistema, no una fase interna de MapReduce.",
+        "isCorrect": false
+      },
+      {
+        "text": "Shuffle (o Mezcla)",
+        "rationale": "Es la fase que balancea la carga y organiza las tuplas de entrada para que el proceso Reduce pueda trabajar correctamente.",
+        "isCorrect": true
+      },
+      {
+        "text": "HDFS Replication",
+        "rationale": "Es una tarea del sistema de archivos, no una fase del flujo lógico de programación de MapReduce.",
+        "isCorrect": false
+      },
+      {
+        "text": "Data Cleaning",
+        "rationale": "Es un proceso previo de calidad, no una fase intrínseca del paradigma MapReduce.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "En inglés significa 'barajar'."
+  },
+  {
+    "guid": "cfd49d5e-05f8-4b8f-aa63-4d6dbd1fab62",
+    "subjectId": "T36",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Un analista necesita crear cuadros de mando (dashboards) que se conecten directamente a un Data Lake en Azure para visualizar la evolución del tráfico. Según el texto, ¿cuál es la herramienta de Microsoft recomendada para la capa de presentación?",
+    "answerOptions": [
+      {
+        "text": "Tableau",
+        "rationale": "Aunque es una herramienta válida y mencionada, no es el producto nativo de la suite de Microsoft para BI.",
+        "isCorrect": false
+      },
+      {
+        "text": "Power BI",
+        "rationale": "Es la herramienta de Data Discovery y visualización de Microsoft integrada habitualmente en estas soluciones.",
+        "isCorrect": true
+      },
+      {
+        "text": "Jupyter Notebooks",
+        "rationale": "Se orientan más al análisis exploratorio mediante código que a la creación de cuadros de mando ejecutivos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Apache HiveQL",
+        "rationale": "Es un lenguaje de consulta, no una herramienta gráfica de visualización.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Es la herramienta de inteligencia de negocio más popular de Microsoft."
+  },
+  {
+    "guid": "0e8b8780-ddef-4985-b0cb-f884baf0d90f",
+    "subjectId": "T36",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Para cumplir con normativas NIST e ISO en la gestión de un Data Lake de servicios tributarios, se recomienda estructurar el entorno en diferentes capes de calidad. ¿Cómo se denomina al entorno que ya contiene datos estructurados listos para el consumo de negocio?",
+    "answerOptions": [
+      {
+        "text": "Raw Data Lake",
+        "rationale": "Contiene datos en bruto, sin procesar ni estructurar para el negocio.",
+        "isCorrect": false
+      },
+      {
+        "text": "Curated Data Lake (o Business Layer)",
+        "rationale": "Es la capa refinada donde los datos han sido limpiados, procesados y estructurados para su uso directo por el negocio.",
+        "isCorrect": true
+      },
+      {
+        "text": "Data Swamp",
+        "rationale": "Es un término despectivo para un Data Lake mal gestionado, no una recomendación normativa.",
+        "isCorrect": false
+      },
+      {
+        "text": "Federated Lake",
+        "rationale": "Define un modelo de gestión política de los datos, no necesariamente su nivel de refinamiento técnico.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "El término sugiere que los datos han sido seleccionados y organizados cuidadosamente (como en un museo)."
+  },
+  {
+    "guid": "739f88cf-4e97-48bb-b4c7-73bfbf0e4a8e",
+    "subjectId": "T36",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "En una infraestructura Big Data, se utiliza Apache Flink en lugar de Hadoop para una aplicación de detección de incendios forestales mediante sensores. ¿Cuál es el motivo técnico principal?",
+    "answerOptions": [
+      {
+        "text": "Hadoop no puede almacenar datos de sensores",
+        "rationale": "Hadoop puede almacenar cualquier tipo de dato; el problema es su velocidad de procesamiento.",
+        "isCorrect": false
+      },
+      {
+        "text": "Flink está optimizado para el procesamiento en streaming de datos en tiempo real",
+        "rationale": "A diferencia de Hadoop (batch), Flink permite procesar flujos continuos de datos con muy baja latencia.",
+        "isCorrect": true
+      },
+      {
+        "text": "Flink es una base de datos relacional más segura",
+        "rationale": "Flink no es una base de datos, sino un motor de procesamiento distribuido.",
+        "isCorrect": false
+      },
+      {
+        "text": "Flink utiliza SQL tradicional y Hadoop no",
+        "rationale": "Ambos pueden soportar interfaces SQL (como Hive en Hadoop o Flink SQL), no es la diferencia clave de rendimiento.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en la necesidad de procesar los datos 'a medida que llegan'."
+  },
+  {
+    "guid": "371242b8-ea82-4a1c-9fd1-ef3662d17834",
+    "subjectId": "T36",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Se le asigna la tarea de migrar un sistema que utiliza archivos CSV masivos a un formato que soporte la evolución del esquema (por ejemplo, añadir campos sin romper la compatibilidad con procesos antiguos) y que sea muy compacto para transmisiones. ¿Qué formato binario debería proponer?",
+    "answerOptions": [
+      {
+        "text": "ORC",
+        "rationale": "Es un formato columnar muy bueno para compresión, pero su fuerte no es la gestión de evolución de esquemas en transmisión tanto como Avro.",
+        "isCorrect": false
+      },
+      {
+        "text": "Avro",
+        "rationale": "Es un formato binario compacto y auto-descriptivo, ideal para la serialización y la evolución de esquemas en el tiempo.",
+        "isCorrect": true
+      },
+      {
+        "text": "XML",
+        "rationale": "Es un formato de texto muy verboso y nada compacto, poco eficiente para transmisiones masivas en Big Data.",
+        "isCorrect": false
+      },
+      {
+        "text": "Parquet",
+        "rationale": "Aunque es compacto y eficiente, se orienta más a la lectura analítica que a ser un formato de intercambio/transmisión auto-descriptivo flexible.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Es un formato que empieza por 'A' y es común en sistemas de mensajería."
+  },
+  {
+    "guid": "c3c0bf9d-d7b7-4eca-bd6c-565c294425a6",
+    "subjectId": "T36",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "El DPD (Delegado de Protección de Datos) de su institución le pregunta quién es el responsable técnico de implementar las medidas de cifrado y garantizar que el hardware del Data Lake esté parcheado. Según los roles de gobernanza, ¿quién es?",
+    "answerOptions": [
+      {
+        "text": "Data Owner",
+        "rationale": "Es el responsable estratégico, no el encargado de la ejecución técnica de parches o cifrados.",
+        "isCorrect": false
+      },
+      {
+        "text": "Data Custodian",
+        "rationale": "Es el perfil técnico responsable de la infraestructura, seguridad física y mantenimiento del entorno de datos.",
+        "isCorrect": true
+      },
+      {
+        "text": "Data Steward",
+        "rationale": "Se encarga de la calidad funcional y el significado de los datos, no de la administración de sistemas.",
+        "isCorrect": false
+      },
+      {
+        "text": "Chief Data Officer",
+        "rationale": "Es un cargo directivo de alto nivel que define la estrategia, no un rol de ejecución técnica de infraestructura.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en el 'guardián' técnico de los servidores."
+  }
+]
