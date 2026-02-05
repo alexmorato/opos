@@ -1,0 +1,808 @@
+[
+  {
+    "guid": "9638139c-6bd3-448b-9a7e-a10968cbd6e0",
+    "subjectId": "T53",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Cuál es la principal diferencia funcional entre los comandos $DELETE$ y $TRUNCATE$ dentro de un RDBMS estándar?",
+    "answerOptions": [
+      {
+        "text": "$DELETE$ permite filtrar registros mediante una cláusula $WHERE$ y puede ser revertido con $ROLLBACK$, mientras que $TRUNCATE$ elimina todas las filas sin admitir filtros.",
+        "rationale": "$DELETE$ es una operación de $DML$ que procesa fila por fila, permitiendo mayor control y transaccionalidad, a diferencia de $TRUNCATE$ que es más rápido pero menos granular.",
+        "isCorrect": true
+      },
+      {
+        "text": "$TRUNCATE$ es una operación de $DML$ que permite el uso de $SAVEPOINT$ para recuperaciones parciales.",
+        "rationale": "En la mayoría de los sistemas, $TRUNCATE$ se considera una operación de $DDL$ o una operación de $DML$ rápida que no registra borrados individuales, impidiendo recuperaciones parciales estándar.",
+        "isCorrect": false
+      },
+      {
+        "text": "$DELETE$ elimina la estructura de la tabla de la base de datos, mientras que $TRUNCATE$ solo vacía el contenido.",
+        "rationale": "Esta es la descripción de la diferencia entre $DROP$ y $DELETE$, no entre $DELETE$ y $TRUNCATE$.",
+        "isCorrect": false
+      },
+      {
+        "text": "$TRUNCATE$ bloquea la tabla a nivel de fila, mientras que $DELETE$ siempre bloquea la tabla completa.",
+        "rationale": "Generalmente ocurre lo contrario: $DELETE$ puede aplicar bloqueos de fila y $TRUNCATE$ suele requerir un bloqueo exclusivo de tabla.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Recuerda qué comando permite especificar condiciones y cuál actúa sobre la tabla de forma global."
+  },
+  {
+    "guid": "807c1c54-e070-40f7-b501-0480884aad11",
+    "subjectId": "T53",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "En el contexto de las propiedades $ACID$, ¿qué garantiza específicamente el principio de Aislamiento ($Isolation$)?",
+    "answerOptions": [
+      {
+        "text": "Garantiza que el resultado de ejecutar transacciones concurrentes sea el mismo que si se ejecutaran secuencialmente.",
+        "rationale": "El aislamiento asegura que las operaciones intermedias de una transacción no sean visibles para otras hasta que se complete la transacción.",
+        "isCorrect": true
+      },
+      {
+        "text": "Asegura que todos los cambios realizados por una transacción persistan incluso en caso de fallo del sistema.",
+        "rationale": "Esta es la definición de Durabilidad, la letra $D$ de $ACID$.",
+        "isCorrect": false
+      },
+      {
+        "text": "Garantiza que una transacción se realice por completo o no se realice en absoluto.",
+        "rationale": "Esto describe la Atomicidad, no el Aislamiento.",
+        "isCorrect": false
+      },
+      {
+        "text": "Obliga a que los datos cumplan con todas las reglas de integridad referencial tras finalizar la operación.",
+        "rationale": "Esto se refiere a la Consistencia, que asegura que la base de datos pase de un estado válido a otro.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piensa en cómo interactúan varias transacciones que ocurren al mismo tiempo."
+  },
+  {
+    "guid": "fc87e124-b346-439a-a96d-75d6b3717a82",
+    "subjectId": "T53",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Qué requisito debe cumplirse para que una tabla se considere que está en Tercera Forma Normal ($3NF$)?",
+    "answerOptions": [
+      {
+        "text": "Debe estar en $2NF$ y no deben existir dependencias transitivas entre atributos no clave.",
+        "rationale": "La $3NF$ busca eliminar la redundancia asegurando que los atributos no clave dependan únicamente de la clave primaria, no de otros atributos no clave.",
+        "isCorrect": true
+      },
+      {
+        "text": "Cada columna debe contener valores atómicos y no puede haber grupos repetidos.",
+        "rationale": "Este es el requisito fundamental para la Primera Forma Normal ($1NF$).",
+        "isCorrect": false
+      },
+      {
+        "text": "Debe estar en $1NF$ y cada atributo no clave debe depender de la clave primaria completa.",
+        "rationale": "Esto define la Segunda Forma Normal ($2NF$), eliminando dependencias parciales.",
+        "isCorrect": false
+      },
+      {
+        "text": "Debe utilizar obligatoriamente claves foranas para todas sus relaciones externas.",
+        "rationale": "Aunque es una buena práctica de diseño, la normalización se centra en la estructura de dependencias funcionales internas de la relación.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considera la relación entre atributos que no forman parte de la clave principal."
+  },
+  {
+    "guid": "c1cd48f4-0d77-4f60-8029-f04bd5798286",
+    "subjectId": "T53",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Al realizar una consulta con $LEFT\\ JOIN$, ¿qué ocurre con las filas de la tabla izquierda que no tienen coincidencia en la tabla derecha?",
+    "answerOptions": [
+      {
+        "text": "Se incluyen en el resultado, pero las columnas de la tabla derecha aparecen con valor $NULL$.",
+        "rationale": "El $LEFT\\ JOIN$ preserva todos los registros de la tabla 'esquema' (izquierda), independientemente de si hay un match en la derecha.",
+        "isCorrect": true
+      },
+      {
+        "text": "Son omitidas del conjunto de resultados final para mantener la integridad.",
+        "rationale": "Este comportamiento corresponde a un $INNER\\ JOIN$, donde solo se muestran las coincidencias.",
+        "isCorrect": false
+      },
+      {
+        "text": "La consulta devuelve un error de ejecución por falta de integridad referencial.",
+        "rationale": "Un $JOIN$ es una operación de consulta y no valida restricciones de integridad de ese modo; simplemente proyecta los datos existentes.",
+        "isCorrect": false
+      },
+      {
+        "text": "Se sustituyen automáticamente por el valor definido como $DEFAULT$ en la estructura de la tabla derecha.",
+        "rationale": "SQL utiliza $NULL$ para representar la ausencia de datos en un join, no los valores por defecto de la definición de la columna.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Recuerda que este tipo de join prioriza la tabla mencionada en primer lugar."
+  },
+  {
+    "guid": "a8c36f12-28ec-4c65-86ca-435ea318dd5c",
+    "subjectId": "T53",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿En qué orden lógico procesa el motor SQL las siguientes cláusulas en una consulta $SELECT$?",
+    "answerOptions": [
+      {
+        "text": "$FROM \\rightarrow WHERE \\rightarrow GROUP\\ BY \\rightarrow HAVING \\rightarrow SELECT \\rightarrow ORDER\\ BY$",
+        "rationale": "El motor primero identifica la fuente ($FROM$), filtra filas ($WHERE$), agrupa ($GROUP\\ BY$), filtra grupos ($HAVING$), proyecta columnas ($SELECT$) y finalmente ordena ($ORDER\\ BY$).",
+        "isCorrect": true
+      },
+      {
+        "text": "$SELECT \\rightarrow FROM \\rightarrow WHERE \\rightarrow GROUP\\ BY \\rightarrow HAVING \\rightarrow ORDER\\ BY$",
+        "rationale": "Aunque es el orden de escritura sintáctica, no es el orden de ejecución lógica del motor de base de datos.",
+        "isCorrect": false
+      },
+      {
+        "text": "$FROM \\rightarrow SELECT \\rightarrow WHERE \\rightarrow ORDER\\ BY$",
+        "rationale": "El $SELECT$ ocurre después del filtrado $WHERE$, ya que no se pueden proyectar datos que aún no han sido filtrados.",
+        "isCorrect": false
+      },
+      {
+        "text": "$WHERE \\rightarrow FROM \\rightarrow GROUP\\ BY \\rightarrow SELECT$",
+        "rationale": "No se pueden filtrar filas con $WHERE$ sin haber definido primero la fuente de los datos con $FROM$.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piensa en los pasos necesarios: primero elegir el origen, luego filtrar, agrupar y finalmente mostrar."
+  },
+  {
+    "guid": "3b16fce5-7332-4e9b-bda6-143b2098d0d8",
+    "subjectId": "T53",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Cuál es la función principal de los comandos $GRANT$ y $REVOKE$ dentro del lenguaje SQL?",
+    "answerOptions": [
+      {
+        "text": "Forman parte del $DCL$ ($Data\\ Control\\ Language$) y se utilizan para gestionar permisos y roles de usuarios.",
+        "rationale": "$GRANT$ concede privilegios y $REVOKE$ los retira, permitiendo un control granular sobre quién accede a qué objetos.",
+        "isCorrect": true
+      },
+      {
+        "text": "Forman parte del $TCL$ ($Transaction\\ Control\\ Language$) y gestionan el acceso concurrente a las tablas.",
+        "rationale": "El $TCL$ se ocupa de la integridad de las transacciones ($COMMIT$, $ROLLBACK$), no de los permisos de usuario.",
+        "isCorrect": false
+      },
+      {
+        "text": "Permiten modificar la estructura de las tablas añadiendo restricciones de seguridad.",
+        "rationale": "Modificar la estructura de las tablas es competencia del $DDL$ mediante $ALTER\\ TABLE$.",
+        "isCorrect": false
+      },
+      {
+        "text": "Se usan para validar la integridad referencial antes de un $INSERT$.",
+        "rationale": "La validación de integridad es automática por el motor basándose en las $FOREIGN\\ KEY$ definidas en el $DDL$.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Estos comandos se asocian con la seguridad y el control de acceso."
+  },
+  {
+    "guid": "a35e7f87-dc1e-475d-b354-7b9847b6f510",
+    "subjectId": "T53",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Sobre los índices en una base de datos relacional, ¿cuál de las siguientes afirmaciones es CORRECTA?",
+    "answerOptions": [
+      {
+        "text": "Mejoran el rendimiento de las consultas de lectura ($SELECT$), pero pueden penalizar la velocidad de las operaciones de escritura ($INSERT$, $UPDATE$).",
+        "rationale": "Cada vez que se modifica un dato indexado, el motor debe actualizar también la estructura del índice, lo que consume recursos adicionales.",
+        "isCorrect": true
+      },
+      {
+        "text": "Es recomendable crear un índice para cada columna de una tabla para maximizar la velocidad global.",
+        "rationale": "Tener demasiados índices degrada el rendimiento de las inserciones y aumenta el uso de almacenamiento innecesariamente.",
+        "isCorrect": false
+      },
+      {
+        "text": "Un índice solo puede crearse sobre columnas que sean Claves Primarias.",
+        "rationale": "Se pueden crear índices sobre cualquier columna o conjunto de columnas para optimizar búsquedas frecuentes.",
+        "isCorrect": false
+      },
+      {
+        "text": "Los índices eliminan automáticamente los valores duplicados de la columna indexada.",
+        "rationale": "Solo los índices de tipo $UNIQUE$ impiden duplicados; los índices estándar permiten múltiples valores iguales.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considera el compromiso entre la rapidez al buscar y el trabajo extra al guardar datos."
+  },
+  {
+    "guid": "88e3d4a7-c1d0-454a-b211-5b7531557110",
+    "subjectId": "T53",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Dada la propiedad de Atomicidad en $ACID$, ¿qué sucede si una transacción compuesta por 5 operaciones falla en la cuarta?",
+    "answerOptions": [
+      {
+        "text": "Se deshacen las tres operaciones anteriores y la base de datos queda en su estado original previo a la transacción.",
+        "rationale": "La atomicidad garantiza el principio de 'todo o nada'; si un componente falla, toda la unidad de trabajo debe invalidarse.",
+        "isCorrect": true
+      },
+      {
+        "text": "Las tres primeras operaciones se consolidan y solo la cuarta y quinta quedan pendientes.",
+        "rationale": "Esto violaría la atomicidad, dejando la base de datos en un estado potencialmente inconsistente o parcial.",
+        "isCorrect": false
+      },
+      {
+        "text": "El sistema marca las operaciones fallidas para que el administrador las corrija manualmente mediante $COMMIT$.",
+        "rationale": "El motor de base de datos gestiona esto automáticamente mediante mecanismos de log y rollback para asegurar la integridad.",
+        "isCorrect": false
+      },
+      {
+        "text": "La transacción se detiene, pero los cambios realizados hasta el fallo permanecen visibles para otros usuarios.",
+        "rationale": "Esto violaría tanto la Atomicidad como el Aislamiento ($Isolation$).",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Recuerda la premisa fundamental de las transacciones como unidades indivisibles."
+  },
+  {
+    "guid": "a6bece07-e13f-405b-b572-8a735965562a",
+    "subjectId": "T53",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Cuál es la diferencia fundamental entre una Vista ($VIEW$) estándar y una Vista Materializada?",
+    "answerOptions": [
+      {
+        "text": "La vista estándar ejecuta la consulta cada vez que se invoca, mientras que la materializada almacena físicamente el resultado de la consulta.",
+        "rationale": "Las vistas materializadas mejoran el rendimiento en consultas complejas al evitar el re-cálculo, a costa de necesitar una estrategia de refresco de datos.",
+        "isCorrect": true
+      },
+      {
+        "text": "La vista estándar permite realizar operaciones $UPDATE$, pero la materializada es siempre de solo lectura.",
+        "rationale": "La capacidad de actualización depende de la complejidad de la consulta base, no estrictamente de si es materializada o no.",
+        "isCorrect": false
+      },
+      {
+        "text": "Las vistas materializadas solo pueden contener datos de una única tabla.",
+        "rationale": "Ambas pueden realizar $JOINs$ complejos; la diferencia radica en el almacenamiento del resultado.",
+        "isCorrect": false
+      },
+      {
+        "text": "Las vistas estándar se guardan en el esquema, mientras que las materializadas son temporales y desaparecen al cerrar la sesión.",
+        "rationale": "Ambas son objetos persistentes del diccionario de datos; lo que desaparece al cerrar sesión son las tablas temporales.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piensa en dónde residen realmente los datos resultantes de la consulta."
+  },
+  {
+    "guid": "33212556-2403-4cb7-a208-d4396b89b4de",
+    "subjectId": "T53",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Qué restricción de integridad asegura que no puedan existir valores nulos en una columna y que cada valor sea diferente a los demás?",
+    "answerOptions": [
+      {
+        "text": "$PRIMARY\\ KEY$",
+        "rationale": "Una clave primaria combina implícitamente las restricciones $NOT\\ NULL$ y $UNIQUE$ para identificar unívocamente cada fila.",
+        "isCorrect": true
+      },
+      {
+        "text": "$UNIQUE$",
+        "rationale": "La restricción $UNIQUE$ permite valores nulos (dependiendo de la implementación del RDBMS), a menos que se especifique $NOT\\ NULL$ explícitamente.",
+        "isCorrect": false
+      },
+      {
+        "text": "$FOREIGN\\ KEY$",
+        "rationale": "La clave forana asegura que el valor exista en otra tabla, pero no impide duplicados en la tabla actual ni necesariamente valores nulos.",
+        "isCorrect": false
+      },
+      {
+        "text": "$CHECK$",
+        "rationale": "La cláusula $CHECK$ se utiliza para validar que los valores cumplan una condición lógica, no para definir la identidad única de la fila.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Se trata del identificador principal de una tabla."
+  },
+  {
+    "guid": "8226e31c-aff0-4122-a445-f353bee57c35",
+    "subjectId": "T53",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "En la arquitectura de un SGBD relacional, ¿cuál es la función del 'Optimizador de Consultas'?",
+    "answerOptions": [
+      {
+        "text": "Analizar las diferentes formas de ejecutar una sentencia SQL y elegir el plan de ejecución más eficiente basándose en estadísticas.",
+        "rationale": "El optimizador decide, por ejemplo, si usar un índice o realizar un escaneo completo de tabla para minimizar el tiempo de respuesta.",
+        "isCorrect": true
+      },
+      {
+        "text": "Comprimir los datos en el disco para reducir el espacio físico ocupado.",
+        "rationale": "La gestión del almacenamiento físico es tarea de la capa física o del gestor de almacenamiento, no del optimizador de consultas.",
+        "isCorrect": false
+      },
+      {
+        "text": "Validar que la sintaxis de la sentencia SQL sea correcta según el estándar ANSI.",
+        "rationale": "Esta función la realiza el analizador sintáctico ($parser$) antes de llegar a la fase de optimización.",
+        "isCorrect": false
+      },
+      {
+        "text": "Gestionar las colas de usuarios para evitar que el sistema se colapse por exceso de conexiones.",
+        "rationale": "Esta es una función del gestor de sesiones o del control de concurrencia.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Su objetivo es hacer que el 'camino' para obtener los datos sea el más rápido posible."
+  },
+  {
+    "guid": "46fa0f93-97f5-4395-8f44-728caf6318ec",
+    "subjectId": "T53",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Si comparamos los modelos SQL y NoSQL, ¿qué significa que NoSQL suele seguir el modelo $BASE$ en lugar de $ACID$?",
+    "answerOptions": [
+      {
+        "text": "Prioriza la disponibilidad y la escalabilidad horizontal, aceptando una 'consistencia eventual' de los datos.",
+        "rationale": "$BASE$ ($Basically\\ Available$, $Soft\\ state$, $Eventual\\ consistency$) es más flexible que $ACID$ para permitir el reparto de datos en grandes clústeres.",
+        "isCorrect": true
+      },
+      {
+        "text": "Significa que solo admite operaciones básicas como inserción y borrado, sin permitir consultas complejas.",
+        "rationale": "NoSQL permite consultas complejas, aunque a menudo usa lenguajes distintos a SQL o estructuras de documentos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Indica que es un modelo puramente relacional pero optimizado para Big Data.",
+        "rationale": "NoSQL es, por definición, no relacional (o no únicamente relacional).",
+        "isCorrect": false
+      },
+      {
+        "text": "Asegura que todos los nodos de un clúster tengan exactamente la misma información en el mismo milisegundo.",
+        "rationale": "Eso describiría una consistencia fuerte (típica de $ACID$), mientras que $BASE$ permite que los nodos se sincronicen progresivamente.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piensa en el equilibrio entre velocidad en sistemas distribuidos y coherencia inmediata de los datos."
+  },
+  {
+    "guid": "16174fe3-4948-40e3-8124-600afc66fe4c",
+    "subjectId": "T53",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Para qué se utiliza la cláusula $HAVING$ en una sentencia SQL?",
+    "answerOptions": [
+      {
+        "text": "Para aplicar condiciones de filtrado sobre los resultados de funciones de agregación tras un $GROUP\\ BY$.",
+        "rationale": "$HAVING$ es para los grupos lo que $WHERE$ es para las filas individuales.",
+        "isCorrect": true
+      },
+      {
+        "text": "Como alternativa a $WHERE$ cuando se realizan consultas sobre múltiples tablas unidas por un $JOIN$.",
+        "rationale": "El $WHERE$ sigue siendo válido y necesario para filtrar filas antes de la agregación, independientemente de los joins.",
+        "isCorrect": false
+      },
+      {
+        "text": "Para ordenar los grupos resultantes de forma descendente.",
+        "rationale": "La ordenación es responsabilidad exclusiva de la cláusula $ORDER\\ BY$.",
+        "isCorrect": false
+      },
+      {
+        "text": "Para declarar variables locales dentro de un procedimiento almacenado.",
+        "rationale": "La declaración de variables depende del dialecto ($DECLARE$ en T-SQL o PL/SQL), no de la cláusula $HAVING$.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Se usa después de agrupar datos para descartar conjuntos que no cumplan un criterio."
+  },
+  {
+    "guid": "535c17da-e11c-4db3-b9f0-1320c8575378",
+    "subjectId": "T53",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Qué comando del sublenguaje $TCL$ se debe emplear para deshacer todos los cambios realizados en la transacción actual desde el último $COMMIT$?",
+    "answerOptions": [
+      {
+        "text": "$ROLLBACK$",
+        "rationale": "El comando $ROLLBACK$ revierte la base de datos al estado anterior al inicio de la transacción o al último punto de confirmación.",
+        "isCorrect": true
+      },
+      {
+        "text": "$UNDO$",
+        "rationale": "Aunque conceptualmente es un 'deshacer', la palabra clave estándar en SQL para esta acción es $ROLLBACK$.",
+        "isCorrect": false
+      },
+      {
+        "text": "$REVOKE$",
+        "rationale": "$REVOKE$ pertenece al $DCL$ y se usa para quitar permisos, no para gestionar datos transaccionales.",
+        "isCorrect": false
+      },
+      {
+        "text": "$DROP$",
+        "rationale": "$DROP$ es un comando de $DDL$ que elimina objetos (tablas, índices), no revierte transacciones.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Es el antónimo lógico de confirmar los cambios."
+  },
+  {
+    "guid": "50e0dd11-b8fb-4a17-a137-6cdb171b3cc2",
+    "subjectId": "T53",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Qué tipo de objeto SQL permite ocultar la complejidad de una consulta uniendo varias tablas y presentarla al usuario como si fuera una sola tabla?",
+    "answerOptions": [
+      {
+        "text": "Vista ($VIEW$)",
+        "rationale": "Las vistas proporcionan una capa de abstracción y seguridad, simplificando el acceso a estructuras de datos complejas.",
+        "isCorrect": true
+      },
+      {
+        "text": "Índice ($INDEX$)",
+        "rationale": "Un índice es una estructura física para acelerar búsquedas, no una representación lógica de una consulta.",
+        "isCorrect": false
+      },
+      {
+        "text": "Esquema ($SCHEMA$)",
+        "rationale": "Un esquema es un contenedor lógico de objetos (tablas, vistas, etc.), similar a un directorio.",
+        "isCorrect": false
+      },
+      {
+        "text": "Clave Foránea ($FOREIGN\\ KEY$)",
+        "rationale": "Es una restricción que vincula datos entre tablas, no un objeto de consulta simplificada.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "A menudo se le llama 'tabla virtual'."
+  },
+  {
+    "guid": "76749f81-48ca-4d18-8e27-4c1c3ed6405f",
+    "subjectId": "T53",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Cuál es la función del comando $ALTER\\ TABLE$?",
+    "answerOptions": [
+      {
+        "text": "Modificar la estructura de una tabla existente, permitiendo añadir, eliminar o cambiar columnas y restricciones.",
+        "rationale": "Es una sentencia fundamental del $DDL$ para la evolución del esquema de la base de datos sin borrar el objeto.",
+        "isCorrect": true
+      },
+      {
+        "text": "Actualizar los valores de los registros que cumplen una condición determinada.",
+        "rationale": "Esa es la función del comando $UPDATE$, que pertenece al $DML$.",
+        "isCorrect": false
+      },
+      {
+        "text": "Cambiar el propietario o los permisos de acceso de la tabla.",
+        "rationale": "Aunque algunos dialectos usan $ALTER$ para esto, el estándar para permisos es $GRANT/REVOKE$.",
+        "isCorrect": false
+      },
+      {
+        "text": "Eliminar todos los registros de la tabla manteniendo su definición.",
+        "rationale": "Esto se realiza con $TRUNCATE$ o $DELETE$.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Pertenece al sublenguaje de definición de datos ($DDL$)."
+  },
+  {
+    "guid": "38026567-af2f-41bc-b814-7ade46fe51e0",
+    "subjectId": "T53",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "En el diseño de bases de datos, ¿qué garantiza la Integridad Referencial?",
+    "answerOptions": [
+      {
+        "text": "Asegura que cada valor de una clave foránea se corresponda con un valor existente en la clave primaria de la tabla relacionada.",
+        "rationale": "Evita la existencia de 'registros huérfanos' y mantiene la consistencia de los vínculos entre entidades.",
+        "isCorrect": true
+      },
+      {
+        "text": "Garantiza que no haya dos filas con el mismo identificador dentro de la misma tabla.",
+        "rationale": "Esto es la integridad de entidad, gestionada por la $PRIMARY\\ KEY$.",
+        "isCorrect": false
+      },
+      {
+        "text": "Obliga a que todos los campos obligatorios tengan un valor distinto de nulo.",
+        "rationale": "Esto lo garantiza la restricción $NOT\\ NULL$.",
+        "isCorrect": false
+      },
+      {
+        "text": "Asegura que los datos no se pierdan tras un fallo de suministro eléctrico.",
+        "rationale": "Esto se refiere a la Durabilidad en el contexto de las propiedades $ACID$.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Se centra en la relación coherente entre tablas mediante claves."
+  },
+  {
+    "guid": "27a17a81-1a86-467a-82ea-c7abf2b07456",
+    "subjectId": "T53",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Qué subllenguaje de SQL incluye los comandos necesarios para crear y eliminar bases de datos y tablas?",
+    "answerOptions": [
+      {
+        "text": "$DDL$ ($Data\\ Definition\\ Language$)",
+        "rationale": "El $DDL$ se encarga de definir el esquema: la estructura donde se alojarán los datos.",
+        "isCorrect": true
+      },
+      {
+        "text": "$DML$ ($Data\\ Manipulation\\ Language$)",
+        "rationale": "El $DML$ se ocupa de las filas de datos (seleccionar, insertar, borrar), no de la estructura de las tablas.",
+        "isCorrect": false
+      },
+      {
+        "text": "$DCL$ ($Data\\ Control\\ Language$)",
+        "rationale": "El $DCL$ se limita al control de acceso y seguridad.",
+        "isCorrect": false
+      },
+      {
+        "text": "$TCL$ ($Transaction\\ Control\\ Language$)",
+        "rationale": "El $TCL$ gestiona el flujo de trabajo de las transacciones sobre los datos.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Es el lenguaje utilizado por los DBAs para 'construir' el contenedor de los datos."
+  },
+  {
+    "guid": "5b2e6bbb-e383-4e03-9630-12398eaad635",
+    "subjectId": "T53",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Dada una tabla 'Empleados' con las columnas (id, nombre, salario, departamento), ¿cuál es la forma correcta de obtener el salario medio por departamento?",
+    "answerOptions": [
+      {
+        "text": "$SELECT\\ departamento, AVG(salario)\\ FROM\\ Empleados\\ GROUP\\ BY\\ departamento;$",
+        "rationale": "Para usar una función de agregación ($AVG$) junto a una columna normal, esta última debe aparecer obligatoriamente en la cláusula $GROUP\\ BY$.",
+        "isCorrect": true
+      },
+      {
+        "text": "$SELECT\\ departamento, AVG(salario)\\ FROM\\ Empleados\\ WHERE\\ AVG(salario) > 0;$",
+        "rationale": "No se pueden usar funciones de agregación directamente en la cláusula $WHERE$.",
+        "isCorrect": false
+      },
+      {
+        "text": "$SELECT\\ AVG(salario)\\ FROM\\ Empleados\\ ORDER\\ BY\\ departamento;$",
+        "rationale": "Esto daría el salario medio total de toda la empresa, no desglosado por departamento.",
+        "isCorrect": false
+      },
+      {
+        "text": "$SELECT\\ DISTINCT\\ departamento, AVG(salario)\\ FROM\\ Empleados;$",
+        "rationale": "El uso de $DISTINCT$ no sustituye la necesidad de agrupar los datos para realizar cálculos estadísticos por categoría.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Necesitas agrupar los resultados según el criterio sobre el que quieres calcular la media."
+  },
+  {
+    "guid": "bebaec59-1feb-4b10-8d9e-53f0cbe1d5f9",
+    "subjectId": "T53",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Cuál es la principal ventaja de la 'Normalización' en una base de datos?",
+    "answerOptions": [
+      {
+        "text": "Reducir la redundancia de datos y evitar anomalías en las operaciones de inserción, actualización y borrado.",
+        "rationale": "Al organizar los datos en tablas lógicas, se evita tener que actualizar el mismo dato en múltiples lugares, reduciendo errores.",
+        "isCorrect": true
+      },
+      {
+        "text": "Aumentar la velocidad de las consultas de tipo $JOIN$ al tener más tablas pequeñas.",
+        "rationale": "Paradójicamente, la normalización suele ralentizar las lecturas porque requiere unir más tablas, aunque mejora la integridad.",
+        "isCorrect": false
+      },
+      {
+        "text": "Permitir que la base de datos ocupe más espacio en disco para mejorar la durabilidad.",
+        "rationale": "La normalización suele reducir el espacio ocupado al eliminar datos duplicados.",
+        "isCorrect": false
+      },
+      {
+        "text": "Eliminar la necesidad de utilizar Claves Primarias en tablas relacionadas.",
+        "rationale": "Al contrario, la normalización depende críticamente del uso correcto de claves primarias y foranas.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Se trata de evitar que la información esté repetida innecesariamente."
+  },
+  {
+    "guid": "8c41326f-c38c-4246-8028-19aa2249e626",
+    "subjectId": "T53",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Qué tipo de JOIN devuelve todas las filas de ambas tablas, uniendo las que coinciden y rellenando con NULL las que no tienen pareja en ninguna dirección?",
+    "answerOptions": [
+      {
+        "text": "$FULL\\ OUTER\\ JOIN$",
+        "rationale": "Es la unión completa que preserva todos los registros de ambos conjuntos, independientemente de la coincidencia.",
+        "isCorrect": true
+      },
+      {
+        "text": "$NATURAL\\ JOIN$",
+        "rationale": "Un $NATURAL\\ JOIN$ es un tipo de $INNER\\ JOIN$ que une tablas automáticamente por columnas con el mismo nombre.",
+        "isCorrect": false
+      },
+      {
+        "text": "$CROSS\\ JOIN$",
+        "rationale": "Un $CROSS\\ JOIN$ produce un producto cartesiano (todas las combinaciones posibles), sin evaluar condiciones de igualdad.",
+        "isCorrect": false
+      },
+      {
+        "text": "$SELF\\ JOIN$",
+        "rationale": "Es una unión de una tabla consigo misma, no un tipo de join que gestione nulidades bilaterales de forma específica.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Es la opción más inclusiva de todos los tipos de uniones relacionales."
+  },
+  {
+    "guid": "4b46de8d-d9e8-453c-b689-01980e8b28bd",
+    "subjectId": "T53",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "En el contexto de la seguridad, ¿qué técnica se recomienda principalmente para evitar ataques de Inyección SQL?",
+    "answerOptions": [
+      {
+        "text": "El uso de sentencias preparadas ($prepared\\ statements$) y parámetros vinculados.",
+        "rationale": "Esto asegura que el motor trate la entrada del usuario como datos y nunca como parte ejecutable del comando SQL.",
+        "isCorrect": true
+      },
+      {
+        "text": "Configurar todas las tablas como de solo lectura para los usuarios externos.",
+        "rationale": "Esto impediría el funcionamiento normal de la mayoría de las aplicaciones que requieren insertar o modificar datos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Eliminar la cláusula $WHERE$ de todas las consultas críticas.",
+        "rationale": "Esto causaría un caos funcional y de rendimiento, además de no aportar seguridad frente a inyecciones.",
+        "isCorrect": false
+      },
+      {
+        "text": "Cifrar la base de datos completa mediante algoritmos $AES-256$.",
+        "rationale": "El cifrado protege los datos en reposo, pero no evita que un atacante manipule una consulta en ejecución.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Se trata de separar la lógica de la consulta de los datos introducidos por el usuario."
+  },
+  {
+    "guid": "1b5855a0-0079-43ec-85f2-154fbfac343e",
+    "subjectId": "T53",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Para qué sirve el comando $SAVEPOINT$ dentro de una transacción SQL?",
+    "answerOptions": [
+      {
+        "text": "Para establecer un punto intermedio dentro de una transacción al que se puede volver mediante un $ROLLBACK$ parcial.",
+        "rationale": "Permite mayor flexibilidad en transacciones largas, deshaciendo solo una parte de las operaciones si algo falla.",
+        "isCorrect": true
+      },
+      {
+        "text": "Para guardar permanentemente los cambios realizados hasta ese momento sin finalizar la transacción.",
+        "rationale": "Solo el $COMMIT$ hace los cambios permanentes. El $SAVEPOINT$ es meramente una marca temporal e interna.",
+        "isCorrect": false
+      },
+      {
+        "text": "Para bloquear una tabla y evitar que otros usuarios la modifiquen hasta el siguiente $SAVEPOINT$.",
+        "rationale": "El bloqueo de tablas se gestiona mediante comandos de control de concurrencia o implícitamente por el motor, no con savepoints.",
+        "isCorrect": false
+      },
+      {
+        "text": "Para exportar la estructura de la tabla a un archivo de respaldo externo.",
+        "rationale": "La exportación de datos es una tarea de utilidades externas (como $mysqldump$ o $pg\\_dump$), no un comando de control de transacciones.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Es como un 'punto de control' en un videojuego: puedes volver a él si las cosas salen mal más adelante."
+  },
+  {
+    "guid": "106177d4-408d-4d3e-8071-509066073f8d",
+    "subjectId": "T53",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "De acuerdo con el estándar SQL, ¿cuál es la diferencia entre los tipos de datos $CHAR(n)$ y $VARCHAR(n)$?",
+    "answerOptions": [
+      {
+        "text": "$CHAR$ tiene una longitud fija rellenando con espacios, mientras que $VARCHAR$ tiene una longitud variable según el contenido real.",
+        "rationale": "$VARCHAR$ es más eficiente en espacio para textos de longitud diversa, mientras que $CHAR$ puede ser ligeramente más rápido en algunos motores para longitudes constantes.",
+        "isCorrect": true
+      },
+      {
+        "text": "$CHAR$ solo permite caracteres numéricos y $VARCHAR$ permite cualquier carácter alfanumérico.",
+        "rationale": "Ambos son tipos de datos de cadena de caracteres y admiten texto alfanumérico.",
+        "isCorrect": false
+      },
+      {
+        "text": "$VARCHAR$ no permite almacenar más de 255 caracteres, a diferencia de $CHAR$ que no tiene límite.",
+        "rationale": "Los límites dependen del motor, pero generalmente $VARCHAR$ suele permitir capacidades mucho mayores que $CHAR$.",
+        "isCorrect": false
+      },
+      {
+        "text": "$CHAR$ es un estándar de $Oracle$ y $VARCHAR$ es exclusivo de $MySQL$ y $PostgreSQL$.",
+        "rationale": "Ambos forman parte del estándar SQL ANSI/ISO y están presentes en prácticamente todos los RDBMS.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piensa en cómo se gestiona el espacio en disco si el texto introducido es más corto que el tamaño máximo definido."
+  },
+  {
+    "guid": "0cbe7f20-a2a5-424b-886b-34ac31529cf5",
+    "subjectId": "T53",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Cuál es la función de una Clave Foránea ($FOREIGN\\ KEY$) en una tabla?",
+    "answerOptions": [
+      {
+        "text": "Establecer y exigir un vínculo lógico entre los datos de dos tablas diferentes.",
+        "rationale": "Es la base del modelo relacional para asegurar que las relaciones entre entidades sean consistentes.",
+        "isCorrect": true
+      },
+      {
+        "text": "Acelerar drásticamente la velocidad de las consultas $SELECT$.",
+        "rationale": "Aunque suelen estar indexadas, su función principal es la integridad, no la optimización de velocidad de lectura.",
+        "isCorrect": false
+      },
+      {
+        "text": "Permitir que una tabla tenga múltiples identificadores únicos para cada fila.",
+        "rationale": "Esa es la función de los índices $UNIQUE$, no de las claves foráneas.",
+        "isCorrect": false
+      },
+      {
+        "text": "Cifrar la comunicación entre el cliente y el servidor de base de datos.",
+        "rationale": "El cifrado de comunicaciones se realiza mediante protocolos como $TLS/SSL$, no mediante restricciones de base de datos.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Se utiliza para conectar una tabla 'hija' con su tabla 'padre'."
+  },
+  {
+    "guid": "d7948013-a806-4e3c-adce-52eea6f77680",
+    "subjectId": "T53",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "En el modelo relacional de Codd, ¿qué representa una 'Tupla'?",
+    "answerOptions": [
+      {
+        "text": "Una fila de una tabla, que representa un registro individual de datos.",
+        "rationale": "En terminología formal, una relación se compone de tuplas (filas) y atributos (columnas).",
+        "isCorrect": true
+      },
+      {
+        "text": "El conjunto de todas las columnas que forman una Clave Primaria compuesta.",
+        "rationale": "Eso es simplemente una clave compuesta, no una tupla.",
+        "isCorrect": false
+      },
+      {
+        "text": "Una restricción que impide la inserción de valores duplicados.",
+        "rationale": "Eso es un índice o restricción $UNIQUE$.",
+        "isCorrect": false
+      },
+      {
+        "text": "El lenguaje de consulta utilizado para extraer información de la base de datos.",
+        "rationale": "El lenguaje es SQL; la tupla es una estructura de datos dentro del modelo.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Es el sinónimo académico de 'registro' o 'fila'."
+  }
+]

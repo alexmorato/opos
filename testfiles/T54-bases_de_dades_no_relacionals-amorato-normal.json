@@ -1,0 +1,1232 @@
+[
+  {
+    "guid": "7d76e442-d87a-4a45-b49a-2967d41d1561",
+    "subjectId": "T54",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Cuál de los siguientes términos describe el principio del modelo BASE que indica que el sistema no tiene por qué ser coherente en todo momento, pero lo será tras un tiempo sin recibir actualizaciones?",
+    "answerOptions": [
+      {
+        "text": "Basically Available",
+        "rationale": "Este concepto se refiere a que el sistema garantiza una respuesta a las peticiones, aunque no asegure la integridad inmediata de los datos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Soft state",
+        "rationale": "Indica que el estado del sistema puede cambiar con el tiempo incluso sin entrada de datos, debido a la falta de consistencia inmediata.",
+        "isCorrect": false
+      },
+      {
+        "text": "Eventually consistent",
+        "rationale": "La consistencia eventual asegura que todas las réplicas convergerán al mismo valor si no se realizan nuevos cambios durante un periodo suficiente.",
+        "isCorrect": true
+      },
+      {
+        "text": "Atomicity",
+        "rationale": "La atomicidad es una propiedad del modelo ACID, no del modelo BASE, y exige que una transacción se complete totalmente o no se realice.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Busca el término que se traduce como 'consistencia eventual'."
+  },
+  {
+    "guid": "ef3934d5-fff9-4b82-93eb-a69d7d4de3b0",
+    "subjectId": "T54",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Dentro del teorema CAP de Brewer, ¿qué garantiza un sistema clasificado como 'CP'?",
+    "answerOptions": [
+      {
+        "text": "Disponibilidad y Tolerancia a particiones",
+        "rationale": "Esta combinación corresponde a sistemas AP, donde se prefiere dar una respuesta aunque los datos estén desactualizados ante un fallo de red.",
+        "isCorrect": false
+      },
+      {
+        "text": "Consistencia y Disponibilidad",
+        "rationale": "Esta combinación es típica de bases de datos relacionales tradicionales (ACID) que no están diseñadas para particionamiento distribuido masivo.",
+        "isCorrect": false
+      },
+      {
+        "text": "Consistencia y Tolerancia a particiones",
+        "rationale": "Los sistemas CP, como MongoDB, aseguran que todos los nodos vean los mismos datos o el sistema se bloquea si hay un fallo de comunicación para evitar datos erróneos.",
+        "isCorrect": true
+      },
+      {
+        "text": "Atomicidad y Durabilidad",
+        "rationale": "Estos son componentes del modelo ACID y no forman parte de los tres pilares del teorema CAP propuesto por Eric Brewer.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Un sistema CP prefiere sacrificar la respuesta al usuario antes que entregar un dato inconsistente durante una división de la red."
+  },
+  {
+    "guid": "a7ccf688-ddb7-4143-a7e6-ffc2e1960afd",
+    "subjectId": "T54",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En el contexto de escalabilidad, ¿en qué consiste primordialmente el 'Sharding' en las bases de datos NoSQL?",
+    "answerOptions": [
+      {
+        "text": "Aumentar la memoria RAM y CPU del servidor principal.",
+        "rationale": "Esto describe la escalabilidad vertical, que es limitada y típica de los sistemas relacionales tradicionales.",
+        "isCorrect": false
+      },
+      {
+        "text": "Fragmentar la base de datos en distintos nodos para distribuir la carga.",
+        "rationale": "El sharding divide el conjunto de datos en fragmentos lógicos distribuidos en múltiples servidores para lograr escalabilidad horizonal.",
+        "isCorrect": true
+      },
+      {
+        "text": "Duplicar exactamente los mismos datos en todos los servidores del clúster.",
+        "rationale": "Este proceso se denomina replicación y su objetivo principal es la alta disponibilidad y redundancia, no la fragmentación de carga.",
+        "isCorrect": false
+      },
+      {
+        "text": "Eliminar los índices para acelerar las escrituras masivas.",
+        "rationale": "Aunque puede mejorar la velocidad de escritura, no es una técnica de particionamiento o distribución de datos.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Tiene que ver con la división de los datos en 'pedazos' o fragmentos."
+  },
+  {
+    "guid": "0856efb3-0d4d-404c-9263-6ae6458a2c24",
+    "subjectId": "T54",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Qué modelo de datos NoSQL es el más adecuado para representar y consultar relaciones complejas como redes sociales o sistemas de recomendación?",
+    "answerOptions": [
+      {
+        "text": "Documental",
+        "rationale": "Aunque flexible, el modelo documental no está optimizado para recorrer jerarquías o relaciones profundas de muchos a muchos de forma eficiente.",
+        "isCorrect": false
+      },
+      {
+        "text": "Orientado a Grafos",
+        "rationale": "Las bases de datos de grafos utilizan nodos y aristas para representar entidades y sus conexiones, permitiendo consultas relacionales complejas a gran velocidad.",
+        "isCorrect": true
+      },
+      {
+        "text": "Clave-Valor",
+        "rationale": "Es el modelo más simple y rápido para accesos directos por clave, pero carece de estructura para manejar relaciones entre elementos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Columnares",
+        "rationale": "Están diseñadas para consultas analíticas sobre grandes volúmenes de datos agrupados por columnas, no para navegar entre relaciones de entidades.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piensa en estructuras matemáticas compuestas por nodos y enlaces."
+  },
+  {
+    "guid": "de0da399-b8cd-44ec-bf9f-f586ae5efdc0",
+    "subjectId": "T54",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Si una aplicación requiere un sistema de caché extremadamente rápido que funcione principalmente en memoria, ¿cuál de las siguientes opciones es la más recomendada según el material?",
+    "answerOptions": [
+      {
+        "text": "Cassandra",
+        "rationale": "Cassandra es una base de datos de tipo Wide-column orientada a grandes volúmenes de datos distribuidos, no específicamente a caché en memoria.",
+        "isCorrect": false
+      },
+      {
+        "text": "Neo4j",
+        "rationale": "Es una base de datos de grafos orientada a relaciones, lo que introduce una complejidad innecesaria para una simple caché de clave-valor.",
+        "isCorrect": false
+      },
+      {
+        "text": "Redis",
+        "rationale": "Redis es un motor NoSQL de clave-valor que destaca por trabajar en memoria, lo que le otorga un rendimiento superior para sesiones y caché.",
+        "isCorrect": true
+      },
+      {
+        "text": "HBase",
+        "rationale": "HBase se ejecuta sobre HDFS (Hadoop) y está diseñada para escaneos de datos masivos, no para la baja latencia requerida en una caché.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Es una base de datos de tipo clave-valor muy popular por su velocidad."
+  },
+  {
+    "guid": "85b193f2-8222-45aa-b830-43b1f4566d1c",
+    "subjectId": "T54",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Cuál es la principal diferencia entre el esquema de una base de datos SQL y una NoSQL?",
+    "answerOptions": [
+      {
+        "text": "SQL usa esquemas dinámicos y NoSQL usa esquemas fijos.",
+        "rationale": "Es exactamente al revés; la rigidez es característica de las bases de datos relacionales.",
+        "isCorrect": false
+      },
+      {
+        "text": "SQL requiere una estructura predefinida (esquema fijo) mientras que NoSQL permite esquemas flexibles.",
+        "rationale": "En NoSQL, los registros (documentos, pares, etc.) pueden tener diferentes campos sin necesidad de alterar una definición global de tabla.",
+        "isCorrect": true
+      },
+      {
+        "text": "No hay diferencia real, ambos requieren definir todas las columnas antes de insertar datos.",
+        "rationale": "La falta de necesidad de definir columnas o tipos de datos previos es una de las mayores ventajas de flexibilidad de NoSQL.",
+        "isCorrect": false
+      },
+      {
+        "text": "SQL solo permite texto y NoSQL solo permite binarios.",
+        "rationale": "Ambas pueden almacenar diversos tipos de datos, la diferencia radica en cómo se estructuran y organizan internamente.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piensa en cuál de ellas te permite añadir campos nuevos a un registro sin ejecutar un comando 'ALTER TABLE'."
+  },
+  {
+    "guid": "4a909cb5-fd99-478a-9ba8-bbed5ffd96a3",
+    "subjectId": "T54",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En el lenguaje de consultas de Neo4j, ¿cómo se denomina el lenguaje específico utilizado para interactuar con el grafo?",
+    "answerOptions": [
+      {
+        "text": "MQL",
+        "rationale": "MQL (Mongo Query Language) es el lenguaje basado en JSON utilizado por MongoDB.",
+        "isCorrect": false
+      },
+      {
+        "text": "CQL",
+        "rationale": "CQL (Cassandra Query Language) es el lenguaje similar a SQL que utiliza Apache Cassandra.",
+        "isCorrect": false
+      },
+      {
+        "text": "Cypher",
+        "rationale": "Cypher es un lenguaje de consulta declarativo inspirado en SQL pero optimizado para expresar patrones en grafos.",
+        "isCorrect": true
+      },
+      {
+        "text": "GraphQL",
+        "rationale": "GraphQL es un lenguaje de consulta para APIs y un tiempo de ejecución, no es el lenguaje nativo de consulta de Neo4j.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Es un nombre que recuerda a la criptografía o códigos."
+  },
+  {
+    "guid": "3e47bf6d-6784-4fa0-8a94-7b476268ad80",
+    "subjectId": "T54",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Qué característica de las bases de datos NoSQL facilita su integración con arquitecturas de microservicios?",
+    "answerOptions": [
+      {
+        "text": "La obligación de usar una única base de datos centralizada para todos los servicios.",
+        "rationale": "Los microservicios abogan por la descentralización; el uso de una base de datos centralizada es un antipatrón en esta arquitectura.",
+        "isCorrect": false
+      },
+      {
+        "text": "La capacidad de que cada microservicio utilice su propio motor NoSQL adaptado a sus necesidades específicas.",
+        "rationale": "La políglota persistencia permite que cada servicio elija el modelo (grafo, documental, etc.) que mejor resuelva su problema particular.",
+        "isCorrect": true
+      },
+      {
+        "text": "El soporte nativo para transacciones ACID multi-tabla entre diferentes servidores.",
+        "rationale": "NoSQL suele limitar las transacciones complejas, lo que obliga a gestionar la consistencia a nivel de aplicación en los microservicios.",
+        "isCorrect": false
+      },
+      {
+        "text": "La dependencia estricta de un esquema de datos global compartido.",
+        "rationale": "Los esquemas globales dificultan la evolución independiente de los microservicios, algo que NoSQL evita con sus esquemas flexibles.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Se relaciona con el concepto de 'Persistencia Políglota'."
+  },
+  {
+    "guid": "57e9e9e5-5715-4e36-9e6e-d2412e5ecdac",
+    "subjectId": "T54",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Cuál es la función principal de la 'Replicación' en un entorno NoSQL distribuido?",
+    "answerOptions": [
+      {
+        "text": "Dividir los datos para que no quepan en un solo disco duro.",
+        "rationale": "Dividir los datos para gestionar el volumen es la función del Sharding, no de la replicación.",
+        "isCorrect": false
+      },
+      {
+        "text": "Garantizar la alta disponibilidad y la tolerancia a fallos mediante copias de los datos.",
+        "rationale": "Al tener copias en múltiples nodos, si uno falla, el sistema puede seguir operando utilizando las réplicas disponibles.",
+        "isCorrect": true
+      },
+      {
+        "text": "Obligar a que todas las consultas pasen por un único nodo maestro para evitar conflictos.",
+        "rationale": "Aunque existen arquitecturas maestro-esclavo, el objetivo de la replicación en NoSQL moderno suele ser distribuir también la carga de lectura.",
+        "isCorrect": false
+      },
+      {
+        "text": "Reducir el espacio de almacenamiento total utilizado por la base de datos.",
+        "rationale": "La replicación aumenta el espacio utilizado, ya que se guardan múltiples copias de la misma información.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piensa en qué sucede si un servidor se rompe físicamente."
+  },
+  {
+    "guid": "a47062f4-742e-4790-a498-02a0fa7a0398",
+    "subjectId": "T54",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Qué tipo de base de datos NoSQL es InfluxDB, mencionada como ejemplo para métricas e IoT?",
+    "answerOptions": [
+      {
+        "text": "Documental",
+        "rationale": "Aunque puede guardar datos complejos, su optimización no es para documentos JSON genéricos sino para series de tiempo.",
+        "isCorrect": false
+      },
+      {
+        "text": "De series temporales (Time-series)",
+        "rationale": "InfluxDB está especializada en manejar datos que cambian con el tiempo, como lecturas de sensores o métricas de rendimiento.",
+        "isCorrect": true
+      },
+      {
+        "text": "Orientada a Grafos",
+        "rationale": "No utiliza nodos ni aristas como estructura primaria de almacenamiento.",
+        "isCorrect": false
+      },
+      {
+        "text": "Clave-Valor pura",
+        "rationale": "Aunque usa claves, su motor está diseñado para la agregación y consulta eficiente por marcas de tiempo (timestamps).",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Se utiliza para datos donde el momento exacto (tiempo) es el eje principal."
+  }
+,  {
+    "guid": "1621b0e9-4ecd-4a4a-bf72-2ac60ff909e8",
+    "subjectId": "T54",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Qué propiedad del teorema CAP (Brewer) se prioriza en un sistema que garantiza que todos los nodos vean los mismos datos al mismo tiempo, incluso si esto implica rechazar algunas solicitudes durante un fallo de red?",
+    "answerOptions": [
+      {
+        "text": "Consistencia ($C$)",
+        "rationale": "Esta propiedad asegura que todas las lecturas reciban el dato más reciente o un error, manteniendo la uniformidad en todo el clúster.",
+        "isCorrect": true
+      },
+      {
+        "text": "Disponibilidad ($A$)",
+        "rationale": "La disponibilidad prioriza que el sistema siempre responda, aunque los datos no sean los más actualizados en todos los nodos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Tolerancia a particiones ($P$)",
+        "rationale": "Se refiere a la capacidad del sistema de seguir operando ante fallos de comunicación, pero no define por sí sola cómo se manejan los datos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Durabilidad ($D$)",
+        "rationale": "La durabilidad es un componente del modelo ACID, no del teorema CAP, y se refiere a la persistencia de los datos tras una confirmación.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Recuerda que esta propiedad es fundamental en sistemas donde la integridad inmediata es más crítica que la respuesta constante."
+  },
+  {
+    "guid": "368b946b-f97e-4b1f-8c47-ec0b6f58cf5f",
+    "subjectId": "T54",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En el modelo BASE, ¿qué concepto describe la situación en la que el estado del sistema puede cambiar con el tiempo, incluso sin una entrada de datos externa, debido a la convergencia de las réplicas?",
+    "answerOptions": [
+      {
+        "text": "Soft state (Estado suave)",
+        "rationale": "El estado del sistema es fluido y puede actualizarse de manera interna para alcanzar la consistencia final entre nodos.",
+        "isCorrect": true
+      },
+      {
+        "text": "Basically Available (Básicamente disponible)",
+        "rationale": "Este término se refiere a garantizar la operatividad del sistema aunque existan fallos parciales, no a la naturaleza del estado de los datos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Eventually Consistent (Consistencia eventual)",
+        "rationale": "Aunque está relacionado, este término define el objetivo final de que todos los nodos coincidan, no el estado intermedio y cambiante.",
+        "isCorrect": false
+      },
+      {
+        "text": "Isolation (Aislamiento)",
+        "rationale": "El aislamiento es una propiedad de las transacciones ACID que evita que operaciones concurrentes interfieran entre sí.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Busca el término que sugiere que el sistema no tiene una consistencia estática inmediata."
+  },
+  {
+    "guid": "b84a87e2-07d2-45c5-95b5-fda2de80577b",
+    "subjectId": "T54",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Cuál de las siguientes bases de datos NoSQL utiliza el lenguaje Cypher para realizar consultas sobre relaciones complejas entre entidades?",
+    "answerOptions": [
+      {
+        "text": "Neo4j",
+        "rationale": "Es la base de datos orientada a grafos más prominente y utiliza Cypher para facilitar la navegación por nodos y aristas.",
+        "isCorrect": true
+      },
+      {
+        "text": "MongoDB",
+        "rationale": "MongoDB es una base de datos documental que utiliza su propio lenguaje de consultas basado en JSON (MQL).",
+        "isCorrect": false
+      },
+      {
+        "text": "Cassandra",
+        "rationale": "Cassandra utiliza CQL (Cassandra Query Language), el cual tiene una sintaxis muy similar al SQL tradicional para familias de columnas.",
+        "isCorrect": false
+      },
+      {
+        "text": "Redis",
+        "rationale": "Redis es un motor de clave-valor que se comunica mediante comandos directos y atómicos en lugar de un lenguaje de consulta complejo.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considera qué tipo de base de datos se especializa en el modelado de redes y conexiones."
+  },
+  {
+    "guid": "19f6db36-b219-420f-bc47-e2a827700bba",
+    "subjectId": "T54",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Si una organización requiere una base de datos para analítica masiva y almacenamiento de registros de miliones de filas donde las consultas suelen involucrar subconjuntos de atributos, ¿qué modelo NoSQL es el más adecuado?",
+    "answerOptions": [
+      {
+        "text": "Orientada a columnas (Wide-column store)",
+        "rationale": "Este modelo optimiza el almacenamiento y la lectura por columnas, lo cual es ideal para agregaciones y análisis de grandes volúmenes de datos.",
+        "isCorrect": true
+      },
+      {
+        "text": "Clave-valor",
+        "rationale": "El modelo clave-valor es demasiado simple para consultas analíticas complejas, ya que solo permite el acceso eficiente mediante una clave única.",
+        "isCorrect": false
+      },
+      {
+        "text": "Documental",
+        "rationale": "Aunque es flexible, no está tan optimizado para el escaneo masivo de atributos específicos en miles de millones de registros como el modelo columnar.",
+        "isCorrect": false
+      },
+      {
+        "text": "Orientada a grafos",
+        "rationale": "Los grafos se centran en las relaciones entre puntos de datos, no en el procesamiento de grandes bloques de datos estructurados por columnas.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piensa en el almacenamiento derivado de Google BigTable diseñado para el alto rendimiento analítico."
+  },
+  {
+    "guid": "68d0ae68-d262-4a99-8ad7-ab0482ddfe14",
+    "subjectId": "T54",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Dentro de la arquitectura NoSQL, ¿qué técnica se utiliza específicamente para distribuir la carga de datos entre diferentes servidores físicos mediante la división de la base de datos en fragmentos?",
+    "answerOptions": [
+      {
+        "text": "Sharding",
+        "rationale": "El sharding o fragmentación permite dividir el conjunto de datos para que cada nodo solo gestione una parte, facilitando el escalado horizontal.",
+        "isCorrect": true
+      },
+      {
+        "text": "Replicación",
+        "rationale": "La replicación crea copias idénticas de los datos en varios nodos para mejorar la disponibilidad, no para dividir la carga de almacenamiento.",
+        "isCorrect": false
+      },
+      {
+        "text": "Indexación",
+        "rationale": "La indexación mejora la velocidad de búsqueda de datos, pero no afecta a la distribución física de los datos entre servidores.",
+        "isCorrect": false
+      },
+      {
+        "text": "Normalización",
+        "rationale": "La normalización es un proceso de diseño de bases de datos relacionales para reducir la redundancia, concepto opuesto a muchos modelos NoSQL.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Este concepto es clave para lograr el escalado horizontal infinito."
+  },
+  {
+    "guid": "bbef070b-4959-475a-9fb1-51a908de9a9c",
+    "subjectId": "T54",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Qué característica diferencia fundamentalmente el escalado de una base de datos relacional (SQL) frente a una NoSQL?",
+    "answerOptions": [
+      {
+        "text": "SQL escala verticalmente, NoSQL escala horizontalmente",
+        "rationale": "Las bases SQL suelen requerir hardware más potente en un solo servidor, mientras NoSQL permite añadir más servidores económicos al clúster.",
+        "isCorrect": true
+      },
+      {
+        "text": "SQL permite el escalado en la nube y NoSQL no",
+        "rationale": "Ambas tecnologías son compatibles con entornos de nube, aunque su arquitectura interna gestione los recursos de forma distinta.",
+        "isCorrect": false
+      },
+      {
+        "text": "NoSQL requiere hardware especializado de alta gama",
+        "rationale": "Por el contrario, NoSQL está diseñada para funcionar sobre hardware convencional distribuido (commodity hardware).",
+        "isCorrect": false
+      },
+      {
+        "text": "SQL no permite el uso de múltiples nodos",
+        "rationale": "Existen configuraciones de clúster para SQL, pero su arquitectura centralizada y rígida dificulta mucho más el reparto de carga que en NoSQL.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Compara la estrategia de 'añadir potencia a un servidor' versus 'añadir más servidores'."
+  },
+  {
+    "guid": "474c1ef8-f52f-4fb9-a2ca-4f9bdc832dff",
+    "subjectId": "T54",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Cuál es la principal ventaja de utilizar el formato BSON en bases de datos como MongoDB en lugar de JSON estándar?",
+    "answerOptions": [
+      {
+        "text": "Eficiencia en el almacenamiento y velocidad de escaneo",
+        "rationale": "BSON es una representación binaria que incluye tipos de datos adicionales y está optimizada para que la base de datos la procese rápidamente.",
+        "isCorrect": true
+      },
+      {
+        "text": "Mayor legibilidad para los desarrolladores",
+        "rationale": "BSON es un formato binario no legible directamente por humanos, a diferencia de JSON que es texto plano.",
+        "isCorrect": false
+      },
+      {
+        "text": "Compatibilidad universal con navegadores web",
+        "rationale": "Los navegadores web interpretan JSON de forma nativa, mientras que BSON requiere una capa de traducción.",
+        "isCorrect": false
+      },
+      {
+        "text": "Eliminación de la necesidad de índices",
+        "rationale": "El formato de almacenamiento no sustituye la necesidad de estructuras de índices para optimizar las consultas.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "El nombre del formato proviene de la combinación de 'Binary' y 'JSON'."
+  },
+  {
+    "guid": "34e8a77d-3f0a-44fb-88e9-8f688e207d19",
+    "subjectId": "T54",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Qué modelo de consistencia prioriza un sistema NoSQL clasificado como AP según el teorema CAP?",
+    "answerOptions": [
+      {
+        "text": "Consistencia eventual",
+        "rationale": "Al priorizar la disponibilidad y la tolerancia a particiones, el sistema acepta que los datos puedan no estar sincronizados instantáneamente.",
+        "isCorrect": true
+      },
+      {
+        "text": "Consistencia fuerte",
+        "rationale": "La consistencia fuerte es característica de los sistemas CP o de las bases de datos ACID tradicionales.",
+        "isCorrect": false
+      },
+      {
+        "text": "Consistencia nula",
+        "rationale": "Ningún sistema de base de datos útil carece totalmente de consistencia; siempre se busca la convergencia final de los datos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Aislamiento total",
+        "rationale": "El aislamiento total es una propiedad de las transacciones ACID, no una clasificación directa del teorema CAP.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Relaciona la alta disponibilidad con la flexibilidad en el tiempo de sincronización."
+  },
+  {
+    "guid": "39126cc0-3bf0-40b5-a234-7e1612e24f3c",
+    "subjectId": "T54",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Qué sistema NoSQL es comúnmente utilizado como motor de búsqueda y análisis de texto debido a su capacidad para indexar grandes volúmenes de datos no estructurados?",
+    "answerOptions": [
+      {
+        "text": "ElasticSearch",
+        "rationale": "Es una herramienta basada en Lucene diseñada específicamente para la búsqueda distribuida de texto completo en tiempo real.",
+        "isCorrect": true
+      },
+      {
+        "text": "Redis",
+        "rationale": "Redis se utiliza principalmente como caché en memoria para acceso ultrarrápido por clave, no para búsqueda avanzada de texto.",
+        "isCorrect": false
+      },
+      {
+        "text": "Neo4j",
+        "rationale": "Su especialidad son las relaciones entre entidades, no la indexación semántica o de texto masivo.",
+        "isCorrect": false
+      },
+      {
+        "text": "InfluxDB",
+        "rationale": "InfluxDB está especializada en series temporales (métricas y telemetría), no en análisis de texto.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Es parte del famoso stack ELK (junto con Logstash y Kibana)."
+  },
+  {
+    "guid": "f9f24896-a946-43e4-b0b6-c0330a8903b7",
+    "subjectId": "T54",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En el contexto de la administración pública, ¿qué uso práctico tendría una base de datos de series temporales como InfluxDB?",
+    "answerOptions": [
+      {
+        "text": "Monitorización de sensores IoT en una Smart City",
+        "rationale": "Este tipo de bases de datos son óptimas para registrar flujos continuos de datos medidos a lo largo del tiempo, como la calidad del aire o el tráfico.",
+        "isCorrect": true
+      },
+      {
+        "text": "Gestión de la nómina de los empleados municipales",
+        "rationale": "La gestión de nóminas requiere transacciones ACID estrictas y relaciones complejas, lo que encaja mejor en una base de datos SQL.",
+        "isCorrect": false
+      },
+      {
+        "text": "Almacenamiento de fotos de alta resolución del catastro",
+        "rationale": "Para grandes archivos binarios se suelen utilizar sistemas de almacenamiento de objetos (Object Storage), no bases de datos temporales.",
+        "isCorrect": false
+      },
+      {
+        "text": "Modelado de la jerarquía política del ayuntamiento",
+        "rationale": "Una jerarquía o estructura organizativa se modelaría de forma más eficiente mediante una base de datos de grafos.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piensa en datos que se generan constantemente y que incluyen una marca de tiempo ($timestamp$)."
+  },
+  {
+    "guid": "efe060d1-ff4a-48f7-967f-6ebafab71f5c",
+    "subjectId": "T54",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Qué implica que una base de datos sea 'Schema-less'?",
+    "answerOptions": [
+      {
+        "text": "Los datos pueden insertarse sin definir previamente una estructura de tablas y columnas",
+        "rationale": "Esto permite gran flexibilidad para aplicaciones donde los requisitos de los datos cambian rápidamente o son heterogéneos.",
+        "isCorrect": true
+      },
+      {
+        "text": "La base de datos no tiene capacidad para organizar los datos",
+        "rationale": "Aunque no haya esquema fijo, la base de datos organiza la información internamente para permitir su recuperación.",
+        "isCorrect": false
+      },
+      {
+        "text": "Todos los registros deben tener exactamente el mismo número de campos",
+        "rationale": "Esta es precisamente la restricción de las bases SQL que el diseño schema-less elimina.",
+        "isCorrect": false
+      },
+      {
+        "text": "No se pueden utilizar índices para acelerar las consultas",
+        "rationale": "Incluso sin un esquema rígido, se pueden crear índices sobre campos específicos dentro de los documentos o valores.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Es la característica que permite a los desarrolladores añadir nuevos campos a un objeto sin alterar la base de datos."
+  },
+  {
+    "guid": "b7f9c712-9817-47b7-a2a0-d21f52e2c223",
+    "subjectId": "T54",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Cuál es la función principal de Cassandra Query Language (CQL)?",
+    "answerOptions": [
+      {
+        "text": "Ofrecer una interfaz familiar a SQL para interactuar con datos distribuidos por columnas",
+        "rationale": "CQL abstrae la complejidad de la arquitectura interna de Cassandra permitiendo consultas que parecen SQL pero bajo reglas de NoSQL.",
+        "isCorrect": true
+      },
+      {
+        "text": "Permitir la creación de relaciones 'Many-to-Many' mediante claves foráneas",
+        "rationale": "Cassandra no soporta claves foráneas ni uniones (joins) de la misma manera que el modelo relacional.",
+        "isCorrect": false
+      },
+      {
+        "text": "Traducir automáticamente consultas SQL a formato JSON",
+        "rationale": "CQL no es un traductor, es el lenguaje nativo de Cassandra, y esta base de datos no utiliza documentos JSON como almacenamiento principal.",
+        "isCorrect": false
+      },
+      {
+        "text": "Gestionar exclusivamente los permisos de usuario del clúster",
+        "rationale": "Aunque puede manejar seguridad, su función primordial es la manipulación y definición de datos.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Se diseñó para reducir la curva de aprendizaje de los administradores de bases de datos tradicionales."
+  },
+  {
+    "guid": "9c5e1d60-e46d-4889-8db7-f21ff8304f1b",
+    "subjectId": "T54",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Por qué las bases de datos NoSQL suelen tener dificultades con las transacciones que involucran múltiples tablas o documentos?",
+    "answerOptions": [
+      {
+        "text": "Debido a la naturaleza distribuida de los datos entre diferentes nodos",
+        "rationale": "Coordinar un bloqueo de datos en múltiples servidores para garantizar atomicidad total penaliza drásticamente el rendimiento y la escalabilidad.",
+        "isCorrect": true
+      },
+      {
+        "text": "Porque no permiten el uso de claves primarias",
+        "rationale": "Casi todas las bases NoSQL utilizan algún tipo de clave única para identificar y localizar los registros.",
+        "isCorrect": false
+      },
+      {
+        "text": "Debido a que el lenguaje SQL es el único que soporta transacciones",
+        "rationale": "Las transacciones son una característica lógica que podría implementarse en cualquier lenguaje, pero tienen un coste técnico elevado en sistemas distribuidos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Porque los documentos JSON no pueden ser modificados una vez creados",
+        "rationale": "Los documentos son totalmente mutables y pueden actualizarse, pero la dificultad reside en la concurrencia entre varios documentos.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considera el coste de comunicación entre servidores para asegurar que 'todo o nada' ocurra simultáneamente."
+  },
+  {
+    "guid": "fabc592c-e7bd-44f9-9a31-e47754038b83",
+    "subjectId": "T54",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Qué sucede en un sistema NoSQL con 'consistencia eventual' cuando dos usuarios actualizan el mismo dato en diferentes nodos al mismo tiempo?",
+    "answerOptions": [
+      {
+        "text": "El sistema utiliza mecanismos de resolución de conflictos para sincronizarse más tarde",
+        "rationale": "Los sistemas NoSQL aplican reglas como 'el último en escribir gana' o algoritmos de vectores de reloj para unificar las versiones.",
+        "isCorrect": true
+      },
+      {
+        "text": "La base de datos se bloquea hasta que un administrador decide qué versión guardar",
+        "rationale": "Esto invalidaría la propiedad de disponibilidad, ya que el sistema dejaría de procesar solicitudes automáticamente.",
+        "isCorrect": false
+      },
+      {
+        "text": "El sistema garantiza que ambos cambios se fusionen perfectamente sin pérdida de datos",
+        "rationale": "La fusión automática sin conflictos es extremadamente difícil y no siempre es posible dependiendo de la lógica de la aplicación.",
+        "isCorrect": false
+      },
+      {
+        "text": "Uno de los nodos se apaga automáticamente para evitar la corrupción",
+        "rationale": "Los sistemas distribuidos están diseñados para tolerar estas discrepancias temporales como parte de su funcionamiento normal.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Es el núcleo del modelo BASE frente al estricto ACID."
+  },
+  {
+    "guid": "cdf537ce-8581-45a8-9aef-eb0336dc18e5",
+    "subjectId": "T54",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Qué modelo de datos NoSQL es el más apropiado para implementar un sistema de recomendaciones de 'amigos que quizá conozcas' en una red social?",
+    "answerOptions": [
+      {
+        "text": "Orientado a grafos",
+        "rationale": "Permite recorrer eficientemente las conexiones (aristas) entre personas (nodos) para encontrar patrones de relación.",
+        "isCorrect": true
+      },
+      {
+        "text": "Clave-valor",
+        "rationale": "Sería muy ineficiente, ya que requeriría múltiples búsquedas manuales para reconstruir la red de amistades.",
+        "isCorrect": false
+      },
+      {
+        "text": "Documental",
+        "rationale": "Aunque puede guardar listas de amigos, realizar consultas de 'amigos de amigos' es costoso computacionalmente en este modelo.",
+        "isCorrect": false
+      },
+      {
+        "text": "Columnar",
+        "rationale": "El modelo columnar es excelente para agregaciones estadísticas, pero no para la navegación por estructuras de red interconectadas.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piensa en nodos interconectados por relaciones de afinidad."
+  },
+  {
+    "guid": "c1b55c0f-38f0-4d4c-9da0-c54d09ccfdee",
+    "subjectId": "T54",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En el teorema CAP, ¿qué representa la propiedad de 'Tolerancia a particiones' ($P$)?",
+    "answerOptions": [
+      {
+        "text": "La capacidad del sistema de seguir funcionando si hay fallos de comunicación en la red",
+        "rationale": "En un sistema distribuido, las particiones de red son inevitables, por lo que esta propiedad es esencial para la resiliencia.",
+        "isCorrect": true
+      },
+      {
+        "text": "La capacidad de dividir las tablas en filas y columnas",
+        "rationale": "Esto es una descripción básica de la estructura de una base de datos relacional, no un concepto de sistemas distribuidos.",
+        "isCorrect": false
+      },
+      {
+        "text": "La garantía de que los datos nunca se borrarán",
+        "rationale": "Eso se refiere a la durabilidad, no a la gestión de las comunicaciones entre los nodos del sistema.",
+        "isCorrect": false
+      },
+      {
+        "text": "La velocidad a la que el sistema procesa una consulta",
+        "rationale": "La velocidad es una métrica de rendimiento, mientras que la tolerancia a particiones es una propiedad de arquitectura y diseño.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Se refiere a lo que ocurre cuando un cable se corta o un router falla entre dos servidores del clúster."
+  },
+  {
+    "guid": "6b5e3ed9-84d2-4ff4-b09e-7f380096cfb7",
+    "subjectId": "T54",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Redis es conocido por trabajar principalmente en memoria RAM. ¿Cuál es la consecuencia directa de esta arquitectura?",
+    "answerOptions": [
+      {
+        "text": "Latencia extremadamente baja y alto rendimiento",
+        "rationale": "Al evitar el acceso a disco para las operaciones de lectura y escritura, Redis puede procesar cientos de miles de operaciones por segundo.",
+        "isCorrect": true
+      },
+      {
+        "text": "Capacidad ilimitada de almacenamiento de datos históricos",
+        "rationale": "La memoria RAM es un recurso costoso y limitado en comparación con el almacenamiento en disco, lo que restringe el volumen total de datos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Imposibilidad total de persistir los datos si se apaga el servidor",
+        "rationale": "Aunque trabaja en memoria, Redis ofrece mecanismos de persistencia opcionales (como RDB o AOF) para guardar datos en disco.",
+        "isCorrect": false
+      },
+      {
+        "text": "Necesidad obligatoria de utilizar esquemas SQL complejos",
+        "rationale": "Redis es una base de datos NoSQL de tipo clave-valor y no utiliza esquemas SQL.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considera por qué se utiliza frecuentemente para caché y sesiones de usuario."
+  },
+  {
+    "guid": "8e6dd7fd-a779-4b64-ae05-e7adbdad4f7e",
+    "subjectId": "T54",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Al diseñar un sistema basado en microservicios, ¿por qué es común que cada servicio tenga su propia base de datos NoSQL independiente?",
+    "answerOptions": [
+      {
+        "text": "Para garantizar el desacoplamiento y permitir que cada servicio elija el modelo más óptimo",
+        "rationale": "Cada microservicio puede tener necesidades diferentes (uno grafos, otro documentos) y no debe depender de un esquema centralizado.",
+        "isCorrect": true
+      },
+      {
+        "text": "Porque las bases de datos NoSQL no pueden gestionar más de un servicio a la vez",
+        "rationale": "Una base de datos potente podría manejar múltiples servicios, pero esto crearía un punto único de fallo y acoplamiento técnico.",
+        "isCorrect": false
+      },
+      {
+        "text": "Para cumplir obligatoriamente con las leyes de protección de datos",
+        "rationale": "La protección de datos depende de la seguridad y el cifrado, no de si la base de datos está compartida o separada por servicios.",
+        "isCorrect": false
+      },
+      {
+        "text": "Para evitar el uso de memoria RAM en el servidor principal",
+        "rationale": "Tener múltiples bases de datos suele consumir más recursos totales de memoria que una única base de datos centralizada.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Es un principio de arquitectura moderna para evitar que un cambio en un servicio rompa los demás."
+  },
+  {
+    "guid": "1b4bc006-155b-439a-9a08-0442be866bad",
+    "subjectId": "T54",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Cuál es la función del componente 'Master' o 'Primary' en un esquema de replicación NoSQL?",
+    "answerOptions": [
+      {
+        "text": "Recibir las escrituras y coordinar la propagación de datos a los nodos esclavos",
+        "rationale": "Centraliza las actualizaciones para mantener un orden coherente antes de enviar las copias a los nodos de lectura (Secondary).",
+        "isCorrect": true
+      },
+      {
+        "text": "Almacenar únicamente los metadatos de la base de datos",
+        "rationale": "El nodo maestro almacena los datos reales de la aplicación, además de coordinar el estado del clúster.",
+        "isCorrect": false
+      },
+      {
+        "text": "Servir como firewall para proteger los datos de ataques externos",
+        "rationale": "La seguridad perimetral es tarea de otros componentes de red, no de la lógica de replicación de la base de datos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Es el único nodo que puede realizar lecturas para garantizar la velocidad",
+        "rationale": "Normalmente, las lecturas se distribuyen entre los nodos esclavos para descargar al maestro y mejorar el rendimiento global.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piensa en quién ostenta la autoridad sobre la 'verdad' de los datos en un momento dado."
+  },
+  {
+    "guid": "ace10c2a-d70f-443f-b1ba-b8bce25643f4",
+    "subjectId": "T54",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Qué significa que un sistema sea 'Básicamente Disponible' ($Basically$ $Available$) en el modelo BASE?",
+    "answerOptions": [
+      {
+        "text": "El sistema garantiza respuesta aunque algunos nodos hayan fallado, posiblemente sin la última versión del dato",
+        "rationale": "Se prioriza que el usuario reciba 'algo' en lugar de un error de tiempo de espera (timeout).",
+        "isCorrect": true
+      },
+      {
+        "text": "El sistema solo funciona durante el horario laboral establecido",
+        "rationale": "La disponibilidad en informática se refiere al tiempo de actividad técnica, no a horarios humanos.",
+        "isCorrect": false
+      },
+      {
+        "text": "La base de datos solo es accesible desde la red local",
+        "rationale": "La accesibilidad de red es una configuración de conectividad, no una propiedad del modelo BASE.",
+        "isCorrect": false
+      },
+      {
+        "text": "El sistema garantiza una disponibilidad del $100\\%$ en cualquier circunstancia",
+        "rationale": "Ningún sistema puede garantizar el $100\\%$; el modelo BASE admite que la disponibilidad es el objetivo primordial pero sujeta a degradaciones.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Es la 'BA' de las siglas BASE."
+  },
+  {
+    "guid": "d7730f18-0625-47dd-9768-e2573dba9c38",
+    "subjectId": "T54",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Verdad o Falso? El modelo NoSQL ha sustituido por completo a las bases de datos relacionales en la industria moderna.",
+    "answerOptions": [
+      {
+        "text": "Falso",
+        "rationale": "Ambas tecnologías coexisten y son complementarias; SQL sigue siendo preferible para datos estructurados y transacciones complejas.",
+        "isCorrect": true
+      },
+      {
+        "text": "Verdadero",
+        "rationale": "Aunque NoSQL ha crecido mucho, sectores como el bancario y el administrativo siguen dependiendo fuertemente del modelo relacional.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piensa si todavía se utilizan bases de datos como PostgreSQL u Oracle hoy en día."
+  },
+  {
+    "guid": "dacd9d53-0b9c-4943-9060-b9b60bb49009",
+    "subjectId": "T54",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Cuál de los siguientes es un inconveniente documentado de las bases de datos NoSQL?",
+    "answerOptions": [
+      {
+        "text": "Falta de estandarización en los lenguajes de consulta",
+        "rationale": "A diferencia de SQL, que es un estándar internacional, cada motor NoSQL tiene su propia API y sintaxis propietaria.",
+        "isCorrect": true
+      },
+      {
+        "text": "Incapacidad para almacenar archivos de texto",
+        "rationale": "Las bases NoSQL son excelentes precisamente para almacenar texto y datos no estructurados.",
+        "isCorrect": false
+      },
+      {
+        "text": "Bajo rendimiento en entornos de Big Data",
+        "rationale": "Al contrario, el alto rendimiento en Big Data es la razón principal por la que se crearon estas bases de datos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Obligación de usar hardware de mainframe muy costoso",
+        "rationale": "NoSQL brilla por su capacidad de funcionar en clústeres de servidores económicos estándar.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Compara la universalidad de SQL con la variedad de lenguajes como MQL, Cypher o CQL."
+  },
+  {
+    "guid": "517c6c79-47af-4191-b36c-78ca754af678",
+    "subjectId": "T54",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Qué describe mejor el concepto de 'Esquema Dinámico' en MongoDB?",
+    "answerOptions": [
+      {
+        "text": "Diferentes documentos en la misma colección pueden tener diferentes campos",
+        "rationale": "Permite evolucionar la aplicación sin necesidad de ejecutar migraciones de base de datos costosas para añadir columnas.",
+        "isCorrect": true
+      },
+      {
+        "text": "La base de datos cambia automáticamente de SQL a NoSQL según la carga",
+        "rationale": "Un motor de base de datos no cambia su arquitectura fundamental de forma dinámica.",
+        "isCorrect": false
+      },
+      {
+        "text": "El esquema se borra y se vuelve a crear cada vez que se reinicia el servidor",
+        "rationale": "Los datos y su estructura son persistentes; 'dinámico' se refiere a la flexibilidad, no a la volatilidad.",
+        "isCorrect": false
+      },
+      {
+        "text": "La base de datos solo acepta datos que sigan un esquema XML estricto",
+        "rationale": "MongoDB utiliza BSON/JSON; el uso de esquemas XML estrictos es propio de bases de datos XML específicas.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piensa en la libertad que tiene un desarrollador para guardar un objeto con 3 campos y otro con 5 en el mismo sitio."
+  },
+  {
+    "guid": "4a0ffd7b-ce36-40e5-a2ce-2830085f28f1",
+    "subjectId": "T54",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿En qué año aproximado comenzó el movimiento NoSQL a ganar relevancia masiva como respuesta a las limitaciones de SQL?",
+    "answerOptions": [
+      {
+        "text": "2009",
+        "rationale": "Fue el año en que resurgió el término y aparecieron o se popularizaron motores como Cassandra y MongoDB.",
+        "isCorrect": true
+      },
+      {
+        "text": "1995",
+        "rationale": "En esta época el modelo relacional era el estándar absoluto con el auge de la web 1.0 y MySQL.",
+        "isCorrect": false
+      },
+      {
+        "text": "1980",
+        "rationale": "Los años 80 marcaron la consolidación del modelo relacional propuesto por Codd.",
+        "isCorrect": false
+      },
+      {
+        "text": "2018",
+        "rationale": "Para este año, NoSQL ya era una tecnología madura y ampliamente establecida en la industria.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Coincide con la explosión de las redes sociales y la necesidad de manejar datos masivos."
+  },
+  {
+    "guid": "0e3bc50f-6461-4979-91ce-612ff8266d1f",
+    "subjectId": "T54",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Qué modelo NoSQL es más probable que utilice una empresa como Instagram para gestionar el feed de actividad de millones de usuarios de forma distribuida?",
+    "answerOptions": [
+      {
+        "text": "Columnar (Wide-column store como Cassandra)",
+        "rationale": "Cassandra fue diseñada originalmente por Facebook para manejar búsquedas en el buzón y es ideal para registros de actividad masivos.",
+        "isCorrect": true
+      },
+      {
+        "text": "Relacional puro (SQLite)",
+        "rationale": "SQLite es una base de datos local no distribuida, incapaz de manejar la carga de millones de usuarios concurrentes.",
+        "isCorrect": false
+      },
+      {
+        "text": "Orientada a objetos puros",
+        "rationale": "Aunque existen, no son el estándar para gestionar feeds de actividad masivos y distribuidos en la actualidad.",
+        "isCorrect": false
+      },
+      {
+        "text": "Archivo de texto plano",
+        "rationale": "Los archivos de texto no ofrecen las capacidades de indexación, consulta y concurrencia necesarias para una aplicación web moderna.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Busca el modelo que fue clave en el crecimiento de Facebook y Netflix."
+  },
+  {
+    "guid": "9fde7de2-67b1-493f-af5d-6dad9ed40722",
+    "subjectId": "T54",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En la comparativa ACID vs BASE, ¿cuál es el objetivo primordial del modelo ACID?",
+    "answerOptions": [
+      {
+        "text": "Fiabilidad e integridad absoluta de los datos",
+        "rationale": "Asegura que cada transacción sea segura y no deje nunca la base de datos en un estado inconsistente.",
+        "isCorrect": true
+      },
+      {
+        "text": "Escalabilidad horizontal extrema",
+        "rationale": "Las restricciones de ACID (especialmente consistencia y aislamiento) dificultan mucho el escalado en múltiples nodos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Flexibilidad total en la estructura de los datos",
+        "rationale": "ACID suele ir ligado a esquemas relacionales fijos donde la estructura debe definirse antes que los datos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Velocidad de respuesta por encima de la veracidad",
+        "rationale": "Esta descripción encaja mejor con el modelo BASE, donde se prefiere responder rápido aunque el dato sea antiguo.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piensa en un sistema bancario donde un céntimo perdido es un error inaceptable."
+  },
+  {
+    "guid": "7b9008c5-b82d-4d85-9939-99a8bb64ef51",
+    "subjectId": "T54",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Qué significa que un sistema sea 'Peer-to-Peer' en el contexto de Cassandra?",
+    "answerOptions": [
+      {
+        "text": "Todos los nodos son iguales y no hay un único punto de fallo (sin maestro)",
+        "rationale": "Esta arquitectura permite una disponibilidad muy alta, ya que cualquier nodo puede atender cualquier solicitud.",
+        "isCorrect": true
+      },
+      {
+        "text": "Los usuarios finales deben compartir sus datos entre ellos para que funcione",
+        "rationale": "Se refiere a la comunicación entre los servidores de la base de datos, no a los usuarios finales de la aplicación.",
+        "isCorrect": false
+      },
+      {
+        "text": "La base de datos solo sirve para descargar archivos de forma ilegal",
+        "rationale": "Es una confusión con los protocolos de intercambio de archivos (como BitTorrent) que también se llaman P2P.",
+        "isCorrect": false
+      },
+      {
+        "text": "El sistema requiere que dos administradores aprueben cada cambio",
+        "rationale": "Peer-to-peer es un concepto de red y arquitectura de sistemas, no un flujo de aprobación humana.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Contrasta esta arquitectura con la de 'Maestro-Esclavo'."
+  },
+  {
+    "guid": "29081175-643e-467f-a797-dd7291c63ffa",
+    "subjectId": "T54",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Cuál es la principal debilidad del modelo Clave-Valor?",
+    "answerOptions": [
+      {
+        "text": "La imposibilidad de realizar consultas por campos que no sean la clave principal",
+        "rationale": "Si necesitas buscar registros por un atributo interno del valor, el sistema tendría que escanear toda la base de datos.",
+        "isCorrect": true
+      },
+      {
+        "text": "Su excesiva lentitud en comparación con SQL",
+        "rationale": "Al contrario, es el modelo más rápido que existe para accesos directos por clave.",
+        "isCorrect": false
+      },
+      {
+        "text": "La necesidad de definir relaciones complejas obligatoriamente",
+        "rationale": "Este modelo no soporta relaciones de forma nativa; su diseño es lo más simple posible.",
+        "isCorrect": false
+      },
+      {
+        "text": "Que solo puede almacenar datos de tipo numérico",
+        "rationale": "Puede almacenar cualquier tipo de dato (texto, binarios, objetos serializados) como 'valor'.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Imagina intentar buscar a un usuario por su 'email' en un sistema donde solo puedes buscar por 'ID'."
+  },
+  {
+    "guid": "44ae4ab8-eeb1-4086-a6a2-024ba6efd691",
+    "subjectId": "T54",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Qué utilidad tiene la 'Durabilidad' ($D$) tanto en SQL como en los sistemas NoSQL que la implementan?",
+    "answerOptions": [
+      {
+        "text": "Asegurar que una vez confirmada una operación, esta persista incluso tras un fallo del sistema",
+        "rationale": "Garantiza que los datos se escriban en un almacenamiento no volátil antes de dar la operación por finalizada.",
+        "isCorrect": true
+      },
+      {
+        "text": "Garantizar que la base de datos nunca se quede sin espacio en disco",
+        "rationale": "La gestión del espacio en disco es una tarea de mantenimiento, no una propiedad lógica de las transacciones.",
+        "isCorrect": false
+      },
+      {
+        "text": "Hacer que las consultas de lectura sean más rápidas",
+        "rationale": "La durabilidad suele añadir una pequeña latencia a las escrituras para asegurar la persistencia.",
+        "isCorrect": false
+      },
+      {
+        "text": "Permitir que los datos se borren automáticamente tras un tiempo",
+        "rationale": "Eso se conoce como TTL (Time To Live), concepto distinto a la durabilidad de la información confirmada.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Se refiere a la permanencia de los cambios frente a cortes de luz o cierres inesperados."
+  },
+  {
+    "guid": "ba1f09bf-a4fc-46b8-acc8-521f48bfcea6",
+    "subjectId": "T54",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Cómo se integran las bases de datos NoSQL en un entorno de Big Data con Hadoop?",
+    "answerOptions": [
+      {
+        "text": "Sirven como motores de almacenamiento para datos que requieren acceso aleatorio rápido",
+        "rationale": "Mientras Hadoop (HDFS) es bueno para procesamiento por lotes, NoSQL (como HBase) permite lecturas y escrituras individuales rápidas.",
+        "isCorrect": true
+      },
+      {
+        "text": "Sustituyen completamente al sistema de archivos distribuido de Hadoop",
+        "rationale": "Suelen trabajar encima de HDFS o de forma paralela, pero no lo sustituyen para todas las funciones de almacenamiento masivo.",
+        "isCorrect": false
+      },
+      {
+        "text": "Hacen que Hadoop sea compatible con el lenguaje SQL de los años 80",
+        "rationale": "NoSQL, por definición, se aleja del estándar SQL tradicional, aunque existan capas de compatibilidad.",
+        "isCorrect": false
+      },
+      {
+        "text": "Solo se pueden usar si no hay conexión a Internet",
+        "rationale": "La conectividad a Internet no es un requisito técnico para la integración de NoSQL con Big Data.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "NoSQL aporta la agilidad que el procesamiento por lotes ($batch$) de Hadoop no tiene."
+  }
+]

@@ -1,0 +1,808 @@
+[
+  {
+    "guid": "84490ef9-049e-4f05-9d79-38a38de78a09",
+    "subjectId": "T47",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Cuál es el problema fundamental que la arquitectura Data Mesh intenta resolver en grandes organizaciones?",
+    "answerOptions": [
+      {
+        "text": "La centralización de la propiedad de los datos en un único equipo técnico, lo que genera cuellos de botella.",
+        "rationale": "El Data Mesh surge para descentralizar la gestión y evitar que el equipo central sea un obstáculo para el acceso y la escalabilidad de los datos.",
+        "isCorrect": true
+      },
+      {
+        "text": "La falta de capacidad de almacenamiento en los Data Lakes tradicionales.",
+        "rationale": "El problema no es técnico en cuanto a capacidad de almacenamiento, sino organizativo y de gestión de la complejidad.",
+        "isCorrect": false
+      },
+      {
+        "text": "La imposibilidad de utilizar tecnologías Cloud como Azure o AWS para el análisis de datos.",
+        "rationale": "El Data Mesh es agnóstico a la nube y, de hecho, se implementa frecuentemente sobre infraestructuras Cloud.",
+        "isCorrect": false
+      },
+      {
+        "text": "La duplicidad de datos en sistemas departamentales aislados.",
+        "rationale": "Aunque es un riesgo, el objetivo principal es la agilidad y responsabilidad, no simplemente evitar la duplicidad, que incluso puede permitirse de forma controlada.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considera el impacto de tener un único equipo centralizado gestionando peticiones de toda la organización."
+  },
+  {
+    "guid": "7cc3e627-d55f-44a2-a63e-7ae1ecde6315",
+    "subjectId": "T47",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Dentro de los cuatro pilares del Data Mesh, ¿qué significa el concepto de 'Data as a Product'?",
+    "answerOptions": [
+      {
+        "text": "Que los datos deben ser tratados con estándares de calidad, documentación, descubribilidad y tener un responsable claro.",
+        "rationale": "Este principio aplica el pensamiento de producto al software de datos, asegurando que sea usable y confiable para otros consumidores.",
+        "isCorrect": true
+      },
+      {
+        "text": "Que los datos de la organización deben venderse a terceros para generar ingresos adicionales.",
+        "rationale": "El término se refiere al tratamiento interno y calidad, no necesariamente a la monetización comercial externa.",
+        "isCorrect": false
+      },
+      {
+        "text": "Que cada base de datos debe empaquetarse en un archivo ejecutable independiente.",
+        "rationale": "Se trata de una filosofía de gestión y entrega, no de una restricción técnica sobre archivos ejecutables.",
+        "isCorrect": false
+      },
+      {
+        "text": "Que los datos solo pueden ser consumidos mediante el pago de una licencia interna por parte de otros departamentos.",
+        "rationale": "Aunque existen costes, el pilar se centra en la usabilidad y responsabilidad, no en un modelo de facturación interna obligatoria.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Relaciona cómo un equipo de producto cuida su software con cómo un dominio debe cuidar sus datos."
+  },
+  {
+    "guid": "d6f19a2d-97b9-4e4e-849f-41ffd378764c",
+    "subjectId": "T47",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Qué rol desempeña el 'Data Product Owner' (DPO) en esta arquitectura?",
+    "answerOptions": [
+      {
+        "text": "Es el responsable de definir el ciclo de vida, la calidad y la disponibilidad de los datos dentro de un dominio específico.",
+        "rationale": "El DPO asegura que el producto de datos satisfaga las necesidades de los consumidores y cumpla con los estándares de calidad del dominio.",
+        "isCorrect": true
+      },
+      {
+        "text": "Es el técnico encargado de configurar los servidores y la red de la plataforma central.",
+        "rationale": "Esa responsabilidad recae en el Data Platform Team, no en el propietario del producto de datos del dominio.",
+        "isCorrect": false
+      },
+      {
+        "text": "Es el encargado legal de garantizar exclusivamente el cumplimiento del RGPD en toda la ciudad.",
+        "rationale": "Aunque debe considerar el RGPD, su rol es más amplio y se enfoca en el valor y utilidad del producto de datos para el negocio.",
+        "isCorrect": false
+      },
+      {
+        "text": "Es el único usuario autorizado para modificar los esquemas de bases de datos relacionales del ayuntamiento.",
+        "rationale": "El Data Mesh descentraliza el acceso; el DPO gestiona la estrategia, pero no es el único con permisos técnicos.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Este rol es la contraparte del Product Owner en metodologías Agile, pero enfocado a activos de datos."
+  },
+  {
+    "guid": "f6a192c9-edbf-4208-a2cf-4f647694d80d",
+    "subjectId": "T47",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿En qué consiste la 'Gobernanza Federada Computacional'?",
+    "answerOptions": [
+      {
+        "text": "En un equilibrio donde se definen estándares globales comunes pero su aplicación y cumplimiento se automatizan en cada dominio.",
+        "rationale": "La gobernanza federada utiliza 'policy as code' para asegurar que las reglas (seguridad, calidad) se cumplan automáticamente sin un control central manual asfixiante.",
+        "isCorrect": true
+      },
+      {
+        "text": "En que cada departamento del ayuntamiento puede crear sus propias reglas de seguridad sin consultar a nadie.",
+        "rationale": "Esto sería una falta de gobernanza; el Data Mesh requiere estándares comunes federados para garantizar la interoperabilidad.",
+        "isCorrect": false
+      },
+      {
+        "text": "En la creación de un comité central que debe aprobar manualmente cada dataset antes de ser publicado.",
+        "rationale": "Esto sería gobernanza centralizada tradicional, lo cual crea el cuello de botella que el Data Mesh quiere evitar.",
+        "isCorrect": false
+      },
+      {
+        "text": "En delegar la seguridad de los datos exclusivamente a los proveedores de servicios en la nube.",
+        "rationale": "La gobernanza es una responsabilidad organizativa interna, independientemente de dónde se alojen los datos físicamente.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Busca un modelo que combine reglas compartidas con una ejecución técnica automática."
+  },
+  {
+    "guid": "5bf17dda-4a3a-4a19-8391-864cffbf3759",
+    "subjectId": "T47",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Cuál es la función principal del 'Data Platform Team' en un entorno de Data Mesh?",
+    "answerOptions": [
+      {
+        "text": "Proporcionar herramientas y servicios de autoservicio para que los dominios puedan gestionar sus datos de forma autónoma.",
+        "rationale": "Este equipo abstrae la complejidad técnica (infraestructura, pipelines, catálogos) para que los dominios se centren en el valor del negocio.",
+        "isCorrect": true
+      },
+      {
+        "text": "Limpiar y transformar los datos de todos los departamentos del ayuntamiento.",
+        "rationale": "En Data Mesh, la limpieza y transformación es responsabilidad de cada dominio, no del equipo de plataforma.",
+        "isCorrect": false
+      },
+      {
+        "text": "Actuar como los únicos administradores de base de datos (DBA) de toda la organización.",
+        "rationale": "El enfoque de plataforma es de habilitación (autoservicio), no de control absoluto de las operaciones de base de datos departamentales.",
+        "isCorrect": false
+      },
+      {
+        "text": "Decidir qué datos son útiles para el área de Hacienda o Servicios Sociales.",
+        "rationale": "El valor del negocio lo deciden los dominios; el equipo de plataforma no tiene el contexto de negocio necesario.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piensa en un equipo que construye la 'carretera' pero no conduce los 'coches' (datos) de los demás."
+  },
+  {
+    "guid": "4fe67c49-dc2f-4eea-b949-11a288b0f6d8",
+    "subjectId": "T47",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "En el contexto del Ajuntament de Barcelona, si el dominio de 'Recursos Humanos' publica un dataset de 'Plantillas Municipales', ¿qué elemento debería incluir obligatoriamente según el principio de Data as a Product?",
+    "answerOptions": [
+      {
+        "text": "Metadatos detallados, niveles de calidad garantizados (SLA) y documentación de uso.",
+        "rationale": "Para ser un producto, los datos deben ser autónomos y comprensibles para otros departamentos sin necesidad de reuniones constantes.",
+        "isCorrect": true
+      },
+      {
+        "text": "Una copia física de todos los contratos laborales en formato papel.",
+        "rationale": "Data Mesh se refiere a la arquitectura de datos digitales y analíticos, no a la gestión documental física tradicional.",
+        "isCorrect": false
+      },
+      {
+        "text": "El código fuente completo de la aplicación de nóminas original.",
+        "rationale": "Un producto de datos ofrece los datos resultantes, no necesariamente el código de la aplicación de origen (sistema operacional).",
+        "isCorrect": false
+      },
+      {
+        "text": "Una restricción de acceso que impida que cualquier otro departamento vea los datos.",
+        "rationale": "El objetivo es fomentar el uso compartido y la interoperabilidad, no el aislamiento total.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Un producto debe ser fácil de encontrar y de usar por un 'cliente' interno."
+  },
+  {
+    "guid": "7271c673-c7f4-49ac-9e8d-079142558e0c",
+    "subjectId": "T47",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Se define un 'Data Contract' (Contrato de Datos) como:",
+    "answerOptions": [
+      {
+        "text": "Un acuerdo formal sobre la estructura, el esquema y las reglas de validación que un producto de datos se compromete a mantener.",
+        "rationale": "Los contratos de datos evitan que cambios inesperados en el origen rompan los procesos de los consumidores de datos.",
+        "isCorrect": true
+      },
+      {
+        "text": "Un contrato legal firmado ante notario entre el Jefe de IT y el Concejal del área.",
+        "rationale": "Se trata de un concepto técnico y programático (a menudo en JSON o YAML), no de un documento jurídico administrativo.",
+        "isCorrect": false
+      },
+      {
+        "text": "La licencia de compra de un software de Business Intelligence como Tableau o Power BI.",
+        "rationale": "El contrato de datos se refiere a la interfaz de los datos, no a la adquisición de herramientas de visualización.",
+        "isCorrect": false
+      },
+      {
+        "text": "El documento que especifica el sueldo del Data Product Owner.",
+        "rationale": "No tiene relación con la gestión de personal, sino con la interoperabilidad técnica de los datasets.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Es similar a una API en microservicios, pero aplicada a flujos de datos."
+  },
+  {
+    "guid": "e81b7eb1-1193-4d3d-bc60-825b943a6f0d",
+    "subjectId": "T47",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Qué es el 'Data Lineage' y por qué es crítico en una malla de datos descentralizada?",
+    "answerOptions": [
+      {
+        "text": "Es el registro del origen, las transformaciones y el destino de los datos para garantizar la trazabilidad.",
+        "rationale": "En un entorno descentralizado, saber de dónde viene un dato y quién lo ha modificado es esencial para la confianza y la auditoría.",
+        "isCorrect": true
+      },
+      {
+        "text": "Es la jerarquía de mando dentro del departamento de informática del ayuntamiento.",
+        "rationale": "El linaje de datos se refiere al flujo de la información, no a la estructura organizativa del personal.",
+        "isCorrect": false
+      },
+      {
+        "text": "Es el tiempo que tardan los datos en viajar desde el sensor IoT hasta el servidor central.",
+        "rationale": "Eso se conoce como latencia, no linaje.",
+        "isCorrect": false
+      },
+      {
+        "text": "Es el proceso de borrado definitivo de datos antiguos para cumplir con el RGPD.",
+        "rationale": "El borrado es parte del ciclo de vida, pero el linaje se centra en el historial y rastro de las transformaciones.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Imagina que quieres saber qué proceso calculó una cifra específica de un informe de presupuesto."
+  },
+  {
+    "guid": "ae004f0a-16e4-4f89-b400-9501c99f3754",
+    "subjectId": "T47",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Cuál es la principal diferencia técnica entre un Data Lake y un Data Mesh?",
+    "answerOptions": [
+      {
+        "text": "El Data Lake es un repositorio centralizado, mientras que el Data Mesh es una arquitectura distribuida basada en dominios.",
+        "rationale": "El Data Lake unifica físicamente los datos; el Data Mesh los organiza lógicamente por áreas de responsabilidad de negocio.",
+        "isCorrect": true
+      },
+      {
+        "text": "El Data Lake solo admite datos estructurados y el Data Mesh solo datos no estructurados.",
+        "rationale": "Ambos pueden manejar diversos tipos de datos; la diferencia radica en la organización y propiedad.",
+        "isCorrect": false
+      },
+      {
+        "text": "El Data Lake es gratuito y el Data Mesh requiere licencias comerciales de Microsoft.",
+        "rationale": "Ambos modelos pueden implementarse con tecnologías tanto de código abierto como comerciales.",
+        "isCorrect": false
+      },
+      {
+        "text": "El Data Lake no permite hacer consultas SQL y el Data Mesh sí.",
+        "rationale": "La capacidad de consulta SQL depende de la herramienta (como Spark o Presto), no de la arquitectura macro.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Céntrate en la topología de la arquitectura: ¿un solo lugar o muchos puntos conectados?"
+  },
+  {
+    "guid": "a9c28bcd-ced1-44a8-a1a3-aef40f8794e1",
+    "subjectId": "T47",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "En la implementación de Data Mesh, ¿qué significa que la infraestructura sea de 'Autoservicio' (Self-serve)?",
+    "answerOptions": [
+      {
+        "text": "Que los equipos de dominio pueden crear sus propios pipelines y catálogos usando herramientas comunes sin esperar a que el equipo de IT lo haga por ellos.",
+        "rationale": "El autoservicio elimina la dependencia del equipo central, permitiendo agilidad a los departamentos de negocio.",
+        "isCorrect": true
+      },
+      {
+        "text": "Que los ciudadanos pueden modificar sus propios datos en el padrón municipal directamente.",
+        "rationale": "Esto sería un trámite de administración electrónica, no tiene que ver con la arquitectura de datos analíticos Data Mesh.",
+        "isCorrect": false
+      },
+      {
+        "text": "Que los servidores se reparan automáticamente cuando detectan un fallo de hardware.",
+        "rationale": "Esto se refiere a alta disponibilidad o autorreparación, no al concepto de plataforma de datos de autoservicio.",
+        "isCorrect": false
+      },
+      {
+        "text": "Que cualquier funcionario puede acceder a cualquier dato sin necesidad de permisos ni autenticación.",
+        "rationale": "El autoservicio no implica falta de seguridad; los controles de acceso siguen siendo estrictos pero automatizados.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piensa en cómo los desarrolladores usan la nube para desplegar aplicaciones sin hablar con un técnico de sistemas."
+  },
+  {
+    "guid": "4e091801-014c-4e04-b865-d088472461d7",
+    "subjectId": "T47",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Cómo se aplica el concepto de 'Domain-Driven Design' (DDD) al Data Mesh?",
+    "answerOptions": [
+      {
+        "text": "Organizando los datos alrededor de áreas funcionales del negocio (como Tributos o Urbanismo) en lugar de capas técnicas.",
+        "rationale": "Data Mesh traslada los principios de DDD (límites de contexto, lenguaje ubicuo) del desarrollo de software al mundo de los datos.",
+        "isCorrect": true
+      },
+      {
+        "text": "Obligando a que todas las bases de datos tengan el nombre del dominio de internet del ayuntamiento.",
+        "rationale": "El DDD no tiene relación con los dominios DNS o nombres de host de red.",
+        "isCorrect": false
+      },
+      {
+        "text": "Limitando el diseño de las tablas a un máximo de diez columnas por dominio.",
+        "rationale": "DDD trata sobre la lógica y límites de negocio, no impone restricciones físicas arbitrarias sobre el número de columnas.",
+        "isCorrect": false
+      },
+      {
+        "text": "Asegurando que todos los datos se guarden en servidores situados físicamente en el dominio geográfico de Barcelona.",
+        "rationale": "El diseño orientado a dominios es una estructura lógica y organizativa, no una restricción de ubicación física de hardware.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "El foco está en agrupar los datos según quién entiende mejor su significado real."
+  },
+  {
+    "guid": "a3719124-70e3-4c1f-8557-e5c3391f7801",
+    "subjectId": "T47",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Cuál es la función de un 'Data Catalog' en una arquitectura Data Mesh?",
+    "answerOptions": [
+      {
+        "text": "Actuar como un punto único de descubrimiento donde se pueden buscar y entender todos los productos de datos disponibles en la organización.",
+        "rationale": "Sin un catálogo, en un entorno descentralizado sería imposible saber qué datos existen y quién los gestiona.",
+        "isCorrect": true
+      },
+      {
+        "text": "Almacenar físicamente todos los terabytes de datos de la organización para que no se pierdan.",
+        "rationale": "El catálogo guarda metadatos (información sobre los datos), no los datos en sí mismos (que están en el Lakehouse o base de datos).",
+        "isCorrect": false
+      },
+      {
+        "text": "Servir como una lista de precios para la venta de datos a empresas externas.",
+        "rationale": "Es una herramienta de gobernanza e inventario técnico, no un catálogo comercial de ventas.",
+        "isCorrect": false
+      },
+      {
+        "text": "Ejecutar los scripts de limpieza de datos cada noche.",
+        "rationale": "La ejecución de procesos es tarea de los orquestadores o motores de procesamiento, no del catálogo.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Es como el 'buscador' o las 'páginas amarillas' de los activos de información del ayuntamiento."
+  },
+  {
+    "guid": "e95eb64b-fe06-4135-b35e-142250c4da73",
+    "subjectId": "T47",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Un riesgo importante de implementar Data Mesh sin una buena gobernanza federada es:",
+    "answerOptions": [
+      {
+        "text": "La creación de silos de datos inconsistentes e incompatibles entre diferentes departamentos.",
+        "rationale": "Si no hay estándares comunes (formatos, identificadores únicos), la descentralización puede llevar a que los datos de un área no se entiendan en otra.",
+        "isCorrect": true
+      },
+      {
+        "text": "Que el equipo central de datos se quede sin trabajo por falta de tareas.",
+        "rationale": "Al contrario, el equipo central suele estar muy ocupado evolucionando la plataforma de autoservicio para todos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Que los servidores se sobrecalienten debido al exceso de procesos descentralizados.",
+        "rationale": "No es un problema físico de temperatura, sino un desafío de coherencia y calidad de la información.",
+        "isCorrect": false
+      },
+      {
+        "text": "Que el ayuntamiento tenga que pagar menos licencias de software al estar todo repartido.",
+        "rationale": "Generalmente, la complejidad de una malla de datos puede incluso aumentar los costes iniciales de infraestructura y herramientas.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piensa en qué pasaría si cada departamento define 'ciudadano' de una forma totalmente distinta."
+  },
+  {
+    "guid": "3faa20ee-b107-484e-b785-66fc8883f270",
+    "subjectId": "T47",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "En relación con el Esquema Nacional de Seguridad (ENS) y el Data Mesh en la administración pública:",
+    "answerOptions": [
+      {
+        "text": "La gobernanza federada permite aplicar políticas de seguridad del ENS de forma automatizada y auditable en todos los dominios.",
+        "rationale": "El Data Mesh facilita el cumplimiento del ENS al integrar las políticas de seguridad en el código (policy as code) que despliega cada dominio.",
+        "isCorrect": true
+      },
+      {
+        "text": "El Data Mesh invalida el ENS porque el ENS prohíbe explícitamente la descentralización de datos.",
+        "rationale": "El ENS no prohíbe la descentralización; exige control y seguridad, los cuales pueden implementarse en modelos distribuidos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Solo el equipo central de plataforma está obligado a cumplir el ENS, los dominios están exentos.",
+        "rationale": "Toda la organización y sus activos de datos deben cumplir con la normativa de seguridad vigente.",
+        "isCorrect": false
+      },
+      {
+        "text": "El ENS solo se aplica a los datos que se publican en el portal de Open Data.",
+        "rationale": "El ENS aplica a todos los sistemas de información que manejan datos de la administración, sean públicos o internos.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "La clave es cómo integrar la normativa de seguridad en una estructura descentralizada."
+  },
+  {
+    "guid": "726cdce6-dd24-4543-812c-178852d0d4ab",
+    "subjectId": "T47",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Qué tecnología suele utilizarse habitualmente como base para la persistencia de datos en una arquitectura Data Mesh moderna?",
+    "answerOptions": [
+      {
+        "text": "Data Lakehouse (ej. Snowflake, Databricks o BigQuery).",
+        "rationale": "El Lakehouse combina la flexibilidad del Data Lake con las capacidades de gestión y transaccionalidad del Data Warehouse.",
+        "isCorrect": true
+      },
+      {
+        "text": "Cintas magnéticas LTO para acceso rápido en tiempo real.",
+        "rationale": "Las cintas son para backup a largo plazo, no para arquitecturas analíticas modernas de alto rendimiento.",
+        "isCorrect": false
+      },
+      {
+        "text": "Un único archivo Excel compartido en una unidad de red local.",
+        "rationale": "Data Mesh está diseñado para grandes volúmenes y complejidad que Excel no puede gestionar de forma robusta.",
+        "isCorrect": false
+      },
+      {
+        "text": "Servidores de FTP para que cada departamento suba sus archivos .txt.",
+        "rationale": "Aunque es una forma de envío, no constituye una arquitectura de datos analítica moderna ni escalable.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Busca una tecnología que combine lo mejor de los mundos de los archivos (Lake) y las tablas (Warehouse)."
+  },
+  {
+    "guid": "73ee2470-c3b3-4045-a658-8af4622437ee",
+    "subjectId": "T47",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Cuál es el rol de 'Event Streaming' (como Apache Kafka) en un Data Mesh?",
+    "answerOptions": [
+      {
+        "text": "Permitir la comunicación asíncrona y en tiempo real de cambios en los datos entre diferentes dominios.",
+        "rationale": "El streaming facilita que cuando un dominio actualiza sus datos, otros puedan reaccionar o consumirlos inmediatamente sin procesos batch lentos.",
+        "isCorrect": true
+      },
+      {
+        "text": "Sustituir por completo a todas las bases de datos relacionales del ayuntamiento.",
+        "rationale": "El streaming complementa a las bases de datos para el movimiento y notificación, no suele sustituirlas como almacenamiento de estado final.",
+        "isCorrect": false
+      },
+      {
+        "text": "Transmitir las sesiones del pleno municipal por internet.",
+        "rationale": "Aunque Kafka es para 'streams', aquí hablamos de flujos de datos técnicos, no de streaming de vídeo ciudadano.",
+        "isCorrect": false
+      },
+      {
+        "text": "Encriptar los correos electrónicos de los empleados municipales.",
+        "rationale": "Kafka no es una herramienta de encriptación de correo, sino un bus de eventos de datos.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piensa en cómo se enteraría el área de Hacienda de que ha habido una nueva alta en el padrón de forma instantánea."
+  },
+  {
+    "guid": "21e2709f-0999-4f4f-a2a1-d00454cb391e",
+    "subjectId": "T47",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "La 'Observabilidad de Datos' en un producto de datos se refiere a:",
+    "answerOptions": [
+      {
+        "text": "La capacidad de monitorizar la salud de los datos, incluyendo métricas de frescura, volumen y errores en los pipelines.",
+        "rationale": "Es fundamental para que el Data Product Owner sepa si su producto está funcionando correctamente antes de que los consumidores se quejen.",
+        "isCorrect": true
+      },
+      {
+        "text": "Poner cámaras de seguridad en el centro de datos (CPD).",
+        "rationale": "Se refiere a la observabilidad del software y la lógica de los datos, no a la vigilancia física del edificio.",
+        "isCorrect": false
+      },
+      {
+        "text": "Asegurar que todos los ciudadanos puedan ver todos los datos privados del ayuntamiento.",
+        "rationale": "Esto violaría la privacidad y el RGPD; la observabilidad es una métrica técnica de calidad, no una política de transparencia total.",
+        "isCorrect": false
+      },
+      {
+        "text": "El diseño gráfico de los cuadros de mando de Power BI.",
+        "rationale": "La visualización es parte del consumo, pero la observabilidad va más allá, monitorizando el flujo subyacente de la información.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Si un proceso de carga falla a las 3 AM, la observabilidad es lo que permite detectarlo."
+  },
+  {
+    "guid": "2499bed0-31cf-459c-9be8-2d5afbc14856",
+    "subjectId": "T47",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Qué implica que un Data Product deba ser 'Interoperable'?",
+    "answerOptions": [
+      {
+        "text": "Que debe seguir estándares comunes (formatos de archivos, tipos de datos) para que pueda cruzarse fácilmente con datos de otros dominios.",
+        "rationale": "En una malla, el valor surge de combinar datos de diferentes fuentes; si no son interoperables, la malla se rompe.",
+        "isCorrect": true
+      },
+      {
+        "text": "Que solo puede funcionar en sistemas operativos Windows.",
+        "rationale": "La interoperabilidad busca la independencia de la plataforma tecnológica específica.",
+        "isCorrect": false
+      },
+      {
+        "text": "Que debe ser traducido a todos los idiomas de la Unión Europea.",
+        "rationale": "Se refiere a la compatibilidad técnica de sistemas, no necesariamente a la traducción lingüística de contenidos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Que el hardware del servidor debe poder intercambiarse por piezas de cualquier marca.",
+        "rationale": "Es un concepto a nivel de datos y software, no de hardware físico de servidores.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Imagina intentar unir una tabla de 'Vías Públicas' con una de 'Incidentes' si usan códigos de calle distintos."
+  },
+  {
+    "guid": "fe8d75d2-b2a6-4925-b9ff-5e88b1742da3",
+    "subjectId": "T47",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "En el modelo de madurez de datos, ¿por qué el Data Mesh se considera una evolución del Data Lake?",
+    "answerOptions": [
+      {
+        "text": "Porque resuelve los límites de escalabilidad organizativa al pasar de una gestión centralizada a una federada.",
+        "rationale": "El Data Lake resolvió la escala técnica de almacenamiento, pero el Data Mesh resuelve quién es el dueño y cómo se escala el conocimiento de negocio.",
+        "isCorrect": true
+      },
+      {
+        "text": "Porque utiliza cables de fibra óptica más rápidos que el Data Lake.",
+        "rationale": "La evolución es arquitectónica y metodológica, no una simple mejora de la velocidad de los cables de red.",
+        "isCorrect": false
+      },
+      {
+        "text": "Porque permite guardar los datos en formato PDF en lugar de bases de datos.",
+        "rationale": "PDF no es un formato ideal para análisis de datos avanzado; el Data Mesh suele preferir formatos como Parquet o Avro.",
+        "isCorrect": false
+      },
+      {
+        "text": "Porque elimina la necesidad de tener científicos de datos en la organización.",
+        "rationale": "Al contrario, empodera a los científicos de datos al darles acceso a productos de datos de mayor calidad y fiabilidad.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piensa en el paso de un 'monolito de datos' a 'microservicios de datos'."
+  },
+  {
+    "guid": "92423341-bc28-4578-9857-4f722d5911fa",
+    "subjectId": "T47",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Al definir dominios en el Ajuntament de Barcelona, ¿cuál de estos criterios sería más adecuado para identificar un dominio de datos?",
+    "answerOptions": [
+      {
+        "text": "Áreas de negocio funcionales con procesos y conocimientos claros (ej. Hacienda, Seguridad, Movilidad).",
+        "rationale": "Los dominios deben alinearse con la estructura de negocio, ya que son ellos quienes entienden el contexto y las reglas de sus datos.",
+        "isCorrect": true
+      },
+      {
+        "text": "El tipo de base de datos que utilizan (ej. Dominio Oracle, Dominio PostgreSQL).",
+        "rationale": "Organizar por tecnología crearía silos técnicos, no dominios de negocio, repitiendo errores del pasado.",
+        "isCorrect": false
+      },
+      {
+        "text": "La planta del edificio donde se sientan los trabajadores.",
+        "rationale": "La ubicación física es irrelevante para la estructura lógica y de responsabilidad de los datos.",
+        "isCorrect": false
+      },
+      {
+        "text": "El orden alfabético de los apellidos de los directores de área.",
+        "rationale": "No tiene ninguna base lógica de gestión de procesos ni de arquitectura de sistemas.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Busca la división que mejor refleje cómo funciona el ayuntamiento día a día."
+  },
+  {
+    "guid": "04c5692b-cb21-4e11-b2c9-b588acb1c429",
+    "subjectId": "T47",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Qué herramienta se menciona a menudo para realizar validaciones automáticas de calidad de datos (Data Quality) en Data Mesh?",
+    "answerOptions": [
+      {
+        "text": "Great Expectations o Deequ.",
+        "rationale": "Estas librerías permiten definir expectativas sobre los datos (ej. 'este campo no puede ser nulo') y validarlas automáticamente en los pipelines.",
+        "isCorrect": true
+      },
+      {
+        "text": "Adobe Photoshop.",
+        "rationale": "Es una herramienta de edición de imágenes, no tiene funciones para la validación de calidad de datos analíticos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Microsoft Word.",
+        "rationale": "Es un procesador de textos, no sirve para automatizar validaciones técnicas de esquemas de datos en tiempo real.",
+        "isCorrect": false
+      },
+      {
+        "text": "Google Maps.",
+        "rationale": "Es un servicio de mapas, aunque útil para datos geoespaciales, no es una herramienta de validación de calidad de datos genérica.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Se trata de marcos de trabajo (frameworks) para tests unitarios aplicados a datos."
+  },
+  {
+    "guid": "c24ce34f-1036-423f-bd6a-6ed5960ec619",
+    "subjectId": "T47",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Dentro de un producto de datos, ¿qué garantiza que los consumidores no se vean afectados por cambios en la estructura de los datos sin previo aviso?",
+    "answerOptions": [
+      {
+        "text": "El versionado del producto de datos y el cumplimiento de los Data Contracts.",
+        "rationale": "Al igual que con las APIs, el versionado permite que coexistan versiones antiguas mientras los consumidores migran a la nueva estructura.",
+        "isCorrect": true
+      },
+      {
+        "text": "Prohibir por ley que los departamentos cambien sus sistemas informáticos.",
+        "rationale": "Es imposible impedir la evolución de los sistemas; la arquitectura debe adaptarse al cambio, no prohibirlo.",
+        "isCorrect": false
+      },
+      {
+        "text": "Enviar un correo electrónico a toda la organización cada vez que se añade una columna a una tabla.",
+        "rationale": "No es escalable y los humanos suelen ignorar estos avisos; se requiere una solución técnica y contractual.",
+        "isCorrect": false
+      },
+      {
+        "text": "Reiniciar todos los servidores cada vez que hay un error de esquema.",
+        "rationale": "Esto causaría una denegación de servicio constante y no resolvería el problema de la incompatibilidad de datos.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Es la misma estrategia que se usa para gestionar cambios en las APIs de los servicios web."
+  },
+  {
+    "guid": "3302f997-7c3c-43e5-94f9-136edaf9121a",
+    "subjectId": "T47",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Cuál es el objetivo final de adoptar una arquitectura Data Mesh en una administración inteligente?",
+    "answerOptions": [
+      {
+        "text": "Fomentar una cultura 'data-driven' donde los datos sean activos fiables, accesibles y de alta calidad para la toma de decisiones.",
+        "rationale": "El fin último es que la organización pueda usar sus datos de forma ágil para mejorar los servicios públicos y la eficiencia.",
+        "isCorrect": true
+      },
+      {
+        "text": "Reducir el número de ordenadores necesarios en las oficinas municipales.",
+        "rationale": "Data Mesh no busca reducir el hardware, sino optimizar cómo se usa la información digital.",
+        "isCorrect": false
+      },
+      {
+        "text": "Eliminar la necesidad de cumplir con el RGPD mediante la descentralización.",
+        "rationale": "La descentralización no exime del cumplimiento legal; al contrario, requiere mecanismos más sofisticados para garantizarlo.",
+        "isCorrect": false
+      },
+      {
+        "text": "Que todos los datos del ayuntamiento sean gestionados por una única empresa externa de consultoría.",
+        "rationale": "Data Mesh promueve la responsabilidad interna por dominios, no necesariamente la externalización total de la gestión de datos.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Se trata de empoderar a la organización para que use la información como un activo estratégico."
+  },
+  {
+    "guid": "6a779b18-72ae-483b-a547-ee83124099e3",
+    "subjectId": "T47",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Cómo maneja el Data Mesh la seguridad de los datos sensibles (por ejemplo, servicios sociales)?",
+    "answerOptions": [
+      {
+        "text": "Aplicando controles de acceso basados en roles (RBAC) y políticas de encriptación definidas a nivel global pero ejecutadas en el producto del dominio.",
+        "rationale": "La gobernanza federada asegura que aunque el dominio gestione sus datos, las reglas de seguridad corporativas se apliquen estrictamente.",
+        "isCorrect": true
+      },
+      {
+        "text": "Desconectando físicamente los servidores de servicios sociales de internet.",
+        "rationale": "Esto impediría la interoperabilidad y el análisis necesario para mejorar las políticas sociales de forma moderna.",
+        "isCorrect": false
+      },
+      {
+        "text": "Permitiendo que cada trabajador decida a quién le presta su contraseña.",
+        "rationale": "Esto sería una vulneración crítica de seguridad; el Data Mesh utiliza controles técnicos rigurosos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Haciendo que todos los datos sensibles sean públicos para que nadie pueda 'robárselos'.",
+        "rationale": "La seguridad se basa en la confidencialidad, no en la exposición total indiscriminada.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Busca un mecanismo que combine reglas de seguridad centralizadas con ejecución distribuida."
+  },
+  {
+    "guid": "1d885f45-ab36-4799-8f40-b03b81a76440",
+    "subjectId": "T47",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "En la comparativa de modelos, ¿cuál es el nivel de escalabilidad organizativa del Data Mesh frente al Data Warehouse centralizado?",
+    "answerOptions": [
+      {
+        "text": "Es mucho más alta, ya que añade capacidad a medida que se incorporan nuevos equipos de dominio independientes.",
+        "rationale": "Al no depender de un único equipo central, la organización puede crecer en proyectos de datos de forma paralela.",
+        "isCorrect": true
+      },
+      {
+        "text": "Es más baja, porque coordinar a muchos equipos siempre es más lento que tener a uno solo.",
+        "rationale": "Aunque requiere coordinación, el modelo descentralizado elimina el cuello de botella del equipo central, permitiendo más trabajo en paralelo.",
+        "isCorrect": false
+      },
+      {
+        "text": "Es igual, ya que al final todos usan los mismos discos duros.",
+        "rationale": "La escalabilidad organizativa se refiere al factor humano y de procesos, no solo al hardware de almacenamiento.",
+        "isCorrect": false
+      },
+      {
+        "text": "Solo escala si el ayuntamiento contrata a más de 1.000 nuevos informáticos.",
+        "rationale": "Data Mesh optimiza el uso de los equipos existentes repartiendo la responsabilidad de forma más eficiente.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Imagina una autopista con un solo carril (centralizado) frente a una red de carreteras bien conectadas."
+  },
+  {
+    "guid": "56c0b870-8198-4898-a4e4-283461e80709",
+    "subjectId": "T47",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Qué se entiende por 'Policy as Code' en el marco de la gobernanza de Data Mesh?",
+    "answerOptions": [
+      {
+        "text": "Definir las reglas de acceso, privacidad y calidad en archivos de configuración que los sistemas pueden validar automáticamente.",
+        "rationale": "Esto permite que la gobernanza no sea un proceso manual burocrático, sino una parte integral del pipeline técnico de datos.",
+        "isCorrect": true
+      },
+      {
+        "text": "Escribir las leyes del ayuntamiento en lenguaje de programación C++.",
+        "rationale": "No se trata de traducir leyes generales, sino de automatizar reglas técnicas específicas de gestión de datos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Que los políticos deben saber programar para poder aprobar nuevas normativas.",
+        "rationale": "La 'política' aquí se refiere a normas técnicas y de seguridad de datos, no a la actividad política institucional.",
+        "isCorrect": false
+      },
+      {
+        "text": "Que el código de todas las aplicaciones debe imprimirse y guardarse en el archivo municipal.",
+        "rationale": "Se trata de ejecución automática de reglas, no de almacenamiento físico de código impreso.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Céntrate en cómo transformar normas de seguridad en 'tests' o 'scripts' automáticos."
+  }
+]
