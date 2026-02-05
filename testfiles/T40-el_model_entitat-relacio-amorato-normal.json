@@ -1,0 +1,932 @@
+[
+  {
+    "guid": "f8f52b5e-e4fd-4443-aa2e-148054fe9349",
+    "subjectId": "T40",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Cuál es el objetivo principal de la propuesta de Peter Chen en 1976 respecto al modelo Entidad-Relación?",
+    "answerOptions": [
+      {
+        "text": "Definir un estándar físico para la implementación de bases de datos relacionales en sistemas mainframe.",
+        "rationale": "El modelo E-R se sitúa en el nivel conceptual, no en el nivel físico de implementación de hardware.",
+        "isCorrect": false
+      },
+      {
+        "text": "Representar de manera gráfica y abstracta las dades y sus relaciones antes de traducirlas a un modelo lógico.",
+        "rationale": "El diseño conceptual permite abstraer los requisitos del negocio sin depender de la tecnología de base de datos final.",
+        "isCorrect": true
+      },
+      {
+        "text": "Sustituir el lenguaje SQL por una notación visual que permitiera consultas directas a la base de datos.",
+        "rationale": "El modelo E-R es una herramienta de diseño, mientras que SQL es un lenguaje de manipulación y consulta de datos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Garantizar que todas las bases de datos cumplan estrictamente con la Quinta Forma Normal (5FN).",
+        "rationale": "La normalización es un proceso posterior al diseño E-R y no es el objetivo fundacional de Chen en 1976.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en qué etapa del ciclo de vida del desarrollo de software se utiliza este modelo."
+  },
+  {
+    "guid": "a189f695-68a9-4aa4-93ba-3eb582b5ed56",
+    "subjectId": "T40",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "En el contexto de un Ayuntamiento, si una entidad 'Incidencia' no puede identificarse sin la clave de la entidad 'Vía Pública', ¿qué tipo de entidad estamos definiendo?",
+    "answerOptions": [
+      {
+        "text": "Entidad Fuerte.",
+        "rationale": "Las entidades fuertes poseen existencia propia y una clave primaria independiente.",
+        "isCorrect": false
+      },
+      {
+        "text": "Entidad Asociativa.",
+        "rationale": "Una entidad asociativa surge para resolver una relación N:M con atributos complejos, no necesariamente por falta de clave.",
+        "isCorrect": false
+      },
+      {
+        "text": "Entidad Débil.",
+        "rationale": "Las entidades débiles dependen existencialmente de otra y requieren de un discriminador unido a la clave del 'padre'.",
+        "isCorrect": true
+      },
+      {
+        "text": "Entidad Recursiva.",
+        "rationale": "Recursividad se refiere al grado de la relación de una entidad consigo misma, no a su capacidad de identificación.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Este tipo de entidad suele representarse con un rectángulo doble en la notación de Chen."
+  },
+  {
+    "guid": "e3a5348a-f67a-4b44-8a4a-3e5bd74ecf23",
+    "subjectId": "T40",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Si el atributo 'Dirección' de un 'Ciudadano' se descompone en 'Calle', 'Número', 'Piso' y 'Código Postal', ¿qué tipología de atributo representa?",
+    "answerOptions": [
+      {
+        "text": "Atributo Multivaluado.",
+        "rationale": "Los atributos multivaluados permiten varios valores del mismo tipo (ej. varios teléfonos), no componentes distintos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Atributo Derivado.",
+        "rationale": "Un atributo derivado se calcula a partir de otros, como la edad a partir de la fecha de nacimiento.",
+        "isCorrect": false
+      },
+      {
+        "text": "Atributo Compuesto.",
+        "rationale": "Un atributo compuesto es aquel que tiene una estructura interna formada por otros atributos con significado propio.",
+        "isCorrect": true
+      },
+      {
+        "text": "Atributo Atómico.",
+        "rationale": "Un atributo atómico o simple es aquel que no puede dividirse en partes más pequeñas sin perder su sentido.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Facilita las consultas por componentes específicos, como buscar por un código postal concreto."
+  },
+  {
+    "guid": "793bb96a-6aba-46c2-be0a-f1b20bfc92e1",
+    "subjectId": "T40",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Cómo se resuelve habitualmente un atributo multivaluado (ej. varios correos electrónicos de un proveedor) al pasar al modelo relacional?",
+    "answerOptions": [
+      {
+        "text": "Creando una nueva tabla relacionada $1:N$ con la entidad original.",
+        "rationale": "Esta estructura permite almacenar múltiples registros asociados a una sola clave primaria sin violar la 1FN.",
+        "isCorrect": true
+      },
+      {
+        "text": "Concatenando todos los valores en un único campo de texto separado por comas.",
+        "rationale": "Esta práctica viola la Primera Forma Normal (1FN), que exige que los valores sean atómicos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Añadiendo columnas fijas como 'Correo1', 'Correo2' y 'Correo3' en la tabla principal.",
+        "rationale": "Limita el número de valores posibles y genera valores nulos ineficientes, además de complicar las búsquedas.",
+        "isCorrect": false
+      },
+      {
+        "text": "Ignorando el atributo, ya que el modelo relacional no soporta multiplicidad.",
+        "rationale": "El modelo relacional soporta multiplicidad mediante el uso de relaciones y tablas auxiliares.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considere la regla de la Primera Forma Normal (1FN) sobre la atomicidad."
+  },
+  {
+    "guid": "0cfb1266-b476-4d76-aa15-c2b0e3fb0691",
+    "subjectId": "T40",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Cuál es la principal diferencia entre una clave candidata y la clave primaria seleccionada?",
+    "answerOptions": [
+      {
+        "text": "La clave primaria debe ser siempre numérica, mientras que la candidata puede ser alfanumérica.",
+        "rationale": "No existe restricción de tipo de dato para las claves primarias, aunque el rendimiento sea un factor.",
+        "isCorrect": false
+      },
+      {
+        "text": "Las claves candidatas son todas las opciones posibles para identificar unívocamente la entidad; la primaria es la elegida por el diseñador.",
+        "rationale": "Cualquier clave candidata podría haber sido la primaria, pero solo una se selecciona para liderar la identificación.",
+        "isCorrect": true
+      },
+      {
+        "text": "La clave candidata permite valores nulos, mientras que la primaria no.",
+        "rationale": "Ningún atributo que forme parte de una clave para identificación única debería permitir valores nulos.",
+        "isCorrect": false
+      },
+      {
+        "text": "La clave primaria solo existe en el modelo físico y la candidata en el conceptual.",
+        "rationale": "Ambos conceptos son relevantes en el diseño conceptual para definir la unicidad de las instancias.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en un ciudadano que tiene tanto DNI como Número de la Seguridad Social."
+  },
+  {
+    "guid": "b0856ecc-3b5f-48ad-976b-65896d8d049e",
+    "subjectId": "T40",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "En una relación recursiva de grado 1 (ej. 'Empleado supervisa a Empleado'), ¿cómo se implementa el vínculo en el modelo relacional?",
+    "answerOptions": [
+      {
+        "text": "Mediante una clave foránea en la misma tabla que referencia a su propia clave primaria.",
+        "rationale": "Esto permite establecer jerarquías dentro de una misma entidad, vinculando una fila con otra de la misma tabla.",
+        "isCorrect": true
+      },
+      {
+        "text": "Creando una tabla duplicada idéntica para establecer el JOIN.",
+        "rationale": "No es necesario duplicar la estructura física; basta con una referencia lógica circular.",
+        "isCorrect": false
+      },
+      {
+        "text": "Solo se puede implementar si la relación es $N:M$.",
+        "rationale": "Las relaciones unarias pueden ser de cualquier cardinalidad, aunque la $1:N$ es la más común para jerarquías.",
+        "isCorrect": false
+      },
+      {
+        "text": "Utilizando un atributo multivaluado que contenga los IDs de los subordinados.",
+        "rationale": "Esto violaría la 1FN y dificultaría el mantenimiento de la integridad referencial.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en cómo se estructura un organigrama en una única lista de personal."
+  },
+  {
+    "guid": "586b6634-491e-4b3d-9adc-29801571ff29",
+    "subjectId": "T40",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "En una relación $N:M$ entre 'Alumno' y 'Asignatura', se desea guardar la 'Nota Final'. ¿Dónde debe situarse este atributo?",
+    "answerOptions": [
+      {
+        "text": "En la entidad 'Alumno'.",
+        "rationale": "Si se pone en Alumno, no se sabría a qué asignatura corresponde la nota sin crear redundancia.",
+        "isCorrect": false
+      },
+      {
+        "text": "En la entidad 'Asignatura'.",
+        "rationale": "Si se pone en Asignatura, no se sabría a qué alumno pertenece la calificación.",
+        "isCorrect": false
+      },
+      {
+        "text": "En la relación misma (que se convertirá en una tabla de asociación).",
+        "rationale": "La nota es una propiedad del vínculo entre un alumno específico y una asignatura específica.",
+        "isCorrect": true
+      },
+      {
+        "text": "Como un atributo derivado calculado a partir de la asistencia.",
+        "rationale": "Aunque pueda calcularse, conceptualmente pertenece al hecho de la matriculación o evaluación del binomio.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "El atributo depende de la existencia de ambas entidades participantes simultáneamente."
+  },
+  {
+    "guid": "ac3bb215-a39c-48c8-9ff1-761397cb0402",
+    "subjectId": "T40",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Qué indica una participación $(0,1)$ de una entidad en una relación?",
+    "answerOptions": [
+      {
+        "text": "Que la entidad debe participar obligatoriamente al menos una vez.",
+        "rationale": "La participación obligatoria se indica con un mínimo de 1, no de 0.",
+        "isCorrect": false
+      },
+      {
+        "text": "Que la participación es opcional y, en caso de existir, solo puede relacionarse con una instancia.",
+        "rationale": "El '0' marca la opcionalidad y el '1' limita la cardinalidad máxima a una ocurrencia.",
+        "isCorrect": true
+      },
+      {
+        "text": "Que la entidad puede relacionarse con infinitas instancias pero no es obligatorio.",
+        "rationale": "Esto se representaría como $(0, N)$ o $(0, *)$, no como $(0, 1)$.",
+        "isCorrect": false
+      },
+      {
+        "text": "Que la relación es de tipo débil por identificación.",
+        "rationale": "La debilidad se define por la dependencia de clave, no únicamente por la opcionalidad de la participación.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Observe el valor mínimo y el valor máximo de la tupla."
+  },
+  {
+    "guid": "fb7950d8-b037-4646-92d6-c711b3a2569d",
+    "subjectId": "T40",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Al transformar una relación $1:N$ (ej. 'Departamento' tiene muchos 'Empleados') al modelo relacional, ¿qué regla se aplica?",
+    "answerOptions": [
+      {
+        "text": "Se crea una tabla intermedia con las claves de ambas entidades.",
+        "rationale": "La tabla intermedia es la solución estándar para relaciones $N:M$, no para $1:N$.",
+        "isCorrect": false
+      },
+      {
+        "text": "La clave primaria del lado '1' pasa como clave foránea al lado 'N'.",
+        "rationale": "Esto permite que cada empleado apunte a su único departamento, permitiendo que un departamento sea referenciado muchas veces.",
+        "isCorrect": true
+      },
+      {
+        "text": "La clave del lado 'N' se añade como atributo multivaluado en el lado '1'.",
+        "rationale": "Violaría la 1FN y sería ineficiente para gestionar un número variable de empleados.",
+        "isCorrect": false
+      },
+      {
+        "text": "Se fusionan ambas entidades en una sola tabla para evitar JOINs.",
+        "rationale": "Fusión de tablas es una estrategia de desnormalización o específica para relaciones $1:1$ con alta cohesión.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en qué tabla debe 'saber' quién es su superior para mantener la integridad."
+  },
+  {
+    "guid": "cea2ac7d-d8c3-4daa-a144-a9a7baeffcaf",
+    "subjectId": "T40",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Cuál es la condición necesaria para que una tabla esté en Segunda Forma Normal (2FN)?",
+    "answerOptions": [
+      {
+        "text": "Que no existan dependencias transitivas entre atributos no clave.",
+        "rationale": "La eliminación de dependencias transitivas es el requisito para la Tercera Forma Normal (3FN).",
+        "isCorrect": false
+      },
+      {
+        "text": "Que cumpla la 1FN y que todos los atributos no clave dependan de forma completa de la clave primaria.",
+        "rationale": "Evita que atributos dependan solo de una parte de una clave primaria compuesta.",
+        "isCorrect": true
+      },
+      {
+        "text": "Que la tabla no contenga ningún valor nulo en sus columnas.",
+        "rationale": "La normalización no prohíbe los nulos, aunque un buen diseño tienda a minimizarlos por otras razones.",
+        "isCorrect": false
+      },
+      {
+        "text": "Que la clave primaria sea una clave artificial autoincremental.",
+        "rationale": "La naturaleza de la clave (natural o artificial) es irrelevante para el cumplimiento de las formas normales.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Esta forma normal es especialmente relevante cuando la clave primaria es compuesta."
+  },
+  {
+    "guid": "15de1198-8b19-4fa9-95f5-8875d98d3c28",
+    "subjectId": "T40",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "En el contexto de la Tercera Forma Normal (3FN), ¿qué se busca eliminar específicamente?",
+    "answerOptions": [
+      {
+        "text": "Las dependencias multivaluadas.",
+        "rationale": "Las dependencias multivaluadas se tratan en la Cuarta Forma Normal (4FN).",
+        "isCorrect": false
+      },
+      {
+        "text": "Los grupos repetidos de datos.",
+        "rationale": "La eliminación de grupos repetidos es el objetivo de la Primera Forma Normal (1FN).",
+        "isCorrect": false
+      },
+      {
+        "text": "Las dependencias transitivas (donde un atributo no clave depende de otro atributo no clave).",
+        "rationale": "Garantiza que cada atributo dependa 'solo de la clave', eliminando redundancias indirectas.",
+        "isCorrect": true
+      },
+      {
+        "text": "La necesidad de realizar operaciones JOIN en las consultas SQL.",
+        "rationale": "Al contrario, la normalización suele aumentar el número de tablas y, por ende, la necesidad de JOINs.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en el ejemplo: 'DNI -> Código_Postal -> Ciudad'. ¿Depende Ciudad realmente del DNI?"
+  },
+  {
+    "guid": "c9a32f50-1e1a-4377-a0db-caa18df12ac4",
+    "subjectId": "T40",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Cuándo se considera que una relación es de grado 'Ternario'?",
+    "answerOptions": [
+      {
+        "text": "Cuando vincula tres ocurrencias de la misma entidad.",
+        "rationale": "Eso sería una relación unaria con tres roles distintos, no una relación ternaria.",
+        "isCorrect": false
+      },
+      {
+        "text": "Cuando involucra simultáneamente a tres entidades distintas en el mismo vínculo.",
+        "rationale": "Representa asociaciones complejas donde el hecho requiere la participación de tres conceptos (ej. Médico, Paciente, Medicamento).",
+        "isCorrect": true
+      },
+      {
+        "text": "Cuando la cardinalidad máxima es 3 en todos sus extremos.",
+        "rationale": "El grado se refiere al número de entidades participantes, no al valor de la cardinalidad.",
+        "isCorrect": false
+      },
+      {
+        "text": "Cuando se requieren tres tablas intermedias para implementarla.",
+        "rationale": "Una relación ternaria se traduce generalmente a una sola tabla intermedia con tres claves foráneas.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "El grado de la relación se define por el número de rectángulos conectados al rombo."
+  },
+  {
+    "guid": "4c761e83-d072-4ca3-9bd5-fbda5c762148",
+    "subjectId": "T40",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Cuál es la principal ventaja de utilizar una 'Surrogate Key' (Clave Artificial) en lugar de una clave natural?",
+    "answerOptions": [
+      {
+        "text": "Aporta significado de negocio a la base de datos facilitando la comprensión.",
+        "rationale": "Las claves artificiales carecen de significado de negocio por definición; su valor es puramente técnico.",
+        "isCorrect": false
+      },
+      {
+        "text": "Es inmutable frente a cambios en los datos del negocio (ej. un cambio de DNI o pasaporte).",
+        "rationale": "Proporciona estabilidad a las relaciones, ya que las claves foráneas no necesitan actualizarse si cambian los datos descriptivos.",
+        "isCorrect": true
+      },
+      {
+        "text": "Garantiza automáticamente que la tabla esté en BCNF.",
+        "rationale": "La normalización depende de las dependencias funcionales de todos los atributos, no solo de la elección de la clave.",
+        "isCorrect": false
+      },
+      {
+        "text": "Ocupa siempre menos espacio de almacenamiento que cualquier clave natural.",
+        "rationale": "Aunque suelen ser enteros eficientes, una clave natural corta (ej. código ISO de 2 letras) podría ocupar menos.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en qué ocurre con las relaciones si el identificador 'real' del objeto cambia por un error administrativo."
+  },
+  {
+    "guid": "4bb01270-3f63-4d3a-90d8-96d0b39e21e2",
+    "subjectId": "T40",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "En el modelado de datos para Power BI (Business Intelligence), ¿qué variante del modelo E-R es la más común y optimizada?",
+    "answerOptions": [
+      {
+        "text": "Modelo en Red con jerarquías circulares.",
+        "rationale": "Este modelo es complejo de navegar y no es el estándar para herramientas analíticas modernas.",
+        "isCorrect": false
+      },
+      {
+        "text": "Modelo Dimensional (Esquema en Estrella o Copo de Nieve).",
+        "rationale": "Separa los hechos (medidas numéricas) de las dimensiones (contexto descriptivo) para agilizar las agregaciones.",
+        "isCorrect": true
+      },
+      {
+        "text": "Modelo de Documentos JSON incrustados.",
+        "rationale": "Es el enfoque típico de bases de datos NoSQL como MongoDB, no el modelo nativo de análisis de Power BI.",
+        "isCorrect": false
+      },
+      {
+        "text": "Modelo E-R puro en Tercera Forma Normal sin desnormalizar.",
+        "rationale": "Aunque es posible, el exceso de normalización penaliza el rendimiento de las consultas analíticas pesadas.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Busca una estructura que facilite el filtrado y la agregación de grandes volúmenes de datos."
+  },
+  {
+    "guid": "74ed700a-b2c3-4210-aa44-2d3a0f026bd8",
+    "subjectId": "T40",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Al diseñar una base de datos documental (NoSQL) a partir de un diagrama E-R, ¿cuál es el dilema crítico de diseño?",
+    "answerOptions": [
+      {
+        "text": "Elegir entre usar SQL o NoSQL para las consultas de agregación.",
+        "rationale": "El dilema es estructural (cómo guardar los datos), no sobre el lenguaje de consulta posterior.",
+        "isCorrect": false
+      },
+      {
+        "text": "Decidir entre 'Embedding' (incrustar datos relacionados) o 'Referencing' (usar IDs).",
+        "rationale": "Determina si los datos se guardan juntos para lectura rápida o separados para evitar redundancia y facilitar actualizaciones.",
+        "isCorrect": true
+      },
+      {
+        "text": "Transformar todas las entidades en tablas relacionales estrictas.",
+        "rationale": "Eso sería ignorar las capacidades y el propósito de las bases de datos NoSQL.",
+        "isCorrect": false
+      },
+      {
+        "text": "Eliminar todas las claves primarias para ganar velocidad de escritura.",
+        "rationale": "Incluso en NoSQL, los documentos requieren un identificador único (ej. `_id` en MongoDB).",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Se trata de elegir entre redundancia controlada para rendimiento o normalización para consistencia."
+  },
+  {
+    "guid": "da7bbd55-e296-4bdd-9a7d-69648ad03159",
+    "subjectId": "T40",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Qué representa la Forma Normal de Boyce-Codd (BCNF) en comparación con la 3FN?",
+    "answerOptions": [
+      {
+        "text": "Es una forma menos estricta que permite dependencias parciales.",
+        "rationale": "La BCNF es más estricta que la 3FN y requiere que toda determinante sea una clave candidata.",
+        "isCorrect": false
+      },
+      {
+        "text": "Es una versión reforzada de la 3FN donde cada determinante debe ser una superclave.",
+        "rationale": "Cierra brechas de redundancia que la 3FN permite cuando hay múltiples claves candidatas compuestas que se solapan.",
+        "isCorrect": true
+      },
+      {
+        "text": "Se enfoca exclusivamente en eliminar las dependencias de unión ($Join Dependencies$).",
+        "rationale": "Eso corresponde a la Quinta Forma Normal (5FN).",
+        "isCorrect": false
+      },
+      {
+        "text": "Es una forma normal que solo se aplica a bases de datos Big Data.",
+        "rationale": "Es un concepto de diseño relacional clásico aplicable a cualquier SGBD relacional.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Es la forma normal que se sitúa justo entre la 3FN y la 4FN."
+  },
+  {
+    "guid": "4237e95d-28e5-444f-8f9d-d85407ff6bfe",
+    "subjectId": "T40",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Cuál es la utilidad del modelo E-R en una arquitectura de 'Data Mesh'?",
+    "answerOptions": [
+      {
+        "text": "Obligar a todos los departamentos a usar una única base de datos centralizada.",
+        "rationale": "Data Mesh es una arquitectura descentralizada; el modelo E-R no se usa para centralizar la infraestructura.",
+        "isCorrect": false
+      },
+      {
+        "text": "Servir como lenguaje común para definir el 'Contrato de Datos' de cada producto de dominio.",
+        "rationale": "Permite que cada equipo de dominio documente y exponga su producto de datos de forma estandarizada para otros consumidores.",
+        "isCorrect": true
+      },
+      {
+        "text": "Automatizar la creación de copias de seguridad en la nube.",
+        "rationale": "El modelo E-R es una herramienta de diseño lógico/conceptual, no de administración de sistemas u operaciones.",
+        "isCorrect": false
+      },
+      {
+        "text": "Sustituir la necesidad de gobernanza de datos federada.",
+        "rationale": "Al contrario, el modelado es una parte esencial de la gobernanza para asegurar la interoperabilidad.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en la comunicación entre diferentes equipos (Hisenda, Urbanisme, etc.) en un entorno descentralizado."
+  },
+  {
+    "guid": "58effdf3-0e87-49e8-80b4-d862ff450470",
+    "subjectId": "T40",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Qué problema se deriva de tener una base de datos con alta redundancia de datos (no normalizada)?",
+    "answerOptions": [
+      {
+        "text": "Las consultas de lectura (SELECT) se vuelven extremadamente lentas.",
+        "rationale": "A veces la redundancia mejora la lectura al evitar JOINs; el problema real reside en la modificación.",
+        "isCorrect": false
+      },
+      {
+        "text": "Aparición de anomalías de inserción, actualización y borrado.",
+        "rationale": "Si un dato está en varios sitios, es fácil que tras una edición la información se vuelva contradictoria o se pierda.",
+        "isCorrect": true
+      },
+      {
+        "text": "La base de datos solo puede ser accedida por un usuario a la vez.",
+        "rationale": "La concurrencia es gestionada por el motor del SGBD y no depende directamente del nivel de normalización.",
+        "isCorrect": false
+      },
+      {
+        "text": "Es imposible crear índices sobre las tablas.",
+        "rationale": "Se pueden crear índices en tablas no normalizadas, aunque su eficacia pueda verse comprometida por la estructura.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Imagine que un ciudadano cambia su dirección y usted tiene que actualizarla en 50 tablas distintas."
+  },
+  {
+    "guid": "8527085b-2257-4a23-a5a8-e6c1ad1572bb",
+    "subjectId": "T40",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Cuál es una limitación reconocida del modelo Entidad-Relación?",
+    "answerOptions": [
+      {
+        "text": "No permite representar relaciones entre más de dos entidades.",
+        "rationale": "El modelo soporta relaciones n-arias (ternarias, etc.), aunque sean más complejas de leer.",
+        "isCorrect": false
+      },
+      {
+        "text": "Es poco adecuado para representar datos no estructurados o con esquemas muy cambiantes.",
+        "rationale": "El modelo E-R asume una estructura rígida y predefinida, difícil de aplicar en Big Data o redes sociales.",
+        "isCorrect": true
+      },
+      {
+        "text": "Es un modelo propietario de la empresa Oracle y requiere licencia.",
+        "rationale": "Es un estándar académico y profesional abierto propuesto por Peter Chen.",
+        "isCorrect": false
+      },
+      {
+        "text": "Obliga a que todas las relaciones sean de tipo $1:N$.",
+        "rationale": "El modelo permite representar relaciones $1:1$ y $N:M$ de forma nativa.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en flujos de datos como publicaciones en Twitter o vídeos."
+  },
+  {
+    "guid": "dfa0dd58-d7c4-4ea0-8912-8527c18f4a4c",
+    "subjectId": "T40",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "En la notación 'Crow's Foot' (pata de gallo), ¿cómo se representa una relación donde el mínimo es 0 y el máximo es muchos?",
+    "answerOptions": [
+      {
+        "text": "Una línea perpendicular seguida de un círculo.",
+        "rationale": "Eso suele representar 'uno y solo uno' o 'cero o uno' dependiendo de la posición.",
+        "isCorrect": false
+      },
+      {
+        "text": "Un círculo (indicando opcionalidad) seguido de una pata de tres líneas.",
+        "rationale": "El círculo representa el 0 (mínimo) y la pata de gallo representa el 'muchos' (máximo).",
+        "isCorrect": true
+      },
+      {
+        "text": "Dos líneas paralelas perpendiculares a la relación.",
+        "rationale": "Esta notación indica una participación obligatoria de 'exactamente uno' ($1:1$).",
+        "isCorrect": false
+      },
+      {
+        "text": "Una línea discontinua sin símbolos adicionales.",
+        "rationale": "La línea discontinua suele referirse a relaciones no identificativas, no a la cardinalidad específica.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Busque los símbolos de 'opcional' y 'multitud'."
+  },
+  {
+    "guid": "50a7da51-ea2c-4580-9d85-ad2ce807844f",
+    "subjectId": "T40",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Por qué los atributos derivados (como la 'Edad') generalmente no se almacenan físicamente en la base de datos relacional?",
+    "answerOptions": [
+      {
+        "text": "Porque SQL no permite realizar cálculos matemáticos en las consultas.",
+        "rationale": "SQL tiene amplias capacidades de cálculo y funciones agregadas.",
+        "isCorrect": false
+      },
+      {
+        "text": "Para evitar la redundancia y garantizar que el dato esté siempre actualizado.",
+        "rationale": "Si guardamos la edad, al día siguiente podría ser incorrecta; es mejor calcularla dinámicamente desde la fecha de nacimiento.",
+        "isCorrect": true
+      },
+      {
+        "text": "Porque el almacenamiento de números enteros es más costoso que el de fechas.",
+        "rationale": "Generalmente los enteros ocupan menos espacio que los tipos de datos de fecha/hora.",
+        "isCorrect": false
+      },
+      {
+        "text": "Para obligar a los programadores a escribir código más complejo.",
+        "rationale": "El diseño de bases de datos busca la integridad y eficiencia, no complicar el desarrollo.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en qué sucede con el valor de la edad a medida que pasa el tiempo."
+  },
+  {
+    "guid": "59526ce7-2c9c-4382-ba1c-1ab907496312",
+    "subjectId": "T40",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Cuál es la función de la regla 'ON DELETE CASCADE' en una relación entre una Entidad Fuerte y una Entidad Débil?",
+    "answerOptions": [
+      {
+        "text": "Impide el borrado de la entidad fuerte si tiene registros asociados.",
+        "rationale": "Esa es la función de 'RESTRICT' o 'NO ACTION'.",
+        "isCorrect": false
+      },
+      {
+        "text": "Borra automáticamente las instancias de la entidad débil si se elimina la entidad fuerte relacionada.",
+        "rationale": "Mantiene la consistencia existencial: si desaparece el 'padre', sus 'hijos' dependientes no tienen sentido.",
+        "isCorrect": true
+      },
+      {
+        "text": "Mueve los registros borrados a una tabla de histórico de forma automática.",
+        "rationale": "El borrado en cascada elimina los datos permanentemente, no los archiva.",
+        "isCorrect": false
+      },
+      {
+        "text": "Establece a NULL las claves foráneas de los registros dependientes.",
+        "rationale": "Eso sería 'SET NULL', pero en entidades débiles la FK suele ser parte de la PK y no puede ser NULL.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en lo que debería ocurrir con las líneas de una factura si se elimina la cabecera de la factura."
+  },
+  {
+    "guid": "16c463a2-bdf7-4f38-be03-5fca6aa1c3d8",
+    "subjectId": "T40",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "En el contexto municipal, ¿cuál es la utilidad de un modelo E-R antes de volcar datos en un 'Data Lake'?",
+    "answerOptions": [
+      {
+        "text": "Reducir el tamaño de los archivos para que ocupen menos espacio en el lago.",
+        "rationale": "El tamaño del archivo depende del formato (Parquet, CSV, etc.), no del modelo E-R previo.",
+        "isCorrect": false
+      },
+      {
+        "text": "Actuar como un mapa de metadatas para evitar que el lago se convierta en un 'Data Swamp' (pantano de datos).",
+        "rationale": "Permite catalogar y entender el origen y significado de los datos brutos, facilitando su posterior descubrimiento y uso.",
+        "isCorrect": true
+      },
+      {
+        "text": "Cifrar los datos para cumplir con el Esquema Nacional de Seguridad.",
+        "rationale": "El cifrado es una medida de seguridad técnica independiente del modelado conceptual.",
+        "isCorrect": false
+      },
+      {
+        "text": "Transformar automáticamente los datos a formato Blockchain.",
+        "rationale": "El volcado a un Data Lake y el registro en Blockchain son procesos tecnológicos distintos.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Sin organización, un gran repositorio de datos se vuelve imposible de navegar y analizar."
+  },
+  {
+    "guid": "a689b6b5-7b17-4a18-aa47-004cdad8b6f4",
+    "subjectId": "T40",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Si una tabla tiene una dependencia multivaluada independiente (ej. Un ciudadano tiene varios teléfonos y varios idiomas, sin relación entre ellos), ¿qué forma normal se está violando?",
+    "answerOptions": [
+      {
+        "text": "Tercera Forma Normal (3FN).",
+        "rationale": "La 3FN se encarga de las dependencias transitivas, no de las multivaluadas.",
+        "isCorrect": false
+      },
+      {
+        "text": "Cuarta Forma Normal (4FN).",
+        "rationale": "La 4FN requiere que no existan dependencias multivaluadas no triviales en una tabla; se debe separar en dos tablas.",
+        "isCorrect": true
+      },
+      {
+        "text": "Segunda Forma Normal (2FN).",
+        "rationale": "La 2FN trata sobre la dependencia completa de la clave primaria.",
+        "isCorrect": false
+      },
+      {
+        "text": "Boyce-Codd (BCNF).",
+        "rationale": "BCNF se centra en que todos los determinantes sean claves candidatas, no en la multiplicidad independiente.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Esta forma normal viene después de BCNF en el proceso estándar de normalización."
+  },
+  {
+    "guid": "363b89cb-0d6a-4098-8f33-94b6c66bf4e3",
+    "subjectId": "T40",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Qué se entiende por 'Dependencia Existencial' en el modelo E-R?",
+    "answerOptions": [
+      {
+        "text": "Cuando una entidad necesita estar conectada a internet para funcionar.",
+        "rationale": "Es un concepto de modelado de datos, no un requisito de conectividad de red.",
+        "isCorrect": false
+      },
+      {
+        "text": "Cuando la existencia de una instancia en la entidad A requiere la existencia previa de una instancia en la entidad B.",
+        "rationale": "Es la base de las entidades débiles (ej. no puede haber una línea de multa sin una multa).",
+        "isCorrect": true
+      },
+      {
+        "text": "Cuando dos entidades tienen exactamente los mismos atributos.",
+        "rationale": "Eso sería redundancia o un caso de herencia/especialización, no dependencia existencial.",
+        "isCorrect": false
+      },
+      {
+        "text": "Cuando una tabla tiene más de un millón de registros.",
+        "rationale": "El volumen de datos no define la naturaleza de las relaciones lógicas entre entidades.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en la relación 'Padre-Hijo' en términos de datos."
+  },
+  {
+    "guid": "15e9b8c5-d17e-4c59-a93e-2270b7214798",
+    "subjectId": "T40",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Qué caracteriza a una relación de tipo 'XOR' (Exclusiva) en un modelo E-R avanzado?",
+    "answerOptions": [
+      {
+        "text": "Una entidad puede relacionarse con muchas otras entidades de forma obligatoria.",
+        "rationale": "XOR implica exclusión, no obligatoriedad múltiple.",
+        "isCorrect": false
+      },
+      {
+        "text": "Una instancia de una entidad solo puede estar relacionada con una de varias entidades alternativas, pero no con más de una a la vez.",
+        "rationale": "Ejemplo municipal: Un 'Pago' puede asociarse a 'Tarjeta' O 'Transferencia', pero no a ambas simultáneamente.",
+        "isCorrect": true
+      },
+      {
+        "text": "La relación solo se activa si se produce un error en el sistema.",
+        "rationale": "XOR es una restricción lógica del negocio, no un mecanismo de gestión de errores.",
+        "isCorrect": false
+      },
+      {
+        "text": "Los datos de la relación se borran automáticamente cada 24 horas.",
+        "rationale": "La temporalidad del almacenamiento es un aspecto de la política de datos, no de la lógica relacional XOR.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en la lógica de 'uno u otro, pero no ambos'."
+  },
+  {
+    "guid": "c37135d1-d4a6-496c-9989-0963ebee8641",
+    "subjectId": "T40",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Cuál es la Quinta Forma Normal (5FN) y cuándo se aplica?",
+    "answerOptions": [
+      {
+        "text": "Se aplica para eliminar nulos en tablas de gran tamaño.",
+        "rationale": "La gestión de nulos no es el objetivo de la 5FN.",
+        "isCorrect": false
+      },
+      {
+        "text": "Se centra en las dependencias de unión ($Join Dependencies$) para asegurar que una tabla se puede descomponer y recomponer sin pérdida de datos.",
+        "rationale": "Es la forma más compleja y busca que no existan redundancias que no puedan ser detectadas por la 4FN.",
+        "isCorrect": true
+      },
+      {
+        "text": "Es el estándar mínimo requerido para cualquier base de datos municipal.",
+        "rationale": "La mayoría de bases de datos se consideran bien diseñadas alcanzando la 3FN o BCNF; la 5FN es muy rara en la práctica.",
+        "isCorrect": false
+      },
+      {
+        "text": "Sirve para integrar bases de datos relacionales con grafos.",
+        "rationale": "La normalización es un concepto puramente del modelo relacional, no de integración de modelos dispares.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "También se conoce como Forma Normal de Proyección-Unión ($PJ/NF$)."
+  },
+  {
+    "guid": "9fb5a7a2-104c-49d6-87a0-b18483966efe",
+    "subjectId": "T40",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Por qué el modelo E-R se considera un puente indispensable entre la administración y la tecnología en un Ayuntamiento?",
+    "answerOptions": [
+      {
+        "text": "Porque permite que los políticos escriban código SQL directamente.",
+        "rationale": "El objetivo es la comunicación y el diseño, no dotar de habilidades de programación a perfiles no técnicos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Porque traduce las necesidades del negocio (procesos administrativos) en una estructura lógica que los técnicos pueden implementar.",
+        "rationale": "Actúa como un lenguaje neutral que valida si la tecnología refleja fielmente la realidad administrativa del municipio.",
+        "isCorrect": true
+      },
+      {
+        "text": "Porque sustituye todos los documentos en papel por diagramas visuales.",
+        "rationale": "El modelo E-R documenta la estructura de datos, pero no sustituye la documentación legal o procedimental.",
+        "isCorrect": false
+      },
+      {
+        "text": "Porque es obligatorio por ley presentar diagramas Chen en todas las auditorías.",
+        "rationale": "Aunque es una buena práctica, no existe una ley específica que obligue al uso exclusivo de la notación de Chen.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en el papel del modelo como traductor de requerimientos."
+  },
+  {
+    "guid": "38bf0132-a4a4-4b48-803c-d6b6d9ac47cb",
+    "subjectId": "T40",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿En qué caso es justificable la 'Desnormalización' de una base de datos?",
+    "answerOptions": [
+      {
+        "text": "Cuando el administrador de la base de datos no conoce las formas normales.",
+        "rationale": "La falta de conocimiento no justifica un mal diseño técnico.",
+        "isCorrect": false
+      },
+      {
+        "text": "Para mejorar el rendimiento de las lecturas en sistemas de reporte o BI, reduciendo el número de JOINs complejos.",
+        "rationale": "Es un compromiso consciente donde se sacrifica la eficiencia de escritura y espacio por velocidad de respuesta analítica.",
+        "isCorrect": true
+      },
+      {
+        "text": "Para permitir que se introduzcan datos duplicados por error.",
+        "rationale": "El error nunca es una justificación de diseño; la redundancia en desnormalización debe ser controlada.",
+        "isCorrect": false
+      },
+      {
+        "text": "Siempre que la base de datos se aloje en un servidor local.",
+        "rationale": "La ubicación del servidor no determina la estrategia de modelado de datos.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considere la balanza entre consistencia y velocidad de consulta."
+  },
+  {
+    "guid": "af52e673-41c8-402f-ac8e-0b99638834d7",
+    "subjectId": "T40",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Qué significa que un atributo sea 'Atómico'?",
+    "answerOptions": [
+      {
+        "text": "Que solo puede contener números enteros.",
+        "rationale": "La atomicidad se refiere a la indivisibilidad, no al tipo de dato (puede ser texto, fecha, etc.).",
+        "isCorrect": false
+      },
+      {
+        "text": "Que no puede ser dividido en componentes más pequeños con significado para el sistema.",
+        "rationale": "Es la base de la 1FN; asegura que cada campo contenga un único dato simple.",
+        "isCorrect": true
+      },
+      {
+        "text": "Que su valor es único en toda la tabla.",
+        "rationale": "La unicidad es propiedad de las claves, no de la atomicidad del atributo.",
+        "isCorrect": false
+      },
+      {
+        "text": "Que se borra automáticamente si no se usa en 30 días.",
+        "rationale": "La persistencia de los datos no tiene relación con su grado de división interna.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Es lo opuesto a un atributo compuesto como 'Nombre Completo' si se necesita apellido por separado."
+  }
+]

@@ -1,0 +1,808 @@
+[
+  {
+    "guid": "c71104e7-ac56-411d-ae11-bb3799a0f09d",
+    "subjectId": "T42",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Cuál es la principal diferencia conceptual entre la tecnología de registro distribuido (DLT) y la Blockchain?",
+    "answerOptions": [
+      {
+        "text": "La Blockchain es un tipo específico de DLT que organiza la información en bloques encadenados mediante funciones hash.",
+        "rationale": "Blockchain es una implementación particular dentro de la familia más amplia de las DLT, caracterizada por su estructura de datos secuencial y cronológica.",
+        "isCorrect": true
+      },
+      {
+        "text": "La DLT es siempre pública y permisionada, mientras que la Blockchain puede ser privada.",
+        "rationale": "Ambas tecnologías pueden configurarse como públicas, privadas o de consorcio; la diferencia es estructural, no de acceso.",
+        "isCorrect": false
+      },
+      {
+        "text": "Blockchain permite la inmutabilidad de los datos, mientras que las DLT tradicionales permiten modificaciones bajo consenso central.",
+        "rationale": "La inmutabilidad y la ausencia de autoridad central son principios compartidos por la mayoría de las DLT, no solo por la Blockchain.",
+        "isCorrect": false
+      },
+      {
+        "text": "Las DLT utilizan exclusivamente bases de datos SQL descentralizadas, mientras que la Blockchain usa grafos dirigidos acíclicos.",
+        "rationale": "Blockchain utiliza una cadena de bloques, y otras DLT pueden usar estructuras como DAG (grafos), pero ninguna se define por usar SQL tradicional.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considere la relación de género y especie entre ambos términos."
+  },
+  {
+    "guid": "77916798-8904-40e0-a472-d5b2c09948f0",
+    "subjectId": "T42",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "En el contexto de la minería de Bitcoin, ¿cuál es la función del campo 'nonce' en la cabecera de un bloque?",
+    "answerOptions": [
+      {
+        "text": "Es un valor arbitrario que los mineros modifican para que el hash del bloque resultante sea inferior al objetivo (target) de dificultad.",
+        "rationale": "El nonce es la variable que permite realizar la prueba de trabajo al buscar un hash que cumpla con las condiciones matemáticas de la red.",
+        "isCorrect": true
+      },
+      {
+        "text": "Es el identificador que vincula el bloque actual con el hash del bloque anterior de la cadena.",
+        "rationale": "Esa función la cumple el campo 'previous_block_hash', no el nonce.",
+        "isCorrect": false
+      },
+      {
+        "text": "Garantiza que el orden de las transacciones dentro del árbol de Merkle sea inalterable.",
+        "rationale": "La integridad de las transacciones la asegura la raíz de Merkle; el nonce se utiliza para el proceso de hashing de la cabecera completa.",
+        "isCorrect": false
+      },
+      {
+        "text": "Define la cantidad exacta de recompensa en criptomonedas que recibirá el nodo validador.",
+        "rationale": "La recompensa del bloque está determinada por el protocolo y la transacción 'coinbase', no por el valor del nonce.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Relacione este campo con el mecanismo de consenso de Proof of Work."
+  },
+  {
+    "guid": "3094c002-f203-4f5d-9a81-14f6183a79b9",
+    "subjectId": "T42",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Dentro de la arquitectura de Ethereum, ¿qué representa el concepto de 'Gas'?",
+    "answerOptions": [
+      {
+        "text": "Una unidad de medida del esfuerzo computacional requerido para ejecutar operaciones en la Ethereum Virtual Machine (EVM).",
+        "rationale": "El Gas desacopla el coste de computación del valor de mercado de la criptomoneda para evitar fluctuaciones en el coste de ejecución.",
+        "isCorrect": true
+      },
+      {
+        "text": "La moneda nativa de la red que se utiliza para transferir valor entre carteras.",
+        "rationale": "La moneda nativa es el Ether ($ETH$); el Gas es una unidad interna de medida.",
+        "isCorrect": false
+      },
+      {
+        "text": "El límite máximo de transacciones que la red puede procesar por segundo.",
+        "rationale": "Eso se conoce como rendimiento o TPS; el Gas limita el trabajo de cada transacción individual.",
+        "isCorrect": false
+      },
+      {
+        "text": "Un mecanismo de seguridad que cifra el contenido de los Smart Contracts para que no sean legibles.",
+        "rationale": "Los Smart Contracts son transparentes en la cadena; el Gas es un incentivo económico y un control de recursos.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en cómo se mide el trabajo realizado por los nodos al ejecutar código."
+  },
+  {
+    "guid": "1966b4e0-0df4-4e51-9b2b-3593e916e810",
+    "subjectId": "T42",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Cuál es la principal ventaja de utilizar un árbol de Merkle (Merkle Tree) en la estructura de un bloque?",
+    "answerOptions": [
+      {
+        "text": "Permite verificar de forma eficiente si una transacción específica está incluida en un bloque sin necesidad de descargar toda la cadena.",
+        "rationale": "Mediante las pruebas de Merkle, los nodos ligeros pueden validar la integridad de una transacción comparando solo una rama de hashes.",
+        "isCorrect": true
+      },
+      {
+        "text": "Cifra los datos de las transacciones para asegurar la privacidad total de los usuarios ante terceros.",
+        "rationale": "El árbol de Merkle utiliza funciones hash, que son unidireccionales para integridad, no para cifrado de confidencialidad.",
+        "isCorrect": false
+      },
+      {
+        "text": "Elimina la necesidad de utilizar firmas digitales en cada transacción individual.",
+        "rationale": "Las firmas digitales siguen siendo necesarias para la autenticidad; el árbol de Merkle solo organiza los hashes de dichas transacciones.",
+        "isCorrect": false
+      },
+      {
+        "text": "Aumenta el tamaño total del bloque para permitir más transacciones por segundo.",
+        "rationale": "De hecho, ayuda a ahorrar espacio y recursos en la verificación, no a aumentar el tamaño bruto de almacenamiento.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considere el proceso de verificación por parte de los 'nodos ligeros' (SPV)."
+  },
+  {
+    "guid": "eacafd57-b42c-47e2-a0e5-43167fd035e3",
+    "subjectId": "T42",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "En el mecanismo de consenso Proof of Stake (PoS), ¿cómo se mitiga el riesgo de que un validador actúe de forma maliciosa?",
+    "answerOptions": [
+      {
+        "text": "Mediante el 'slashing', que consiste en la quema o confiscación de una parte de los activos apostados (stake) del validador.",
+        "rationale": "Este incentivo negativo asegura que el coste económico de intentar atacar la red sea mayor que el beneficio potencial.",
+        "isCorrect": true
+      },
+      {
+        "text": "Exigiendo que el validador resuelva un problema matemático de alta complejidad computacional.",
+        "rationale": "Esa es la descripción de Proof of Work (PoW), no de PoS.",
+        "isCorrect": false
+      },
+      {
+        "text": "Limitando la participación únicamente a entidades autorizadas por un organismo central.",
+        "rationale": "Esto ocurriría en una red de Proof of Authority (PoA) o permisionada, no necesariamente en un PoS público.",
+        "isCorrect": false
+      },
+      {
+        "text": "Aumentando la dificultad del hash cada vez que se detecta un comportamiento anómalo.",
+        "rationale": "La dificultad del hash es propia de PoW; en PoS la seguridad es económica, no computacional.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en las consecuencias económicas directas para quien posee los tokens."
+  },
+  {
+    "guid": "f9ce370c-dbfd-4c43-b030-582f392fd4dc",
+    "subjectId": "T42",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Qué protocolo de consenso es más adecuado para una red de consorcio entre distintas administraciones públicas que requieren alta velocidad y finalidad instantánea?",
+    "answerOptions": [
+      {
+        "text": "Byzantine Fault Tolerance (BFT) o Proof of Authority (PoA).",
+        "rationale": "Estos mecanismos permiten un alto rendimiento y confirmaciones deterministas en entornos donde los validadores están identificados.",
+        "isCorrect": true
+      },
+      {
+        "text": "Proof of Work (PoW).",
+        "rationale": "PoW es demasiado lento, ineficiente energéticamente y tiene finalidad probabilística, lo que lo hace poco apto para estos casos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Proof of Burn.",
+        "rationale": "Este mecanismo implica destruir activos para ganar derechos de minado, lo cual no tiene sentido en un entorno administrativo.",
+        "isCorrect": false
+      },
+      {
+        "text": "Proof of Elapsed Time (PoET).",
+        "rationale": "Aunque es eficiente, suele depender de hardware específico (enclave SGX) y no es el estándar para redes de consorcio administrativas.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Busque un mecanismo basado en la identidad de los nodos o en votaciones."
+  },
+  {
+    "guid": "4aa4e8d3-2749-430b-9bde-0141b6bf78e7",
+    "subjectId": "T42",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Desde el punto de vista del RGPD, ¿cuál es el mayor conflicto técnico con el uso de Blockchain?",
+    "answerOptions": [
+      {
+        "text": "La inmutabilidad del registro, que choca frontalmente con el derecho de supresión (derecho al olvido).",
+        "rationale": "Como los datos no pueden borrarse sin romper la integridad de la cadena, es difícil cumplir con la eliminación física de datos personales.",
+        "isCorrect": true
+      },
+      {
+        "text": "La transparencia, ya que obliga a que todas las transacciones estén cifradas simétricamente.",
+        "rationale": "La transparencia es un principio de Blockchain, pero el RGPD no prohíbe la transparencia, sino el mal tratamiento de datos personales.",
+        "isCorrect": false
+      },
+      {
+        "text": "La falta de un servidor central donde alojar las copias de seguridad obligatorias.",
+        "rationale": "La descentralización es una ventaja para la disponibilidad; el problema legal reside en la gestión de los datos, no en el backup.",
+        "isCorrect": false
+      },
+      {
+        "text": "El uso de claves públicas, que se consideran datos de categoría especial según el reglamento.",
+        "rationale": "Las claves públicas son datos personales (seudónimos), pero no entran en la categoría de datos sensibles o especiales.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considere qué sucede cuando un ciudadano solicita que se eliminen sus datos de un registro que por definición no se puede borrar."
+  },
+  {
+    "guid": "f9df55f1-e500-4817-a666-c03ab61ac656",
+    "subjectId": "T42",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Qué función cumplen los 'Oráculos' en un ecosistema de Smart Contracts?",
+    "answerOptions": [
+      {
+        "text": "Actúan como puentes de información que suministran datos externos del mundo real a la Blockchain.",
+        "rationale": "Dado que las Blockchain son sistemas deterministas cerrados, necesitan oráculos para conocer datos como precios, clima o resultados de eventos.",
+        "isCorrect": true
+      },
+      {
+        "text": "Son algoritmos que predicen el valor futuro del gas para optimizar el coste de las transacciones.",
+        "rationale": "Aunque existen estimadores de gas, el término 'Oráculo' se refiere específicamente a la entrada de datos externos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Validan la identidad legal de los usuarios antes de permitirles firmar un contrato.",
+        "rationale": "Esto sería una función de un proveedor de identidad o KYC, no necesariamente la definición técnica de un oráculo.",
+        "isCorrect": false
+      },
+      {
+        "text": "Ejecutan el código de los contratos fuera de la cadena para ahorrar costes de computación.",
+        "rationale": "La ejecución fuera de la cadena se asocia a soluciones de Capa 2 o computación off-chain, no a oráculos de datos.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en cómo sabe un contrato de seguro de vuelos que un avión ha llegado tarde."
+  },
+  {
+    "guid": "1d8798e0-ef23-42d0-82b3-7a3afc5ec050",
+    "subjectId": "T42",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "En la gestión de identidades, ¿qué define el modelo de Identidad Digital Soberana (SSI)?",
+    "answerOptions": [
+      {
+        "text": "El usuario es el único propietario y controlador de sus datos de identidad, sin depender de un proveedor central.",
+        "rationale": "SSI utiliza credenciales verificables y DIDs para que el ciudadano pueda gestionar sus datos de forma descentralizada.",
+        "isCorrect": true
+      },
+      {
+        "text": "Es un sistema donde el Estado centraliza todos los datos personales en una Blockchain gubernamental inexpugnable.",
+        "rationale": "Esto sería un modelo centralizado basado en Blockchain; SSI busca precisamente eliminar esa centralización del control.",
+        "isCorrect": false
+      },
+      {
+        "text": "Un método donde la identidad se valida mediante el número de tokens que el usuario posee en su wallet.",
+        "rationale": "Esto sería una identidad basada en activos o 'stake', no es el principio de soberanía de la identidad personal.",
+        "isCorrect": false
+      },
+      {
+        "text": "Un estándar de interoperabilidad para que Facebook y Google compartan los datos del usuario.",
+        "rationale": "SSI es la alternativa a los modelos de identidad federada (como los de Google/Facebook) para evitar el control de las 'Big Tech'.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "El foco está en quién ostenta el control último de las credenciales."
+  },
+  {
+    "guid": "cc000257-c39e-4547-9dce-3c050847d985",
+    "subjectId": "T42",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Cuál es la función del estándar ERC-721 en la red de Ethereum?",
+    "answerOptions": [
+      {
+        "text": "Definir una interfaz estándar para tokens no fungibles (NFT), permitiendo que cada token sea único e indivisible.",
+        "rationale": "A diferencia del ERC-20, el ERC-721 garantiza que cada activo tenga un identificador único, ideal para arte digital o títulos de propiedad.",
+        "isCorrect": true
+      },
+      {
+        "text": "Establecer las reglas para la creación de tokens fungibles intercambiables uno a uno.",
+        "rationale": "Esa es la función del estándar ERC-20.",
+        "isCorrect": false
+      },
+      {
+        "text": "Permitir la ejecución de transacciones sin necesidad de pagar gas.",
+        "rationale": "El ERC-721 es un estándar de token; el pago de gas es intrínseco al funcionamiento de la red Ethereum, independientemente del estándar.",
+        "isCorrect": false
+      },
+      {
+        "text": "Regular la gobernanza de las Organizaciones Autónomas Descentralizadas (DAO).",
+        "rationale": "Aunque las DAO usan tokens, no existe un estándar único ERC-721 para su regulación completa de gobernanza.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en objetos digitales que no pueden ser sustituidos por otros idénticos."
+  },
+  {
+    "guid": "6159c5ec-bc80-43b4-bcd7-50e3970c1903",
+    "subjectId": "T42",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Qué representa un ataque del $51\\%$ en una red basada en Proof of Work?",
+    "answerOptions": [
+      {
+        "text": "La capacidad de una entidad para controlar la mayoría de la potencia de cómputo y revertir transacciones recientes o realizar doble gasto.",
+        "rationale": "Al controlar más de la mitad del hashrate, el atacante puede generar una cadena más larga que la legítima y reorganizar el historial.",
+        "isCorrect": true
+      },
+      {
+        "text": "Un fallo de seguridad donde se descifran las claves privadas del $51\\%$ de los usuarios de la red.",
+        "rationale": "El ataque del $51\\%$ afecta al consenso y la integridad de la cadena, no a la criptografía de las claves privadas individuales.",
+        "isCorrect": false
+      },
+      {
+        "text": "La saturación de los nodos con tráfico falso para que el $51\\%$ de las transacciones sean rechazadas.",
+        "rationale": "Eso se definiría como un ataque de denegación de servicio (DDoS) a gran escala, no un ataque de consenso del $51\\%$.",
+        "isCorrect": false
+      },
+      {
+        "text": "Un exploit que permite robar el $51\\%$ de los fondos contenidos en un Smart Contract.",
+        "rationale": "Eso sería un exploit de código en el contrato, no un ataque a la infraestructura de minería de la red.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Se trata de un ataque a la mayoría del poder de procesamiento de la red."
+  },
+  {
+    "guid": "930ffd73-8648-4452-aaab-41fa1f013c2f",
+    "subjectId": "T42",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "En el diseño de soluciones Blockchain para la administración, ¿qué se recomienda respecto al almacenamiento de documentos de gran tamaño?",
+    "answerOptions": [
+      {
+        "text": "Almacenarlos fuera de la cadena (off-chain) y guardar solo su huella digital (hash) en la Blockchain.",
+        "rationale": "Almacenar datos grandes on-chain es extremadamente caro e ineficiente; el hash garantiza que el documento off-chain no ha sido alterado.",
+        "isCorrect": true
+      },
+      {
+        "text": "Utilizar la memoria RAM de los nodos para que el acceso sea instantáneo.",
+        "rationale": "Los datos deben ser persistentes en disco; además, el volumen de documentos desbordaría la capacidad de los nodos rápidamente.",
+        "isCorrect": false
+      },
+      {
+        "text": "Dividir el documento en miles de transacciones de 1 byte para distribuirlo por toda la red.",
+        "rationale": "Esto sería prohibitivo en términos de costes de gas y crearía una congestión masiva e innecesaria en la red.",
+        "isCorrect": false
+      },
+      {
+        "text": "Cifrar el documento completo e insertarlo en el campo 'input data' de un bloque.",
+        "rationale": "Aunque técnicamente posible en algunas redes, penaliza el rendimiento y no cumple con principios de eficiencia de escalabilidad.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considere la diferencia de coste entre guardar 1 byte y 1 megabyte en una red distribuida."
+  },
+  {
+    "guid": "ff0b9549-f1c6-4a77-b462-99982ec9212d",
+    "subjectId": "T42",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Qué es una solución de escalabilidad de Capa 2 (Layer 2) conocida como 'Rollup'?",
+    "answerOptions": [
+      {
+        "text": "Un mecanismo que ejecuta transacciones fuera de la cadena principal, las agrupa y envía un resumen de validez a la Capa 1.",
+        "rationale": "Los rollups permiten aumentar el rendimiento (TPS) manteniendo gran parte de la seguridad de la red principal.",
+        "isCorrect": true
+      },
+      {
+        "text": "Una actualización del protocolo que duplica el tamaño de los bloques de la cadena principal.",
+        "rationale": "Eso sería un aumento de tamaño de bloque en Capa 1, no una solución de Capa 2.",
+        "isCorrect": false
+      },
+      {
+        "text": "Un tipo de minería cooperativa donde los usuarios 'enrollan' sus recursos para obtener más beneficios.",
+        "rationale": "Ese concepto se refiere a los 'mining pools', no tiene relación con la tecnología de rollups.",
+        "isCorrect": false
+      },
+      {
+        "text": "Un protocolo para borrar automáticamente bloques antiguos y reducir el peso de la base de datos.",
+        "rationale": "Eso se asocia con el 'pruning' o poda de nodos, no con soluciones de escalabilidad de transacciones.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en 'empaquetar' muchas transacciones para procesarlas de una sola vez en la red base."
+  },
+  {
+    "guid": "08b0a7ca-1def-4b7a-871f-f9f3b9a2547a",
+    "subjectId": "T42",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "El concepto de 'Finalidad' (Finality) en Blockchain se refiere a:",
+    "answerOptions": [
+      {
+        "text": "El tiempo o condición tras la cual una transacción se considera prácticamente irreversible.",
+        "rationale": "En redes probabilísticas como Bitcoin, la finalidad aumenta con los bloques; en redes BFT, la finalidad puede ser inmediata.",
+        "isCorrect": true
+      },
+      {
+        "text": "La fecha de caducidad de un Smart Contract tras la cual deja de ser ejecutable.",
+        "rationale": "Los contratos inteligentes en la cadena no caducan a menos que se incluya una lógica de autodestrucción explícita.",
+        "isCorrect": false
+      },
+      {
+        "text": "El momento en el que el minero recibe la recompensa por el bloque minado.",
+        "rationale": "La recepción de la recompensa es un evento contable, la finalidad es una garantía de seguridad sobre los datos.",
+        "isCorrect": false
+      },
+      {
+        "text": "El límite máximo de monedas que pueden existir en una red determinada.",
+        "rationale": "Eso se conoce como 'Max Supply' o suministro máximo.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Es la garantía de que lo escrito en el registro no se moverá de ahí."
+  },
+  {
+    "guid": "58a3e944-d650-48b2-83bb-9a0cfa3c5bef",
+    "subjectId": "T42",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Qué vulnerabilidad de Smart Contracts causó el famoso hackeo de 'The DAO' en 2016?",
+    "answerOptions": [
+      {
+        "text": "Reentrancy (Reentrada).",
+        "rationale": "Permitió al atacante retirar fondos repetidamente antes de que el contrato pudiera actualizar el saldo del usuario.",
+        "isCorrect": true
+      },
+      {
+        "text": "Integer Overflow.",
+        "rationale": "Aunque es una vulnerabilidad común, el ataque a The DAO se basó específicamente en la lógica de llamadas recursivas.",
+        "isCorrect": false
+      },
+      {
+        "text": "Falta de control de acceso en funciones críticas.",
+        "rationale": "El contrato era accesible, pero el fallo estaba en el orden de las operaciones de envío y actualización de estado.",
+        "isCorrect": false
+      },
+      {
+        "text": "Uso de un generador de números aleatorios predecible.",
+        "rationale": "Este es un fallo típico en juegos de azar on-chain, pero no fue el origen del exploit de The DAO.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Ocurre cuando una función externa es llamada antes de que se completen los cambios de estado internos."
+  },
+  {
+    "guid": "2f6844a8-1a46-4772-b7f2-16eecb13abf1",
+    "subjectId": "T42",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Qué utilidad tiene el InterPlanetary File System (IPFS) en proyectos Blockchain?",
+    "answerOptions": [
+      {
+        "text": "Proporcionar un sistema de almacenamiento de archivos descentralizado y direccionable por contenido.",
+        "rationale": "IPFS permite almacenar los datos pesados de forma distribuida, referenciándolos en la Blockchain mediante su hash único.",
+        "isCorrect": true
+      },
+      {
+        "text": "Actuar como una red privada virtual (VPN) para ocultar la IP de los nodos mineros.",
+        "rationale": "IPFS es un sistema de archivos, no un servicio de tunelización de red o anonimato de conexión.",
+        "isCorrect": false
+      },
+      {
+        "text": "Es el protocolo que permite la comunicación inalámbrica entre nodos mediante satélites.",
+        "rationale": "El nombre es ambicioso, pero IPFS es un protocolo de software para la web distribuida, no una infraestructura de hardware espacial.",
+        "isCorrect": false
+      },
+      {
+        "text": "Sustituir a la propia Blockchain para evitar el uso de funciones hash.",
+        "rationale": "IPFS y Blockchain son tecnologías complementarias; IPFS de hecho depende fuertemente del hashing para identificar archivos.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Se suele definir como la 'capa de almacenamiento' de la Web3."
+  },
+  {
+    "guid": "39e8e4c0-2128-4139-9e74-ba3bfe604653",
+    "subjectId": "T42",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Cuál es la función de una 'Sidechain'?",
+    "answerOptions": [
+      {
+        "text": "Una cadena de bloques independiente que corre en paralelo a la cadena principal y se comunica con ella mediante un puente (bridge).",
+        "rationale": "Permite descargar tráfico de la cadena principal y probar nuevas funcionalidades o reglas de consenso con menor riesgo.",
+        "isCorrect": true
+      },
+      {
+        "text": "Una copia de seguridad que se guarda en frío para recuperar la red tras un ataque.",
+        "rationale": "Blockchain no usa copias de seguridad tradicionales centralizadas; las sidechains son redes operativas activas.",
+        "isCorrect": false
+      },
+      {
+        "text": "Una cadena que solo contiene las transacciones fallidas de la red principal.",
+        "rationale": "Las transacciones fallidas no suelen registrarse de forma permanente en una cadena aparte; las sidechains procesan transacciones válidas.",
+        "isCorrect": false
+      },
+      {
+        "text": "El conjunto de nodos que no tienen la copia completa de la base de datos.",
+        "rationale": "Eso se refiere a los nodos ligeros (light nodes), no a una estructura de cadena lateral.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Imagine una vía de servicio paralela a una autopista principal."
+  },
+  {
+    "guid": "0203aa2d-ae43-4eae-8ce6-a48ce9908ac2",
+    "subjectId": "T42",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "En el Esquema Nacional de Seguridad (ENS) de España, ¿qué consideración debe tener un sistema Blockchain que gestione subvenciones públicas?",
+    "answerOptions": [
+      {
+        "text": "Debe garantizar la trazabilidad y la integridad, categorizando el sistema según el nivel de seguridad requerido (Bajo, Medio o Alto).",
+        "rationale": "Al ser un sistema de una Administración Pública, debe cumplir con las medidas de seguridad organizativas y técnicas que dicte el ENS.",
+        "isCorrect": true
+      },
+      {
+        "text": "Está exento de cumplir el ENS por ser una tecnología descentralizada que no tiene dueño.",
+        "rationale": "Cualquier sistema de información utilizado por las AAPP españolas para servicios al ciudadano debe cumplir el ENS.",
+        "isCorrect": false
+      },
+      {
+        "text": "Solo debe cumplir el ENS si utiliza una Blockchain pública como Bitcoin.",
+        "rationale": "El cumplimiento es independiente de la tecnología; se basa en la criticidad de los datos gestionados por la administración.",
+        "isCorrect": false
+      },
+      {
+        "text": "El ENS prohíbe el uso de Blockchain por no permitir la auditoría centralizada de los datos.",
+        "rationale": "El ENS no prohíbe tecnologías, sino que establece requisitos; de hecho, la trazabilidad de Blockchain facilita la auditoría.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Recuerde que cualquier sistema de la administración está sujeto a la normativa nacional de seguridad."
+  },
+  {
+    "guid": "f34b6739-e066-4ec0-8170-aa526c9375e5",
+    "subjectId": "T42",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Qué caracteriza a una Organización Autónoma Descentralizada (DAO)?",
+    "answerOptions": [
+      {
+        "text": "Sus reglas de funcionamiento y gobernanza están codificadas en Smart Contracts y las decisiones se toman por votación de los miembros.",
+        "rationale": "Elimina la necesidad de una estructura jerárquica tradicional mediante la automatización de la ejecución de acuerdos.",
+        "isCorrect": true
+      },
+      {
+        "text": "Es una empresa tecnológica que no tiene sede física y paga a sus empleados exclusivamente en criptomonedas.",
+        "rationale": "Aunque pueda ser el caso, lo que define a una DAO es su gobernanza descentralizada por código, no su política de RRHH.",
+        "isCorrect": false
+      },
+      {
+        "text": "Un sistema de inteligencia artificial que gestiona nodos mineros sin intervención humana.",
+        "rationale": "Aunque es un concepto futurista, las DAO actuales son organizaciones de humanos coordinados por software en la cadena.",
+        "isCorrect": false
+      },
+      {
+        "text": "Una red de nodos que solo se activa cuando hay una catástrofe global.",
+        "rationale": "Eso sería un sistema de recuperación ante desastres, no una estructura organizativa autónoma.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Sustituye los estatutos de una empresa por código ejecutable."
+  },
+  {
+    "guid": "a61f354c-13ce-4b11-aa8f-55617b0b3efb",
+    "subjectId": "T42",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Cuál es la diferencia fundamental entre una función Hash y el cifrado (encryption)?",
+    "answerOptions": [
+      {
+        "text": "El hash es unidireccional e irreversible, mientras que el cifrado es bidireccional y permite recuperar el dato original mediante una clave.",
+        "rationale": "En Blockchain los hashes se usan para integridad (verificar que nada cambió) y el cifrado para confidencialidad (ocultar el contenido).",
+        "isCorrect": true
+      },
+      {
+        "text": "El hash utiliza claves públicas y el cifrado utiliza siempre claves privadas.",
+        "rationale": "El hash no utiliza claves; el cifrado puede ser simétrico (una clave) o asimétrico (dos claves).",
+        "isCorrect": false
+      },
+      {
+        "text": "El hash hace que el mensaje sea más largo y el cifrado lo comprime.",
+        "rationale": "Al contrario, una función hash produce una salida de longitud fija independientemente del tamaño de la entrada.",
+        "isCorrect": false
+      },
+      {
+        "text": "El cifrado es obligatorio por protocolo en Bitcoin para todos los mensajes.",
+        "rationale": "En Bitcoin las transacciones son públicas y no están cifradas; se usa hashing para encadenar bloques.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en cuál de los dos procesos permite volver a leer el mensaje original."
+  },
+  {
+    "guid": "661e5101-e1a7-4ed9-bff1-adc1233d1792",
+    "subjectId": "T42",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "En el contexto de la UE, ¿qué es el proyecto EBSI (European Blockchain Services Infrastructure)?",
+    "answerOptions": [
+      {
+        "text": "Una red de nodos distribuidos por toda Europa para prestar servicios públicos transfronterizos basados en Blockchain.",
+        "rationale": "EBSI busca estandarizar el uso de Blockchain en la UE para diplomas, identidad y trazabilidad de documentos.",
+        "isCorrect": true
+      },
+      {
+        "text": "Un nuevo tipo de criptomoneda europea diseñada para competir con el dólar digital.",
+        "rationale": "EBSI es una infraestructura de servicios, no una moneda; el proyecto de moneda es el Euro Digital (CBDC).",
+        "isCorrect": false
+      },
+      {
+        "text": "Un firewall a nivel europeo para bloquear el acceso a redes de minería de Proof of Work.",
+        "rationale": "EBSI es una iniciativa constructiva para fomentar servicios, no un sistema de bloqueo de redes externas.",
+        "isCorrect": false
+      },
+      {
+        "text": "La agencia europea encargada de auditar todos los Smart Contracts de las empresas privadas.",
+        "rationale": "No existe tal agencia centralizada; la auditoría sigue siendo responsabilidad de los desarrolladores y empresas especializadas.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Se trata de una iniciativa de la Comisión Europea para la interoperabilidad de servicios públicos."
+  },
+  {
+    "guid": "da408452-60ee-45f4-a618-3dd63acd02c0",
+    "subjectId": "T42",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Qué problema resuelve el algoritmo de consenso Byzantine Fault Tolerance (BFT)?",
+    "answerOptions": [
+      {
+        "text": "Lograr el acuerdo entre nodos de una red distribuida incluso si algunos de ellos fallan o actúan de forma maliciosa.",
+        "rationale": "Permite que la red sea resiliente mientras menos de un tercio de los nodos sean traidores o estén desconectados.",
+        "isCorrect": true
+      },
+      {
+        "text": "Evitar que los Smart Contracts consuman demasiada memoria en el servidor central.",
+        "rationale": "BFT es un mecanismo de consenso de red, no un sistema de gestión de recursos de memoria local.",
+        "isCorrect": false
+      },
+      {
+        "text": "Acelerar el proceso de cifrado de las transacciones privadas.",
+        "rationale": "El consenso trata sobre la validez de los datos y el orden de los bloques, no sobre la velocidad del cifrado.",
+        "isCorrect": false
+      },
+      {
+        "text": "Asegurar que los mineros utilicen exclusivamente energías renovables.",
+        "rationale": "Es un algoritmo matemático de coordinación; no tiene relación directa con la fuente de energía del hardware.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Recuerde el problema de los generales que deben coordinar un ataque sin saber quién es de confianza."
+  },
+  {
+    "guid": "21908b91-e63b-4ca9-b5a4-0cab77e8d667",
+    "subjectId": "T42",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "En un sistema Blockchain, ¿qué se entiende por 'Doble Gasto' (Double Spending)?",
+    "answerOptions": [
+      {
+        "text": "El riesgo de que un mismo activo digital sea transferido a dos destinatarios distintos de forma simultánea.",
+        "rationale": "Blockchain resuelve esto mediante el consenso y el sellado de tiempo, asegurando que solo la primera transacción válida sea registrada.",
+        "isCorrect": true
+      },
+      {
+        "text": "Cuando un usuario paga el doble de gas del necesario para que su transacción se procese antes.",
+        "rationale": "Eso es una estrategia de priorización de tarifas, no un fallo o fraude de doble gasto.",
+        "isCorrect": false
+      },
+      {
+        "text": "La obligación de las empresas de pagar impuestos tanto en moneda fiat como en criptomonedas.",
+        "rationale": "No tiene relación con la fiscalidad; es un problema técnico de integridad en registros digitales.",
+        "isCorrect": false
+      },
+      {
+        "text": "Un error que duplica automáticamente el saldo de una cuenta tras un hard fork.",
+        "rationale": "Tras un hard fork, las monedas existen en dos cadenas diferentes, pero el doble gasto es un intento de fraude dentro de una misma red.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Es el problema fundamental que impedía el dinero digital antes de Bitcoin."
+  },
+  {
+    "guid": "6e4dd527-7a5e-491f-bd05-327df024ad3b",
+    "subjectId": "T42",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Qué es un 'Soft Fork' en una Blockchain?",
+    "answerOptions": [
+      {
+        "text": "Una actualización del protocolo que es compatible con versiones anteriores; los nodos no actualizados aún pueden validar bloques.",
+        "rationale": "Se trata de una restricción de reglas (hacerlas más estrictas), permitiendo la convivencia temporal de nodos viejos y nuevos.",
+        "isCorrect": true
+      },
+      {
+        "text": "Un error crítico en el software que detiene la producción de bloques en toda la red.",
+        "rationale": "Un fork es un cambio deliberado o una divergencia en la cadena, no necesariamente un error de parada del sistema.",
+        "isCorrect": false
+      },
+      {
+        "text": "Una división permanente de la cadena que crea dos criptomonedas distintas e incompatibles.",
+        "rationale": "Eso describe a un 'Hard Fork', donde la incompatibilidad obliga a todos a elegir una de las dos ramas.",
+        "isCorrect": false
+      },
+      {
+        "text": "Un método para reducir el consumo eléctrico de los nodos sin cambiar el algoritmo de consenso.",
+        "rationale": "El consumo depende del hardware y el mecanismo (PoW vs PoS), no del tipo de actualización del software de red.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en una actualización de software que no rompe la comunicación con los que no se han actualizado."
+  },
+  {
+    "guid": "c5fec1c3-8fba-45b6-bc45-59ce9e751785",
+    "subjectId": "T42",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Para qué sirve el concepto de 'Sharding' en el desarrollo de redes Blockchain?",
+    "answerOptions": [
+      {
+        "text": "Dividir la red en fragmentos (shards) para procesar transacciones en paralelo y mejorar la escalabilidad.",
+        "rationale": "Permite que cada nodo no tenga que procesar todas las transacciones de la red, multiplicando la capacidad total del sistema.",
+        "isCorrect": true
+      },
+      {
+        "text": "Un sistema para ocultar el rastro de las transacciones mezclando monedas de diferentes usuarios.",
+        "rationale": "Eso se conoce como 'Mixing' o 'CoinJoin', orientado a la privacidad, no a la escalabilidad.",
+        "isCorrect": false
+      },
+      {
+        "text": "Una técnica de ataque para romper la cadena en múltiples trozos inservibles.",
+        "rationale": "El sharding es una técnica de optimización arquitectónica, no un vector de ataque malicioso.",
+        "isCorrect": false
+      },
+      {
+        "text": "El proceso de convertir activos físicos en tokens digitales.",
+        "rationale": "Ese proceso se denomina 'Tokenización'.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Relaciónelo con la base de datos distribuida que se parte en trozos para ser más eficiente."
+  },
+  {
+    "guid": "5593d5c3-9928-4ca2-8ac7-d8a02d4bf70c",
+    "subjectId": "T42",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Qué implicación tiene el Reglamento MiCA (Markets in Crypto-Assets) de la UE para las administraciones?",
+    "answerOptions": [
+      {
+        "text": "Establece un marco regulatorio claro para los emisores de criptoactivos y proveedores de servicios en todo el territorio europeo.",
+        "rationale": "Proporciona seguridad jurídica y protección al consumidor, afectando a cómo las administraciones interactúan con estos activos.",
+        "isCorrect": true
+      },
+      {
+        "text": "Prohíbe por completo el uso de carteras privadas (self-custody wallets) para ciudadanos europeos.",
+        "rationale": "MiCA regula proveedores de servicios y activos, pero no prohíbe la tenencia privada de criptomonedas.",
+        "isCorrect": false
+      },
+      {
+        "text": "Obliga a que todos los Ayuntamientos emitan su propia moneda local basada en Blockchain antes de 2026.",
+        "rationale": "No existe tal obligación; MiCA regula el mercado existente, no impone la creación de nuevos activos públicos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Es una normativa técnica que define el algoritmo de hash obligatorio para todas las redes europeas.",
+        "rationale": "Es un reglamento de mercados financieros y activos digitales, no un estándar técnico de criptografía de bajo nivel.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Se centra en la protección de los inversores y la integridad de los mercados de criptoactivos."
+  }
+]

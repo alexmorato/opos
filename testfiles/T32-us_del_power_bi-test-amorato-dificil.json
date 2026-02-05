@@ -1,0 +1,374 @@
+[
+  {
+    "guid": "78f0717c-a16c-45a8-a548-633db6a4bd9a",
+    "subjectId": "T32",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "En el context de Power BI, quina és la funció principal de Power Query i quina la de Power Pivot, respectivament?",
+    "answerOptions": [
+      {
+        "text": "Power Query s'utilitza per crear visualitzacions, mentre que Power Pivot gestiona la connexió amb les fonts de dades.",
+        "rationale": "La creació de visualitzacions es fa a la vista d'informes de Power BI Desktop, i la connexió a dades és una funció general, no exclusiva de Power Pivot.",
+        "isCorrect": false
+      },
+      {
+        "text": "Power Query s'utilitza per a l'ETL (Extracció, Transformació i Càrrega) de dades, mentre que Power Pivot s'utilitza per al modelatge de dades i càlculs amb DAX.",
+        "rationale": "Aquesta opció descriu correctament la separació de funcions: Power Query per a la preparació de dades i Power Pivot per a la creació del model analític i càlculs avançats.",
+        "isCorrect": true
+      },
+      {
+        "text": "Power Query s'utilitza per escriure fórmules DAX, mentre que Power Pivot neteja i transforma les dades.",
+        "rationale": "Aquesta opció inverteix els rols; DAX és el llenguatge de Power Pivot, mentre que la neteja i transformació és el domini de Power Query.",
+        "isCorrect": false
+      },
+      {
+        "text": "Ambdues eines serveixen principalment per a la seguretat a nivell de fila (RLS).",
+        "rationale": "La seguretat a nivell de fila (RLS) es defineix dins del model de dades (associat a Power Pivot), però no és la funció principal de cap de les dues eines.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Pensa en el flux de treball de les dades: primer es preparen i després es fan càlculs sobre elles."
+  },
+  {
+    "guid": "c1fbab12-7882-453e-8a69-286f910c2e11",
+    "subjectId": "T32",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Un analista necessita crear un informe sobre una base de dades amb milers de milions de registres que s'actualitza constantment. Quina modalitat de connexió seria la més adequada per garantir que les dades siguin sempre les més recents sense importar tot el volum al model de Power BI?",
+    "answerOptions": [
+      {
+        "text": "Importació, perquè és el mode més ràpid per a la interacció amb l'informe un cop les dades estan carregades.",
+        "rationale": "El mode d'importació pot ser ràpid per a la consulta, però no és adequat per a volums de dades tan grans ni per a dades en temps real, ja que requereix carregar tot el conjunt de dades a la memòria.",
+        "isCorrect": false
+      },
+      {
+        "text": "Connexió híbrida, emmagatzemant totes les dades en memòria per accelerar les consultes.",
+        "rationale": "Una connexió híbrida combina modes, però el seu objectiu no és emmagatzemar tot el volum en memòria, la qual cosa seria inviable en aquest cas.",
+        "isCorrect": false
+      },
+      {
+        "text": "DirectQuery, perquè consulta la base de dades en temps real sense emmagatzemar les dades dins del model.",
+        "rationale": "DirectQuery és la solució dissenyada per a conjunts de dades molt grans i escenaris en temps real, ja que les consultes es deleguen directament a la base de dades d'origen.",
+        "isCorrect": true
+      },
+      {
+        "text": "Importació amb actualització programada cada minut, per aprofitar la velocitat del motor en memòria.",
+        "rationale": "Les actualitzacions tan freqüents en conjunts de dades massius són poc pràctiques i costoses en recursos, a més de tenir limitacions en les llicències estàndard.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considera el compromís entre el rendiment de l'informe i la necessitat de tenir les dades completament al dia amb un volum massiu."
+  },
+  {
+    "guid": "8213474b-87b2-4530-90c5-c92ac15273b5",
+    "subjectId": "T32",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Quina funcionalitat de Power BI s'ha d'implementar per assegurar que els gestors de diferents districtes només puguin veure les dades de tràmits ciutadans corresponents a la seva pròpia àrea en un informe compartit?",
+    "answerOptions": [
+      {
+        "text": "Seguretat a nivell de fila (RLS - Row Level Security), que filtra les dades dinàmicament segons el rol de l'usuari.",
+        "rationale": "RLS està dissenyat específicament per a aquest propòsit: definir regles de seguretat que restringeixen l'accés a les dades a nivell de fila basant-se en l'usuari que consulta l'informe.",
+        "isCorrect": true
+      },
+      {
+        "text": "Espais de treball (Workspaces) separats per a cada districte, publicant una còpia de l'informe a cadascun.",
+        "rationale": "Això seria ineficient i difícil de mantenir, ja que requeriria gestionar múltiples versions del mateix informe en lloc d'una única versió segura.",
+        "isCorrect": false
+      },
+      {
+        "text": "Power Query, aplicant un filtre permanent durant el procés d'ETL per a cada districte.",
+        "rationale": "Això crearia conjunts de dades estàtics i separats, no un únic informe que s'adapti dinàmicament a l'usuari que hi accedeix.",
+        "isCorrect": false
+      },
+      {
+        "text": "Mesures DAX, creant una fórmula que només mostri les dades si el nom d'usuari coincideix amb el districte.",
+        "rationale": "Encara que es poden fer càlculs condicionals amb DAX, no és el mecanisme adequat ni segur per implementar restriccions d'accés a les dades.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Busca una característica dissenyada específicament per controlar quines files de dades veu cada usuari dins d'un mateix informe."
+  },
+  {
+    "guid": "ebaee79a-81c0-4ac7-b2e4-fc3ac06ce723",
+    "subjectId": "T32",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Segons les bones pràctiques en Power BI, quina és la diferència fonamental entre un 'Dashboard' i un 'Report'?",
+    "answerOptions": [
+      {
+        "text": "Un 'Dashboard' es crea a Power BI Desktop i un 'Report' a Power BI Service.",
+        "rationale": "El flux de treball habitual és el contrari: els 'Reports' es dissenyen a Power BI Desktop i els 'Dashboards' es construeixen a Power BI Service a partir de les visualitzacions dels informes publicats.",
+        "isCorrect": false
+      },
+      {
+        "text": "Un 'Dashboard' és una vista resumida d'una sola pàgina amb els KPI clau, mentre que un 'Report' és un document multipàgina i interactiu per a l'exploració de dades.",
+        "rationale": "Aquesta opció captura la distinció principal: el dashboard per a una visió executiva ràpida i el report per a una anàlisi detallada.",
+        "isCorrect": true
+      },
+      {
+        "text": "Un 'Dashboard' permet una interactivitat completa com el 'drill-down', mentre que un 'Report' és una vista estàtica.",
+        "rationale": "Els 'Reports' són els que ofereixen una interactivitat profunda (filtres, drill-down), mentre que els 'Dashboards' tenen una interactivitat més limitada, sovint actuant com a portal cap als informes.",
+        "isCorrect": false
+      },
+      {
+        "text": "Són termes sinònims que s'utilitzen per referir-se a qualsevol conjunt de visualitzacions en Power BI.",
+        "rationale": "El material d'estudi adverteix explícitament que confondre aquests dos conceptes és un error habitual; tenen propòsits i característiques diferents.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Pensa en la diferència entre un resum executiu d'alt nivell i una anàlisi a fons de diverses pàgines."
+  },
+  {
+    "guid": "ac990663-5721-4b14-b2f0-67a9140031d9",
+    "subjectId": "T32",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Una organització té les seves dades de RRHH en un servidor local (on-premises). Per què és imprescindible instal·lar un 'Gateway' de Power BI per mantenir actualitzats els informes publicats a Power BI Service?",
+    "answerOptions": [
+      {
+        "text": "Perquè el 'Gateway' transforma les dades amb Power Query abans d'enviar-les al núvol.",
+        "rationale": "La transformació de dades és una tasca de Power Query dins del flux de disseny de l'informe, no la funció principal del Gateway, que s'encarrega de la connectivitat.",
+        "isCorrect": false
+      },
+      {
+        "text": "Perquè el 'Gateway' emmagatzema una còpia de les dades al núvol per millorar el rendiment.",
+        "rationale": "El Gateway no és un servei d'emmagatzematge; facilita la transferència de dades entre l'entorn local i el núvol, però no les emmagatzema de manera persistent.",
+        "isCorrect": false
+      },
+      {
+        "text": "Perquè el 'Gateway' actua com un pont segur que permet a Power BI Service (al núvol) accedir i actualitzar les dades que resideixen a la xarxa local.",
+        "rationale": "Aquesta és la definició exacta de la funció del Gateway: permet la comunicació segura i el refresc de dades entre l'entorn cloud de Microsoft i les fonts de dades internes d'una organització.",
+        "isCorrect": true
+      },
+      {
+        "text": "Perquè el 'Gateway' és necessari per dissenyar informes a Power BI Desktop amb dades locals.",
+        "rationale": "Power BI Desktop pot connectar-se directament a fonts de dades locals sense necessitat d'un Gateway; el Gateway és necessari per a la comunicació amb Power BI Service.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Pensa en com un servei al núvol pot comunicar-se de manera segura amb una font de dades que està dins d'una xarxa privada."
+  },
+  {
+    "guid": "7455c438-fa9f-44aa-9a18-2967169bfdb9",
+    "subjectId": "T32",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Com canvia la posició de Power BI amb la introducció de Microsoft Fabric?",
+    "answerOptions": [
+      {
+        "text": "Microsoft Fabric és simplement el nou nom per a la llicència Power BI Premium, sense canvis funcionals importants.",
+        "rationale": "Aquesta visió és incorrecta; Fabric és una plataforma molt més àmplia que integra múltiples serveis de dades, no només un canvi de nom.",
+        "isCorrect": false
+      },
+      {
+        "text": "Power BI es torna una eina exclusivament 'on-premises', i Microsoft Fabric gestiona la part al núvol.",
+        "rationale": "Al contrari, la integració amb Fabric reforça la posició de Power BI com una eina SaaS (Software as a Service) nativa del núvol.",
+        "isCorrect": false
+      },
+      {
+        "text": "Power BI deixa de ser un producte aïllat i s'integra en una plataforma de dades unificada que cobreix tot el cicle de vida de la dada.",
+        "rationale": "Aquesta opció descriu correctament el canvi estratègic: Power BI passa de ser una eina de visualització a ser la capa d'experiència d'una plataforma d'anàlisi de dades de punta a punta.",
+        "isCorrect": true
+      },
+      {
+        "text": "Power BI absorbeix les funcions d'Azure Synapse i Data Factory, convertint-se en l'única eina de dades de Microsoft.",
+        "rationale": "Power BI s'integra amb aquests serveis dins de Fabric, però no els substitueix. Cadascun manté el seu rol especialitzat (emmagatzematge, ETL, etc.) dins de la plataforma unificada.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considera si el canvi representa una evolució cap a una eina més independent o més integrada en un ecosistema complet."
+  },
+  {
+    "guid": "46fafaeb-7d93-4bc8-91bc-3178f20337cc",
+    "subjectId": "T32",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Quin és el principi fonamental del 'BI d'autoservei' (Self-Service BI) que impulsen eines com Power BI?",
+    "answerOptions": [
+      {
+        "text": "Centralitzar tota la creació d'informes en un equip especialitzat de TI per garantir la qualitat i coherència.",
+        "rationale": "Això descriu el model de BI tradicional, que el BI d'autoservei busca complementar permetent més autonomia als usuaris de negoci.",
+        "isCorrect": false
+      },
+      {
+        "text": "Requerir que tots els usuaris de negoci tinguin coneixements avançats de bases de dades i programació.",
+        "rationale": "L'objectiu del BI d'autoservei és precisament el contrari: reduir la barrera tècnica perquè usuaris sense perfil tècnic puguin analitzar dades.",
+        "isCorrect": false
+      },
+      {
+        "text": "Capacitar els usuaris finals de negoci per crear els seus propis informes i anàlisis sense dependre constantment dels equips tècnics.",
+        "rationale": "Aquesta és l'essència del BI d'autoservei: democratitzar l'accés a les dades i l'anàlisi, donant autonomia als qui millor coneixen el negoci.",
+        "isCorrect": true
+      },
+      {
+        "text": "Automatitzar completament la creació d'informes amb intel·ligència artificial, eliminant la necessitat d'intervenció humana.",
+        "rationale": "Encara que la IA és una ajuda, el nucli del concepte 'autoservei' rau en l'apoderament de l'usuari per a l'exploració i creació, no en la seva eliminació.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Pensa en qui té el control i la capacitat de crear informes en aquest model de treball."
+  },
+  {
+    "guid": "534819bf-660d-47ce-8009-c6146e98ad04",
+    "subjectId": "T32",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Per a una entitat pública que, per regulacions de sobirania de dades, no pot allotjar els seus informes al núvol, quin component de la suite Power BI li permetria desplegar-los dins de la seva pròpia infraestructura?",
+    "answerOptions": [
+      {
+        "text": "Power BI Service",
+        "rationale": "Power BI Service és la plataforma SaaS (Software as a Service) de Microsoft, que per definició s'executa al núvol públic.",
+        "isCorrect": false
+      },
+      {
+        "text": "Power BI Desktop",
+        "rationale": "Power BI Desktop és l'eina de creació i disseny d'informes, però no serveix per allotjar-los i compartir-los de manera centralitzada i segura a nivell d'organització.",
+        "isCorrect": false
+      },
+      {
+        "text": "Power BI Report Server",
+        "rationale": "Aquest component està dissenyat específicament per ser la solució 'on-premises' (local), permetent a les organitzacions allotjar informes als seus propis servidors.",
+        "isCorrect": true
+      },
+      {
+        "text": "Power BI Gateway",
+        "rationale": "El Gateway serveix per connectar dades locals amb el servei al núvol (Power BI Service), però no és una plataforma per allotjar informes.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Busca el component el nom del qual suggereix una funció de servidor per a informes en un entorn local."
+  },
+  {
+    "guid": "72048433-1d26-4c55-887d-230a9cee30ea",
+    "subjectId": "T32",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Quin tipus de tasca es realitza principalment amb el llenguatge DAX (Data Analysis Expressions) a Power BI?",
+    "answerOptions": [
+      {
+        "text": "Netejar i transformar les dades d'origen, com eliminar files duplicades o canviar el format de les columnes.",
+        "rationale": "Aquesta és la funció principal de Power Query i el seu llenguatge M, que s'executa en la fase de preparació de dades (ETL).",
+        "isCorrect": false
+      },
+      {
+        "text": "Crear mètriques de negoci personalitzades i columnes calculades que no existeixen a les dades originals.",
+        "rationale": "DAX és un llenguatge de fórmules dissenyat per definir càlculs i lògica de negoci sobre el model de dades, com ara indicadors (KPI) o segmentacions complexes.",
+        "isCorrect": true
+      },
+      {
+        "text": "Definir les relacions visuals entre els gràfics d'un informe, com els filtres i les interaccions.",
+        "rationale": "Les interaccions entre visuals es configuren a través de la interfície gràfica de Power BI Desktop, sense necessitat d'escriure codi DAX.",
+        "isCorrect": false
+      },
+      {
+        "text": "Gestionar l'autenticació i els permisos dels usuaris que accedeixen als informes.",
+        "rationale": "La gestió d'usuaris i permisos es controla a través d'Azure Active Directory i la configuració de Power BI Service, no amb DAX.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Pensa en la 'A' i la 'E' de DAX: 'Analysis Expressions'. Quin és l'objectiu d'una expressió d'anàlisi?"
+  },
+  {
+    "guid": "39d2aff6-f501-4422-b67c-4bafc2cfc9fe",
+    "subjectId": "T32",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Quin dels següents NO és considerat un avantatge de Power BI, segons el material d'estudi?",
+    "answerOptions": [
+      {
+        "text": "Bona integració amb l'ecosistema de Microsoft 365 i interfície intuïtiva.",
+        "rationale": "El text destaca explícitament la integració amb Office 365 i una interfície accessible com a punts forts de l'eina.",
+        "isCorrect": false
+      },
+      {
+        "text": "Rendiment il·limitat i òptim en connexions DirectQuery complexes.",
+        "rationale": "El material assenyala com un inconvenient que el rendiment en connexions DirectQuery complexes pot ser limitat i depèn de l'optimització de la base de dades font.",
+        "isCorrect": true
+      },
+      {
+        "text": "Flexibilitat per a escenaris tant al núvol (cloud) com locals (on-premises).",
+        "rationale": "La disponibilitat de Power BI Service (núvol) i Power BI Report Server (local) es presenta com un avantatge clau que dona flexibilitat a les organitzacions.",
+        "isCorrect": false
+      },
+      {
+        "text": "Un potent llenguatge de càlcul com DAX per a anàlisis avançades.",
+        "rationale": "La potència i flexibilitat del llenguatge DAX es menciona com un dels grans avantatges de la plataforma per crear càlculs sofisticats.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Revisa la secció d'avantatges i inconvenients per trobar una limitació específica esmentada al temari."
+  },
+  {
+    "guid": "96771928-ae5c-4006-8da7-94a1605dc031",
+    "subjectId": "T32",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "En el context de BI, Power BI no s'utilitza per a...",
+    "answerOptions": [
+      {
+        "text": "ajudar a la presa de decisions mitjançant la visualització de dades.",
+        "rationale": "Aquest és un dels objectius principals de qualsevol eina de Business Intelligence, i Power BI hi excel·leix.",
+        "isCorrect": false
+      },
+      {
+        "text": "executar funcions de negoci transaccionals, com la facturació o la gestió d'estocs.",
+        "rationale": "Power BI és una eina analítica (OLAP), no transaccional (OLTP). Analitza les dades generades pels sistemes transaccionals (com un ERP), però no executa aquestes transaccions.",
+        "isCorrect": true
+      },
+      {
+        "text": "democratitzar l'accés a les dades mitjançant el BI d'autoservei.",
+        "rationale": "Facilitar que els usuaris no tècnics puguin crear els seus propis informes és una de les característiques definitòries de Power BI.",
+        "isCorrect": false
+      },
+      {
+        "text": "connectar-se a múltiples orígens de dades, tant al núvol com locals.",
+        "rationale": "Una de les seves grans fortaleses és la gran varietat de connectors de dades que ofereix per integrar informació de fonts diverses.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Pensa en la diferència entre un sistema que llegeix i analitza dades i un sistema que escriu i modifica dades operatives."
+  },
+  {
+    "guid": "fd84d3ee-aa1c-41d0-a985-47bdee43d3c8",
+    "subjectId": "T32",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Segons el material, quina és la principal diferència d'enfocament entre el tema de BI d'OPOS 23 (Tema 56) i el d'OPOS 24 (Tema 32)?",
+    "answerOptions": [
+      {
+        "text": "El tema d'OPOS 24 es focalitza específicament en l'eina Power BI, mentre que el d'OPOS 23 tractava el concepte de BI de manera més genèrica.",
+        "rationale": "La font indica clarament que el nou temari és una 'concreció i aprofundiment' del tema anterior, centrant-se en Power BI com a eina central.",
+        "isCorrect": true
+      },
+      {
+        "text": "El tema d'OPOS 24 es centra en BI tradicional i cubs OLAP, mentre que el d'OPOS 23 era sobre BI d'autoservei.",
+        "rationale": "L'enfocament és justament el contrari; el focus en Power BI (OPOS 24) representa una aposta pel BI modern i d'autoservei.",
+        "isCorrect": false
+      },
+      {
+        "text": "No hi ha cap diferència significativa; el Tema 32 és només una actualització del nom del Tema 56.",
+        "rationale": "El text conclou explícitament que hi ha un canvi d'enfocament d'un concepte general a una eina específica, descartant que sigui un simple canvi de nom.",
+        "isCorrect": false
+      },
+      {
+        "text": "El tema d'OPOS 23 es basava en QlikView i SAP BI, mentre que OPOS 24 es basa exclusivament en eines de Microsoft.",
+        "rationale": "Encara que OPOS 23 mencionava diverses eines com a exemples, el canvi clau en OPOS 24 no és només l'elecció de Microsoft, sinó la profundització en una única eina.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Llegeix la secció 'Correspondència OPOS 24 ↔ OPOS 23' per entendre l'evolució del temari."
+  }
+]

@@ -90,11 +90,15 @@
       login.checkUserAuth(userName, userPass);
     }, {once:true});
 
+    // Variable global para almacenar las dificultades
+    let difficultyOptions = [];
+    
     // Rellenar selector de dificultad desde assets/difficulty.json
     window.addEventListener('DOMContentLoaded', function() {
       fetch('assets/difficulty.json')
         .then(r => r.json())
         .then(arr => {
+          difficultyOptions = arr; // Guardar en variable global
           const sel = document.getElementById('difficultySelect');
           if (!sel) return;
           sel.innerHTML = '';
@@ -279,6 +283,38 @@
     }
 
     const downloadBtn = document.getElementById('downloadBtn');
+    
+    // Función de preproceso para eliminar las secciones app-root
+    function preprocessInput(text) {
+      let result = text;
+      
+      // 1. Eliminar desde el inicio hasta la línea con <app-root data-app-data=" (incluida)
+      const appRootStartIndex = result.indexOf('<app-root');
+      if (appRootStartIndex !== -1) {
+        // Buscar el final de esa línea (después de data-app-data=")
+        const dataAppDataIndex = result.indexOf('data-app-data="', appRootStartIndex);
+        if (dataAppDataIndex !== -1) {
+          // Eliminar todo desde el inicio hasta después de data-app-data="
+          result = result.substring(dataAppDataIndex + 'data-app-data="'.length);
+        }
+      }
+      
+      // 2. Eliminar desde " data-client-experiment-payload hasta el final (incluyendo </app-root>)
+      const appRootEndMarker = '</app-root>';
+      const appRootEndIndex = result.lastIndexOf(appRootEndMarker);
+      if (appRootEndIndex !== -1) {
+        // Buscar hacia atrás desde appRootEndIndex el cierre de comillas " data-client-experiment
+        // Buscamos la comilla que cierra data-app-data
+        const beforeAppRootEnd = result.substring(0, appRootEndIndex);
+        const lastQuoteBeforeEnd = beforeAppRootEnd.lastIndexOf('" data-client-experiment-payload');
+        if (lastQuoteBeforeEnd !== -1) {
+          result = result.substring(0, lastQuoteBeforeEnd);
+        }
+      }
+      
+      return result.trim();
+    }
+    
     document.getElementById("convertBtn").addEventListener("click", () => {
       try {
         // Guardar tema seleccionado en localStorage
@@ -286,7 +322,10 @@
         if (temaSel) {
           localStorage.setItem('notebooklmextractor_tema', temaSel.value);
         }
-        const jsonData = unescapeAndParse(input.value);
+        
+        // Preprocesar el input para eliminar las secciones app-root
+        const preprocessedInput = preprocessInput(input.value);
+        const jsonData = unescapeAndParse(preprocessedInput);
         const isFlashcards = document.getElementById('flashcardsCheckbox').checked;
         
         if (isFlashcards && jsonData && Array.isArray(jsonData.flashcards)) {
@@ -353,7 +392,7 @@
     downloadBtn.addEventListener('click', function() {
       let data = output.textContent;
       if (!data) return;
-      // Nombre: temaId-nombre_sin_caracteres_raros_trim30-userName-test.json
+      // Nombre: temaId-nombre_sin_caracteres_raros_trim30-userName-dificultat.json
       const temaSel = document.getElementById('temaSelect');
       const temaId = temaSel ? temaSel.value : 'tema';
       // Buscar nombre del tema
@@ -375,7 +414,13 @@
       userName = userName.normalize('NFD').replace(/[^\w\s-]/g, '').replace(/\s+/g, '_').toLowerCase();
       if (userName.length > 20) userName = userName.slice(0, 20);
       
-      const filename = `${temaId}-${temaNombre}-test-${userName}.json`;
+      // Obtener dificultad normalizada
+      const diffSel = document.getElementById('difficultySelect');
+      const diffId = diffSel ? Number(diffSel.value) : 1;
+      const diffObj = difficultyOptions.find(d => d.id === diffId);
+      const diffNormalized = (diffObj && diffObj.textNormalized) ? diffObj.textNormalized.toLowerCase() : 'normal';
+      
+      const filename = `${temaId}-${temaNombre}-${userName}-${diffNormalized}.json`;
       // Descargar
       const blob = new Blob([data], {type: 'application/json'});
       const url = URL.createObjectURL(blob);
