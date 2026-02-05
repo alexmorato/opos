@@ -252,6 +252,13 @@
     .btn-test:hover {
       background: #21c08d;
     }
+    .btn-url {
+      background: #8a2a5f;
+      color: #e7ecff;
+    }
+    .btn-url:hover {
+      background: #aa3a7f;
+    }
     .empty-state {
       text-align: center;
       padding: 40px 20px;
@@ -671,7 +678,8 @@
           slides: [],
           infografies: [],
           apunts: [],
-          tests: []
+          tests: [],
+          urls: []
         };
 
         const isLocal = location.hostname === 'localhost' || location.hostname === '127.0.0.1';
@@ -711,6 +719,16 @@
               recursos.apunts.push({
                 name: `Apunts ${idx + 1}`,
                 file: md
+              });
+            });
+          }
+
+          // URLs
+          if (temaData.urls && temaData.urls.length > 0) {
+            temaData.urls.forEach((urlData) => {
+              recursos.urls.push({
+                name: urlData.name || 'Enllaç',
+                url: urlData.url
               });
             });
           }
@@ -817,13 +835,15 @@
         tema.recursos.slides.length + 
         tema.recursos.infografies.length + 
         tema.recursos.apunts.length + 
-        tema.recursos.tests.length;
+        tema.recursos.tests.length + 
+        tema.recursos.urls.length;
 
       const summary = [];
       if (tema.recursos.slides.length > 0) summary.push(`📊 ${tema.recursos.slides.length} presentació${tema.recursos.slides.length > 1 ? 'ns' : ''}`);
       if (tema.recursos.infografies.length > 0) summary.push(`🖼️ ${tema.recursos.infografies.length} infografia${tema.recursos.infografies.length > 1 ? 'es' : ''}`);
       if (tema.recursos.apunts.length > 0) summary.push(`📝 ${tema.recursos.apunts.length} apunt${tema.recursos.apunts.length > 1 ? 's' : ''}`);
       if (tema.recursos.tests.length > 0) summary.push(`✅ ${tema.recursos.tests.length} test${tema.recursos.tests.length > 1 ? 's' : ''}`);
+      if (tema.recursos.urls.length > 0) summary.push(`🔗 ${tema.recursos.urls.length} enllaç${tema.recursos.urls.length > 1 ? 'os' : ''}`);
 
       card.innerHTML = `
         <div class="tema-header">
@@ -938,6 +958,25 @@
         `;
       }
 
+      // URLs
+      if (tema.recursos.urls.length > 0) {
+        html += `
+          <div class="recursos-section">
+            <div class="recursos-title">🔗 Enllaços web</div>
+            <div class="recursos-list">
+              ${tema.recursos.urls.map((urlData, idx) => `
+                <div class="recurso-item" id="recurso-url-${tema.tema}-${idx}">
+                  <div class="recurso-name">${urlData.name}</div>
+                  <button class="recurso-btn btn-url" onclick="abrirURL('${tema.tema}', '${encodeURIComponent(urlData.url)}', '${encodeURIComponent(urlData.name)}')">
+                    🌐 Obrir
+                  </button>
+                </div>
+              `).join('')}
+            </div>
+          </div>
+        `;
+      }
+
       if (html === '') {
         html = '<div style="text-align:center;color:#a0a8c0;padding:20px;">No hi ha recursos disponibles per aquest tema</div>';
       }
@@ -986,6 +1025,19 @@
           console.error('Error carregant el test:', err);
           alert('Error carregant el test');
         });
+    };
+
+    window.abrirURL = function(temaId, encodedUrl, encodedName) {
+      // Guardar recurso clicado
+      guardarUltimoRecursoClicado('url', temaId, encodedUrl);
+      // Guardar URL y nombre en localStorage para la página iframe
+      const url = decodeURIComponent(encodedUrl);
+      const name = decodeURIComponent(encodedName);
+      localStorage.setItem('sTICdOpos_iframe_url', url);
+      localStorage.setItem('sTICdOpos_iframe_name', name);
+      localStorage.setItem('sTICdOpos_iframe_tema', temaId);
+      // Abrir página con iframe (la crearemos después)
+      window.open('iframe_viewer.html', '_self');
     };
 
     // Búsqueda

@@ -9,6 +9,7 @@ OUTPUT_FILE = "apunts_new/manifest.json"
 
 MD_EXT = ".md"
 IMG_EXT = ".jpg"
+URL_MANIFEST = "manifest_url.json"
 
 # =========================
 # FUNCIONES AUXILIARES
@@ -57,6 +58,17 @@ def generate_manifest(base_dir):
         img_files = list_files_with_ext(tema_path, IMG_EXT)
         if img_files:
             tema_data["info"] = img_files
+
+        # ---- URLs desde manifest_url.json ----
+        url_manifest_path = os.path.join(tema_path, URL_MANIFEST)
+        if os.path.isfile(url_manifest_path):
+            try:
+                with open(url_manifest_path, "r", encoding="utf-8") as url_file:
+                    urls_data = json.load(url_file)
+                    if urls_data and isinstance(urls_data, list):
+                        tema_data["urls"] = urls_data
+            except (json.JSONDecodeError, IOError) as e:
+                print(f"Advertencia: Error leyendo {url_manifest_path}: {e}")
 
         # ---- Subcarpetas de slides ----
         slides = []
