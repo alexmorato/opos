@@ -1,0 +1,467 @@
+[
+  {
+    "guid": "d5f55bda-117c-42ce-99eb-fc635f49ea85",
+    "subjectId": "T42",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "¿Cuál es la relación jerárquica y técnica correcta entre Blockchain y las Tecnologías de Registro Distribuido (DLT)?",
+    "answerOptions": [
+      {
+        "text": "Blockchain es un subconjunto específico de DLT que organiza la información exclusivamente en bloques secuenciales enlazados criptográficamente.",
+        "rationale": "Blockchain se define como una implementación particular de DLT con una estructura de datos específica en cadena de bloques.",
+        "isCorrect": true
+      },
+      {
+        "text": "DLT es una evolución de la tecnología Blockchain diseñada para permitir la gestión centralizada de registros compartidos.",
+        "rationale": "La tecnología DLT, al igual que Blockchain, es inherentemente distribuida y no centralizada.",
+        "isCorrect": false
+      },
+      {
+        "text": "Blockchain y DLT son términos sinónimos que se refieren estrictamente a bases de datos con arquitectura de cliente-servidor distribuida.",
+        "rationale": "Blockchain es un tipo de DLT, pero no todas las DLT utilizan estructuras de bloques enlazados, y ambas difieren del modelo cliente-servidor.",
+        "isCorrect": false
+      },
+      {
+        "text": "Toda arquitectura DLT requiere por definición el uso de bloques y funciones hash para el enlace de datos históricos.",
+        "rationale": "Existen otras formas de DLT que no organizan la información en bloques secuenciales, como los Grafos Acíclicos Dirigidos ($DAG$).",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considere si una categoría es más amplia que la otra basándose en la estructura de los datos."
+  },
+  {
+    "guid": "bf67dc22-e85e-4e1d-99cb-f670e8e65564",
+    "subjectId": "T42",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "En la estructura de un bloque, ¿cuál es la función primordial del campo denominado 'Merkle Root'?",
+    "answerOptions": [
+      {
+        "text": "Actuar como un resumen hash de todas las transacciones incluidas en el cuerpo del bloque.",
+        "rationale": "El Merkle Root permite verificar de forma eficiente la integridad de las transacciones del bloque sin procesar cada una individualmente.",
+        "isCorrect": true
+      },
+      {
+        "text": "Servir como el identificador único del bloque para que el siguiente bloque pueda referenciarlo.",
+        "rationale": "Esa función la cumple el hash de la cabecera del bloque, no el Merkle Root por sí mismo.",
+        "isCorrect": false
+      },
+      {
+        "text": "Almacenar la firma digital del minero o validador que ha generado el bloque candidato.",
+        "rationale": "La autoría o validación se gestiona mediante protocolos de consenso y firmas en la estructura, pero el Merkle Root se centra en los datos de las transacciones.",
+        "isCorrect": false
+      },
+      {
+        "text": "Garantizar que el bloque sea compatible con versiones anteriores del protocolo mediante metadatos de versión.",
+        "rationale": "El Merkle Root es una estructura criptográfica de datos, no un campo de compatibilidad de versiones.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en una representación compacta que aglutine el contenido del 'Data' del bloque."
+  },
+  {
+    "guid": "76bfe769-dc2a-4774-8dcc-f3e0707fba66",
+    "subjectId": "T42",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "Dentro del mecanismo de consenso Proof of Work ($PoW$), ¿cómo se define técnicamente el papel del 'nonce'?",
+    "answerOptions": [
+      {
+        "text": "Es un número arbitrario que los mineros modifican iterativamente para obtener un hash de cabecera inferior a un umbral de dificultad.",
+        "rationale": "El nonce es la variable que permite cambiar el resultado del hash $SHA-256$ hasta cumplir con el requisito de dificultad de la red.",
+        "isCorrect": true
+      },
+      {
+        "text": "Es el valor que determina el número de transacciones máximas que pueden incluirse en un bloque determinado.",
+        "rationale": "El límite de transacciones suele estar definido por el tamaño del bloque o el límite de gas, no por el nonce.",
+        "isCorrect": false
+      },
+      {
+        "text": "Es un identificador único que impide que un nodo realice transacciones duplicadas dentro del mempool.",
+        "rationale": "Aunque el término 'nonce' se usa en otros contextos para evitar ataques de replicación, en el consenso $PoW$ su función es la resolución del puzle.",
+        "isCorrect": false
+      },
+      {
+        "text": "Es el marcador de tiempo ($timestamp$) que garantiza que los bloques se generen en intervalos de 10 minutos.",
+        "rationale": "El timestamp es un campo independiente en la cabecera del bloque; el nonce no controla el tiempo, sino la validez del hash.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Se trata del valor que los mineros buscan mediante 'prueba y error' intensivo."
+  },
+  {
+    "guid": "4deff7fd-bfd2-4683-b786-bcdfe565f052",
+    "subjectId": "T42",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "En el contexto de las bifurcaciones ($forks$) accidentales, ¿qué ocurre con los bloques que forman parte de la cadena más corta o con menos trabajo acumulado?",
+    "answerOptions": [
+      {
+        "text": "Se denominan bloques huérfanos u orfes y son descartados por la red al adoptarse la rama con mayor finalidad o trabajo.",
+        "rationale": "El protocolo de consenso resuelve conflictos de propagación seleccionando la cadena más larga y descartando los bloques de las ramas laterales.",
+        "isCorrect": true
+      },
+      {
+        "text": "Se integran automáticamente en la cadena principal mediante un proceso de fusión de estados ($merging$).",
+        "rationale": "Blockchain no suele permitir la fusión automática de bloques de distintas ramas; uno debe ser descartado para mantener la integridad lineal.",
+        "isCorrect": false
+      },
+      {
+        "text": "Quedan almacenados en un registro secundario para garantizar que ninguna transacción sea revertida jamás.",
+        "rationale": "Las transacciones de bloques orfes vuelven al mempool si no están en la cadena principal, pero el bloque en sí se descarta.",
+        "isCorrect": false
+      },
+      {
+        "text": "Provocan una parada total de la red hasta que una autoridad central decide qué rama es la válida.",
+        "rationale": "La resolución de forks es un proceso descentralizado basado en reglas de consenso, sin intervención de autoridades centrales.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en lo que sucede con las ramas de un árbol que no llegan a ser el tronco principal."
+  },
+  {
+    "guid": "eba53c43-7dbc-479f-ae06-00760f2ed03e",
+    "subjectId": "T42",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "¿Qué característica de las redes Peer-to-Peer ($P2P$) es fundamental para garantizar la resistencia a la censura en una Blockchain?",
+    "answerOptions": [
+      {
+        "text": "La ausencia de un servidor central, permitiendo que cada nodo actúe simultáneamente como cliente y servidor.",
+        "rationale": "Al no haber un punto central de fallo o control, ninguna entidad única puede detener o manipular la red de forma unilateral.",
+        "isCorrect": true
+      },
+      {
+        "text": "La capacidad de encriptar todas las comunicaciones mediante protocolos de capa de transporte exclusivamente privados.",
+        "rationale": "La resistencia a la censura proviene de la topología distribuida, no solo del cifrado de las comunicaciones entre pares.",
+        "isCorrect": false
+      },
+      {
+        "text": "El uso de algoritmos de enrutamiento que priorizan los nodos situados en jurisdicciones legales favorables.",
+        "rationale": "Las redes $P2P$ de blockchain son agnósticas a la ubicación geográfica y legal de los nodos por diseño.",
+        "isCorrect": false
+      },
+      {
+        "text": "La delegación de la validación en nodos 'maestros' que filtran el contenido malicioso antes de su difusión.",
+        "rationale": "En las blockchains públicas, la validación es descentralizada; un filtrado centralizado iría en contra del principio $P2P$ y de resistencia a la censura.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considere la simetría de roles entre los participantes de la red."
+  },
+  {
+    "guid": "69abdb15-b5fa-434a-a2ff-1ecbe58660fc",
+    "subjectId": "T42",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "En una blockchain de tipo Consorcio, ¿cómo se diferencia la gobernanza respecto a una blockchain privada pura?",
+    "answerOptions": [
+      {
+        "text": "La gobernanza es compartida por varias entidades preautorizadas, en lugar de estar bajo el control de una única organización.",
+        "rationale": "El consorcio es un modelo híbrido donde la confianza y el control se distribuyen entre un grupo seleccionado de instituciones.",
+        "isCorrect": true
+      },
+      {
+        "text": "Cualquier usuario puede unirse a la red para validar bloques, a diferencia de la privada donde se requiere permiso.",
+        "rationale": "Tanto las de consorcio como las privadas son 'permisionadas'; la diferencia radica en quién otorga ese permiso (una vs. varias entidades).",
+        "isCorrect": false
+      },
+      {
+        "text": "Las redes de consorcio utilizan obligatoriamente Proof of Work ($PoW$) para garantizar la independencia entre socios.",
+        "rationale": "Las redes de consorcio suelen evitar el $PoW$ por su ineficiencia, prefiriendo algoritmos como $PoA$ o variantes de $BFT$.",
+        "isCorrect": false
+      },
+      {
+        "text": "El registro es público para lectura, mientras que en las privadas el acceso a los datos es siempre restringido.",
+        "rationale": "La visibilidad (lectura) puede configurarse en ambos tipos; lo que define al consorcio es la gestión compartida de la validación (escritura).",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Fíjese en el número de organizaciones que ostentan el control del protocolo."
+  },
+  {
+    "guid": "e7473803-61a3-49a8-8aaf-7647d2bd5118",
+    "subjectId": "T42",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "¿Cuál es la principal ventaja del mecanismo Proof of Stake ($PoS$) implementado en redes como Ethereum desde 2022 en comparación con $PoW$?",
+    "answerOptions": [
+      {
+        "text": "Reduce drásticamente el consumo energético al eliminar la necesidad de realizar cálculos criptográficos intensivos para la seguridad.",
+        "rationale": "Al basar la seguridad en activos bloqueados y no en potencia de cómputo, $PoS$ es mucho más eficiente energéticamente.",
+        "isCorrect": true
+      },
+      {
+        "text": "Garantiza que todos los nodos de la red tengan exactamente la misma probabilidad de validar el siguiente bloque.",
+        "rationale": "En $PoS$, la selección del validador suele ser aleatoria pero ponderada por la cantidad de 'stake' o participación.",
+        "isCorrect": false
+      },
+      {
+        "text": "Elimina por completo el riesgo de ataques del $51\\%$, ya que no existe potencia de minería que acumular.",
+        "rationale": "El ataque del $51\\%$ sigue existiendo conceptualmente en $PoS$, pero requiere controlar la mayoría del valor económico bloqueado en lugar de hardware.",
+        "isCorrect": false
+      },
+      {
+        "text": "Permite que las transacciones sean procesadas de forma centralizada por nodos de alta capacidad para aumentar la velocidad.",
+        "rationale": "Aunque es más rápido, el objetivo de $PoS$ sigue siendo mantener la descentralización mediante validadores independientes.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en el impacto ambiental y el recurso que se 'quema' en cada sistema."
+  },
+  {
+    "guid": "ca18bdd9-f141-4671-b1f8-2b0e8c8a494c",
+    "subjectId": "T42",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "Bajo la norma UNE-EN ISO 22739:2022, ¿cuál es el objetivo principal de este estándar en el ecosistema Blockchain?",
+    "answerOptions": [
+      {
+        "text": "Establecer una terminología y vocabulario común para las tecnologías de cadena de bloques y registros distribuidos.",
+        "rationale": "Esta norma busca la interoperabilidad conceptual proporcionando definiciones estandarizadas para evitar ambigüedades técnicas.",
+        "isCorrect": true
+      },
+      {
+        "text": "Definir el algoritmo de cifrado obligatorio que deben implementar todas las blockchains gubernamentales.",
+        "rationale": "Las normas ISO de este tipo no suelen obligar a usar un algoritmo específico, sino que proporcionan marcos de referencia y definiciones.",
+        "isCorrect": false
+      },
+      {
+        "text": "Regular el mercado de criptoactivos y establecer las multas por incumplimiento en la protección de datos.",
+        "rationale": "Las normas ISO son estándares técnicos y de gestión, no leyes regulatorias o sancionadoras de mercados financieros.",
+        "isCorrect": false
+      },
+      {
+        "text": "Certificar que una red blockchain es $100\\%$ inexpugnable ante ataques de computación cuántica.",
+        "rationale": "Ningún estándar garantiza seguridad absoluta contra futuros paradigmas de computación; se centran en prácticas y términos actuales.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considere la necesidad de que todos los técnicos hablen 'el mismo idioma'."
+  },
+  {
+    "guid": "5a00afad-92ef-470e-8256-2ce6b4a5ac13",
+    "subjectId": "T42",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "En el acrónimo DEDITO para recordar las características de Blockchain, ¿qué implica específicamente la 'Immutabilidad'?",
+    "answerOptions": [
+      {
+        "text": "La imposibilidad práctica de modificar datos confirmados sin alterar todos los hashes de la cadena posterior.",
+        "rationale": "La inmutabilidad es 'práctica' porque reescribir la historia requeriría una capacidad computacional o económica inviable.",
+        "isCorrect": true
+      },
+      {
+        "text": "La capacidad legal de que un registro en blockchain sea aceptado como prueba irrefutable en cualquier juicio penal.",
+        "rationale": "La validez jurídica depende de la legislación de cada país, no es una propiedad técnica intrínseca de la estructura de datos.",
+        "isCorrect": false
+      },
+      {
+        "text": "El bloqueo permanente de las claves privadas de los usuarios para que sus fondos no puedan ser movidos nunca.",
+        "rationale": "La inmutabilidad se refiere al registro histórico, no al acceso a los activos o a la capacidad de realizar nuevas transacciones.",
+        "isCorrect": false
+      },
+      {
+        "text": "La prohibición de crear nuevas transacciones que rectifiquen errores cometidos en bloques anteriores.",
+        "rationale": "Los errores se corrigen mediante nuevas transacciones; lo que es inmutable es el historial de lo que ocurrió (incluyendo el error).",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en el efecto dominó que causaría cambiar un solo bit en un bloque antiguo."
+  },
+  {
+    "guid": "4731282d-fb88-4347-bd0b-aab38fd33e61",
+    "subjectId": "T42",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "¿En qué consiste el proceso de 'slashing' dentro de los mecanismos de consenso basados en Proof of Stake?",
+    "answerOptions": [
+      {
+        "text": "En la penalización económica de un validador mediante la pérdida de parte de sus activos bloqueados por actuar de forma maliciosa.",
+        "rationale": "El slashing incentiva el comportamiento honesto al poner en riesgo real el capital del validador si intenta subvertir la red.",
+        "isCorrect": true
+      },
+      {
+        "text": "En el proceso de dividir un bloque en fragmentos más pequeños para mejorar la escalabilidad de la red.",
+        "rationale": "Ese concepto se denomina 'sharding', no slashing.",
+        "isCorrect": false
+      },
+      {
+        "text": "En la desconexión temporal de nodos que no tienen suficiente ancho de banda para sincronizar el registro.",
+        "rationale": "Aunque los nodos lentos pueden ser penalizados indirectamente, el slashing es una medida de seguridad criptoeconómica por mala conducta.",
+        "isCorrect": false
+      },
+      {
+        "text": "En la reducción automática de la dificultad del puzle criptográfico cuando baja la participación en la red.",
+        "rationale": "El ajuste de dificultad es propio de $PoW$, no de los mecanismos de penalización de $PoS$.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Relaciónelo con un castigo directo sobre el 'stake' aportado."
+  },
+  {
+    "guid": "474052c1-5506-4594-b348-8b97a23a649e",
+    "subjectId": "T42",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "El proyecto IdentiCAT, impulsado en Cataluña, se basa en el modelo de Identidad Autosobirana ($SSI$). ¿Cuál es la premisa básica de este modelo?",
+    "answerOptions": [
+      {
+        "text": "Que el ciudadano tiene el control total sobre sus datos de identidad y decide qué información comparte y con quién, sin intermediarios centrales.",
+        "rationale": "El modelo $SSI$ busca devolver la soberanía de los datos personales al individuo mediante el uso de tecnologías descentralizadas.",
+        "isCorrect": true
+      },
+      {
+        "text": "Que la Administración Pública centraliza todos los atributos de identidad en una blockchain privada inaccesible para el ciudadano.",
+        "rationale": "El objetivo de IdentiCAT es precisamente lo contrario: evitar la centralización y empoderar al ciudadano.",
+        "isCorrect": false
+      },
+      {
+        "text": "Que la identidad digital se genera automáticamente mediante el escaneo de datos biométricos almacenados en servidores internacionales.",
+        "rationale": "Aunque puede usar biometría para acceso local, el modelo se centra en la gestión descentralizada de credenciales verificables.",
+        "isCorrect": false
+      },
+      {
+        "text": "Que los proveedores de servicios de internet son los encargados de validar la veracidad de los atributos de identidad de cada usuario.",
+        "rationale": "En el modelo autosobirano, la validación suele recaer en entidades emisoras de confianza (como gobiernos), pero el control lo tiene el usuario.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en quién es el 'soberano' de los datos personales en este esquema."
+  },
+  {
+    "guid": "552e0a8f-4304-4036-8fba-410a4df67deb",
+    "subjectId": "T42",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "¿Cuál es el caso de uso pionero de Barcelona Activa respecto a la tecnología Blockchain en el sector público catalán?",
+    "answerOptions": [
+      {
+        "text": "La validación segura y transparente de competencias y certificados académicos de sus usuarios para evitar fraudes en currículums.",
+        "rationale": "Barcelona Activa utiliza blockchain para que las empresas verifiquen la autenticidad de las formaciones emitidas de forma inmediata.",
+        "isCorrect": true
+      },
+      {
+        "text": "El pago de prestaciones de desempleo mediante una criptomoneda local de uso obligatorio en comercios de la ciudad.",
+        "rationale": "El proyecto se centra en la acreditación de formación y competencias, no en sistemas de pagos o criptomonedas.",
+        "isCorrect": false
+      },
+      {
+        "text": "La creación de un registro de propiedad inmobiliaria descentralizado para gestionar el alquiler social.",
+        "rationale": "Aunque es un uso posible de blockchain, no es el proyecto específico liderado por Barcelona Activa mencionado en la documentación.",
+        "isCorrect": false
+      },
+      {
+        "text": "El control de presencia de los empleados públicos mediante la notarización de accesos en una red de consorcio.",
+        "rationale": "El uso destacado es la gestión de certificaciones académicas para mejorar la empleabilidad de sus usuarios.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en cómo un empleador puede estar seguro de que un título de formación es real."
+  },
+  {
+    "guid": "e29e6222-542b-4416-889a-4904922cd0ad",
+    "subjectId": "T42",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "¿Qué diferencia técnica fundamental existe entre un Smart Contract y un contrato tradicional escrito en lenguaje natural?",
+    "answerOptions": [
+      {
+        "text": "El Smart Contract es un programa informático autoejecutable que se activa automáticamente cuando se cumplen las condiciones programadas.",
+        "rationale": "La clave del smart contract es su capacidad de ejecución autónoma sin necesidad de interpretación humana o intermediarios.",
+        "isCorrect": true
+      },
+      {
+        "text": "El Smart Contract requiere siempre la firma física de un notario antes de ser subido a la red blockchain.",
+        "rationale": "Los smart contracts eliminan o reducen la necesidad de intermediarios tradicionales como los notarios en su ejecución técnica.",
+        "isCorrect": false
+      },
+      {
+        "text": "El Smart Contract puede ser modificado por las partes en cualquier momento tras su despliegue para adaptarse a nuevas leyes.",
+        "rationale": "Por diseño, el código desplegado en blockchain es inmutable; si se requiere un cambio, suele implicar el despliegue de un nuevo contrato.",
+        "isCorrect": false
+      },
+      {
+        "text": "El Smart Contract solo puede gestionar activos financieros y no tiene capacidad para interactuar con datos externos.",
+        "rationale": "A través de 'oráculos', los smart contracts pueden recibir datos del mundo exterior (como el clima o resultados deportivos) para ejecutarse.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Enfoque su respuesta en la automatización y la eliminación de la subjetividad humana."
+  },
+  {
+    "guid": "7c3260a2-8e3b-4f25-8b5a-fbe74f097759",
+    "subjectId": "T42",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "En el ámbito de la trazabilidad logística, ¿qué problema resuelve principalmente la integración de Blockchain?",
+    "answerOptions": [
+      {
+        "text": "La fragmentación de la información entre distintos actores de la cadena, proporcionando un registro único y veraz compartido.",
+        "rationale": "Blockchain permite que fabricantes, transportistas y reguladores vean la misma historia del producto sin silos de información.",
+        "isCorrect": true
+      },
+      {
+        "text": "La necesidad de utilizar sistemas $GPS$ para el seguimiento de mercancías en tiempo real.",
+        "rationale": "El $GPS$ es una tecnología complementaria de hardware; Blockchain gestiona el registro de los datos, no la captación de la ubicación.",
+        "isCorrect": false
+      },
+      {
+        "text": "La reducción de los costes de combustible mediante la optimización algorítmica de rutas de entrega.",
+        "rationale": "La optimización de rutas es un problema de investigación operativa e Inteligencia Artificial, no una función directa de Blockchain.",
+        "isCorrect": false
+      },
+      {
+        "text": "La eliminación de los aranceles aduaneros en el comercio internacional mediante contratos inteligentes.",
+        "rationale": "Blockchain puede agilizar la burocracia aduanera, pero no tiene potestad para eliminar impuestos o aranceles legales.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en la 'visibilidad' del producto desde que sale de la fábrica hasta que llega al cliente."
+  },
+  {
+    "guid": "15ac33e9-4720-4624-97f4-76ba3ea60dc1",
+    "subjectId": "T42",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "¿Qué se entiende por 'finalidad' ($finality$) en el contexto de los algoritmos de consenso $BFT$ utilizados en blockchains privadas?",
+    "answerOptions": [
+      {
+        "text": "La garantía de que una transacción, una vez incluida en un bloque, no puede ser revertida ni cancelada nunca.",
+        "rationale": "Los algoritmos $BFT$ suelen ofrecer finalidad inmediata, a diferencia del consenso probabilístico de Bitcoin.",
+        "isCorrect": true
+      },
+      {
+        "text": "El propósito social o económico para el cual fue creada la red blockchain (ej. sostenibilidad).",
+        "rationale": "En términos técnicos de consenso, la finalidad no se refiere a objetivos éticos, sino a la irrevocabilidad de los datos.",
+        "isCorrect": false
+      },
+      {
+        "text": "El momento en que un minero decide apagar su equipo tras haber minado un bloque con éxito.",
+        "rationale": "Este término no tiene relación con el cese de actividad de los nodos, sino con el estado de las transacciones.",
+        "isCorrect": false
+      },
+      {
+        "text": "La fecha de caducidad de un bloque tras la cual sus datos dejan de ser válidos y se borran de la red.",
+        "rationale": "Blockchain se basa en registros permanentes e inmutables, no existen fechas de caducidad intrínsecas para los bloques.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considere la diferencia entre un acuerdo que es 'probablemente' seguro y uno que es 'absolutamente' definitivo."
+  }
+]
