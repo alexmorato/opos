@@ -1,0 +1,808 @@
+[
+  {
+    "guid": "d423c68c-100d-40cf-8e9a-c681239d5e74",
+    "subjectId": "T63",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Qué capas del modelo $OSI$ se consolidan en la capa de Aplicación del modelo $TCP/IP$?",
+    "answerOptions": [
+      {
+        "text": "Aplicación, Presentación y Sesión",
+        "rationale": "El modelo $TCP/IP$ simplifica las tres capas superiores del modelo $OSI$ en una única capa funcional para facilitar el desarrollo de servicios de usuario.",
+        "isCorrect": true
+      },
+      {
+        "text": "Sesión, Transporte y Red",
+        "rationale": "La capa de Transporte y la de Red mantienen sus propias funciones específicas en ambos modelos debido a su importancia crítica en el flujo de datos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Presentación, Sesión y Transporte",
+        "rationale": "Aunque el modelo $TCP/IP$ es una simplificación, la capa de Transporte es fundamental y se mantiene separada de la capa de Aplicación.",
+        "isCorrect": false
+      },
+      {
+        "text": "Aplicación, Presentación y Transporte",
+        "rationale": "La capa de Transporte se encarga de la comunicación extremo a extremo y no se agrupa con las capas de tratamiento de datos de usuario.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Recuerde que el modelo $TCP/IP$ tiene solo $4$ capas frente a las $7$ del modelo $OSI$."
+  },
+  {
+    "guid": "577b0f46-8de4-4004-9ef7-f40659fd8c6d",
+    "subjectId": "T63",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Dentro del protocolo $IP$, ¿cuál es la función del campo $TTL$ ($Time\\ To\\ Live$)?",
+    "answerOptions": [
+      {
+        "text": "Evitar bucles infinitos en la red descartando el paquete tras un número de saltos",
+        "rationale": "El $TTL$ es un contador que se decrementa en cada router; si llega a $0$, el paquete se descarta para no congestionar la red.",
+        "isCorrect": true
+      },
+      {
+        "text": "Medir la latencia total del paquete desde el origen al destino",
+        "rationale": "Aunque está relacionado con el tiempo, su función no es cronometrar la duración del viaje sino limitar la persistencia del paquete.",
+        "isCorrect": false
+      },
+      {
+        "text": "Indicar la prioridad del tráfico para la gestión de $QoS$",
+        "rationale": "La prioridad se gestiona habitualmente en otros campos como el $ToS$ ($Type\\ of\\ Service$) o $DSCP$, no en el $TTL$.",
+        "isCorrect": false
+      },
+      {
+        "text": "Garantizar que el paquete llegue en el orden correcto",
+        "rationale": "El orden de los paquetes es una responsabilidad de la capa de Transporte, específicamente de $TCP$, no del protocolo $IP$.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en qué sucedería con un paquete que no encuentra su destino si no tuviera una fecha de caducidad."
+  },
+  {
+    "guid": "e83e84d0-e1c3-433f-8fd3-f42a5926f2a4",
+    "subjectId": "T63",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Cuál es la longitud exacta de una dirección $IPv4$ y cómo se representa habitualmente?",
+    "answerOptions": [
+      {
+        "text": "$32$ bits representados en cuatro octetos decimales",
+        "rationale": "Una dirección $IPv4$ consta de $4$ bytes ($32$ bits), lo que permite un máximo teórico de aproximadamente $4.3$ mil millones de direcciones.",
+        "isCorrect": true
+      },
+      {
+        "text": "$48$ bits representados en formato hexadecimal",
+        "rationale": "Esta estructura corresponde habitualmente a las direcciones físicas $MAC$, no a las direcciones lógicas $IP$.",
+        "isCorrect": false
+      },
+      {
+        "text": "$128$ bits representados en ocho grupos hexadecimales",
+        "rationale": "Este formato es el estándar para $IPv6$, diseñado para superar la limitación de espacio de $IPv4$.",
+        "isCorrect": false
+      },
+      {
+        "text": "$64$ bits representados en dos grupos de $32$",
+        "rationale": "No existe una versión estándar de $IP$ que utilice exactamente $64$ bits para el direccionamiento de host y red de esta forma.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considere la estructura de una dirección común como $192.168.1.1$."
+  },
+  {
+    "guid": "ec355903-999e-4ba6-aa81-cb76f7ae1816",
+    "subjectId": "T63",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "En el direccionamiento por clases, ¿cuál es el rango inicial de la Clase $B$?",
+    "answerOptions": [
+      {
+        "text": "$128.0.0.0$ a $191.255.255.255$",
+        "rationale": "La Clase $B$ está destinada a redes de tamaño medio y se identifica porque su primer octeto comienza con los bits $10$ en binario.",
+        "isCorrect": true
+      },
+      {
+        "text": "$1.0.0.0$ a $126.255.255.255$",
+        "rationale": "Este rango pertenece a la Clase $A$, utilizada para organizaciones con un volumen masivo de dispositivos.",
+        "isCorrect": false
+      },
+      {
+        "text": "$192.0.0.0$ a $223.255.255.255$",
+        "rationale": "Este rango corresponde a la Clase $C$, que es la más común para redes de área local pequeñas.",
+        "isCorrect": false
+      },
+      {
+        "text": "$224.0.0.0$ a $239.255.255.255$",
+        "rationale": "Este bloque está reservado específicamente para tráfico $Multicast$, no para asignación estándar de hosts.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "La Clase $B$ se encuentra justo después del rango reservado para $Loopback$ y la Clase $A$."
+  },
+  {
+    "guid": "f2191df2-98f3-4057-9166-de36dfe37347",
+    "subjectId": "T63",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Qué rango de direcciones $IPv4$ privadas corresponde a la Clase $B$ según la normativa de redes?",
+    "answerOptions": [
+      {
+        "text": "$172.16.0.0$ a $172.31.255.255$",
+        "rationale": "Este rango, equivalente a una máscara $/12$, está reservado para uso interno en redes de tamaño medio.",
+        "isCorrect": true
+      },
+      {
+        "text": "$10.0.0.0$ a $10.255.255.255$",
+        "rationale": "Este es el rango privado de Clase $A$, utilizado habitualmente en grandes corporaciones para redes internas extensas.",
+        "isCorrect": false
+      },
+      {
+        "text": "$192.168.0.0$ a $192.168.255.255$",
+        "rationale": "Este rango pertenece a la Clase $C$ privada, el estándar más utilizado en entornos domésticos y pequeñas oficinas.",
+        "isCorrect": false
+      },
+      {
+        "text": "$169.254.0.0$ a $169.254.255.255$",
+        "rationale": "Este rango se utiliza para $APIPA$ ($Automatic\\ Private\\ IP\\ Addressing$) cuando un servidor $DHCP$ no está disponible.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Este rango utiliza una máscara de subred flexible que abarca $16$ redes consecutivas."
+  },
+  {
+    "guid": "fb8f39b5-c6c7-48ce-b557-725c3ef60213",
+    "subjectId": "T63",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Cuál es la función del protocolo $ARP$ ($Address\\ Resolution\\ Protocol$) en una red local?",
+    "answerOptions": [
+      {
+        "text": "Traducir una dirección $IP$ lógica en una dirección $MAC$ física",
+        "rationale": "Antes de enviar un paquete por el medio físico, el dispositivo necesita conocer la dirección física de la tarjeta de red del destino.",
+        "isCorrect": true
+      },
+      {
+        "text": "Asignar automáticamente configuraciones de red a nuevos dispositivos",
+        "rationale": "La asignación automática de parámetros como $IP$ y máscara es responsabilidad de $DHCP$, no de $ARP$.",
+        "isCorrect": false
+      },
+      {
+        "text": "Resolver nombres de dominio amigables en direcciones $IP$ numéricas",
+        "rationale": "La resolución de nombres como 'www.google.com' a una dirección $IP$ la realiza el sistema $DNS$.",
+        "isCorrect": false
+      },
+      {
+        "text": "Gestionar los mensajes de error y diagnóstico de la red",
+        "rationale": "El control y reporte de errores de red es la función principal de $ICMP$.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Actúa como un puente entre la capa de Internet y la capa de Acceso a la Red."
+  },
+  {
+    "guid": "fad617f1-af5a-4667-b82a-d75af414cf63",
+    "subjectId": "T63",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Sobre los protocolos de transporte, ¿cuál es la principal diferencia entre $TCP$ y $UDP$?",
+    "answerOptions": [
+      {
+        "text": "$TCP$ es orientado a conexión y garantiza la entrega, mientras que $UDP$ no",
+        "rationale": "$TCP$ utiliza mecanismos de confirmación ($ACK$) y retransmisión para asegurar la integridad, mientras que $UDP$ prioriza la velocidad.",
+        "isCorrect": true
+      },
+      {
+        "text": "$UDP$ es más lento porque verifica cada paquete enviado",
+        "rationale": "En realidad, $UDP$ es más rápido precisamente porque no realiza verificaciones ni establece sesiones previas.",
+        "isCorrect": false
+      },
+      {
+        "text": "$TCP$ solo funciona en redes locales y $UDP$ en Internet",
+        "rationale": "Ambos protocolos son fundamentales en la arquitectura global de Internet y se utilizan según las necesidades de la aplicación.",
+        "isCorrect": false
+      },
+      {
+        "text": "$TCP$ utiliza etiquetas para el encaminamiento y $UDP$ utiliza direcciones $IP$",
+        "rationale": "Ambos protocolos operan sobre el nivel de red ($IP$) y utilizan puertos; las etiquetas son características de $MPLS$.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en qué protocolo preferiría para una transferencia de archivos bancarios versus una videollamada."
+  },
+  {
+    "guid": "709b1818-a317-4b91-bb9a-55d2b68a33b4",
+    "subjectId": "T63",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "En una red $MPLS$, ¿qué función desempeña el $Label\\ Switch\\ Router$ ($LSR$)?",
+    "answerOptions": [
+      {
+        "text": "Conmutar los paquetes basándose únicamente en la etiqueta $MPLS$ entrante",
+        "rationale": "Los $LSR$ son routers internos que no analizan la cabecera $IP$, lo que acelera significativamente el proceso de reenvío.",
+        "isCorrect": true
+      },
+      {
+        "text": "Asignar la etiqueta inicial al paquete cuando entra en la red",
+        "rationale": "La imposición de la etiqueta inicial (operación 'push') es responsabilidad del $LER$ de entrada.",
+        "isCorrect": false
+      },
+      {
+        "text": "Eliminar la etiqueta antes de entregar el paquete al destino final",
+        "rationale": "La eliminación de la etiqueta (operación 'pop') la realiza el $LER$ de salida para restaurar el paquete $IP$ original.",
+        "isCorrect": false
+      },
+      {
+        "text": "Traducir las direcciones $MAC$ en etiquetas de transporte",
+        "rationale": "$MPLS$ trabaja entre la capa $2$ y $3$, pero no sustituye al protocolo $ARP$ para la resolución de direcciones físicas.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Se ubican en el núcleo o 'core' de la red del proveedor."
+  },
+  {
+    "guid": "9e9b844d-1dc8-40e2-b069-19c0f8fdab88",
+    "subjectId": "T63",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Qué representa la notación $/24$ en una dirección $IP$ como $192.168.1.0/24$?",
+    "answerOptions": [
+      {
+        "text": "Que los primeros $24$ bits de la dirección identifican la red",
+        "rationale": "Esta notación $CIDR$ indica que la máscara de subred es $255.255.255.0$, dejando $8$ bits para identificar hosts.",
+        "isCorrect": true
+      },
+      {
+        "text": "Que la red puede albergar un máximo de $24$ dispositivos",
+        "rationale": "El número $/24$ no indica el número de hosts, sino los bits de red; una red $/24$ permite hasta $254$ hosts configurables.",
+        "isCorrect": false
+      },
+      {
+        "text": "Que el paquete realizará un máximo de $24$ saltos antes de morir",
+        "rationale": "El límite de saltos se define en el campo $TTL$ del paquete $IP$, no en la máscara de subred.",
+        "isCorrect": false
+      },
+      {
+        "text": "Que la dirección $IP$ es de Clase $A$ modificada",
+        "rationale": "La máscara $/24$ es la máscara por defecto de una red de Clase $C$, no de Clase $A$ (que usa $/8$).",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Es una forma abreviada de escribir la máscara de subred."
+  },
+  {
+    "guid": "5a628353-70ee-4acc-bd2d-1d83113b5d53",
+    "subjectId": "T63",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Cuál es la finalidad de la $FEC$ ($Forwarding\\ Equivalence\\ Class$) en el contexto de $MPLS$?",
+    "answerOptions": [
+      {
+        "text": "Agrupar paquetes que deben recibir el mismo tratamiento y seguir la misma ruta",
+        "rationale": "Al asignar paquetes a una $FEC$, el router puede aplicar la misma etiqueta a todo un flujo de tráfico con características similares.",
+        "isCorrect": true
+      },
+      {
+        "text": "Cifrar el tráfico para crear túneles $VPN$ seguros",
+        "rationale": "$MPLS$ permite crear $VPNs$ mediante aislamiento de etiquetas, pero por sí solo no proporciona cifrado de datos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Detectar errores en la cabecera de los paquetes $IP$",
+        "rationale": "La detección de errores de cabecera es una función del $Checksum$ en el protocolo $IP$, no de la $FEC$.",
+        "isCorrect": false
+      },
+      {
+        "text": "Limitar el ancho de banda de los usuarios no autorizados",
+        "rationale": "Aunque ayuda en la $QoS$, su función primaria es la clasificación lógica del tráfico para el etiquetado eficiente.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Permite que diferentes flujos con el mismo destino y requisitos de servicio se manejen de forma idéntica."
+  },
+  {
+    "guid": "88f7eee9-dbd4-40d7-8c88-dc804312c635",
+    "subjectId": "T63",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Si ejecutamos el comando $ping$ $8.8.8.8$, ¿qué protocolo estamos utilizando principalmente?",
+    "answerOptions": [
+      {
+        "text": "$ICMP$ ($Internet\\ Control\\ Message\\ Protocol$)",
+        "rationale": "$Ping$ utiliza los mensajes 'Echo Request' y 'Echo Reply' de $ICMP$ para verificar la conectividad a nivel de red.",
+        "isCorrect": true
+      },
+      {
+        "text": "$TCP$ a través del puerto $80$",
+        "rationale": "$Ping$ no establece una conexión $TCP$ ni utiliza puertos; opera directamente sobre $IP$ mediante mensajes de control.",
+        "isCorrect": false
+      },
+      {
+        "text": "$UDP$ para una respuesta más rápida",
+        "rationale": "Aunque existen variantes de diagnóstico que usan $UDP$, el comando $ping$ estándar se basa estrictamente en $ICMP$.",
+        "isCorrect": false
+      },
+      {
+        "text": "$DNS$ para resolver la dirección numérica",
+        "rationale": "Como ya estamos proporcionando una dirección $IP$ ($8.8.8.8$), no es necesaria la intervención de $DNS$.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Este protocolo se encarga del reporte de errores y mensajes de control en la capa de Internet."
+  },
+  {
+    "guid": "4751f136-c3ac-4716-8f8d-c9f34fe34cd5",
+    "subjectId": "T63",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Qué ventaja principal aporta $MPLS$ sobre el enrutamiento $IP$ tradicional basándose en el análisis de paquetes?",
+    "answerOptions": [
+      {
+        "text": "Permite realizar conmutación basada en etiquetas fijas en lugar de búsquedas complejas en tablas de rutas $IP$",
+        "rationale": "Mirar una etiqueta de longitud fija es computacionalmente más sencillo y rápido que realizar una búsqueda de 'coincidencia de prefijo más largo' en una tabla $IP$.",
+        "isCorrect": true
+      },
+      {
+        "text": "Garantiza que ningún paquete se pierda mediante retransmisiones automáticas",
+        "rationale": "$MPLS$ es una técnica de transporte; la fiabilidad de la entrega sigue dependiendo de protocolos de nivel superior como $TCP$.",
+        "isCorrect": false
+      },
+      {
+        "text": "Sustituye completamente la necesidad de tener direcciones $IPv4$",
+        "rationale": "$MPLS$ no sustituye a $IP$; se apoya en él para construir sus tablas de etiquetas y transportar los paquetes.",
+        "isCorrect": false
+      },
+      {
+        "text": "Reduce el tamaño físico de los paquetes al eliminar las cabeceras $IP$",
+        "rationale": "En realidad, $MPLS$ añade una pequeña cabecera (etiqueta) al paquete original, aumentando ligeramente su tamaño.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considere la diferencia de rendimiento entre buscar un índice numérico simple frente a una dirección de red variable."
+  },
+  {
+    "guid": "e1450990-b870-4af9-88d4-c64fb6e7456c",
+    "subjectId": "T63",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "En el contexto de la Ingeniería de Tráfico ($Traffic\\ Engineering$), ¿qué permite hacer $MPLS$ que el enrutamiento $IP$ estándar no facilita?",
+    "answerOptions": [
+      {
+        "text": "Definir rutas específicas ($LSPs$) que no coinciden necesariamente con el camino más corto calculado por el $IGP$",
+        "rationale": "Esto permite evitar la congestión en enlaces principales redirigiendo parte del tráfico por rutas alternativas predefinidas.",
+        "isCorrect": true
+      },
+      {
+        "text": "Bloquear automáticamente todo el tráfico proveniente de direcciones $IP$ maliciosas",
+        "rationale": "El filtrado de seguridad es función de los firewalls o listas de control de acceso ($ACLs$), no específicamente de la ingeniería de tráfico de $MPLS$.",
+        "isCorrect": false
+      },
+      {
+        "text": "Aumentar la velocidad de los cables de fibra óptica mediante software",
+        "rationale": "La velocidad del medio físico está limitada por el hardware; $MPLS$ solo optimiza cómo se utiliza ese ancho de banda disponible.",
+        "isCorrect": false
+      },
+      {
+        "text": "Eliminar la necesidad de utilizar protocolos de enrutamiento como $OSPF$ o $BGP$",
+        "rationale": "$MPLS$ necesita que los protocolos de enrutamiento existan para conocer la topología de la red y generar sus etiquetas.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en la capacidad de forzar al tráfico a tomar una carretera secundaria aunque la autopista parezca más corta."
+  },
+  {
+    "guid": "ab91dcae-7a6f-413e-8dc7-012b1bc4e18a",
+    "subjectId": "T63",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Qué ocurre cuando un paquete $IP$ es más grande que la $MTU$ ($Maximum\\ Transmission\\ Unit$) de un enlace intermedio?",
+    "answerOptions": [
+      {
+        "text": "El router debe fragmentar el paquete en trozos más pequeños o descartarlo si tiene el bit $DF$ activo",
+        "rationale": "La fragmentación $IP$ permite que los datos atraviesen redes con diferentes capacidades de carga, aunque penaliza el rendimiento.",
+        "isCorrect": true
+      },
+      {
+        "text": "El protocolo $TCP$ aumenta automáticamente la capacidad del cable",
+        "rationale": "$TCP$ puede ajustar el tamaño de sus segmentos, pero no tiene capacidad para modificar las propiedades físicas de los enlaces.",
+        "isCorrect": false
+      },
+      {
+        "text": "El paquete se comprime utilizando algoritmos de la capa de Presentación",
+        "rationale": "La fragmentación no es compresión; los datos simplemente se dividen en varios datagramas independientes.",
+        "isCorrect": false
+      },
+      {
+        "text": "Se envía una etiqueta $MPLS$ especial para ignorar el límite de tamaño",
+        "rationale": "Los límites físicos de la trama ($MTU$) son infranqueables; $MPLS$ también debe respetar estas restricciones de tamaño.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Es un proceso que puede ocurrir en la capa de Internet para asegurar la entrega."
+  },
+  {
+    "guid": "f93aa417-f782-4481-8de1-dca5c25b5c04",
+    "subjectId": "T63",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Cuál es la función del protocolo $DHCP$ ($Dynamic\\ Host\\ Configuration\\ Protocol$)?",
+    "answerOptions": [
+      {
+        "text": "Automatizar la asignación de direcciones $IP$ y otros parámetros a los clientes de la red",
+        "rationale": "Permite que los administradores gestionen centralizadamente el direccionamiento sin tener que configurar cada equipo manualmente.",
+        "isCorrect": true
+      },
+      {
+        "text": "Monitorizar el estado de los routers y enviar alertas de fallo",
+        "rationale": "La monitorización de dispositivos suele realizarse mediante $SNMP$, no mediante $DHCP$.",
+        "isCorrect": false
+      },
+      {
+        "text": "Establecer túneles seguros para el teletrabajo",
+        "rationale": "Los túneles seguros son creados por protocolos como $IPsec$ u $OpenVPN$.",
+        "isCorrect": false
+      },
+      {
+        "text": "Sincronizar la hora de todos los servidores de la organización",
+        "rationale": "La sincronización horaria es la función específica del protocolo $NTP$ ($Network\\ Time\\ Protocol$).",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Es el servicio que nos permite conectarnos a un $Wi-Fi$ y tener internet al instante sin configurar nada."
+  },
+  {
+    "guid": "cab98135-5904-46cc-bea9-19322921a2ff",
+    "subjectId": "T63",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Sobre las direcciones de $Loopback$, ¿qué afirmación es correcta?",
+    "answerOptions": [
+      {
+        "text": "Se utilizan para probar la propia pila de protocolos del equipo local",
+        "rationale": "La dirección estándar $127.0.0.1$ permite que un dispositivo se comunique consigo mismo sin enviar datos al exterior.",
+        "isCorrect": true
+      },
+      {
+        "text": "Son direcciones públicas asignadas por el $IANA$ a servidores críticos",
+        "rationale": "Las direcciones $127.x.x.x$ están estrictamente reservadas para uso local y nunca se ven en la internet pública.",
+        "isCorrect": false
+      },
+      {
+        "text": "Sirven para identificar de forma unívoca a los routers de una red $MPLS$",
+        "rationale": "Aunque los routers suelen tener una interfaz 'loopback' para gestión, el concepto general se refiere a la dirección de autodiagnóstico.",
+        "isCorrect": false
+      },
+      {
+        "text": "Se utilizan para enviar el mismo paquete a todos los equipos de la red",
+        "rationale": "El envío a todos los equipos se denomina $Broadcast$ y utiliza típicamente la dirección final de la subred o $255.255.255.255$.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Cualquier dirección que comience por el octeto $127$ se comporta de esta manera."
+  },
+  {
+    "guid": "0d2dfa7b-7ef7-478f-8424-e61ab63cea4c",
+    "subjectId": "T63",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Qué componente de la red $MPLS$ se encarga de realizar la operación 'Pop' (quitar) de la etiqueta?",
+    "answerOptions": [
+      {
+        "text": "$LER$ ($Label\\ Edge\\ Router$) de salida",
+        "rationale": "El $LER$ de salida recibe el paquete etiquetado, elimina la etiqueta $MPLS$ y reenvía el paquete $IP$ puro hacia su destino final.",
+        "isCorrect": true
+      },
+      {
+        "text": "$LER$ de entrada",
+        "rationale": "El $LER$ de entrada realiza la operación opuesta, denominada 'Push', que consiste en añadir la etiqueta al paquete $IP$ entrante.",
+        "isCorrect": false
+      },
+      {
+        "text": "Cualquier $LSR$ intermedio",
+        "rationale": "Los $LSR$ suelen realizar la operación 'Swap', que consiste en intercambiar una etiqueta por otra para seguir el camino hacia el siguiente salto.",
+        "isCorrect": false
+      },
+      {
+        "text": "El switch de acceso del usuario final",
+        "rationale": "El usuario final normalmente no tiene conocimiento de la red $MPLS$; el proceso de etiquetado es transparente para él.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Es el router que marca el límite donde termina la red de conmutación de etiquetas."
+  },
+  {
+    "guid": "5dfd5195-e9d8-497a-b207-0750efdee13e",
+    "subjectId": "T63",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "En el modelo $TCP/IP$, ¿qué protocolo se encarga de la resolución de nombres?",
+    "answerOptions": [
+      {
+        "text": "$DNS$ ($Domain\\ Name\\ System$)",
+        "rationale": "El $DNS$ es una base de datos distribuida que traduce nombres jerárquicos en direcciones $IP$ necesarias para el enrutamiento.",
+        "isCorrect": true
+      },
+      {
+        "text": "$HTTP$",
+        "rationale": "$HTTP$ es un protocolo para la transferencia de hipertexto (páginas web), no para la resolución de nombres de red.",
+        "isCorrect": false
+      },
+      {
+        "text": "$FTP$",
+        "rationale": "$FTP$ se utiliza exclusivamente para la transferencia de archivos entre equipos.",
+        "isCorrect": false
+      },
+      {
+        "text": "$ARP$",
+        "rationale": "Como se mencionó antes, $ARP$ resuelve $IP$ a $MAC$, que es un nivel inferior a la resolución de nombres de dominio.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Es el protocolo que permite que no tengamos que memorizar la $IP$ de cada sitio web que visitamos."
+  },
+  {
+    "guid": "194a843b-49a4-4228-8d13-bf5c564ddcc8",
+    "subjectId": "T63",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Cuál es la función del mecanismo de Ventana Deslizante en el protocolo $TCP$?",
+    "answerOptions": [
+      {
+        "text": "Controlar el flujo de datos para evitar saturar al receptor",
+        "rationale": "Permite que el emisor envíe múltiples paquetes antes de recibir una confirmación, ajustando la velocidad según la capacidad del receptor.",
+        "isCorrect": true
+      },
+      {
+        "text": "Permitir que el usuario abra varias pestañas en el navegador",
+        "rationale": "La gestión de múltiples sesiones web es una función del navegador y del protocolo $HTTP$, no de la ventana deslizante de $TCP$.",
+        "isCorrect": false
+      },
+      {
+        "text": "Cambiar la dirección $IP$ de origen durante la transmisión",
+        "rationale": "Cambiar la dirección $IP$ en medio de una sesión $TCP$ rompería la conexión, ya que la sesión se identifica por la tupla de $IPs$ y puertos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Dividir el ancho de banda entre $MPLS$ e $IP$ puro",
+        "rationale": "La ventana deslizante es un concepto de nivel de transporte y es independiente de si el transporte subyacente usa $MPLS$ o no.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Es fundamental para la eficiencia en redes con latencia pero gran ancho de banda."
+  },
+  {
+    "guid": "fffd7d8e-979f-410f-b012-1d0343373bc4",
+    "subjectId": "T63",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "En la jerarquía de $QoS$ de una red corporativa, ¿cuál suele ser el tráfico con mayor prioridad?",
+    "answerOptions": [
+      {
+        "text": "Tráfico de voz sobre $IP$ ($VoIP$)",
+        "rationale": "La voz es extremadamente sensible al retardo ($delay$) y al $jitter$, por lo que requiere máxima prioridad para ser inteligible.",
+        "isCorrect": true
+      },
+      {
+        "text": "Descargas de archivos por $FTP$",
+        "rationale": "Las transferencias de archivos pueden tolerar retrasos y variaciones en la velocidad sin que el resultado final se vea afectado.",
+        "isCorrect": false
+      },
+      {
+        "text": "Navegación web general ($HTTP$)",
+        "rationale": "Aunque es importante para el usuario, el tráfico web es asíncrono y mucho menos sensible al retardo que las comunicaciones en tiempo real.",
+        "isCorrect": false
+      },
+      {
+        "text": "Actualizaciones de sistema en segundo plano",
+        "rationale": "Este tráfico suele marcarse con la prioridad más baja para no interferir con las operaciones críticas de la empresa.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en qué tipo de datos se vuelven inútiles si llegan con un pequeño retraso."
+  },
+  {
+    "guid": "f94749ad-6881-419b-b266-b4da3c2c92a8",
+    "subjectId": "T63",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Qué herramienta de diagnóstico permitiría ver todos los saltos (routers) por los que pasa un paquete hasta llegar a un destino?",
+    "answerOptions": [
+      {
+        "text": "$traceroute$ (en Linux) o $tracert$ (en Windows)",
+        "rationale": "Utiliza paquetes con $TTL$ incremental para forzar a cada router del camino a enviar un mensaje $ICMP$ de 'Tiempo excedido'.",
+        "isCorrect": true
+      },
+      {
+        "text": "$nslookup$",
+        "rationale": "Esta herramienta se usa específicamente para consultar registros en los servidores de nombres $DNS$.",
+        "isCorrect": false
+      },
+      {
+        "text": "$ipconfig$",
+        "rationale": "Solo muestra la configuración de red de las interfaces locales del propio equipo.",
+        "isCorrect": false
+      },
+      {
+        "text": "$netstat$",
+        "rationale": "Se utiliza para listar las conexiones activas, puertos abiertos y estadísticas de los protocolos en el sistema.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Esta herramienta es clave para identificar en qué punto exacto de internet se está perdiendo la conexión."
+  },
+  {
+    "guid": "d9a5080e-576a-4fec-92bb-4d766fc233a6",
+    "subjectId": "T63",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Cómo maneja $MPLS$ la coexistencia de diferentes protocolos como $IPv4$ e $IPv6$?",
+    "answerOptions": [
+      {
+        "text": "Encapsula cualquier tipo de paquete de red bajo una cabecera de etiquetas común",
+        "rationale": "De ahí viene el nombre 'Multiprotocol'; a los routers internos ($LSR$) no les importa lo que hay dentro de la etiqueta.",
+        "isCorrect": true
+      },
+      {
+        "text": "Convierte automáticamente todo el tráfico a $IPv4$ para simplificar",
+        "rationale": "$MPLS$ es agnóstico al protocolo de capa $3$; no realiza traducciones de contenido, solo transporte etiquetado.",
+        "isCorrect": false
+      },
+      {
+        "text": "Solo permite un protocolo a la vez por cada enlace físico",
+        "rationale": "$MPLS$ puede transportar múltiples protocolos simultáneamente sobre el mismo camino mediante el uso de diferentes etiquetas.",
+        "isCorrect": false
+      },
+      {
+        "text": "Exige que todos los equipos cliente actualicen a $IPv6$ obligatoriamente",
+        "rationale": "Una de las grandes ventajas de $MPLS$ es precisamente permitir la convivencia de redes antiguas y modernas de forma transparente.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Fíjese en el significado de la primera letra de las siglas $MPLS$."
+  },
+  {
+    "guid": "fc8065b9-de83-4851-a489-e3294d991eb7",
+    "subjectId": "T63",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "En un entorno de red municipal, ¿qué ventaja ofrece una $VPN$ basada en $MPLS$ frente a una $VPN$ sobre Internet convencional?",
+    "answerOptions": [
+      {
+        "text": "Garantías de rendimiento y $QoS$ nativas proporcionadas por el operador",
+        "rationale": "Al circular por la red privada del operador, el tráfico no compite con el tráfico público de internet y puede ser priorizado.",
+        "isCorrect": true
+      },
+      {
+        "text": "Es totalmente gratuita al no utilizar la red pública",
+        "rationale": "Las redes $MPLS$ son servicios gestionados de pago que suelen ser más caros que un acceso a internet estándar.",
+        "isCorrect": false
+      },
+      {
+        "text": "Elimina la necesidad de utilizar firewalls en las sedes",
+        "rationale": "Aunque la red sea privada, la seguridad perimetral sigue siendo necesaria para evitar ataques internos o desde otros puntos de la red.",
+        "isCorrect": false
+      },
+      {
+        "text": "Permite alcanzar velocidades superiores a la velocidad de la luz en la fibra",
+        "rationale": "Ningún protocolo puede superar los límites físicos de la transmisión de señales.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en la diferencia entre circular por una carretera pública congestionada frente a un carril reservado privado."
+  },
+  {
+    "guid": "53ee6a29-c371-4c03-9cb4-bd8ea0459f2a",
+    "subjectId": "T63",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Cuál es la dirección de $Broadcast$ general utilizada para enviar un paquete a todos los hosts de la red física local?",
+    "answerOptions": [
+      {
+        "text": "$255.255.255.255$",
+        "rationale": "Esta es la dirección de difusión limitada; los routers no suelen reenviar paquetes dirigidos a esta dirección fuera de la subred local.",
+        "isCorrect": true
+      },
+      {
+        "text": "$0.0.0.0$",
+        "rationale": "Esta dirección se utiliza habitualmente para representar una dirección 'desconocida' o como ruta por defecto en las tablas de enrutamiento.",
+        "isCorrect": false
+      },
+      {
+        "text": "$127.0.0.1$",
+        "rationale": "Esta es la dirección de $loopback$, que como se ha visto, solo sirve para comunicaciones internas del propio host.",
+        "isCorrect": false
+      },
+      {
+        "text": "$192.168.1.0$",
+        "rationale": "Normalmente, la dirección con el último octeto en $0$ se reserva para identificar a la propia red, no para enviar datos.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Es la dirección con todos sus bits a $1$."
+  },
+  {
+    "guid": "9bb41643-4f06-4dc6-a9e9-8a488216d7d1",
+    "subjectId": "T63",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Qué ocurre en una red $MPLS$ si un paquete llega a un $LSR$ y su etiqueta no figura en la tabla de conmutación?",
+    "answerOptions": [
+      {
+        "text": "El paquete se descarta",
+        "rationale": "A diferencia del enrutamiento $IP$ donde podría haber una ruta por defecto, en la conmutación de etiquetas la ruta debe estar pre-establecida.",
+        "isCorrect": true
+      },
+      {
+        "text": "El router lo reenvía analizando la dirección $IP$ de destino",
+        "rationale": "En el núcleo de una red $MPLS$, los routers a menudo no tienen tablas de rutas $IP$ completas y dependen exclusivamente de las etiquetas.",
+        "isCorrect": false
+      },
+      {
+        "text": "Se solicita una nueva etiqueta al servidor $DHCP$",
+        "rationale": "$DHCP$ no tiene ninguna relación con la generación o distribución de etiquetas $MPLS$.",
+        "isCorrect": false
+      },
+      {
+        "text": "El router crea una etiqueta aleatoria para que el paquete siga circulando",
+        "rationale": "Generar etiquetas aleatorias causaría bucles y caos en la red; el comportamiento estándar es el descarte del paquete.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "La conmutación de etiquetas es un proceso determinista basado en caminos preconfigurados."
+  },
+  {
+    "guid": "ff7b4629-b50a-4a18-be41-74d54fef5176",
+    "subjectId": "T63",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Cuál es la función del campo 'Protocolo' en la cabecera del paquete $IP$?",
+    "answerOptions": [
+      {
+        "text": "Indicar a qué protocolo de la capa superior (como $TCP$ o $UDP$) debe entregarse el contenido",
+        "rationale": "Permite que el sistema operativo sepa cómo procesar los datos una vez que la capa de red ha terminado su trabajo.",
+        "isCorrect": true
+      },
+      {
+        "text": "Definir si el paquete debe viajar por fibra o por cobre",
+        "rationale": "La elección del medio físico es transparente para la capa de red y se decide en la capa de Acceso a la Red.",
+        "isCorrect": false
+      },
+      {
+        "text": "Especificar la versión de $IP$ ($v4$ o $v6$)",
+        "rationale": "La versión de $IP$ se especifica en un campo propio llamado 'Versión', que es el primero de la cabecera.",
+        "isCorrect": false
+      },
+      {
+        "text": "Garantizar que el mensaje sea cifrado por la capa de Aplicación",
+        "rationale": "El cifrado suele gestionarse en capas superiores (como $SSL/TLS$) y el nivel $IP$ no tiene control directo sobre ello.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Actúa como un identificador para el siguiente paso en la pila de protocolos."
+  }
+]
