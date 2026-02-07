@@ -1,0 +1,467 @@
+[
+  {
+    "guid": "f34adc46-73ad-4e01-9efd-619b630b0232",
+    "subjectId": "T47",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Cuál es el cambio fundamental que propone la arquitectura Data Mesh respecto a la gestión de datos analíticos en comparación con los modelos tradicionales de Data Lake?",
+    "answerOptions": [
+      {
+        "text": "La centralización de la infraestructura en un único equipo de ingeniería de datos para asegurar la consistencia total.",
+        "rationale": "Data Mesh busca precisamente lo contrario: alejarse de la centralización y los equipos monolíticos que gestionan toda la organización.",
+        "isCorrect": false
+      },
+      {
+        "text": "La transferencia de la propiedad y responsabilidad de los datos analíticos a los equipos de dominio de negocio.",
+        "rationale": "El paradigma descentralizado del Data Mesh otorga autonomía a los productores de datos que están más cerca de su generación y uso.",
+        "isCorrect": true
+      },
+      {
+        "text": "La eliminación de los procesos de transformación de datos (ETL) para trabajar únicamente con datos en formato bruto.",
+        "rationale": "Aunque se descentralizan, los datos analíticos siguen requiriendo transformación para ser útiles, solo que ahora la responsabilidad es del dominio.",
+        "isCorrect": false
+      },
+      {
+        "text": "La migración obligatoria de todas las bases de datos transaccionales a sistemas NoSQL distribuidos en la nube.",
+        "rationale": "Data Mesh es un paradigma arquitectónico y organizativo, no una imposición técnica sobre el tipo de base de datos transaccional utilizada.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en quién tiene el conocimiento más profundo de los datos en su origen."
+  },
+  {
+    "guid": "5a048085-e18c-4fae-a449-fbd8f123fc6a",
+    "subjectId": "T47",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Dentro de los principios fundamentales de Data Mesh, ¿en qué consiste el concepto de 'Gobernanza Federada' (Federated Governance)?",
+    "answerOptions": [
+      {
+        "text": "Un modelo donde un equipo central dicta todas las reglas de calidad y seguridad sin intervención de los dominios.",
+        "rationale": "Este sería un modelo centralizado tradicional que Data Mesh intenta superar para evitar cuellos de botella.",
+        "isCorrect": false
+      },
+      {
+        "text": "Un sistema donde cada dominio decide sus propias reglas de seguridad e interoperabilidad de forma totalmente aislada.",
+        "rationale": "La falta de reglas globales conduciría al caos y a silos de datos incompatibles entre sí.",
+        "isCorrect": false
+      },
+      {
+        "text": "Un modelo colaborativo donde expertos definen reglas globales y los dominios las implementan de forma autónoma.",
+        "rationale": "Busca el equilibrio entre la autonomía del dominio para innovar y la necesidad de estándares globales de seguridad e interoperabilidad.",
+        "isCorrect": true
+      },
+      {
+        "text": "La delegación total de la soberanía de los datos a proveedores de servicios en la nube externos a la organización.",
+        "rationale": "La gobernanza federada es un marco de toma de decisiones interno de la organización, no una externalización de servicios.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Busque el equilibrio entre la estandarización global y la ejecución local."
+  },
+  {
+    "guid": "8495f5c0-f622-4e43-b68a-8955ebfbc52a",
+    "subjectId": "T47",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En la tipología de dominios de datos, ¿cuál es el objetivo primordial de los 'Source-Aligned Data Domains'?",
+    "answerOptions": [
+      {
+        "text": "Transformar y enriquecer datos de múltiples fuentes para ofrecer una visión de 360 grados del negocio.",
+        "rationale": "Esta descripción corresponde a los dominios agregados, no a los alineados con la fuente.",
+        "isCorrect": false
+      },
+      {
+        "text": "Optimizar los conjuntos de datos específicamente para un caso de uso de aprendizaje automático o BI.",
+        "rationale": "La optimización para casos de uso finales es propia de los dominios alineados con el consumidor.",
+        "isCorrect": false
+      },
+      {
+        "text": "Preservar el contexto original y la integridad de los datos tal como se generan en los sistemas operacionales.",
+        "rationale": "Estos dominios actúan como réplicas o extensiones de los sistemas fuente sin aplicar modificaciones sustanciales.",
+        "isCorrect": true
+      },
+      {
+        "text": "Centralizar el almacenamiento de todos los logs y metadatos de auditoría de la plataforma de datos.",
+        "rationale": "Aunque capturan datos de sistemas fuente, su propósito es representar el dominio de negocio, no solo funciones técnicas de logging.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considere la relación directa de estos dominios con los sistemas transaccionales originales."
+  },
+  {
+    "guid": "dac2b991-e73c-4f28-96dc-85b8ea861a3d",
+    "subjectId": "T47",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Al tratar los datos como un 'producto' en Data Mesh, ¿qué elemento es esencial para garantizar la confianza de los consumidores de otros dominios?",
+    "answerOptions": [
+      {
+        "text": "La publicación de Service Level Objectives (SLOs) sobre la frescura, calidad y disponibilidad de los datos.",
+        "rationale": "Los SLOs actúan como garantías medibles que permiten a los consumidores confiar en el producto de datos sin intervención manual.",
+        "isCorrect": true
+      },
+      {
+        "text": "El almacenamiento de todos los productos en un único bucket de S3 con acceso de lectura universal.",
+        "rationale": "El acceso universal sin control ni metadatos no garantiza confianza ni calidad, solo disponibilidad técnica.",
+        "isCorrect": false
+      },
+      {
+        "text": "La prohibición de realizar cambios de esquema en los datos una vez han sido publicados por primera vez.",
+        "rationale": "Los productos de datos deben poder evolucionar; para ello se utiliza el versionado y los contratos de datos, no la inmutabilidad del esquema.",
+        "isCorrect": false
+      },
+      {
+        "text": "La validación manual de cada registro por parte de un equipo de Auditoría de Datos externo al dominio.",
+        "rationale": "La validación manual es ineficiente y contradice el principio de escalabilidad y autonomía del Data Mesh.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en los acuerdos de nivel de servicio aplicados al mundo de los datos."
+  },
+  {
+    "guid": "4a5b31e1-d224-42c7-ae96-5baf163cdbca",
+    "subjectId": "T47",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Qué función cumple la 'Plataforma de Datos Self-Service' en una arquitectura Data Mesh?",
+    "answerOptions": [
+      {
+        "text": "Sustituir a los analistas de negocio mediante el uso de inteligencia artificial para la generación de informes.",
+        "rationale": "La plataforma es una herramienta de infraestructura, no un sustituto de la capacidad analítica humana.",
+        "isCorrect": false
+      },
+      {
+        "text": "Empoderar a los equipos de dominio para crear y operar productos de datos de forma autónoma.",
+        "rationale": "Proporciona herramientas comunes para que los dominios gestionen el ciclo de vida de sus datos sin depender de un equipo central de infraestructura.",
+        "isCorrect": true
+      },
+      {
+        "text": "Almacenar de forma centralizada todos los datos analíticos para facilitar el acceso mediante SQL.",
+        "rationale": "Aunque puede ofrecer servicios de almacenamiento, su fin principal es habilitar la autonomía distribuida, no centralizar los datos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Gestionar exclusivamente las licencias de software de visualización de datos de la organización.",
+        "rationale": "Sus responsabilidades son mucho más amplias, incluyendo ingesta, procesamiento, seguridad y orquestación.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considere cómo los equipos de dominio logran independencia técnica."
+  },
+  {
+    "guid": "e16c920e-7267-4b1f-a125-79c077729933",
+    "subjectId": "T47",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Cuál es la principal diferencia entre los datos operativos y los datos analíticos según el modelo Data Mesh?",
+    "answerOptions": [
+      {
+        "text": "Los datos operativos son siempre estructurados, mientras que los analíticos son exclusivamente no estructurados.",
+        "rationale": "Tanto los datos operativos como los analíticos pueden presentar diversos niveles de estructuración.",
+        "isCorrect": false
+      },
+      {
+        "text": "Los operativos dan soporte a transacciones en tiempo real, mientras que los analíticos buscan extraer conocimiento.",
+        "rationale": "Los operativos se centran en el funcionamiento diario del negocio y los analíticos en entender el pasado y predecir el futuro.",
+        "isCorrect": true
+      },
+      {
+        "text": "Los datos analíticos residen en el sistema fuente, mientras que los operativos residen en el Data Warehouse.",
+        "rationale": "Es al revés: los operativos están en los sistemas fuente y los analíticos suelen derivarse de ellos a otros entornos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Los operativos tienen una baja frecuencia de actualización en comparación con los datos analíticos.",
+        "rationale": "Los datos operativos suelen tener una frecuencia de actualización muy alta debido a la naturaleza transaccional de las aplicaciones.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en el objetivo final de cada tipo de dato: ¿hacer funcionar o hacer entender?"
+  },
+  {
+    "guid": "5f84e400-33fa-4657-a6f9-484631bb8fe5",
+    "subjectId": "T47",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En el contexto de la comunicación entre dominios, ¿qué es un 'Data Contract'?",
+    "answerOptions": [
+      {
+        "text": "Un acuerdo legal firmado entre los jefes de departamento para el intercambio de información sensible.",
+        "rationale": "Aunque es un acuerdo, en Data Mesh se refiere a un mecanismo técnico y formal de interoperabilidad.",
+        "isCorrect": false
+      },
+      {
+        "text": "Un archivo de texto que describe el presupuesto asignado al almacenamiento de un producto de datos.",
+        "rationale": "El contrato no trata sobre aspectos financieros, sino sobre aspectos técnicos y de calidad del dato.",
+        "isCorrect": false
+      },
+      {
+        "text": "Un acuerdo formal sobre el esquema, la semántica, la calidad y la disponibilidad de un producto de datos.",
+        "rationale": "Establece garantías medibles que aseguran la estabilidad y compatibilidad para los consumidores cuando el productor actualiza el dataset.",
+        "isCorrect": true
+      },
+      {
+        "text": "Una licencia de uso que restringe el acceso a los datos únicamente a usuarios con certificación técnica.",
+        "rationale": "El foco del contrato es la interoperabilidad y la confianza técnica, no la restricción por certificaciones personales.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Relaciónelo con las interfaces de programación (APIs) en el desarrollo de software."
+  },
+  {
+    "guid": "d82d706f-ec26-4356-bd9e-78a636fc3d3c",
+    "subjectId": "T47",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Qué característica de los dominios de datos asegura que los productos puedan ser encontrados y comprendidos sin consultar al productor?",
+    "answerOptions": [
+      {
+        "text": "Interoperabilidad mediante el uso de protocolos propietarios de cada departamento de la organización.",
+        "rationale": "Los protocolos propietarios dificultan la comunicación; se requieren estándares para que el sistema escale.",
+        "isCorrect": false
+      },
+      {
+        "text": "Descubribilidad y Autodescripción a través de catálogos con metadatos completos y esquemas definidos.",
+        "rationale": "La documentación clara y el catálogo permiten a cualquier usuario entender el valor y el uso del dato de forma autónoma.",
+        "isCorrect": true
+      },
+      {
+        "text": "Direccionamiento mediante el uso de etiquetas manuales en carpetas compartidas del sistema de archivos.",
+        "rationale": "Se requiere un acceso programático y único, no una gestión manual de archivos, para una arquitectura de malla eficiente.",
+        "isCorrect": false
+      },
+      {
+        "text": "Seguridad mediante la ocultación de la existencia de los datasets a usuarios ajenos al dominio de origen.",
+        "rationale": "La seguridad es vital, pero la 'seguridad por oscuridad' contradice el principio de democratización y descubrimiento de datos.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en la utilidad de un 'mercado interno' de datos."
+  },
+  {
+    "guid": "ed9ba07a-ebe7-4714-93e7-d0e7925b3cb1",
+    "subjectId": "T47",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Cuál de las siguientes herramientas se asocia comúnmente con la transformación de datos bajo el paradigma 'ELT' dentro de un Lakehouse?",
+    "answerOptions": [
+      {
+        "text": "Apache Kafka, utilizado para la orquestación de procesos batch de larga duración.",
+        "rationale": "Kafka es una plataforma de streaming de eventos, no una herramienta centrada en transformaciones batch de tipo ELT.",
+        "isCorrect": false
+      },
+      {
+        "text": "dbt (Data Build Tool), por su enfoque en transformaciones utilizando SQL y buenas prácticas de ingeniería.",
+        "rationale": "dbt permite transformar los datos ya cargados en el warehouse/lakehouse, facilitando la autonomía del dominio mediante SQL.",
+        "isCorrect": true
+      },
+      {
+        "text": "Amazon S3, ya que proporciona la lógica de computación necesaria para el procesamiento de grandes volúmenes.",
+        "rationale": "S3 es un servicio de almacenamiento de objetos, no un motor de ejecución o transformación de datos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Great Expectations, por ser el principal motor de ejecución de Apache Spark en entornos locales.",
+        "rationale": "Great Expectations es una herramienta de validación y calidad de datos, no un motor de ejecución de Spark.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Identifique la herramienta que utiliza SQL para definir modelos de datos."
+  },
+  {
+    "guid": "d850a906-c35a-44fd-abf7-68fbd8048498",
+    "subjectId": "T47",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Uno de los retos críticos en la implementación de Data Mesh es evitar que la descentralización derive en silos aislados. ¿Cómo se mitiga este riesgo?",
+    "answerOptions": [
+      {
+        "text": "Obligando a todos los dominios a utilizar exactamente la misma base de datos y lenguaje de programación.",
+        "rationale": "Data Mesh permite la autonomía tecnológica (políglota) siempre que se respeten los estándares de interoperabilidad.",
+        "isCorrect": false
+      },
+      {
+        "text": "Mediante una gobernanza computacional que automatiza la aplicación de estándares globales y metadatos.",
+        "rationale": "La automatización de políticas (policy-as-code) garantiza que, aunque los dominios sean autónomos, el ecosistema sea coherente.",
+        "isCorrect": true
+      },
+      {
+        "text": "Reduciendo el número de dominios a un máximo de tres para facilitar la supervisión humana directa.",
+        "rationale": "Limitar los dominios iría en contra del objetivo de escalabilidad de la organización distribuida.",
+        "isCorrect": false
+      },
+      {
+        "text": "Eliminando la figura del Data Product Owner para centralizar las decisiones en el Director de Datos (CDO).",
+        "rationale": "El Data Product Owner es una figura clave para la responsabilidad local; su eliminación devolvería al modelo monolítico.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en cómo el software puede hacer cumplir reglas sin intervención humana constante."
+  },
+  {
+    "guid": "497535dc-5dec-4a3c-a778-09303b38c6ee",
+    "subjectId": "T47",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Qué relación existe entre el diseño guiado por dominios (Domain-Driven Design - DDD) y Data Mesh?",
+    "answerOptions": [
+      {
+        "text": "Data Mesh es una implementación física de los microservicios, mientras que DDD solo se aplica a bases de datos relacionales.",
+        "rationale": "DDD es una filosofía de diseño de software que inspira la organización lógica del Data Mesh, no se limita a bases de datos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Data Mesh aplica los principios de DDD, como los contextos acotados, a la gestión y arquitectura de datos analíticos.",
+        "rationale": "Busca alinear la arquitectura de datos con la comprensión del negocio, facilitando la colaboración entre equipos técnicos y de negocio.",
+        "isCorrect": true
+      },
+      {
+        "text": "DDD es el protocolo de comunicación por red que utilizan los productos de datos para intercambiar archivos Parquet.",
+        "rationale": "DDD no es un protocolo técnico de red, sino un enfoque metodológico para el desarrollo de sistemas complejos.",
+        "isCorrect": false
+      },
+      {
+        "text": "El uso de DDD en Data Mesh obliga a que todos los datos analíticos se almacenen en formato XML para mantener la semántica.",
+        "rationale": "La elección del formato de archivo (como Parquet o Avro) es independiente de la aplicación de los principios de DDD.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considere el origen de la idea de 'contextos' y 'lenguaje ubicuo'."
+  },
+  {
+    "guid": "39763fa7-b83c-4b39-b007-15a5b95cbe79",
+    "subjectId": "T47",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Cuál es el propósito de los 'Consumer-Aligned Data Domains' en la arquitectura de malla?",
+    "answerOptions": [
+      {
+        "text": "Garantizar que los datos operacionales se repliquen sin cambios desde el CRM de la empresa.",
+        "rationale": "La réplica fiel sin cambios es responsabilidad de los dominios alineados con la fuente.",
+        "isCorrect": false
+      },
+      {
+        "text": "Proporcionar una infraestructura de red segura para que los clientes externos accedan a los servidores.",
+        "rationale": "Este tipo de dominio se refiere a la organización lógica de datos, no a la seguridad de infraestructura perimetral.",
+        "isCorrect": false
+      },
+      {
+        "text": "Optimizar y preparar datos para necesidades analíticas específicas como cuadros de mando o modelos de ML.",
+        "rationale": "Se enfocan en las necesidades particulares de uno o varios consumidores finales, facilitando el consumo directo para la toma de decisiones.",
+        "isCorrect": true
+      },
+      {
+        "text": "Limitar el acceso a los datos únicamente a los consumidores que han pagado una suscripción interna.",
+        "rationale": "El objetivo es la optimización para el uso, no la gestión de cobros internos entre departamentos.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en la fase final de la cadena de valor del dato."
+  },
+  {
+    "guid": "55a037d9-dbaa-4a54-befd-9944c8ab9f88",
+    "subjectId": "T47",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En el marco de la 'Gobernanza Computacional Federada', ¿qué significa el concepto de 'Policy-as-Code'?",
+    "answerOptions": [
+      {
+        "text": "Que las leyes de protección de datos como el RGPD deben ser escritas exclusivamente por programadores.",
+        "rationale": "Las leyes las definen expertos legales; Policy-as-Code se refiere a su implementación técnica automatizada.",
+        "isCorrect": false
+      },
+      {
+        "text": "Que las reglas de acceso y seguridad se definen mediante código ejecutable y auditable automáticamente por la plataforma.",
+        "rationale": "Esto permite que las políticas globales se apliquen de forma consistente y escalable en todos los dominios distribuidos.",
+        "isCorrect": true
+      },
+      {
+        "text": "Que todas las políticas de la empresa deben estar disponibles en un repositorio público de GitHub sin restricciones.",
+        "rationale": "La transparencia interna es buena, pero Policy-as-Code se centra en la ejecución técnica, no necesariamente en la publicidad total.",
+        "isCorrect": false
+      },
+      {
+        "text": "Que el código fuente de las aplicaciones operativas debe ser revisado por un comité de ética antes de cada despliegue.",
+        "rationale": "Policy-as-Code en Data Mesh se enfoca en el gobierno de los datos y su acceso, no en la auditoría ética de todo el software.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Imagine cómo se aplicarían miles de reglas de acceso de forma instantánea."
+  },
+  {
+    "guid": "8a0f128e-088e-4514-ad8a-45effe601e9e",
+    "subjectId": "T47",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Qué rol se considera fundamental introducir en los equipos de dominio para asegurar que los datos se gestionen con una mentalidad de producto?",
+    "answerOptions": [
+      {
+        "text": "Chief Data Officer (CDO), responsable de la supervisión de todas las bases de datos operativas.",
+        "rationale": "El CDO es un rol ejecutivo central, no un rol integrado dentro de cada equipo de dominio.",
+        "isCorrect": false
+      },
+      {
+        "text": "Data Product Owner, encargado de la calidad, valor y ciclo de vida de los datos de su dominio.",
+        "rationale": "Este rol es clave para tratar el dato como un producto que debe satisfacer las necesidades de sus consumidores.",
+        "isCorrect": true
+      },
+      {
+        "text": "Infrastructure Engineer, dedicado exclusivamente al mantenimiento físico de los servidores del dominio.",
+        "rationale": "Aunque necesario, este es un rol técnico de soporte que no define la visión de 'dato como producto'.",
+        "isCorrect": false
+      },
+      {
+        "text": "Scrum Master, cuya única función es asegurar que las reuniones diarias de los analistas no duren más de 15 minutos.",
+        "rationale": "Es una función metodológica general que no aborda específicamente la gestión de la responsabilidad sobre el dato.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en la figura equivalente a un gestor de producto en el desarrollo de software."
+  },
+  {
+    "guid": "467dce9d-9fcf-4a38-98c9-ace2d73b9017",
+    "subjectId": "T47",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "La 'Observabilidad de Datos' es una capacidad necesaria en la plataforma. ¿Qué actividades incluye para garantizar la confianza?",
+    "answerOptions": [
+      {
+        "text": "La grabación en vídeo de las sesiones de trabajo de los científicos de datos para evitar errores.",
+        "rationale": "La observabilidad se refiere a métricas del sistema y del dato, no a la vigilancia de los trabajadores.",
+        "isCorrect": false
+      },
+      {
+        "text": "El bloqueo preventivo de cualquier acceso a la base de datos que supere los 10 segundos de ejecución.",
+        "rationale": "Esto sería una política de gestión de recursos, pero no garantiza la calidad o veracidad de la información contenida.",
+        "isCorrect": false
+      },
+      {
+        "text": "El monitoreo de anomalías, frescura, volumen y validez de los datos mediante herramientas automáticas.",
+        "rationale": "Permite detectar problemas de calidad de forma proactiva, asegurando que los productos de datos sigan siendo fiables.",
+        "isCorrect": true
+      },
+      {
+        "text": "La impresión semanal de informes de linaje de datos para su archivo en el registro físico de la organización.",
+        "rationale": "La observabilidad debe ser digital y en tiempo real para ser efectiva en una arquitectura de malla moderna.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Relaciónelo con el monitoreo de la 'salud' de los flujos de información."
+  }
+]
