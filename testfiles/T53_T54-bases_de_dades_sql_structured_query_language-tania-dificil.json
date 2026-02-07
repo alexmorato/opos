@@ -1,0 +1,622 @@
+[
+  {
+    "guid": "25c08fbe-2bcb-4188-9225-6b0f78c68b07",
+    "subjectId": "T53",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Indique cuál de las siguientes afirmaciones sobre las propiedades ACID de una base de datos SQL es FALSA:",
+    "answerOptions": [
+      {
+        "text": "La Consistencia (C) asegura que tras una transacción el sistema siga cumpliendo todas las reglas de integridad, como tipos de datos y restricciones.",
+        "rationale": "Esta es una definición exacta de la consistencia, que garantiza que la base de datos pase de un estado válido a otro.",
+        "isCorrect": false
+      },
+      {
+        "text": "El Aislamiento (I) garantiza que las transacciones concurrentes se ejecuten de forma que el resultado sea el mismo que si se ejecutaran secuencialmente.",
+        "rationale": "El aislamiento asegura que las operaciones simultáneas no interfieran entre sí, manteniendo la integridad transaccional.",
+        "isCorrect": false
+      },
+      {
+        "text": "La Durabilidad (D) garantiza que, una vez confirmada la transacción, los cambios se mantengan incluso ante fallos críticos de alimentación eléctrica.",
+        "rationale": "La durabilidad se basa en persistir los datos en soportes no volátiles antes de confirmar el COMMIT.",
+        "isCorrect": false
+      },
+      {
+        "text": "La Atomicidad (A) permite que, en transacciones complejas, solo las partes críticas de la operación se confirmen si ocurre un error inesperado.",
+        "rationale": "La atomicidad es binaria: o se ejecuta todo o no se ejecuta nada; no admite ejecuciones parciales bajo ninguna circunstancia.",
+        "isCorrect": true
+      }
+    ],
+    "hint": "Recuerde el concepto de 'todo o nada' aplicado a las transacciones."
+  },
+  {
+    "guid": "4c3fcb76-ae19-4f15-8a5b-3c5e65c2fca5",
+    "subjectId": "T53",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Respecto a los lenguajes de definición y manipulación de datos en SQL, ¿cuál de las siguientes opciones es FALSA?",
+    "answerOptions": [
+      {
+        "text": "Las sentencias GRANT y REVOKE forman parte del DCL (Data Control Language) para la gestión de permisos.",
+        "rationale": "El DCL se encarga específicamente de la seguridad y los privilegios de acceso de los usuarios.",
+        "isCorrect": false
+      },
+      {
+        "text": "Las órdenes CREATE, ALTER y DROP se categorizan dentro del DDL (Data Definition Language).",
+        "rationale": "El DDL se utiliza para definir, modificar o eliminar la estructura física de los objetos de la base de datos.",
+        "isCorrect": false
+      },
+      {
+        "text": "La sentencia UPDATE se considera una instrucción de DML (Data Manipulation Language) al modificar registros existentes.",
+        "rationale": "Cualquier operación que altere el contenido de los datos sin cambiar la estructura de la tabla es DML.",
+        "isCorrect": false
+      },
+      {
+        "text": "La instrucción TRUNCATE se clasifica estrictamente como DQL porque su función principal es limpiar la vista de los datos.",
+        "rationale": "Aunque borra datos, TRUNCATE suele considerarse DDL (o DML en algunos contextos) porque afecta a la estructura de almacenamiento, pero nunca DQL, que es para consultas.",
+        "isCorrect": true
+      }
+    ],
+    "hint": "DQL se refiere exclusivamente a la recuperación o consulta de información."
+  },
+  {
+    "guid": "3a99c259-8014-41ac-a271-a00cb9cffcbc",
+    "subjectId": "T53",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Sobre el Teorema CAP en sistemas distribuidos, señale la afirmación FALSA:",
+    "answerOptions": [
+      {
+        "text": "En presencia de una partición de red, un sistema debe elegir obligatoriamente entre consistencia o disponibilidad.",
+        "rationale": "El teorema postula que no se pueden garantizar las tres propiedades simultáneamente en un sistema distribuido particionado.",
+        "isCorrect": false
+      },
+      {
+        "text": "La Disponibilidad (A) garantiza que cada petición reciba una respuesta, aunque no se asegure que contenga el dato más reciente.",
+        "rationale": "La disponibilidad prioriza la respuesta del sistema frente a la precisión absoluta del estado global.",
+        "isCorrect": false
+      },
+      {
+        "text": "La Consistecia (C) asegura que todos los nodos del sistema vean los mismos datos al mismo tiempo tras una escritura.",
+        "rationale": "La consistencia en CAP implica que una lectura posterior a una escritura devuelva el valor actualizado en cualquier nodo.",
+        "isCorrect": false
+      },
+      {
+        "text": "Las bases de datos relacionales tradicionales están diseñadas nativamente para ofrecer Tolerancia a Particiones (P) por encima de la Consistencia.",
+        "rationale": "Las bases de datos SQL tradicionales priorizan ACID (AC), y suelen tener dificultades operando en entornos con particiones de red (P) sin sacrificar sus principios básicos.",
+        "isCorrect": true
+      }
+    ],
+    "hint": "Piense en qué tipo de base de datos se diseñó para entornos distribuidos masivos."
+  },
+  {
+    "guid": "45b38701-b679-43a0-a514-21d7b8b586e9",
+    "subjectId": "T53",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "En relación con el proceso de Normalización de bases de datos, indique la opción FALSA:",
+    "answerOptions": [
+      {
+        "text": "La Primera Forma Normal (1FN) prohíbe el uso de grupos repetitivos y exige que cada campo contenga valores atómicos.",
+        "rationale": "El objetivo de la 1FN es eliminar la redundancia estructural básica y los valores multi-valor.",
+        "isCorrect": false
+      },
+      {
+        "text": "Para cumplir la Segunda Forma Normal (2FN), la tabla debe estar en 1FN y cada atributo no clave debe depender de la clave primaria completa.",
+        "rationale": "La 2FN ataca las dependencias parciales que ocurren habitualmente en tablas con claves compuestas.",
+        "isCorrect": false
+      },
+      {
+        "text": "La Tercera Forma Normal (3FN) busca eliminar las dependencias transitivas entre atributos que no forman parte de la clave.",
+        "rationale": "La 3FN exige que los campos dependan únicamente de la clave primaria y no de otros campos no clave.",
+        "isCorrect": false
+      },
+      {
+        "text": "La normalización aumenta significativamente la redundancia de datos para mejorar la velocidad de las consultas de lectura.",
+        "rationale": "Es justo al revés: la normalización elimina la redundancia para evitar anomalías; suele ser la desnormalización la que busca velocidad de lectura.",
+        "isCorrect": true
+      }
+    ],
+    "hint": "Considere el impacto de tener el mismo dato guardado en múltiples lugares."
+  },
+  {
+    "guid": "cccdb09a-e173-4ee6-9ad5-64efb5107493",
+    "subjectId": "T53",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Sobre los modelos de procesamiento OLTP y OLAP, ¿cuál de las siguientes afirmaciones es FALSA?",
+    "answerOptions": [
+      {
+        "text": "OLTP está optimizado para transacciones rápidas, frecuentes y de pequeño volumen de datos, como las de un cajero automático.",
+        "rationale": "Los sistemas transaccionales requieren alta concurrencia y tiempos de respuesta mínimos para operaciones atómicas.",
+        "isCorrect": false
+      },
+      {
+        "text": "OLAP se orienta al análisis de grandes volúmenes de datos históricos para el soporte a la toma de decisiones.",
+        "rationale": "El procesamiento analítico utiliza agregaciones y consultas complejas sobre datos consolidados.",
+        "isCorrect": false
+      },
+      {
+        "text": "Los sistemas OLAP pueden implementarse sobre modelos multidimensionales conocidos como cubos.",
+        "rationale": "Los cubos OLAP permiten analizar datos desde múltiples perspectivas (tiempo, geografía, producto) de forma eficiente.",
+        "isCorrect": false
+      },
+      {
+        "text": "OLTP y OLAP son tipos de bases de datos con arquitecturas físicas de almacenamiento mutuamente excluyentes por definición.",
+        "rationale": "OLTP y OLAP son modelos de procesamiento, no tipos de bases de datos; una misma base de datos relacional puede actuar bajo ambos modelos según su configuración.",
+        "isCorrect": true
+      }
+    ],
+    "hint": "Diferencie entre la finalidad del uso de los datos y el software que los almacena."
+  },
+  {
+    "guid": "3f202ed8-81ae-4e02-8ba7-d31f173b5673",
+    "subjectId": "T53",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Indique la afirmación FALSA respecto a las bases de datos NoSQL y sus tipologías:",
+    "answerOptions": [
+      {
+        "text": "Las bases de datos documentales, como MongoDB, almacenan la información en estructuras flexibles tipo JSON o BSON.",
+        "rationale": "La flexibilidad de esquema es la característica principal de las bases de datos orientadas a documentos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Neo4j es un ejemplo destacado de base de datos orientada a grafos, ideal para analizar conexiones complejas entre entidades.",
+        "rationale": "El modelo de grafos utiliza nodos y aristas para representar relaciones de forma nativa y eficiente.",
+        "isCorrect": false
+      },
+      {
+        "text": "Las bases de datos de tipo clave-valor, como Redis, son extremadamente rápidas para la gestión de sesiones y caché.",
+        "rationale": "La simplicidad del modelo clave-valor permite accesos con latencias mínimas al evitar cruces complejos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Apache Cassandra se clasifica como una base de datos documental debido a su alta capacidad de almacenamiento de archivos binarios.",
+        "rationale": "Cassandra es una base de datos de columnas amples (wide-column), no documental, optimizada para grandes volúmenes de datos distribuidos.",
+        "isCorrect": true
+      }
+    ],
+    "hint": "Piense en la estructura interna de familias de columnas de Cassandra."
+  },
+  {
+    "guid": "c144e4d0-52f9-4552-8e9d-aefce463455c",
+    "subjectId": "T53",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Sobre el modelo de consistencia BASE en entornos NoSQL, señale la opción FALSA:",
+    "answerOptions": [
+      {
+        "text": "La sigla 'S' (Soft-state) indica que el estado del sistema puede cambiar sin una entrada directa del usuario debido a la replicación.",
+        "rationale": "El estado 'suave' permite que los nodos se actualicen asíncronamente para alcanzar la convergencia.",
+        "isCorrect": false
+      },
+      {
+        "text": "La sigla 'E' (Eventually Consistent) implica que, si no hay nuevas actualizaciones, eventualmente todos los nodos verán el mismo dato.",
+        "rationale": "La consistencia eventual es el compromiso que aceptan los sistemas distribuidos para ganar disponibilidad.",
+        "isCorrect": false
+      },
+      {
+        "text": "El modelo BASE es una alternativa al modelo ACID diseñada para priorizar la disponibilidad en sistemas de gran escala.",
+        "rationale": "BASE flexibiliza la consistencia inmediata para asegurar que el sistema sea básicamente disponible.",
+        "isCorrect": false
+      },
+      {
+        "text": "Bajo el modelo BASE, la propiedad 'Basically Available' asegura que el sistema siempre devuelva el dato más reciente y verificado.",
+        "rationale": "Basically Available garantiza una respuesta, pero esta puede ser una versión antigua del dato o un mensaje de estado incompleto.",
+        "isCorrect": true
+      }
+    ],
+    "hint": "Compare la 'consistencia inmediata' de SQL con la 'consistencia eventual' de NoSQL."
+  },
+  {
+    "guid": "96bf98ca-07ce-42d6-81dd-36d9a7c10ad1",
+    "subjectId": "T53",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Respecto a las bases de datos NewSQL, ¿cuál de las siguientes afirmaciones es FALSA?",
+    "answerOptions": [
+      {
+        "text": "Buscan combinar la escalabilidad horizontal propia de NoSQL con el cumplimiento de las reglas ACID de SQL.",
+        "rationale": "Esta es la definición fundamental de NewSQL: escalar manteniendo la integridad transaccional.",
+        "isCorrect": false
+      },
+      {
+        "text": "Mantienen el uso del lenguaje SQL estándar para interactuar con los datos, facilitando la migración desde sistemas tradicionales.",
+        "rationale": "A diferencia de muchas NoSQL, NewSQL no abandona el lenguaje de consulta estructurado.",
+        "isCorrect": false
+      },
+      {
+        "text": "Google Spanner y CockroachDB son ejemplos representativos de este tipo de sistemas.",
+        "rationale": "Ambos sistemas son conocidos por ofrecer transacciones distribuidas con garantías ACID globales.",
+        "isCorrect": false
+      },
+      {
+        "text": "Su arquitectura prohíbe el uso de transacciones distribuidas para evitar los cuellos de botella del protocolo de confirmación en dos fases.",
+        "rationale": "Al contrario, su mayor logro técnico es precisamente gestionar transacciones distribuidas de forma eficiente y escalable.",
+        "isCorrect": true
+      }
+    ],
+    "hint": "Piense en el objetivo de 'unir lo mejor de ambos mundos' (SQL y NoSQL)."
+  },
+  {
+    "guid": "ee70a769-2d61-4ec9-a74d-be71087879e2",
+    "subjectId": "T53",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "En el contexto de la escalabilidad de bases de datos, indique la opción FALSA:",
+    "answerOptions": [
+      {
+        "text": "La escalabilidad vertical implica aumentar recursos como CPU o RAM en un único nodo servidor.",
+        "rationale": "Este modelo es el tradicional de las bases de datos relacionales, limitado por la capacidad máxima del hardware.",
+        "isCorrect": false
+      },
+      {
+        "text": "La escalabilidad horizontal consiste en añadir más servidores (nodos) al clúster para repartir la carga de trabajo.",
+        "rationale": "Es la forma natural de crecimiento de las bases de datos NoSQL diseñadas para ser distribuidas.",
+        "isCorrect": false
+      },
+      {
+        "text": "El 'Sharding' es una técnica de escalabilidad horizontal que divide los datos en fragmentos distribuidos entre diferentes servidores.",
+        "rationale": "El sharding permite manejar conjuntos de datos que superan la capacidad de un solo servidor.",
+        "isCorrect": false
+      },
+      {
+        "text": "Las bases de datos SQL tradicionales permiten una escalabilidad horizontal automática y nativa tan sencilla de implementar como en las NoSQL.",
+        "rationale": "Escalar horizontalmente una base de datos SQL es complejo y costoso debido a la necesidad de mantener la consistencia ACID absoluta entre nodos.",
+        "isCorrect": true
+      }
+    ],
+    "hint": "Considere las limitaciones físicas y lógicas de mantener un esquema rígido en múltiples máquinas."
+  },
+  {
+    "guid": "97ade738-a888-4d15-bee9-c45134ac5379",
+    "subjectId": "T53",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Sobre los lenguajes de consulta en bases de datos NoSQL, señale la afirmación FALSA:",
+    "answerOptions": [
+      {
+        "text": "MongoDB utiliza un lenguaje de consulta basado en sintaxis JSON, empleando métodos como .find() para recuperar documentos.",
+        "rationale": "El motor de consultas de MongoDB es coherente con su formato de almacenamiento de documentos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Cassandra utiliza CQL (Cassandra Query Language), cuya sintaxis es muy similar a la del SQL tradicional.",
+        "rationale": "CQL facilita la curva de aprendizaje al imitar sentencias como SELECT y WHERE.",
+        "isCorrect": false
+      },
+      {
+        "text": "Neo4j utiliza el lenguaje Cypher, el cual está diseñado específicamente para describir patrones en grafos de forma visual.",
+        "rationale": "Cypher utiliza representaciones ASCII para definir relaciones entre nodos (ej. `()-[]->()`).",
+        "isCorrect": false
+      },
+      {
+        "text": "Redis requiere el uso obligatorio de sentencias JOIN complejas para recuperar valores asociados a múltiples claves.",
+        "rationale": "Redis es un modelo clave-valor puro que no admite operaciones JOIN; las relaciones deben gestionarse en la lógica de la aplicación.",
+        "isCorrect": true
+      }
+    ],
+    "hint": "Recuerde la simplicidad atómica del acceso a datos en un sistema clave-valor."
+  },
+  {
+    "guid": "c69d1cbb-ad7c-456c-bcc2-021ff14f4546",
+    "subjectId": "T53",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Respecto a las bases de datos temporales (Time-series), indique la opción FALSA:",
+    "answerOptions": [
+      {
+        "text": "Están optimizadas para manejar flujos de datos donde cada registro tiene una marca temporal (timestamp) asociada.",
+        "rationale": "Su diseño se enfoca en la inserción masiva y secuencial de métricas que evolucionan en el tiempo.",
+        "isCorrect": false
+      },
+      {
+        "text": "Son muy utilizadas en entornos de monitorización de sistemas, IoT y análisis de métricas financieras.",
+        "rationale": "Cualquier escenario que genere registros constantes de estado o valores se beneficia de estas bases de datos.",
+        "isCorrect": false
+      },
+      {
+        "text": "InfluxDB es uno de los motores más populares dentro de esta categoría específica.",
+        "rationale": "InfluxDB destaca por su capacidad de compresión y funciones de agregación temporal.",
+        "isCorrect": false
+      },
+      {
+        "text": "Debido a su naturaleza secuencial, prohíben estrictamente el uso de cualquier tipo de indexación para no ralentizar la escritura.",
+        "rationale": "Al contrario, utilizan índices especiales (a menudo basados en el tiempo y etiquetas) para permitir consultas rápidas sobre rangos temporales.",
+        "isCorrect": true
+      }
+    ],
+    "hint": "Piense en si sería eficiente buscar una temperatura de hace tres días sin ningún tipo de índice."
+  },
+  {
+    "guid": "c5558272-ab71-47f3-b260-b765a4c80163",
+    "subjectId": "T53",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "En relación con las bases de datos de Grafos, señale la afirmación FALSA:",
+    "answerOptions": [
+      {
+        "text": "Son ideales para aplicaciones de detección de fraude donde es necesario analizar múltiples niveles de relación entre cuentas.",
+        "rationale": "La capacidad de recorrer relaciones profundamente es la mayor ventaja competitiva de los grafos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Las relaciones entre entidades se tratan como ciudadanos de primera clase, almacenándose físicamente junto a los nodos.",
+        "rationale": "Esto evita los costosos cálculos de unión (JOIN) que penalizan a las bases de datos relacionales en consultas relacionales profundas.",
+        "isCorrect": false
+      },
+      {
+        "text": "ArangoDB es un ejemplo de base de datos que admite el modelo de grafos, además de otros modelos (multimodelo).",
+        "rationale": "ArangoDB combina documentos, grafos y clave-valor en un solo motor.",
+        "isCorrect": false
+      },
+      {
+        "text": "El rendimiento de las consultas de grafos decrece exponencialmente a medida que aumenta el volumen total de datos no relacionados.",
+        "rationale": "El rendimiento en grafos depende de la localidad de la relación recorrida, no del tamaño total del conjunto de datos global.",
+        "isCorrect": true
+      }
+    ],
+    "hint": "Considere cómo afecta el tamaño de un 'pajar' si solo estamos buscando las agujas que están conectadas entre sí."
+  },
+  {
+    "guid": "75f48fed-e956-45ef-acc0-db1118341e92",
+    "subjectId": "T53",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Sobre la integridad de datos en modelos relacionales, indique la opción FALSA:",
+    "answerOptions": [
+      {
+        "text": "La integridad de entidad asegura que cada tabla tenga una clave primaria y que esta no contenga valores nulos.",
+        "rationale": "La clave primaria identifica de forma única cada fila y debe ser obligatoria.",
+        "isCorrect": false
+      },
+      {
+        "text": "La integridad referencial se garantiza mediante el uso de claves foranas que vinculan tablas relacionadas.",
+        "rationale": "Las claves foranas impiden que existan registros 'huérfanos' que apunten a datos inexistentes.",
+        "isCorrect": false
+      },
+      {
+        "text": "Las restricciones (constraints) como CHECK permiten definir reglas de validación personalizadas para los valores de una columna.",
+        "rationale": "CHECK asegura que los datos introducidos cumplan criterios lógicos específicos (ej. edad > 18).",
+        "isCorrect": false
+      },
+      {
+        "text": "La integridad referencial garantiza automáticamente que, si se borra un cliente, sus facturas se borren siempre sin necesidad de configuración adicional.",
+        "rationale": "El borrado en cascada debe configurarse explícitamente (`ON DELETE CASCADE`); por defecto, muchas bases de datos impedirán el borrado para proteger la integridad.",
+        "isCorrect": true
+      }
+    ],
+    "hint": "Diferencie entre la 'capacidad' de proteger el dato y el 'comportamiento' por defecto del sistema."
+  },
+  {
+    "guid": "4ab126b5-44bf-41ec-aa86-4fd4d17313c7",
+    "subjectId": "T53",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Respecto a las limitaciones de las bases de datos SQL mencionadas en el texto, señale la opción FALSA:",
+    "answerOptions": [
+      {
+        "text": "Presentan dificultades para gestionar eficientemente datos no estructurados como documentos JSON complejos o vídeos.",
+        "rationale": "Aunque existen extensiones, su motor principal está optimizado para estructuras rígidas de filas y columnas.",
+        "isCorrect": false
+      },
+      {
+        "text": "El esquema rígido obliga a realizar migraciones de datos complejas cuando los requisitos de negocio cambian frecuentemente.",
+        "rationale": "Modificar tablas con millones de registros (ALTER TABLE) puede requerir bloqueos y tiempos de parada significativos.",
+        "isCorrect": false
+      },
+      {
+        "text": "En escenarios de Big Data masivo, el rendimiento de las consultas puede degradarse incluso con una correcta indexación.",
+        "rationale": "La sobrecarga de mantener índices y la gestión de concurrencia ACID penalizan el volumen extremo.",
+        "isCorrect": false
+      },
+      {
+        "text": "Carecen por completo de mecanismos para garantizar la alta disponibilidad global en aplicaciones con usuarios en distintos continentes.",
+        "rationale": "Sí existen mecanismos (replicación, clústeres), lo que ocurre es que su implementación es técnicamente compleja y costosa comparada con soluciones distribuidas nativas.",
+        "isCorrect": true
+      }
+    ],
+    "hint": "Cuidado con las afirmaciones categóricas como 'carecen por completo'."
+  },
+  {
+    "guid": "fbdafaa1-953e-43b0-9811-717e661e4e27",
+    "subjectId": "T53",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Sobre el lenguaje SQL y sus subgrupos de comandos, indique la opción FALSA:",
+    "answerOptions": [
+      {
+        "text": "El TCL (Transaction Control Language) incluye los comandos COMMIT y ROLLBACK para gestionar la persistencia de los cambios.",
+        "rationale": "TCL permite agrupar operaciones DML para que se ejecuten como una unidad atómica.",
+        "isCorrect": false
+      },
+      {
+        "text": "El DQL (Data Query Language) tiene como comando principal y casi exclusivo la sentencia SELECT.",
+        "rationale": "DQL se centra únicamente en la recuperación de información sin alterar el estado de la base de datos.",
+        "isCorrect": false
+      },
+      {
+        "text": "El comando DELETE se clasifica como DML porque elimina datos del interior de una tabla sin destruir su estructura.",
+        "rationale": "DML gestiona el ciclo de vida de los registros (creación, edición, borrado).",
+        "isCorrect": false
+      },
+      {
+        "text": "El comando ALTER TABLE se considera DML ya que modifica los datos contenidos en las columnas de la tabla.",
+        "rationale": "ALTER TABLE es DDL, ya que modifica la estructura (esquema) de la tabla, no el valor de los registros individuales.",
+        "isCorrect": true
+      }
+    ],
+    "hint": "Pregúntese si el comando cambia la 'forma' de la tabla o el 'contenido' de la tabla."
+  },
+  {
+    "guid": "41d8d37e-bde6-4718-a6bb-cde6802d3a1a",
+    "subjectId": "T53",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "En relación con las bases de datos geoespaciales, señale la afirmación FALSA:",
+    "answerOptions": [
+      {
+        "text": "Están diseñadas para almacenar y consultar tipos de datos como puntos, líneas y polígonos.",
+        "rationale": "Estos tipos representan coordenadas, rutas y áreas geográficas reales.",
+        "isCorrect": false
+      },
+      {
+        "text": "PostGIS es una extensión de PostgreSQL que le otorga capacidades de base de datos geoespacial.",
+        "rationale": "PostGIS es el estándar de facto para manejar información geográfica en el ecosistema SQL de código abierto.",
+        "isCorrect": false
+      },
+      {
+        "text": "Permiten realizar consultas de proximidad, como buscar los restaurantes más cercanos a una coordenada dada.",
+        "rationale": "Las funciones espaciales calculan distancias e intersecciones sobre esferoides o planos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Este tipo de bases de datos son incompatibles con el modelo relacional y solo pueden implementarse en sistemas NoSQL.",
+        "rationale": "Como demuestra PostGIS o las funciones espaciales de Oracle y SQL Server, el modelo relacional soporta perfectamente datos geoespaciales.",
+        "isCorrect": true
+      }
+    ],
+    "hint": "Recuerde que algunas SQL modernas han incorporado tipos de datos avanzados."
+  },
+  {
+    "guid": "7f3feb31-c6b7-493b-a661-3d37595cdc52",
+    "subjectId": "T53",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Sobre el Sistema Gestor de Base de Datos (SGBD), indique la afirmación FALSA:",
+    "answerOptions": [
+      {
+        "text": "Su objetivo es facilitar el trabajo con grandes volúmenes de datos abstrayendo al usuario del almacenamiento físico.",
+        "rationale": "El SGBD actúa como capa intermedia entre la aplicación y el hardware de disco.",
+        "isCorrect": false
+      },
+      {
+        "text": "Debe garantizar la independencia lógica y física de los datos.",
+        "rationale": "Esto permite cambiar el almacenamiento físico o la estructura lógica sin afectar necesariamente a las aplicaciones.",
+        "isCorrect": false
+      },
+      {
+        "text": "Se encarga de controlar la concurréncia entre múltiples usuarios para evitar que las operaciones se 'pisen'.",
+        "rationale": "El control de concurrencia es vital para mantener la integridad en entornos multiusuario.",
+        "isCorrect": false
+      },
+      {
+        "text": "Un SGBD es exclusivamente el motor de almacenamiento (storage engine) y no incluye herramientas de gestión de permisos o seguridad.",
+        "rationale": "Un SGBD es un conjunto de programas que incluye definición, seguridad, recuperación, integridad y control de accesos.",
+        "isCorrect": true
+      }
+    ],
+    "hint": "Piense en el SGBD como una solución integral, no solo como un 'guardador' de ficheros."
+  },
+  {
+    "guid": "ecb52210-7346-4b47-9feb-be64e653b700",
+    "subjectId": "T53",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Respecto a las bases de datos orientadas a objetos (BDOO), señale la opción FALSA:",
+    "answerOptions": [
+      {
+        "text": "Almacenan los datos como objetos, manteniendo propiedades y métodos, integrándose bien con lenguajes como Java o C++.",
+        "rationale": "Eliminan el 'desajuste de impedancia' entre el código orientado a objetos y el almacenamiento de datos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Evitan la necesidad de mapear manualmente los objetos de programación a tablas relacionales.",
+        "rationale": "Al guardar el objeto tal cual, se simplifica el flujo de persistencia en aplicaciones complejas.",
+        "isCorrect": false
+      },
+      {
+        "text": "ObjectDB y Realm son ejemplos de tecnologías que siguen este modelo.",
+        "rationale": "Ambas son soluciones populares para persistencia de objetos en desarrollo móvil y empresarial.",
+        "isCorrect": false
+      },
+      {
+        "text": "Son la opción preferida para sistemas de inteligencia de negocio y Big Data debido a su alta capacidad de agregación masiva.",
+        "rationale": "Para BI y Big Data se prefieren modelos OLAP (multidimensionales) o de columnas amples (NoSQL), no BDOO.",
+        "isCorrect": true
+      }
+    ],
+    "hint": "Piense en qué escenario es más útil guardar una 'clase' de programación directamente."
+  },
+  {
+    "guid": "0dc19360-8c0a-409b-990a-7acec72289a6",
+    "subjectId": "T53",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Indique cuál de las siguientes afirmaciones sobre la consistencia eventual es FALSA:",
+    "answerOptions": [
+      {
+        "text": "Es una característica común en bases de datos NoSQL que priorizan la alta disponibilidad sobre la consistencia inmediata.",
+        "rationale": "Permite que el sistema siga funcionando aunque algunos nodos no se hayan sincronizado todavía.",
+        "isCorrect": false
+      },
+      {
+        "text": "Garantiza que, pasado un tiempo sin nuevas actualizaciones, todos los accesos devolverán el último valor actualizado.",
+        "rationale": "La 'eventualidad' asegura la convergencia final del estado del clúster.",
+        "isCorrect": false
+      },
+      {
+        "text": "Se basa en la replicación asíncrona de datos entre los distintos nodos del sistema distribuido.",
+        "rationale": "Al no esperar a que todos los nodos confirmen la recepción del dato, se mejora la velocidad de respuesta.",
+        "isCorrect": false
+      },
+      {
+        "text": "Es el modelo de consistencia por defecto y obligatorio en el estándar SQL para garantizar las transacciones bancarias.",
+        "rationale": "SQL exige consistencia inmediata (ACID); la consistencia eventual sería inaceptable para la mayoría de operaciones bancarias tradicionales.",
+        "isCorrect": true
+      }
+    ],
+    "hint": "Imagine qué pasaría si su saldo bancario fuera 'eventualmente' correcto."
+  },
+  {
+    "guid": "d0a414b7-d150-409a-83c2-da180694bbc3",
+    "subjectId": "T53",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Sobre la comparación general entre SQL y NoSQL proporcionada, señale la afirmación FALSA:",
+    "answerOptions": [
+      {
+        "text": "Las bases de datos SQL suelen crecer mediante escalabilidad vertical, mientras que las NoSQL lo hacen mediante horizontal.",
+        "rationale": "Esta diferencia de diseño marca cómo se presupuesta y planifica la infraestructura de cada una.",
+        "isCorrect": false
+      },
+      {
+        "text": "SQL es más adecuado cuando las relaciones entre datos son complejas y se requiere exactitud absoluta.",
+        "rationale": "El modelo relacional brilla en la integridad y los vínculos estructurados.",
+        "isCorrect": false
+      },
+      {
+        "text": "NoSQL ofrece una flexibilidad de esquema que permite que registros en el mismo conjunto tengan campos diferentes.",
+        "rationale": "El diseño 'schema-less' es ideal para datos semiestructurados que cambian rápidamente.",
+        "isCorrect": false
+      },
+      {
+        "text": "Las bases de datos NoSQL son siempre más lentas que las SQL debido a que no utilizan el lenguaje optimizado SQL.",
+        "rationale": "NoSQL suele ser mucho más rápida en lecturas/escrituras masivas y sencillas precisamente por carecer de la sobrecarga de los JOINs y las garantías ACID estrictas.",
+        "isCorrect": true
+      }
+    ],
+    "hint": "No asocie 'lenguaje estándar' con 'rendimiento superior' de forma automática."
+  }
+]
