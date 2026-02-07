@@ -1,0 +1,312 @@
+[
+  {
+    "guid": "3e27c929-c57f-40a6-885c-0583bc7e04a1",
+    "subjectId": "T28",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Cuál es una diferencia fundamental entre un Servicio de Directorio (SD) y una base de datos relacional convencional?",
+    "answerOptions": [
+      {
+        "text": "Los SD están optimizados para operaciones de lectura, mientras que las bases de datos están optimizadas tanto para lectura como para escritura.",
+        "rationale": "La principal función de un servicio de directorio es facilitar consultas rápidas de información que cambia con poca frecuencia, de ahí su optimización para la lectura.",
+        "isCorrect": true
+      },
+      {
+        "text": "Los SD utilizan una estructura de datos relacional, mientras que las bases de datos convencionales son estrictamente jerárquicas.",
+        "rationale": "Esta afirmación invierte los roles; los servicios de directorio son los que utilizan una estructura de datos jerárquica, a diferencia de las bases de datos relacionales.",
+        "isCorrect": false
+      },
+      {
+        "text": "Los SD soportan transacciones complejas para garantizar la consistencia de los datos, a diferencia de las bases de datos.",
+        "rationale": "Al contrario, los servicios de directorio generalmente no soportan transacciones, ya que la consistencia estricta no es tan crítica como en las bases de datos transaccionales.",
+        "isCorrect": false
+      },
+      {
+        "text": "Los SD utilizan SQL como lenguaje de consulta, mientras que las bases de datos se basan en protocolos como LDAP.",
+        "rationale": "Esta opción confunde los lenguajes y protocolos; las bases de datos relacionales usan SQL y los servicios de directorio comúnmente utilizan LDAP.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piensa en la frecuencia con la que se espera que cambien los datos en cada tipo de sistema."
+  },
+  {
+    "guid": "83ffa982-cd38-4d67-9789-5088742ef04e",
+    "subjectId": "T28",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Qué capacidad principal añade OpenID Connect sobre el protocolo OAuth 2.0?",
+    "answerOptions": [
+      {
+        "text": "Una capa de autenticación para verificar la identidad del usuario.",
+        "rationale": "OAuth 2.0 es un protocolo de autorización (qué puede hacer una app), mientras que OpenID Connect añade la funcionalidad de autenticación (quién es el usuario).",
+        "isCorrect": true
+      },
+      {
+        "text": "Un mecanismo para limitar el alcance del acceso a recursos específicos.",
+        "rationale": "La gestión de alcances ('scopes') para limitar el acceso es una característica fundamental del propio protocolo OAuth 2.0.",
+        "isCorrect": false
+      },
+      {
+        "text": "La capacidad de trabajar sobre HTTPS para asegurar la comunicación.",
+        "rationale": "Ambos protocolos requieren el uso de HTTPS (TLS) para garantizar la seguridad de la comunicación en tránsito.",
+        "isCorrect": false
+      },
+      {
+        "text": "El cifrado de los tokens de acceso para que no puedan ser leídos por terceros.",
+        "rationale": "Aunque se recomienda, el cifrado de tokens no es una capacidad exclusiva que OpenID Connect añada; la seguridad se basa principalmente en la firma y el transporte seguro (HTTPS).",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considera la diferencia entre saber 'quién eres' y 'qué puedes hacer'."
+  },
+  {
+    "guid": "daf540c5-03e3-4001-b236-83928a72ec52",
+    "subjectId": "T28",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Dentro del ciclo de vida de la gestión de identidades (IAM), ¿qué implica la fase de \"desaprovisionamiento\"?",
+    "answerOptions": [
+      {
+        "text": "Crear una nueva cuenta de usuario y asignarle los permisos iniciales.",
+        "rationale": "Este proceso corresponde a la fase de 'aprovisionamiento' o alta inicial de la identidad.",
+        "isCorrect": false
+      },
+      {
+        "text": "Modificar los permisos de un usuario debido a un cambio de rol en la organización.",
+        "rationale": "Esto forma parte de la fase de 'gestión' o mantenimiento de la identidad a lo largo de su vida útil.",
+        "isCorrect": false
+      },
+      {
+        "text": "Revocar todos los accesos y eliminar la identidad cuando ya no es necesaria.",
+        "rationale": "El desaprovisionamiento es el proceso crítico de baja que asegura que un usuario que deja la organización pierda el acceso a todos los recursos.",
+        "isCorrect": true
+      },
+      {
+        "text": "Realizar una auditoría periódica de los derechos de acceso de los usuarios.",
+        "rationale": "La auditoría es una tarea de gobernanza y supervisión, no una fase del ciclo de vida de una identidad individual.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piensa en el paso final del ciclo de vida de una identidad dentro de una organización."
+  },
+  {
+    "guid": "e093475c-b875-4574-9e96-68ea9d47b192",
+    "subjectId": "T28",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En un entorno de Active Directory, ¿qué componente lógico representa la instancia completa del servicio y constituye el límite de seguridad y confianza?",
+    "answerOptions": [
+      {
+        "text": "Una Unidad Organizativa (OU)",
+        "rationale": "Una OU es un contenedor dentro de un dominio que se utiliza para organizar objetos y delegar la administración, pero no es el límite de seguridad.",
+        "isCorrect": false
+      },
+      {
+        "text": "Un Dominio",
+        "rationale": "Un dominio es una unidad funcional central para la administración y la seguridad, pero varios dominios pueden confiar entre sí dentro de una estructura mayor.",
+        "isCorrect": false
+      },
+      {
+        "text": "Un Árbol de Directorio",
+        "rationale": "Un árbol es un conjunto de uno o más dominios con un espacio de nombres contiguo, pero un bosque puede contener varios árboles.",
+        "isCorrect": false
+      },
+      {
+        "text": "Un Bosque",
+        "rationale": "El bosque es el contenedor de más alto nivel en la estructura lógica de Active Directory y define el perímetro de seguridad y las relaciones de confianza.",
+        "isCorrect": true
+      }
+    ],
+    "hint": "Busca el nivel más alto en la jerarquía lógica de un servicio de directorio."
+  },
+  {
+    "guid": "cc7db230-1ae1-4d15-a8c9-406d32bb998d",
+    "subjectId": "T28",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Cuál es el propósito principal del protocolo de autorización OAuth 2.0 en el contexto de las APIs?",
+    "answerOptions": [
+      {
+        "text": "Permitir que una aplicación obtenga acceso limitado a los recursos de un usuario sin compartir sus credenciales.",
+        "rationale": "OAuth 2.0 se centra en la delegación de autorización, permitiendo un acceso seguro y con alcance limitado a APIs en nombre de un usuario.",
+        "isCorrect": true
+      },
+      {
+        "text": "Verificar la identidad de un usuario utilizando un sistema descentralizado basado en URLs.",
+        "rationale": "Este es el propósito de OpenID, que se enfoca en la autenticación, no en la autorización delegada.",
+        "isCorrect": false
+      },
+      {
+        "text": "Intercambiar aserciones de autenticación y autorización en formato XML entre dominios de confianza.",
+        "rationale": "Esta descripción corresponde al funcionamiento del protocolo SAML, comúnmente usado en SSO federado.",
+        "isCorrect": false
+      },
+      {
+        "text": "Autenticar usuarios en una red local mediante un sistema de tickets y un tercero de confianza.",
+        "rationale": "Este es el mecanismo de funcionamiento de Kerberos, no de OAuth 2.0.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Este protocolo permite que des permiso a una app para que acceda a tus datos de Google, pero sin darle tu contraseña de Google."
+  },
+  {
+    "guid": "f65fe879-7080-4c8b-a7c0-6c57dc0932ce",
+    "subjectId": "T28",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Qué modelo de control de acceso permite tomar decisiones de autorización más granulares y dinámicas, basadas en el contexto como la ubicación del usuario, la hora del día o la sensibilidad del dato?",
+    "answerOptions": [
+      {
+        "text": "Control de Acceso Basado en Roles (RBAC)",
+        "rationale": "RBAC asigna permisos basados en el rol o función laboral del usuario, lo cual es menos dinámico y contextual.",
+        "isCorrect": false
+      },
+      {
+        "text": "Control de Acceso Basado en Atributos (ABAC)",
+        "rationale": "ABAC utiliza políticas que evalúan múltiples atributos del usuario, el recurso y el entorno para tomar decisiones de acceso en tiempo real.",
+        "isCorrect": true
+      },
+      {
+        "text": "Control de Acceso Discrecional (DAC)",
+        "rationale": "En DAC, el propietario de un recurso es quien decide quién puede acceder a él, pero no se basa inherentemente en atributos contextuales dinámicos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Control de Acceso Obligatorio (MAC)",
+        "rationale": "MAC asigna niveles de seguridad a sujetos y objetos, y el acceso se basa en la comparación de estos niveles, un modelo más rígido y centralizado.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Este modelo va más allá del simple 'quién eres' para preguntar 'en qué circunstancias estás accediendo'."
+  },
+  {
+    "guid": "c261f763-cde7-41aa-ba1e-6da81c884714",
+    "subjectId": "T28",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En un sistema de Single Sign-On (SSO) que utiliza Kerberos, ¿cuál es el elemento fundamental que un usuario recibe para demostrar su identidad ante las aplicaciones cliente?",
+    "answerOptions": [
+      {
+        "text": "Una cookie de sesión almacenada en el navegador.",
+        "rationale": "Las cookies se utilizan comúnmente en sistemas Web-SSO para mantener el estado de autenticación, pero no son el mecanismo central de Kerberos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Un ticket de concesión de tickets (TGT) y tickets de servicio.",
+        "rationale": "Kerberos se basa en un sistema de tickets emitidos por un centro de distribución de claves (KDC) para autenticar al usuario en diferentes servicios de la red.",
+        "isCorrect": true
+      },
+      {
+        "text": "Un token de acceso en formato JWT.",
+        "rationale": "Los tokens JWT son característicos de sistemas modernos de autenticación y autorización como OAuth 2.0 y OpenID Connect.",
+        "isCorrect": false
+      },
+      {
+        "text": "Un certificado digital firmado por una autoridad de certificación.",
+        "rationale": "Los certificados digitales son la base de la infraestructura de clave pública (PKI) y se utilizan para la autenticación fuerte, pero no son el mecanismo de Kerberos.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piensa en un sistema donde te dan una 'entrada' para poder acceder a diferentes 'atracciones' dentro de un parque."
+  },
+  {
+    "guid": "601a9a2f-c66a-4fda-8efe-26dc4dcf7656",
+    "subjectId": "T28",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Cuál de las siguientes afirmaciones describe correctamente la relación entre la gestión de identidades (IAM) y normativas como el Esquema Nacional de Seguridad (ENS)?",
+    "answerOptions": [
+      {
+        "text": "El ENS es una recomendación opcional y la gestión de identidades es independiente de su cumplimiento.",
+        "rationale": "El ENS es de obligado cumplimiento para las administraciones públicas en España, y la gestión de identidades es un requisito central del mismo.",
+        "isCorrect": false
+      },
+      {
+        "text": "La gestión de identidades es un pilar fundamental para cumplir con los requisitos del ENS sobre control de acceso y trazabilidad.",
+        "rationale": "El ENS exige un control riguroso sobre quién accede a qué información, lo cual se implementa directamente a través de un sistema IAM robusto.",
+        "isCorrect": true
+      },
+      {
+        "text": "El ENS se centra únicamente en la seguridad perimetral de la red, sin especificar requisitos sobre identidades de usuario.",
+        "rationale": "El ENS abarca múltiples dominios de seguridad, siendo el control de acceso y la gestión de identidades uno de los más importantes.",
+        "isCorrect": false
+      },
+      {
+        "text": "La gestión de identidades solo es relevante para cumplir con el RGPD, no con el ENS.",
+        "rationale": "Mientras que IAM es crucial para el RGPD (acceso a datos personales), también es esencial para el ENS, que cubre la seguridad de toda la información del sector público.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considera si es posible garantizar la seguridad de la información de un organismo público sin controlar quién puede acceder a ella."
+  },
+  {
+    "guid": "de24a831-e4af-4a5b-8d18-6532d11c636d",
+    "subjectId": "T28",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Cuál es el objetivo principal de la Gestión de Acceso Privilegiado (PAM)?",
+    "answerOptions": [
+      {
+        "text": "Permitir que los usuarios se autentiquen una sola vez para acceder a múltiples sistemas.",
+        "rationale": "Esta es la definición de Single Sign-On (SSO), que mejora la experiencia del usuario general pero no se enfoca en cuentas de alto riesgo.",
+        "isCorrect": false
+      },
+      {
+        "text": "Automatizar el alta y la baja de todos los usuarios de la organización.",
+        "rationale": "Esto corresponde al provisionamiento y desaprovisionamiento dentro del ciclo de vida de la identidad (IAM), que aplica a todos los usuarios.",
+        "isCorrect": false
+      },
+      {
+        "text": "Establecer controles adicionales y monitorizar las cuentas con permisos elevados, como las de administrador.",
+        "rationale": "PAM es una subdisciplina de IAM centrada específicamente en mitigar el riesgo asociado a las cuentas que tienen privilegios administrativos.",
+        "isCorrect": true
+      },
+      {
+        "text": "Facilitar el acceso a recursos entre diferentes organizaciones mediante un círculo de confianza.",
+        "rationale": "Este es el concepto de federación de identidades, que permite la colaboración entre dominios.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Esta práctica se enfoca en los usuarios que, si fueran comprometidos, podrían causar el mayor daño al sistema."
+  },
+  {
+    "guid": "b4027169-e914-490e-b42a-ea4ba1547a0c",
+    "subjectId": "T28",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Cuál de las siguientes afirmaciones sobre el protocolo LDAP es FALSA?",
+    "answerOptions": [
+      {
+        "text": "LDAP funciona sobre TCP/IP y permite el acceso a servicios de directorio distribuidos.",
+        "rationale": "Esta afirmación es correcta; LDAP es un protocolo de nivel de aplicación que opera sobre TCP/IP para consultar directorios.",
+        "isCorrect": false
+      },
+      {
+        "text": "La última versión del protocolo es la versión 3 (LDAPv3), definida en la RFC 4511.",
+        "rationale": "Esta afirmación es correcta, LDAPv3 es la versión estándar y está consolidada en dicha RFC.",
+        "isCorrect": false
+      },
+      {
+        "text": "LDAP es un protocolo diseñado para implementar el modelo de interconexión de sistemas abiertos (OSI).",
+        "rationale": "Esta afirmación es falsa; LDAP, aunque derivado del estándar X.500 (relacionado con OSI), fue diseñado para ser una versión ligera que funciona sobre la pila de protocolos TCP/IP, no OSI.",
+        "isCorrect": true
+      },
+      {
+        "text": "Permite realizar operaciones de búsqueda, adición, modificación y borrado de entradas en el directorio.",
+        "rationale": "Esta afirmación es correcta, ya que LDAP define un conjunto de operaciones para interactuar y mantener los datos del directorio.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piensa en sobre qué pila de protocolos de red se construyó Internet y la mayoría de las aplicaciones modernas."
+  }
+]

@@ -1,0 +1,467 @@
+[
+  {
+    "guid": "dcb31b26-1681-4b2e-aa0a-e7f49e99bcf7",
+    "subjectId": "T60",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Según la clasificación del Uptime Institute, ¿qué característica principal diferencia a un CPD Tier 3 de un Tier 2?",
+    "answerOptions": [
+      {
+        "text": "La capacidad de realizar mantenimiento en cualquier componente sin interrumpir las operaciones críticas.",
+        "rationale": "Un CPD Tier 3 está diseñado para ser 'Concurrently Maintainable', lo que significa que tiene caminos de distribución redundantes que permiten el mantenimiento sin paradas de servicio.",
+        "isCorrect": true
+      },
+      {
+        "text": "La existencia de componentes redundantes (N+1) para la climatización y la alimentación eléctrica.",
+        "rationale": "Aunque un Tier 3 tiene redundancia N+1, un Tier 2 también puede tenerla en componentes específicos; la diferencia clave es que el Tier 2 solo tiene un único camino de distribución.",
+        "isCorrect": false
+      },
+      {
+        "text": "La duplicación completa de toda la infraestructura (2N), ofreciendo tolerancia total a fallos.",
+        "rationale": "La configuración 2N, que proporciona tolerancia a fallos ante cualquier evento, es la característica definitoria de un CPD Tier 4.",
+        "isCorrect": false
+      },
+      {
+        "text": "La ausencia de componentes redundantes, con un único camino para todos los sistemas.",
+        "rationale": "Esta descripción corresponde a un CPD Tier 1, que ofrece la disponibilidad más básica sin redundancia.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Céntrate en la capacidad de intervención sobre la infraestructura sin afectar al servicio que se presta."
+  },
+  {
+    "guid": "35ca9bfb-3f29-4ffb-b72b-471ec7a76004",
+    "subjectId": "T60",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Cuál es la principal desventaja de la arquitectura de red End of Row (EoR) en comparación con la Top of Rack (ToR)?",
+    "answerOptions": [
+      {
+        "text": "Requiere una gran cantidad de cableado largo y complejo desde cada servidor hasta el switch central.",
+        "rationale": "En EoR, cada servidor se conecta a un switch al final de la fila, lo que implica tramos de cable más largos y una gestión de cableado más compleja.",
+        "isCorrect": true
+      },
+      {
+        "text": "Aumenta el número de switches necesarios, incrementando el coste y la carga de gestión.",
+        "rationale": "Esta es una desventaja de la arquitectura ToR, que requiere al menos un switch por cada rack.",
+        "isCorrect": false
+      },
+      {
+        "text": "Un fallo en un switch de rack solo afecta a los servidores de ese rack específico.",
+        "rationale": "Esta es una ventaja de la arquitectura ToR, ya que aísla el impacto de un fallo a un único rack.",
+        "isCorrect": false
+      },
+      {
+        "text": "Permite el uso de cables de mayor calidad y ancho de banda, como la fibra, con un presupuesto similar.",
+        "rationale": "Al requerir menos metros de cableado dentro del rack, la arquitectura ToR facilita la inversión en cables de mayor rendimiento.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considera cómo la ubicación del switch afecta a la cantidad y longitud del cableado."
+  },
+  {
+    "guid": "c9c0b778-3a32-49c1-a610-5383a2621dd3",
+    "subjectId": "T60",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Qué categoría de cableado de cobre está específicamente diseñada para aplicaciones de centros de datos que requieren velocidades de hasta 40 Gbps en distancias cortas?",
+    "answerOptions": [
+      {
+        "text": "Cat 6a",
+        "rationale": "El cableado de Categoría 6a está diseñado para soportar velocidades de hasta 10 Gbps a una distancia máxima de 100 metros.",
+        "isCorrect": false
+      },
+      {
+        "text": "Cat 7",
+        "rationale": "La Categoría 7 también ofrece un rendimiento de hasta 10 Gbps a 100 metros, con un blindaje superior al de Cat 6a, pero no alcanza los 40 Gbps.",
+        "isCorrect": false
+      },
+      {
+        "text": "Cat 8",
+        "rationale": "La Categoría 8 está diseñada para soportar velocidades de hasta 40 Gbps, pero su distancia máxima recomendada se limita a 30 metros, siendo ideal para interconexiones en CPDs.",
+        "isCorrect": true
+      },
+      {
+        "text": "Cat 5e",
+        "rationale": "El cableado de Categoría 5e es adecuado para redes Gigabit Ethernet, soportando velocidades de hasta 1 Gbps.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Revisa la tabla de cableado y busca la categoría con la mayor velocidad máxima soportada."
+  },
+  {
+    "guid": "baa1228f-2574-49ed-a3e9-60cbd1194ced",
+    "subjectId": "T60",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En la jerarquía del protocolo NTP (Network Time Protocol), ¿qué es un servidor \"Stratum 1\"?",
+    "answerOptions": [
+      {
+        "text": "Es la propia fuente de referencia horaria, como un reloj atómico o un satélite GPS.",
+        "rationale": "Las fuentes de tiempo de alta precisión, como los relojes atómicos o GPS, se clasifican como Stratum 0.",
+        "isCorrect": false
+      },
+      {
+        "text": "Un servidor que sincroniza su tiempo directamente de una fuente Stratum 0 (ej. GPS).",
+        "rationale": "Los servidores Stratum 1 son los que están directamente conectados a las referencias de tiempo de Stratum 0 y sirven como fuente para los servidores de estratos inferiores.",
+        "isCorrect": true
+      },
+      {
+        "text": "Un servidor que se sincroniza con otro servidor de la red, que a su vez es Stratum 1.",
+        "rationale": "Un servidor que recibe la hora de un servidor Stratum 1 se clasifica como Stratum 2.",
+        "isCorrect": false
+      },
+      {
+        "text": "Un cliente de la red que no ofrece servicio de sincronización a otros equipos.",
+        "rationale": "Esto describe el rol de un cliente NTP, pero no su nivel en la jerarquía de estratos, que depende de su fuente de sincronización.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piensa en el primer nivel de servidores que se conectan a las fuentes de tiempo más precisas."
+  },
+  {
+    "guid": "d59843d5-97ca-4e43-a1c8-19b34640ae26",
+    "subjectId": "T60",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Dentro de una arquitectura de red multitier, ¿en qué capa se ubicarían normalmente los servidores de bases de datos?",
+    "answerOptions": [
+      {
+        "text": "En la Capa de Presentación (front-end).",
+        "rationale": "La capa de presentación es la que interactúa directamente con el usuario o redes externas, como los servidores web, y no debería alojar las bases de datos.",
+        "isCorrect": false
+      },
+      {
+        "text": "En la Capa de Aplicaciones (application layer).",
+        "rationale": "La capa de aplicaciones contiene la lógica de negocio y procesa los datos, pero las bases de datos en sí mismas residen en una capa posterior y más segura.",
+        "isCorrect": false
+      },
+      {
+        "text": "En la Capa de Datos (data layer).",
+        "rationale": "La capa de datos es la más protegida y contiene la información sensible y crítica, como las bases de datos y el almacenamiento.",
+        "isCorrect": true
+      },
+      {
+        "text": "En una capa de red desmilitarizada (DMZ).",
+        "rationale": "La DMZ se usa para servicios expuestos a Internet; las bases de datos, por su criticidad, deben estar en la red interna más segura posible.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considera qué capa debe tener las medidas de seguridad más estrictas y el acceso más restringido."
+  },
+  {
+    "guid": "88fa29de-a2c5-4610-b0c7-e1ca99d9a62c",
+    "subjectId": "T60",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Cuál es el propósito principal de utilizar un Sistema de Alimentación Ininterrumpida (SAI o UPS) en un CPD?",
+    "answerOptions": [
+      {
+        "text": "Proporcionar energía a largo plazo durante un apagón de varias horas.",
+        "rationale": "Para cortes de larga duración, la responsabilidad recae en los generadores diésel; el UPS no tiene capacidad para ello.",
+        "isCorrect": false
+      },
+      {
+        "text": "Distribuir la energía de forma eficiente a los servidores dentro de un rack.",
+        "rationale": "La distribución de energía a los equipos del rack es la función de las Unidades de Distribución de Energía (PDU).",
+        "isCorrect": false
+      },
+      {
+        "text": "Proteger los equipos contra picos de tensión y suministrar energía instantánea durante el tiempo que tarda en arrancar el generador.",
+        "rationale": "El UPS ofrece protección contra anomalías eléctricas y proporciona un suministro de batería inmediato para cubrir el lapso entre el corte de red y la activación del generador.",
+        "isCorrect": true
+      },
+      {
+        "text": "Reducir el consumo energético general del CPD y mejorar el PUE.",
+        "rationale": "El UPS en sí mismo consume energía y su funcionamiento no tiene como objetivo principal la mejora de la eficiencia energética, aunque los modelos modernos son muy eficientes.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piensa en la transición que ocurre inmediatamente después de un corte del suministro eléctrico principal."
+  },
+  {
+    "guid": "98699cd5-cd06-4bba-8cb0-2273ce5e7545",
+    "subjectId": "T60",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "El indicador PUE (Power Usage Effectiveness) se utiliza para medir la eficiencia energética de un CPD. ¿Qué indica un valor PUE cercano a 1.0?",
+    "answerOptions": [
+      {
+        "text": "Una alta eficiencia, donde casi toda la energía consumida se destina a los equipos informáticos.",
+        "rationale": "Un PUE ideal de 1.0 significaría que el 100% de la energía se usa para los equipos de TI, sin pérdidas en refrigeración, iluminación u otros sistemas auxiliares.",
+        "isCorrect": true
+      },
+      {
+        "text": "Una baja eficiencia, donde la mayor parte de la energía se consume en sistemas auxiliares como la refrigeración.",
+        "rationale": "Un valor PUE alto (por ejemplo, 2.0 o superior) indica que se consume tanta o más energía en la infraestructura como en los propios equipos de TI.",
+        "isCorrect": false
+      },
+      {
+        "text": "Que el CPD cumple con la normativa GDPR sobre protección de datos.",
+        "rationale": "El PUE es una métrica de eficiencia energética y no está directamente relacionada con el cumplimiento de normativas de protección de datos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Que el centro de datos tiene una redundancia de tipo 2N (Tier 4).",
+        "rationale": "Aunque un diseño eficiente es deseable en todos los Tiers, el PUE mide la eficiencia del consumo, no el nivel de redundancia de la infraestructura.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Recuerda la fórmula del PUE: energía total del CPD dividida por la energía de los equipos de TI."
+  },
+  {
+    "guid": "05198af0-e8f9-4b80-a65d-d069bea6f6f0",
+    "subjectId": "T60",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En un CPD, ¿qué tipo de fibra óptica es la más adecuada para establecer conexiones de red a muy largas distancias, como entre edificios o ciudades diferentes?",
+    "answerOptions": [
+      {
+        "text": "Fibra óptica multimodo (OM3/OM4).",
+        "rationale": "La fibra multimodo es ideal para distancias cortas, como dentro de un mismo rack o edificio, ya que su ancho de banda disminuye significativamente con la distancia.",
+        "isCorrect": false
+      },
+      {
+        "text": "Fibra óptica monomodo (OS1/OS2).",
+        "rationale": "La fibra monomodo tiene un núcleo mucho más pequeño que permite que la luz viaje por un único camino, minimizando la dispersión y permitiendo alcanzar distancias de varios kilómetros.",
+        "isCorrect": true
+      },
+      {
+        "text": "Cable STP de Categoría 8.",
+        "rationale": "El cable de Categoría 8 es un tipo de cableado de cobre, y aunque soporta altas velocidades, su alcance está limitado a unos 30 metros.",
+        "isCorrect": false
+      },
+      {
+        "text": "Cable UTP de Categoría 6.",
+        "rationale": "El cable UTP es un cable de cobre de par trenzado no apantallado, limitado a distancias de hasta 100 metros y no es adecuado para enlaces de larga distancia.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piensa en cuál de los dos tipos de fibra tiene un núcleo más pequeño, lo que reduce la distorsión de la señal a lo largo de la distancia."
+  },
+  {
+    "guid": "fff11ea8-a565-413c-a0ab-ac66c505c666",
+    "subjectId": "T60",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Cuál es uno de los principales objetivos de implementar un Plan de Recuperación de Desastres (DR) en un CPD?",
+    "answerOptions": [
+      {
+        "text": "Supervisar el rendimiento de los servidores y el tráfico de red en tiempo real.",
+        "rationale": "La supervisión del rendimiento es una tarea de gestión operativa diaria, realizada por herramientas de monitorización (NMS) o DCIM.",
+        "isCorrect": false
+      },
+      {
+        "text": "Garantizar que el CPD cumple con certificaciones de calidad como ISO/IEC 27001.",
+        "rationale": "Aunque tener un plan de DR es un requisito para muchas certificaciones, el objetivo del plan en sí no es la certificación, sino la resiliencia del negocio.",
+        "isCorrect": false
+      },
+      {
+        "text": "Establecer los procedimientos para restaurar las operaciones y los datos tras un incidente catastrófico.",
+        "rationale": "Un plan de DR se enfoca específicamente en cómo recuperar la funcionalidad del CPD después de un desastre que lo haya dejado inoperativo.",
+        "isCorrect": true
+      },
+      {
+        "text": "Implementar redundancia N+1 en los sistemas de climatización y alimentación.",
+        "rationale": "La redundancia es una medida de alta disponibilidad para prevenir interrupciones por fallos de componentes, mientras que el DR se activa cuando estas medidas no son suficientes.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Este plan no busca evitar fallos, sino reaccionar cuando ocurre uno de gran magnitud."
+  },
+  {
+    "guid": "72a2ac9c-4b89-4f9b-b3e3-dcf4c6f79f87",
+    "subjectId": "T60",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "La norma ANSI/TIA-942 es un estándar fundamental en el diseño de CPDs. ¿Cuál de los siguientes aspectos NO está cubierto directamente por sus directrices?",
+    "answerOptions": [
+      {
+        "text": "Los requisitos para la infraestructura eléctrica, incluyendo UPS y generadores.",
+        "rationale": "La norma TIA-942 proporciona recomendaciones detalladas sobre los sistemas de alimentación eléctrica para garantizar la disponibilidad.",
+        "isCorrect": false
+      },
+      {
+        "text": "Las especificaciones del software de virtualización (VMware, Hyper-V) a utilizar.",
+        "rationale": "La TIA-942 se centra en la infraestructura física (telecomunicaciones, eléctrica, mecánica, arquitectónica) y no prescribe qué software específico debe ejecutarse en los servidores.",
+        "isCorrect": true
+      },
+      {
+        "text": "Las recomendaciones sobre la infraestructura de red, como el cableado y los switches.",
+        "rationale": "La infraestructura de telecomunicaciones y redes es uno de los pilares de la norma TIA-942.",
+        "isCorrect": false
+      },
+      {
+        "text": "Las directrices para la seguridad física, como el control de accesos y la protección contra incendios.",
+        "rationale": "La seguridad física y la resiliencia del edificio son aspectos clave que la norma TIA-942 aborda para clasificar los niveles de Tier.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piensa si este estándar se enfoca en la infraestructura física o en las capas lógicas y de aplicación."
+  },
+  {
+    "guid": "c5ac248b-7ebc-441f-8527-6566f5fc0105",
+    "subjectId": "T60",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Qué componente de la infraestructura de un CPD tiene como función principal distribuir las peticiones de los clientes entre un conjunto de servidores para optimizar el rendimiento y la disponibilidad?",
+    "answerOptions": [
+      {
+        "text": "Firewall",
+        "rationale": "Un firewall se encarga de la seguridad perimetral, filtrando el tráfico de red según unas reglas predefinidas, pero no distribuye la carga.",
+        "isCorrect": false
+      },
+      {
+        "text": "Router",
+        "rationale": "Un router se utiliza para interconectar diferentes redes y dirigir el tráfico entre ellas, basándose en las direcciones IP.",
+        "isCorrect": false
+      },
+      {
+        "text": "Balanceador de carga",
+        "rationale": "Un balanceador de carga actúa como un punto de entrada único para las solicitudes y las reparte de manera inteligente entre los servidores de una granja (server farm).",
+        "isCorrect": true
+      },
+      {
+        "text": "Switch",
+        "rationale": "Un switch opera principalmente en la capa 2 para conectar dispositivos dentro de la misma red local (LAN), pero no gestiona la distribución de carga de aplicaciones.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Este dispositivo actúa como un 'director de tráfico' para un grupo de servidores que ofrecen el mismo servicio."
+  },
+  {
+    "guid": "7dc5ed88-321f-4445-b4aa-af7458045582",
+    "subjectId": "T60",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En el contexto de la protección ambiental de un CPD, ¿qué es la tecnología de \"Free Cooling\"?",
+    "answerOptions": [
+      {
+        "text": "Un sistema que utiliza refrigerantes líquidos que fluyen directamente sobre los componentes del servidor.",
+        "rationale": "Esto describe la refrigeración líquida directa, una técnica diferente que se usa para equipos de muy alta densidad.",
+        "isCorrect": false
+      },
+      {
+        "text": "Una técnica que aprovecha las bajas temperaturas del aire exterior para enfriar el CPD, reduciendo el uso de compresores de aire acondicionado.",
+        "rationale": "El Free Cooling es un método ecológico que utiliza el aire frío del exterior, cuando las condiciones lo permiten, para refrigerar el agua o el aire del sistema de climatización sin coste energético de compresión.",
+        "isCorrect": true
+      },
+      {
+        "text": "Un sistema de refrigeración basado en dos circuitos, uno de agua y otro de refrigerante, que intercambian calor en una torre exterior.",
+        "rationale": "Esta es una descripción general de un sistema de refrigeración por agua (chiller), que puede o no incorporar la capacidad de Free Cooling.",
+        "isCorrect": false
+      },
+      {
+        "text": "El uso de suelos técnicos elevados para crear pasillos de aire frío y caliente, optimizando el flujo de aire.",
+        "rationale": "La disposición de pasillos fríos y calientes es una estrategia de diseño para mejorar la eficiencia de la refrigeración, pero no es la tecnología de Free Cooling en sí.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piensa en una forma de refrigerar que sea más eficiente y ecológica aprovechando las condiciones climáticas."
+  },
+  {
+    "guid": "00c46fa4-8e87-43c6-9285-e731cf7ba702",
+    "subjectId": "T60",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Cuál es la principal ventaja de la segmentación de red en una arquitectura multitier?",
+    "answerOptions": [
+      {
+        "text": "Aumentar la velocidad de conexión a Internet para todos los servidores.",
+        "rationale": "La velocidad de conexión depende de los enlaces contratados, no de la segmentación interna, aunque esta optimiza el tráfico.",
+        "isCorrect": false
+      },
+      {
+        "text": "Reducir el número total de servidores físicos necesarios gracias a la virtualización.",
+        "rationale": "La virtualización permite consolidar servidores, pero es una tecnología independiente de la segmentación de la red.",
+        "isCorrect": false
+      },
+      {
+        "text": "Simplificar la gestión de la red al tener todos los dispositivos en el mismo segmento.",
+        "rationale": "Al contrario, la segmentación aumenta el número de segmentos a gestionar, aunque esto se hace para mejorar otros aspectos como la seguridad.",
+        "isCorrect": false
+      },
+      {
+        "text": "Mejorar la seguridad al aislar las capas y controlar el tráfico entre ellas, limitando el impacto de un ataque.",
+        "rationale": "Al separar la red en capas (presentación, aplicación, datos), se pueden aplicar políticas de seguridad específicas y contener un incidente en una capa sin que se propague a las otras.",
+        "isCorrect": true
+      }
+    ],
+    "hint": "Considera cómo la división en capas puede ayudar a contener un problema de seguridad."
+  },
+  {
+    "guid": "6cebe552-b4fc-4b63-8aec-a27558358528",
+    "subjectId": "T60",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Un CPD Tier 4 se define como 'tolerante a fallos'. ¿Qué implica esto en términos de su infraestructura de alimentación eléctrica?",
+    "answerOptions": [
+      {
+        "text": "Dispone de un sistema de alimentación principal y un componente de respaldo (N+1).",
+        "rationale": "La configuración N+1 es característica de los Tiers 2 y 3, que permiten redundancia de componentes y mantenimiento, pero no tolerancia total a fallos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Cuenta con una única línea de alimentación de alta capacidad sin redundancia.",
+        "rationale": "Esta configuración correspondería a un Tier 1, que no ofrece ninguna tolerancia a fallos en sus sistemas.",
+        "isCorrect": false
+      },
+      {
+        "text": "Tiene dos infraestructuras de alimentación eléctrica completas, independientes y activas (2N).",
+        "rationale": "La tolerancia a fallos de un Tier 4 se logra duplicando por completo toda la infraestructura crítica, incluyendo dos sistemas eléctricos independientes (2N), cada uno capaz de soportar la carga total.",
+        "isCorrect": true
+      },
+      {
+        "text": "Utiliza únicamente generadores diésel como fuente de alimentación principal para ser independiente de la red.",
+        "rationale": "Los generadores son sistemas de respaldo para cortes de la red principal, no la fuente primaria de alimentación en un diseño estándar.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Para ser tolerante a cualquier fallo, no basta con tener un respaldo; se necesita un sistema completo duplicado."
+  },
+  {
+    "guid": "fd44d9e5-af64-4478-86ee-065ef12ad9b4",
+    "subjectId": "T60",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Cuál de los siguientes es un sistema de almacenamiento en red diseñado para proporcionar acceso a datos a nivel de fichero a través de protocolos como NFS o CIFS?",
+    "answerOptions": [
+      {
+        "text": "SAN (Storage Area Network)",
+        "rationale": "Una SAN proporciona acceso a nivel de bloque, presentándose a los servidores como si fueran discos locales, y es más compleja que el almacenamiento a nivel de fichero.",
+        "isCorrect": false
+      },
+      {
+        "text": "NAS (Network Attached Storage)",
+        "rationale": "Un NAS es un dispositivo especializado conectado a la red que sirve ficheros usando protocolos estándar, funcionando como un servidor de archivos centralizado.",
+        "isCorrect": true
+      },
+      {
+        "text": "RAID (Redundant Array of Independent Disks)",
+        "rationale": "RAID es una tecnología para combinar múltiples discos en una unidad lógica para mejorar el rendimiento o la redundancia, pero no es un tipo de sistema de almacenamiento en red en sí mismo.",
+        "isCorrect": false
+      },
+      {
+        "text": "SSD (Solid-State Drive)",
+        "rationale": "Un SSD es un tipo de dispositivo de almacenamiento (como un disco duro), no un sistema de red para compartir ficheros.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Este sistema se percibe en la red como un servidor de archivos dedicado y fácil de usar."
+  }
+]

@@ -1,0 +1,312 @@
+[
+  {
+    "guid": "dbbaf6d2-ef44-4d47-9398-ac12de20ed4e",
+    "subjectId": "T59",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En el contexto de un SDDC, ¿qué tecnología permite crear redes lógicas superpuestas sobre una infraestructura física, facilitando la segmentación y la movilidad de las máquinas virtuales?",
+    "answerOptions": [
+      {
+        "text": "Protocolos de overlay como VXLAN o NVGRE",
+        "rationale": "Estos protocolos encapsulan el tráfico de Capa 2 dentro de paquetes de Capa 3, permitiendo crear redes virtuales extensibles y flexibles sobre la red física existente.",
+        "isCorrect": true
+      },
+      {
+        "text": "Thin Provisioning",
+        "rationale": "Esta es una técnica de Software-Defined Storage (SDS) que asigna espacio de almacenamiento de forma dinámica, no una tecnología de red.",
+        "isCorrect": false
+      },
+      {
+        "text": "Live Migration (vMotion)",
+        "rationale": "Esta es una capacidad de Software-Defined Compute (SDC) para mover una VM en ejecución entre hosts físicos sin interrupción del servicio.",
+        "isCorrect": false
+      },
+      {
+        "text": "Hipervisor monolítico",
+        "rationale": "Este término se refiere a un tipo de arquitectura de hipervisor donde los controladores de dispositivos residen dentro del propio hipervisor, no a una tecnología de red.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piensa en cómo se puede extender un dominio de red de Capa 2 a través de diferentes redes físicas de Capa 3."
+  },
+  {
+    "guid": "eb7f7fe0-171a-4406-8582-fd1bbf8eb84c",
+    "subjectId": "T59",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Cuál es la principal diferencia funcional entre una Máquina Virtual (VM) genérica y un Escritorio Virtual (VDI)?",
+    "answerOptions": [
+      {
+        "text": "Una VM es un sistema genérico (servidor o cliente), mientras que un VDI es una VM optimizada para entregar un entorno de escritorio completo a un usuario final.",
+        "rationale": "Un VDI es una aplicación específica de la virtualización de computación (SDC) donde el propósito de la VM es servir como el puesto de trabajo de un usuario.",
+        "isCorrect": true
+      },
+      {
+        "text": "Las VMs solo pueden ejecutar sistemas operativos de servidor, mientras que los VDI solo ejecutan sistemas de escritorio como Windows 10.",
+        "rationale": "Las VMs pueden ejecutar cualquier tipo de sistema operativo, ya sea de servidor o de escritorio.",
+        "isCorrect": false
+      },
+      {
+        "text": "Los VDIs no utilizan un hipervisor, a diferencia de las VMs que siempre lo requieren.",
+        "rationale": "La infraestructura VDI se basa fundamentalmente en VMs que se ejecutan sobre hipervisores en el centro de datos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Una VM comparte el kernel del sistema operativo anfitrión, mientras que un VDI tiene su propio kernel aislado.",
+        "rationale": "Esta descripción corresponde a la diferencia entre un contenedor y una VM; tanto las VMs genéricas como las de VDI tienen su propio kernel.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considera el propósito final para el que se utiliza la máquina virtualizada."
+  },
+  {
+    "guid": "0765066d-2ba9-470e-8229-14e1747a8aff",
+    "subjectId": "T59",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En un modelo de Software-Defined Networking (SDN), ¿cómo se denomina la comunicación desde el controlador hacia los dispositivos de red (switches, routers)?",
+    "answerOptions": [
+      {
+        "text": "Comunicación Northbound",
+        "rationale": "La comunicación Northbound se refiere a la interacción entre la capa de aplicaciones y el controlador SDN.",
+        "isCorrect": false
+      },
+      {
+        "text": "Comunicación East-West",
+        "rationale": "El tráfico East-West describe la comunicación entre servidores dentro del mismo centro de datos, no la comunicación de control en SDN.",
+        "isCorrect": false
+      },
+      {
+        "text": "Comunicación Southbound",
+        "rationale": "Las APIs y protocolos Southbound, como OpenFlow, son utilizados por el controlador para enviar instrucciones y configurar los dispositivos de la capa de infraestructura.",
+        "isCorrect": true
+      },
+      {
+        "text": "Comunicación Out-of-band",
+        "rationale": "La gestión Out-of-band es un método para administrar dispositivos de red a través de una interfaz separada, pero no describe la dirección de la comunicación en el modelo SDN.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piensa en la arquitectura de capas de SDN. ¿Qué dirección tomaría la comunicación desde el 'cerebro' central hacia los 'músculos' que ejecutan las acciones?"
+  },
+  {
+    "guid": "c816dd0a-19da-4231-b21c-fe06abdf9607",
+    "subjectId": "T59",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Qué afirmación describe correctamente la paravirtualización (PVM)?",
+    "answerOptions": [
+      {
+        "text": "El sistema operativo invitado no es consciente de que está siendo virtualizado y el hipervisor traduce todas las instrucciones.",
+        "rationale": "Esta descripción corresponde a la virtualización completa o nativa, no a la paravirtualización.",
+        "isCorrect": false
+      },
+      {
+        "text": "Es una técnica donde el hipervisor se ejecuta sobre otro sistema operativo, siendo ideal para entornos de desarrollo.",
+        "rationale": "Esta es la definición de un hipervisor de Tipo 2 (hosted), que es una categoría diferente de la técnica de paravirtualización.",
+        "isCorrect": false
+      },
+      {
+        "text": "El sistema operativo invitado está modificado para colaborar con el hipervisor a través de 'hypercalls', mejorando la eficiencia.",
+        "rationale": "La clave de la paravirtualización es esta cooperación, que reduce la sobrecarga de la traducción de instrucciones al permitir que el SO invitado acceda a recursos de forma más directa.",
+        "isCorrect": true
+      },
+      {
+        "text": "Requiere obligatoriamente extensiones de hardware en la CPU (como Intel VT-x) para funcionar.",
+        "rationale": "Las extensiones de hardware son la base de la virtualización asistida por hardware (HVM), una técnica distinta a la paravirtualización.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Esta técnica de virtualización se basa en la 'cooperación' entre el sistema operativo invitado y el hipervisor."
+  },
+  {
+    "guid": "235e6745-88ee-4f76-abab-7455f7f2c3ce",
+    "subjectId": "T59",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Cuál de los siguientes ejemplos representa correctamente una combinación de hipervisor y su tipo?",
+    "answerOptions": [
+      {
+        "text": "VMware ESXi - Tipo 2 (hosted)",
+        "rationale": "VMware ESXi es un ejemplo clásico de hipervisor de Tipo 1 (bare-metal), ya que se instala directamente sobre el hardware del servidor.",
+        "isCorrect": false
+      },
+      {
+        "text": "Oracle VirtualBox - Tipo 1 (unhosted)",
+        "rationale": "VirtualBox es un hipervisor de Tipo 2 (hosted), pues requiere un sistema operativo anfitrión (como Windows, Linux o macOS) para poder ejecutarse.",
+        "isCorrect": false
+      },
+      {
+        "text": "KVM - Tipo 1 (unhosted/bare-metal)",
+        "rationale": "KVM (Kernel-based Virtual Machine) convierte el núcleo de Linux en un hipervisor de Tipo 1, ejecutándose directamente sobre el hardware para gestionar las VMs.",
+        "isCorrect": true
+      },
+      {
+        "text": "Microsoft Hyper-V - Tipo 2 (hosted)",
+        "rationale": "La versión de servidor de Hyper-V funciona como un hipervisor de Tipo 1 (unhosted), aunque se integre con Windows.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Recuerda que los hipervisores 'unhosted' o 'bare-metal' no necesitan un sistema operativo preexistente para funcionar."
+  },
+  {
+    "guid": "463282dd-43c8-4ad3-b3d6-606caaaf1fba",
+    "subjectId": "T59",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Dentro del pilar de Software-Defined Storage (SDS), ¿qué permite la funcionalidad de 'Thin Provisioning'?",
+    "answerOptions": [
+      {
+        "text": "Crear una copia exacta e instantánea de un volumen de almacenamiento en un momento determinado.",
+        "rationale": "Esta descripción corresponde a la creación de clones o snapshots, no al 'Thin Provisioning'.",
+        "isCorrect": false
+      },
+      {
+        "text": "Asignar a una máquina virtual más espacio de almacenamiento lógico del que realmente se consume físicamente, ocupándolo bajo demanda.",
+        "rationale": "Esta técnica optimiza el uso del almacenamiento físico al no reservar el espacio hasta que los datos son escritos, permitiendo una mayor eficiencia.",
+        "isCorrect": true
+      },
+      {
+        "text": "Replicar los datos de forma continua a un sistema de almacenamiento secundario para la recuperación ante desastres.",
+        "rationale": "Esto define la replicación de almacenamiento, una capacidad clave para la continuidad del negocio, pero distinta del aprovisionamiento.",
+        "isCorrect": false
+      },
+      {
+        "text": "Separar el plano de control del plano de datos en la infraestructura de almacenamiento.",
+        "rationale": "Aunque es un principio general de SDS, no describe la función específica del 'Thin Provisioning'.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Esta técnica de almacenamiento se basa en el principio de 'usar solo lo que necesitas, cuando lo necesitas'."
+  },
+  {
+    "guid": "890b8d2a-efcb-4025-8628-1399c41e7629",
+    "subjectId": "T59",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Cuál es la principal ventaja de los contenedores (ej. Docker) en comparación con las máquinas virtuales (VMs) tradicionales?",
+    "answerOptions": [
+      {
+        "text": "Ofrecen un mayor nivel de aislamiento al tener cada uno su propio kernel de sistema operativo.",
+        "rationale": "Las VMs son las que ofrecen un aislamiento más fuerte al tener cada una su propio kernel; los contenedores comparten el kernel del sistema operativo anfitrión.",
+        "isCorrect": false
+      },
+      {
+        "text": "Son más ligeros y rápidos de iniciar porque comparten el kernel del sistema operativo anfitrión.",
+        "rationale": "Al no necesitar un sistema operativo completo para cada instancia, los contenedores consumen menos recursos y se pueden desplegar en segundos.",
+        "isCorrect": true
+      },
+      {
+        "text": "Permiten la migración en caliente (Live Migration) entre hosts físicos, mientras que las VMs no.",
+        "rationale": "La migración en caliente es una característica muy consolidada en las plataformas de virtualización de VMs.",
+        "isCorrect": false
+      },
+      {
+        "text": "Son gestionados exclusivamente por hipervisores de Tipo 2 (hosted).",
+        "rationale": "Los contenedores no son gestionados por hipervisores, sino por un motor de contenedores como Docker, y son orquestados por plataformas como Kubernetes.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "La diferencia clave radica en lo que cada tecnología virtualiza: el hardware completo o solo el espacio de usuario del sistema operativo."
+  },
+  {
+    "guid": "9d42e30b-3239-4715-bc54-2b1676546771",
+    "subjectId": "T59",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Una organización quiere automatizar el despliegue y la configuración de toda su infraestructura (servidores, redes, aplicaciones) utilizando ficheros de código. ¿Qué metodología y herramienta mencionadas en los documentos son las más adecuadas para este fin?",
+    "answerOptions": [
+      {
+        "text": "SDC utilizando VMware vSphere para crear plantillas de VM.",
+        "rationale": "Aunque las plantillas de VM son una forma de automatización, IaC es un enfoque más amplio y herramientas como Ansible van más allá de la creación de VMs.",
+        "isCorrect": false
+      },
+      {
+        "text": "SDS con Ceph para gestionar el almacenamiento como código.",
+        "rationale": "Ceph es una solución de almacenamiento, pero no una herramienta de orquestación de propósito general para toda la infraestructura.",
+        "isCorrect": false
+      },
+      {
+        "text": "Infraestructura como Código (IaC) utilizando Ansible.",
+        "rationale": "Ansible es una herramienta de orquestación y automatización diseñada específicamente para implementar el paradigma IaC, permitiendo definir toda la infraestructura en ficheros de configuración (playbooks YAML).",
+        "isCorrect": true
+      },
+      {
+        "text": "VDI con VMware Horizon para automatizar la creación de escritorios.",
+        "rationale": "VDI es una solución para escritorios virtuales, no una metodología general para automatizar toda la infraestructura de un centro de datos.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Busca el término que describe la práctica de gestionar la infraestructura mediante ficheros de definición, y una herramienta de orquestación de código abierto popular que la implementa."
+  },
+  {
+    "guid": "4487579c-f4fc-4ce0-9024-b0ec27a591ee",
+    "subjectId": "T59",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En la arquitectura SDDC, el concepto de Hiperconvergencia (HCI) se diferencia de un enfoque tradicional porque:",
+    "answerOptions": [
+      {
+        "text": "Separa físicamente los componentes de computación, almacenamiento y red en silos independientes para un mejor rendimiento.",
+        "rationale": "La hiperconvergencia hace exactamente lo contrario: integra estos componentes en nodos unificados en lugar de separarlos en silos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Utiliza únicamente hipervisores de Tipo 2 (hosted) para simplificar la instalación.",
+        "rationale": "Las soluciones HCI utilizan hipervisores de Tipo 1 (bare-metal) de alto rendimiento como base de su arquitectura.",
+        "isCorrect": false
+      },
+      {
+        "text": "Integra los recursos de computación, almacenamiento y, a veces, red en un único nodo de hardware gestionado por software.",
+        "rationale": "La esencia de HCI es la consolidación de los pilares de la infraestructura en una plataforma física modular y escalable definida por software.",
+        "isCorrect": true
+      },
+      {
+        "text": "Se centra exclusivamente en la virtualización de las funciones de red (NFV) y no aborda la computación o el almacenamiento.",
+        "rationale": "HCI es una solución de infraestructura integrada que abarca computación y almacenamiento como sus componentes principales, a menudo junto con la red.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piensa en la HCI como una forma de empaquetar los bloques de construcción de un centro de datos en una única caja."
+  },
+  {
+    "guid": "2162e80f-c99d-4a47-b86f-f1e6303f57f1",
+    "subjectId": "T59",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Qué concepto de Software-Defined Compute (SDC) permite capturar el estado completo de una máquina virtual en un momento específico para poder revertir a él posteriormente?",
+    "answerOptions": [
+      {
+        "text": "VM Image (Imagen de Máquina Virtual)",
+        "rationale": "Una imagen es una plantilla o 'fotografía' para crear nuevas VMs, no una instantánea de una VM en ejecución a la que se pueda volver.",
+        "isCorrect": false
+      },
+      {
+        "text": "Live Migration (Migración en caliente)",
+        "rationale": "La migración en caliente se refiere al proceso de mover una VM entre hosts físicos sin detenerla, no a guardar su estado.",
+        "isCorrect": false
+      },
+      {
+        "text": "Clonación",
+        "rationale": "La clonación crea una copia completa e independiente de una VM, pero no está diseñada para una reversión rápida al estado original.",
+        "isCorrect": false
+      },
+      {
+        "text": "Snapshot (Instantánea)",
+        "rationale": "Un snapshot es precisamente una 'foto' del estado de una VM (disco, memoria y configuración) en un punto en el tiempo, ideal para realizar cambios de forma segura.",
+        "isCorrect": true
+      }
+    ],
+    "hint": "Esta funcionalidad es muy útil antes de realizar una actualización de software o un cambio de configuración arriesgado en una VM."
+  }
+]

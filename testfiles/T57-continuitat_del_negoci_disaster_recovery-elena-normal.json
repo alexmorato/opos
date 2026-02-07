@@ -1,0 +1,312 @@
+[
+  {
+    "guid": "ac8059a5-c466-49d9-a0cc-fab29c59c724",
+    "subjectId": "T57",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Cuál es la relación correcta entre el Plan de Continuidad de Negocio (PCN) y el Plan de Recuperación ante Desastres (DRP)?",
+    "answerOptions": [
+      {
+        "text": "Son dos planes idénticos con nombres diferentes que se usan indistintamente en la industria.",
+        "rationale": "Aunque están relacionados, sus objetivos y alcances son distintos; uno es más amplio que el otro.",
+        "isCorrect": false
+      },
+      {
+        "text": "El DRP es el plan estratégico global, y el PCN es un subconjunto que se enfoca solo en la recuperación de datos.",
+        "rationale": "Esta opción invierte la jerarquía y el alcance de cada plan. El DRP tiene un enfoque más técnico y específico que el PCN.",
+        "isCorrect": false
+      },
+      {
+        "text": "El PCN es un plan de alto nivel que abarca procesos, personas y operaciones de toda la organización, mientras que el DRP es un componente técnico enfocado en restaurar la infraestructura TI.",
+        "rationale": "Esta descripción refleja correctamente que la continuidad del negocio es un concepto más amplio que la simple recuperación de sistemas tecnológicos.",
+        "isCorrect": true
+      },
+      {
+        "text": "El PCN se enfoca exclusivamente en medidas preventivas, mientras que el DRP se concentra únicamente en acciones correctivas después de un incidente.",
+        "rationale": "El PCN incluye tanto medidas preventivas como reactivas para asegurar el funcionamiento del negocio, no se limita a una sola fase.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en cuál de los dos planes tiene un alcance más amplio, considerando no solo la tecnología sino también las personas y los procesos del negocio."
+  },
+  {
+    "guid": "01514659-6dfa-4250-8205-20fd1ab6cae0",
+    "subjectId": "T57",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Dentro del marco de la continuidad del negocio, ¿qué representa el Objetivo de Punto de Recuperación (RPO)?",
+    "answerOptions": [
+      {
+        "text": "El tiempo máximo que puede transcurrir hasta que un servicio esté operativo nuevamente después de una interrupción.",
+        "rationale": "Esta definición corresponde al RTO (Recovery Time Objective), que mide el tiempo de inactividad aceptable.",
+        "isCorrect": false
+      },
+      {
+        "text": "El volumen máximo de datos, medido en tiempo, que una organización está dispuesta a perder tras un incidente.",
+        "rationale": "El RPO se centra en la pérdida de datos y determina la frecuencia con la que se deben realizar las copias de seguridad para no superar ese umbral.",
+        "isCorrect": true
+      },
+      {
+        "text": "El nivel mínimo de operatividad que debe alcanzar un servicio para considerarse recuperado, aunque no esté al 100%.",
+        "rationale": "Este concepto se conoce como ROL (Revised Operating Level) y define un estado funcional mínimo aceptable.",
+        "isCorrect": false
+      },
+      {
+        "text": "El coste total asociado a la recuperación de los sistemas y la restauración de la normalidad operativa.",
+        "rationale": "El RPO es una métrica de tiempo y datos, no una métrica financiera sobre los costes de recuperación.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Este objetivo no se refiere al tiempo de recuperación del servicio, sino a la antigüedad máxima aceptable de los datos recuperados."
+  },
+  {
+    "guid": "03ec950f-67e5-4274-a06d-554c60cf42b5",
+    "subjectId": "T57",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Según la norma ISO 22301, ¿cuál es la primera actividad clave que se debe realizar al establecer un Sistema de Gestión de Continuidad de Negocio (SGCN)?",
+    "answerOptions": [
+      {
+        "text": "La documentación de todos los procedimientos de recuperación paso a paso.",
+        "rationale": "La documentación es una fase posterior; primero se necesita entender qué es crítico para el negocio.",
+        "isCorrect": false
+      },
+      {
+        "text": "La contratación de un servicio de Disaster Recovery as a Service (DRaaS).",
+        "rationale": "La selección de una estrategia o servicio es una decisión que se toma después de analizar las necesidades y riesgos.",
+        "isCorrect": false
+      },
+      {
+        "text": "La realización de un Análisis de Impacto al Negocio (BIA).",
+        "rationale": "El BIA es fundamental porque identifica las funciones vitales y sus dependencias, lo que permite priorizar los esfuerzos de recuperación.",
+        "isCorrect": true
+      },
+      {
+        "text": "La ejecución de un simulacro de recuperación para probar la infraestructura.",
+        "rationale": "Las pruebas y simulacros se realizan una vez que el plan ha sido desarrollado, no al inicio del proceso.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Antes de planificar cómo recuperar, la organización debe entender qué procesos son los más importantes y cuánto tiempo pueden estar inactivos."
+  },
+  {
+    "guid": "bd506264-124f-4006-bf7f-f63408e2f166",
+    "subjectId": "T57",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Un sistema realiza una copia de seguridad completa cada domingo. De lunes a sábado, cada día se realiza una copia que solo incluye los ficheros modificados desde la copia del día anterior. ¿Qué tipo de copia de seguridad se está realizando de lunes a sábado?",
+    "answerOptions": [
+      {
+        "text": "Diferencial",
+        "rationale": "Una copia diferencial guardaría todos los cambios acumulados desde la última copia completa del domingo, no solo los del día anterior.",
+        "isCorrect": false
+      },
+      {
+        "text": "Incremental",
+        "rationale": "Este método copia únicamente los datos que han cambiado desde la última operación de backup, sea completa o incremental, lo que resulta en copias más pequeñas y rápidas.",
+        "isCorrect": true
+      },
+      {
+        "text": "Sintética completa",
+        "rationale": "Una copia sintética completa reconstruye una imagen completa a partir de una copia completa anterior y sus incrementales, pero no describe la operación diaria en sí.",
+        "isCorrect": false
+      },
+      {
+        "text": "Espejo",
+        "rationale": "Una copia espejo es un reflejo exacto del origen en un momento dado, incluyendo la eliminación de archivos, y no se basa en cambios desde una copia anterior.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Este tipo de copia de seguridad es más rápida de realizar a diario, pero la restauración requiere la última copia completa más todas las copias posteriores."
+  },
+  {
+    "guid": "08ec17fa-1066-4f91-912a-8c42dd2ea63e",
+    "subjectId": "T57",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Cuál es la relación fundamental entre el Tiempo Máximo Tolerable de Caída (MTD) y el Objetivo de Tiempo de Recuperación (RTO)?",
+    "answerOptions": [
+      {
+        "text": "El RTO debe ser siempre mayor que el MTD para asegurar que hay tiempo suficiente para las pruebas.",
+        "rationale": "Si el tiempo de recuperación (RTO) supera el máximo tolerable (MTD), el negocio sufriría un impacto inaceptable.",
+        "isCorrect": false
+      },
+      {
+        "text": "El RTO y el MTD son métricas independientes que no guardan relación directa entre sí.",
+        "rationale": "El MTD establece el límite absoluto que el RTO no debe sobrepasar, por lo que están directamente relacionados.",
+        "isCorrect": false
+      },
+      {
+        "text": "El MTD debe ser igual o inferior al RTO.",
+        "rationale": "Esta relación implicaría que el límite máximo de tolerancia es más estricto que el objetivo de recuperación, lo cual es lógicamente incorrecto.",
+        "isCorrect": false
+      },
+      {
+        "text": "El RTO debe ser siempre igual o inferior al MTD.",
+        "rationale": "El plan de recuperación debe garantizar que el servicio se restablezca (RTO) antes de alcanzar el punto de impacto crítico o inaceptable para el negocio (MTD).",
+        "isCorrect": true
+      }
+    ],
+    "hint": "Piense en el MTD como el plazo final absoluto que tiene la organización para recuperarse antes de un daño grave."
+  },
+  {
+    "guid": "d225dac8-0b4c-4179-8adb-351ca859e729",
+    "subjectId": "T57",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En un modelo de 3 niveles para un plan de continuidad, una aplicación clasificada como 'esencial' (Nivel 2) con un RTO de 2 horas y un RPO de 4 horas, ¿qué tipo de estrategia de recuperación sería más apropiada en comparación con una de Nivel 1 (crítica)?",
+    "answerOptions": [
+      {
+        "text": "Una replicación sincrónica de datos en clúster (clustering), ya que es la opción más económica.",
+        "rationale": "La replicación sincrónica y el clustering son soluciones de coste elevado, generalmente reservadas para aplicaciones de Nivel 1 con RTO y RPO cercanos a cero.",
+        "isCorrect": false
+      },
+      {
+        "text": "Copias de seguridad tradicionales en cinta realizadas semanalmente.",
+        "rationale": "Un backup semanal no cumpliría con un RPO de 4 horas, ya que se podrían perder hasta 7 días de datos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Replicación de datos local o remota (asincrónica) y un plan de recuperación de dos etapas.",
+        "rationale": "Esta estrategia ofrece un equilibrio entre coste y velocidad de recuperación, adecuada para RTO de horas y no de minutos, como requiere el Nivel 2.",
+        "isCorrect": true
+      },
+      {
+        "text": "No se necesita ninguna estrategia de recuperación, ya que las aplicaciones esenciales no son críticas.",
+        "rationale": "Las aplicaciones esenciales requieren un plan de recuperación definido, aunque sus objetivos sean menos estrictos que los de las aplicaciones críticas.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considere la gráfica de costes que relaciona RPO y RTO: a medida que los tiempos se alargan (de minutos a horas), las soluciones tecnológicas cambian."
+  },
+  {
+    "guid": "75f3ecfe-d02b-4d24-89a2-a15ae0dca2e7",
+    "subjectId": "T57",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Qué describe mejor el servicio conocido como Disaster Recovery as a Service (DRaaS)?",
+    "answerOptions": [
+      {
+        "text": "Un software antivirus que se actualiza automáticamente desde la nube para proteger contra desastres informáticos.",
+        "rationale": "El DRaaS es una solución de infraestructura completa, no solo un producto de software de seguridad.",
+        "isCorrect": false
+      },
+      {
+        "text": "Un seguro que cubre las pérdidas económicas de la empresa en caso de desastre.",
+        "rationale": "Aunque un seguro es una medida de mitigación, el DRaaS es un servicio técnico para la recuperación de operaciones, no una póliza financiera.",
+        "isCorrect": false
+      },
+      {
+        "text": "Un servicio donde un tercero aloja y replica la infraestructura TI de una organización para permitir su recuperación en servidores virtuales o físicos externos.",
+        "rationale": "Esta definición captura la esencia del DRaaS, que externaliza la infraestructura de recuperación a un proveedor especializado en la nube.",
+        "isCorrect": true
+      },
+      {
+        "text": "Un plan de comunicación gestionado por un tercero para notificar a los clientes y empleados durante una crisis.",
+        "rationale": "La comunicación es parte de un PCN, pero el DRaaS se enfoca específicamente en la replicación y recuperación de los sistemas TI.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en cómo la computación en la nube (cloud) puede ofrecer soluciones para la recuperación ante desastres."
+  },
+  {
+    "guid": "ec62dcbb-3b10-4c53-8729-5b10097f549a",
+    "subjectId": "T57",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Una estrategia de recuperación que combina medidas para eliminar una amenaza, minimizar su probabilidad y reducir su efecto se basa en diferentes tipos de acciones. ¿Qué tipo de medida sería instalar un Sistema de Alimentación Ininterrumpida (SAI)?",
+    "answerOptions": [
+      {
+        "text": "Correctiva",
+        "rationale": "Una medida correctiva se aplica después de que el incidente ha ocurrido para restaurar la normalidad, como restaurar un backup. Un SAI actúa antes.",
+        "isCorrect": false
+      },
+      {
+        "text": "Detectiva",
+        "rationale": "Una medida detectiva alerta sobre un incidente en curso, como un sistema de detección de intrusos. Un SAI no detecta, sino que previene el efecto del fallo.",
+        "isCorrect": false
+      },
+      {
+        "text": "Represiva",
+        "rationale": "Una medida represiva actúa para neutralizar una amenaza activa, como bloquear una dirección IP. Un SAI no neutraliza una amenaza externa.",
+        "isCorrect": false
+      },
+      {
+        "text": "Preventiva",
+        "rationale": "Un SAI se implementa para evitar que un fallo en el suministro eléctrico cause una interrupción del servicio, actuando antes de que el impacto se materialice.",
+        "isCorrect": true
+      }
+    ],
+    "hint": "Esta medida se implementa antes de que ocurra el incidente para evitar que un evento (un corte de luz) se convierta en un problema."
+  },
+  {
+    "guid": "c7ab7e8f-3d85-430e-a700-b37ea9a350d5",
+    "subjectId": "T57",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En el proceso de diseño de un sistema de copias de seguridad, ¿cuál es la principal desventaja de utilizar la compresión de datos?",
+    "answerOptions": [
+      {
+        "text": "Aumenta significativamente el espacio de almacenamiento necesario para las copias de seguridad.",
+        "rationale": "La compresión tiene el efecto contrario; su objetivo principal es reducir el espacio de almacenamiento necesario.",
+        "isCorrect": false
+      },
+      {
+        "text": "Reduce la seguridad de los datos, ya que los archivos comprimidos son más fáciles de vulnerar.",
+        "rationale": "La compresión no afecta inherentemente a la seguridad. De hecho, a menudo se combina con el cifrado para proteger los datos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Aumenta el tiempo necesario tanto para realizar la copia de seguridad como para la posterior recuperación de los datos.",
+        "rationale": "El proceso de comprimir y descomprimir datos requiere potencia de cálculo (CPU), lo que añade tiempo a las operaciones de backup y restauración.",
+        "isCorrect": true
+      },
+      {
+        "text": "Impide la realización de copias de seguridad de tipo incremental o diferencial.",
+        "rationale": "La compresión es una técnica de manipulación de datos que se puede aplicar a cualquier tipo de copia de seguridad (completa, incremental, etc.).",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en el consumo de recursos del sistema (CPU) que se requiere para comprimir y descomprimir la información."
+  },
+  {
+    "guid": "02a1f70d-8479-4b05-b177-653fd07da984",
+    "subjectId": "T57",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "El Análisis de Impacto al Negocio (BIA) identifica varios componentes clave para la continuidad. ¿Cuál de los siguientes NO es un resultado directo o componente típico identificado en un BIA?",
+    "answerOptions": [
+      {
+        "text": "La lista de personal clave requerido para continuar las operaciones críticas.",
+        "rationale": "El BIA identifica los recursos humanos necesarios, ya que son un componente vital para la ejecución de los procesos de negocio.",
+        "isCorrect": false
+      },
+      {
+        "text": "La selección del proveedor específico de hardware para el centro de recuperación.",
+        "rationale": "El BIA define los 'qué' y 'cuándo' (qué procesos, qué RTO/RPO), mientras que la selección de un proveedor es parte de la fase de 'cómo' (estrategia e implementación).",
+        "isCorrect": true
+      },
+      {
+        "text": "La criticidad de los recursos de información y las aplicaciones de negocio.",
+        "rationale": "Un resultado fundamental del BIA es la clasificación de los activos y aplicaciones según su importancia para el negocio.",
+        "isCorrect": false
+      },
+      {
+        "text": "Las dependencias existentes entre las diferentes funciones vitales del negocio.",
+        "rationale": "Identificar las dependencias es crucial, ya que la caída de un proceso puede afectar a otros que dependen de él.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "El BIA se centra en los requisitos del negocio, no en las decisiones de implementación tecnológica o de compra."
+  }
+]

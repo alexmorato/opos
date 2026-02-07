@@ -1,0 +1,374 @@
+[
+  {
+    "guid": "8b8877d4-a4ab-499b-9d74-a8c2dff953b8",
+    "subjectId": "T63",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Por qué se conoce a MPLS como una tecnología de \"capa 2.5\" en el modelo OSI?",
+    "answerOptions": [
+      {
+        "text": "Porque opera entre la capa de enlace de datos (Capa 2) y la capa de red (Capa 3), encapsulando paquetes de red.",
+        "rationale": "Su funcionamiento se sitúa lógicamente entre el direccionamiento físico de la capa 2 y el direccionamiento lógico de la capa 3.",
+        "isCorrect": true
+      },
+      {
+        "text": "Porque unifica 2 protocolos de capa 2 con 5 protocolos de capa 3.",
+        "rationale": "La denominación \"2.5\" no se deriva de una suma de protocolos, sino de su posición funcional en la pila de red.",
+        "isCorrect": false
+      },
+      {
+        "text": "Porque reemplazó a las tecnologías Frame Relay (Capa 2) y ATM (Capa 5).",
+        "rationale": "Aunque MPLS reemplazó a Frame Relay y ATM, esta no es la razón de su apodo; además, la capa de ATM en este contexto es más compleja.",
+        "isCorrect": false
+      },
+      {
+        "text": "Porque utiliza 25 bits en su cabecera para el enrutamiento de paquetes.",
+        "rationale": "El tamaño de la cabecera MPLS (32 bits) y sus campos no están directamente relacionados con la denominación de \"capa 2.5\".",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piensa en las funciones que combina de las capas adyacentes del modelo OSI."
+  },
+  {
+    "guid": "2ce3f402-6a94-43ef-9940-a90d30477860",
+    "subjectId": "T63",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Para una aplicación de streaming de vídeo en directo, donde la velocidad es crítica y la pérdida ocasional de un fotograma es aceptable, ¿qué protocolo de transporte sería más adecuado?",
+    "answerOptions": [
+      {
+        "text": "TCP, porque garantiza que todos los fotogramas lleguen en el orden correcto y sin pérdidas.",
+        "rationale": "La fiabilidad de TCP introduce latencia debido a la retransmisión de paquetes perdidos, lo que provocaría pausas y buffering en un streaming en directo.",
+        "isCorrect": false
+      },
+      {
+        "text": "UDP, porque su baja sobrecarga y naturaleza sin conexión permiten una transmisión más rápida.",
+        "rationale": "UDP prioriza la velocidad sobre la fiabilidad, lo cual es preferible cuando la retransmisión de paquetes perdidos (como en TCP) introduciría un retardo inaceptable.",
+        "isCorrect": true
+      },
+      {
+        "text": "UDP, porque utiliza el handshake de tres vías para establecer una conexión rápida.",
+        "rationale": "El handshake de tres vías es una característica de TCP para establecer una conexión fiable; UDP es sin conexión y no realiza este proceso.",
+        "isCorrect": false
+      },
+      {
+        "text": "TCP, porque su control de congestión evita la saturación de la red, lo que es fundamental para el vídeo.",
+        "rationale": "Si bien el control de congestión es importante, el mecanismo de TCP puede reducir drásticamente la velocidad de transmisión, lo que es perjudicial para un flujo de vídeo constante.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considera el equilibrio entre fiabilidad y latencia para las transmisiones en tiempo real."
+  },
+  {
+    "guid": "4dba768c-a836-4c09-8fe1-1cc9cfbf508f",
+    "subjectId": "T63",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Si se necesita crear una subred IPv4 con capacidad para al menos 50 dispositivos, ¿cuál es la máscara de subred mínima (en notación CIDR) que se debería utilizar?",
+    "answerOptions": [
+      {
+        "text": "/27",
+        "rationale": "Una máscara /27 deja 5 bits para hosts ($2^5 = 32$ direcciones totales), lo que solo permite 30 dispositivos, una cantidad insuficiente.",
+        "isCorrect": false
+      },
+      {
+        "text": "/25",
+        "rationale": "Una máscara /25 proporciona 126 direcciones para dispositivos. Aunque es suficiente, no es la máscara *mínima* necesaria, desperdiciando más direcciones que /26.",
+        "isCorrect": false
+      },
+      {
+        "text": "/26",
+        "rationale": "Se necesitan 50+2=52 direcciones. La potencia de 2 más cercana es $2^6 = 64$. Esto requiere 6 bits para hosts. La máscara de red es $32 - 6 = 26$, que proporciona 62 direcciones de host utilizables.",
+        "isCorrect": true
+      },
+      {
+        "text": "/24",
+        "rationale": "Una máscara /24 proporciona 254 direcciones para dispositivos. Es suficiente, pero es mucho más grande de lo necesario.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Recuerda que el número total de direcciones debe ser una potencia de 2 y debe incluir la dirección de red y la de broadcast."
+  },
+  {
+    "guid": "38ca1ac5-c4bc-44f1-a639-5157241cb26b",
+    "subjectId": "T63",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Cuál es el mecanismo fundamental que utiliza MPLS para reenviar paquetes, diferenciándolo del enrutamiento IP tradicional?",
+    "answerOptions": [
+      {
+        "text": "El uso de etiquetas (labels) de longitud fija para tomar decisiones de conmutación.",
+        "rationale": "MPLS asigna una etiqueta a los paquetes en el borde de la red y los routers internos solo necesitan leer esta etiqueta para reenviar el paquete, lo que es más rápido que una búsqueda en la tabla de enrutamiento IP.",
+        "isCorrect": true
+      },
+      {
+        "text": "El cálculo de la ruta más corta basándose en el coste del enlace, utilizando el algoritmo de Dijkstra.",
+        "rationale": "Esto describe el funcionamiento de OSPF, un protocolo de enrutamiento que puede usarse para la conectividad subyacente, pero el reenvío MPLS se basa en etiquetas.",
+        "isCorrect": false
+      },
+      {
+        "text": "La traducción de direcciones IP privadas a una única dirección IP pública.",
+        "rationale": "La traducción de direcciones es la función de NAT (Network Address Translation), una tecnología utilizada para mitigar el agotamiento de IPv4.",
+        "isCorrect": false
+      },
+      {
+        "text": "La división de los datos en paquetes pequeños con cabeceras que contienen la dirección de destino completa.",
+        "rationale": "El enrutamiento IP tradicional también funciona de esta manera; la diferencia de MPLS radica en cómo se procesa esa información en los saltos intermedios.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "El nombre completo del protocolo, Multiprotocol Label Switching, da una pista clave."
+  },
+  {
+    "guid": "6664f14d-20b2-403a-88e1-21a01bf401b9",
+    "subjectId": "T63",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Además de un espacio de direccionamiento mucho mayor, ¿qué ventaja clave ofrece IPv6 de forma nativa que en IPv4 requiere configuraciones adicionales?",
+    "answerOptions": [
+      {
+        "text": "Un mecanismo de checksum en la cabecera para verificar la integridad.",
+        "rationale": "Para mejorar el rendimiento, los routers IPv6 ya no calculan un checksum de cabecera, delegando la verificación de errores a las capas superiores.",
+        "isCorrect": false
+      },
+      {
+        "text": "Compatibilidad con el protocolo ARP para resolver direcciones MAC.",
+        "rationale": "ARP es específico de IPv4. Su funcionalidad en IPv6 es reemplazada por mensajes ICMPv6 como parte del Neighbor Discovery Protocol (NDP).",
+        "isCorrect": false
+      },
+      {
+        "text": "Autoconfiguración de direcciones sin estado (SLAAC).",
+        "rationale": "SLAAC es una característica integral de IPv6 que simplifica enormemente la administración de la red al permitir que los hosts se configuren a sí mismos sin un servidor DHCP.",
+        "isCorrect": true
+      },
+      {
+        "text": "Organización jerárquica de direcciones en clases (A, B, C).",
+        "rationale": "El direccionamiento por clases es un concepto obsoleto de IPv4. IPv6 fue diseñado desde el principio para ser sin clases (classless).",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piensa en cómo un dispositivo obtiene su dirección IP al conectarse a una red."
+  },
+  {
+    "guid": "d3a8fb1c-36c6-4ce3-a7ba-3116bced7558",
+    "subjectId": "T63",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En el contexto de una VPN de capa 3 (L3VPN) sobre MPLS, ¿qué tecnología es fundamental para mantener el tráfico de diferentes clientes aislado dentro de la red del proveedor?",
+    "answerOptions": [
+      {
+        "text": "VPLS (Virtual Private LAN Service)",
+        "rationale": "VPLS es una tecnología para L2VPNs, que emula un servicio de LAN Ethernet, operando en la capa 2, no en la capa 3.",
+        "isCorrect": false
+      },
+      {
+        "text": "NAT (Network Address Translation)",
+        "rationale": "NAT es una técnica de traducción de direcciones, no un mecanismo de aislamiento de enrutamiento para VPNs.",
+        "isCorrect": false
+      },
+      {
+        "text": "LSP (Label Switched Path)",
+        "rationale": "Un LSP es el camino o túnel que siguen los paquetes etiquetados, pero no es el mecanismo que aísla las tablas de enrutamiento de los clientes.",
+        "isCorrect": false
+      },
+      {
+        "text": "VRF (Virtual Routing and Forwarding)",
+        "rationale": "Una VRF permite a un router mantener múltiples instancias de tablas de enrutamiento que operan de forma independiente, asegurando que las rutas de un cliente no se mezclen con las de otro.",
+        "isCorrect": true
+      }
+    ],
+    "hint": "Se necesita un mecanismo que permita a un único router mantener múltiples tablas de enrutamiento separadas, una para cada cliente."
+  },
+  {
+    "guid": "6b58d4c9-e408-4af5-88c3-26a318a8e353",
+    "subjectId": "T63",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Cuál es la secuencia correcta de paquetes intercambiados durante el establecimiento de una conexión TCP (three-way handshake)?",
+    "answerOptions": [
+      {
+        "text": "SYN, ACK, SYN-ACK",
+        "rationale": "El servidor no puede enviar un SYN-ACK hasta que no haya recibido primero el SYN inicial del cliente.",
+        "isCorrect": false
+      },
+      {
+        "text": "SYN-ACK, SYN, ACK",
+        "rationale": "El proceso debe ser iniciado por el cliente con un paquete SYN, no por el servidor con un SYN-ACK.",
+        "isCorrect": false
+      },
+      {
+        "text": "SYN, SYN-ACK, ACK",
+        "rationale": "El cliente inicia con SYN, el servidor responde con SYN-ACK para confirmar y sincronizar, y el cliente finaliza con ACK.",
+        "isCorrect": true
+      },
+      {
+        "text": "ACK, SYN, SYN-ACK",
+        "rationale": "El primer paso no puede ser un ACK, ya que no hay nada que reconocer (acknowledge) todavía.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "La comunicación debe ser iniciada, confirmada por el receptor (quien también inicia su secuencia), y finalmente confirmada por el iniciador original."
+  },
+  {
+    "guid": "fb34f3fc-0c33-4107-9f6a-e6afb805a990",
+    "subjectId": "T63",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Cuál de las siguientes direcciones IP pertenece al rango privado de Clase B definido por el RFC 1918?",
+    "answerOptions": [
+      {
+        "text": "172.32.1.1",
+        "rationale": "El valor 32 en el segundo octeto está fuera del rango privado de Clase B [16, 31], por lo que esta es una dirección IP pública.",
+        "isCorrect": false
+      },
+      {
+        "text": "192.168.0.1",
+        "rationale": "Esta dirección pertenece al rango privado de Clase C (192.168.0.0/16).",
+        "isCorrect": false
+      },
+      {
+        "text": "10.255.255.254",
+        "rationale": "Esta dirección pertenece al rango privado de Clase A (10.0.0.0/8).",
+        "isCorrect": false
+      },
+      {
+        "text": "172.20.10.5",
+        "rationale": "El rango privado de Clase B abarca desde 172.16.0.0 hasta 172.31.255.255. El valor 20 en el segundo octeto está dentro de este rango.",
+        "isCorrect": true
+      }
+    ],
+    "hint": "El rango privado de Clase B tiene una particularidad en su segundo octeto, no abarca todo el posible."
+  },
+  {
+    "guid": "d3d6d38f-0fd9-49fd-9ea9-d6dede702cbb",
+    "subjectId": "T63",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Dentro de la cabecera MPLS de 32 bits, ¿para qué se utilizan los 3 bits del campo Experimental (Exp)?",
+    "answerOptions": [
+      {
+        "text": "Para implementar la Calidad de Servicio (QoS).",
+        "rationale": "Los bits Exp se utilizan para marcar paquetes según su clase de servicio, lo que permite a los LSR aplicar diferentes políticas de encolamiento y descarte, garantizando la calidad para tráfico sensible.",
+        "isCorrect": true
+      },
+      {
+        "text": "Para indicar si hay más etiquetas apiladas en el paquete.",
+        "rationale": "La indicación de más etiquetas apiladas se realiza con el bit de Pila (S - Stack), no con el campo Exp.",
+        "isCorrect": false
+      },
+      {
+        "text": "Para limitar el número de saltos que un paquete puede dar.",
+        "rationale": "La limitación de saltos es la función del campo TTL (Time-to-Live) de 8 bits en la cabecera MPLS.",
+        "isCorrect": false
+      },
+      {
+        "text": "Para identificar de forma única el camino que debe seguir el paquete (LSP).",
+        "rationale": "La identificación del camino o LSP se realiza mediante el valor del campo principal de la cabecera, la Etiqueta (Label) de 20 bits.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Este campo permite a los routers tratar diferentes paquetes de manera diferenciada en situaciones de congestión."
+  },
+  {
+    "guid": "b27bd228-3659-469b-88c7-0ea6c714e807",
+    "subjectId": "T63",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Cuál es el principal beneficio de la sumarización de rutas en redes grandes?",
+    "answerOptions": [
+      {
+        "text": "Reducir el tamaño de las tablas de enrutamiento en los routers.",
+        "rationale": "Al agregar múltiples redes en un único prefijo más grande, se reduce la cantidad de entradas que los routers deben procesar y almacenar, optimizando el uso de memoria y CPU.",
+        "isCorrect": true
+      },
+      {
+        "text": "Garantizar la entrega de paquetes en orden y sin errores.",
+        "rationale": "La entrega fiable y ordenada es una función de protocolos de la capa de transporte como TCP, no del enrutamiento.",
+        "isCorrect": false
+      },
+      {
+        "text": "Asignar etiquetas a los paquetes para acelerar su conmutación.",
+        "rationale": "La asignación de etiquetas es el mecanismo central de MPLS, una tecnología diferente a la sumarización de rutas IP.",
+        "isCorrect": false
+      },
+      {
+        "text": "Cifrar el tráfico entre dos puntos para crear una conexión segura.",
+        "rationale": "El cifrado del tráfico es una función de seguridad, típicamente asociada con tecnologías como IPsec o VPNs, y no es el propósito de la sumarización de rutas.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piensa en el efecto que tiene anunciar una sola ruta en lugar de muchas rutas más específicas."
+  },
+  {
+    "guid": "9298a024-af35-4d53-a282-394978db2e98",
+    "subjectId": "T63",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Por defecto, ¿en qué se basa el protocolo OSPF para determinar la \"mejor\" ruta hacia un destino?",
+    "answerOptions": [
+      {
+        "text": "En la latencia del enlace, eligiendo el camino con el menor retardo.",
+        "rationale": "Aunque la latencia es una métrica importante, OSPF no la utiliza en su cálculo de ruta por defecto.",
+        "isCorrect": false
+      },
+      {
+        "text": "En el coste (cost), que es un valor inversamente proporcional al ancho de banda del enlace.",
+        "rationale": "OSPF calcula el coste de una ruta sumando los costes de los enlaces individuales. Por defecto, un enlace con mayor ancho de banda tiene un coste menor.",
+        "isCorrect": true
+      },
+      {
+        "text": "En el número de saltos (hops), eligiendo el camino con menos routers intermedios.",
+        "rationale": "Contar el número de saltos es la métrica utilizada por protocolos de vector-distancia como RIP, no por protocolos de estado de enlace como OSPF.",
+        "isCorrect": false
+      },
+      {
+        "text": "En la fiabilidad del enlace, eligiendo la ruta que ha experimentado menos fallos.",
+        "rationale": "La fiabilidad del enlace no es una métrica estándar en el algoritmo de OSPF por defecto.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Este protocolo favorece los enlaces de mayor capacidad."
+  },
+  {
+    "guid": "9ee9a5e0-0aa7-4357-8b26-c0e9c4a0b43d",
+    "subjectId": "T63",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Qué protocolo utiliza IPv6 para realizar la función equivalente a la del protocolo ARP en IPv4?",
+    "answerOptions": [
+      {
+        "text": "ARPv6",
+        "rationale": "No existe un protocolo llamado \"ARPv6\". La funcionalidad de ARP fue completamente reemplazada en la suite de IPv6.",
+        "isCorrect": false
+      },
+      {
+        "text": "DHCPv6",
+        "rationale": "DHCPv6 se utiliza para la asignación de direcciones y configuración de red, pero no para la resolución de direcciones MAC a nivel de enlace local.",
+        "isCorrect": false
+      },
+      {
+        "text": "Neighbor Discovery Protocol (NDP)",
+        "rationale": "NDP, que opera utilizando mensajes de ICMPv6, se encarga de la resolución de direcciones, el descubrimiento de routers y otras funciones en el enlace local en redes IPv6.",
+        "isCorrect": true
+      },
+      {
+        "text": "ICMPv4",
+        "rationale": "ICMPv4 es la versión del protocolo de mensajes de control para IPv4 y no tiene relación con el funcionamiento de IPv6.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "En IPv6, muchas funciones de control se integraron en una extensión de un conocido protocolo de diagnóstico."
+  }
+]

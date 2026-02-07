@@ -1,0 +1,312 @@
+[
+  {
+    "guid": "b7de0328-4468-43ab-83f2-4e095b1628dd",
+    "subjectId": "T55",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Cuál es la diferencia fundamental en cómo un servidor accede a los datos en una red SAN en comparación con una NAS?",
+    "answerOptions": [
+      {
+        "text": "La SAN utiliza protocolos de fichero como NFS/SMB, mientras que la NAS utiliza protocolos de bloque como Fibre Channel.",
+        "rationale": "Esta afirmación invierte los roles. La NAS opera a nivel de fichero (NFS/SMB) y la SAN a nivel de bloque.",
+        "isCorrect": false
+      },
+      {
+        "text": "La SAN presenta el almacenamiento como un disco duro local (acceso a nivel de bloque), mientras que la NAS lo presenta como una carpeta de red compartida (acceso a nivel de fichero).",
+        "rationale": "Describe correctamente la distinción principal: la SAN opera a bajo nivel (bloques), permitiendo que el servidor gestione el sistema de ficheros, mientras que la NAS ofrece un servicio de ficheros ya gestionado.",
+        "isCorrect": true
+      },
+      {
+        "text": "Tanto la SAN como la NAS utilizan exclusivamente la red LAN corporativa, pero la SAN tiene mayor prioridad de tráfico.",
+        "rationale": "Una SAN, especialmente si es Fibre Channel, utiliza una red dedicada e independiente de la LAN para no competir por el ancho de banda, a diferencia de una NAS que sí usa la LAN.",
+        "isCorrect": false
+      },
+      {
+        "text": "La SAN es una arquitectura de conexión directa (DAS) a través de la red, y la NAS es siempre un servicio en la nube.",
+        "rationale": "La SAN no es una conexión directa, sino una red de almacenamiento. La NAS es un dispositivo físico en la red local, no necesariamente un servicio en la nube.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piensa en cómo el sistema operativo del servidor 've' el recurso de almacenamiento en cada caso: ¿como un disco sin formato o como un recurso compartido?"
+  },
+  {
+    "guid": "37997b32-2823-4a46-9845-5707ac253cdc",
+    "subjectId": "T55",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Un administrador necesita configurar un array de discos que ofrezca el máximo rendimiento de lectura y escritura posible para procesar temporalmente grandes archivos de vídeo, sin que la redundancia sea una prioridad. ¿Qué nivel de RAID debería elegir?",
+    "answerOptions": [
+      {
+        "text": "RAID 1 (Mirroring)",
+        "rationale": "RAID 1 se centra en la redundancia duplicando los datos, lo que no maximiza el rendimiento de escritura ni la capacidad total.",
+        "isCorrect": false
+      },
+      {
+        "text": "RAID 5 (Striping with Parity)",
+        "rationale": "RAID 5 ofrece un equilibrio entre rendimiento y redundancia, pero el cálculo de la paridad introduce una sobrecarga en la escritura que lo hace más lento que otras opciones sin redundancia.",
+        "isCorrect": false
+      },
+      {
+        "text": "RAID 0 (Striping)",
+        "rationale": "RAID 0 divide los datos entre todos los discos y los escribe en paralelo, logrando la máxima velocidad, pero a costa de no tener ninguna tolerancia a fallos.",
+        "isCorrect": true
+      },
+      {
+        "text": "RAID 6 (Double Parity)",
+        "rationale": "RAID 6 tiene una penalización de rendimiento en la escritura aún mayor que RAID 5 debido al cálculo de doble paridad, priorizando la seguridad sobre la velocidad.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considera qué configuración se enfoca únicamente en la velocidad al distribuir los datos entre los discos, omitiendo cualquier cálculo de protección."
+  },
+  {
+    "guid": "9761f463-cf3c-40eb-9bc6-8aeb2f81eab0",
+    "subjectId": "T55",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Si una organización desea implementar una SAN aprovechando su infraestructura de red Ethernet existente para reducir costes y complejidad, ¿qué protocolo sería el más adecuado?",
+    "answerOptions": [
+      {
+        "text": "Fibre Channel (FC)",
+        "rationale": "Fibre Channel es el estándar de alto rendimiento que requiere hardware dedicado, como HBAs y switches específicos, por lo que no aprovecha la red Ethernet existente.",
+        "isCorrect": false
+      },
+      {
+        "text": "iSCSI (Internet SCSI)",
+        "rationale": "Este protocolo está diseñado para encapsular comandos SCSI en paquetes TCP/IP, permitiendo construir una SAN sobre una red Ethernet estándar.",
+        "isCorrect": true
+      },
+      {
+        "text": "InfiniBand",
+        "rationale": "InfiniBand es una tecnología de red de muy alta velocidad y baja latencia, pero requiere su propia infraestructura especializada, diferente de Ethernet.",
+        "isCorrect": false
+      },
+      {
+        "text": "SAS (Serial Attached SCSI)",
+        "rationale": "SAS es un protocolo para conectar dispositivos directamente o en una topología pequeña, característico de arquitecturas DAS, no para una red SAN a gran escala sobre Ethernet.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Busca el protocolo que transporta los comandos de almacenamiento sobre la pila de protocolos de internet (TCP/IP)."
+  },
+  {
+    "guid": "0af5e220-e298-48ce-ab70-31a3138b1bb8",
+    "subjectId": "T55",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En un entorno SAN, ¿qué es una LUN (Logical Unit Number)?",
+    "answerOptions": [
+      {
+        "text": "Un disco físico individual dentro de una cabina de almacenamiento.",
+        "rationale": "Una LUN es una abstracción lógica; puede estar compuesta por porciones de varios discos físicos organizados en un RAID.",
+        "isCorrect": false
+      },
+      {
+        "text": "Un protocolo de comunicación que compite con Fibre Channel y iSCSI.",
+        "rationale": "Una LUN no es un protocolo, sino la unidad de almacenamiento que se presenta a los servidores a través de protocolos como Fibre Channel o iSCSI.",
+        "isCorrect": false
+      },
+      {
+        "text": "La dirección IP asignada a una cabina de almacenamiento en la red.",
+        "rationale": "Las LUNs son identificadores de volúmenes lógicos, no direcciones de red del dispositivo de almacenamiento.",
+        "isCorrect": false
+      },
+      {
+        "text": "Un volumen lógico creado en un array de discos que se presenta a un servidor como si fuera un disco duro físico.",
+        "rationale": "Esta definición es correcta. Permite particionar un gran pool de almacenamiento físico en unidades lógicas más pequeñas y asignarlas a servidores específicos.",
+        "isCorrect": true
+      }
+    ],
+    "hint": "Piensa en cómo se divide y se asigna el espacio de una gran cabina de almacenamiento a múltiples servidores de forma organizada."
+  },
+  {
+    "guid": "248c863d-f525-4366-aa25-561f9daa1e00",
+    "subjectId": "T55",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Cuál es la principal ventaja de RAID 6 sobre RAID 5?",
+    "answerOptions": [
+      {
+        "text": "RAID 6 tiene un rendimiento de escritura significativamente más rápido.",
+        "rationale": "Al contrario, RAID 6 es más lento en escritura debido a que debe calcular y escribir dos bloques de paridad en lugar de uno.",
+        "isCorrect": false
+      },
+      {
+        "text": "RAID 6 requiere menos discos para su implementación inicial.",
+        "rationale": "RAID 6 necesita un mínimo de 4 discos, mientras que RAID 5 requiere un mínimo de 3.",
+        "isCorrect": false
+      },
+      {
+        "text": "RAID 6 puede tolerar el fallo simultáneo de dos discos sin pérdida de datos.",
+        "rationale": "Esta es la ventaja clave. El uso de doble paridad permite que el array siga funcionando y los datos sean recuperables incluso si fallan dos discos a la vez.",
+        "isCorrect": true
+      },
+      {
+        "text": "RAID 6 ofrece una mayor capacidad de almacenamiento útil con el mismo número de discos.",
+        "rationale": "RAID 6 tiene menos capacidad útil que RAID 5, ya que el espacio equivalente a dos discos se dedica a la paridad, en lugar de uno.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Analiza cómo la adición de un segundo bloque de paridad afecta la resiliencia del sistema."
+  },
+  {
+    "guid": "1ac9fe3e-3909-4916-83c3-8b7769fc1336",
+    "subjectId": "T55",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En una SAN Fibre Channel, el mecanismo que se configura en los switches para definir qué servidores (identificados por su WWPN) pueden ver qué cabinas de almacenamiento se denomina:",
+    "answerOptions": [
+      {
+        "text": "LUN Masking",
+        "rationale": "El LUN Masking se configura en la cabina de almacenamiento, no en el switch, y especifica qué LUNs puede ver un servidor que ya tiene acceso.",
+        "isCorrect": false
+      },
+      {
+        "text": "Multipath I/O (MPIO)",
+        "rationale": "MPIO es una técnica de redundancia de caminos que se configura en el servidor, no un mecanismo de seguridad en el switch.",
+        "isCorrect": false
+      },
+      {
+        "text": "Zoning",
+        "rationale": "El Zoning es una función del switch FC que crea subredes lógicas dentro del fabric para controlar qué dispositivos pueden comunicarse entre sí, actuando como un control de acceso a nivel de red.",
+        "isCorrect": true
+      },
+      {
+        "text": "RAID Grouping",
+        "rationale": "La agrupación RAID es la configuración de los discos dentro de la cabina de almacenamiento para proporcionar rendimiento y/o redundancia, no tiene que ver con el control de acceso en la red.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Este concepto es análogo a crear VLANs en una red Ethernet, pero aplicado a la red de almacenamiento."
+  },
+  {
+    "guid": "e9739f48-31cf-4c28-81a2-407b078f698e",
+    "subjectId": "T55",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Una política de copias de seguridad realiza un backup completo el domingo y luego, de lunes a sábado, solo copia los ficheros que han cambiado desde la copia de seguridad anterior (sea completa o del día anterior). ¿Qué tipo de copia se realiza de lunes a sábado?",
+    "answerOptions": [
+      {
+        "text": "Copia diferencial",
+        "rationale": "Una copia diferencial siempre copia todos los cambios acumulados desde el último backup completo, no desde el backup del día anterior.",
+        "isCorrect": false
+      },
+      {
+        "text": "Copia completa",
+        "rationale": "Una copia completa guardaría todos los datos cada día, no solo los que han cambiado.",
+        "isCorrect": false
+      },
+      {
+        "text": "Copia incremental",
+        "rationale": "Este método se ajusta a la descripción, ya que cada copia solo guarda los cambios ocurridos desde la última copia realizada, optimizando el espacio y el tiempo.",
+        "isCorrect": true
+      },
+      {
+        "text": "Copia de snapshot",
+        "rationale": "Un snapshot es una imagen instantánea de un sistema de ficheros en un momento dado, lo cual es una tecnología diferente a las políticas de backup tradicionales descritas.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piensa en qué método de copia de seguridad requiere la menor cantidad de espacio cada día, pero hace que la restauración sea más compleja."
+  },
+  {
+    "guid": "6639cd56-e514-4e49-8994-fc348b087983",
+    "subjectId": "T55",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Qué describe mejor una arquitectura DAS (Direct-Attached Storage)?",
+    "answerOptions": [
+      {
+        "text": "Un dispositivo de almacenamiento centralizado accesible para todos los servidores a través de una red dedicada.",
+        "rationale": "Esta descripción corresponde a una SAN (Storage Area Network).",
+        "isCorrect": false
+      },
+      {
+        "text": "Un sistema de almacenamiento conectado directamente a un único servidor sin intermediación de una red.",
+        "rationale": "Correcto, DAS se refiere a discos (internos o en una caja externa) conectados punto a punto a un servidor, siendo la forma más simple de almacenamiento.",
+        "isCorrect": true
+      },
+      {
+        "text": "Un servidor de ficheros que utiliza la red LAN para compartir carpetas mediante protocolos como CIFS o NFS.",
+        "rationale": "Esta es la definición de un NAS (Network-Attached Storage).",
+        "isCorrect": false
+      },
+      {
+        "text": "Un pool de almacenamiento virtual creado a partir de los discos locales de múltiples servidores en un clúster.",
+        "rationale": "Esto describe una solución de almacenamiento definido por software (SDS) como VMware vSAN, que es un concepto más avanzado que el DAS tradicional.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "El nombre de esta arquitectura contiene la palabra 'Directa', lo que indica la naturaleza de su conexión."
+  },
+  {
+    "guid": "b084872a-3cee-4168-9773-14d658ad891d",
+    "subjectId": "T55",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "La tecnología de virtualización de almacenamiento que permite presentar a los servidores más capacidad de la que realmente existe físicamente, asignando el espacio solo cuando se escribe en él, se conoce como:",
+    "answerOptions": [
+      {
+        "text": "Auto-tiering",
+        "rationale": "El auto-tiering mueve datos entre diferentes tipos de discos (rápidos y lentos) según su frecuencia de uso, pero no se relaciona con la asignación de espacio virtual.",
+        "isCorrect": false
+      },
+      {
+        "text": "Thin Provisioning",
+        "rationale": "Este es el término correcto para la asignación de almacenamiento 'bajo demanda', lo que permite un uso más eficiente del espacio físico disponible en la cabina.",
+        "isCorrect": true
+      },
+      {
+        "text": "LUN Masking",
+        "rationale": "El LUN Masking es una medida de seguridad para controlar el acceso a los volúmenes, no una técnica de optimización de la capacidad.",
+        "isCorrect": false
+      },
+      {
+        "text": "RAID anidado (como RAID 10)",
+        "rationale": "Los niveles de RAID anidados combinan diferentes configuraciones para mejorar rendimiento y/o redundancia, pero no gestionan la asignación de espacio de esta manera.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piensa en un término que sugiera una provisión 'delgada' o 'justo a tiempo' del espacio de almacenamiento."
+  },
+  {
+    "guid": "0e066288-4581-450b-8ad5-0c5d3e6bfe22",
+    "subjectId": "T55",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Cuál es la principal debilidad de una arquitectura RAID 3 o RAID 4 en comparación con RAID 5?",
+    "answerOptions": [
+      {
+        "text": "No ofrecen ninguna tolerancia a fallos de disco.",
+        "rationale": "Tanto RAID 3 como RAID 4 ofrecen tolerancia al fallo de un disco gracias a la información de paridad.",
+        "isCorrect": false
+      },
+      {
+        "text": "Utilizan un disco dedicado exclusivamente para la paridad, creando un cuello de botella en las operaciones de escritura.",
+        "rationale": "Esta es la desventaja clave. Como todas las operaciones de escritura deben actualizar este único disco, se convierte en un punto de congestión. RAID 5 soluciona esto distribuyendo la paridad.",
+        "isCorrect": true
+      },
+      {
+        "text": "Requieren el doble de discos para la misma capacidad de almacenamiento útil.",
+        "rationale": "Esta característica es propia de RAID 1 (mirroring), no de los RAID con paridad.",
+        "isCorrect": false
+      },
+      {
+        "text": "Solo funcionan con discos SSD y no con discos HDD.",
+        "rationale": "Estos niveles de RAID son independientes de la tecnología del disco y funcionan tanto con HDD como con SSD.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considera cómo la distribución de la información de paridad afecta el rendimiento de las operaciones que modifican datos."
+  }
+]

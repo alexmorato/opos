@@ -1,0 +1,374 @@
+[
+  {
+    "guid": "0f67a115-853d-4ff9-b050-2b97e7b649b7",
+    "subjectId": "T58",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Segons el model de responsabilitat compartida, en un servei de tipus PaaS (Plataforma com a Servei), quina de les següents és una responsabilitat principal del client?",
+    "answerOptions": [
+      {
+        "text": "Gestionar la infraestructura física del centre de dades, incloent servidors i xarxes.",
+        "rationale": "La gestió de la infraestructura física subjacent, com els servidors i la planta física, és sempre responsabilitat del proveïdor de núvol en tots els models 'as a service'.",
+        "isCorrect": false
+      },
+      {
+        "text": "Administrar el sistema operatiu i el middleware sobre el qual s'executen les aplicacions.",
+        "rationale": "En un model PaaS, el proveïdor gestiona el sistema operatiu i el middleware, oferint una plataforma llesta per al desplegament d'aplicacions.",
+        "isCorrect": false
+      },
+      {
+        "text": "Assegurar la protecció de les aplicacions desenvolupades i les dades que aquestes gestionen.",
+        "rationale": "En PaaS, el client es despreocupa de la infraestructura i la plataforma base, però continua sent responsable del codi de la seva aplicació i de la seguretat de les dades que hi introdueix.",
+        "isCorrect": true
+      },
+      {
+        "text": "Configurar i mantenir l'hipervisor i la capa de virtualització.",
+        "rationale": "L'hipervisor i la virtualització formen part de la infraestructura que el proveïdor gestiona, tant en models IaaS com PaaS.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Pensa en el que el proveïdor ofereix com a 'plataforma' i què queda per sobre d'això, que és responsabilitat de qui desenvolupa."
+  },
+  {
+    "guid": "996f80d6-a5fa-4325-9b3e-b63c1f124ee0",
+    "subjectId": "T58",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Quina és la funció principal de la capa d'orquestració, gestió i governança en una arquitectura de núvol híbrid?",
+    "answerOptions": [
+      {
+        "text": "Establir una connexió de xarxa segura i xifrada entre l'entorn on-premises i el núvol.",
+        "rationale": "L'establiment de connexions segures com VPNs o enllaços dedicats correspon a la capa de xarxa i connectivitat segura.",
+        "isCorrect": false
+      },
+      {
+        "text": "Proporcionar una interfície unificada per administrar recursos tant locals com al núvol des d'una única consola.",
+        "rationale": "Aquesta capa actua com la 'sala de control', utilitzant eines com Azure Arc o Google Anthos per centralitzar la gestió de tot l'entorn híbrid.",
+        "isCorrect": true
+      },
+      {
+        "text": "Allotjar les aplicacions en contenidors com Docker i Kubernetes per facilitar-ne la portabilitat.",
+        "rationale": "L'ús de contenidors per a la portabilitat de les aplicacions és una funció de la capa d'aplicacions i serveis lògics.",
+        "isCorrect": false
+      },
+      {
+        "text": "Emmagatzemar les dades mestres, com el padró o els tributs, a la infraestructura local.",
+        "rationale": "La gestió i ubicació de les dades, així com la seva integració, pertany a la capa de dades i integració.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considera quina capa actua com el 'cervell' central que permet veure i controlar tot l'ecosistema híbrid com un de sol."
+  },
+  {
+    "guid": "279f86e1-e2e5-41a4-9ce8-38c73acb25ac",
+    "subjectId": "T58",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "L'Ajuntament de Barcelona utilitza el concepte de 'Núvol Sobirà' basat en OpenStack. A quin model de servei al núvol correspon principalment aquesta iniciativa?",
+    "answerOptions": [
+      {
+        "text": "SaaS (Software as a Service), ja que ofereix aplicacions completes als ciutadans.",
+        "rationale": "El 'Núvol Sobirà' ofereix infraestructura base, no aplicacions finals completes. Els serveis SaaS es construeixen sobre plataformes com aquesta.",
+        "isCorrect": false
+      },
+      {
+        "text": "PaaS (Platform as a Service), perquè proporciona un entorn de desenvolupament basat en Kubernetes.",
+        "rationale": "Encara que l'Ajuntament té un PaaS sobre OpenShift, el 'Núvol Sobirà' en si mateix, basat en OpenStack, proporciona la capa d'infraestructura subjacent.",
+        "isCorrect": false
+      },
+      {
+        "text": "IaaS (Infrastructure as a Service), perquè proporciona recursos de computació, emmagatzematge i xarxes de forma virtualitzada.",
+        "rationale": "El 'Núvol Sobirà' és un núvol privat que ofereix infraestructura (màquines virtuals, emmagatzematge, etc.) sobre la qual es poden desplegar altres serveis, la qual cosa és la definició d'IaaS.",
+        "isCorrect": true
+      },
+      {
+        "text": "FaaS (Function as a Service), ja que permet executar microserveis de manera aïllada.",
+        "rationale": "FaaS és un model més abstracte que l'IaaS. El 'Núvol Sobirà' proveeix els servidors virtuals on, eventualment, es podria executar un servei FaaS.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Pensa en el nivell més bàsic de recursos que es poden oferir al núvol: màquines virtuals, discos i xarxes."
+  },
+  {
+    "guid": "602a5a18-2bac-480b-9465-308edee9b733",
+    "subjectId": "T58",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En un model híbrid, per què és crucial el concepte de reversibilitat, especialment per a les administracions públiques segons normatives com l'ENS i l'ENI?",
+    "answerOptions": [
+      {
+        "text": "Per garantir que els costos operatius (OpEx) siguin sempre inferiors als de capital (CapEx).",
+        "rationale": "La reversibilitat no està directament relacionada amb la gestió de costos, sinó amb la capacitat de moure dades i aplicacions.",
+        "isCorrect": false
+      },
+      {
+        "text": "Per assegurar que les dades es puguin encriptar tant en trànsit com en repòs.",
+        "rationale": "L'encriptació és una mesura de seguretat fonamental, però la reversibilitat es refereix a la capacitat de sortir d'un proveïdor, no a com es protegeixen les dades dins d'ell.",
+        "isCorrect": false
+      },
+      {
+        "text": "Per permetre a l'administració escalar recursos al núvol públic durant pics de demanda.",
+        "rationale": "Aquesta capacitat es coneix com a 'cloud bursting' o elasticitat i és un avantatge del model híbrid, però no la definició de reversibilitat.",
+        "isCorrect": false
+      },
+      {
+        "text": "Per evitar la dependència excessiva d'un proveïdor ('vendor lock-in') i poder recuperar les dades en formats oberts.",
+        "rationale": "Aquest és un requisit normatiu crític que garanteix que l'administració mantingui el control sobre les seves dades i pugui canviar de proveïdor sense impediments tècnics o contractuals abusius.",
+        "isCorrect": true
+      }
+    ],
+    "hint": "Aquesta propietat garanteix que una organització no quedi 'atrapada' amb un únic proveïdor tecnològic."
+  },
+  {
+    "guid": "bc4e2100-a812-49ac-a683-cf9ae50fe25b",
+    "subjectId": "T58",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Quina tecnologia és clau en la capa d'aplicacions i serveis lògics per facilitar la portabilitat d'aplicacions entre l'entorn on-premises i el núvol?",
+    "answerOptions": [
+      {
+        "text": "SIEM (Security Information and Event Management)",
+        "rationale": "Els sistemes SIEM són eines de la capa de seguretat, utilitzats per a la monitorització i gestió d'esdeveniments de seguretat, no per a la portabilitat d'aplicacions.",
+        "isCorrect": false
+      },
+      {
+        "text": "VPN IPsec o enllaços dedicats com Azure ExpressRoute",
+        "rationale": "Aquestes són tecnologies de la capa de xarxa que asseguren la connexió entre entorns, però no fan que les aplicacions siguin portables.",
+        "isCorrect": false
+      },
+      {
+        "text": "Contenidors amb Docker i orquestració amb Kubernetes",
+        "rationale": "La contenidorització encapsula una aplicació i les seves dependències, permetent que s'executi de manera consistent en qualsevol entorn, la qual cosa és fonamental per a la portabilitat en un model híbrid.",
+        "isCorrect": true
+      },
+      {
+        "text": "API Gateways o ESB (Enterprise Service Bus)",
+        "rationale": "Aquestes eines pertanyen a la capa de dades i integració i serveixen per gestionar la comunicació entre serveis, però no per empaquetar i moure les aplicacions en si.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Pensa en la tecnologia que empaqueta el codi i totes les seves dependències en una unitat aïllada i executable."
+  },
+  {
+    "guid": "dc909ac4-cffd-4408-b32a-ab5a5dd47a2e",
+    "subjectId": "T58",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En el context d'un núvol híbrid, què descriu millor el terme 'cloud bursting'?",
+    "answerOptions": [
+      {
+        "text": "Una fallada de seguretat que exposa dades de l'entorn local a través del núvol públic.",
+        "rationale": "Això seria un incident de seguretat, no una estratègia planificada de gestió de recursos.",
+        "isCorrect": false
+      },
+      {
+        "text": "L'ús temporal de recursos del núvol públic quan la capacitat de la infraestructura local es veu superada.",
+        "rationale": "Aquesta és la definició clàssica de 'cloud bursting', una estratègia que aprofita l'elasticitat del núvol per gestionar pics de demanda sense sobredimensionar l'entorn on-premises.",
+        "isCorrect": true
+      },
+      {
+        "text": "La migració completa i permanent de totes les càrregues de treball de l'entorn on-premises al núvol.",
+        "rationale": "Això descriu una migració total al núvol, no l'ús flexible i temporal de recursos que caracteritza el 'bursting'.",
+        "isCorrect": false
+      },
+      {
+        "text": "El procés de realitzar còpies de seguretat de dades del núvol cap a un emmagatzematge local.",
+        "rationale": "Això és una estratègia de còpia de seguretat o recuperació davant desastres, no està relacionat amb la gestió dinàmica de la càrrega de treball.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Imagina que la teva infraestructura local és un got d'aigua i, de sobte, hi aboques una gerra sencera. Què necessites per no vessar l'aigua?"
+  },
+  {
+    "guid": "52384c7e-d560-48cb-aebd-dc85bcfc1162",
+    "subjectId": "T58",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Segons la definició del NIST SP 800-145, un model de núvol híbrid és una composició de dues o més infraestructures de núvol diferents (privades, comunitàries o públiques) que es mantenen com a entitats úniques. Quina característica addicional és essencial en aquesta definició?",
+    "answerOptions": [
+      {
+        "text": "Han d'estar gestionades pel mateix proveïdor de serveis.",
+        "rationale": "Un model híbrid pot perfectament integrar serveis de diferents proveïdors juntament amb la infraestructura pròpia (on-premises).",
+        "isCorrect": false
+      },
+      {
+        "text": "Han d'utilitzar exactament el mateix maquinari físic.",
+        "rationale": "La naturalesa d'un model híbrid rau precisament en la combinació d'infraestructures heterogènies, no en l'homogeneïtat del maquinari.",
+        "isCorrect": false
+      },
+      {
+        "text": "Estan connectades per tecnologia que permet la portabilitat de dades i aplicacions.",
+        "rationale": "La clau del model híbrid no és només la coexistència, sinó la integració i la capacitat de moure càrregues de treball entre els diferents entorns de manera coordinada.",
+        "isCorrect": true
+      },
+      {
+        "text": "La infraestructura del núvol públic ha de ser una rèplica exacta de la privada.",
+        "rationale": "No es requereix que els entorns siguin rèpliques; de fet, se solen utilitzar per a propòsits diferents aprofitant les fortaleses de cadascun.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "La simple combinació no és suficient; cal que els diferents entorns puguin 'parlar' entre si i moure càrregues de treball."
+  },
+  {
+    "guid": "cf42e83f-a808-4870-ba60-11cb98ffcaf7",
+    "subjectId": "T58",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Quin és un dels principals reptes de seguretat en un entorn híbrid que requereix eines com un SIEM unificat?",
+    "answerOptions": [
+      {
+        "text": "La dificultat de comprar maquinari compatible de diferents proveïdors.",
+        "rationale": "Això és un repte d'adquisició o interoperabilitat de maquinari, no directament un repte de gestió de la seguretat operativa.",
+        "isCorrect": false
+      },
+      {
+        "text": "La necessitat de tenir una visibilitat i una gestió de la seguretat coherents a través d'entorns distribuïts.",
+        "rationale": "Un SIEM unificat permet correlacionar esdeveniments de seguretat de l'entorn local i del núvol, abordant el repte de la visibilitat fragmentada.",
+        "isCorrect": true
+      },
+      {
+        "text": "L'obligació de mantenir totes les dades sensibles exclusivament en el núvol públic.",
+        "rationale": "Generalment, la pràctica és la contrària: les dades més sensibles se solen mantenir a l'entorn on-premises per a un major control.",
+        "isCorrect": false
+      },
+      {
+        "text": "La reducció de costos operatius (OpEx) gràcies a l'ús de serveis de núvol.",
+        "rationale": "La reducció de costos és un avantatge financer, no un repte de seguretat.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Com pots vigilar el que passa a casa teva i en un apartament llogat al mateix temps i amb una única pantalla?"
+  },
+  {
+    "guid": "695ac6a5-4bc4-49d0-83ca-811ac2346849",
+    "subjectId": "T58",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En un contracte de serveis al núvol per a una administració pública, quina clàusula és essencial per complir amb l'Esquema Nacional d'Interoperabilitat (ENI) a l'hora de finalitzar el servei?",
+    "answerOptions": [
+      {
+        "text": "Una clàusula que garanteixi un descompte per ús a llarg termini.",
+        "rationale": "Els descomptes són un aspecte comercial, però no tenen relació directa amb els requisits d'interoperabilitat de l'ENI.",
+        "isCorrect": false
+      },
+      {
+        "text": "Una clàusula que permeti l'accés físic de l'administració al centre de dades del proveïdor.",
+        "rationale": "L'accés físic no sol ser ni viable ni necessari; el compliment es verifica mitjançant auditories i certificacions.",
+        "isCorrect": false
+      },
+      {
+        "text": "Una clàusula que obligui el proveïdor a utilitzar exclusivament programari de codi obert.",
+        "rationale": "Encara que es pot prioritzar el codi obert, l'ENI se centra en l'ús d'estàndards oberts per a les dades, no en el tipus de programari de la infraestructura.",
+        "isCorrect": false
+      },
+      {
+        "text": "Una clàusula de reversibilitat que asseguri la recuperació de les dades en formats oberts i estàndard.",
+        "rationale": "L'ENI exigeix que les dades siguin interoperables. Per tant, en finalitzar un contracte, l'administració ha de poder recuperar les seves dades en formats com XML, JSON o CSV per garantir-ne l'ús futur.",
+        "isCorrect": true
+      }
+    ],
+    "hint": "Pensa en com l'administració pot assegurar-se que les seves dades no quedin 'atrapades' en un format que només el proveïdor pot llegir."
+  },
+  {
+    "guid": "421143aa-2ad4-4595-93b3-d3a882da0806",
+    "subjectId": "T58",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Quina de les següents opcions descriu millor la diferència de gestió entre un model IaaS i un model SaaS des de la perspectiva del client?",
+    "answerOptions": [
+      {
+        "text": "En IaaS el client gestiona el sistema operatiu, mentre que en SaaS també el gestiona el client.",
+        "rationale": "En un model SaaS, el proveïdor gestiona absolutament tot, inclòs el sistema operatiu; el client només utilitza el programari.",
+        "isCorrect": false
+      },
+      {
+        "text": "En IaaS el client té un alt nivell de control sobre la infraestructura virtual, mentre que en SaaS el control és mínim i es limita a la configuració de l'aplicació.",
+        "rationale": "Aquesta opció reflecteix correctament l'espectre de control: IaaS ofereix el màxim control (gestió de SO, aplicacions, dades), mentre que SaaS ofereix el mínim (només ús i configuració de l'aplicació).",
+        "isCorrect": true
+      },
+      {
+        "text": "En IaaS el client no gestiona les dades, mentre que en SaaS és el principal responsable de gestionar-les.",
+        "rationale": "En tots els models (IaaS, PaaS, SaaS), el client és sempre responsable de les seves dades i de com les gestiona dins del servei.",
+        "isCorrect": false
+      },
+      {
+        "text": "No hi ha diferències significatives de gestió, ja que en ambdós models el proveïdor s'encarrega de tot.",
+        "rationale": "Aquesta afirmació només és certa per al model SaaS. En IaaS, el client té una responsabilitat de gestió molt més gran.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Compara el nivell de control que tens quan llogues un terreny buit (IaaS) amb el que tens quan llogues un pis completament moblat i equipat (SaaS)."
+  },
+  {
+    "guid": "6ea15ad2-a0d5-4a0f-a900-c7eb63b882ec",
+    "subjectId": "T58",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Per a quin tipus de càrregues de treball l'Ajuntament de Barcelona prioritza l'ús del seu IaaS públic, segons els casos d'ús esmentats?",
+    "answerOptions": [
+      {
+        "text": "Dades de categoria alta segons l'ENS, com el padró o els tributs.",
+        "rationale": "Els documents indiquen explícitament que les dades mestres i crítiques, com les del padró, se solen mantenir en la infraestructura local (on-premises).",
+        "isCorrect": false
+      },
+      {
+        "text": "El nucli del sistema operatiu de la ciutat (CityOS) i les APIs urbanes.",
+        "rationale": "Aquests serveis, segons la documentació, s'executen sobre l'entorn PaaS privat basat en OpenShift, no directament sobre l'IaaS públic.",
+        "isCorrect": false
+      },
+      {
+        "text": "Projectes d'innovació, dades obertes amb gran volum de consultes i entorns de proves que requereixen capacitat de processament temporal.",
+        "rationale": "Aquests són els casos d'ús citats per a l'IaaS públic, aprofitant la seva flexibilitat i escalabilitat per a càrregues de treball no crítiques o que requereixen recursos puntuals.",
+        "isCorrect": true
+      },
+      {
+        "text": "Aplicacions de gestió interna i sistemes ERP (Enterprise Resource Planning) monolítics.",
+        "rationale": "Aquest tipus d'aplicacions legades o de gestió interna solen residir a la infraestructura on-premises tradicional.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Pensa en escenaris que es beneficien de la flexibilitat i l'escalabilitat del núvol públic sense comprometre dades altament sensibles."
+  },
+  {
+    "guid": "97fbe313-8200-4abe-987b-8ab07f7575a6",
+    "subjectId": "T58",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Quin és l'objectiu principal d'implementar una estratègia de 'Hybrid Identity Management' que connecti un Active Directory local amb Azure AD?",
+    "answerOptions": [
+      {
+        "text": "Substituir completament l'Active Directory local per la versió al núvol.",
+        "rationale": "L'objectiu és integrar-los i sincronitzar-los per a una gestió unificada, no necessàriament eliminar la versió local, que sovint és necessària per a sistemes interns.",
+        "isCorrect": false
+      },
+      {
+        "text": "Unificar la gestió d'identitats per permetre una autenticació i autorització coherents a través d'entorns locals i de núvol.",
+        "rationale": "Això permet que un usuari tingui una única identitat per accedir tant a recursos on-premises com a serveis al núvol, simplificant la gestió i millorant la seguretat (SSO, MFA).",
+        "isCorrect": true
+      },
+      {
+        "text": "Bloquejar l'accés a serveis al núvol des de la xarxa local per motius de seguretat.",
+        "rationale": "Al contrari, l'objectiu és facilitar un accés segur i controlat, no bloquejar-lo.",
+        "isCorrect": false
+      },
+      {
+        "text": "Crear identitats separades i aïllades per a cada entorn per augmentar la seguretat.",
+        "rationale": "La gestió d'identitats separades augmenta la complexitat i el risc d'errors. L'enfocament híbrid busca precisament la unificació.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considera com una organització pot fer que els seus usuaris tinguin una única 'clau' per obrir tant les portes de l'oficina com les de les aplicacions al núvol."
+  }
+]
