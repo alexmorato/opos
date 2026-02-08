@@ -1,0 +1,467 @@
+[
+  {
+    "guid": "c433bb89-ab64-4fac-b939-3859872401fa",
+    "subjectId": "T58",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Cuál es la premisa fundamental del modelo de responsabilidad compartida cuando una administración pública contrata servicios en la nube?",
+    "answerOptions": [
+      {
+        "text": "La responsabilidad se delega totalmente en el proveedor para garantizar el cumplimiento normativo.",
+        "rationale": "Delegar totalmente la responsabilidad es incompatible con el marco legal del ENS y el RGPD, donde el cliente mantiene siempre ciertas obligaciones.",
+        "isCorrect": false
+      },
+      {
+        "text": "La responsabilidad se distribuye entre cliente y proveedor según el modelo de servicio (IaaS, PaaS o SaaS).",
+        "rationale": "El alcance de la gestión técnica y de seguridad del cliente varía dependiendo de si se contrata infraestructura, plataforma o software.",
+        "isCorrect": true
+      },
+      {
+        "text": "El proveedor es el único responsable de la seguridad física y lógica, mientras que el cliente solo gestiona el pago por uso.",
+        "rationale": "Esta visión ignora que el cliente debe configurar la seguridad lógica, las identidades y proteger sus propios datos en la mayoría de los modelos.",
+        "isCorrect": false
+      },
+      {
+        "text": "La administración pública es la única responsable legal, independientemente de los fallos técnicos del proveedor.",
+        "rationale": "Aunque la administración tiene responsabilidad frente al ciudadano, el proveedor asume responsabilidades contractuales y técnicas sobre la infraestructura gestionada.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en cómo el tipo de contrato influye en qué partes del stack tecnológico controla cada entidad."
+  },
+  {
+    "guid": "b5c82cc4-cd81-458d-b4ae-3d4267d96ee0",
+    "subjectId": "T58",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "En un modelo de Infraestructura como Servicio (IaaS), ¿quién es el responsable de aplicar parches de seguridad al sistema operativo de las máquinas virtuales?",
+    "answerOptions": [
+      {
+        "text": "El proveedor de servicios en la nube.",
+        "rationale": "En IaaS, el proveedor solo llega hasta el hipervisor; el contenido de la máquina virtual es responsabilidad del usuario.",
+        "isCorrect": false
+      },
+      {
+        "text": "El desarrollador del software de virtualización.",
+        "rationale": "El desarrollador proporciona el software, pero no gestiona las instancias operativas desplegadas por el cliente.",
+        "isCorrect": false
+      },
+      {
+        "text": "El cliente o la administración pública.",
+        "rationale": "Puesto que el cliente tiene acceso total a la instancia del sistema operativo, recae sobre él su mantenimiento, actualización y securización.",
+        "isCorrect": true
+      },
+      {
+        "text": "Es una responsabilidad compartida al $50\\%$ mediante herramientas de automatización del proveedor.",
+        "rationale": "Aunque el proveedor ofrezca herramientas, la responsabilidad de ejecución y decisión sobre el parcheo es exclusivamente del cliente en IaaS.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considere quién tiene el control de acceso administrativo al entorno de ejecución."
+  },
+  {
+    "guid": "6f7e67e2-e3c0-4b36-a7c2-58aaceb7132f",
+    "subjectId": "T58",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Dentro del modelo PaaS (Plataforma como Servicio), ¿qué elemento es responsabilidad exclusiva del proveedor de la nube?",
+    "answerOptions": [
+      {
+        "text": "El código de la aplicación desarrollada por la administración.",
+        "rationale": "El código y su lógica de negocio son siempre propiedad y responsabilidad del cliente que desarrolla la solución.",
+        "isCorrect": false
+      },
+      {
+        "text": "La gestión de los datos y los usuarios finales.",
+        "rationale": "El control de acceso y la integridad de la información introducida dependen de las políticas del cliente.",
+        "isCorrect": false
+      },
+      {
+        "text": "El entorno de ejecución (runtime), el middleware y el sistema operativo subyacente.",
+        "rationale": "En PaaS, el cliente se abstrae de la gestión del servidor y el sistema operativo, siendo estas capas gestionadas por el proveedor.",
+        "isCorrect": true
+      },
+      {
+        "text": "La configuración de los cortafuegos de aplicación (WAF).",
+        "rationale": "Aunque el proveedor ofrezca la plataforma, la configuración específica de las reglas de seguridad de la app suele recaer en el cliente.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en la capa que se sitúa entre el hardware y la aplicación final."
+  },
+  {
+    "guid": "3345c55d-a936-46b2-aee8-6460457dbd0b",
+    "subjectId": "T58",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "En el contexto del Ayuntamiento de Barcelona y su 'Núvol Sobirà' (IaaS sobre OpenStack), ¿cuál es la implicación respecto a la propiedad y operación?",
+    "answerOptions": [
+      {
+        "text": "El Ayuntamiento es el propietario de los servidores, aunque la operación la realiza un tercero.",
+        "rationale": "Este modelo busca el control público sobre la infraestructura física mientras se externaliza la gestión técnica especializada.",
+        "isCorrect": true
+      },
+      {
+        "text": "T-Systems es el propietario legal del hardware por contrato de renting.",
+        "rationale": "El material fuente indica explícitamente que el Ayuntamiento mantiene la propiedad de los servidores que alojan este entorno.",
+        "isCorrect": false
+      },
+      {
+        "text": "La responsabilidad de la seguridad física recae en el Ayuntamiento al ser los servidores de su propiedad.",
+        "rationale": "La seguridad física de los centros de datos (como los de Sant Boi) es gestionada por el proveedor que opera la instalación.",
+        "isCorrect": false
+      },
+      {
+        "text": "Al ser un 'Núvol Sobirà', el proveedor no tiene ninguna responsabilidad sobre la disponibilidad del servicio.",
+        "rationale": "Incluso en nubes privadas, los acuerdos de nivel de servicio (SLA) definen responsabilidades del operador sobre la disponibilidad.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Recuerde la distinción entre quién compra el equipo y quién lo maneja en el CPD."
+  },
+  {
+    "guid": "f8cc4151-689c-4fff-be64-13625b586804",
+    "subjectId": "T58",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Cuando una administración utiliza un software como servicio (SaaS), ¿cuál es la principal tarea de seguridad que permanece en el lado del cliente?",
+    "answerOptions": [
+      {
+        "text": "La encriptación de los discos duros en el centro de datos del proveedor.",
+        "rationale": "La seguridad física y del hardware de almacenamiento es responsabilidad íntegra del proveedor de SaaS.",
+        "isCorrect": false
+      },
+      {
+        "text": "La configuración de identidades, permisos de acceso y protección de datos sensibles.",
+        "rationale": "Aunque el software sea externo, decidir quién accede y qué datos se introducen es una responsabilidad indelegable del cliente.",
+        "isCorrect": true
+      },
+      {
+        "text": "La actualización de las versiones del software para corregir bugs.",
+        "rationale": "El mantenimiento evolutivo y correctivo del código es el valor principal que aporta el proveedor en el modelo SaaS.",
+        "isCorrect": false
+      },
+      {
+        "text": "La gestión de la red física y el balanceo de carga.",
+        "rationale": "Estas funciones de infraestructura son transparentes para el cliente de SaaS y las gestiona el proveedor.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Enfóquese en la capa de usuario y de información, no en la tecnológica."
+  },
+  {
+    "guid": "53b493db-0095-448b-b12c-1902ce5ccb46",
+    "subjectId": "T58",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Según el RD $311/2022$ (ENS), ¿qué requisito de auditoría debe cumplir un sistema híbrido que trate datos de categoría alta?",
+    "answerOptions": [
+      {
+        "text": "Basta con una autoevaluación firmada por el responsable de seguridad del proveedor.",
+        "rationale": "La autoevaluación solo es válida para sistemas de categoría básica; categorías superiores requieren auditorías externas.",
+        "isCorrect": false
+      },
+      {
+        "text": "Debe someterse a una auditoría extraordinaria cada $5$ años.",
+        "rationale": "El periodo estándar para las auditorías de cumplimiento del ENS es más frecuente para garantizar la seguridad continua.",
+        "isCorrect": false
+      },
+      {
+        "text": "Tanto la parte local como la del proveedor deben estar auditadas y certificadas según el nivel correspondiente.",
+        "rationale": "En un modelo híbrido, la seguridad es un continuo y todas las piezas que conforman el sistema deben cumplir con el ENS.",
+        "isCorrect": true
+      },
+      {
+        "text": "Solo la infraestructura local requiere certificación, ya que el proveedor cloud tiene sus propias normas internacionales.",
+        "rationale": "Para trabajar con la administración española, los proveedores de nube deben acreditar específicamente el cumplimiento del ENS.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en el principio de seguridad integral en entornos distribuidos."
+  },
+  {
+    "guid": "1dfbe162-85ca-4a22-8010-21717d177d8d",
+    "subjectId": "T58",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "En la gestión de identidades de una nube híbrida, ¿cuál es el riesgo de responsabilidad si no se utiliza una gestión federada (SSO)?",
+    "answerOptions": [
+      {
+        "text": "El proveedor cloud asume la responsabilidad legal de todas las contraseñas filtradas.",
+        "rationale": "El proveedor no puede ser responsable de las credenciales si el cliente no utiliza mecanismos de gestión segura centralizada.",
+        "isCorrect": false
+      },
+      {
+        "text": "La fragmentación de identidades dificulta la traza de accesos y el cumplimiento del principio de mínimo privilegio.",
+        "rationale": "Sin una gestión unificada, el cliente pierde el control sobre quién accede a qué en los distintos entornos, aumentando el riesgo de seguridad.",
+        "isCorrect": true
+      },
+      {
+        "text": "Se produce una duplicidad de costes que el ENS prohíbe explícitamente.",
+        "rationale": "El ENS no prohíbe la duplicidad de costes, sino que exige medidas de seguridad proporcionales al riesgo.",
+        "isCorrect": false
+      },
+      {
+        "text": "El cliente pierde la propiedad de los datos de usuario al almacenarlos en el directorio del proveedor.",
+        "rationale": "La propiedad de los datos no cambia por el lugar de almacenamiento, pero el control se vuelve más complejo.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Reflexione sobre la visibilidad y el control del administrador de sistemas sobre los usuarios."
+  },
+  {
+    "guid": "8e3e4ae9-04a3-496a-a930-d7bc368683f5",
+    "subjectId": "T58",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Ante una caída del servicio debido a un fallo en el hipervisor del proveedor en un modelo IaaS, ¿quién es responsable de la recuperación del servicio?",
+    "answerOptions": [
+      {
+        "text": "El cliente, que debe restaurar las copias de seguridad manualmente.",
+        "rationale": "Si el fallo es del hipervisor (infraestructura), la reparación de esa capa corresponde al proveedor.",
+        "isCorrect": false
+      },
+      {
+        "text": "El proveedor debe restaurar la infraestructura, pero el cliente es responsable de la disponibilidad de su aplicación.",
+        "rationale": "Existe un reparto: el proveedor arregla el 'suelo' (infra), pero el cliente debe asegurar que su app vuelve a funcionar correctamente.",
+        "isCorrect": true
+      },
+      {
+        "text": "El proveedor es responsable de indemnizar al cliente por el $100\\%$ de las pérdidas de datos.",
+        "rationale": "La indemnización depende del SLA, y raramente cubre la pérdida de datos si el cliente no configuró backups.",
+        "isCorrect": false
+      },
+      {
+        "text": "La responsabilidad es nula al considerarse un evento de 'fuerza mayor' en nubes públicas.",
+        "rationale": "Un fallo técnico no suele considerarse fuerza mayor y está sujeto a las responsabilidades contractuales del servicio.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Diferencie entre la reparación de la herramienta y la continuidad del negocio que se apoya en ella."
+  },
+  {
+    "guid": "d82374dd-4008-46be-ae35-66fd33031136",
+    "subjectId": "T58",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Qué capa técnica asegura que la comunicación entre el entorno local y el cloud cumpla con el Esquema Nacional de Seguridad (ENS)?",
+    "answerOptions": [
+      {
+        "text": "Capa de orquestación.",
+        "rationale": "La orquestación se encarga del despliegue y gestión de recursos, no primariamente del cifrado de las comunicaciones.",
+        "isCorrect": false
+      },
+      {
+        "text": "Capa de red y conectividad segura.",
+        "rationale": "Esta capa utiliza VPNs IPsec o enlaces dedicados para garantizar que el tránsito de datos sea privado, cifrado y conforme al ENS.",
+        "isCorrect": true
+      },
+      {
+        "text": "Capa de aplicaciones.",
+        "rationale": "La capa de aplicación reside sobre la red, pero la seguridad del canal de transporte es responsabilidad de la capa de conectividad.",
+        "isCorrect": false
+      },
+      {
+        "text": "Capa de datos e integración.",
+        "rationale": "Aunque gestiona la estructura de los datos, la seguridad del transporte físico/lógico entre sitios depende de la red.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en el túnel por el que viajan los bits entre el centro de datos local y el proveedor."
+  },
+  {
+    "guid": "c218eb09-43d9-4af2-9cf9-4a2fdea05ac9",
+    "subjectId": "T58",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "En el uso de FaaS (Function as a Service), ¿qué aspecto de la seguridad es gestionado exclusivamente por el proveedor?",
+    "answerOptions": [
+      {
+        "text": "La lógica interna de la función y las vulnerabilidades del código.",
+        "rationale": "El desarrollador (cliente) siempre es responsable del código que escribe y de su comportamiento.",
+        "isCorrect": false
+      },
+      {
+        "text": "El aprovisionamiento de servidores y la escala automática según la demanda.",
+        "rationale": "En serverless, el cliente se despreocupa totalmente de la infraestructura; el proveedor escala los recursos necesarios para ejecutar la función.",
+        "isCorrect": true
+      },
+      {
+        "text": "La gestión de los secretos y claves API utilizados por la función.",
+        "rationale": "Aunque el proveedor de herramientas, el cliente debe configurar qué claves usa su función de forma segura.",
+        "isCorrect": false
+      },
+      {
+        "text": "El cumplimiento normativo de los datos procesados por la función.",
+        "rationale": "El cliente es el responsable de asegurar que el tratamiento de datos que realiza su función cumple con el RGPD.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Este modelo se conoce como 'serverless' porque oculta una parte específica de la gestión técnica."
+  },
+  {
+    "guid": "34118579-f093-4996-a6af-0ea3f75271f8",
+    "subjectId": "T58",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Cuál es el propósito principal de exigir 'Reversibilidad y Portabilidad' en los contratos de nube híbrida de las AAPP?",
+    "answerOptions": [
+      {
+        "text": "Evitar el 'vendor lock-in' y permitir la recuperación de datos al finalizar el servicio.",
+        "rationale": "Es un requisito legal que garantiza que la administración no quede atrapada por un proveedor y pueda migrar sus servicios.",
+        "isCorrect": true
+      },
+      {
+        "text": "Reducir el coste de la suscripción mensual mediante la competencia directa.",
+        "rationale": "Aunque favorece la competencia, su fin primordial es la soberanía sobre los datos y la continuidad del servicio público.",
+        "isCorrect": false
+      },
+      {
+        "text": "Permitir que el proveedor cambie de tecnología sin avisar al cliente.",
+        "rationale": "Al contrario, busca que el cliente mantenga el control ante cambios o ceses de actividad del proveedor.",
+        "isCorrect": false
+      },
+      {
+        "text": "Garantizar que el software sea siempre de código abierto.",
+        "rationale": "La portabilidad se puede lograr con estándares abiertos sin que todo el software sea necesariamente Open Source.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en la libertad de movimiento de los activos públicos al terminar una concesión."
+  },
+  {
+    "guid": "5f7fe26d-3002-4639-bfe7-5d5dc6750bf1",
+    "subjectId": "T58",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "En un entorno híbrido, ¿quién es el responsable de configurar el SIEM (Security Information and Event Management) para detectar ataques dirigidos?",
+    "answerOptions": [
+      {
+        "text": "El proveedor de la nube, ya que es quien tiene los logs de infraestructura.",
+        "rationale": "El proveedor da los logs, pero la inteligencia de detección y la configuración del SIEM recae en el cliente.",
+        "isCorrect": false
+      },
+      {
+        "text": "El cliente o administración pública.",
+        "rationale": "La monitorización de la seguridad de sus activos y la respuesta ante incidentes específicos es una responsabilidad del cliente.",
+        "isCorrect": true
+      },
+      {
+        "text": "La Agencia Española de Protección de Datos (AEPD).",
+        "rationale": "La AEPD supervisa el cumplimiento del RGPD, pero no gestiona sistemas de seguridad técnica de las administraciones.",
+        "isCorrect": false
+      },
+      {
+        "text": "Es una función automatizada que no requiere configuración manual.",
+        "rationale": "Los SIEM requieren reglas de correlación y ajuste continuo para ser efectivos y evitar falsos positivos.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Recuerde quién debe realizar la vigilancia continua según el ENS."
+  },
+  {
+    "guid": "e0a199d0-f7bb-4933-8af0-93e8c7905c7b",
+    "subjectId": "T58",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Si una administración pública contrata un servicio de Backup as a Service (BaaS), ¿qué responsabilidad mantiene respecto a sus datos?",
+    "answerOptions": [
+      {
+        "text": "Ninguna, el proveedor garantiza que los datos son siempre recuperables.",
+        "rationale": "El proveedor ofrece el servicio, pero el cliente debe verificar que las copias se realizan y son válidas.",
+        "isCorrect": false
+      },
+      {
+        "text": "Definir la política de retención, la frecuencia de las copias y realizar pruebas de restauración.",
+        "rationale": "El cliente es quien conoce las necesidades del negocio y debe asegurar que el servicio de backup cumple con sus RTO y RPO.",
+        "isCorrect": true
+      },
+      {
+        "text": "La gestión de la integridad física de las cintas o discos de backup.",
+        "rationale": "Esta es la responsabilidad técnica que se delega precisamente al contratar un servicio BaaS.",
+        "isCorrect": false
+      },
+      {
+        "text": "El pago de los derechos de autor de los datos almacenados.",
+        "rationale": "Esto no es una responsabilidad técnica de seguridad relacionada con el modelo de servicio BaaS.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en la diferencia entre tener la herramienta y saber usarla para cumplir los objetivos del sistema."
+  },
+  {
+    "guid": "ce75e352-57bc-42be-9ed4-25c8c30c6d7a",
+    "subjectId": "T58",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "En la capa de orquestación y gestión unificada (ej. Azure Arc o Anthos), ¿cuál es el beneficio principal para la gobernanza del cliente?",
+    "answerOptions": [
+      {
+        "text": "Permite que el proveedor gestione también los servidores locales del cliente.",
+        "rationale": "Aunque facilita la visibilidad, la responsabilidad de gestión de los equipos locales sigue siendo del cliente.",
+        "isCorrect": false
+      },
+      {
+        "text": "Centraliza el monitorizaje y la aplicación de políticas de seguridad en entornos heterogéneos.",
+        "rationale": "Ayuda al cliente a mantener el control y la coherencia de seguridad tanto en su CPD como en las distintas nubes.",
+        "isCorrect": true
+      },
+      {
+        "text": "Elimina la necesidad de cumplir con el ENS en la parte pública.",
+        "rationale": "La herramienta ayuda al cumplimiento, pero no exime de ninguna obligación normativa.",
+        "isCorrect": false
+      },
+      {
+        "text": "Garantiza que el coste del servicio sea siempre el mínimo posible.",
+        "rationale": "Ayuda a la visibilidad de costes, pero no garantiza por sí misma el ahorro si no hay una gestión activa.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en la dificultad de vigilar dos sitios distintos con herramientas diferentes."
+  },
+  {
+    "guid": "cbbe00de-7a87-41a1-be6d-9696fac0ace6",
+    "subjectId": "T58",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Qué implicación tiene el RGPD sobre el proveedor de nube cuando actúa como 'Encargado del Tratamiento'?",
+    "answerOptions": [
+      {
+        "text": "El proveedor puede decidir el uso de los datos para sus propios análisis de mercado.",
+        "rationale": "Como encargado, solo puede tratar los datos según las instrucciones documentadas del responsable (la administración).",
+        "isCorrect": false
+      },
+      {
+        "text": "El proveedor debe aplicar las medidas técnicas y organizativas acordadas para proteger los datos.",
+        "rationale": "Es la obligación principal del encargado bajo el RGPD para asistir al responsable en la seguridad del tratamiento.",
+        "isCorrect": true
+      },
+      {
+        "text": "La responsabilidad ante una brecha de datos es únicamente del proveedor.",
+        "rationale": "La responsabilidad suele ser solidaria o repartida, y la administración siempre responde ante el ciudadano como Responsable del Tratamiento.",
+        "isCorrect": false
+      },
+      {
+        "text": "El proveedor no tiene ninguna obligación si los datos están cifrados.",
+        "rationale": "Incluso con datos cifrados, el proveedor tiene obligaciones de seguridad, confidencialidad y disponibilidad como encargado.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considere la jerarquía legal entre quien posee los datos y quien los custodia tecnológicamente."
+  }
+]
