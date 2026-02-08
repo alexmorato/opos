@@ -1,11 +1,13 @@
 import os
+import shutil
 import subprocess
 from pathlib import Path
 from PIL import Image, ImageDraw, ImageFont
 
 
-INPUT_DIR = Path("D:/AlexPersonal/OPOS25/SETA/audios_m4a")
-OUTPUT_DIR = Path("D:/AlexPersonal/OPOS25/SETA/audios_m4a/videos_mp4")
+INPUT_DIR = Path(r"D:\AlexPersonal\OPOS25\SETA\audios_m4a")
+OUTPUT_DIR = Path(r"D:\AlexPersonal\OPOS25\SETA\audios_m4a\videos_mp4")
+HIST_DIR = INPUT_DIR / "historicos_convertidos"
 
 # Si no quieres tocar el PATH, pon la ruta completa:
 # FFMPEG = Path(r"C:\ffmpeg\bin\ffmpeg.exe")
@@ -81,6 +83,7 @@ def main():
         return
 
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+    HIST_DIR.mkdir(parents=True, exist_ok=True)
 
     m4as = list(INPUT_DIR.glob("*.m4a"))
     if not m4as:
@@ -112,8 +115,14 @@ def main():
         try:
             convertir_m4a_a_mp4(m4a, portada, mp4)
             print(f"   ✅ OK -> {mp4.name}")
+
+            # 3) Mover el M4A a históricos (solo si OK)
+            destino_m4a = HIST_DIR / m4a.name
+            shutil.move(str(m4a), str(destino_m4a))
+            print(f"   📦 M4A movido a: {destino_m4a}")
+
         except subprocess.CalledProcessError:
-            print(f"   ❌ ERROR convirtiendo {m4a.name}")
+            print(f"   ❌ ERROR convirtiendo {m4a.name} (no se mueve el M4A)")
 
     print("----")
     print("✅ Terminado.")
