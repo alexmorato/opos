@@ -260,6 +260,13 @@
     .btn-url:hover {
       background: #aa3a7f;
     }
+    .btn-youtube {
+      background: #c62828;
+      color: #e7ecff;
+    }
+    .btn-youtube:hover {
+      background: #e53935;
+    }
     .empty-state {
       text-align: center;
       padding: 40px 20px;
@@ -729,7 +736,8 @@
             temaData.urls.forEach((urlData) => {
               recursos.urls.push({
                 name: urlData.name || 'Enllaç',
-                url: urlData.url
+                url: urlData.url,
+                type: urlData.type || 'web' // Añadir tipo (web, youtube, etc.)
               });
             });
           }
@@ -965,14 +973,18 @@
           <div class="recursos-section">
             <div class="recursos-title">🔗 Enllaços web</div>
             <div class="recursos-list">
-              ${tema.recursos.urls.map((urlData, idx) => `
-                <div class="recurso-item" id="recurso-url-${tema.tema}-${idx}" onclick="abrirURL('${tema.tema}', '${encodeURIComponent(urlData.url)}', '${encodeURIComponent(urlData.name)}', ${idx})">
-                  <div class="recurso-name">${urlData.name}</div>
-                  <button class="recurso-btn btn-url" onclick="event.stopPropagation(); abrirURL('${tema.tema}', '${encodeURIComponent(urlData.url)}', '${encodeURIComponent(urlData.name)}', ${idx})">
-                    🌐 Obrir
-                  </button>
-                </div>
-              `).join('')}
+              ${tema.recursos.urls.map((urlData, idx) => {
+                const icon = urlData.type === 'youtube' ? '🎥' : '🌐';
+                const btnClass = urlData.type === 'youtube' ? 'btn-youtube' : 'btn-url';
+                return `
+                  <div class="recurso-item" id="recurso-url-${tema.tema}-${idx}" onclick="abrirURL('${tema.tema}', '${encodeURIComponent(urlData.url)}', '${encodeURIComponent(urlData.name)}', ${idx})">
+                    <div class="recurso-name">${urlData.name}</div>
+                    <button class="recurso-btn ${btnClass}" onclick="event.stopPropagation(); abrirURL('${tema.tema}', '${encodeURIComponent(urlData.url)}', '${encodeURIComponent(urlData.name)}', ${idx})">
+                      ${icon} ${urlData.type === 'youtube' ? 'Veure' : 'Obrir'}
+                    </button>
+                  </div>
+                `;
+              }).join('')}
             </div>
           </div>
         `;
@@ -1031,12 +1043,19 @@
     window.abrirURL = function(temaId, encodedUrl, encodedName, idx) {
       // Guardar recurso clicado usando el índice como identificador
       guardarUltimoRecursoClicado('url', temaId, idx);
-      // Guardar URL y nombre en localStorage para la página iframe
+      // Guardar URL, nombre y tipo en localStorage para la página iframe
       const url = decodeURIComponent(encodedUrl);
       const name = decodeURIComponent(encodedName);
+      
+      // Buscar el tipo en los datos del tema
+      const temaData = todosLosDatos.find(t => t.tema === temaId);
+      const urlData = temaData && temaData.recursos.urls[idx];
+      const type = urlData && urlData.type ? urlData.type : 'web';
+      
       localStorage.setItem('sTICdOpos_iframe_url', url);
       localStorage.setItem('sTICdOpos_iframe_name', name);
       localStorage.setItem('sTICdOpos_iframe_tema', temaId);
+      localStorage.setItem('sTICdOpos_iframe_type', type);
       // Abrir página con iframe (la crearemos después)
       window.open('iframe_viewer.html', '_self');
     };

@@ -352,11 +352,15 @@
     </div>
   </div>
 
+  <!-- YouTube IFrame Player API -->
+  <script src="https://www.youtube.com/iframe_api"></script>
+
   <script>
     // Obtener datos desde localStorage
     const url = localStorage.getItem('sTICdOpos_iframe_url');
     const name = localStorage.getItem('sTICdOpos_iframe_name');
     const tema = localStorage.getItem('sTICdOpos_iframe_tema');
+    const type = localStorage.getItem('sTICdOpos_iframe_type') || 'web';
 
     const infoLabel = document.getElementById('infoLabel');
     const iframeContainer = document.getElementById('iframeContainer');
@@ -369,10 +373,31 @@
     const tornarBtn = document.getElementById('tornarBtn');
     const menuIndexBtn = document.getElementById('menuIndexBtn');
 
+    let youtubePlayer = null;
+
     // Actualizar label con el nombre
     infoLabel.textContent = name || 'Recurs web';
 
-    // Crear y cargar iframe
+    // Función para detectar si es URL de YouTube
+    function esYouTube(urlString) {
+      if (!urlString) return false;
+      return urlString.includes('youtube.com') || urlString.includes('youtu.be');
+    }
+
+    // Función para extraer video ID de YouTube
+    function extraerYouTubeID(urlString) {
+      const patterns = [
+        /(?:youtube\.com\/watch\?v=|youtu\.be\/)([^&\?]+)/,
+        /youtube\.com\/embed\/([^&\?]+)/
+      ];
+      for (const pattern of patterns) {
+        const match = urlString.match(pattern);
+        if (match && match[1]) return match[1];
+      }
+      return null;
+    }
+
+    // Crear y cargar iframe (normal o YouTube)
     function cargarIframe() {
       if (!url) {
         iframeContainer.innerHTML = `
@@ -384,6 +409,119 @@
         return;
       }
 
+      // Detectar si es YouTube automáticamente o por tipo
+      if (type === 'youtube' || esYouTube(url)) {
+        cargarYouTubePlayer();
+      } else {
+        cargarIframeNormal();
+      }
+    }
+
+    // Cargar reproductor de YouTube con controles de velocidad
+    function cargarYouTubePlayer() {
+      const videoId = extraerYouTubeID(url);
+      if (!videoId) {
+        iframeContainer.innerHTML = `
+          <div class="error-state">
+            <h2>⚠️ Error</h2>
+            <p>No s'ha pogut extreure l'ID del vídeo de YouTube</p>
+            <div class="url-display">${url}</div>
+          </div>
+        `;
+        return;
+      }
+
+      // Crear contenedor para el reproductor YouTube
+      iframeContainer.innerHTML = `
+        <div style="position: relative; width: 100%; height: 100%; display: flex; flex-direction: column; gap: 10px;">
+          <div style="background: #141a2a; padding: 10px; border-radius: 8px; display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
+            <label style="color: #6ae0a7; font-weight: 600;">⚡ Velocitat:</label>
+            <button class="speed-btn" data-speed="0.25">0.25x</button>
+            <button class="speed-btn" data-speed="0.5">0.5x</button>
+            <button class="speed-btn" data-speed="0.75">0.75x</button>
+            <button class="speed-btn active" data-speed="1">1x</button>
+            <button class="speed-btn" data-speed="1.25">1.25x</button>
+            <button class="speed-btn" data-speed="1.5">1.5x</button>
+            <button class="speed-btn" data-speed="1.75">1.75x</button>
+            <button class="speed-btn" data-speed="2">2x</button>
+          </div>
+          <div id="youtubePlayer" style="flex: 1; width: 100%; background: black; border-radius: 8px;"></div>
+        </div>
+      `;
+
+      // Añadir estilos para los botones de velocidad
+      const style = document.createElement('style');
+      style.textContent = `
+        .speed-btn {
+          padding: 8px 14px;
+          border: 2px solid #27304a;
+          background: #0b1020;
+          color: #e7ecff;
+          border-radius: 6px;
+          cursor: pointer;
+          font-size: 0.9rem;
+          font-weight: 600;
+          transition: all 0.2s;
+        }
+        .speed-btn:hover {
+          background: #27304a;
+          border-color: #6ae0a7;
+        }
+        .speed-btn.active {
+          background: #2aebad;
+          color: #032217;
+          border-color: #2aebad;
+        }
+      `;
+      document.head.appendChild(style);
+
+      // Inicializar reproductor YouTube cuando la API esté lista
+      if (typeof YT !== 'undefined' && YT.Player) {
+        inicializarYouTubePlayer(videoId);
+      } else {
+        window.onYouTubeIframeAPIReady = function() {
+          inicializarYouTubePlayer(videoId);
+        };
+      }
+    }
+
+    // Inicializar el reproductor de YouTube
+    function inicializarYouTubePlayer(videoId) {
+      youtubePlayer = new YT.Player('youtubePlayer', {
+        videoId: videoId,
+        width: '100%',
+        height: '100%',
+        playerVars: {
+          autoplay: 0,
+          controls: 1,
+          modestbranding: 1,
+          rel: 0,
+          fs: 1
+        },
+        events: {
+          'onReady': onPlayerReady
+        }
+      });
+    }
+
+    // Cuando el reproductor está listo
+    function onPlayerReady(event) {
+      // Configurar botones de velocidad
+      const speedBtns = document.querySelectorAll('.speed-btn');
+      speedBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+          const speed = parseFloat(this.dataset.speed);
+          youtubePlayer.setPlaybackRate(speed);
+          
+          // Actualizar botón activo
+          speedBtns.forEach(b => b.classList.remove('active'));
+          this.classList.add('active');
+        });
+      });
+    }
+
+    // Cargar iframe normal para webs no-YouTube
+    function cargarIframeNormal() {
       // Limpiar contenedor y añadir iframe inmediatamente
       iframeContainer.innerHTML = '';
       
@@ -427,11 +565,16 @@
 
     // Botón recargar
     reloadBtn.addEventListener('click', () => {
-      const iframe = document.getElementById('mainIframe');
-      if (iframe) {
-        iframe.src = iframe.src; // Recargar iframe
+      if (youtubePlayer) {
+        youtubePlayer.seekTo(0);
+        youtubePlayer.playVideo();
       } else {
-        cargarIframe(); // Si no existe, crear nuevo
+        const iframe = document.getElementById('mainIframe');
+        if (iframe) {
+          iframe.src = iframe.src; // Recargar iframe
+        } else {
+          cargarIframe(); // Si no existe, crear nuevo
+        }
       }
       menuPanel.classList.remove('visible');
     });
