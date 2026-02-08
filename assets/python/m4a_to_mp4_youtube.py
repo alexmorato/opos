@@ -7,6 +7,10 @@ from PIL import Image, ImageDraw, ImageFont
 INPUT_DIR = Path("D:/AlexPersonal/OPOS25/SETA/audios_m4a")
 OUTPUT_DIR = Path("D:/AlexPersonal/OPOS25/SETA/audios_m4a/videos_mp4")
 
+# Si no quieres tocar el PATH, pon la ruta completa:
+# FFMPEG = Path(r"C:\ffmpeg\bin\ffmpeg.exe")
+FFMPEG = "ffmpeg"
+
 
 def crear_portada(texto: str, output_path: Path, size=(1280, 720)):
     """
@@ -39,12 +43,22 @@ def crear_portada(texto: str, output_path: Path, size=(1280, 720)):
     img.save(output_path)
 
 
+def buscar_portada_existente(m4a_path: Path) -> Path | None:
+    """
+    Busca una portada con el mismo nombre que el m4a:
+    - audio.m4a -> audio.jpg / audio.jpeg / audio.png
+    """
+    base = m4a_path.with_suffix("")
+    for ext in [".jpg", ".jpeg", ".png"]:
+        candidate = Path(str(base) + ext)
+        if candidate.exists():
+            return candidate
+    return None
+
+
 def convertir_m4a_a_mp4(m4a_path: Path, portada_path: Path, mp4_path: Path):
-    """
-    Convierte un M4A a MP4 añadiendo una imagen fija (portada).
-    """
     cmd = [
-        "ffmpeg",
+        str(FFMPEG),
         "-y",
         "-loop", "1",
         "-i", str(portada_path),
@@ -79,13 +93,20 @@ def main():
     for m4a in m4as:
         nombre = m4a.stem
 
-        portada = OUTPUT_DIR / f"{nombre}_cover.jpg"
         mp4 = OUTPUT_DIR / f"{nombre}.mp4"
 
         print(f"➡️ Procesando: {m4a.name}")
 
-        # 1) Crear portada
-        crear_portada(nombre, portada)
+        # 1) Elegir portada
+        portada_existente = buscar_portada_existente(m4a)
+
+        if portada_existente:
+            portada = portada_existente
+            print(f"   🖼️ Usando portada existente: {portada.name}")
+        else:
+            portada = OUTPUT_DIR / f"{nombre}_cover.jpg"
+            crear_portada(nombre, portada)
+            print(f"   🖼️ Portada generada: {portada.name}")
 
         # 2) Convertir a mp4
         try:
