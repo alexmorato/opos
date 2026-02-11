@@ -1,0 +1,932 @@
+[
+  {
+    "guid": "008e2360-6dc9-47c5-ae36-b35bdf623946",
+    "subjectId": "T62",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "¿Cómo se clasifican los operadores globales que forman la red troncal (backbone) de Internet y están conectados entre sí?",
+    "answerOptions": [
+      {
+        "text": "Redes Tier 1",
+        "rationale": "Los Tier 1 son operadores de gran escala que no pagan por el tránsito a otros, ya que forman el núcleo global interconectado.",
+        "isCorrect": true
+      },
+      {
+        "text": "Redes Tier 2",
+        "rationale": "Estos son operadores regionales que suelen comprar tránsito a los Tier 1 para tener alcance global.",
+        "isCorrect": false
+      },
+      {
+        "text": "Puntos Neutros (IXP)",
+        "rationale": "Los IXP son infraestructuras físicas donde diferentes niveles de operadores intercambian tráfico, no una categoría de operador en sí misma.",
+        "isCorrect": false
+      },
+      {
+        "text": "Sistemas Autónomos (AS)",
+        "rationale": "Aunque los Tier 1 poseen AS, este término se refiere a cualquier red bajo una política de enrutamiento común, no necesariamente global.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en la jerarquía superior que no requiere pagar a otros para acceder al resto de la red global."
+  },
+  {
+    "guid": "4b507374-4bbc-42b8-9cb6-3c7bd09fbe7b",
+    "subjectId": "T62",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "En el modelo OSI, ¿en qué capa opera un 'Switch' convencional que utiliza direcciones MAC para reenviar datos?",
+    "answerOptions": [
+      {
+        "text": "Capa 1 (Física)",
+        "rationale": "Esta capa se ocupa de la transmisión de bits puros sobre el medio físico, como cables o señales de radio.",
+        "isCorrect": false
+      },
+      {
+        "text": "Capa 2 (Enlace de datos)",
+        "rationale": "Los switches de nivel 2 operan en esta capa utilizando las direcciones físicas o MAC para la comunicación dentro de una LAN.",
+        "isCorrect": true
+      },
+      {
+        "text": "Capa 3 (Red)",
+        "rationale": "Esta capa es donde operan los routers utilizando direcciones IP, no direcciones MAC.",
+        "isCorrect": false
+      },
+      {
+        "text": "Capa 4 (Transporte)",
+        "rationale": "La capa de transporte gestiona el flujo de datos y la corrección de errores mediante protocolos como TCP o UDP.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considere la capa responsable del direccionamiento físico y la topología de red local."
+  },
+  {
+    "guid": "7413407b-6a21-41a7-ae34-65e81f51c726",
+    "subjectId": "T62",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "¿Cuál es la función principal de un 'Proxy Inverso' en una arquitectura de red?",
+    "answerOptions": [
+      {
+        "text": "Filtrar el tráfico de salida de los usuarios internos hacia Internet.",
+        "rationale": "Esta es la función de un proxy directo, que actúa como intermediario para las peticiones de los clientes internos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Proteger y balancear peticiones externas dirigidas a servidores internos.",
+        "rationale": "Un proxy inverso se sitúa frente a los servidores web para mejorar la seguridad, el rendimiento y la disponibilidad ante clientes externos.",
+        "isCorrect": true
+      },
+      {
+        "text": "Asignar direcciones IP dinámicas a los dispositivos de la red.",
+        "rationale": "Esa tarea corresponde al protocolo DHCP, no a un proxy.",
+        "isCorrect": false
+      },
+      {
+        "text": "Traducir direcciones MAC en direcciones IP.",
+        "rationale": "La resolución de direcciones entre IP y MAC es gestionada por el protocolo ARP.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en un intermediario que 'da la cara' por los servidores de una organización."
+  },
+  {
+    "guid": "c8a7945a-2e8b-41df-8ae7-b0c0598fb955",
+    "subjectId": "T62",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "¿Cuál es la máscara de subred por defecto para una dirección IPv4 de Clase B según el modelo 'classful'?",
+    "answerOptions": [
+      {
+        "text": "$255.0.0.0$",
+        "rationale": "Esta es la máscara por defecto (prefix $/8$) correspondiente a las redes de Clase A.",
+        "isCorrect": false
+      },
+      {
+        "text": "$255.255.0.0$",
+        "rationale": "Las redes de Clase B utilizan los primeros 16 bits para identificar la red, lo que equivale a un prefijo $/16$.",
+        "isCorrect": true
+      },
+      {
+        "text": "$255.255.255.0$",
+        "rationale": "Este valor es la máscara estándar para redes de Clase C, utilizando 24 bits para la red.",
+        "isCorrect": false
+      },
+      {
+        "text": "$255.255.255.192$",
+        "rationale": "Esta es una máscara de subred personalizada (prefijo $/26$) y no un valor por defecto del modelo classful.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Recuerde que la Clase B divide los 32 bits de la dirección IP exactamente a la mitad."
+  },
+  {
+    "guid": "41028dc8-26e3-4ea8-9a09-8ac65201be6d",
+    "subjectId": "T62",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "De acuerdo con la RFC 1918, ¿cuál de los siguientes rangos de direcciones IP es exclusivo para uso privado en la Clase B?",
+    "answerOptions": [
+      {
+        "text": "$172.16.0.0$ a $172.31.255.255$",
+        "rationale": "Este rango define las direcciones privadas de Clase B, permitiendo su uso interno sin ser enrutables en Internet.",
+        "isCorrect": true
+      },
+      {
+        "text": "$172.16.0.0$ a $172.16.255.255$",
+        "rationale": "Este es solo un subconjunto del rango total permitido por la RFC 1918 para la Clase B.",
+        "isCorrect": false
+      },
+      {
+        "text": "$128.0.0.0$ a $191.255.255.255$",
+        "rationale": "Este representa el rango completo de direcciones de Clase B (públicas y privadas), no solo las privadas.",
+        "isCorrect": false
+      },
+      {
+        "text": "$192.168.0.0$ a $192.168.255.255$",
+        "rationale": "Aunque es un rango privado, pertenece a la Clase C y no a la Clase B.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Busque el rango que abarca 16 redes contiguas comenzando en 172.16."
+  },
+  {
+    "guid": "a3f613ea-ba18-4192-8a2c-9884df7ba1a6",
+    "subjectId": "T62",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "En el proceso de 'three-way handshake' de TCP, ¿qué flag envía el servidor en respuesta a la solicitud inicial del cliente?",
+    "answerOptions": [
+      {
+        "text": "SYN",
+        "rationale": "El flag SYN es el primer mensaje enviado por el cliente para iniciar la conexión.",
+        "isCorrect": false
+      },
+      {
+        "text": "ACK",
+        "rationale": "El ACK es la confirmación final enviada por el cliente después de recibir la respuesta del servidor.",
+        "isCorrect": false
+      },
+      {
+        "text": "SYN-ACK",
+        "rationale": "El servidor reconoce la petición (ACK) y sincroniza sus propios parámetros (SYN) en un solo paso.",
+        "isCorrect": true
+      },
+      {
+        "text": "FIN",
+        "rationale": "El flag FIN se utiliza para cerrar una conexión establecida, no para iniciarla.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "El servidor debe tanto aceptar la conexión del cliente como proponer la suya propia."
+  },
+  {
+    "guid": "cd3a9486-8f0e-4596-8e84-c84838dbda01",
+    "subjectId": "T62",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "¿Cuál es la característica principal del protocolo UDP en comparación con TCP?",
+    "answerOptions": [
+      {
+        "text": "Garantiza que los paquetes lleguen en el orden correcto.",
+        "rationale": "UDP no garantiza el orden ni la entrega; esa fiabilidad es una característica de TCP.",
+        "isCorrect": false
+      },
+      {
+        "text": "Es un protocolo orientado a conexión.",
+        "rationale": "UDP es un protocolo 'sin conexión', lo que significa que envía datos sin establecer un enlace previo.",
+        "isCorrect": false
+      },
+      {
+        "text": "Ofrece menor latencia al no tener mecanismos de verificación.",
+        "rationale": "Debido a su falta de sobrecarga por confirmaciones, UDP es ideal para aplicaciones en tiempo real como voz o video.",
+        "isCorrect": true
+      },
+      {
+        "text": "Utiliza el puerto 53 para la transferencia segura de archivos.",
+        "rationale": "El puerto 53 es de DNS; la transferencia de archivos suele usar FTP (21) o SFTP (22).",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en la velocidad frente a la fiabilidad en la transmisión de datos."
+  },
+  {
+    "guid": "e7b8213e-9465-4583-b9ef-f39c556c01a4",
+    "subjectId": "T62",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "¿Qué protocolo se utiliza para obtener la dirección física (MAC) de un dispositivo a partir de su dirección IP conocida?",
+    "answerOptions": [
+      {
+        "text": "DHCP",
+        "rationale": "DHCP se encarga de asignar direcciones IP de forma dinámica, no de resolver direcciones MAC.",
+        "isCorrect": false
+      },
+      {
+        "text": "ARP",
+        "rationale": "El Address Resolution Protocol permite mapear direcciones de red (IP) a direcciones de la capa de enlace (MAC).",
+        "isCorrect": true
+      },
+      {
+        "text": "DNS",
+        "rationale": "DNS traduce nombres de dominio en direcciones IP, no interviene en la resolución de MAC.",
+        "isCorrect": false
+      },
+      {
+        "text": "ICMP",
+        "rationale": "ICMP se utiliza para el control y notificación de errores en la red, como ocurre con el comando ping.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Se trata de un protocolo fundamental que opera entre las capas 2 y 3 del modelo OSI."
+  },
+  {
+    "guid": "81f54860-bbd1-446e-9d58-50bde39fec18",
+    "subjectId": "T62",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "Si una subred tiene una máscara de $255.255.255.192$ (prefijo $/26$), ¿cuántas direcciones IP totales contiene el bloque?",
+    "answerOptions": [
+      {
+        "text": "32",
+        "rationale": "Este número de direcciones correspondería a una máscara $/27$ ($2^{32-27} = 32$).",
+        "isCorrect": false
+      },
+      {
+        "text": "64",
+        "rationale": "Una máscara $/26$ deja 6 bits para hosts ($32 - 26 = 6$), y $2^6 = 64$ direcciones totales.",
+        "isCorrect": true
+      },
+      {
+        "text": "128",
+        "rationale": "Este valor correspondería a una máscara $/25$ ($2^7 = 128$).",
+        "isCorrect": false
+      },
+      {
+        "text": "256",
+        "rationale": "Este es el total para una red de Clase C estándar con prefijo $/24$.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Calcule cuántos bits quedan disponibles para la parte de host restando el prefijo CIDR de 32."
+  },
+  {
+    "guid": "b8ae2cf4-8bf0-42cd-939d-282ba7d1fa21",
+    "subjectId": "T62",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "En una red MPLS, ¿qué dispositivo es responsable de asignar la primera etiqueta a un paquete IP entrante?",
+    "answerOptions": [
+      {
+        "text": "LSR (Label Switching Router)",
+        "rationale": "Los LSR internos solo conmutan o intercambian etiquetas existentes, no inician el proceso.",
+        "isCorrect": false
+      },
+      {
+        "text": "LER (Label Edge Router)",
+        "rationale": "El router de borde (LER) actúa como entrada a la red MPLS y 'empuja' la etiqueta inicial en el paquete.",
+        "isCorrect": true
+      },
+      {
+        "text": "Switch de Capa 2",
+        "rationale": "Aunque MPLS se sitúa en la capa 2.5, un switch estándar no tiene funciones de etiquetado MPLS.",
+        "isCorrect": false
+      },
+      {
+        "text": "Servidor DNS",
+        "rationale": "El DNS resuelve nombres de dominio y no participa en el transporte de etiquetas de red.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Identifique el router situado en la frontera entre la red IP convencional y el núcleo MPLS."
+  },
+  {
+    "guid": "e70e412b-ff53-4065-b853-28e17b73b1de",
+    "subjectId": "T62",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "¿Qué tecnología permite crear VPN de capa 3 sobre una infraestructura MPLS separando el tráfico de distintos clientes?",
+    "answerOptions": [
+      {
+        "text": "VPLS",
+        "rationale": "VPLS (Virtual Private LAN Service) se utiliza para emular una LAN de capa 2, no de capa 3.",
+        "isCorrect": false
+      },
+      {
+        "text": "VRF (Virtual Routing and Forwarding)",
+        "rationale": "VRF permite que existan múltiples instancias de la tabla de enrutamiento en un mismo router, logrando aislamiento en L3VPN.",
+        "isCorrect": true
+      },
+      {
+        "text": "OSPF",
+        "rationale": "OSPF es un protocolo de enrutamiento interior usado para conocer la topología, no para separar clientes.",
+        "isCorrect": false
+      },
+      {
+        "text": "NAT Estático",
+        "rationale": "NAT se usa para traducción de direcciones, no es el mecanismo de separación en redes MPLS de operadores.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en la capacidad de tener tablas de enrutamiento independientes dentro del mismo hardware."
+  },
+  {
+    "guid": "eec41f87-af80-4dd0-a7d6-72a5bec2da63",
+    "subjectId": "T62",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "¿Cuál es el propósito fundamental de MP-BGP en el contexto de las redes MPLS?",
+    "answerOptions": [
+      {
+        "text": "Calcular el camino de menor coste basándose en la latencia.",
+        "rationale": "BGP no suele usar la latencia como métrica primaria y MPLS usa protocolos como OSPF para la topología física.",
+        "isCorrect": false
+      },
+      {
+        "text": "Distribuir información de etiquetas y rutas VPN entre routers PE.",
+        "rationale": "MP-BGP es la extensión de BGP que permite transportar múltiples familias de direcciones, esencial para las L3VPN.",
+        "isCorrect": true
+      },
+      {
+        "text": "Asignar direcciones IP dinámicas a través de túneles LSP.",
+        "rationale": "La asignación de IPs es tarea de DHCP; MP-BGP gestiona el intercambio de rutas y etiquetas.",
+        "isCorrect": false
+      },
+      {
+        "text": "Encriptar el tráfico de las etiquetas para evitar interceptaciones.",
+        "rationale": "MP-BGP no cifra el tráfico; MPLS por sí solo no ofrece cifrado, solo aislamiento lógico.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considere la necesidad de intercambiar rutas complejas de clientes a través del núcleo del proveedor."
+  },
+  {
+    "guid": "ae18f339-1c7c-4ca3-8b2d-d6fe20dafe04",
+    "subjectId": "T62",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "¿A qué subred pertenece la dirección IP $192.168.23.197$ si se utiliza una máscara $/27$?",
+    "answerOptions": [
+      {
+        "text": "$192.168.23.160$",
+        "rationale": "Esta es la subred anterior, que abarca desde la .160 hasta la .191.",
+        "isCorrect": false
+      },
+      {
+        "text": "$192.168.23.192$",
+        "rationale": "Con saltos de 32, el múltiplo de 32 inmediatamente inferior a 197 es 192 ($32 \\times 6 = 192$).",
+        "isCorrect": true
+      },
+      {
+        "text": "$192.168.23.0$",
+        "rationale": "Esta sería la red principal si no hubiera subnetting, pero con $/27$ hay divisiones más pequeñas.",
+        "isCorrect": false
+      },
+      {
+        "text": "$192.168.23.224$",
+        "rationale": "Esta es la siguiente subred, que comienza después del broadcast de la red del host indicado.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Divida el último octeto por el tamaño del bloque (32) para encontrar el inicio de la red."
+  },
+  {
+    "guid": "a5a1da92-f259-49c6-b95e-288ff745f2d5",
+    "subjectId": "T62",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "En el sistema DNS, ¿cuál es la diferencia entre un nombre absoluto (FQDN) y uno relativo?",
+    "answerOptions": [
+      {
+        "text": "El nombre absoluto incluye todos los niveles hasta la raíz y termina en punto.",
+        "rationale": "Un FQDN especifica la ubicación exacta en la jerarquía del árbol DNS, sin ambigüedades.",
+        "isCorrect": true
+      },
+      {
+        "text": "El nombre relativo es aquel que ya ha sido guardado en la caché del servidor.",
+        "rationale": "La caché es una función de almacenamiento temporal, no define la estructura jerárquica del nombre.",
+        "isCorrect": false
+      },
+      {
+        "text": "El nombre absoluto solo puede referirse a direcciones IP privadas.",
+        "rationale": "Los FQDN se utilizan tanto en redes públicas (Internet) como en redes privadas.",
+        "isCorrect": false
+      },
+      {
+        "text": "Los nombres relativos no requieren un servidor DNS para ser resueltos.",
+        "rationale": "Ambos requieren resolución DNS, pero el relativo necesita un sufijo de dominio para completarse.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en la ruta completa desde el host hasta la raíz del sistema de nombres."
+  },
+  {
+    "guid": "38f33ec1-babe-447b-93c8-b92ad7d1b6c2",
+    "subjectId": "T62",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "Se desea configurar una red para 500 hosts. ¿Cuál es el prefijo CIDR más pequeño que puede contener esta cantidad de dispositivos?",
+    "answerOptions": [
+      {
+        "text": "$/24$",
+        "rationale": "Una red $/24$ solo admite 254 hosts utilizables, lo cual es insuficiente para 500.",
+        "isCorrect": false
+      },
+      {
+        "text": "$/23$",
+        "rationale": "Una red $/23$ proporciona 9 bits de host ($2^9 = 512$), permitiendo 510 hosts utilizables.",
+        "isCorrect": true
+      },
+      {
+        "text": "$/22$",
+        "rationale": "Aunque admite 500 hosts, no es el prefijo 'más pequeño' (más ajustado), ya que ofrece 1022 hosts.",
+        "isCorrect": false
+      },
+      {
+        "text": "$/25$",
+        "rationale": "Una red $/25$ solo ofrece 126 hosts utilizables, quedándose muy corta.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Busque la potencia de 2 que sea inmediatamente superior a 500 y calcule la máscara resultante."
+  },
+  {
+    "guid": "f3a50084-3b6d-4d1d-840d-0772f11cbd78",
+    "subjectId": "T62",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "¿Cuál es la función del protocolo ICMP en una red TCP/IP?",
+    "answerOptions": [
+      {
+        "text": "Garantizar la entrega de segmentos de datos en orden.",
+        "rationale": "Esa es la función de TCP mediante el uso de números de secuencia y ACKs.",
+        "isCorrect": false
+      },
+      {
+        "text": "Comunicar mensajes de error y diagnóstico de red.",
+        "rationale": "ICMP es fundamental para herramientas como ping y traceroute, informando sobre la inalcanzabilidad de destinos.",
+        "isCorrect": true
+      },
+      {
+        "text": "Asignar nombres de dominio a direcciones IP de servidores.",
+        "rationale": "Esa tarea es realizada exclusivamente por el sistema DNS.",
+        "isCorrect": false
+      },
+      {
+        "text": "Establecer túneles de etiquetas MPLS entre routers de núcleo.",
+        "rationale": "MPLS utiliza protocolos como LDP o RSVP-TE para la gestión de etiquetas.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en lo que sucede cuando un paquete no puede llegar a su destino."
+  },
+  {
+    "guid": "2025ed89-21da-413c-a215-aeb25be43022",
+    "subjectId": "T62",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "¿Qué rango de direcciones IP está reservado para la función de 'loopback' o diagnóstico local del host?",
+    "answerOptions": [
+      {
+        "text": "$10.0.0.0$ a $10.255.255.255$",
+        "rationale": "Este rango corresponde a las direcciones privadas de Clase A.",
+        "isCorrect": false
+      },
+      {
+        "text": "$127.0.0.0$ a $127.255.255.255$",
+        "rationale": "Cualquier dirección que comience por 127 se dirige al propio dispositivo (interfaz de loopback).",
+        "isCorrect": true
+      },
+      {
+        "text": "$169.254.0.0$ a $169.254.255.255$",
+        "rationale": "Este es el rango APIPA utilizado cuando no se puede obtener una IP por DHCP.",
+        "isCorrect": false
+      },
+      {
+        "text": "$224.0.0.0$ a $239.255.255.255$",
+        "rationale": "Este rango está reservado para el tráfico de Multicast (Clase D).",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Es un bloque de la Clase A que nunca se asigna a redes externas."
+  },
+  {
+    "guid": "54afaea4-637c-4c88-ab06-6fea0abe944d",
+    "subjectId": "T62",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "En el modelo TCP/IP, ¿qué capa equivale a la suma de las capas de Sesión, Presentación y Aplicación del modelo OSI?",
+    "answerOptions": [
+      {
+        "text": "Capa de Internet",
+        "rationale": "La capa de Internet equivale únicamente a la capa de Red (3) del modelo OSI.",
+        "isCorrect": false
+      },
+      {
+        "text": "Capa de Transporte",
+        "rationale": "La capa de Transporte del modelo TCP/IP se mapea directamente con la capa de Transporte (4) de OSI.",
+        "isCorrect": false
+      },
+      {
+        "text": "Capa de Aplicación",
+        "rationale": "En el modelo práctico TCP/IP, las funciones de las tres capas superiores de OSI se agrupan en una sola.",
+        "isCorrect": true
+      },
+      {
+        "text": "Capa de Acceso a la Red",
+        "rationale": "Esta capa combina las funciones de las capas Física (1) y de Enlace de Datos (2) del modelo OSI.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "El modelo TCP/IP simplifica las capas superiores del modelo teórico OSI."
+  },
+  {
+    "guid": "f8225bc4-aec3-46cc-a40d-ac12da25053f",
+    "subjectId": "T62",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "¿Cuál es el objetivo de utilizar PAT (Port Address Translation) en lugar de un NAT dinámico simple?",
+    "answerOptions": [
+      {
+        "text": "Permitir que múltiples hosts internos compartan una única dirección IP pública.",
+        "rationale": "PAT utiliza números de puerto para distinguir las conexiones, maximizando el aprovechamiento de IPs públicas.",
+        "isCorrect": true
+      },
+      {
+        "text": "Aumentar la velocidad de enrutamiento mediante el uso de etiquetas.",
+        "rationale": "El uso de etiquetas para el enrutamiento es característico de MPLS, no de NAT/PAT.",
+        "isCorrect": false
+      },
+      {
+        "text": "Cifrar el tráfico de datos entre el cliente y el servidor.",
+        "rationale": "PAT no proporciona cifrado; es una técnica de traducción de direcciones para ahorro de espacio IP.",
+        "isCorrect": false
+      },
+      {
+        "text": "Evitar que los servidores internos utilicen direcciones MAC.",
+        "rationale": "Todos los dispositivos en una red Ethernet requieren direcciones MAC para funcionar en la capa 2.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considere la escasez de direcciones IPv4 públicas y cómo muchos usuarios navegan desde una misma casa."
+  },
+  {
+    "guid": "efd1d6f8-1580-4525-9740-9879e0bc1c60",
+    "subjectId": "T62",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "¿Qué protocolo se utiliza habitualmente para que un cliente de correo descargue mensajes de un servidor, eliminándolos opcionalmente de este?",
+    "answerOptions": [
+      {
+        "text": "SMTP",
+        "rationale": "SMTP se utiliza para enviar correos entre servidores o desde el cliente al servidor, no para descargarlos.",
+        "isCorrect": false
+      },
+      {
+        "text": "POP3",
+        "rationale": "POP3 está diseñado para descargar el correo al dispositivo local; tradicionalmente los borra del servidor tras la descarga.",
+        "isCorrect": true
+      },
+      {
+        "text": "IMAP",
+        "rationale": "IMAP permite la sincronización y gestión de correos directamente en el servidor sin necesidad de descargarlos y borrarlos.",
+        "isCorrect": false
+      },
+      {
+        "text": "SNMP",
+        "rationale": "SNMP es un protocolo de gestión de red, no tiene relación con el correo electrónico.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Es el protocolo clásico de descarga de correo, previo a la popularización de la sincronización multidispositivo."
+  },
+  {
+    "guid": "d8878722-ad2b-4917-a02b-d85eab8e3387",
+    "subjectId": "T62",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "En una red MPLS, ¿qué se entiende por un túnel LSP (Label Switched Path)?",
+    "answerOptions": [
+      {
+        "text": "Un enlace físico de fibra óptica dedicado exclusivamente al tráfico de un cliente.",
+        "rationale": "Un LSP es un camino lógico, no necesariamente un cable físico dedicado.",
+        "isCorrect": false
+      },
+      {
+        "text": "Una ruta predeterminada a través de la red MPLS establecida mediante etiquetas.",
+        "rationale": "El LSP define el trayecto que seguirán los paquetes etiquetados desde el ingreso hasta el egreso de la red MPLS.",
+        "isCorrect": true
+      },
+      {
+        "text": "Un protocolo de seguridad que cifra el encabezado IP de los paquetes.",
+        "rationale": "MPLS no es un protocolo de cifrado; el LSP solo define el camino de conmutación.",
+        "isCorrect": false
+      },
+      {
+        "text": "Una técnica para traducir nombres de dominio en etiquetas numéricas.",
+        "rationale": "La traducción de nombres es tarea de DNS; las etiquetas MPLS se basan en la topología de red y FEC.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Imagine el 'camino' que recorre un paquete dentro de la nube del operador."
+  },
+  {
+    "guid": "90a8a8d4-2b38-4a0e-b42e-499b27218395",
+    "subjectId": "T62",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "¿Qué tecnología de red de área extensa (WAN) se basa en la conmutación de etiquetas y se considera de 'Capa 2.5'?",
+    "answerOptions": [
+      {
+        "text": "Ethernet",
+        "rationale": "Ethernet es una tecnología puramente de Capa 2 utilizada principalmente en LAN.",
+        "isCorrect": false
+      },
+      {
+        "text": "MPLS",
+        "rationale": "MPLS opera entre la capa de enlace y la de red, permitiendo transportar múltiples protocolos de forma eficiente.",
+        "isCorrect": true
+      },
+      {
+        "text": "Frame Relay",
+        "rationale": "Aunque es una tecnología WAN, Frame Relay es más antigua y opera principalmente en la Capa 2.",
+        "isCorrect": false
+      },
+      {
+        "text": "BGP",
+        "rationale": "BGP es un protocolo de enrutamiento de Capa 3, no una tecnología de conmutación de capa 2.5.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Es la tecnología estándar actual que utilizan los operadores para su red troncal y servicios VPN."
+  },
+  {
+    "guid": "fc6a2b23-ca62-4493-9ecf-92e3bff05afd",
+    "subjectId": "T62",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "Si se desea sumarizar las redes $10.1.1.0/24$ y $10.1.0.0/24$ en la ruta más pequeña posible, ¿cuál sería el resultado?",
+    "answerOptions": [
+      {
+        "text": "$10.1.0.0/23$",
+        "rationale": "El bit número 23 es el primero que varía entre ambas redes; al ponerlo a 0, se engloban ambas en un bloque $/23$.",
+        "isCorrect": true
+      },
+      {
+        "text": "$10.0.0.0/16$",
+        "rationale": "Aunque las incluye, no es la ruta 'más pequeña' (más específica) posible.",
+        "isCorrect": false
+      },
+      {
+        "text": "$10.1.0.0/22$",
+        "rationale": "Un $/22$ englobaría 4 redes ($10.1.0.0$ a $10.1.3.0$), por lo que no es la más ajustada para solo dos.",
+        "isCorrect": false
+      },
+      {
+        "text": "$10.1.1.0/23$",
+        "rationale": "Una dirección de red sumarizada debe tener los bits de host a 0; $10.1.1.0$ no es un inicio válido para un bloque $/23$.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Determine cuántos bits comunes tienen las dos redes empezando desde la izquierda."
+  },
+  {
+    "guid": "a1fb0b61-cd41-4550-b516-488cd0cc23ee",
+    "subjectId": "T62",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "¿Cuál es la función del protocolo LDP (Label Distribution Protocol) en MPLS?",
+    "answerOptions": [
+      {
+        "text": "Asignar direcciones IP a las interfaces de los routers.",
+        "rationale": "Esa función la realizan los administradores o protocolos como DHCP, no LDP.",
+        "isCorrect": false
+      },
+      {
+        "text": "Intercambiar y distribuir etiquetas entre los routers LSR.",
+        "rationale": "LDP permite que los routers MPLS se pongan de acuerdo sobre qué etiquetas usar para cada destino de red.",
+        "isCorrect": true
+      },
+      {
+        "text": "Encriptar el contenido de los paquetes que viajan por el túnel.",
+        "rationale": "LDP es un protocolo de señalización y control, no tiene funciones de cifrado de datos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Realizar el balanceo de carga entre servidores web externos.",
+        "rationale": "El balanceo de carga se realiza en capas superiores mediante balanceadores específicos o DNS.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Es el mecanismo que permite que los routers 'hablen' sobre las etiquetas que van a usar."
+  },
+  {
+    "guid": "828a1844-b19c-4832-9bed-09360ce499f4",
+    "subjectId": "T62",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "¿A qué clase de dirección IPv4 pertenece el rango utilizado para 'Multicast' ($224.0.0.0$ a $239.255.255.255$)?",
+    "answerOptions": [
+      {
+        "text": "Clase C",
+        "rationale": "La Clase C termina en el valor 223 del primer octeto.",
+        "isCorrect": false
+      },
+      {
+        "text": "Clase D",
+        "rationale": "La Clase D está reservada específicamente para el tráfico de grupos o multicast.",
+        "isCorrect": true
+      },
+      {
+        "text": "Clase E",
+        "rationale": "La Clase E comienza en 240 y está reservada para fines experimentales.",
+        "isCorrect": false
+      },
+      {
+        "text": "Clase B",
+        "rationale": "La Clase B abarca desde 128 hasta 191 en su primer octeto.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Es la clase que sigue inmediatamente a las utilizadas para hosts individuales (A, B y C)."
+  },
+  {
+    "guid": "fed32957-2562-4e9d-8787-d4cdb31afe03",
+    "subjectId": "T62",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "En una red con direccionamiento 'classful', si un router recibe un paquete para la red $155.0.0.0$, ¿qué máscara aplicará por defecto?",
+    "answerOptions": [
+      {
+        "text": "$255.0.0.0$",
+        "rationale": "Esta máscara es para Clase A (octetos 1-126).",
+        "isCorrect": false
+      },
+      {
+        "text": "$255.255.0.0$",
+        "rationale": "Al empezar por 155, la dirección pertenece a la Clase B ($128-191$), cuya máscara por defecto es $/16$.",
+        "isCorrect": true
+      },
+      {
+        "text": "$255.255.255.0$",
+        "rationale": "Esta máscara es para Clase C (octetos 192-223).",
+        "isCorrect": false
+      },
+      {
+        "text": "$255.255.255.252$",
+        "rationale": "Esta es una máscara de subred $/30$ usada para enlaces punto a punto, no una máscara por defecto.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Identifique primero la clase de la IP basándose en el primer octeto."
+  },
+  {
+    "guid": "c85bd8d2-e5ee-40a5-8fc6-a66d2e02acac",
+    "subjectId": "T62",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "¿Qué extensión del sistema de nombres de dominio proporciona autenticidad e integridad mediante firmas criptográficas?",
+    "answerOptions": [
+      {
+        "text": "DNS-Cache",
+        "rationale": "La caché solo mejora la velocidad, pero no garantiza la veracidad de los datos.",
+        "isCorrect": false
+      },
+      {
+        "text": "DNSSEC",
+        "rationale": "DNS Security Extensions permite verificar que la respuesta DNS proviene del origen correcto y no ha sido alterada.",
+        "isCorrect": true
+      },
+      {
+        "text": "DNS-Over-HTTPS",
+        "rationale": "DOH cifra la consulta para privacidad, pero DNSSEC es lo que garantiza la integridad de la zona.",
+        "isCorrect": false
+      },
+      {
+        "text": "Reverse DNS",
+        "rationale": "El DNS inverso traduce IPs en nombres, no es un mecanismo de seguridad criptográfica.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Busque el término que añade 'seguridad' a la resolución de nombres tradicional."
+  },
+  {
+    "guid": "df6c52f3-067d-4e43-81f2-01e7a5693773",
+    "subjectId": "T62",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "Se requiere una subred para 350 interfaces. ¿Cuál es la máscara más ajustada que cumple este requisito?",
+    "answerOptions": [
+      {
+        "text": "$/22$",
+        "rationale": "Un $/22$ admite hasta 1022 hosts, lo que desperdicia muchas direcciones para solo 350.",
+        "isCorrect": false
+      },
+      {
+        "text": "$/23$",
+        "rationale": "Un $/23$ admite 510 hosts utilizables, siendo el bloque de potencia de 2 más pequeño que cubre 350.",
+        "isCorrect": true
+      },
+      {
+        "text": "$/24$",
+        "rationale": "Un $/24$ solo admite 254 hosts, insuficiente para las 350 interfaces requeridas.",
+        "isCorrect": false
+      },
+      {
+        "text": "$/25$",
+        "rationale": "Un $/25$ es aún más pequeño, admitiendo solo 126 hosts.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Recuerde que el número de hosts debe ser una potencia de 2 menos 2 (red y broadcast)."
+  },
+  {
+    "guid": "ecdf4b1d-9760-448f-a2e5-b9dcab1f9767",
+    "subjectId": "T62",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "¿Cuál es la principal ventaja de utilizar OSPF como protocolo de enrutamiento interior (IGP) en un núcleo MPLS?",
+    "answerOptions": [
+      {
+        "text": "Permite cifrar el tráfico de los clientes de forma nativa.",
+        "rationale": "OSPF no cifra datos; su función es puramente el intercambio de información de rutas.",
+        "isCorrect": false
+      },
+      {
+        "text": "Calcula el camino de menor coste para que MPLS establezca los LSP.",
+        "rationale": "OSPF proporciona la visibilidad de la topología IP necesaria para que MPLS sepa cómo llegar a cada nodo.",
+        "isCorrect": true
+      },
+      {
+        "text": "Sustituye la necesidad de usar etiquetas MPLS en el backbone.",
+        "rationale": "OSPF y MPLS son complementarios; OSPF mapea la red e IP, mientras que MPLS conmuta el tráfico.",
+        "isCorrect": false
+      },
+      {
+        "text": "Asigna automáticamente los nombres DNS a los routers del núcleo.",
+        "rationale": "El direccionamiento y nombrado son procesos distintos al enrutamiento dinámico de OSPF.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "OSPF ayuda a MPLS a conocer el mapa físico de la red para decidir por dónde enviar los datos."
+  },
+  {
+    "guid": "5526abaa-7913-4da4-a539-928f5be1f38c",
+    "subjectId": "T62",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "¿Qué puerto utiliza por defecto el protocolo SMTP para la transferencia de correo electrónico entre servidores?",
+    "answerOptions": [
+      {
+        "text": "110",
+        "rationale": "El puerto 110 es el estándar para el protocolo POP3.",
+        "isCorrect": false
+      },
+      {
+        "text": "25",
+        "rationale": "El puerto 25 es el puerto histórico y estándar para la comunicación mediante SMTP.",
+        "isCorrect": true
+      },
+      {
+        "text": "80",
+        "rationale": "El puerto 80 se utiliza para el tráfico web sin cifrar (HTTP).",
+        "isCorrect": false
+      },
+      {
+        "text": "443",
+        "rationale": "El puerto 443 es el estándar para el tráfico web seguro (HTTPS).",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Es uno de los puertos 'well-known' más bajos, por debajo del 50."
+  }
+]

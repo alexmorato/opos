@@ -1,0 +1,227 @@
+[
+  {
+    "guid": "8f0b1c2d-3e4f-4a5b-8c6d-1e2f3a4b5c6d",
+    "subjectId": "T63",
+    "difficulty": 3,
+    "origin": "TS TIC específic 2019",
+    "type": "test",
+    "question": "L’Institut Municipal d’Informàtica de l’Ajuntament de Barcelona té assignat el rang d’adreces TCP/IP públiques (212.15.224.0 – 212.15.255.255). Quantes xarxes TCP/IP de classe C corresponen a aquest rang?",
+    "hint": "Pensa en subxarxes /24: compta el nombre de valors del 3r octet entre 224 i 255 (inclosos).",
+    "answerOptions": [
+      { "text": "8160.", "isCorrect": false, "rationale": "No és el recompte de /24 d’aquest rang." },
+      { "text": "32.", "isCorrect": true, "rationale": "De 224 a 255 hi ha 32 valors → 32 xarxes /24 (classe C)." },
+      { "text": "Aquest rang correspon a una classe B.", "isCorrect": false, "rationale": "És un rang concret de /24, no una classe B completa." },
+      { "text": "16.", "isCorrect": false, "rationale": "El rang cobreix més de 16 subxarxes /24." }
+    ]
+  },
+  {
+    "guid": "3a0f2c18-ff2b-4a26-a51f-8f6f92a53f71",
+    "subjectId": "T63",
+    "difficulty": 3,
+    "origin": "TM TIC específic 2021",
+    "type": "test",
+    "question": "En quina subxarxa resideix l’adreça 192.168.23.197/27?",
+    "hint": "/27 = blocs de 32 IP. Troba el múltiple de 32 immediatament inferior a 197 dins l’últim octet.",
+    "answerOptions": [
+      { "text": "192.168.23.0", "isCorrect": false, "rationale": "No és el bloc on cau el 197." },
+      { "text": "192.168.23.128", "isCorrect": false, "rationale": "128–159 no inclou 197." },
+      { "text": "192.1268.23.160", "isCorrect": false, "rationale": "Adreça mal formada i no correspon." },
+      { "text": "192.168.23.192", "isCorrect": true, "rationale": "192–223 és el bloc /27 que inclou 197." }
+    ]
+  },
+  {
+    "guid": "9c3e6a1d-1d7d-4c01-9a2b-3b8a6f1c9b10",
+    "subjectId": "T63",
+    "difficulty": 2,
+    "origin": "TM TIC específic 2021",
+    "type": "test",
+    "question": "L’adreça 155.1.1.0 pertany a una xarxa de:",
+    "hint": "Mira el primer octet: 1–126 (A), 128–191 (B), 192–223 (C).",
+    "answerOptions": [
+      { "text": "Classe A.", "isCorrect": false, "rationale": "155 no és rang de classe A." },
+      { "text": "Classe B.", "isCorrect": true, "rationale": "155 està entre 128 i 191 → classe B." },
+      { "text": "Classe C.", "isCorrect": false, "rationale": "Classe C comença a 192." },
+      { "text": "Classe D.", "isCorrect": false, "rationale": "Classe D és multicast (224–239)." }
+    ]
+  },
+  {
+    "guid": "c2a5f4d7-35a7-49a4-9f8e-7e2e2d1b0d8a",
+    "subjectId": "T63",
+    "difficulty": 1,
+    "origin": "TM TIC específic 2021",
+    "type": "test",
+    "question": "Quina de les següents adreces IPv4 i màscara de subxarxa correspon a l'adreça IP 172.18.1.1 màscara 255.255.255.0?",
+    "hint": "255.255.255.0 equival a /24.",
+    "answerOptions": [
+      { "text": "172.18.1.1/24", "isCorrect": true, "rationale": "Una màscara 255.255.255.0 és /24." },
+      { "text": "172.18.1.1/32", "isCorrect": false, "rationale": "/32 és host únic, no 255.255.255.0." },
+      { "text": "172.18.1.1/16", "isCorrect": false, "rationale": "/16 correspon a 255.255.0.0." },
+      { "text": "172.18.1.1/29", "isCorrect": false, "rationale": "/29 correspon a 255.255.255.248." }
+    ]
+  },
+  {
+    "guid": "d9b41e7d-63c8-4cf1-8b3d-cc6cf8b5b1e1",
+    "subjectId": "T63",
+    "difficulty": 2,
+    "origin": "TM TIC específic 2021",
+    "type": "test",
+    "question": "Quina de les següents adreces de xarxa NO canvia mai?",
+    "hint": "Pensa en identificadors de capa 2 vs capa 3: IP pot canviar, MAC està lligada al NIC.",
+    "answerOptions": [
+      { "text": "Adreça MAC.", "isCorrect": true, "rationale": "La MAC identifica la interfície de xarxa (capa 2) i no depèn de la configuració IP." },
+      { "text": "Adreça IPv4.", "isCorrect": false, "rationale": "Pot canviar (DHCP, canvi de xarxa, etc.)." },
+      { "text": "Adreça IPv6.", "isCorrect": false, "rationale": "També pot canviar segons configuració/assignació." },
+      { "text": "Màscara de la xarxa.", "isCorrect": false, "rationale": "Depèn del disseny i pot canviar." }
+    ]
+  },
+  {
+    "guid": "5e4e2a8a-b49d-4d92-a786-7a1d5a8ed8b3",
+    "subjectId": "T63",
+    "difficulty": 3,
+    "origin": "TM TIC específic 2021",
+    "type": "test",
+    "question": "Respecte als protocols TCP i UDP:",
+    "hint": "TCP = fiable i orientat a connexió; UDP = no orientat a connexió i menor latència/overhead.",
+    "answerOptions": [
+      { "text": "El protocol UDP és un protocol orientat a connexió.", "isCorrect": false, "rationale": "UDP és no orientat a connexió." },
+      { "text": "El protocol TCP verifica la correcta recepció de les dades.", "isCorrect": true, "rationale": "TCP incorpora ACK/retransmissions i control d’errors." },
+      { "text": "Un dels avantatges de UDP és la baixa latència.", "isCorrect": true, "rationale": "UDP té menys overhead i pot reduir latència." },
+      { "text": "Totes són correctes.", "isCorrect": false, "rationale": "No totes són correctes perquè UDP no és orientat a connexió." }
+    ]
+  },
+  {
+    "guid": "b82c2f2c-f7fd-4c2f-a3ef-b41e7abf74ad",
+    "subjectId": "T63",
+    "difficulty": 4,
+    "origin": "TS TIC específic 2021",
+    "type": "test",
+    "question": "Un router té 4 interfícies LAN amb adreces IP 10.1.1.1/24, 10.1.2.1/24, 10.1.3.1/24 i 10.1.4.1/24. Quina és la ruta sumaritzada més petita que pot ser anunciada, permetent incloure subxarxes no llistades dins la sumarització?",
+    "hint": "Busca el prefix comú de 10.1.1.0–10.1.4.0: el límit natural és un bloc de 4 /24 = /22 alineat.",
+    "answerOptions": [
+      { "text": "10.1.2.0/22", "isCorrect": false, "rationale": "No està alineada per cobrir 10.1.1.0/24 correctament." },
+      { "text": "10.1.0.0/22", "isCorrect": true, "rationale": "/22 cobreix 10.1.0.0–10.1.3.255 i és la sumarització mínima alineada més propera." },
+      { "text": "10.1.0.0/21", "isCorrect": false, "rationale": "/21 és més gran del necessari (8 /24)." },
+      { "text": "10.1.0.0/16", "isCorrect": false, "rationale": "Massa gran; agregaria moltíssimes subxarxes." }
+    ]
+  },
+  {
+    "guid": "f0b2d0b1-6f6e-4dbf-b90a-8ef4e6f31f61",
+    "subjectId": "T63",
+    "difficulty": 2,
+    "origin": "TS TIC específic 2021",
+    "type": "test",
+    "question": "Indiqueu quina és la resposta CORRECTA sobre el protocol IP:",
+    "hint": "IP identifica l’host a capa 3 (lògic). DHCP pot assignar dinàmic, però no és l’única forma.",
+    "answerOptions": [
+      { "text": "Una adreça IP és un número que identifica inequívocament un dispositiu lògic connectat a la xarxa.", "isCorrect": true, "rationale": "IP és un identificador lògic de capa de xarxa." },
+      { "text": "Les adreces IP s’assignen de manera dinàmica.", "isCorrect": false, "rationale": "Poden ser dinàmiques o estàtiques." },
+      { "text": "IPv4 està dissenyat per resoldre el problema d’esgotament d’adreces.", "isCorrect": false, "rationale": "Qui aborda això és IPv6; IPv4 pateix esgotament." },
+      { "text": "Cap és correcta.", "isCorrect": false, "rationale": "N’hi ha una de correcta." }
+    ]
+  },
+  {
+    "guid": "0f4a1b59-16a1-4d5f-8f31-2c33d64b6b6c",
+    "subjectId": "T63",
+    "difficulty": 4,
+    "origin": "TS TIC específic 2021",
+    "type": "test",
+    "question": "El router 1 té 4 interfícies LAN amb les adreces IP 10.22.14.1/23, 10.22.18.1/23, 10.22.12.1/23 i 10.22.16.1/23. Quina de les següents respostes defineix la/les ruta/rutes sumaritzada/s més petita/petites que podria/podrien ser anunciada/es sense incloure subxarxes no llistades?",
+    "hint": "Agrupa per blocs contigus: 10.22.12/23 i 10.22.14/23 formen 10.22.12.0/22; 10.22.16/23 i 10.22.18/23 formen 10.22.16.0/22.",
+    "answerOptions": [
+      { "text": "10.2.12.0/21", "isCorrect": false, "rationale": "Xarxa diferent (10.2.x.x) i massa gran." },
+      { "text": "10.22.8.0/21", "isCorrect": false, "rationale": "Cobriria subxarxes no llistades (massa gran)." },
+      { "text": "10.22.8.0/21 i 10.22.16.0/21", "isCorrect": false, "rationale": "Encara massa gran, inclouria subxarxes no demanades." },
+      { "text": "10.22.12.0/22 i 10.22.16.0/22", "isCorrect": true, "rationale": "Són les sumaritzacions mínimes que cobreixen exactament els /23 indicats en dos blocs." }
+    ]
+  },
+  {
+    "guid": "8f3c3a54-1b3a-4b4f-a7d5-7b0f2c7db2a4",
+    "subjectId": "T63",
+    "difficulty": 2,
+    "origin": "TS TIC Específic 2024",
+    "type": "test",
+    "question": "Per a què utilitzen els operadors una xarxa MPLS amb conjunció amb el protocol MP-BGP?",
+    "hint": "MPLS + MP-BGP és típic d’operadors per transportar rutes de múltiples VRF i muntar VPNs.",
+    "answerOptions": [
+      { "text": "Per donar IPs de forma dinàmica.", "isCorrect": false, "rationale": "Això és més propi de DHCP." },
+      { "text": "Per filtrar continguts web.", "isCorrect": false, "rationale": "Això és funció de proxy/firewall." },
+      { "text": "Per comprovar la connectivitat exterior a sistemes interns.", "isCorrect": false, "rationale": "No és l’objectiu principal." },
+      { "text": "Per crear VPNs (virtual private networks).", "isCorrect": true, "rationale": "MPLS L3VPN amb MP-BGP és un ús clàssic d’operadors." }
+    ]
+  },
+  {
+    "guid": "9c5a2cb0-7f2d-4c58-9b13-5a98c12d6d3d",
+    "subjectId": "T63",
+    "difficulty": 2,
+    "origin": "TS TIC Específic 2024",
+    "type": "test",
+    "question": "Quina d’aquestes IP és privada classe B?",
+    "hint": "Privades: 10.0.0.0/8 (A), 172.16.0.0–172.31.255.255 (B), 192.168.0.0/16 (C).",
+    "answerOptions": [
+      { "text": "10.1.1.2/8", "isCorrect": false, "rationale": "És privada, però és rang classe A (10/8)." },
+      { "text": "192.168.24.23/24", "isCorrect": false, "rationale": "És privada, però és rang classe C (192.168/16)." },
+      { "text": "172.16.0.1/16", "isCorrect": true, "rationale": "172.16.0.0–172.31.255.255 és rang privat de classe B." },
+      { "text": "212.15.224.2/30", "isCorrect": false, "rationale": "És públic, no privat." }
+    ]
+  },
+  {
+    "guid": "2d9a6a48-e88a-4e9f-85d0-3b870f0c8c0e",
+    "subjectId": "T63",
+    "difficulty": 2,
+    "origin": "TS TIC Específic 2024",
+    "type": "test",
+    "question": "Quin camí es forma a una xarxa si s’utilitza el protocol OSPF (per defecte)?",
+    "hint": "OSPF escull el camí de menor 'cost' (mètrica), no menor latència directa.",
+    "answerOptions": [
+      { "text": "El de més cost.", "isCorrect": false, "rationale": "OSPF prioritza menor cost." },
+      { "text": "El de menys cost.", "isCorrect": true, "rationale": "Per defecte, OSPF selecciona la ruta amb menor cost." },
+      { "text": "El de més latència.", "isCorrect": false, "rationale": "No és el criteri per defecte." },
+      { "text": "El de menys latència.", "isCorrect": false, "rationale": "No és el criteri per defecte (tot i que pot correlacionar)." }
+    ]
+  },
+  {
+    "guid": "6c7f7f0b-9b9c-4d75-9cbe-4c2a9c6d0d12",
+    "subjectId": "T63",
+    "difficulty": 2,
+    "origin": "TM TIC Específic 2024",
+    "type": "test",
+    "question": "Per a què s’utilitza principalment el protocol MPLS (Multiprotocol Label Switching)?",
+    "hint": "La paraula clau és 'Label': commutació/enrutament ràpid amb etiquetes.",
+    "answerOptions": [
+      { "text": "Per realitzar un enrutament molt ràpid de paquets mitjançant etiquetes.", "isCorrect": true, "rationale": "MPLS accelera el forwarding basat en labels." },
+      { "text": "Per determinar la password associada a un sistema.", "isCorrect": false, "rationale": "No té relació." },
+      { "text": "Per encriptar les dades bancàries.", "isCorrect": false, "rationale": "No és un protocol de xifrat." },
+      { "text": "Per filtrar continguts.", "isCorrect": false, "rationale": "Això és propi de firewalls/proxies." }
+    ]
+  },
+  {
+    "guid": "c6d0b5a2-2c41-4d5f-9b0a-8f6fb6b7f6ea",
+    "subjectId": "T63",
+    "difficulty": 2,
+    "origin": "TM TIC Específic 2024",
+    "type": "test",
+    "question": "Quina d’aquestes IP és privada classe A?",
+    "hint": "Privada classe A: 10.0.0.0/8. Les altres són C privada (192.168), B privada (172.16–31) o pública.",
+    "answerOptions": [
+      { "text": "10.1.1.2/8", "isCorrect": true, "rationale": "10.0.0.0/8 és rang privat (classe A)." },
+      { "text": "192.168.24.23/24", "isCorrect": false, "rationale": "És privada però classe C." },
+      { "text": "172.16.0.1/16", "isCorrect": false, "rationale": "És privada però classe B." },
+      { "text": "212.15.224.2/30", "isCorrect": false, "rationale": "És pública." }
+    ]
+  },
+  {
+    "guid": "f1b6c9aa-2ef0-4b2b-8d27-8fb1d5e0a9a1",
+    "subjectId": "T63",
+    "difficulty": 3,
+    "origin": "TSTIC 2024 Específic",
+    "type": "test",
+    "question": "Fent una equivalència entre l’arquitectura de capes del model TCP/IP i les del model OSI, quina correlació és la CORRECTA?",
+    "hint": "Equivalència típica: TCP/IP Aplicació = (Aplicació+Presentació+Sessió) OSI; TCP/IP Accés Xarxa = (Enllaç+Dades + Física) OSI.",
+    "answerOptions": [
+      { "text": "TCP/IP Aplicació ↔ OSI Aplicació+Presentació+Sessió; TCP/IP Transport ↔ OSI Transport; TCP/IP Internet ↔ OSI Xarxa; TCP/IP Accés Xarxa ↔ OSI Enllaç de dades+Física.", "isCorrect": true, "rationale": "És la correspondència estàndard habitual entre models." },
+      { "text": "TCP/IP Internet ↔ OSI Enllaç de dades; TCP/IP Accés Xarxa ↔ OSI Xarxa.", "isCorrect": false, "rationale": "Confón capes: Internet de TCP/IP s’alinea amb Xarxa (Network) d’OSI." },
+      { "text": "TCP/IP Transport ↔ OSI Sessió; TCP/IP Aplicació ↔ OSI Transport.", "isCorrect": false, "rationale": "Les capes no corresponen així." },
+      { "text": "TCP/IP Aplicació ↔ OSI Física; TCP/IP Accés Xarxa ↔ OSI Aplicació.", "isCorrect": false, "rationale": "És una inversió incorrecta." }
+    ]
+  }
+]
