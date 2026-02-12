@@ -1,0 +1,870 @@
+[
+  {
+    "guid": "e3b1934d-003c-4e8f-85b2-bbe88cfaf9ba",
+    "subjectId": "T56",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "¿Qué representa específicamente el valor $0$ en la estrategia de seguridad $3-2-1-1-0$?",
+    "answerOptions": [
+      {
+        "text": "La garantía de que las copias de seguridad tienen cero errores tras verificaciones regulares.",
+        "rationale": "En este modelo extendido, el cero simboliza el proceso de validación constante para asegurar la integridad total de los datos respaldados.",
+        "isCorrect": true
+      },
+      {
+        "text": "Que existe un tiempo de recuperación (RTO) igual a cero segundos.",
+        "rationale": "Aunque la rapidez es deseable, el cero en esta nomenclatura técnica se refiere específicamente a la ausencia de errores en la verificación.",
+        "isCorrect": false
+      },
+      {
+        "text": "Que no hay ninguna copia conectada a la red principal (zero network).",
+        "rationale": "Esto se refiere al concepto de 'air-gapping' o copias 'offline', no al dígito cero de esta estrategia específica.",
+        "isCorrect": false
+      },
+      {
+        "text": "La utilización de cero recursos físicos mediante el uso exclusivo de la nube.",
+        "rationale": "El uso exclusivo de la nube se asocia más con el modelo $3-2-0$ o variaciones basadas en redundancia lógica.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Relaciona este número con la fase final de control de calidad del proceso de respaldo."
+  },
+  {
+    "guid": "bceb037f-457c-4c17-8357-cd5febdda6e7",
+    "subjectId": "T56",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "En un entorno de alta disponibilidad, ¿cuál es la característica distintiva de un sistema $Active-Active$?",
+    "answerOptions": [
+      {
+        "text": "Todos los sistemas procesan datos y peticiones de forma simultánea.",
+        "rationale": "Este modelo permite que múltiples nodos trabajen al mismo tiempo, compartiendo la carga y manteniendo réplicas síncronas.",
+        "isCorrect": true
+      },
+      {
+        "text": "Un sistema procesa las peticiones mientras el otro permanece en espera de un fallo.",
+        "rationale": "Esta descripción corresponde al modelo $Active-Passive$, donde el segundo sistema solo se activa mediante un failover.",
+        "isCorrect": false
+      },
+      {
+        "text": "Los sistemas se alternan cada $24$ horas para evitar el desgaste del hardware.",
+        "rationale": "La alta disponibilidad no se basa en turnos temporales, sino en la capacidad de respuesta ante la carga o fallos de servicio.",
+        "isCorrect": false
+      },
+      {
+        "text": "Ambos sistemas están apagados y solo se encienden cuando se detecta un ataque.",
+        "rationale": "Los sistemas deben estar operativos para garantizar la continuidad del servicio; los sistemas apagados no ofrecen alta disponibilidad activa.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piensa en el procesamiento de carga de trabajo concurrente."
+  },
+  {
+    "guid": "81127c3a-2bf7-470e-8efc-f9bce238a468",
+    "subjectId": "T56",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "Al realizar una restauración completa el jueves, tras haber hecho un backup completo el lunes y backups diferenciales diarios, ¿qué archivos se requieren?",
+    "answerOptions": [
+      {
+        "text": "La copia completa del lunes y únicamente la copia diferencial del miércoles.",
+        "rationale": "La copia diferencial acumula todos los cambios desde el último backup completo, por lo que solo se necesita la base y la última diferencial.",
+        "isCorrect": true
+      },
+      {
+        "text": "La copia completa del lunes y todas las copias diferenciales de martes y miércoles.",
+        "rationale": "A diferencia de las incrementales, las diferenciales no son dependientes entre sí para la restauración; la última contiene los cambios acumulados.",
+        "isCorrect": false
+      },
+      {
+        "text": "Solo la copia diferencial del miércoles, ya que incluye los datos originales.",
+        "rationale": "Las copias diferenciales solo guardan los cambios desde el último backup completo, no el conjunto total de datos iniciales.",
+        "isCorrect": false
+      },
+      {
+        "text": "La copia completa del lunes y las incrementales de cada día anterior.",
+        "rationale": "Si se opta por un esquema diferencial, no se utilizan las copias incrementales para el mismo conjunto de datos en ese flujo de restauración.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Recuerda que este tipo de copia es acumulativa respecto al último respaldo total."
+  },
+  {
+    "guid": "b0cc4478-140e-4397-8e4c-a2ee79469522",
+    "subjectId": "T56",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "¿Qué restricción fundamental impone la tecnología $object-lock$ en servicios como Amazon S3?",
+    "answerOptions": [
+      {
+        "text": "Impide que los datos sean modificados o eliminados incluso por administradores del sistema.",
+        "rationale": "Esta medida de inmutabilidad garantiza que, durante el periodo establecido, nadie pueda alterar los datos, protegiéndolos de ataques internos o ransomware.",
+        "isCorrect": true
+      },
+      {
+        "text": "Bloquea el acceso de lectura a cualquier usuario que no tenga $MFA$ activo.",
+        "rationale": "El bloqueo de objetos se centra en la integridad y permanencia (escritura/borrado), no en restringir la visibilidad de lectura.",
+        "isCorrect": false
+      },
+      {
+        "text": "Permite que los archivos se cifren automáticamente pero prohíbe su descarga.",
+        "rationale": "El objetivo del object-lock es la inmutabilidad temporal, no la restricción de descarga de la información.",
+        "isCorrect": false
+      },
+      {
+        "text": "Limita el número de archivos que pueden guardarse en un mismo contenedor.",
+        "rationale": "Esta tecnología no gestiona cuotas de almacenamiento, sino la protección contra la manipulación de los datos existentes.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Se relaciona con el concepto de 'WORM' (Write Once, Read Many)."
+  },
+  {
+    "guid": "d66bb64d-1e90-4693-92ec-c04813bf6a1b",
+    "subjectId": "T56",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "¿Cuál es el requisito de ubicación física en el modelo de seguridad $4-3-2$?",
+    "answerOptions": [
+      {
+        "text": "Disponer de dos copias fuera de la oficina ($offsite$) en ubicaciones físicas distintas.",
+        "rationale": "El sistema $4-3-2$ exige una mayor dispersión geográfica para proteger datos extremadamente críticos ante desastres regionales.",
+        "isCorrect": true
+      },
+      {
+        "text": "Tener las cuatro copias en el mismo centro de datos para facilitar el acceso.",
+        "rationale": "La proximidad física de todas las copias anula la protección contra desastres locales, incumpliendo los principios de redundancia geográfica.",
+        "isCorrect": false
+      },
+      {
+        "text": "Una sola copia fuera de la oficina, siempre que esté en un continente diferente.",
+        "rationale": "Aunque la distancia sea grande, el modelo $4-3-2$ especifica explícitamente el número de copias externas (dos).",
+        "isCorrect": false
+      },
+      {
+        "text": "Tres ubicaciones externas y una ubicación local para el archivo original.",
+        "rationale": "El modelo se desglosa en $4$ copias totales, $3$ medios y $2$ ubicaciones externas, no tres externas.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Fíjate en el último dígito del nombre de la estrategia."
+  },
+  {
+    "guid": "d0f0975a-a923-4c4a-8ce7-bb48d8140a5b",
+    "subjectId": "T56",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "Dentro del marco del NIST Cybersecurity Framework, ¿qué dos estrategias se recomiendan explícitamente para la protección de datos?",
+    "answerOptions": [
+      {
+        "text": "El modelo $3-2-1$ y estrategias de inmutabilidad.",
+        "rationale": "El NIST subraya la importancia de combinar la redundancia clásica del $3-2-1$ con la imposibilidad de modificar los archivos de respaldo.",
+        "isCorrect": true
+      },
+      {
+        "text": "El uso exclusivo de antivirus y sistemas $Active-Active$.",
+        "rationale": "Si bien son útiles, el NIST pone un énfasis específico en la estructura de los backups y su protección contra alteraciones.",
+        "isCorrect": false
+      },
+      {
+        "text": "La eliminación de copias físicas y el uso de $RAID$ $5$.",
+        "rationale": "El $RAID$ no es un sistema de backup y el NIST recomienda mantener copias diversificadas, no eliminarlas.",
+        "isCorrect": false
+      },
+      {
+        "text": "Sistemas de cifrado simétrico y copias en tiempo real únicamente.",
+        "rationale": "La protección contra ransomware requiere más que cifrado; requiere la capacidad de recuperación mediante versiones inalterables.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considera un estándar de redundancia y una propiedad que evita el cifrado malicioso de los backups."
+  },
+  {
+    "guid": "c8022169-b8f0-4d0b-99c9-364680797900",
+    "subjectId": "T56",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "¿Qué función cumple la herramienta $microClaudia$ desarrollada por el CCN-CERT?",
+    "answerOptions": [
+      {
+        "text": "Desplegar y ejecutar vacunas anti-ransomware en estaciones de trabajo Windows.",
+        "rationale": "Esta herramienta permite inmunizar los sistemas mediante la detección de comportamientos sospechosos y la neutralización de la amenaza antes del cifrado.",
+        "isCorrect": true
+      },
+      {
+        "text": "Cifrar las copias de seguridad antes de enviarlas a la nube.",
+        "rationale": "El cifrado de backups suele ser una función del software de respaldo, mientras que microClaudia es una herramienta de protección activa y vacunación.",
+        "isCorrect": false
+      },
+      {
+        "text": "Gestionar la rotación de cintas en sistemas de almacenamiento masivo.",
+        "rationale": "microClaudia se centra en la defensa contra malware en el endpoint, no en la logística del hardware de almacenamiento.",
+        "isCorrect": false
+      },
+      {
+        "text": "Auditar si una empresa cumple con la regla $3-2-1$.",
+        "rationale": "Aunque es una herramienta de seguridad, su propósito es técnico/operativo (vacunación) y no de cumplimiento de normativas de backup.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Es una solución específica para entornos corporativos Windows frente al secuestro de datos."
+  },
+  {
+    "guid": "2734168e-c3bc-4cce-90ec-b1b693c9fe96",
+    "subjectId": "T56",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "¿Bajo qué premisa se justifica la adopción de un modelo $3-2-0$?",
+    "answerOptions": [
+      {
+        "text": "Cuando la redundancia geográfica es proporcionada íntegramente por servicios en la nube.",
+        "rationale": "Al confiar en proveedores de nube que replican datos en múltiples regiones, se considera que la copia física externa puede ser omitida.",
+        "isCorrect": true
+      },
+      {
+        "text": "Cuando el presupuesto de la empresa es cero para sistemas de seguridad.",
+        "rationale": "El dígito cero no se refiere al coste, sino a la ausencia de un soporte físico externo gestionado localmente por la organización.",
+        "isCorrect": false
+      },
+      {
+        "text": "Cuando se decide no realizar ninguna copia fuera de línea por comodidad.",
+        "rationale": "El modelo $3-2-0$ no implica falta de seguridad, sino una delegación de la redundancia geográfica en la infraestructura del proveedor cloud.",
+        "isCorrect": false
+      },
+      {
+        "text": "Cuando solo se dispone de un único medio de almacenamiento disponible.",
+        "rationale": "El modelo sigue exigiendo $2$ tipos de soportes o medios diferentes, aunque la ubicación externa sea lógica.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considera cómo la infraestructura moderna de Internet sustituye la necesidad de transportar discos físicos a otro edificio."
+  },
+  {
+    "guid": "c881d2cc-4a7e-4983-bf65-a00f3763e546",
+    "subjectId": "T56",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "¿Cuál es la principal desventaja técnica de las copias de seguridad de tipo incremental?",
+    "answerOptions": [
+      {
+        "text": "Para restaurar los datos se necesita la copia completa inicial y todas las incrementales posteriores.",
+        "rationale": "Este método crea una cadena de dependencias; si falla una sola de las copias intermedias, la restauración total puede verse comprometida.",
+        "isCorrect": true
+      },
+      {
+        "text": "Ocupan mucho más espacio en disco que las copias diferenciales.",
+        "rationale": "Es al revés; las incrementales son las más eficientes en espacio porque solo guardan los cambios desde el último respaldo (sea cual sea).",
+        "isCorrect": false
+      },
+      {
+        "text": "Son muy lentas de realizar durante la ventana de mantenimiento nocturno.",
+        "rationale": "Las incrementales son las más rápidas de ejecutar precisamente porque procesan el menor volumen de datos posible.",
+        "isCorrect": false
+      },
+      {
+        "text": "No permiten guardar versiones de archivos que han sido eliminados.",
+        "rationale": "El tipo de backup (incremental/diferencial) no determina la capacidad de versionado, sino cómo se almacenan los bloques de datos modificados.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piensa en el proceso inverso: la reconstrucción de la información desde el primer día."
+  },
+  {
+    "guid": "e9a20245-0c2d-4720-a6d9-731f04846298",
+    "subjectId": "T56",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "En la lucha contra el ransomware, ¿en qué consiste la técnica de segmentación de red o 'air-gapping'?",
+    "answerOptions": [
+      {
+        "text": "En aislar física o lógicamente las copias de seguridad del sistema principal.",
+        "rationale": "El objetivo es evitar que un malware que infecte la red corporativa pueda propagarse hacia los repositorios donde residen los backups.",
+        "isCorrect": true
+      },
+      {
+        "text": "En comprimir los datos para que ocupen menos espacio en el aire.",
+        "rationale": "El término no tiene relación con la compresión ni con el medio físico del aire como conductor de datos.",
+        "isCorrect": false
+      },
+      {
+        "text": "En utilizar conexiones $Wi-Fi$ de alta velocidad para los backups.",
+        "rationale": "El 'air-gap' sugiere precisamente una brecha o separación, a menudo implicando la ausencia de conexión inalámbrica constante.",
+        "isCorrect": false
+      },
+      {
+        "text": "En permitir que todos los usuarios tengan acceso a las copias para agilizar la recuperación.",
+        "rationale": "Esto violaría el principio de mínimo privilegio y facilitaría que el ransomware infectara las copias a través de cualquier usuario.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Imagina una brecha de seguridad física que impide la comunicación electrónica."
+  },
+  {
+    "guid": "b677c693-5183-41f2-bf8a-4a0d3a8c6b30",
+    "subjectId": "T56",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "¿Por qué el sistema de rotación $Grandfather-father-son$ ($GFS$) es vital ante ataques de ransomware latentes?",
+    "answerOptions": [
+      {
+        "text": "Permite mantener copias de diversos puntos en el tiempo para recuperar datos antes de la infección.",
+        "rationale": "Si un ransomware actúa semanas después de entrar, se necesita una copia antigua (ej. 'Grandfather') que no contenga archivos ya cifrados o corruptos.",
+        "isCorrect": true
+      },
+      {
+        "text": "Reduce el tiempo de cifrado de la copia de seguridad mediante algoritmos jerárquicos.",
+        "rationale": "El $GFS$ es una política de retención y rotación, no un algoritmo de cifrado o procesamiento de datos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Obliga a que tres personas diferentes supervisen cada backup.",
+        "rationale": "Aunque el nombre use términos familiares, se refiere a la periodicidad de las copias (mensual, semanal, diaria), no a roles humanos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Elimina la necesidad de realizar copias completas una vez al mes.",
+        "rationale": "Al contrario, el esquema $GFS$ suele basarse en la ejecución de copias completas periódicas para establecer los niveles de la jerarquía.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considera la utilidad de tener un histórico de archivos a largo plazo."
+  },
+  {
+    "guid": "63cc1826-df83-4b02-93d2-036d822b7f22",
+    "subjectId": "T56",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "¿Qué efecto tiene el tiempo sobre el tamaño de las copias de seguridad diferenciales si no se realiza un nuevo backup completo?",
+    "answerOptions": [
+      {
+        "text": "El tamaño de cada copia diferencial aumenta progresivamente conforme pasan los días.",
+        "rationale": "Como la diferencial guarda todos los cambios desde la última copia completa, cada día debe incluir lo que cambió ayer, anteayer, etc.",
+        "isCorrect": true
+      },
+      {
+        "text": "El tamaño se mantiene constante independientemente de los cambios realizados.",
+        "rationale": "Si hay actividad en los datos, el volumen de cambios acumulados desde el backup inicial (completo) crecerá inevitablemente.",
+        "isCorrect": false
+      },
+      {
+        "text": "El tamaño disminuye debido a la compresión automática de archivos antiguos.",
+        "rationale": "La compresión puede mitigar el espacio, pero la lógica de la copia diferencial es añadir los nuevos cambios a los ya acumulados.",
+        "isCorrect": false
+      },
+      {
+        "text": "El tamaño es siempre igual al de una copia incremental.",
+        "rationale": "Solo el primer día después del backup completo coinciden; a partir de ahí, la diferencial crece mientras la incremental se mantiene pequeña.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piensa en el concepto de 'acumulación' desde un punto de referencia fijo."
+  },
+  {
+    "guid": "aaf75990-6e50-4179-9d45-81d02256e85a",
+    "subjectId": "T56",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "¿Cuál es la principal motivación para implementar la variante $3-1-2$ en lugar del modelo estándar $3-2-1$?",
+    "answerOptions": [
+      {
+        "text": "Limitación de recursos o infraestructura disponible en la organización.",
+        "rationale": "Se sacrifica la diversidad de medios ($2$) para centrarse en tener más copias fuera de la oficina ($2$), simplificando el soporte físico.",
+        "isCorrect": true
+      },
+      {
+        "text": "Una necesidad extrema de velocidad en la red local.",
+        "rationale": "Este modelo no mejora la velocidad; de hecho, puede ralentizar la gestión al depender de un único tipo de medio.",
+        "isCorrect": false
+      },
+      {
+        "text": "Cumplir con leyes que prohíben el uso de discos duros externos.",
+        "rationale": "No existen normativas generales que prohíban medios físicos; la elección suele ser por coste, técnica o eficiencia operativa.",
+        "isCorrect": false
+      },
+      {
+        "text": "Asegurar que el administrador no tenga acceso a los datos originales.",
+        "rationale": "El modelo $3-1-2$ gestiona la redundancia y ubicación, no los permisos de acceso de los roles de administración.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Se trata de un escenario donde se prioriza la ubicación externa sobre la variedad de soportes."
+  },
+  {
+    "guid": "32eb1131-8da8-46f8-902d-cb7a927d53e0",
+    "subjectId": "T56",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "En el contexto de la protección contra ransomware, ¿qué ventaja ofrece el uso de autenticación multifactor ($MFA$) en los backups en la nube?",
+    "answerOptions": [
+      {
+        "text": "Impide el acceso a los repositorios de backup aunque las credenciales administrativas hayan sido robadas.",
+        "rationale": "Muchos ataques de ransomware buscan eliminar los backups antes de cifrar los datos; el $MFA$ añade una capa que el atacante no puede superar solo con contraseñas.",
+        "isCorrect": true
+      },
+      {
+        "text": "Acelera el proceso de cifrado de los datos almacenados.",
+        "rationale": "El $MFA$ es una medida de control de acceso, no influye en el rendimiento de los algoritmos de cifrado de datos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Garante que los archivos no puedan ser infectados por virus mientras se descargan.",
+        "rationale": "El $MFA$ protege la identidad y el acceso, pero no analiza el contenido de los archivos en busca de código malicioso.",
+        "isCorrect": false
+      },
+      {
+        "text": "Permite restaurar datos sin necesidad de una conexión a internet estable.",
+        "rationale": "Al ser un sistema de autenticación para servicios cloud, requiere conexión para validar el segundo factor de seguridad.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considera qué pasaría si un atacante obtiene la contraseña del administrador de TI."
+  },
+  {
+    "guid": "0b8d87a2-1bf1-4554-854e-c072edf93445",
+    "subjectId": "T56",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "¿Cuál es el objetivo primordial de realizar pruebas de restauración regulares?",
+    "answerOptions": [
+      {
+        "text": "Verificar que los procesos de copia funcionan y que los datos son recuperables e íntegros.",
+        "rationale": "Una copia de seguridad no tiene valor si, en el momento de la verdad, el archivo está corrupto o el procedimiento de restauración falla.",
+        "isCorrect": true
+      },
+      {
+        "text": "Entrenar al personal para que escriba más rápido durante una crisis.",
+        "rationale": "El entrenamiento es importante, pero la prueba técnica se centra en la viabilidad del dato y la infraestructura, no en la mecanografía.",
+        "isCorrect": false
+      },
+      {
+        "text": "Cumplir con el requisito de borrar los datos antiguos cada mes.",
+        "rationale": "La restauración es para recuperar datos, no para eliminarlos; el borrado seguro es un proceso independiente.",
+        "isCorrect": false
+      },
+      {
+        "text": "Aumentar el consumo de ancho de banda para justificar nuevas inversiones.",
+        "rationale": "Las pruebas deben planificarse para no impactar el negocio; su fin es la seguridad, no la justificación presupuestaria arbitraria.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Una copia solo es tan buena como su capacidad de volver a la vida."
+  },
+  {
+    "guid": "cd819d9f-e1bc-4a4e-b962-0e596880485a",
+    "subjectId": "T56",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "¿Cómo ayuda el principio de mínimo privilegio en la defensa contra el ransomware?",
+    "answerOptions": [
+      {
+        "text": "Limita el alcance del cifrado al restringir el acceso del usuario infectado a solo una parte de la red.",
+        "rationale": "Si un usuario con pocos permisos es infectado, el ransomware no podrá acceder ni cifrar los servidores críticos o backups a los que ese usuario no llega.",
+        "isCorrect": true
+      },
+      {
+        "text": "Asegura que el ransomware sea más lento al ejecutarse en el procesador.",
+        "rationale": "Los privilegios de acceso no afectan a la velocidad de ejecución del código malicioso, sino a los archivos que puede 'tocar'.",
+        "isCorrect": false
+      },
+      {
+        "text": "Permite que solo el director general pueda realizar copias de seguridad.",
+        "rationale": "El mínimo privilegio significa dar a cada uno lo justo para su trabajo, no centralizar funciones técnicas en roles no técnicos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Hace que las contraseñas de los usuarios sean más difíciles de adivinar.",
+        "rationale": "La robustez de las contraseñas es política de identidad; el mínimo privilegio trata sobre la autorización y el acceso a recursos.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Se trata de reducir la superficie de ataque disponible para el malware."
+  },
+  {
+    "guid": "7f47a476-c913-45b1-ba20-ab07fcc9f0e7",
+    "subjectId": "T56",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "¿Qué diferencia fundamental hay entre una copia $Active-Passive$ y una copia de seguridad tradicional?",
+    "answerOptions": [
+      {
+        "text": "El sistema $Active-Passive$ busca la continuidad del servicio mediante la sincronización en tiempo real.",
+        "rationale": "Mientras que el backup tradicional se usa para recuperar datos tras un incidente, el modelo pasivo permite un failover casi inmediato para seguir operando.",
+        "isCorrect": true
+      },
+      {
+        "text": "La copia tradicional siempre está en la nube y la $Active-Passive$ siempre es física.",
+        "rationale": "Ambos sistemas pueden usar cualquier medio; la diferencia radica en la operatividad y la frecuencia de actualización.",
+        "isCorrect": false
+      },
+      {
+        "text": "El sistema $Active-Passive$ no puede verse afectado por ataques de ransomware.",
+        "rationale": "Al estar sincronizados en tiempo real, existe un alto riesgo de que el ransomware se propague instantáneamente al sistema pasivo si no hay medidas extra.",
+        "isCorrect": false
+      },
+      {
+        "text": "Las copias tradicionales requieren hardware idéntico y las pasivas no.",
+        "rationale": "Normalmente es al revés: los sistemas de réplica y failover suelen requerir entornos muy similares para funcionar correctamente.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considera el tiempo de inactividad permitido para el negocio."
+  },
+  {
+    "guid": "e03938a3-47c0-4842-a51d-efbd0cf20cb0",
+    "subjectId": "T56",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "Dentro de la regla $3-2-1$, ¿por qué es necesaria la diversificación en '2 medios diferentes'?",
+    "answerOptions": [
+      {
+        "text": "Para evitar que un único tipo de fallo de hardware o software afecte a todas las copias simultáneamente.",
+        "rationale": "Si todas las copias están en el mismo modelo de disco duro, un defecto de fábrica o un virus específico de firmware podría destruirlas todas a la vez.",
+        "isCorrect": true
+      },
+      {
+        "text": "Porque el software de backup obliga a usar al menos una cinta magnética.",
+        "rationale": "El modelo no dicta tecnologías específicas, sino la necesidad de heterogeneidad en el almacenamiento.",
+        "isCorrect": false
+      },
+      {
+        "text": "Para que los datos se lean más rápido al estar repartidos.",
+        "rationale": "La diversificación busca resiliencia y seguridad, no necesariamente rendimiento de lectura (throughput).",
+        "isCorrect": false
+      },
+      {
+        "text": "Para cumplir con la ley de protección de datos que exige un soporte analógico.",
+        "rationale": "No existe tal obligación legal general; se trata de una mejor práctica técnica de seguridad informática.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piensa en el riesgo de tener 'todos los huevos en la misma cesta'."
+  },
+  {
+    "guid": "9243198e-44ee-4f79-a7ce-c4b4d4252b5e",
+    "subjectId": "T56",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "¿Qué papel juega el cifrado en una estrategia integral de backup?",
+    "answerOptions": [
+      {
+        "text": "Asegura que, en caso de robo de los soportes físicos o acceso no autorizado, los datos no puedan ser utilizados.",
+        "rationale": "El cifrado protege la confidencialidad de la información contenida en las copias frente a atacantes que logren saltarse los perímetros de seguridad.",
+        "isCorrect": true
+      },
+      {
+        "text": "Garantiza que el ransomware no pueda encriptar los archivos de nuevo.",
+        "rationale": "El ransomware puede cifrar un archivo que ya está cifrado (doble cifrado), inutilizándolo igualmente si no se tiene la clave del atacante.",
+        "isCorrect": false
+      },
+      {
+        "text": "Sirve para comprimir los datos y ahorrar hasta un $50\\%$ de espacio.",
+        "rationale": "El cifrado suele aumentar ligeramente el tamaño o hacerlo igual; el ahorro de espacio es función de la deduplicación o compresión.",
+        "isCorrect": false
+      },
+      {
+        "text": "Permite que las copias de seguridad se realicen sin necesidad de electricidad.",
+        "rationale": "El proceso de cifrado es una operación matemática compleja que consume recursos de computación y energía.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Céntrate en la confidencialidad de la información frente a terceros."
+  },
+  {
+    "guid": "6e990086-9292-4fa9-9a64-ab4036ff33c6",
+    "subjectId": "T56",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "¿Qué ventaja operativa tiene la copia de seguridad diferencial frente a la incremental durante la restauración?",
+    "answerOptions": [
+      {
+        "text": "La restauración es más rápida porque requiere menos pasos y menos archivos individuales.",
+        "rationale": "Al solo necesitar el backup completo y la última diferencial, se simplifica el proceso y se reduce el tiempo total de recuperación.",
+        "isCorrect": true
+      },
+      {
+        "text": "No requiere de una copia completa previa para funcionar.",
+        "rationale": "Todos los métodos de backup (incremental y diferencial) dependen de una copia completa inicial para establecer el punto de partida.",
+        "isCorrect": false
+      },
+      {
+        "text": "Permite recuperar archivos individuales de forma instantánea sin usar el disco duro.",
+        "rationale": "Cualquier restauración requiere acceder al medio de almacenamiento donde se guardó la copia de seguridad.",
+        "isCorrect": false
+      },
+      {
+        "text": "Ocupa menos ancho de banda de red durante la fase de subida de datos.",
+        "rationale": "En la subida, la diferencial suele ser más 'pesada' que la incremental, ya que reenvía datos que ya fueron cambiados en días anteriores.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Analiza la complejidad de 'montar' el puzle de datos para volver al estado actual."
+  },
+  {
+    "guid": "ea860fec-3c47-45bc-807b-e6c4be89fb57",
+    "subjectId": "T56",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "¿Cuál es la definición correcta de la regla $3-2-1$ original?",
+    "answerOptions": [
+      {
+        "text": "$3$ copias de datos (original + $2$ adicionales), en $2$ soportes distintos y $1$ fuera de la oficina.",
+        "rationale": "Este es el estándar de oro de la industria que combina redundancia, diversificación de medios y protección geográfica.",
+        "isCorrect": true
+      },
+      {
+        "text": "$3$ soportes diferentes, $2$ copias fuera de la oficina y $1$ copia en la nube.",
+        "rationale": "Aunque es una configuración posible, no sigue la estructura numérica definida por el modelo estándar $3-2-1$.",
+        "isCorrect": false
+      },
+      {
+        "text": "$3$ servidores activos, $2$ discos locales y $1$ conexión a internet.",
+        "rationale": "La regla se refiere a copias de seguridad y medios de almacenamiento, no a la cantidad de hardware de procesamiento.",
+        "isCorrect": false
+      },
+      {
+        "text": "$3$ meses de retención, $2$ copias diarias y $1$ auditoría anual.",
+        "rationale": "La nomenclatura numérica de este modelo se refiere a la arquitectura del backup, no a los tiempos de retención o cumplimiento.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "La suma total de ejemplares de la información incluye los datos de producción."
+  },
+  {
+    "guid": "09f05ca4-c81d-41a0-b677-eebc6ffd400e",
+    "subjectId": "T56",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "¿Qué riesgo específico presentan las copias en tiempo real y sistemas de réplica ante un ataque de ransomware?",
+    "answerOptions": [
+      {
+        "text": "La propagación inmediata de los archivos cifrados al sistema de réplica.",
+        "rationale": "Si la sincronización es síncrona o instantánea, el sistema 'espejo' replicará el daño del ransomware tan pronto como los archivos empiecen a cifrarse.",
+        "isCorrect": true
+      },
+      {
+        "text": "Que el sistema pasivo se apague automáticamente por falta de uso.",
+        "rationale": "Los sistemas de réplica están diseñados para estar en espera activa; el desuso no provoca su apagado en infraestructuras críticas.",
+        "isCorrect": false
+      },
+      {
+        "text": "Que la velocidad de la red disminuya por el exceso de archivos duplicados.",
+        "rationale": "Aunque consume ancho de banda, el riesgo crítico de seguridad no es la latencia de red, sino la integridad de los datos replicados.",
+        "isCorrect": false
+      },
+      {
+        "text": "La imposibilidad de usar cifrado en las transmisiones de datos síncronas.",
+        "rationale": "Las réplicas pueden y suelen ir cifradas en tránsito para proteger la información durante el envío entre centros de datos.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piensa en el efecto 'espejo' cuando el original se corrompe."
+  },
+  {
+    "guid": "42abcb93-e69e-4a73-965f-3b779cc85275",
+    "subjectId": "T56",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "En un sistema de backups, ¿qué diferencia a una copia 'offline' de una 'offsite'?",
+    "answerOptions": [
+      {
+        "text": "La copia 'offline' no tiene conexión física a la red, mientras que la 'offsite' está en una ubicación física diferente.",
+        "rationale": "Una copia en la nube es 'offsite' pero puede estar 'online'; un disco duro en una caja fuerte es tanto 'offsite' como 'offline'.",
+        "isCorrect": true
+      },
+      {
+        "text": "La copia 'offline' solo se puede hacer en papel y la 'offsite' en discos externos.",
+        "rationale": "Ambos términos se refieren al estado de conexión y ubicación lógica/física, no a la naturaleza del soporte (analógico/digital).",
+        "isCorrect": false
+      },
+      {
+        "text": "No hay diferencia; ambos términos significan que la copia está fuera del alcance del ransomware.",
+        "rationale": "Una copia 'offsite' que esté conectada permanentemente por $VPN$ puede ser alcanzada por ransomware; solo la 'offline' garantiza el aislamiento.",
+        "isCorrect": false
+      },
+      {
+        "text": "La copia 'offsite' es más lenta de recuperar que la 'offline'.",
+        "rationale": "Depende; una copia 'offsite' en la nube puede ser mucho más rápida de restaurar que traer físicamente cintas de un búnker 'offline'.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Uno se refiere a la conectividad y el otro a la geografía."
+  },
+  {
+    "guid": "2f57b942-a8c7-4294-b540-bc4a5918bb4d",
+    "subjectId": "T56",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "¿Por qué las soluciones específicas contra ransomware monitorizan patrones de acceso anómalos?",
+    "answerOptions": [
+      {
+        "text": "Para detectar y bloquear cambios masivos o encriptaciones sospechosas en tiempo real.",
+        "rationale": "Estas herramientas analizan si un proceso empieza a modificar miles de archivos por segundo, lo cual es un comportamiento típico del ransomware.",
+        "isCorrect": true
+      },
+      {
+        "text": "Para identificar si los empleados están perdiendo el tiempo en redes sociales.",
+        "rationale": "El objetivo de estas herramientas es la seguridad de los datos, no el control de productividad o el filtrado de navegación.",
+        "isCorrect": false
+      },
+      {
+        "text": "Para enviar un correo electrónico automático cada vez que se abre un archivo.",
+        "rationale": "La monitorización se basa en el análisis de grandes volúmenes de actividad sospechosa, no en notificar acciones legítimas individuales.",
+        "isCorrect": false
+      },
+      {
+        "text": "Para borrar los archivos que no han sido utilizados en más de un año.",
+        "rationale": "La monitorización de ransomware busca actividad maliciosa, no la gestión del ciclo de vida o purgado de datos inactivos.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considera la velocidad y el volumen de cambios que realiza un malware de secuestro de datos."
+  },
+  {
+    "guid": "91dbfeec-e1d2-4f20-9878-38db077bb6d2",
+    "subjectId": "T56",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "¿Cuál es la función del dígito '1' adicional en el modelo $3-2-1-1$?",
+    "answerOptions": [
+      {
+        "text": "Añadir una copia de seguridad inmutable o fuera de línea ($offline$).",
+        "rationale": "Este uno extra refuerza la seguridad contra ransomware al garantizar que al menos una copia sea totalmente inaccesible o inalterable.",
+        "isCorrect": true
+      },
+      {
+        "text": "Garantizar que solo haya un administrador con acceso a la clave de cifrado.",
+        "rationale": "La nomenclatura de estos modelos siempre se refiere a la distribución y naturaleza de las copias, no a la gestión de identidades.",
+        "isCorrect": false
+      },
+      {
+        "text": "Utilizar exactamente un servidor en la nube de un proveedor público.",
+        "rationale": "Aunque se use la nube, el modelo no limita la cantidad de proveedores, sino que define propiedades de las copias (inmutabilidad/aislamiento).",
+        "isCorrect": false
+      },
+      {
+        "text": "Realizar una sola copia completa al año para archivo histórico.",
+        "rationale": "El modelo se aplica a la estrategia de protección de datos activos y recientes, no a la política de archivado a largo plazo.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Se trata de un refuerzo específico contra la eliminación maliciosa de respaldos."
+  },
+  {
+    "guid": "578a8363-9f17-4f25-9e49-b0bd2c961202",
+    "subjectId": "T56",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "¿Qué técnica de protección contra ransomware es la más eficaz frente a la ingeniería social (phishing)?",
+    "answerOptions": [
+      {
+        "text": "Educación y formación del personal para reconocer ataques.",
+        "rationale": "Dado que el phishing explota el factor humano, la concienciación es la línea de defensa crítica para evitar que el malware entre en la red.",
+        "isCorrect": true
+      },
+      {
+        "text": "Aumentar la potencia del cortafuegos de la oficina.",
+        "rationale": "Los cortafuegos no pueden bloquear correos engañosos si el usuario decide voluntariamente hacer clic y proporcionar sus credenciales.",
+        "isCorrect": false
+      },
+      {
+        "text": "Cambiar todos los ordenadores por modelos más modernos.",
+        "rationale": "El hardware no protege contra el engaño humano; un atacante puede engañar a un usuario independientemente de la edad de su PC.",
+        "isCorrect": false
+      },
+      {
+        "text": "Realizar backups cada $5$ minutos de forma automática.",
+        "rationale": "Los backups ayudan a recuperarse del ataque, pero no evitan que el ataque suceda inicialmente a través de la ingeniería social.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "El eslabón más débil de la cadena de seguridad suele ser la persona."
+  },
+  {
+    "guid": "759d13bd-f9fa-4fd3-8733-d834de25541d",
+    "subjectId": "T56",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "¿Qué ventaja competitiva ofrece el sistema $Active-Active$ respecto al tiempo de recuperación ($RTO$)?",
+    "answerOptions": [
+      {
+        "text": "El tiempo de recuperación es prácticamente nulo ya que todos los sistemas están operativos.",
+        "rationale": "Al estar todos los nodos procesando peticiones, si uno falla, los demás simplemente continúan absorbiendo la carga sin interrupción del servicio.",
+        "isCorrect": true
+      },
+      {
+        "text": "Permite recuperar archivos borrados hace diez años de forma instantánea.",
+        "rationale": "La alta disponibilidad se centra en la continuidad del servicio actual, no en la retención histórica profunda (archivo).",
+        "isCorrect": false
+      },
+      {
+        "text": "Reduce el coste de las licencias de software al usar menos servidores.",
+        "rationale": "Al contrario, el modelo $Active-Active$ suele ser más costoso al requerir múltiples servidores potentes y licencias duplicadas u operativas.",
+        "isCorrect": false
+      },
+      {
+        "text": "Elimina la necesidad de realizar copias de seguridad incrementales.",
+        "rationale": "La alta disponibilidad no sustituye al backup; si se borra un dato por error, se borra en todos los sistemas activos a la vez.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piensa en lo que sucede con el servicio si un servidor explota en este modelo."
+  },
+  {
+    "guid": "0372ad22-a564-4059-97e0-2d2c16f7fda4",
+    "subjectId": "T56",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "¿Por qué las copias basadas únicamente en instantáneas ($snapshots$) pueden ser insuficientes frente a un ransomware avanzado?",
+    "answerOptions": [
+      {
+        "text": "Porque el ransomware puede permanecer latente y cifrar los datos antes de que se generen nuevos snapshots limpios.",
+        "rationale": "Además, algunos ransomware modernos están diseñados específicamente para localizar y eliminar los snapshots locales del sistema operativo.",
+        "isCorrect": true
+      },
+      {
+        "text": "Porque los snapshots ocupan el triple de espacio que el archivo original.",
+        "rationale": "Los snapshots suelen ser muy eficientes en espacio (basados en punteros), por lo que el espacio no es el riesgo de seguridad principal.",
+        "isCorrect": false
+      },
+      {
+        "text": "Porque solo funcionan si el ordenador está apagado.",
+        "rationale": "Los snapshots se realizan precisamente con el sistema en funcionamiento para capturar el estado de los datos en caliente.",
+        "isCorrect": false
+      },
+      {
+        "text": "Porque requieren de una conexión a internet de fibra óptica dedicada.",
+        "rationale": "Los snapshots son generalmente una función local del sistema de archivos o del almacenamiento, no dependen de la red externa.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considera la capacidad del malware para detectar herramientas de recuperación locales o esperar el momento oportuno."
+  }
+]

@@ -1,0 +1,932 @@
+[
+  {
+    "guid": "aceaa88b-a5b5-4dea-86cb-10e549a8f669",
+    "subjectId": "T60",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "¿Cuál es la distinción fundamental entre la redundancia y la planificación de continuidad de negocio según el material proporcionado?",
+    "answerOptions": [
+      {
+        "text": "La redundancia gestiona fallos parciales in situ, mientras que la continuidad cubre la indisponibilidad total o prolongada.",
+        "rationale": "La redundancia se enfoca en duplicar componentes para evitar puntos únicos de fallo locales, mientras que los planes de continuidad se activan ante desastres mayores que afectan a toda la instalación.",
+        "isCorrect": true
+      },
+      {
+        "text": "La redundancia se refiere exclusivamente al hardware, mientras que la continuidad se refiere a los procesos humanos.",
+        "rationale": "Aunque la redundancia es técnica, la continuidad de negocio también incluye infraestructuras alternativas como CPD secundarios o nubes híbridas.",
+        "isCorrect": false
+      },
+      {
+        "text": "La redundancia garantiza un RTO de cero, mientras que la continuidad no define tiempos de recuperación.",
+        "rationale": "La redundancia permite operatividad continua ante fallos de componentes, pero la continuidad de negocio sí requiere definir objetivos como RTO y RPO.",
+        "isCorrect": false
+      },
+      {
+        "text": "La redundancia es una medida lógica y la continuidad es una medida de protección física.",
+        "rationale": "Ambas estrategias integran aspectos físicos y lógicos para garantizar la disponibilidad del servicio.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en la escala del evento: un fallo de un disco frente a un incendio en todo el edificio."
+  },
+  {
+    "guid": "4fafc59e-72ac-4555-9ad8-e4019b7689ba",
+    "subjectId": "T60",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "En el estándar ANSI/TIA-942, ¿qué característica define específicamente a un CPD de nivel Tier III (Concurrently Maintainable)?",
+    "answerOptions": [
+      {
+        "text": "Capacidad de realizar mantenimientos planificados en cualquier componente sin interrumpir el servicio.",
+        "rationale": "El concepto de mantenimiento concurrente significa que cada componente crítico puede ser retirado para servicio sin afectar la carga informática.",
+        "isCorrect": true
+      },
+      {
+        "text": "Tolerancia total a fallos imprevistos en el peor de los casos mediante una arquitectura $2N$.",
+        "rationale": "La tolerancia total a fallos del peor escenario es una característica exclusiva del Tier IV.",
+        "isCorrect": false
+      },
+      {
+        "text": "Existencia de una única vía de distribución de aire y energía con componentes redundantes $N+1$.",
+        "rationale": "El Tier III requiere múltiples caminos de distribución, a diferencia del Tier II que solo tiene uno a pesar de tener componentes redundantes.",
+        "isCorrect": false
+      },
+      {
+        "text": "Garantía de disponibilidad superior al $99.995\\%$ anual.",
+        "rationale": "Ese porcentaje de disponibilidad corresponde al nivel Tier IV; el Tier III ofrece aproximadamente un $99.982\\%$.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considere qué sucede con las operaciones durante una parada técnica programada."
+  },
+  {
+    "guid": "77104509-695b-469f-8568-7b89ed1dac77",
+    "subjectId": "T60",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "¿Cuál es la principal ventaja técnica de implementar una arquitectura de red Top of Rack (ToR) frente a End of Row (EoR)?",
+    "answerOptions": [
+      {
+        "text": "Reducción drástica del cableado voluminoso entre racks y mayor escalabilidad individual.",
+        "rationale": "Al colocar el switch en el propio rack, solo se requieren cables cortos internos, facilitando la expansión rack por rack.",
+        "isCorrect": true
+      },
+      {
+        "text": "Reducción del número total de dispositivos de red a gestionar en el CPD.",
+        "rationale": "ToR en realidad aumenta el número de switches, ya que se requiere al menos uno (o dos por redundancia) por cada rack individual.",
+        "isCorrect": false
+      },
+      {
+        "text": "Menor consumo energético global debido a la centralización de la conmutación.",
+        "rationale": "La arquitectura ToR suele tener un mayor consumo eléctrico y coste de equipamiento al multiplicar el número de dispositivos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Eliminación de la necesidad de switches de agregación en la topología.",
+        "rationale": "Incluso en ToR, los switches de rack deben conectarse a switches de agregación o core para comunicarse con el resto del centro.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Fíjese en la longitud de los cables y la autonomía de cada armario."
+  },
+  {
+    "guid": "9d3025d2-6758-4295-95c7-23f08c5f1ffa",
+    "subjectId": "T60",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "Respecto a la sincronización temporal mediante NTP, ¿qué define a un servidor de 'Stratum 1'?",
+    "answerOptions": [
+      {
+        "text": "Dispositivos que están conectados directamente a una fuente de tiempo de referencia absoluta (Stratum 0).",
+        "rationale": "Los servidores Stratum 1 reciben la señal de relojes atómicos o GPS (Stratum 0) y actúan como fuente para la red.",
+        "isCorrect": true
+      },
+      {
+        "text": "Relojes atómicos y satélites GPS que generan la señal horaria original.",
+        "rationale": "Las fuentes originales de tiempo se clasifican como Stratum 0, no Stratum 1.",
+        "isCorrect": false
+      },
+      {
+        "text": "Clientes que se sincronizan a través de Internet con servidores públicos de Microsoft.",
+        "rationale": "Sincronizarse a través de Internet suele implicar niveles de Stratum más altos debido a los saltos de red.",
+        "isCorrect": false
+      },
+      {
+        "text": "Software de monitorización que valida la integridad de los logs sin sincronización activa.",
+        "rationale": "El protocolo NTP requiere una sincronización activa de los relojes del sistema, no solo una validación pasiva.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Es el primer eslabón que posee un servidor informático en la jerarquía de tiempo."
+  },
+  {
+    "guid": "36e97403-04cc-469f-a93d-1e024758a83f",
+    "subjectId": "T60",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "En el contexto de la eficiencia energética, ¿cómo se interpreta un valor de PUE (Power Usage Effectiveness) cercano a 1.0?",
+    "answerOptions": [
+      {
+        "text": "Indica una eficiencia máxima donde casi toda la energía consumida llega a los equipos informáticos.",
+        "rationale": "El PUE es la relación entre la energía total y la de IT; un valor de 1 significa que no hay gasto extra en refrigeración o iluminación.",
+        "isCorrect": true
+      },
+      {
+        "text": "Indica un fallo crítico en los sistemas de alimentación ininterrumpida (UPS).",
+        "rationale": "Un PUE de 1 no indica fallos, sino que la infraestructura de soporte es extremadamente eficiente o inexistente.",
+        "isCorrect": false
+      },
+      {
+        "text": "Representa que el CPD consume el doble de energía de la que necesitan los servidores.",
+        "rationale": "Consumir el doble de energía resultaría en un PUE de 2.0, no de 1.0.",
+        "isCorrect": false
+      },
+      {
+        "text": "Es el valor estándar para centros de datos de nivel Tier I con refrigeración básica.",
+        "rationale": "Los centros con infraestructuras menos optimizadas suelen tener valores de PUE significativamente superiores a 1.0.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Recuerde que este indicador es un cociente entre el consumo total y el consumo de IT."
+  },
+  {
+    "guid": "fd9dee33-ddaf-4720-b343-9d7c78bf1e0e",
+    "subjectId": "T60",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "¿Cuál es la función específica de un sistema DCIM (Data Center Infrastructure Management) en un CPD moderno?",
+    "answerOptions": [
+      {
+        "text": "Integrar la monitorización de los sistemas TI con la infraestructura física como energía y climatización.",
+        "rationale": "DCIM permite una visión unificada del estado de los servidores y de los componentes de soporte (UPS, HVAC) desde una sola consola.",
+        "isCorrect": true
+      },
+      {
+        "text": "Sustituir a los firewalls perimetrales mediante la gestión de identidades y accesos.",
+        "rationale": "DCIM se enfoca en la infraestructura física y operativa, no en la seguridad lógica de red como los firewalls.",
+        "isCorrect": false
+      },
+      {
+        "text": "Realizar copias de seguridad automáticas de los sistemas de almacenamiento NAS.",
+        "rationale": "La gestión de backups es una tarea de software de respaldo, no de la gestión de infraestructura física (DCIM).",
+        "isCorrect": false
+      },
+      {
+        "text": "Controlar el flujo de datos entre las máquinas virtuales y los contenedores Kubernetes.",
+        "rationale": "Esa es una función de los orquestadores de virtualización y red SDN, fuera del ámbito habitual del DCIM.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en una herramienta que une el mundo de los servidores con el de las instalaciones eléctricas y de clima."
+  },
+  {
+    "guid": "20d834ed-eb57-496c-9499-43279b4ffc5f",
+    "subjectId": "T60",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "¿Por qué es crítico mantener la humedad relativa entre el $40\\%$ y el $60\\%$ en un CPD?",
+    "answerOptions": [
+      {
+        "text": "Para evitar tanto la electricidad estática por aire seco como la condensación por exceso de humedad.",
+        "rationale": "La baja humedad genera descargas electrostáticas peligrosas para el hardware, mientras que la alta humedad provoca corrosión y cortocircuitos.",
+        "isCorrect": true
+      },
+      {
+        "text": "Para maximizar la propagación de las señales de radiofrecuencia de los sensores inalámbricos.",
+        "rationale": "La humedad afecta la conductividad y el estado físico de los componentes, no se ajusta para mejorar señales inalámbricas.",
+        "isCorrect": false
+      },
+      {
+        "text": "Para asegurar que el sistema de extinción por gas sea efectivo en caso de ignición.",
+        "rationale": "Los sistemas de gas dependen de la concentración del agente químico, no del nivel de humedad relativa de la sala.",
+        "isCorrect": false
+      },
+      {
+        "text": "Es un requisito exclusivo de los sistemas que utilizan refrigeración líquida directa.",
+        "rationale": "El control de humedad es necesario en cualquier CPD para proteger el hardware, use o no refrigeración líquida.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considere los riesgos de un aire demasiado seco o demasiado húmedo para la electrónica."
+  },
+  {
+    "guid": "868c2409-6faf-4e1c-ae15-a8ba64c5ff5c",
+    "subjectId": "T60",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "¿Cuál es la configuración de redundancia mínima requerida para los UPS en un CPD Tier IV según las normativas mencionadas?",
+    "answerOptions": [
+      {
+        "text": "$2N$ (Doble infraestructura completa e independiente).",
+        "rationale": "El Tier IV exige tolerancia a fallos total, lo que requiere dos sistemas activos e independientes alimentando los equipos.",
+        "isCorrect": true
+      },
+      {
+        "text": "$N+1$ (Un componente adicional por cada función crítica).",
+        "rationale": "La configuración $N+1$ es típica de un Tier III, donde se busca mantenibilidad pero no necesariamente tolerancia total a fallos críticos simultáneos.",
+        "isCorrect": false
+      },
+      {
+        "text": "$N$ (Capacidad básica sin redundancia).",
+        "rationale": "El nivel $N$ corresponde al Tier I, donde cualquier fallo o mantenimiento provoca una caída del servicio.",
+        "isCorrect": false
+      },
+      {
+        "text": "$2N+1$ (Doble redundancia de caminos pero solo un sistema UPS).",
+        "rationale": "El Tier IV requiere obligatoriamente que la infraestructura de energía esté totalmente duplicada, no solo los caminos.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Es el nivel más alto de redundancia posible para garantizar un $99.995\\%$ de disponibilidad."
+  },
+  {
+    "guid": "39d99979-5fb6-4268-be0d-0b9a30ae0913",
+    "subjectId": "T60",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "Dentro de la seguridad lógica, ¿qué función cumple un sistema IDS/IPS en el perímetro de un CPD?",
+    "answerOptions": [
+      {
+        "text": "Monitorizar el tráfico de red para detectar y bloquear intentos de acceso no autorizados o ataques.",
+        "rationale": "Los IDS/IPS analizan patrones de tráfico sospechosos para prevenir intrusiones en tiempo real.",
+        "isCorrect": true
+      },
+      {
+        "text": "Gestionar los privilegios de los usuarios internos siguiendo el principio de mínimo privilegio.",
+        "rationale": "Esa función corresponde a los sistemas IAM (Identity and Access Management).",
+        "isCorrect": false
+      },
+      {
+        "text": "Cifrar las bases de datos sensibles para evitar su lectura en caso de robo físico de los discos.",
+        "rationale": "El cifrado de datos en reposo es una medida de protección de datos, distinta de la detección de intrusiones en red.",
+        "isCorrect": false
+      },
+      {
+        "text": "Sincronizar los logs de los servidores con el servidor NTP central.",
+        "rationale": "Aunque usa los logs para analizar ataques, su función no es la sincronización temporal.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en un vigilante que no solo observa el tráfico (detección), sino que puede cerrar la puerta (prevención)."
+  },
+  {
+    "guid": "5ee48528-38a8-4bb5-b78a-33553df50335",
+    "subjectId": "T60",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "¿Qué tecnología permite que un solo servidor físico ejecute múltiples instancias lógicas de servidores, optimizando el espacio y consumo del CPD?",
+    "answerOptions": [
+      {
+        "text": "Virtualización y contenedores.",
+        "rationale": "Estas tecnologías abstraen el hardware, permitiendo consolidar múltiples cargas de trabajo en menos máquinas físicas.",
+        "isCorrect": true
+      },
+      {
+        "text": "Software Defined Storage (SDS).",
+        "rationale": "SDS se encarga de la gestión lógica del almacenamiento, no de la ejecución de múltiples servidores en una CPU.",
+        "isCorrect": false
+      },
+      {
+        "text": "Clústeres en modo espejo (Mirroring).",
+        "rationale": "El mirroring se usa para redundancia y disponibilidad, pero no necesariamente implica ejecutar múltiples servidores lógicos en uno físico.",
+        "isCorrect": false
+      },
+      {
+        "text": "Arquitectura Middle of Row (MoR).",
+        "rationale": "MoR es una topología de cableado de red, no una tecnología de ejecución de software.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Es el concepto clave que ha reducido el número de máquinas físicas necesarias en los últimos años."
+  },
+  {
+    "guid": "742194d8-3ac0-4000-b144-9bbab45eba5b",
+    "subjectId": "T60",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "En caso de un incendio, ¿cuál es el beneficio principal de usar sistemas de extinción por gas en lugar de agua en la sala de racks?",
+    "answerOptions": [
+      {
+        "text": "Extinguen el fuego sin causar daños colaterales a los componentes electrónicos sensibles.",
+        "rationale": "A diferencia del agua, los gases inertes o químicos no son conductores ni dejan residuos que estropeen el hardware.",
+        "isCorrect": true
+      },
+      {
+        "text": "Permiten reducir la temperatura de la sala a niveles bajo cero de forma instantánea.",
+        "rationale": "Su función principal es desplazar el oxígeno o romper la reacción química del fuego, no actuar como refrigerante extremo.",
+        "isCorrect": false
+      },
+      {
+        "text": "Son obligatorios por la normativa ISO 9001 para cualquier oficina técnica.",
+        "rationale": "La ISO 9001 es de gestión de calidad; la protección contra incendios en CPD se rige por normas específicas de seguridad física.",
+        "isCorrect": false
+      },
+      {
+        "text": "Eliminan la necesidad de contar con muros y puertas cortafuegos.",
+        "rationale": "La extinción es una medida activa que complementa a las medidas pasivas (muros), no las sustituye.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considere la conductividad eléctrica y la limpieza tras la activación del sistema."
+  },
+  {
+    "guid": "d96cf769-97aa-4676-b01c-782b532d1f78",
+    "subjectId": "T60",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "¿Qué componente de la infraestructura eléctrica cubre el breve intervalo entre el fallo de la red principal y el arranque del generador de reserva?",
+    "answerOptions": [
+      {
+        "text": "SAI / UPS (Sistema de Alimentación Ininterrumpida).",
+        "rationale": "Las baterías del UPS proporcionan energía inmediata y estabilizada mientras los motores del generador alcanzan su régimen de trabajo.",
+        "isCorrect": true
+      },
+      {
+        "text": "Transformador de aislamiento propio.",
+        "rationale": "El transformador adapta el voltaje de la red, pero no almacena energía para suplir cortes de suministro.",
+        "isCorrect": false
+      },
+      {
+        "text": "PDU inteligente (Power Distribution Unit).",
+        "rationale": "La PDU distribuye la energía a nivel de rack, pero no genera ni almacena electricidad por sí misma.",
+        "isCorrect": false
+      },
+      {
+        "text": "Interruptor de transferencia automática (ATS).",
+        "rationale": "El ATS conmuta la fuente de energía, pero sin un UPS el sistema sufriría un micro-corte durante la conmutación.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Busque el elemento basado en baterías que garantiza que no haya ni un milisegundo sin luz."
+  },
+  {
+    "guid": "4b399ec0-0277-45ba-8f4e-e0664464cbd4",
+    "subjectId": "T60",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "¿Cuál es la disposición recomendada de racks para optimizar el flujo de aire y evitar que el aire caliente de un servidor sea absorbido por otro?",
+    "answerOptions": [
+      {
+        "text": "Configuración de pasillos fríos y pasillos calientes.",
+        "rationale": "Orientar los frontales de los racks cara a cara crea pasillos de aire frío, separándolos de las traseras donde se expulsa el calor.",
+        "isCorrect": true
+      },
+      {
+        "text": "Colocación de todos los racks orientados hacia la misma pared norte.",
+        "rationale": "Esta disposición haría que el aire caliente expulsado por una fila fuera succionado por la entrada de la fila siguiente.",
+        "isCorrect": false
+      },
+      {
+        "text": "Uso exclusivo de suelo técnico sin ventilación forzada.",
+        "rationale": "El suelo técnico es un medio para canalizar el aire, pero la eficiencia depende de la orientación de los racks.",
+        "isCorrect": false
+      },
+      {
+        "text": "Distribución circular alrededor de la unidad de CRAC central.",
+        "rationale": "Aunque parece lógico, la distribución en filas (pasillos) es mucho más eficiente para el confinamiento y la canalización del aire.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en cómo se enfrentan las entradas y salidas de aire de las máquinas."
+  },
+  {
+    "guid": "303a26b3-f517-4d36-bdf6-fecb2e19d216",
+    "subjectId": "T60",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "En la jerarquía de almacenamiento de un CPD, ¿qué caracteriza a un sistema NAS (Network Attached Storage)?",
+    "answerOptions": [
+      {
+        "text": "Dispositivos que proporcionan almacenamiento de archivos a través de la red mediante protocolos como CIFS o NFS.",
+        "rationale": "El NAS es un servidor de ficheros dedicado que se conecta a la red IP estándar para compartir carpetas.",
+        "isCorrect": true
+      },
+      {
+        "text": "Una red de alta velocidad dedicada exclusivamente a conectar servidores y cabinas de discos mediante fibra.",
+        "rationale": "Esa descripción corresponde a una SAN (Storage Area Network), que opera a nivel de bloques, no de archivos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Un sistema de discos internos dentro de cada servidor físico gestionados por hardware local.",
+        "rationale": "El almacenamiento local o DAS (Direct Attached Storage) es lo opuesto a un sistema de red como el NAS.",
+        "isCorrect": false
+      },
+      {
+        "text": "Software que balancea la carga de procesamiento entre diferentes CPUs de la granja.",
+        "rationale": "El NAS es una solución de almacenamiento, no un balanceador de carga de computación.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Sus siglas indican que es almacenamiento 'adjunto a la red'."
+  },
+  {
+    "guid": "a21ff782-c071-4b2d-a1b1-1c0ac8d96a79",
+    "subjectId": "T60",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "¿Qué requisito de seguridad física exige el Esquema Nacional de Seguridad (ENS) para la ubicación del equipamiento en un CPD?",
+    "answerOptions": [
+      {
+        "text": "Situar el equipamiento en zonas específicas y restringidas exclusivamente para ese uso.",
+        "rationale": "El ENS busca minimizar riesgos limitando el acceso físico solo a personal autorizado en áreas dedicadas.",
+        "isCorrect": true
+      },
+      {
+        "text": "Garantizar que el CPD sea visible desde la vía pública para facilitar la vigilancia policial.",
+        "rationale": "Por el contrario, la discreción y el ocultamiento de la ubicación exacta suelen ser preferibles en seguridad física.",
+        "isCorrect": false
+      },
+      {
+        "text": "Permitir el acceso libre a cualquier empleado de la organización para auditorías internas.",
+        "rationale": "El acceso debe ser estrictamente controlado y registrado, nunca libre para todo el personal.",
+        "isCorrect": false
+      },
+      {
+        "text": "Ubicar el CPD obligatoriamente en plantas sótano para protegerlo de radiaciones.",
+        "rationale": "Las plantas sótano presentan riesgos de inundación; a menudo se prefieren plantas elevadas por seguridad ambiental.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Se trata de limitar quién puede estar cerca del hardware crítico."
+  },
+  {
+    "guid": "d800b63e-a885-4add-92ca-65599969bb8a",
+    "subjectId": "T60",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "Según el material, ¿qué significa que una arquitectura sea 'Concurrentemente Mantenible'?",
+    "answerOptions": [
+      {
+        "text": "Que se pueden reparar o reemplazar componentes sin necesidad de apagar los sistemas de TI.",
+        "rationale": "Esta es la característica clave del Tier III, permitiendo la continuidad operativa durante las labores de mantenimiento.",
+        "isCorrect": true
+      },
+      {
+        "text": "Que varios técnicos pueden trabajar al mismo tiempo en diferentes secciones del CPD.",
+        "rationale": "El término se refiere a la capacidad técnica de la infraestructura para mantenerse operativa, no a la cantidad de técnicos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Que el sistema operativo puede realizar actualizaciones de seguridad de forma automática.",
+        "rationale": "El mantenimiento concurrente se refiere a la infraestructura física (clima, energía), no a las actualizaciones de software.",
+        "isCorrect": false
+      },
+      {
+        "text": "Que los servidores están configurados en un clúster de alta disponibilidad activo-activo.",
+        "rationale": "Aunque ayuda, el mantenimiento concurrente es un concepto de diseño de la infraestructura del edificio (Tier III).",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Enfoque su respuesta en la capacidad de realizar reparaciones sin 'caídas' de servicio."
+  },
+  {
+    "guid": "3fdc80e0-15c2-4596-b360-77121fc9101d",
+    "subjectId": "T60",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "¿Qué nivel de Tier se asocia típicamente con una disponibilidad del $99.741\\%$ y componentes redundantes pero un solo camino de distribución?",
+    "answerOptions": [
+      {
+        "text": "Tier II",
+        "rationale": "El Tier II introduce redundancia en componentes ($N+1$) pero carece de la redundancia de caminos de distribución del Tier III.",
+        "isCorrect": true
+      },
+      {
+        "text": "Tier I",
+        "rationale": "El Tier I no tiene redundancia de componentes y su disponibilidad es menor (aprox. $99.671\\%$).",
+        "isCorrect": false
+      },
+      {
+        "text": "Tier III",
+        "rationale": "El Tier III requiere múltiples caminos de distribución activos y una disponibilidad superior ($99.982\\%$).",
+        "isCorrect": false
+      },
+      {
+        "text": "Tier IV",
+        "rationale": "El Tier IV es tolerante a fallos y tiene la disponibilidad más alta ($99.995\\%$).",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Es el segundo escalón en la clasificación de disponibilidad de centros de datos."
+  },
+  {
+    "guid": "a85b7f11-862a-4e39-b0d8-7b0571e90b55",
+    "subjectId": "T60",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "¿Cuál es la función del protocolo NTP en la gestión de registros (logs) de seguridad?",
+    "answerOptions": [
+      {
+        "text": "Garantizar que todos los eventos tengan una marca de tiempo coherente para facilitar auditorías e investigaciones.",
+        "rationale": "Sin una base de tiempo común, sería imposible reconstruir la secuencia de un ataque que afecta a varios servidores.",
+        "isCorrect": true
+      },
+      {
+        "text": "Cifrar el contenido de los logs para que no puedan ser alterados por un atacante.",
+        "rationale": "NTP solo se ocupa de la hora; la integridad y el cifrado de logs dependen de otras herramientas de seguridad.",
+        "isCorrect": false
+      },
+      {
+        "text": "Eliminar automáticamente los logs antiguos para ahorrar espacio en disco.",
+        "rationale": "La rotación de logs es una tarea de administración de sistemas, no del protocolo de tiempo NTP.",
+        "isCorrect": false
+      },
+      {
+        "text": "Enviar alertas en tiempo real al sistema SIEM cuando se detecta una anomalía horaria.",
+        "rationale": "NTP mantiene el reloj en hora; es el SIEM o el monitor el que genera la alerta si hay una desviación crítica.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Imagine intentar resolver un crimen si los relojes de cada habitación marcan una hora distinta."
+  },
+  {
+    "guid": "4df888b4-485e-4890-b2b0-3ff48f451b23",
+    "subjectId": "T60",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "¿En qué consiste la técnica de 'Free-cooling' empleada en CPDs avanzados?",
+    "answerOptions": [
+      {
+        "text": "En aprovechar el aire exterior frío para refrigerar los equipos, reduciendo el uso de compresores.",
+        "rationale": "Esta técnica es una medida de sostenibilidad que ahorra mucha energía cuando las condiciones climáticas externas son favorables.",
+        "isCorrect": true
+      },
+      {
+        "text": "En permitir que los servidores funcionen sin ningún sistema de climatización activo.",
+        "rationale": "El free-cooling es un sistema de climatización activo que usa filtros y ventiladores, no es la ausencia de refrigeración.",
+        "isCorrect": false
+      },
+      {
+        "text": "En distribuir gratuitamente el exceso de calor del CPD a edificios de oficinas cercanos.",
+        "rationale": "Eso sería recuperación de calor, no free-cooling (que busca enfriar el CPD).",
+        "isCorrect": false
+      },
+      {
+        "text": "En apagar los servidores menos utilizados durante las horas nocturnas.",
+        "rationale": "Eso es gestión de energía o consolidación, no tiene relación directa con la técnica de refrigeración free-cooling.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Es una forma 'verde' de enfriar usando el clima natural."
+  },
+  {
+    "guid": "44f0a2f7-f14f-4233-902f-1e25d3805441",
+    "subjectId": "T60",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "¿Cuál es la principal desventaja de la arquitectura End of Row (EoR) comparada con Top of Rack (ToR)?",
+    "answerOptions": [
+      {
+        "text": "Requiere un cableado mucho más largo, voluminoso y difícil de gestionar entre racks.",
+        "rationale": "En EoR, todos los servidores de la fila deben tirar cables hasta el final de la misma, saturando las canalizaciones.",
+        "isCorrect": true
+      },
+      {
+        "text": "Aumenta significativamente el número de switches necesarios por cada fila.",
+        "rationale": "Al contrario, EoR suele usar menos switches centralizados, lo que reduce el coste de hardware.",
+        "isCorrect": false
+      },
+      {
+        "text": "Dificulta la implementación de redes de alta velocidad por encima de $1$ Gbps.",
+        "rationale": "EoR puede soportar altas velocidades, pero la longitud y calidad de los cables se vuelven factores críticos y costosos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Impide el uso de servidores virtuales en los racks intermedios.",
+        "rationale": "La topología de red física no condiciona la posibilidad de virtualización de los servidores.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en la maraña de cables que se genera si todos los servidores van a un solo punto lejano."
+  },
+  {
+    "guid": "0c0cfbba-961d-4468-969f-9b37ff8ad8cc",
+    "subjectId": "T60",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "¿Qué objetivo persigue el uso de 'suelo técnico elevado' en un CPD?",
+    "answerOptions": [
+      {
+        "text": "Crear una cámara plenum para la distribución eficiente del aire frío y ocultar el cableado.",
+        "rationale": "El espacio bajo el suelo permite que el aire frío del CRAC llegue a las rejillas frente a los racks de forma ordenada.",
+        "isCorrect": true
+      },
+      {
+        "text": "Servir como aislante total contra terremotos y movimientos sísmicos.",
+        "rationale": "Aunque existen suelos antisísmicos, el suelo técnico estándar se usa principalmente para gestión de aire y cables.",
+        "isCorrect": false
+      },
+      {
+        "text": "Evitar que los técnicos toquen accidentalmente los cables de datos.",
+        "rationale": "Aunque los oculta, su propósito principal es infraestructural (clima/canalización), no solo de seguridad laboral.",
+        "isCorrect": false
+      },
+      {
+        "text": "Sustituir la necesidad de sistemas de detección de inundaciones.",
+        "rationale": "Al contrario, bajo el suelo técnico es donde es más necesario colocar sensores de agua debido a las tuberías de clima.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Es ese espacio 'falso' por el que pasan tubos y cables."
+  },
+  {
+    "guid": "437b1f98-16fe-4abc-be85-1dc715dc680d",
+    "subjectId": "T60",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "¿Qué diferencia fundamental hay entre un CPD Tier IV y un Tier III en cuanto a la respuesta ante incidentes graves imprevistos?",
+    "answerOptions": [
+      {
+        "text": "El Tier IV es tolerante a fallos y mantiene la carga ante un evento crítico, el Tier III solo garantiza mantenibilidad planificada.",
+        "rationale": "Un Tier III puede caer si ocurre un fallo accidental grave mientras otro componente está en mantenimiento; el Tier IV no.",
+        "isCorrect": true
+      },
+      {
+        "text": "El Tier IV no requiere generadores de combustible fósil, el Tier III sí.",
+        "rationale": "Ambos suelen requerir generadores para garantizar la autonomía ante cortes de red eléctrica prolongados.",
+        "isCorrect": false
+      },
+      {
+        "text": "El Tier IV es el único que exige el cumplimiento del Esquema Nacional de Seguridad (ENS).",
+        "rationale": "Cualquier CPD que gestione datos públicos debe cumplir el ENS, independientemente de su nivel Tier.",
+        "isCorrect": false
+      },
+      {
+        "text": "El Tier IV automatiza los backups, mientras que en Tier III son manuales.",
+        "rationale": "La gestión de backups es un proceso lógico independiente del nivel Tier de la infraestructura física del edificio.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "La palabra clave es 'tolerancia a fallos' frente a 'mantenibilidad'."
+  },
+  {
+    "guid": "653d4c76-b6d0-44fc-a79f-fa03c7f8df79",
+    "subjectId": "T60",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "¿Cuál es la función principal de un balanceador de carga en un CPD?",
+    "answerOptions": [
+      {
+        "text": "Distribuir las peticiones entrantes entre varios servidores para evitar la saturación y mejorar la disponibilidad.",
+        "rationale": "Permite que un grupo de servidores actúe como una única entidad, optimizando el uso de recursos.",
+        "isCorrect": true
+      },
+      {
+        "text": "Asegurar que el consumo eléctrico se distribuya equitativamente entre las dos fuentes de alimentación del rack.",
+        "rationale": "Esa es una función de las fuentes redundantes y las PDUs, no del balanceador de carga de red/aplicación.",
+        "isCorrect": false
+      },
+      {
+        "text": "Sincronizar el contenido de las bases de datos entre el CPD principal y el de backup.",
+        "rationale": "La sincronización de datos es tarea de los sistemas de replicación de almacenamiento o base de datos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Medir el peso físico de los servidores para no exceder la carga máxima del suelo técnico.",
+        "rationale": "Esto es un control estructural de ingeniería civil, totalmente ajeno al concepto de balanceo de carga informática.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en cómo gestionar miles de visitas a una web usando diez servidores iguales."
+  },
+  {
+    "guid": "65249abe-3a4e-4138-a3c3-3b6eca155fb4",
+    "subjectId": "T60",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "En relación con los sistemas de almacenamiento, ¿qué ventaja aporta la tecnología RAID en un CPD?",
+    "answerOptions": [
+      {
+        "text": "Permite que el sistema siga funcionando sin pérdida de datos aunque falle uno o más discos físicos.",
+        "rationale": "RAID utiliza redundancia y paridad para proteger la información ante fallos de hardware individuales.",
+        "isCorrect": true
+      },
+      {
+        "text": "Comprime los datos automáticamente para doblar la capacidad física del almacenamiento.",
+        "rationale": "Aunque algunos sistemas RAID incluyen compresión, su objetivo principal es la disponibilidad y el rendimiento, no la compresión.",
+        "isCorrect": false
+      },
+      {
+        "text": "Sustituye la necesidad de realizar copias de seguridad externas (backups).",
+        "rationale": "RAID protege contra fallos de disco, pero no contra borrados accidentales, malware o desastres del CPD; el backup sigue siendo vital.",
+        "isCorrect": false
+      },
+      {
+        "text": "Cifra los datos del disco para cumplir con la normativa GDPR.",
+        "rationale": "El cifrado es una función de seguridad lógica que puede aplicarse sobre un RAID, pero no es la definición de RAID.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Es una medida de redundancia interna para los datos en reposo."
+  },
+  {
+    "guid": "f076cf37-b1cf-4e02-b529-12bb85e4de41",
+    "subjectId": "T60",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "¿Qué describe mejor la arquitectura de red 'Middle of Row' (MoR)?",
+    "answerOptions": [
+      {
+        "text": "Los switches se ubican en la parte central de la fila, equilibrando la longitud de cables y el coste.",
+        "rationale": "Es un punto medio entre ToR y EoR, buscando reducir el volumen de cables sin poner un switch en cada rack.",
+        "isCorrect": true
+      },
+      {
+        "text": "Los servidores críticos se sitúan en el centro de la fila para estar más protegidos.",
+        "rationale": "MoR se refiere a la ubicación de los equipos de red (switches), no a la prioridad física de los servidores.",
+        "isCorrect": false
+      },
+      {
+        "text": "La red utiliza una topología en anillo donde el switch central es el nodo maestro.",
+        "rationale": "MoR describe la ubicación física del cableado, pero la topología lógica suele seguir siendo de estrella o malla.",
+        "isCorrect": false
+      },
+      {
+        "text": "Es una arquitectura que solo se utiliza en CPDs de escala 'Cloud' como Azure.",
+        "rationale": "MoR puede usarse en cualquier CPD de tamaño medio o grande que busque optimizar su infraestructura de red.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Busque un compromiso entre tener switches en todas partes y tenerlos solo al final."
+  },
+  {
+    "guid": "13ce4b85-cd16-44da-86c9-57e4198e97c4",
+    "subjectId": "T60",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "¿Qué protocolo se utiliza habitualmente para que los servidores de un dominio Active Directory se autentiquen y sincronicen de forma segura?",
+    "answerOptions": [
+      {
+        "text": "Kerberos y LDAP.",
+        "rationale": "Kerberos gestiona la autenticación segura y LDAP el acceso al servicio de directorio de objetos.",
+        "isCorrect": true
+      },
+      {
+        "text": "FTP y SMTP.",
+        "rationale": "Estos protocolos son para transferencia de archivos y correo electrónico, no para servicios de directorio.",
+        "isCorrect": false
+      },
+      {
+        "text": "SNMP y ICMP.",
+        "rationale": "Se utilizan para monitorización y diagnóstico de red, no para autenticación de usuarios en un dominio.",
+        "isCorrect": false
+      },
+      {
+        "text": "NTP y PUE.",
+        "rationale": "NTP es para tiempo y PUE es un indicador de eficiencia, no protocolos de autenticación de Active Directory.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en los protocolos estándar para servicios de directorio y tickets de seguridad."
+  },
+  {
+    "guid": "a4441092-bc30-4673-8db2-1bfd7ac581d0",
+    "subjectId": "T60",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "Dentro de un plan de Recuperación de Desastres (DR), ¿qué representa el parámetro RPO (Recovery Point Objective)?",
+    "answerOptions": [
+      {
+        "text": "La cantidad máxima de pérdida de datos aceptable medida en tiempo desde el último backup.",
+        "rationale": "Si el RPO es de 1 hora, significa que en caso de desastre no podemos permitirnos perder más de 1 hora de trabajo.",
+        "isCorrect": true
+      },
+      {
+        "text": "El tiempo total que los técnicos tardan en restaurar los servicios tras una caída.",
+        "rationale": "El tiempo de restauración se denomina RTO (Recovery Time Objective).",
+        "isCorrect": false
+      },
+      {
+        "text": "El punto físico exacto donde se ubican las cintas de backup fuera del recinto.",
+        "rationale": "El RPO es una métrica de tiempo y pérdida de datos, no una ubicación física.",
+        "isCorrect": false
+      },
+      {
+        "text": "El coste económico total derivado de la interrupción del servicio.",
+        "rationale": "El RPO es un objetivo técnico y operativo, aunque influye en el impacto económico del desastre.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Se refiere a 'cuánta información' (en términos de tiempo) estamos dispuestos a perder."
+  },
+  {
+    "guid": "8cc5a17d-2192-49ad-b4cf-ae647ccc264f",
+    "subjectId": "T60",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "¿Qué función cumple una PDU (Power Distribution Unit) inteligente dentro de un rack de servidores?",
+    "answerOptions": [
+      {
+        "text": "Distribuir energía a los equipos y permitir la monitorización remota del consumo por toma.",
+        "rationale": "Las PDUs inteligentes ofrecen visibilidad y control sobre el consumo eléctrico de cada servidor individualmente.",
+        "isCorrect": true
+      },
+      {
+        "text": "Transformar la corriente continua de las baterías del UPS en corriente alterna para el servidor.",
+        "rationale": "Esa es la función del inversor dentro del sistema UPS, no de la regleta de distribución (PDU).",
+        "isCorrect": false
+      },
+      {
+        "text": "Actuar como un pararrayos para proteger el rack de picos de tensión externos.",
+        "rationale": "Aunque pueden tener protecciones básicas, la defensa contra picos externos se gestiona en los cuadros eléctricos principales.",
+        "isCorrect": false
+      },
+      {
+        "text": "Cifrar las comunicaciones de gestión para que nadie pueda apagar los servidores por red.",
+        "rationale": "Aunque las PDUs inteligentes usan protocolos seguros, su función principal es la distribución y medida de energía.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Es algo más que una simple regleta de enchufes para el CPD."
+  },
+  {
+    "guid": "f1cbb2e0-e300-477a-b922-b7bb46829c5f",
+    "subjectId": "T60",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "En la seguridad física, ¿qué se entiende por 'capas o zonas de seguridad'?",
+    "answerOptions": [
+      {
+        "text": "El establecimiento de perímetros sucesivos donde el control de acceso es cada vez más estricto.",
+        "rationale": "Se empieza por el exterior del edificio y se avanza hacia la sala de servidores y, finalmente, el interior de los racks.",
+        "isCorrect": true
+      },
+      {
+        "text": "La segmentación de la red local en diferentes VLANs según el departamento.",
+        "rationale": "Eso es segmentación lógica de red, no una medida de seguridad física de la instalación.",
+        "isCorrect": false
+      },
+      {
+        "text": "La separación física entre los cables de fibra óptica y los cables de cobre.",
+        "rationale": "Esta es una práctica de gestión de cableado para evitar interferencias, pero no define las zonas de seguridad perimetral.",
+        "isCorrect": false
+      },
+      {
+        "text": "El uso de diferentes uniformes para el personal de mantenimiento y el de seguridad.",
+        "rationale": "La seguridad física se basa en barreras, controles y vigilancia, no en la vestimenta del personal.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Imagine un sistema de círculos concéntricos para llegar al corazón del dato."
+  },
+  {
+    "guid": "0cba9844-5853-46ab-bb9f-ac2c446f3214",
+    "subjectId": "T60",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "¿Cuál es la principal ventaja de utilizar contenedores (como Docker) frente a máquinas virtuales tradicionales en un CPD?",
+    "answerOptions": [
+      {
+        "text": "Mayor ligereza y eficiencia al compartir el núcleo del sistema operativo del host.",
+        "rationale": "Los contenedores consumen menos recursos que las máquinas virtuales, permitiendo una mayor densidad de servicios por servidor.",
+        "isCorrect": true
+      },
+      {
+        "text": "Garantizan un aislamiento físico total entre los diferentes clientes de hardware.",
+        "rationale": "Las máquinas virtuales suelen ofrecer un aislamiento más fuerte (hipervisor); los contenedores comparten el mismo kernel.",
+        "isCorrect": false
+      },
+      {
+        "text": "No requieren conexión a la red para funcionar, lo que mejora la seguridad.",
+        "rationale": "Ambas tecnologías necesitan red para prestar servicios; el aislamiento de red se gestiona por otros medios.",
+        "isCorrect": false
+      },
+      {
+        "text": "Son la única tecnología compatible con arquitecturas de red End of Row (EoR).",
+        "rationale": "La tecnología de virtualización es independiente de la topología física de red elegida.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en qué tecnología 'pesa' menos para el procesador y la memoria."
+  }
+]

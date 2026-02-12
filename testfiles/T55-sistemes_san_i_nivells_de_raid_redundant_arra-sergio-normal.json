@@ -1,0 +1,808 @@
+[
+  {
+    "guid": "caca89b9-6fab-4017-ab6a-0e5bf8d93e39",
+    "subjectId": "T55",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "¿Cuál es la principal diferencia entre un sistema DAS y un sistema SAN?",
+    "answerOptions": [
+      {
+        "text": "DAS conecta discos directamente al servidor, mientras que SAN utiliza una red especializada.",
+        "rationale": "El almacenamiento DAS (Direct Attached Storage) no se comparte a través de una red, a diferencia de la SAN (Storage Area Network).",
+        "isCorrect": true
+      },
+      {
+        "text": "SAN es más lenta que DAS debido a la latencia de la red local (LAN).",
+        "rationale": "La SAN utiliza redes de alta velocidad y baja latencia, a menudo independientes de la LAN corporativa.",
+        "isCorrect": false
+      },
+      {
+        "text": "DAS solo utiliza discos SSD y SAN solo utiliza discos HDD.",
+        "rationale": "Ambas arquitecturas pueden utilizar diversos tipos de medios físicos como HDD, SSD o NVMe.",
+        "isCorrect": false
+      },
+      {
+        "text": "NAS y DAS son lo mismo bajo diferentes nombres comerciales.",
+        "rationale": "NAS se orienta al acceso a archivos por red, mientras que DAS es conexión directa por bus de host.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piensa en el significado de las siglas 'Direct Attached' frente a 'Area Network'."
+  },
+  {
+    "guid": "ff7a4364-d9e9-460d-a346-1d9ca7b23670",
+    "subjectId": "T55",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "¿A qué nivel de acceso de datos opera una red SAN?",
+    "answerOptions": [
+      {
+        "text": "Nivel de archivos.",
+        "rationale": "El acceso a nivel de archivos es característico de los sistemas NAS mediante protocolos como SMB o NFS.",
+        "isCorrect": false
+      },
+      {
+        "text": "Nivel de bloques.",
+        "rationale": "Una SAN permite que el servidor vea los volúmenes remotos como si fueran discos locales crudos, gestionando él mismo el sistema de archivos.",
+        "isCorrect": true
+      },
+      {
+        "text": "Nivel de aplicación.",
+        "rationale": "El nivel de aplicación se refiere al software de usuario, no al método de transferencia de datos de almacenamiento.",
+        "isCorrect": false
+      },
+      {
+        "text": "Nivel de base de datos únicamente.",
+        "rationale": "Aunque las bases de datos se benefician de la SAN, esta opera a un nivel de infraestructura inferior al de la base de datos.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "El servidor ve una LUN como un disco crudo donde él crea su propio sistema de ficheros."
+  },
+  {
+    "guid": "370f009e-e57b-4ef8-b295-667aa4e9592d",
+    "subjectId": "T55",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "En una tarjeta HBA, ¿qué identifica específicamente a cada puerto físico?",
+    "answerOptions": [
+      {
+        "text": "WWNN (World Wide Node Name).",
+        "rationale": "El WWNN identifica al nodo o dispositivo completo, no a cada puerto individual.",
+        "isCorrect": false
+      },
+      {
+        "text": "WWPN (World Wide Port Name).",
+        "rationale": "Cada puerto físico de una HBA dispone de un identificador único llamado WWPN, esencial para la zonificación.",
+        "isCorrect": true
+      },
+      {
+        "text": "La dirección IP estática.",
+        "rationale": "Las direcciones IP se usan en iSCSI, pero Fibre Channel utiliza identificadores mundiales (WWN).",
+        "isCorrect": false
+      },
+      {
+        "text": "El número de serie del disco.",
+        "rationale": "El número de serie identifica al medio de almacenamiento físico, no al puerto de la tarjeta controladora del servidor.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Sus siglas contienen la palabra 'Port' para diferenciarlo del identificador de nodo."
+  },
+  {
+    "guid": "26147fbc-1cd4-410e-a5c9-6d2b0499da5a",
+    "subjectId": "T55",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "¿Qué protocolo SAN encapsula comandos SCSI dentro de paquetes TCP/IP?",
+    "answerOptions": [
+      {
+        "text": "Fibre Channel (FC).",
+        "rationale": "Fibre Channel es un protocolo de red dedicado que no utiliza TCP/IP por defecto.",
+        "isCorrect": false
+      },
+      {
+        "text": "iSCSI.",
+        "rationale": "iSCSI permite crear redes de almacenamiento utilizando la infraestructura Ethernet estándar al encapsular comandos SCSI en TCP/IP.",
+        "isCorrect": true
+      },
+      {
+        "text": "InfiniBand.",
+        "rationale": "InfiniBand es una arquitectura de red distinta orientada a muy alta velocidad y baja latencia, no basada en TCP/IP estándar.",
+        "isCorrect": false
+      },
+      {
+        "text": "SMB/CIFS.",
+        "rationale": "Estos son protocolos de nivel de archivo usados en NAS, no para acceso a bloques en SAN.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Este protocolo es más económico porque aprovecha los switches Ethernet comunes."
+  },
+  {
+    "guid": "7a6464d8-2318-4b74-951f-970f98c20768",
+    "subjectId": "T55",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "¿Cuál es la función principal del mecanismo de 'Zoning' en un switch Fibre Channel?",
+    "answerOptions": [
+      {
+        "text": "Controlar qué servidores pueden comunicarse con qué cabinas.",
+        "rationale": "El zoning segmenta la SAN para evitar accesos no deseados y mejorar la seguridad entre nodos.",
+        "isCorrect": true
+      },
+      {
+        "text": "Aumentar la velocidad de rotación de los discos HDD.",
+        "rationale": "La velocidad del disco es una propiedad mecánica del hardware y no depende de la configuración del switch.",
+        "isCorrect": false
+      },
+      {
+        "text": "Asignar automáticamente niveles de RAID a las LUNs.",
+        "rationale": "La configuración del RAID se realiza en la cabina de discos, no en el switch de red.",
+        "isCorrect": false
+      },
+      {
+        "text": "Dividir el ancho de banda equitativamente entre los usuarios de la LAN.",
+        "rationale": "El zoning se aplica a la red SAN, que es independiente de la LAN corporativa general.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Es un método de seguridad que actúa de forma similar a una lista de control de acceso en la red."
+  },
+  {
+    "guid": "783d03f5-3429-4e3b-96af-7dacd7779520",
+    "subjectId": "T55",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "¿Qué beneficio ofrece la tecnología Multipath (MPIO)?",
+    "answerOptions": [
+      {
+        "text": "Redundancia y reparto de carga mediante múltiples caminos.",
+        "rationale": "MPIO permite tener varias rutas físicas entre el host y la cabina, asegurando la continuidad si falla un cable o switch.",
+        "isCorrect": true
+      },
+      {
+        "text": "Eliminar la necesidad de usar una red SAN física.",
+        "rationale": "MPIO es precisamente una técnica para mejorar la disponibilidad dentro de infraestructuras físicas SAN.",
+        "isCorrect": false
+      },
+      {
+        "text": "Permitir que un NAS funcione como si fuera una SAN.",
+        "rationale": "MPIO gestiona rutas de acceso a bloques, mientras que el NAS opera a nivel de ficheros.",
+        "isCorrect": false
+      },
+      {
+        "text": "Reducir el espacio ocupado por las copias de seguridad.",
+        "rationale": "MPIO se centra en la conectividad y el rendimiento, no en la eficiencia del almacenamiento de datos.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piensa en qué ocurriría si solo hubiera un cable entre el servidor y el almacenamiento y este se rompiera."
+  },
+  {
+    "guid": "812b2a0b-a689-439b-9dfd-b448e8ee9032",
+    "subjectId": "T55",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "¿Qué característica define al nivel de RAID 0?",
+    "answerOptions": [
+      {
+        "text": "Proporciona alta tolerancia a fallos mediante espejo.",
+        "rationale": "La duplicación o espejo es característica del RAID 1, no del RAID 0.",
+        "isCorrect": false
+      },
+      {
+        "text": "Divide los datos en bloques (striping) para máximo rendimiento sin redundancia.",
+        "rationale": "RAID 0 mejora la velocidad al distribuir datos entre discos, pero si falla uno, se pierde toda la información.",
+        "isCorrect": true
+      },
+      {
+        "text": "Utiliza un disco dedicado exclusivamente para la paridad.",
+        "rationale": "La paridad dedicada es propia de niveles como RAID 3 o RAID 4.",
+        "isCorrect": false
+      },
+      {
+        "text": "Es el nivel más recomendado para bases de datos críticas.",
+        "rationale": "Debido a su falta de seguridad, RAID 0 nunca se recomienda para datos críticos.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "A este nivel se le conoce como 'Stripe' y prioriza la velocidad sobre la seguridad."
+  },
+  {
+    "guid": "afb18274-9994-43a2-862f-eac69c26033b",
+    "subjectId": "T55",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "¿Cuántos discos se necesitan como mínimo para configurar un RAID 5?",
+    "answerOptions": [
+      {
+        "text": "2 discos.",
+        "rationale": "Con 2 discos solo se pueden realizar configuraciones como RAID 0 o RAID 1.",
+        "isCorrect": false
+      },
+      {
+        "text": "3 discos.",
+        "rationale": "RAID 5 requiere al menos 3 discos para poder distribuir los datos y la información de paridad.",
+        "isCorrect": true
+      },
+      {
+        "text": "4 discos.",
+        "rationale": "Aunque se puede hacer con 4, el mínimo técnico para que el algoritmo funcione es menor.",
+        "isCorrect": false
+      },
+      {
+        "text": "1 disco.",
+        "rationale": "Un RAID, por definición, requiere una matriz de múltiples discos independientes.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Se necesita espacio para los datos y para distribuir la información de recuperación."
+  },
+  {
+    "guid": "6c345a04-580f-4d2a-9bba-ad938290c123",
+    "subjectId": "T55",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "¿Cuál es la principal ventaja de RAID 6 sobre RAID 5?",
+    "answerOptions": [
+      {
+        "text": "Puede soportar la falla simultánea de hasta 2 discos.",
+        "rationale": "RAID 6 utiliza doble paridad distribuida, lo que permite mayor redundancia que el RAID 5 (que solo tolera una falla).",
+        "isCorrect": true
+      },
+      {
+        "text": "Es mucho más barato ya que requiere menos discos.",
+        "rationale": "RAID 6 requiere un mínimo de 4 discos, mientras que RAID 5 requiere solo 3, por lo que suele ser más costoso.",
+        "isCorrect": false
+      },
+      {
+        "text": "No requiere cálculos de paridad, lo que lo hace más rápido.",
+        "rationale": "RAID 6 realiza cálculos de paridad doble, lo que generalmente lo hace más lento en escrituras que otros niveles.",
+        "isCorrect": false
+      },
+      {
+        "text": "Permite el uso de discos SSD y HDD mezclados.",
+        "rationale": "La mezcla de tecnologías de disco en un mismo grupo RAID no es una función específica del nivel 6 y no se recomienda.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piensa en el número de bloques de paridad que se generan en cada nivel."
+  },
+  {
+    "guid": "8f1c9b7c-526c-409f-a09d-cb86d2bf66bf",
+    "subjectId": "T55",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "¿Qué combinación de técnicas utiliza el nivel RAID 10?",
+    "answerOptions": [
+      {
+        "text": "Mirroring y Striping (Espejo y Bandas).",
+        "rationale": "RAID 10 primero duplica los datos (RAID 1) y luego los distribuye (RAID 0) para ganar velocidad y seguridad.",
+        "isCorrect": true
+      },
+      {
+        "text": "Doble paridad y acceso a nivel de bit.",
+        "rationale": "La doble paridad es de RAID 6 y el acceso a nivel de bit era típico de niveles antiguos en desuso.",
+        "isCorrect": false
+      },
+      {
+        "text": "Paridad dedicada y bloques de repuesto.",
+        "rationale": "RAID 10 no utiliza cálculos de paridad para la redundancia, sino duplicación directa.",
+        "isCorrect": false
+      },
+      {
+        "text": "Solo striping para máximo ahorro de espacio.",
+        "rationale": "El striping puro es RAID 0; RAID 10 sacrifica el 50% de la capacidad para ofrecer seguridad.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Su nombre alternativo es RAID $1+0$."
+  },
+  {
+    "guid": "c00f52e5-f1f6-4103-ba55-d962d8550597",
+    "subjectId": "T55",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "¿Qué función cumple el 'Hot Spare' en una cabina de almacenamiento?",
+    "answerOptions": [
+      {
+        "text": "Es un disco de reserva que sustituye automáticamente a uno fallido.",
+        "rationale": "Permite iniciar la reconstrucción del RAID de forma inmediata sin intervención humana tras detectar una avería.",
+        "isCorrect": true
+      },
+      {
+        "text": "Aumenta la capacidad total de almacenamiento disponible para el usuario.",
+        "rationale": "El disco hot spare está en espera y no cuenta para la capacidad útil hasta que entra en servicio por un fallo.",
+        "isCorrect": false
+      },
+      {
+        "text": "Sirve para realizar copias de seguridad externas de forma diaria.",
+        "rationale": "El hot spare es parte de la arquitectura interna de alta disponibilidad, no un sistema de backup externo.",
+        "isCorrect": false
+      },
+      {
+        "text": "Es un ventilador adicional para enfriar los discos.",
+        "rationale": "Aunque 'hot' sugiera temperatura, en este contexto se refiere a un componente activo y listo para usar.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Es un componente que está 'en espera' para actuar en caso de emergencia."
+  },
+  {
+    "guid": "453d9779-5c92-4149-a73f-590ae28396a8",
+    "subjectId": "T55",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "¿Qué es el 'Thin Provisioning'?",
+    "answerOptions": [
+      {
+        "text": "Asignar espacio físico a un volumen solo cuando se escriben datos reales.",
+        "rationale": "Optimiza el uso de la cabina al no reservar el espacio total declarado desde el primer momento.",
+        "isCorrect": true
+      },
+      {
+        "text": "Usar discos físicamente más delgados para ahorrar espacio en el rack.",
+        "rationale": "El término se refiere a una técnica lógica de gestión de capacidad, no al grosor físico del hardware.",
+        "isCorrect": false
+      },
+      {
+        "text": "Reducir la velocidad del disco para ahorrar energía eléctrica.",
+        "rationale": "El ahorro de energía es otra característica distinta de algunas cabinas, no relacionada con el aprovisionamiento.",
+        "isCorrect": false
+      },
+      {
+        "text": "Crear copias de seguridad que ocupan la mitad del espacio original.",
+        "rationale": "La reducción de espacio en backups suele llamarse deduplicación o compresión.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Permite declarar volúmenes de 10 TB aunque solo tengamos 2 TB físicos disponibles actualmente."
+  },
+  {
+    "guid": "3fc7ac5d-5276-4975-9221-4709b2cf017e",
+    "subjectId": "T55",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "¿Qué tecnología permite mover automáticamente datos a SSD si son muy usados y a HDD si son poco usados?",
+    "answerOptions": [
+      {
+        "text": "Auto-tiering.",
+        "rationale": "Esta función de las cabinas modernas optimiza el rendimiento moviendo los 'datos calientes' al almacenamiento más rápido.",
+        "isCorrect": true
+      },
+      {
+        "text": "Snapshots.",
+        "rationale": "Los snapshots son fotos instantáneas de los datos para recuperación, no para gestión de rendimiento.",
+        "isCorrect": false
+      },
+      {
+        "text": "LUN Masking.",
+        "rationale": "El LUN Masking es un control de visibilidad de volúmenes para los hosts.",
+        "isCorrect": false
+      },
+      {
+        "text": "vMotion.",
+        "rationale": "vMotion es una tecnología de migración de máquinas virtuales entre servidores, no de datos entre discos.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Se trata de organizar el almacenamiento en 'niveles' según el rendimiento."
+  },
+  {
+    "guid": "70fa5a9e-c608-43e5-8df7-ac095f5a70b6",
+    "subjectId": "T55",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "¿Cuál es la característica principal de una copia de seguridad incremental?",
+    "answerOptions": [
+      {
+        "text": "Copia solo los cambios realizados desde la última copia (sea completa o incremental).",
+        "rationale": "Es el método que menos espacio ocupa y el más rápido de realizar diariamente.",
+        "isCorrect": true
+      },
+      {
+        "text": "Copia siempre todos los datos del sistema cada día.",
+        "rationale": "Copiar todo cada día es la definición de una copia completa.",
+        "isCorrect": false
+      },
+      {
+        "text": "Copia solo los cambios desde la última copia completa únicamente.",
+        "rationale": "Este comportamiento define a la copia diferencial, no a la incremental.",
+        "isCorrect": false
+      },
+      {
+        "text": "Elimina los archivos originales después de copiarlos.",
+        "rationale": "Eso sería una operación de mover o archivar, no un procedimiento estándar de backup.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Es la técnica que requiere la cadena de copias más larga para una restauración total."
+  },
+  {
+    "guid": "aa691390-4fe9-4ff1-90de-dfdd5867b2c2",
+    "subjectId": "T55",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "Para restaurar una copia de seguridad diferencial, ¿qué se necesita?",
+    "answerOptions": [
+      {
+        "text": "La última copia completa y la última copia diferencial.",
+        "rationale": "Como la diferencial acumula todos los cambios desde la completa, solo se requieren estos dos elementos para volver al estado actual.",
+        "isCorrect": true
+      },
+      {
+        "text": "La última copia completa y todas las diferenciales de la semana.",
+        "rationale": "Solo se necesita la última diferencial, ya que contiene los cambios de las anteriores respecto a la completa.",
+        "isCorrect": false
+      },
+      {
+        "text": "Todas las copias incrementales realizadas anteriormente.",
+        "rationale": "Las copias incrementales y diferenciales son métodos distintos; no se mezclan en el proceso básico de restauración.",
+        "isCorrect": false
+      },
+      {
+        "text": "Solo la copia completa realizada el primer día.",
+        "rationale": "Si solo usas la completa, perderías todos los cambios realizados desde que se hizo dicho respaldo.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Es más rápida de restaurar que la incremental porque requiere menos archivos individuales."
+  },
+  {
+    "guid": "7cd50da4-b32a-4790-b207-2a286b1f4bc3",
+    "subjectId": "T55",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "¿Qué inconveniente presentan los niveles RAID 3 y RAID 4 según el material?",
+    "answerOptions": [
+      {
+        "text": "El disco de paridad dedicado se convierte en un cuello de botella.",
+        "rationale": "En escrituras frecuentes, el disco que contiene la paridad debe actualizarse constantemente, limitando la velocidad global.",
+        "isCorrect": true
+      },
+      {
+        "text": "No permiten la recuperación si falla un disco de datos.",
+        "rationale": "Ambos niveles sí permiten reconstruir la información si falla un único disco.",
+        "isCorrect": false
+      },
+      {
+        "text": "Requieren obligatoriamente un número par de discos.",
+        "rationale": "Estos niveles pueden funcionar con un mínimo de 3 discos (mínimo impar).",
+        "isCorrect": false
+      },
+      {
+        "text": "Son demasiado rápidos para los buses actuales.",
+        "rationale": "El rendimiento no suele ser un 'inconveniente' por exceso, sino por defecto o cuellos de botella.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Toda la información de control de errores se concentra en un solo punto físico de escritura."
+  },
+  {
+    "guid": "fe33abd7-34cd-47ab-8419-db7c54713805",
+    "subjectId": "T55",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "¿Cuál es la capacidad útil de un RAID 1 formado por dos discos de $4$ TB?",
+    "answerOptions": [
+      {
+        "text": "$4$ TB.",
+        "rationale": "En el Mirroring, la capacidad efectiva es del 50%, ya que los datos se duplican exactamente.",
+        "isCorrect": true
+      },
+      {
+        "text": "$8$ TB.",
+        "rationale": "Esa sería la capacidad en un RAID 0, pero sin ninguna seguridad contra fallos.",
+        "isCorrect": false
+      },
+      {
+        "text": "$2$ TB.",
+        "rationale": "El RAID 1 no divide la capacidad de un disco individual por dos, sino que usa el segundo disco como copia.",
+        "isCorrect": false
+      },
+      {
+        "text": "$12$ TB.",
+        "rationale": "Es matemáticamente imposible obtener más capacidad de la suma física de los discos instalados.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Recuerda que este nivel se basa en la duplicación exacta de la información."
+  },
+  {
+    "guid": "6f2fc63e-db37-48af-8d91-fa131d0a3e2f",
+    "subjectId": "T55",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "¿Por qué se considera peligroso el RAID 5 con discos de gran capacidad (muchos TB)?",
+    "answerOptions": [
+      {
+        "text": "Porque el tiempo de reconstrucción es muy largo y otro disco podría fallar durante el proceso.",
+        "rationale": "La probabilidad de un error de lectura no recuperable (URE) aumenta con el tamaño del disco y el tiempo que tarda en repararse.",
+        "isCorrect": true
+      },
+      {
+        "text": "Porque no se pueden usar más de 3 discos grandes.",
+        "rationale": "Se pueden usar muchos discos, pero el riesgo estadístico de pérdida total de datos se vuelve inaceptable.",
+        "isCorrect": false
+      },
+      {
+        "text": "Porque los discos grandes giran más lento.",
+        "rationale": "La velocidad de rotación es una característica física independiente del tamaño o capacidad del disco.",
+        "isCorrect": false
+      },
+      {
+        "text": "Porque la paridad distribuida solo funciona con discos pequeños.",
+        "rationale": "El algoritmo de paridad funciona igual, el problema es la fiabilidad estadística en volúmenes masivos.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Imagina cuánto tarda en leerse bit a bit un disco de 20 TB para reconstruir la información tras un fallo."
+  },
+  {
+    "guid": "db4e1c8b-0ed8-4a1c-bb0f-17aa122c5668",
+    "subjectId": "T55",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "¿Qué ventaja principal ofrece un RAID por Hardware frente a uno por Software?",
+    "answerOptions": [
+      {
+        "text": "Libera recursos de la CPU del servidor al tener un procesador dedicado.",
+        "rationale": "La controladora física gestiona los cálculos de RAID y paridad sin cargar el procesador principal del sistema.",
+        "isCorrect": true
+      },
+      {
+        "text": "Es mucho más barato de implementar.",
+        "rationale": "El RAID por hardware requiere la compra de una tarjeta controladora específica, lo que aumenta el coste.",
+        "isCorrect": false
+      },
+      {
+        "text": "Permite usar discos USB externos como parte del array.",
+        "rationale": "El RAID profesional se basa en conexiones internas o especializadas (SATA/SAS/FC), no en buses USB genéricos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Es dependiente del sistema operativo instalado.",
+        "rationale": "Al contrario, el RAID por hardware es transparente e independiente del sistema operativo.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Utiliza una tarjeta controladora con su propio procesador y caché."
+  },
+  {
+    "guid": "8a596bc5-d42a-4eb6-a8d7-dafab4ef4f24",
+    "subjectId": "T55",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "¿Qué protocolo se utiliza en entornos de computación de alto rendimiento (HPC) y permite RDMA sobre Ethernet?",
+    "answerOptions": [
+      {
+        "text": "RoCE (RDMA over Converged Ethernet).",
+        "rationale": "RoCE permite eficiencias similares a InfiniBand pero reutilizando la infraestructura Ethernet moderna.",
+        "isCorrect": true
+      },
+      {
+        "text": "FTP.",
+        "rationale": "FTP es un protocolo de transferencia de archivos básico y lento, no apto para HPC.",
+        "isCorrect": false
+      },
+      {
+        "text": "RAID 01.",
+        "rationale": "RAID 01 es un nivel de organización de discos, no un protocolo de red.",
+        "isCorrect": false
+      },
+      {
+        "text": "NetBIOS.",
+        "rationale": "NetBIOS es un protocolo antiguo para redes locales pequeñas, sin capacidades RDMA.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Sus siglas indican 'Remote Direct Memory Access' sobre Ethernet convergente."
+  },
+  {
+    "guid": "281e402f-cd39-4d49-bd8d-9bbba03b0983",
+    "subjectId": "T55",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "¿Cuál es la función del 'SAN fabric'?",
+    "answerOptions": [
+      {
+        "text": "Es la red física y lógica que permite la comunicación entre servidores y almacenamiento.",
+        "rationale": "Representa toda la infraestructura (switches, cables, protocolos) que compone la red SAN.",
+        "isCorrect": true
+      },
+      {
+        "text": "Es un tipo de disco fabricado con fibra óptica.",
+        "rationale": "La fibra óptica es el medio de transmisión, no el material del disco físico.",
+        "isCorrect": false
+      },
+      {
+        "text": "Es el software que cifra los datos en reposo.",
+        "rationale": "El cifrado es una función de seguridad adicional, no el núcleo de la infraestructura de red.",
+        "isCorrect": false
+      },
+      {
+        "text": "Es el armario o rack donde se guardan los discos.",
+        "rationale": "El rack es mobiliario físico; el 'fabric' se refiere a la topología de red interconectada.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Es el tejido de conexiones que une todos los componentes de la SAN."
+  },
+  {
+    "guid": "e23a672c-2429-400c-a144-26d98198db5a",
+    "subjectId": "T55",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "¿Qué tecnología permite que una máquina virtual acceda directamente a una HBA física del host?",
+    "answerOptions": [
+      {
+        "text": "HBA Pass-through.",
+        "rationale": "Permite que la VM gestione directamente los discos y aplique funciones avanzadas con rendimiento casi nativo.",
+        "isCorrect": true
+      },
+      {
+        "text": "Thin Provisioning.",
+        "rationale": "Esta técnica se refiere a la asignación de espacio, no al acceso directo al hardware.",
+        "isCorrect": false
+      },
+      {
+        "text": "VLAN Tagging.",
+        "rationale": "Las VLANs segmentan redes Ethernet, no el acceso directo a tarjetas de almacenamiento Fibre Channel.",
+        "isCorrect": false
+      },
+      {
+        "text": "Deduplicación.",
+        "rationale": "La deduplicación elimina datos repetidos para ahorrar espacio, no gestiona el hardware.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Se trata de 'pasar' el dispositivo físico a través del hipervisor directamente a la VM."
+  },
+  {
+    "guid": "35c48864-6ded-46bc-9ec2-18d51dbb43bd",
+    "subjectId": "T55",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "¿Qué ocurre si en un RAID 01 falla un disco de uno de los conjuntos de bandas?",
+    "answerOptions": [
+      {
+        "text": "Todo ese conjunto de bandas (la mitad del array) queda inservible.",
+        "rationale": "Debido a su estructura (primero bandas, luego espejo), es menos tolerante a fallos que el RAID 10.",
+        "isCorrect": true
+      },
+      {
+        "text": "El sistema continúa funcionando sin ninguna degradación de rendimiento.",
+        "rationale": "Aunque continúa funcionando gracias al espejo, el rendimiento y la redundancia se ven seriamente afectados.",
+        "isCorrect": false
+      },
+      {
+        "text": "Se pierden todos los datos de forma inmediata e irreversible.",
+        "rationale": "Al tener un espejo, los datos siguen disponibles en el otro conjunto de bandas mientras este no falle.",
+        "isCorrect": false
+      },
+      {
+        "text": "El disco se repara automáticamente mediante paridad doble.",
+        "rationale": "El RAID 01 no utiliza paridad, sino duplicación (mirroring).",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Es la razón por la que se recomienda RAID 10 antes que RAID 01."
+  },
+  {
+    "guid": "6ec552ab-f756-4333-979b-13152872cebe",
+    "subjectId": "T55",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "¿En qué consiste la virtualización de almacenamiento (Storage Virtualization)?",
+    "answerOptions": [
+      {
+        "text": "Una capa lógica que consolida múltiples cabinas en un único espacio lógico.",
+        "rationale": "Abstrae la complejidad física permitiendo gestionar diferentes dispositivos como un pool unificado.",
+        "isCorrect": true
+      },
+      {
+        "text": "Convertir todos los discos HDD en discos SSD mediante software.",
+        "rationale": "No es posible cambiar la naturaleza física de un disco mediante software de virtualización.",
+        "isCorrect": false
+      },
+      {
+        "text": "Hacer que un servidor crea que tiene Internet cuando no tiene.",
+        "rationale": "Esto no tiene relación con el almacenamiento corporativo ni con la gestión de cabinas.",
+        "isCorrect": false
+      },
+      {
+        "text": "Eliminar la necesidad de utilizar protocolos como iSCSI o FC.",
+        "rationale": "La virtualización suele ejecutarse por encima de estos protocolos para organizar el espacio resultante.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Crea una capa de abstracción sobre el hardware físico de almacenamiento."
+  },
+  {
+    "guid": "c20ac752-867c-49e0-9a7d-19e5b48f6d00",
+    "subjectId": "T55",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "¿Cuál es el objetivo principal del RAID según el documento?",
+    "answerOptions": [
+      {
+        "text": "Mejorar la integridad, disponibilidad y rendimiento del almacenamiento.",
+        "rationale": "RAID busca proteger contra fallos de discos y mejorar la velocidad de acceso mediante el trabajo conjunto de varios discos.",
+        "isCorrect": true
+      },
+      {
+        "text": "Permitir que los discos duren más años sin estropearse.",
+        "rationale": "RAID no evita que los discos fallen físicamente, sino que mitiga las consecuencias cuando fallan.",
+        "isCorrect": false
+      },
+      {
+        "text": "Reducir el ruido que hacen los servidores en el CPD.",
+        "rationale": "El ruido es un factor ambiental no relacionado con la arquitectura lógica de los discos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Sustituir por completo a las copias de seguridad externas.",
+        "rationale": "RAID proporciona alta disponibilidad, pero no protege contra borrados accidentales o desastres como un incendio; el backup sigue siendo necesario.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Busca tolerancia a fallos y mayor velocidad combinando discos independientes."
+  },
+  {
+    "guid": "a4d9c6cc-e285-46a2-91aa-20abc1ec14e5",
+    "subjectId": "T55",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "¿Cuál es la fórmula de capacidad útil en un RAID 5 de $n$ discos?",
+    "answerOptions": [
+      {
+        "text": "$(n-1)/n$ de la capacidad total.",
+        "rationale": "Se pierde el equivalente a un disco para almacenar la información de paridad distribuida.",
+        "isCorrect": true
+      },
+      {
+        "text": "$(n-2)/n$ de la capacidad total.",
+        "rationale": "Esta es la fórmula para RAID 6, donde se pierde el espacio de dos discos para paridad doble.",
+        "isCorrect": false
+      },
+      {
+        "text": "$50\\%$ de la capacidad total.",
+        "rationale": "Esta es la capacidad típica de un RAID 1 o RAID 10.",
+        "isCorrect": false
+      },
+      {
+        "text": "$100\\%$ de la capacidad total.",
+        "rationale": "Solo el RAID 0 permite usar el 100% de la capacidad sumada de los discos.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Se sacrifica el espacio de exactamente un disco para la redundancia."
+  }
+]
