@@ -1,0 +1,113 @@
+[
+  {
+    "guid": "35c48864-6ded-46bc-9ec2-18d51dbb43bd",
+    "subjectId": "T55",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "¿Qué ocurre si en un RAID 01 falla un disco de uno de los conjuntos de bandas?",
+    "answerOptions": [
+      {
+        "text": "El sistema continúa funcionando sin ninguna degradación de rendimiento.",
+        "rationale": "Aunque continúa funcionando gracias al espejo, el rendimiento y la redundancia se ven seriamente afectados.",
+        "isCorrect": false,
+        "selectedByUser": true
+      },
+      {
+        "text": "Todo ese conjunto de bandas (la mitad del array) queda inservible.",
+        "rationale": "Debido a su estructura (primero bandas, luego espejo), es menos tolerante a fallos que el RAID 10.",
+        "isCorrect": true,
+        "selectedByUser": false
+      },
+      {
+        "text": "El disco se repara automáticamente mediante paridad doble.",
+        "rationale": "El RAID 01 no utiliza paridad, sino duplicación (mirroring).",
+        "isCorrect": false,
+        "selectedByUser": false
+      },
+      {
+        "text": "Se pierden todos los datos de forma inmediata e irreversible.",
+        "rationale": "Al tener un espejo, los datos siguen disponibles en el otro conjunto de bandas mientras este no falle.",
+        "isCorrect": false,
+        "selectedByUser": false
+      }
+    ],
+    "hint": "Es la razón por la que se recomienda RAID 10 antes que RAID 01.",
+    "fecha": "2026-02-12T22:15:33.444Z",
+    "count": 2
+  },
+  {
+    "guid": "fe33abd7-34cd-47ab-8419-db7c54713805",
+    "subjectId": "T55",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "¿Cuál es la capacidad útil de un RAID 1 formado por dos discos de $4$ TB?",
+    "answerOptions": [
+      {
+        "text": "$4$ TB.",
+        "rationale": "En el Mirroring, la capacidad efectiva es del 50%, ya que los datos se duplican exactamente.",
+        "isCorrect": true,
+        "selectedByUser": false
+      },
+      {
+        "text": "$12$ TB.",
+        "rationale": "Es matemáticamente imposible obtener más capacidad de la suma física de los discos instalados.",
+        "isCorrect": false,
+        "selectedByUser": false
+      },
+      {
+        "text": "$8$ TB.",
+        "rationale": "Esa sería la capacidad en un RAID 0, pero sin ninguna seguridad contra fallos.",
+        "isCorrect": false,
+        "selectedByUser": false
+      },
+      {
+        "text": "$2$ TB.",
+        "rationale": "El RAID 1 no divide la capacidad de un disco individual por dos, sino que usa el segundo disco como copia.",
+        "isCorrect": false,
+        "selectedByUser": true
+      }
+    ],
+    "hint": "Recuerda que este nivel se basa en la duplicación exacta de la información.",
+    "fecha": "2026-02-12T18:57:18.974Z",
+    "count": 1
+  },
+  {
+    "guid": "84c0559e-de0a-4493-98ce-042b4cdcc246",
+    "subjectId": "T55",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "Sobre el RAID por hardware, ¿cuál es una de sus mayores ventajas respecto al RAID por software?",
+    "answerOptions": [
+      {
+        "text": "Es mucho más económico al no requerir controladoras especiales.",
+        "rationale": "El RAID por hardware es más caro precisamente porque requiere componentes físicos dedicados.",
+        "isCorrect": false,
+        "selectedByUser": true
+      },
+      {
+        "text": "Depende totalmente del sistema operativo para gestionar los discos.",
+        "rationale": "El RAID por hardware es independiente del sistema operativo; este último ve el conjunto como un único disco lógico.",
+        "isCorrect": false,
+        "selectedByUser": false
+      },
+      {
+        "text": "Es compatible con cualquier puerto USB estándar del servidor.",
+        "rationale": "Las controladoras RAID profesionales utilizan buses de alta velocidad como PCIe, no puertos USB.",
+        "isCorrect": false,
+        "selectedByUser": false
+      },
+      {
+        "text": "Libera recursos de la CPU del servidor y ofrece funciones como caché protegida por batería.",
+        "rationale": "Al tener un procesador propio, la controladora realiza los cálculos de paridad y gestión sin cargar al host.",
+        "isCorrect": true,
+        "selectedByUser": false
+      }
+    ],
+    "hint": "Piensa en el impacto que tiene el cálculo de datos en el rendimiento general del servidor.",
+    "fecha": "2026-02-12T18:50:47.425Z",
+    "count": 1
+  }
+]
