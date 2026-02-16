@@ -1,0 +1,777 @@
+[
+  {
+    "guid": "PRA2-Q01",
+    "subjectId": "PracticaEstil_2",
+    "difficulty": 4,
+    "origin": "generat_estil_practic",
+    "type": "test",
+    "question": "L'equip de SAP TRM està configurant el nou tipus de tribut per a la taxa de guals. Quina informació han de definir principalment en aquesta configuració?",
+    "answerOptions": [
+      {
+        "text": "Les regles de càlcul, base imposable i període de liquidació de la taxa.",
+        "isCorrect": true,
+        "rationale": "Correcte. Aquesta és la definició del tipus de tribut: com es calcula i quan es liquida."
+      },
+      {
+        "text": "Les dades personals i fiscals dels titulars dels negocis.",
+        "isCorrect": false,
+        "rationale": "Incorrecte. Aquestes són les dades mestres dels contribuents, que es carregaran posteriorment."
+      },
+      {
+        "text": "El compte bancari on s'ingressarà la recaptació de la taxa.",
+        "isCorrect": false,
+        "rationale": "Incorrecte. Aquest és un paràmetre de tresoreria, no de definició del tribut."
+      },
+      {
+        "text": "Les credencials d'accés per als usuaris de l'IMH que gestionaran la taxa.",
+        "isCorrect": false,
+        "rationale": "Incorrecte. Això és gestió d'usuaris i autoritzacions."
+      }
+    ],
+    "hint": "Què necessita saber el sistema per 'saber' què és aquesta taxa i com s'ha de calcular?"
+  },
+  {
+    "guid": "PRA2-Q02",
+    "subjectId": "PracticaEstil_2",
+    "difficulty": 4,
+    "origin": "generat_estil_practic",
+    "type": "test",
+    "question": "Un contribuent no ha pagat la taxa de gual dins del període voluntari. Quin procés de SAP TRM s'hauria d'iniciar per gestionar aquest deute?",
+    "answerOptions": [
+      {
+        "text": "El procés de reclamació de deutes (dunning), per generar els requeriments de pagament.",
+        "isCorrect": true,
+        "rationale": "Correcte. El procés de dunning s'encarrega d'enviar recordatoris i requeriments als contribuents amb deutes vençuts."
+      },
+      {
+        "text": "El procés de liquidació, per tornar a calcular el deute amb els interessos corresponents.",
+        "isCorrect": false,
+        "rationale": "Incorrecte. La liquidació ja està feta. El que cal és gestionar el deute vençut."
+      },
+      {
+        "text": "El procés de compensació, per intentar cobrar el deute amb algun pagament a favor del contribuent.",
+        "isCorrect": false,
+        "rationale": "Incorrecte. La compensació és una altra forma d'extinció, no el procés automàtic per a un impagat."
+      },
+      {
+        "text": "El procés de via executiva, per iniciar un procediment de constrenyiment.",
+        "isCorrect": false,
+        "rationale": "Incorrecte. Aquesta seria la fase final si el contribuent no respon als requeriments."
+      }
+    ],
+    "hint": "Quin és el procés administratiu que envia cartes recordatòries per a deutes pendents?"
+  },
+  {
+    "guid": "PRA2-Q03",
+    "subjectId": "PracticaEstil_2",
+    "difficulty": 4,
+    "origin": "generat_estil_practic",
+    "type": "test",
+    "question": "Un contribuent vol pagar la taxa de gual de l'any en curs, però també té un deute pendent de l'any anterior. Quan realitza el pagament per un import que cobreix la taxa de l'any en curs, quin procés ha de fer l'oficina de recaptació perquè aquest pagament s'apliqui al deute més antic?",
+    "answerOptions": [
+      {
+        "text": "Aplicar el pagament al deute més antic segons les regles d'imputació de pagaments.",
+        "isCorrect": true,
+        "rationale": "Correcte. En TRM, el procés de pagament permet definir regles d'imputació."
+      },
+      {
+        "text": "Compensar les partides, requerint el consentiment exprés del contribuent.",
+        "isCorrect": false,
+        "rationale": "Incorrecte. La compensació és una altra forma d'extinció, no l'aplicació d'un pagament."
+      },
+      {
+        "text": "Revisar la liquidació per modificar l'import a pagar del deute més antic.",
+        "isCorrect": false,
+        "rationale": "Incorrecte. La liquidació és correcta; el problema és a què s'aplica el pagament."
+      },
+      {
+        "text": "Anul·lar el pagament i demanar al contribuent que faci dos pagaments separats.",
+        "isCorrect": false,
+        "rationale": "Incorrecte. És ineficient i contrari a l'objectiu de facilitar el pagament."
+      }
+    ],
+    "hint": "Pensa en les regles que determinen a quin 'forat' es destina un pagament quan n'hi ha diversos."
+  },
+  {
+    "guid": "PRA2-Q04",
+    "subjectId": "PracticaEstil_2",
+    "difficulty": 4,
+    "origin": "generat_estil_practic",
+    "type": "test",
+    "question": "L'equip de desenvolupament del portal està redactant el codi de les APIs que connectaran amb SAP TRM. Volen assegurar la qualitat del codi des del primer moment. Quina eina o pràctica haurien d'incorporar per detectar vulnerabilitats de seguretat, errors de sintaxi i males pràctiques de programació sense necessitat d'executar el codi?",
+    "answerOptions": [
+      {
+        "text": "Una eina d'anàlisi estàtica de codi, com SonarQube.",
+        "isCorrect": true,
+        "rationale": "Correcte. L'anàlisi estàtica revisa el codi font per trobar problemes sense executar-lo."
+      },
+      {
+        "text": "Un sistema de proves d'integració contínua per executar els tests automàticament.",
+        "isCorrect": false,
+        "rationale": "Incorrecte. Això executa el codi, no l'analitza estàticament."
+      },
+      {
+        "text": "Un entorn de preproducció per fer proves de càrrega i estrès.",
+        "isCorrect": false,
+        "rationale": "Incorrecte. Les proves de càrrega són dinàmiques i requereixen executar el codi."
+      },
+      {
+        "text": "Un sistema de control de versions com Git per gestionar els canvis.",
+        "isCorrect": false,
+        "rationale": "Incorrecte. Git gestiona els canvis, però no analitza la qualitat del codi."
+      }
+    ],
+    "hint": "Quina tècnica et permet trobar errors 'llegint' el codi, com un corrector ortogràfic però per a programació?"
+  },
+  {
+    "guid": "PRA2-Q05",
+    "subjectId": "PracticaEstil_2",
+    "difficulty": 4,
+    "origin": "generat_estil_practic",
+    "type": "test",
+    "question": "L'equip de QA està dissenyant els casos de prova per a l'API de 'liquidació de la taxa'. L'especificació diu que l'API ha de retornar un error 400 (Bad Request) si el NIF del contribuent no té un format vàlid. Quina tècnica de proves és la més adequada per verificar aquesta validació?",
+    "answerOptions": [
+      {
+        "text": "Anàlisi de valors límit, provant NIFs amb diferents formats incorrectes.",
+        "isCorrect": true,
+        "rationale": "Correcte. La validació de formats és un cas clàssic per a l'anàlisi de valors límit i particions d'equivalència."
+      },
+      {
+        "text": "Proves de caixa blanca, revisant el codi que implementa la validació del NIF.",
+        "isCorrect": false,
+        "rationale": "Incorrecte. Això verificaria la implementació, però no el comportament observable de l'API."
+      },
+      {
+        "text": "Proves exploratòries, provant combinacions aleatòries de caràcters.",
+        "isCorrect": false,
+        "rationale": "Incorrecte. És una opció, però no és sistemàtica per cobrir els casos de validació."
+      },
+      {
+        "text": "Proves d'integració, per veure si l'API es comunica correctament amb altres sistemes.",
+        "isCorrect": false,
+        "rationale": "Incorrecte. La pregunta se centra a provar la validació de l'API en si mateixa."
+      }
+    ],
+    "hint": "Quina tècnica se centra a provar els diferents tipus d'entrada (vàlids i invàlids)?"
+  },
+  {
+    "guid": "PRA2-Q06",
+    "subjectId": "PracticaEstil_2",
+    "difficulty": 4,
+    "origin": "generat_estil_practic",
+    "type": "test",
+    "question": "L'equip de desenvolupament del portal està treballant amb metodologia Scrum. Enmig d'un Sprint de 2 setmanes, el Product Owner (PO) demana afegir una nova funcionalitat urgent per canvi normatiu. Quina és la millor pràctica segons Scrum per gestionar aquesta petició?",
+    "answerOptions": [
+      {
+        "text": "Negociar amb l'equip substituir una funcionalitat de menor prioritat per la nova.",
+        "isCorrect": true,
+        "rationale": "Correcte. El PO pot col·laborar amb l'equip per veure si és possible substituir treball, sempre mantenint l'objectiu de l'Sprint."
+      },
+      {
+        "text": "Aturar l'Sprint immediatament i començar un de nou amb la nova prioritat.",
+        "isCorrect": false,
+        "rationale": "Incorrecte. Aturar un Sprint és una mesura excepcionalíssima, no la primera opció."
+      },
+      {
+        "text": "Acceptar la nova funcionalitat i treballar hores extra per incorporar-la.",
+        "isCorrect": false,
+        "rationale": "Incorrecte. Això va contra el principi de sostenibilitat i canvia l'abast sense un procés formal."
+      },
+      {
+        "text": "Rebutjar la petició perquè l'abast de l'Sprint és totalment immutable.",
+        "isCorrect": false,
+        "rationale": "Incorrecte. L'abast es pot negociar, sempre que no es posi en perill l'objectiu."
+      }
+    ],
+    "hint": "Com es gestiona un canvi d'última hora en un entorn àgil sense trencar la dinàmica de l'Sprint?"
+  },
+  {
+    "guid": "PRA2-Q07",
+    "subjectId": "PracticaEstil_2",
+    "difficulty": 4,
+    "origin": "generat_estil_practic",
+    "type": "test",
+    "question": "L'equip de QA ha executat les proves d'integració entre el portal i les APIs de SAP TRM. Han descobert que l'API de consulta de deute retorna un camp 'import' en format text en lloc de numèric, cosa que provoca un error en el portal. Quina eina de l'equip de QA hauria d'actualitzar per reflectir aquesta nova comprovació?",
+    "answerOptions": [
+      {
+        "text": "La suite de proves de regressió, afegint un nou cas que verifiqui el tipus de dada.",
+        "isCorrect": true,
+        "rationale": "Correcte. Aquesta nova comprovació s'hauria d'automatitzar i afegir a la suite per assegurar que no es torni a produir."
+      },
+      {
+        "text": "El pla de proves del projecte, per actualitzar l'estratègia general.",
+        "isCorrect": false,
+        "rationale": "Incorrecte. El pla de proves defineix l'estratègia, no els casos concrets."
+      },
+      {
+        "text": "El document d'arquitectura de l'API, per corregir l'especificació.",
+        "isCorrect": false,
+        "rationale": "Incorrecte. Aquesta tasca correspon a l'equip tècnic, no a QA."
+      },
+      {
+        "text": "L'informe de defectes, que és on es documenta l'error.",
+        "isCorrect": false,
+        "rationale": "Incorrecte. L'informe documenta l'error, però l'acció preventiva és afegir-lo a les proves de regressió."
+      }
+    ],
+    "hint": "Per assegurar que aquest error no torni a passar després d'una correcció, on s'ha d'incloure la comprovació?"
+  },
+  {
+    "guid": "PRA2-Q08",
+    "subjectId": "PracticaEstil_2",
+    "difficulty": 4,
+    "origin": "generat_estil_practic",
+    "type": "test",
+    "question": "L'equip d'arquitectura està definint la CMDB (Configuration Management Database). Per què és important registrar les APIs com a Elements de Configuració (CIs) dins de la CMDB?",
+    "answerOptions": [
+      {
+        "text": "Per poder relacionar-les amb altres CIs i entendre l'impacte d'un canvi o incident.",
+        "isCorrect": true,
+        "rationale": "Correcte. Aquest és el propòsit principal d'una CMDB: conèixer les relacions i dependències."
+      },
+      {
+        "text": "Per emmagatzemar el codi font de les APIs en un repositori centralitzat.",
+        "isCorrect": false,
+        "rationale": "Incorrecte. El codi font es guarda en un repositori de codi (Git), no a la CMDB."
+      },
+      {
+        "text": "Per documentar l'ús de les APIs i posar-lo a disposició dels ciutadans.",
+        "isCorrect": false,
+        "rationale": "Incorrecte. La documentació pública de l'API es posa en un portal per a desenvolupadors."
+      },
+      {
+        "text": "Per monitoritzar el rendiment de les APIs en temps real.",
+        "isCorrect": false,
+        "rationale": "Incorrecte. El monitoratge es fa amb eines específiques, no amb la CMDB."
+      }
+    ],
+    "hint": "Quin benefici aporta conèixer que 'l'API A' depèn del 'Servidor B' i del 'Mòdul C' de SAP?"
+  },
+  {
+    "guid": "PRA2-Q09",
+    "subjectId": "PracticaEstil_2",
+    "difficulty": 4,
+    "origin": "generat_estil_practic",
+    "type": "test",
+    "question": "L'equip de desenvolupament del portal ha publicat una nova versió de l'API. Poc després, els usuaris del portal comencen a experimentar errors intermitents. L'equip sospita que pot ser un problema de memòria en el nou codi. Quina tècnica haurien d'emprar per identificar l'origen del problema sense aturar el servei?",
+    "answerOptions": [
+      {
+        "text": "Utilitzar una eina de monitoratge de rendiment d'aplicacions (APM) per fer profiling en producció.",
+        "isCorrect": true,
+        "rationale": "Correcte. Les eines APM permeten analitzar el rendiment de les aplicacions en producció amb impacte mínim."
+      },
+      {
+        "text": "Anàlisi estàtica del codi de la nova versió per trobar errors potencials.",
+        "isCorrect": false,
+        "rationale": "Incorrecte. L'anàlisi estàtica no detecta problemes que només apareixen en execució."
+      },
+      {
+        "text": "Revisar els logs del servidor per veure missatges d'error.",
+        "isCorrect": false,
+        "rationale": "Incorrecte. Els logs poden donar pistes, però no són l'eina adequada per a un problema de memòria."
+      },
+      {
+        "text": "Fer una prova de càrrega en un entorn de preproducció replicant l'escenari.",
+        "isCorrect": false,
+        "rationale": "Incorrecte. Això pot reproduir el problema, però no identifica l'origen en producció."
+      }
+    ],
+    "hint": "Necessiten una eina que els permeti 'veure dins' de l'aplicació mentre s'està executant en producció."
+  },
+  {
+    "guid": "PRA2-Q10",
+    "subjectId": "PracticaEstil_2",
+    "difficulty": 4,
+    "origin": "generat_estil_practic",
+    "type": "test",
+    "question": "L'equip de desenvolupament està configurant la pipeline de CI/CD. Volen que, després de passar les proves unitàries i d'integració, el codi es desplegui automàticament en un entorn de prova per a proves d'acceptació (UAT). Aquesta part del procés s'anomena:",
+    "answerOptions": [
+      {
+        "text": "Lliurament continu (Continuous Delivery), ja que el codi està llest per desplegar-se.",
+        "isCorrect": true,
+        "rationale": "Correcte. El lliurament continu manté el codi en un estat desplegable automàticament."
+      },
+      {
+        "text": "Integració contínua (CI), perquè el codi s'integra freqüentment.",
+        "isCorrect": false,
+        "rationale": "Incorrecte. La CI és el procés d'integrar el codi, no de desplegar-lo."
+      },
+      {
+        "text": "Desplegament continu (Continuous Deployment), perquè es desplega automàticament.",
+        "isCorrect": false,
+        "rationale": "Incorrecte. El desplegament continu implica desplegar automàticament a producció, no només a UAT."
+      },
+      {
+        "text": "Gestió de la configuració, perquè es gestionen els entorns.",
+        "isCorrect": false,
+        "rationale": "Incorrecte. La gestió de la configuració és un concepte més ampli."
+      }
+    ],
+    "hint": "Recorda la diferència entre tenir el codi 'llest per desplegar' (delivery) i desplegar-lo automàticament (deployment)."
+  },
+  {
+    "guid": "PRA2-Q11",
+    "subjectId": "PracticaEstil_2",
+    "difficulty": 4,
+    "origin": "generat_estil_practic",
+    "type": "test",
+    "question": "L'equip de QA està executant les proves de regressió de l'API. Tenen una suite amb 500 casos de prova automatitzats. L'execució completa triga 4 hores. Aquest temps és un problema perquè alenteix la pipeline de CI/CD. Quina estratègia poden seguir per reduir el temps d'execució sense perdre cobertura de proves?",
+    "answerOptions": [
+      {
+        "text": "Executar les proves en paral·lel, distribuint els casos entre diversos agents.",
+        "isCorrect": true,
+        "rationale": "Correcte. La paral·lelització és la tècnica estàndard per reduir el temps d'execució de suites de proves."
+      },
+      {
+        "text": "Eliminar les proves menys importants fins a reduir el temps a 1 hora.",
+        "isCorrect": false,
+        "rationale": "Incorrecte. Això redueix la cobertura i, per tant, la qualitat."
+      },
+      {
+        "text": "Demanar a desenvolupament que faci més proves unitàries per reduir la necessitat de regressió.",
+        "isCorrect": false,
+        "rationale": "Incorrecte. Això és una bona pràctica, però no resol el problema immediat."
+      },
+      {
+        "text": "Augmentar la potència de càlcul del servidor on s'executen les proves.",
+        "isCorrect": false,
+        "rationale": "Incorrecte. Aquesta mesura pot ajudar, però la paral·lelització és més efectiva."
+      }
+    ],
+    "hint": "Com es pot fer més ràpid quelcom que requereix molt de temps si es disposa de diversos recursos computacionals?"
+  },
+  {
+    "guid": "PRA2-Q12",
+    "subjectId": "PracticaEstil_2",
+    "difficulty": 4,
+    "origin": "generat_estil_practic",
+    "type": "test",
+    "question": "L'equip de desenvolupament està revisant el codi d'una API en una reunió de 'pull request'. Un desenvolupador assenyala que una funció és massa llarga i fa masses coses, la qual cosa dificulta el seu testatge i manteniment. Quin principi de qualitat del programari està violant aquest codi?",
+    "answerOptions": [
+      {
+        "text": "El principi de responsabilitat única (Single Responsibility Principle).",
+        "isCorrect": true,
+        "rationale": "Correcte. Aquest principi diu que una funció hauria de tenir una sola raó per canviar."
+      },
+      {
+        "text": "El principi de reutilització de codi (DRY - Don't Repeat Yourself).",
+        "isCorrect": false,
+        "rationale": "Incorrecte. Aquest principi parla d'evitar codi duplicat."
+      },
+      {
+        "text": "El principi de KISS (Keep It Simple, Stupid).",
+        "isCorrect": false,
+        "rationale": "Incorrecte. Tot i que relacionat, la violació més específica és la de responsabilitat única."
+      },
+      {
+        "text": "El principi d'obert/tancat (Open/Closed Principle).",
+        "isCorrect": false,
+        "rationale": "Incorrecte. Aquest principi parla d'estendre el comportament sense modificar el codi existent."
+      }
+    ],
+    "hint": "Quin principi SOLID parla específicament que una funció ha de tenir una única responsabilitat?"
+  },
+  {
+    "guid": "PRA2-Q13",
+    "subjectId": "PracticaEstil_2",
+    "difficulty": 4,
+    "origin": "generat_estil_practic",
+    "type": "test",
+    "question": "L'equip de desenvolupament del portal mòbil està decidint si fa l'aplicació nativa o híbrida. Un requisit clau és que l'app pugui enviar notificacions push. Quina afirmació és CORRECTA en aquest context?",
+    "answerOptions": [
+      {
+        "text": "Les aplicacions híbrides (React Native, Flutter) poden rebre notificacions push mitjançant mòduls natius.",
+        "isCorrect": true,
+        "rationale": "Correcte. Frameworks híbrids permeten accedir a funcionalitats natives, incloent els serveis de push."
+      },
+      {
+        "text": "Només les aplicacions natives poden rebre notificacions push, perquè depenen dels SDK de cada plataforma.",
+        "isCorrect": false,
+        "rationale": "Incorrecte. Les aplicacions híbrides també poden integrar aquests SDK."
+      },
+      {
+        "text": "Les aplicacions web progressives (PWA) reben notificacions push igual que les natives.",
+        "isCorrect": false,
+        "rationale": "Incorrecte. Les PWA poden rebre notificacions, però no de la mateixa manera que les natives."
+      },
+      {
+        "text": "Cap tipus d'aplicació pot rebre notificacions push si no està en primer pla.",
+        "isCorrect": false,
+        "rationale": "Incorrecte. La característica principal de les push és que es reben en segon pla."
+      }
+    ],
+    "hint": "Com aconsegueixen les apps fetes amb React Native o Flutter accedir a funcions específiques de cada plataforma?"
+  },
+  {
+    "guid": "PRA2-Q14",
+    "subjectId": "PracticaEstil_2",
+    "difficulty": 4,
+    "origin": "generat_estil_practic",
+    "type": "test",
+    "question": "Un desenvolupador del portal proposa utilitzar un patró de disseny per a la comunicació amb les APIs de SAP TRM que permeti tractar les diferents respostes (èxit, error de validació, error del servidor) de manera uniforme i centralitzada. Quin patró seria útil per a això?",
+    "answerOptions": [
+      {
+        "text": "El patró Interceptor o Middleware, per interceptar les respostes i aplicar-hi lògica comuna.",
+        "isCorrect": true,
+        "rationale": "Correcte. Aquest patró permet gestionar les respostes de manera centralitzada."
+      },
+      {
+        "text": "El patró Factory, per crear diferents tipus d'objectes de resposta.",
+        "isCorrect": false,
+        "rationale": "Incorrecte. Factory s'usa per crear objectes, no per gestionar respostes."
+      },
+      {
+        "text": "El patró Singleton, per assegurar una única instància del gestor de crides.",
+        "isCorrect": false,
+        "rationale": "Incorrecte. Això no dona una estructura per al maneig de respostes."
+      },
+      {
+        "text": "El patró Observer, per notificar a múltiples components quan arriba una resposta.",
+        "isCorrect": false,
+        "rationale": "Incorrecte. Aquest patró és per a comunicació basada en esdeveniments."
+      }
+    ],
+    "hint": "Quin patró permet 'enganxar-se' al flux de petició/resposta per aplicar-hi lògica addicional?"
+  },
+  {
+    "guid": "PRA2-Q15",
+    "subjectId": "PracticaEstil_2",
+    "difficulty": 4,
+    "origin": "generat_estil_practic",
+    "type": "test",
+    "question": "L'equip de SAP TRM està realitzant proves de càrrega per assegurar que el sistema suportarà el volum de liquidacions de la taxa de gual. Simulen 500 usuaris concurrents fent consultes i pagaments. Durant la prova, el temps de resposta es dispara. Quina mètrica de rendiment és la més rellevant per identificar que el sistema està saturat?",
+    "answerOptions": [
+      {
+        "text": "El temps de resposta mitjà i el percentil 95 (o 99) del temps de resposta.",
+        "isCorrect": true,
+        "rationale": "Correcte. L'augment del temps de resposta és el primer símptoma de saturació."
+      },
+      {
+        "text": "El percentatge d'errors HTTP 500 retornats.",
+        "isCorrect": false,
+        "rationale": "Incorrecte. Això indica que el sistema està fallant, però pot ser una conseqüència."
+      },
+      {
+        "text": "El throughput (nombre de transaccions per segon).",
+        "isCorrect": false,
+        "rationale": "Incorrecte. Quan es dispara el temps de resposta, el throughput pot caure."
+      },
+      {
+        "text": "L'ús de CPU i memòria dels servidors.",
+        "isCorrect": false,
+        "rationale": "Incorrecte. Aquestes mètriques són la causa, no la manifestació del problema per a l'usuari."
+      }
+    ],
+    "hint": "Quina és la mètrica que experimenta directament l'usuari i que empitjora quan el sistema està sobrecarregat?"
+  },
+  {
+    "guid": "PRA2-Q16",
+    "subjectId": "PracticaEstil_2",
+    "difficulty": 4,
+    "origin": "generat_estil_practic",
+    "type": "test",
+    "question": "L'equip de QA ha detectat un error en producció: en circumstàncies molt específiques, un pagament es duplica. Després d'investigar, descobreixen que la causa és una condició de cursa (race condition) en el codi de l'API. Quin tipus de prova hauria estat MÉS EFECTIVA per detectar aquest problema abans de passar a producció?",
+    "answerOptions": [
+      {
+        "text": "Proves de càrrega o estrès, simulant múltiples peticions simultànies.",
+        "isCorrect": true,
+        "rationale": "Correcte. Les condicions de cursa només apareixen amb concurrència. Les proves de càrrega són les adequades."
+      },
+      {
+        "text": "Proves unitàries de la funció de pagament, executant-la seqüencialment.",
+        "isCorrect": false,
+        "rationale": "Incorrecte. Les proves unitàries solen ser seqüencials i no detecten problemes de concurrència."
+      },
+      {
+        "text": "Proves d'integració amb la base de dades, verificant la connexió.",
+        "isCorrect": false,
+        "rationale": "Incorrecte. Aquestes proves tampoc solen simular concurrència."
+      },
+      {
+        "text": "Proves de regressió, executant tots els casos de prova existents.",
+        "isCorrect": false,
+        "rationale": "Incorrecte. Si els casos no inclouen concurrència, no ho detectaran."
+      }
+    ],
+    "hint": "Quin tipus de prova posa el sistema sota una càrrega de treball que pot desencadenar problemes de sincronització?"
+  },
+  {
+    "guid": "PRA2-Q17",
+    "subjectId": "PracticaEstil_2",
+    "difficulty": 4,
+    "origin": "generat_estil_practic",
+    "type": "test",
+    "question": "L'equip d'arquitectura està dissenyant les APIs REST per al portal. Volen assegurar que compleixin amb els principis RESTful. Quina de les següents pràctiques NO és coherent amb aquest estil arquitectònic?",
+    "answerOptions": [
+      {
+        "text": "Mantenir l'estat de la sessió de l'usuari al servidor per recordar les seves preferències.",
+        "isCorrect": true,
+        "rationale": "Correcte. Un dels principis clau de REST és que el servidor no ha de mantenir l'estat de la sessió (stateless)."
+      },
+      {
+        "text": "Utilitzar els verbs HTTP (GET, POST, PUT, DELETE) per a les operacions sobre els recursos.",
+        "isCorrect": false,
+        "rationale": "Incorrecte. Aquesta és una pràctica fonamental de REST."
+      },
+      {
+        "text": "Identificar els recursos mitjançant URLs (per exemple, /contribuents/{nif}/deutes).",
+        "isCorrect": false,
+        "rationale": "Incorrecte. Aquesta és una altra pràctica essencial de REST."
+      },
+      {
+        "text": "Utilitzar codis d'estat HTTP estàndard per indicar el resultat de l'operació.",
+        "isCorrect": false,
+        "rationale": "Incorrecte. També és una pràctica recomanada en REST."
+      }
+    ],
+    "hint": "Quin principi REST parla de la independència entre peticions?"
+  },
+  {
+    "guid": "PRA2-Q18",
+    "subjectId": "PracticaEstil_2",
+    "difficulty": 4,
+    "origin": "generat_estil_practic",
+    "type": "test",
+    "question": "L'equip de desenvolupament del portal ha començat a treballar en el primer Sprint. Durant la planificació, van estimar que una història d'usuari tenia una complexitat de 8 punts. En finalitzar l'Sprint, veuen que han consumit 10 punts de treball real. Aquesta diferència és un exemple de:",
+    "answerOptions": [
+      {
+        "text": "Una oportunitat per recalibrar la 'velocitat' (velocity) de l'equip per a futurs Sprints.",
+        "isCorrect": true,
+        "rationale": "Correcte. La velocitat s'ajusta amb l'experiència per a una millor planificació."
+      },
+      {
+        "text": "Deute tècnic, perquè han hagut de fer feina addicional no planificada.",
+        "isCorrect": false,
+        "rationale": "Incorrecte. El deute tècnic es refereix a la qualitat del codi, no a desviacions en l'estimació."
+      },
+      {
+        "text": "Error en la planificació de l'Sprint, que invalida la metodologia.",
+        "isCorrect": false,
+        "rationale": "Incorrecte. Les desviacions són normals i serveixen per aprendre."
+      },
+      {
+        "text": "Un defecte en el procés de revisió de codi, que va generar més feina.",
+        "isCorrect": false,
+        "rationale": "Incorrecte. No té relació amb la revisió de codi."
+      }
+    ],
+    "hint": "En Scrum, com s'anomena la mètrica que indica la quantitat de treball que un equip pot completar en un Sprint?"
+  },
+  {
+    "guid": "PRA2-Q19",
+    "subjectId": "PracticaEstil_2",
+    "difficulty": 4,
+    "origin": "generat_estil_practic",
+    "type": "test",
+    "question": "L'equip de QA està automatitzant proves per a l'API. Una prova requereix autenticar-se amb un usuari de prova. Però les credencials d'aquest usuari canvien periòdicament per política de seguretat. Quina és la millor pràctica per gestionar aquestes credencials en els scripts de prova automatitzats?",
+    "answerOptions": [
+      {
+        "text": "Utilitzar variables d'entorn o un sistema de gestió de secrets per injectar les credencials.",
+        "isCorrect": true,
+        "rationale": "Correcte. Aquesta és la pràctica recomanada: separar la configuració del codi."
+      },
+      {
+        "text": "Incloure les credencials directament en el codi de la prova, ja que és un entorn de prova.",
+        "isCorrect": false,
+        "rationale": "Incorrecte. Mai és bona pràctica incloure credencials en el codi font."
+      },
+      {
+        "text": "Crear un usuari de prova amb credencials permanents que no caduquin.",
+        "isCorrect": false,
+        "rationale": "Incorrecte. Això va contra la política de seguretat."
+      },
+      {
+        "text": "Demanar a seguretat que desactivi la política de rotació per als usuaris de prova.",
+        "isCorrect": false,
+        "rationale": "Incorrecte. Cal adaptar l'automatització a la política, no al revés."
+      }
+    ],
+    "hint": "Com es poden passar dades sensibles i canviants a un procés automatitzat sense escriure-les en el codi?"
+  },
+  {
+    "guid": "PRA2-Q20",
+    "subjectId": "PracticaEstil_2",
+    "difficulty": 4,
+    "origin": "generat_estil_practic",
+    "type": "test",
+    "question": "L'equip d'arquitectura vol dissenyar un sistema que permeti a altres ajuntaments reutilitzar els components desenvolupats per a la gestió de la taxa de gual, però adaptant-los a les seves pròpies ordenances. Quin principi de disseny de SOA és clau per permetre aquesta reutilització?",
+    "answerOptions": [
+      {
+        "text": "Configuració externa dels serveis mitjançant paràmetres o regles de negoci.",
+        "isCorrect": true,
+        "rationale": "Correcte. Dissenyar serveis parametritzables permet la personalització sense canviar el codi."
+      },
+      {
+        "text": "Acoblament feble (loose coupling), perquè els serveis siguin independents.",
+        "isCorrect": false,
+        "rationale": "Incorrecte. L'acoblament feble és important, però no permet l'adaptació per si sol."
+      },
+      {
+        "text": "Reutilització de serveis, però per si sola no resol l'adaptació a diferents normatives.",
+        "isCorrect": false,
+        "rationale": "Incorrecte. És el que es busca, però no el mecanisme per aconseguir-ho."
+      },
+      {
+        "text": "Ocultació de la informació (information hiding), per encapsular els detalls interns.",
+        "isCorrect": false,
+        "rationale": "Incorrecte. Això és bo, però no permet la configuració externa."
+      }
+    ],
+    "hint": "Com es pot fer que un servei es comporti de manera diferent en funció de qui el faci servir, sense modificar-ne el codi?"
+  },
+  {
+    "guid": "PRA2-Q21",
+    "subjectId": "PracticaEstil_2",
+    "difficulty": 4,
+    "origin": "generat_estil_practic",
+    "type": "test",
+    "question": "L'equip de desenvolupament del portal està treballant en la funcionalitat de pagament. Volen assegurar que, si el servei de pagament de SAP TRM està temporalment no disponible, l'usuari no perdi les dades que ha introduït i se li informi correctament. Quin patró de resiliència haurien d'implementar al client (el portal)?",
+    "answerOptions": [
+      {
+        "text": "Circuit Breaker, per obrir l'interruptor quan el servei falla i fallar ràpidament.",
+        "isCorrect": true,
+        "rationale": "Correcte. El patró Circuit Breaker gestiona fallades en serveis remots, evitant esperes innecessàries."
+      },
+      {
+        "text": "Balanceig de càrrega, per distribuir les peticions entre diverses instàncies del servei.",
+        "isCorrect": false,
+        "rationale": "Incorrecte. Ajuda a la disponibilitat, però no resol com gestiona el client una fallada."
+      },
+      {
+        "text": "Retries amb backoff exponencial, per reintentar la petició diverses vegades.",
+        "isCorrect": false,
+        "rationale": "Incorrecte. Pot ajudar si la fallada és transitòria, però no si el servei està caigut."
+      },
+      {
+        "text": "Cache de les dades del formulari, per guardar el que l'usuari ha escrit.",
+        "isCorrect": false,
+        "rationale": "Incorrecte. Això és una bona pràctica d'UX, però no un patró de resiliència per al servei."
+      }
+    ],
+    "hint": "Quin patró actua com un 'interruptor elèctric' per protegir el sistema de crides a serveis que fallen?"
+  },
+  {
+    "guid": "PRA2-Q22",
+    "subjectId": "PracticaEstil_2",
+    "difficulty": 4,
+    "origin": "generat_estil_practic",
+    "type": "test",
+    "question": "L'equip de QA està revisant els requisits no funcionals. Un d'ells especifica que 'el sistema ha de poder processar com a mínim 1000 liquidacions per minut'. Quin tipus de prova és la més adequada per verificar aquest requisit?",
+    "answerOptions": [
+      {
+        "text": "Proves de càrrega, per simular el volum de transaccions esperat.",
+        "isCorrect": true,
+        "rationale": "Correcte. Aquesta és la definició exacta d'una prova de càrrega."
+      },
+      {
+        "text": "Proves d'estrès, per portar el sistema més enllà del seu límit.",
+        "isCorrect": false,
+        "rationale": "Incorrecte. Les proves d'estrès van més enllà del requisit."
+      },
+      {
+        "text": "Proves de resistència, per veure el comportament sota càrrega sostinguda.",
+        "isCorrect": false,
+        "rationale": "Incorrecte. El requisit és de volum per minut, no de sostenibilitat en el temps."
+      },
+      {
+        "text": "Proves de pic, per veure la reacció a un augment sobtat de la càrrega.",
+        "isCorrect": false,
+        "rationale": "Incorrecte. El requisit és per a una càrrega sostinguda."
+      }
+    ],
+    "hint": "Quin tipus de prova t'ajuda a respondre: 'el sistema pot aguantar la feina que li demanarem en un dia normal'?"
+  },
+  {
+    "guid": "PRA2-Q23",
+    "subjectId": "PracticaEstil_2",
+    "difficulty": 4,
+    "origin": "generat_estil_practic",
+    "type": "test",
+    "question": "L'equip de desenvolupament del portal ha finalitzat el primer Sprint i presenta l'increment de producte al Product Owner. Què hauria de contenir principalment aquesta demostració (Sprint Review)?",
+    "answerOptions": [
+      {
+        "text": "Una demo funcional del programari desenvolupat des de la perspectiva de l'usuari.",
+        "isCorrect": true,
+        "rationale": "Correcte. L'objectiu és mostrar el producte funcionant per recollir feedback."
+      },
+      {
+        "text": "Una presentació detallada del codi escrit i les proves unitàries implementades.",
+        "isCorrect": false,
+        "rationale": "Incorrecte. Són detalls tècnics que no interessen al Product Owner."
+      },
+      {
+        "text": "Una anàlisi del que ha anat bé i del que es pot millorar en la manera de treballar.",
+        "isCorrect": false,
+        "rationale": "Incorrecte. Aquest és el propòsit de la Sprint Retrospective."
+      },
+      {
+        "text": "Els gràfics de burndown de l'Sprint i les mètriques de rendiment de l'equip.",
+        "isCorrect": false,
+        "rationale": "Incorrecte. Aquestes mètriques poden ser part de la revisió, però el més important és el producte."
+      }
+    ],
+    "hint": "Quina és l'essència de la revisió del Sprint: 'què hem construït?'"
+  },
+  {
+    "guid": "PRA2-Q24",
+    "subjectId": "PracticaEstil_2",
+    "difficulty": 4,
+    "origin": "generat_estil_practic",
+    "type": "test",
+    "question": "L'equip de desenvolupament està considerant l'ús d'una plataforma low-code per crear el backoffice de l'IMH que gestionarà les incidències de la taxa. Quin seria un avantatge clau d'aquesta decisió?",
+    "answerOptions": [
+      {
+        "text": "La velocitat de desenvolupament, permetent validar requisits amb usuaris en poc temps.",
+        "isCorrect": true,
+        "rationale": "Correcte. Aquest és el principal avantatge del low-code: rapidesa en el desenvolupament."
+      },
+      {
+        "text": "El control absolut sobre cada línia de codi generada per l'eina.",
+        "isCorrect": false,
+        "rationale": "Incorrecte. En low-code, el codi és generat per la plataforma i no es pot controlar."
+      },
+      {
+        "text": "La possibilitat de contractar personal sense coneixements tècnics per programar.",
+        "isCorrect": false,
+        "rationale": "Incorrecte. El low-code requereix coneixements de lògica de negoci i de l'eina."
+      },
+      {
+        "text": "Un rendiment molt superior al d'una aplicació desenvolupada amb codi tradicional.",
+        "isCorrect": false,
+        "rationale": "Incorrecte. El rendiment pot ser suficient, però no és l'avantatge principal."
+      }
+    ],
+    "hint": "Per a quins tipus de projectes és especialment adequat el low-code?"
+  },
+  {
+    "guid": "PRA2-Q25",
+    "subjectId": "PracticaEstil_2",
+    "difficulty": 4,
+    "origin": "generat_estil_practic",
+    "type": "test",
+    "question": "L'equip de QA està executant una prova de caixa negra sobre l'API de liquidació. Proporcionen un NIF vàlid i reben una resposta 200 OK amb les dades de la liquidació. Aquesta prova verifica:",
+    "answerOptions": [
+      {
+        "text": "Que per a una entrada concreta, l'API retorna la sortida esperada segons l'especificació.",
+        "isCorrect": true,
+        "rationale": "Correcte. Aquesta és l'essència d'una prova funcional de caixa negra."
+      },
+      {
+        "text": "Que el codi intern de l'API està ben escrit i lliure d'errors.",
+        "isCorrect": false,
+        "rationale": "Incorrecte. Una prova de caixa negra no pot verificar el codi intern."
+      },
+      {
+        "text": "Que la integració amb la base de dades és correcta i eficient.",
+        "isCorrect": false,
+        "rationale": "Incorrecte. Només verifica que el resultat final és l'esperat."
+      },
+      {
+        "text": "Que el temps de resposta de l'API és inferior a 500ms.",
+        "isCorrect": false,
+        "rationale": "Incorrecte. Aquesta seria una prova de rendiment."
+      }
+    ],
+    "hint": "Què valida una prova funcional? Que el sistema fa 'què' ha de fer."
+  }
+]
