@@ -889,6 +889,38 @@
           return false;
         }
 
+        // PASO 1: Detectar preguntas ya contestadas
+        const preguntesContestades = preguntes.filter(p => {
+          return p.guid && getContestadaCount(p.guid) > 0;
+        });
+
+        // PASO 2 y 3: Mostrar alert y filtrar según respuesta
+        if (preguntesContestades.length > 0) {
+          const excluir = confirm(
+            `Hi ha ${preguntesContestades.length} pregunta${preguntesContestades.length > 1 ? 'es' : ''} ja contestada${preguntesContestades.length > 1 ? 'es' : ''} prèviament.\n\n` +
+            `Vols excloure-les de l'estudi?\n\n` +
+            `Acceptar = Sí (només preguntes noves)\n` +
+            `Cancel·lar = No (totes les preguntes)`
+          );
+
+          if (excluir) {
+            // Filtrar preguntas contestadas
+            preguntes = preguntes.filter(p => {
+              return !p.guid || getContestadaCount(p.guid) === 0;
+            });
+
+            // PASO 4: Validar que quedan preguntas
+            if (!preguntes.length) {
+              document.getElementById('questionContainer').innerHTML = 
+                `<div class="question-card"><div class="question-text">Totes les preguntes ja han estat contestades. No queden preguntes noves per estudiar.</div></div>`;
+              document.getElementById('removeFromHistoryContainer').style.display = 'none';
+              return false;
+            }
+
+            toast.showToast(`S'han exclòs ${preguntesContestades.length} pregunta${preguntesContestades.length > 1 ? 'es' : ''} ja contestada${preguntesContestades.length > 1 ? 'es' : ''}`);
+          }
+        }
+
         // Inicializar el array de respuestas
         answers = new Array(preguntes.length).fill(null);
         // ordenar aleatoriamente las preguntas
