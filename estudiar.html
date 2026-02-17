@@ -612,6 +612,10 @@
           // Guardar dubte con tecla G
           guardarDubte();
           e.preventDefault();
+        } else if (e.key === 'r' || e.key === 'R') {
+          // Reportar pregunta con tecla R
+          reportarPregunta();
+          e.preventDefault();
         }
       });
       const header = document.getElementById('headerTitle');
@@ -1732,6 +1736,55 @@
       actualizarTextareaHistorial();
       localStorage.setItem(LS_KEYS.HISTORIAL_FALLOS, JSON.stringify(historialFallos));
       toast.showToast('Últim error esborrat!');
+    }
+
+    // ============================================================
+    // REPORTAR PREGUNTAS PROBLEMÁTICAS
+    // ============================================================
+    
+    /**
+     * Reportar pregunta actual como problemática (tecla R)
+     * Guarda el GUID en localStorage para revisión manual posterior
+     */
+    function reportarPregunta() {
+      if (currentQuestion < 0 || currentQuestion >= preguntes.length) {
+        toast.showToast('❌ No hi ha pregunta per reportar');
+        return;
+      }
+
+      const pregunta = preguntes[currentQuestion];
+      const guid = pregunta.guid;
+
+      if (!guid) {
+        toast.showToast('❌ Aquesta pregunta no té GUID');
+        return;
+      }
+
+      try {
+        // Cargar array de reportadas desde localStorage
+        let reportadas = [];
+        const reportadasStr = localStorage.getItem('PREGUNTAS_REPORTADAS');
+        if (reportadasStr) {
+          reportadas = JSON.parse(reportadasStr);
+        }
+
+        // Verificar si ya está reportada
+        if (reportadas.includes(guid)) {
+          toast.showToast('⚠️ Aquesta pregunta ja estava reportada');
+          return;
+        }
+
+        // Añadir GUID al array
+        reportadas.push(guid);
+
+        // Guardar en localStorage
+        localStorage.setItem('PREGUNTAS_REPORTADAS', JSON.stringify(reportadas));
+
+        toast.showToast(`✅ Pregunta reportada! (Total: ${reportadas.length})`);
+      } catch (e) {
+        console.error('Error reportando pregunta:', e);
+        toast.showToast('❌ Error al reportar pregunta');
+      }
     }
 
   </script>
