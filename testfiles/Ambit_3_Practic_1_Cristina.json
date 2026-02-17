@@ -1,0 +1,377 @@
+[
+    {
+        "guid": "15b792df-1ad4-4849-ad8d-41f4f69817be",
+        "subjectId": "Ambit_3",
+        "difficulty": 4,
+        "origin": "generat_estil_practic",
+        "type": "test",
+        "question": "L'IMRH està en la fase de definició de la implantació de SAP HCM. Quin dels següents infotypes seria OBLIGATORI i el primer a omplir per a donar d'alta un nou empleat al sistema?",
+        "answerOptions": [
+     {"text":"L'infotype 0001 (Assignació organitzativa),ja que situa l'empleat a l'estructura i defineix el conveni que li aplica.","isCorrect":true,"rationale":"Correcte. Aquest infotype és la base per a la resta de dades,ja que determina el context organitzatiu."},
+     {"text":"L'infotype 0008 (Dades de nòmina),per establir el salari base i els complements des del primer dia.","isCorrect":false,"rationale":"Incorrecte. Les dades de nòmina depenen de l'assignació organitzativa i del conveni,per tant no poden ser el primer pas."},
+     {"text":"L'infotype 0002 (Dades personals),per registrar el nom,DNI i data de naixement de l'empleat.","isCorrect":false,"rationale":"Incorrecte. Tot i que són dades bàsiques,l'ordre d'alta sol començar per l'assignació organitzativa."},
+     {"text":"L'infotype 0006 (Dades d'adreça),per disposar del domicili de l'empleat a efectes de comunicació.","isCorrect":false,"rationale":"Incorrecte. Aquestes dades són necessàries però no són les primeres en la seqüència d'alta."}
+    ],
+        "hint": "Quina és la informació que situa l'empleat dins de l'organigrama i els seus col·lectius?"
+    },
+    {
+        "guid": "78454eb6-a67a-4860-8e5c-52542fd7bb3f",
+        "subjectId": "Ambit_3",
+        "difficulty": 4,
+        "origin": "generat_estil_practic",
+        "type": "test",
+        "question": "Durant la configuració de la nòmina a SAP HCM, l'equip tècnic ha de definir el procés de càlcul. Quina és la funció principal de l'esquema de càlcul (schema) en aquest context?",
+        "answerOptions": [
+     {"text":"Determinar la seqüència de regles i operacions per calcular els conceptes de la nòmina.","isCorrect":true,"rationale":"Correcte. L'esquema és el programa que,pas a pas,processa les dades per obtenir el resultat final."},
+     {"text":"Emmagatzemar els resultats de la nòmina per a la seva consulta històrica i informes.","isCorrect":false,"rationale":"Incorrecte. Aquesta funció correspon a les taules de resultats (clústers),no a l'esquema de càlcul."},
+     {"text":"Definir els tipus de conveni col·lectiu i les taules salarials associades a cada grup.","isCorrect":false,"rationale":"Incorrecte. Això es configura mitjançant taques de valoració i els tipus de conveni,no amb l'esquema."},
+     {"text":"Permetre la simulació de la nòmina abans de l'execució definitiva del procés.","isCorrect":false,"rationale":"Incorrecte. La simulació és una funcionalitat que utilitza l'esquema,però no és la seva funció principal."}
+    ],
+        "hint": "L'esquema és la 'recepta' que segueix el sistema per fer el càlcul, pas a pas."
+    },
+    {
+        "guid": "471e2dc1-b66d-4a76-93d4-33d57868796c",
+        "subjectId": "Ambit_3",
+        "difficulty": 4,
+        "origin": "generat_estil_practic",
+        "type": "test",
+        "question": "L'equip de Big Data està dissenyant el Data Lake a Azure per alimentar els quadres de comandament directius. Quina estratègia de processament és la més adequada per a l'alimentació inicial massiva de dades històriques de nòmina des dels sistemes llegats, abans de començar amb l'alimentació contínua?",
+        "answerOptions": [
+     {"text":"Processament per lots (batch) amb Azure Data Factory,important les dades de forma massiva i programada.","isCorrect":true,"rationale":"Correcte. Per a grans volums de dades històriques,el processament per lots és l'opció més eficient i adequada."},
+     {"text":"Processament en temps real amb Azure Stream Analytics,per analitzar les dades a mesura que es carreguen.","isCorrect":false,"rationale":"Incorrecte. El processament en temps real és per a dades contínues,no per a una càrrega inicial massiva."},
+     {"text":"Micro-batch amb Spark Structured Streaming,simulant un flux continu a partir de les dades històriques.","isCorrect":false,"rationale":"Incorrecte. Tot i que tècnicament possible,no és l'estratègia òptima per a una càrrega inicial massiva."},
+     {"text":"Càrrega sota demanda amb Azure Databricks,processant les dades només quan es consulten.","isCorrect":false,"rationale":"Incorrecte. Aquest enfocament no resol la necessitat de tenir les dades disponibles per a anàlisi posterior."}
+    ],
+        "hint": "Quina és la diferència clau entre processar dades 'històriques' i dades 'en moviment'?"
+    },
+    {
+        "guid": "3abded70-f7c8-42fb-9fb6-68d033114be2",
+        "subjectId": "Ambit_3",
+        "difficulty": 4,
+        "origin": "generat_estil_practic",
+        "type": "test",
+        "question": "Per assegurar la qualitat de les dades al Data Lake, l'equip vol implementar controls. Quina pràctica de governança de dades és clau perquè els analistes sàpiguen què significa cada camp (per exemple, 'sou_base') i d'on prové?",
+        "answerOptions": [
+     {"text":"Utilitzar un catàleg de dades (com Azure Purview) per documentar metadades i llinatge.","isCorrect":true,"rationale":"Correcte. El catàleg de dades és l'eina fonamental per a la governança i la descoberta de dades."},
+     {"text":"Aplicar un model de dades relacional estricte a totes les dades emmagatzemades al Data Lake.","isCorrect":false,"rationale":"Incorrecte. Això limitaria la flexibilitat del Data Lake i no resol el problema de la documentació."},
+     {"text":"Implementar un procés de neteja i normalització de dades abans de la càrrega inicial.","isCorrect":false,"rationale":"Incorrecte. Això millora la qualitat,però no documenta el significat dels camps."},
+     {"text":"Crear un diccionari de dades en un full de càlcul compartit per tot l'equip.","isCorrect":false,"rationale":"Incorrecte. És una pràctica manual que ràpidament queda desactualitzada i no és escalable."}
+    ],
+        "hint": "Quina eina permet als analistes 'descobrir' quines dades hi ha i què signifiquen?"
+    },
+    {
+        "guid": "a2547c71-b6c2-4872-ae40-9495a8739b0a",
+        "subjectId": "Ambit_3",
+        "difficulty": 4,
+        "origin": "generat_estil_practic",
+        "type": "test",
+        "question": "L'equip de desenvolupament de l'app mòbil vol crear una versió per a iOS i Android amb el màxim de codi compartit. Quin enfocament escolliria per maximitzar la reutilització de codi, tenint en compte que l'equip té coneixements de JavaScript/TypeScript?",
+        "answerOptions": [
+     {"text":"Utilitzar React Native,que permet compartir la lògica de negoci entre plataformes amb un rendiment natiu.","isCorrect":true,"rationale":"Correcte. React Native és l'opció ideal per a equips amb coneixements de JavaScript/TypeScript."},
+     {"text":"Desenvolupar una aplicació nativa per a cada plataforma,optimitzant l'experiència d'usuari.","isCorrect":false,"rationale":"Incorrecte. Aquest enfocament minimitza la reutilització de codi,ja que són projectes separats."},
+     {"text":"Crear una Progressive Web App (PWA) accessible des del navegador de qualsevol dispositiu.","isCorrect":false,"rationale":"Incorrecte. Una PWA no és una aplicació mòbil en el sentit tradicional i té limitacions d'accés al dispositiu."},
+     {"text":"Utilitzar Flutter amb Dart,un llenguatge que l'equip hauria d'aprendre des de zero.","isCorrect":false,"rationale":"Incorrecte. Tot i que permet compartir codi,l'equip no té coneixements previs de Dart."}
+    ],
+        "hint": "Quin framework permet escriure una vegada en JavaScript i desplegar a iOS i Android?"
+    },
+    {
+        "guid": "98ae7baa-d1f6-4ac1-b267-a6eb8ae6bb2d",
+        "subjectId": "Ambit_3",
+        "difficulty": 4,
+        "origin": "generat_estil_practic",
+        "type": "test",
+        "question": "L'equip de desenvolupament, amb pocs recursos, decideix utilitzar una eina low-code per a crear les pantalles de gestió interna (backoffice) que consumiran les mateixes APIs. Quin dels següents és un RISC important associat a l'ús de plataformes low-code/no-code en un entorn corporatiu?",
+        "answerOptions": [
+     {"text":"La possible dependència del proveïdor (vendor lock-in) i la generació d'aplicacions no governades centralment.","isCorrect":true,"rationale":"Correcte. Aquests són els riscos principals:dificultat per canviar de plataforma i aparició de Shadow IT."},
+     {"text":"La dificultat per connectar les aplicacions a bases de dades relacionals externes.","isCorrect":false,"rationale":"Incorrecte. La majoria de plataformes low-code tenen connectors per a bases de dades i APIs."},
+     {"text":"L'alt cost d'adquisició de llicències,que sol ser superior al desenvolupament tradicional.","isCorrect":false,"rationale":"Incorrecte. El model de costos és diferent,però no és un risc tècnic inherent."},
+     {"text":"La manca de suport per a la creació d'interfícies d'usuari responsives i modernes.","isCorrect":false,"rationale":"Incorrecte. Les plataformes low-code actuals ofereixen bones capacitats de disseny UI/UX."}
+    ],
+        "hint": "Quin és el principal problema de proliferació d'aplicacions sense control central?"
+    },
+    {
+        "guid": "3afa42cd-e867-4cc7-b1d4-4bc1148828c0",
+        "subjectId": "Ambit_3",
+        "difficulty": 4,
+        "origin": "generat_estil_practic",
+        "type": "test",
+        "question": "L'aplicació mòbil necessita autenticar els usuaris (treballadors municipals) contra el directori actiu de l'Ajuntament i autoritzar l'accés a les APIs de dades personals. Quin protocol estàndard i obert és el més adequat per implementar aquesta autorització, permetent que l'app accedeixi a les dades en nom de l'usuari sense conèixer la seva contrasenya?",
+        "answerOptions": [
+     {"text":"OAuth 2.0,que permet a l'aplicació obtenir un token d'accés limitat sense credencials de l'usuari.","isCorrect":true,"rationale":"Correcte. OAuth 2.0 és l'estàndard per a l'autorització delegada en aplicacions."},
+     {"text":"LDAP,per consultar directament el directori actiu i verificar les credencials de l'usuari.","isCorrect":false,"rationale":"Incorrecte. LDAP requereix que l'aplicació gestioni les credencials,cosa que no és desitjable."},
+     {"text":"SAML,per intercanviar assertions XML d'autenticació entre el proveïdor d'identitats i l'app.","isCorrect":false,"rationale":"Incorrecte. SAML és més adequat per a aplicacions web,no per a aplicacions mòbils."},
+     {"text":"Basic Auth,enviant l'usuari i contrasenya a cada petició de l'API.","isCorrect":false,"rationale":"Incorrecte. Aquest mètode és insegur i exposa les credencials a cada petició."}
+    ],
+        "hint": "Quin protocol permet a una aplicació actuar 'en nom de' l'usuari sense saber la seva contrasenya?"
+    },
+    {
+        "guid": "102ff8d4-e83e-4675-bb53-f2316cc703f0",
+        "subjectId": "Ambit_3",
+        "difficulty": 4,
+        "origin": "generat_estil_practic",
+        "type": "test",
+        "question": "L'equip d'arquitectura dissenya la capa de serveis. Volen que tots els sistemes (SAP HCM, SAP FI, Data Lake) exposin les seves funcionalitats com a serveis interoperables. Quin estil arquitectònic descriu millor aquesta visió on les funcionalitats de negoci són serveis amb contractes ben definits?",
+        "answerOptions": [
+     {"text":"Arquitectura Orientada a Serveis (SOA),que organitza les funcionalitats com a serveis reutilitzables.","isCorrect":true,"rationale":"Correcte. SOA és l'estil arquitectònic que descriu aquesta visió de serveis interoperables."},
+     {"text":"Arquitectura de Microserveis,on cada servei és petit,independent i desplegable per si mateix.","isCorrect":false,"rationale":"Incorrecte. Tot i que comparteix principis,la descripció s'ajusta més a SOA."},
+     {"text":"Arquitectura Monolítica,on tota la lògica de negoci està en una única aplicació.","isCorrect":false,"rationale":"Incorrecte. És l'antítesi del que es descriu."},
+     {"text":"Arquitectura Basada en Esdeveniments,on la comunicació es fa mitjançant esdeveniments asíncrons.","isCorrect":false,"rationale":"Incorrecte. És un patró de comunicació,no l'estil arquitectònic general descrit."}
+    ],
+        "hint": "Quin estil arquitectònic es basa en oferir funcionalitats de negoci com a serveis amb contractes?"
+    },
+    {
+        "guid": "6d99d80a-1b55-4cb9-b9eb-9d9cb2c7ed62",
+        "subjectId": "Ambit_3",
+        "difficulty": 4,
+        "origin": "generat_estil_practic",
+        "type": "test",
+        "question": "Durant les proves de la integració entre l'app mòbil i SAP HCM via APIs, l'equip de QA detecta que de vegades la resposta de l'API és incorrecta. Volen aïllar la prova per assegurar que l'error és de l'API i no de l'aplicació mòbil. Quina tècnica de proves és la més adequada per simular el comportament de l'API de SAP HCM durant aquestes proves?",
+        "answerOptions": [
+     {"text":"Utilitzar un mock de l'API,que retornarà respostes predefinides per a cada crida.","isCorrect":true,"rationale":"Correcte. Els mocks permeten aïllar el component que es vol provar simulant el seu entorn."},
+     {"text":"Executar proves de càrrega per veure si l'API falla sota condicions d'estrès.","isCorrect":false,"rationale":"Incorrecte. Les proves de càrrega no serveixen per aïllar un comportament incorrecte."},
+     {"text":"Realitzar proves d'integració contínua executant els tests automàticament.","isCorrect":false,"rationale":"Incorrecte. Això automatitza l'execució,però no simula el comportament de l'API."},
+     {"text":"Fer una anàlisi estàtica del codi de l'API per trobar possibles errors.","isCorrect":false,"rationale":"Incorrecte. L'anàlisi estàtica no executa el codi i no simula respostes."}
+    ],
+        "hint": "Quin element de prova permet 'suplantar' un component real per aïllar-ne un altre?"
+    },
+    {
+        "guid": "78c48e35-1f01-4a5a-8249-b1d2f91caf29",
+        "subjectId": "Ambit_3",
+        "difficulty": 4,
+        "origin": "generat_estil_practic",
+        "type": "test",
+        "question": "Després d'un error en producció on un empleat va poder veure la nòmina d'un company, l'equip de QA vol assegurar que no es repeteixi. Incorporen un test que verifica que, donat l'usuari A, l'API de consulta de nòmina només retorna les dades de l'usuari A. Quin tipus de prova és aquesta?",
+        "answerOptions": [
+     {"text":"Una prova de regressió,per verificar que un error corregit no torna a aparèixer.","isCorrect":true,"rationale":"Correcte. Incorporar tests específics per a errors passats és una pràctica clau de regressió."},
+     {"text":"Una prova unitària del controlador de l'API,per verificar el seu comportament aïllat.","isCorrect":false,"rationale":"Incorrecte. Aquesta prova valida un component molt petit,no el flux complet d'autorització."},
+     {"text":"Una prova d'integració entre l'API i la base de dades d'usuaris.","isCorrect":false,"rationale":"Incorrecte. Verifica la connexió,però no l'autorització específica."},
+     {"text":"Una prova de caixa blanca per inspeccionar el codi d'autorització.","isCorrect":false,"rationale":"Incorrecte. És una prova funcional de caixa negra,ja que verifica el comportament des de fora."}
+    ],
+        "hint": "Quin tipus de prova s'afegeix per assegurar que un error passat no es repeteix?"
+    },
+    {
+        "guid": "8e7b283b-8e8a-4e6f-9182-8fa5ebd50924",
+        "subjectId": "Ambit_3",
+        "difficulty": 4,
+        "origin": "generat_estil_practic",
+        "type": "test",
+        "question": "L'equip de desenvolupament de l'app mòbil està configurant la signatura de l'aplicació per a la seva publicació a l'App Store d'Apple. Per a què serveix principalment aquesta signatura?",
+        "answerOptions": [
+     {"text":"Per garantir la integritat del codi i verificar la identitat del desenvolupador.","isCorrect":true,"rationale":"Correcte. La signatura assegura que l'app no ha estat manipulada i que prové d'una font legítima."},
+     {"text":"Per optimitzar el rendiment de l'aplicació en dispositius amb maquinari limitat.","isCorrect":false,"rationale":"Incorrecte. La signatura no té cap efecte en l'optimització del rendiment."},
+     {"text":"Per permetre que l'app accedeixi a funcions sensibles com la càmera o el GPS.","isCorrect":false,"rationale":"Incorrecte. L'accés a funcions sensibles es gestiona amb permisos en temps d'execució."},
+     {"text":"Per associar l'aplicació a un compte de desenvolupador per a la facturació de vendes.","isCorrect":false,"rationale":"Incorrecte. Això és un requisit administratiu,no tècnic."}
+    ],
+        "hint": "La signatura és un 'segell' que garanteix l'autenticitat i la integritat del paquet."
+    },
+    {
+        "guid": "6e955eda-59b6-4c7e-b0fe-285474f94efb",
+        "subjectId": "Ambit_3",
+        "difficulty": 4,
+        "origin": "generat_estil_practic",
+        "type": "test",
+        "question": "L'equip de desenvolupament de l'app, que ha fet servir eines low-code per al backoffice, vol assegurar la qualitat del seu codi. Quina eina o pràctica és MÉS important per mantenir la qualitat en un entorn de desenvolupament tradicional (per a l'app mòbil) i que també és aplicable al desenvolupament low-code?",
+        "answerOptions": [
+     {"text":"Les proves d'acceptació d'usuari (UAT) per validar que el programari compleix els requisits.","isCorrect":true,"rationale":"Correcte. Les UAT són igualment necessàries tant en desenvolupament tradicional com en low-code."},
+     {"text":"L'anàlisi estàtica de codi amb eines com SonarQube per detectar vulnerabilitats.","isCorrect":false,"rationale":"Incorrecte. Aquesta pràctica no és aplicable al low-code perquè el codi no és visible."},
+     {"text":"Les proves unitàries amb alta cobertura per assegurar el correcte funcionament de cada mòdul.","isCorrect":false,"rationale":"Incorrecte. En low-code no existeix el concepte de prova unitària de la mateixa manera."},
+     {"text":"Les revisions de codi (pull requests) per garantir l'adhesió als estàndards de programació.","isCorrect":false,"rationale":"Incorrecte. Aquesta pràctica no és aplicable al low-code,on no hi ha codi per revisar."}
+    ],
+        "hint": "Quin tipus de prova és comú a tots dos mons i valida que el producte final fa el que l'usuari vol?"
+    },
+    {
+        "guid": "ebfa2527-3d22-4133-af64-a0482e211e33",
+        "subjectId": "Ambit_3",
+        "difficulty": 4,
+        "origin": "generat_estil_practic",
+        "type": "test",
+        "question": "L'equip del projecte està redactant el pla de proves per a la integració entre SAP HCM i l'app mòbil. Quin dels següents elements NO formaria part habitualment d'un pla de proves?",
+        "answerOptions": [
+     {"text":"El codi font complet de les APIs que es provaran.","isCorrect":true,"rationale":"Correcte. El pla de proves descriu què,com i quan es prova,no conté el codi font."},
+     {"text":"L'abast de les proves,especificant quines funcionalitats es provaran.","isCorrect":false,"rationale":"Incorrecte. L'abast és un element fonamental del pla de proves."},
+     {"text":"Els recursos assignats a les proves,tant humans com tècnics.","isCorrect":false,"rationale":"Incorrecte. La definició de recursos és clau per a la planificació."},
+     {"text":"El cronograma de les activitats de prova.","isCorrect":false,"rationale":"Incorrecte. Un pla ha d'incloure la planificació temporal."}
+    ],
+        "hint": "Què és diferent: el document que planifica les proves vs. els artefactes que es generen en el desenvolupament?"
+    },
+    {
+        "guid": "7d6a0e08-a857-4242-b389-a5d61cc59378",
+        "subjectId": "Ambit_3",
+        "difficulty": 4,
+        "origin": "generat_estil_practic",
+        "type": "test",
+        "question": "L'equip de desenvolupament de l'app mòbil vol automatitzar el procés de construcció, prova i desplegament de l'aplicació. Quina eina o conjunt de pràctiques haurien d'implementar per aconseguir-ho?",
+        "answerOptions": [
+     {"text":"Una pipeline de CI/CD amb eines com Jenkins o GitHub Actions.","isCorrect":true,"rationale":"Correcte. CI/CD és el conjunt de pràctiques per automatitzar el cicle de vida del desplegament."},
+     {"text":"Un sistema de control de versions com Git,per tenir un històric de tots els canvis.","isCorrect":false,"rationale":"Incorrecte. Git és necessari,però no automatitza el build i el desplegament."},
+     {"text":"Un entorn de desenvolupament integrat (IDE) amb un compilador.","isCorrect":false,"rationale":"Incorrecte. Això automatitza la compilació local,però no el procés complet."},
+     {"text":"Un sistema de ticketing com Jira,per gestionar les tasques del projecte.","isCorrect":false,"rationale":"Incorrecte. Jira és per a la gestió del projecte,no per a l'automatització."}
+    ],
+        "hint": "Quines pràctiques permeten tenir una 'cadena de muntatge' automatitzada per al programari?"
+    },
+    {
+        "guid": "be4b0e37-ee4e-441d-b19e-c9695d1a906f",
+        "subjectId": "Ambit_3",
+        "difficulty": 4,
+        "origin": "generat_estil_practic",
+        "type": "test",
+        "question": "L'equip de QA està dissenyant els casos de prova per a la funcionalitat de 'sol·licitud de vacances' de l'app mòbil. La data de final de les vacances ha de ser posterior a la data d'inici. Quina tècnica de proves és la més adequada per verificar aquesta regla de negoci?",
+        "answerOptions": [
+     {"text":"Anàlisi de valors límit,provant dates límit com inici=final,inici+1,final-1.","isCorrect":true,"rationale":"Correcte. L'anàlisi de valors límit és ideal per trobar errors en les fronteres de les condicions."},
+     {"text":"Particions d'equivalència,provant només un cas vàlid i un d'invàlid.","isCorrect":false,"rationale":"Incorrecte. És una tècnica vàlida,però menys exhaustiva per a aquesta casuística."},
+     {"text":"Proves exploratòries,provant combinacions aleatòries de dates.","isCorrect":false,"rationale":"Incorrecte. És un enfocament vàlid,però no sistemàtic per a aquesta regla."},
+     {"text":"Proves de caixa blanca,revisant el codi que implementa la validació.","isCorrect":false,"rationale":"Incorrecte. Aquesta tècnica verifica la implementació,no el comportament funcional."}
+    ],
+        "hint": "Quina tècnica se centra a provar els valors just a la vora dels límits establerts?"
+    },
+    {
+        "guid": "f677b4ea-c151-4c46-8302-9b8e620655b8",
+        "subjectId": "Ambit_3",
+        "difficulty": 4,
+        "origin": "generat_estil_practic",
+        "type": "test",
+        "question": "Després de mesos de funcionament, l'equip de manteniment de SAP HCM rep moltes queixes sobre la lentitud del càlcul de la nòmina. L'equip sospita que la causa pot ser una mala gestió de la memòria o consultes ineficients. Quina activitat de qualitat del programari haurien de dur a terme per identificar l'origen del problema de rendiment?",
+        "answerOptions": [
+     {"text":"Realitzar un profiling o traça de rendiment per analitzar l'execució del programa.","isCorrect":true,"rationale":"Correcte. El profiling permet identificar colls d'ampolla en temps d'execució."},
+     {"text":"Una auditoria de codi estàtica per trobar vulnerabilitats de seguretat.","isCorrect":false,"rationale":"Incorrecte. L'anàlisi estàtica no detecta problemes de rendiment en execució."},
+     {"text":"Una prova de regressió completa de tots els càlculs de nòmina.","isCorrect":false,"rationale":"Incorrecte. Això asseguraria la correcció funcional,no el rendiment."},
+     {"text":"Una revisió de l'arquitectura del sistema per assegurar que té prou recursos.","isCorrect":false,"rationale":"Incorrecte. Aquest és un problema de capacitat,no de qualitat del programari en si."}
+    ],
+        "hint": "Quina activitat permet 'espiar' el programa mentre s'executa per veure què consumeix temps?"
+    },
+    {
+        "guid": "55688849-2e4d-4654-9fbe-8f7cc16e45d0",
+        "subjectId": "Ambit_3",
+        "difficulty": 4,
+        "origin": "generat_estil_practic",
+        "type": "test",
+        "question": "En una reunió de retrospectiva, l'equip de desenvolupament de l'app identifica que els errors es detecten massa tard, sovint en les proves d'integració. Volen millorar la qualitat del codi abans que s'integri. Quina pràctica haurien de reforçar?",
+        "answerOptions": [
+     {"text":"Les revisions de codi entre iguals i les proves unitàries.","isCorrect":true,"rationale":"Correcte. Aquestes pràctiques es realitzen abans de la integració i són clau per a la detecció primerenca."},
+     {"text":"Les proves d'integració,fent-les més exhaustives.","isCorrect":false,"rationale":"Incorrecte. Aquestes proves són posteriors a la integració,no abans."},
+     {"text":"La documentació detallada del codi per facilitar-ne la comprensió.","isCorrect":false,"rationale":"Incorrecte. La documentació ajuda a la comprensió,però no a detectar errors."},
+     {"text":"Les proves de càrrega per assegurar el rendiment del sistema.","isCorrect":false,"rationale":"Incorrecte. Són per a rendiment,no per a detecció primerenca d'errors funcionals."}
+    ],
+        "hint": "Quines pràctiques es fan abans que el codi es combini amb la branca principal?"
+    },
+    {
+        "guid": "1a9aa3dc-a6e5-46c1-afa6-7c62f0838dea",
+        "subjectId": "Ambit_3",
+        "difficulty": 4,
+        "origin": "generat_estil_practic",
+        "type": "test",
+        "question": "L'equip que treballa amb SAP HCM ha rebut una modificació legal urgent que canvia el càlcul d'un complement salarial. Un cop implementat el canvi, quin tipus de prova haurien d'executar per assegurar que aquesta modificació no ha afectat el càlcul correcte d'altres complements o deduccions?",
+        "answerOptions": [
+     {"text":"Una prova de regressió,executant casos de prova que cobreixin diferents escenaris.","isCorrect":true,"rationale":"Correcte. Les proves de regressió detecten efectes no desitjats en funcionalitats existents."},
+     {"text":"Una prova unitària de la nova regla de càlcul del complement.","isCorrect":false,"rationale":"Incorrecte. Això només verifica que el canvi en si és correcte."},
+     {"text":"Una prova d'estrès del sistema de nòmina per veure'n la robustesa.","isCorrect":false,"rationale":"Incorrecte. Això és per a rendiment,no per a correcció funcional."},
+     {"text":"Una prova d'acceptació d'usuari (UAT) amb un grup reduït d'empleats.","isCorrect":false,"rationale":"Incorrecte. La UAT valida requisits,però no és sistemàtica per detectar impactes col·laterals."}
+    ],
+        "hint": "Quin tipus de prova s'executa després d'un canvi per assegurar que no s'ha 'trencat' res?"
+    },
+    {
+        "guid": "c0183a98-7ec0-49a8-9a72-37b82b77d885",
+        "subjectId": "Ambit_3",
+        "difficulty": 4,
+        "origin": "generat_estil_practic",
+        "type": "test",
+        "question": "L'equip d'arquitectura està definint els contractes dels serveis SOA. Quin element ha de contenir el contracte d'un servei perquè els consumidors sàpiguen exactament com invocar-lo?",
+        "answerOptions": [
+     {"text":"L'especificació de l'API:operacions,paràmetres,respostes i protocols.","isCorrect":true,"rationale":"Correcte. El contracte defineix el 'què' i el 'com' de la interacció amb el servei."},
+     {"text":"El codi font complet del servei perquè els consumidors l'analitzin.","isCorrect":false,"rationale":"Incorrecte. El codi font és un detall d'implementació intern,no forma part del contracte."},
+     {"text":"L'acord de nivell de servei (SLA) que garanteix un temps de resposta màxim.","isCorrect":false,"rationale":"Incorrecte. Això és un acord de negoci o operacional,no tècnic."},
+     {"text":"La base de dades on el servei emmagatzema la informació.","isCorrect":false,"rationale":"Incorrecte. És un detall d'implementació que no ha de formar part del contracte."}
+    ],
+        "hint": "Quin és el 'manual d'instruccions' tècnic que necessita un programador per connectar-se al servei?"
+    },
+    {
+        "guid": "db9f8da1-3f1b-43b9-9310-917740ed1d1a",
+        "subjectId": "Ambit_3",
+        "difficulty": 4,
+        "origin": "generat_estil_practic",
+        "type": "test",
+        "question": "L'API Manager que s'ha instal·lat per governar les APIs comença a donar problemes de rendiment. L'equip de sistemes sospita que pot ser perquè està fent massa transformacions de missatges. Quin component de l'arquitectura SOA és el responsable d'aquestes tasques de transformació i encaminament?",
+        "answerOptions": [
+     {"text":"L'Enterprise Service Bus (ESB),que actua com a intermediari en la comunicació.","isCorrect":true,"rationale":"Correcte. L'ESB és el responsable d'encaminar i transformar missatges entre serveis."},
+     {"text":"El proveïdor del servei,que implementa la lògica de negoci.","isCorrect":false,"rationale":"Incorrecte. El proveïdor ofereix la funcionalitat,però no les transformacions per a tots els consumidors."},
+     {"text":"El consumidor del servei,que ha d'adaptar-se a les respostes rebudes.","isCorrect":false,"rationale":"Incorrecte. El consumidor només fa crides,no transforma missatges per a altres."},
+     {"text":"El registre de serveis,que actua com a directori de serveis disponibles.","isCorrect":false,"rationale":"Incorrecte. El registre és un directori,no processa missatges."}
+    ],
+        "hint": "Quin és l'element central que connecta, tradueix i dirigeix els missatges?"
+    },
+    {
+        "guid": "a9babcb1-6578-4f1a-a992-8ce92647a8c7",
+        "subjectId": "Ambit_3",
+        "difficulty": 4,
+        "origin": "generat_estil_practic",
+        "type": "test",
+        "question": "L'equip de desenvolupament de l'app, utilitzant React Native, es troba amb un error que només apareix en dispositius iPhone amb una versió específica d'iOS. Per depurar-lo, necessiten executar el codi en un entorn controlat que simuli aquest dispositiu. Quina eina haurien de fer servir?",
+        "answerOptions": [
+     {"text":"Un simulador d'iOS,com el que proporciona Xcode.","isCorrect":true,"rationale":"Correcte. Els simuladors permeten provar i depurar aplicacions en diferents dispositius i versions."},
+     {"text":"Un compilador creuat que generi codi per a iOS des del seu entorn.","isCorrect":false,"rationale":"Incorrecte. Això és part del procés de build,no per a la depuració."},
+     {"text":"Un analitzador estàtic de codi per trobar errors potencials.","isCorrect":false,"rationale":"Incorrecte. Això no simularia l'execució en un dispositiu real."},
+     {"text":"Un emulador d'Android per comparar el comportament entre plataformes.","isCorrect":false,"rationale":"Incorrecte. L'error és específic d'iOS,no d'Android."}
+    ],
+        "hint": "Necessiten un entorn que 'fingi' ser un iPhone per poder provar-hi l'app."
+    },
+    {
+        "guid": "cb7996e7-0604-4eaa-911f-3a0fb7eaade9",
+        "subjectId": "Ambit_3",
+        "difficulty": 4,
+        "origin": "generat_estil_practic",
+        "type": "test",
+        "question": "L'equip de Big Data està creant un quadre de comandament per a la direcció amb les dades del Data Lake. Volen que els usuaris de negoci puguin crear els seus propis informes i gràfics de manera senzilla, sense necessitat de saber escriure consultes complexes. Quina capacitat hauria de tenir l'eina de BI que escullin?",
+        "answerOptions": [
+     {"text":"Funcionalitats d'autoservei (self-service BI),amb interfície intuïtiva i arrossegar i soltar.","isCorrect":true,"rationale":"Correcte. El BI d'autoservei democratitza l'anàlisi de dades posant-lo a l'abast dels usuaris de negoci."},
+     {"text":"Capacitat de connexió a múltiples fonts de dades estructurades i no estructurades.","isCorrect":false,"rationale":"Incorrecte. Això és important per a l'equip tècnic,però no resol la necessitat dels usuaris."},
+     {"text":"Capacitat de processament in-memory per a consultes molt ràpides.","isCorrect":false,"rationale":"Incorrecte. Això millora el rendiment,però no la facilitat d'ús."},
+     {"text":"Suport per a grans volums de dades (Big Data) per a l'escalabilitat.","isCorrect":false,"rationale":"Incorrecte. És un requisit tècnic,però no el que permet als usuaris crear informes."}
+    ],
+        "hint": "Quina característica permet als usuaris de negoci crear els seus propis informes sense ajuda tècnica?"
+    },
+    {
+        "guid": "a3a2f2bd-df7b-485f-bfff-0f8e7a177330",
+        "subjectId": "Ambit_3",
+        "difficulty": 4,
+        "origin": "generat_estil_practic",
+        "type": "test",
+        "question": "L'equip de QA està executant les proves de sistema de l'aplicació de backoffice feta amb low-code. Volen verificar que el flux complet de 'sol·licitud de vacances' (des que l'empleat ho demana fins que el cap ho aprova) funciona correctament. Quin tipus de prova estan realitzant?",
+        "answerOptions": [
+     {"text":"Una prova funcional d'extrem a extrem (end-to-end) d'un procés de negoci.","isCorrect":true,"rationale":"Correcte. Verificar un flux complet de negoci és l'essència de les proves end-to-end."},
+     {"text":"Una prova unitària d'un component del flux,com el formulari de sol·licitud.","isCorrect":false,"rationale":"Incorrecte. Una prova unitària és massa petita per cobrir un flux complet."},
+     {"text":"Una prova d'integració entre el backoffice i la base de dades.","isCorrect":false,"rationale":"Incorrecte. Aquesta prova verifica la connexió,no el flux complet."},
+     {"text":"Una prova de regressió per assegurar que el flux no s'ha trencat.","isCorrect":false,"rationale":"Incorrecte. És una prova,però no especifica que sigui per a un flux complet."}
+    ],
+        "hint": "Quan proves tot un circuit complet, des de l'inici fins al final, estàs fent una prova..."
+    },
+    {
+        "guid": "c85f1bde-c09f-4bf6-8ab9-3a27e7ed99bc",
+        "subjectId": "Ambit_3",
+        "difficulty": 4,
+        "origin": "generat_estil_practic",
+        "type": "test",
+        "question": "Un desenvolupador de l'equip de l'app mòbil proposa fer servir un 'quality gate' a la pipeline de CI/CD. Per a què serveix principalment aquest mecanisme?",
+        "answerOptions": [
+     {"text":"Per definir llindars de qualitat que,si no es superen,aturen la pipeline.","isCorrect":true,"rationale":"Correcte. Un quality gate és un control automàtic que aplica criteris de qualitat per decidir si el procés pot continuar."},
+     {"text":"Per notificar a l'equip per correu electrònic que la pipeline ha finalitzat.","isCorrect":false,"rationale":"Incorrecte. Això és una notificació,no un control."},
+     {"text":"Per mesurar el temps que triga a executar-se cada fase de la pipeline.","isCorrect":false,"rationale":"Incorrecte. Això és monitoratge de rendiment."},
+     {"text":"Per permetre que diverses persones revisin el codi abans d'integrar-lo.","isCorrect":false,"rationale":"Incorrecte. Aquesta és la funció de les revisions de codi."}
+    ],
+        "hint": "És un 'control de qualitat' automàtic que, si no es supera, fa que la cadena de producció s'aturi."
+    },
+    {
+        "guid": "e6649b6e-bec7-4396-8337-69675a98e711",
+        "subjectId": "Ambit_3",
+        "difficulty": 4,
+        "origin": "generat_estil_practic",
+        "type": "test",
+        "question": "L'equip de SAP HCM està consultant les dades mestres d'un empleat. Observa que el sistema guarda l'històric de canvis del seu salari. Aquestes dades que canvien periòdicament (el salari) són un exemple de:",
+        "answerOptions": [
+     {"text":"Dades transaccionals,ja que representen un esdeveniment (un canvi) en un moment concret.","isCorrect":true,"rationale":"Correcte. Els canvis en les dades mestres al llarg del temps es registren com a dades transaccionals."},
+     {"text":"Dades mestres,perquè és un atribut fix de l'empleat.","isCorrect":false,"rationale":"Incorrecte. El concepte 'salari' és una dada mestra,però el seu valor històric és transaccional."},
+     {"text":"Dades de configuració,perquè defineix com funciona el sistema.","isCorrect":false,"rationale":"Incorrecte. Aquestes dades no configuren el sistema,sinó que descriuen un empleat."},
+     {"text":"Dades d'identificació,perquè identifiquen la relació laboral.","isCorrect":false,"rationale":"Incorrecte. Les dades d'identificació són les que no canvien,com el nom o el DNI."}
+    ],
+        "hint": "Quina diferència hi ha entre la informació que descriu una entitat i els esdeveniments que li passen?"
+    }
+]
