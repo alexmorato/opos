@@ -926,10 +926,48 @@
           }
         }
 
+        // Si estamos en modo repasar errores, preguntar si quiere ordenar por ratio de fallos
+        if (isRepassingErrors && !skipAnsweredCheck) {
+          const ordenarPorFallos = confirm(
+            'Vols ordenar les preguntes per les que falles més sovint?\n\n' +
+            'Acceptar = Sí (prioritza les que tens més dificultat)\n' +
+            'Cancel·lar = No (ordre aleatori)'
+          );
+
+          if (ordenarPorFallos) {
+            // Ordenar por ratio de fallos (mayor ratio primero)
+            preguntes = preguntes.sort((a, b) => {
+              // Obtener datos de pregunta A
+              const fallosA = a.count || 1;
+              const contestadasA = getContestadaCount(a.guid) || 1;
+              const ratioA = fallosA / contestadasA;
+
+              // Obtener datos de pregunta B
+              const fallosB = b.count || 1;
+              const contestadasB = getContestadaCount(b.guid) || 1;
+              const ratioB = fallosB / contestadasB;
+
+              // Ordenar descendente (mayor ratio primero)
+              if (ratioB !== ratioA) {
+                return ratioB - ratioA;
+              }
+              // Si tienen el mismo ratio, priorizar por número absoluto de fallos
+              return fallosB - fallosA;
+            });
+            
+            toast.showToast('📊 Preguntes ordenades per dificultat');
+          } else {
+            // Orden aleatorio (comportamiento original)
+            preguntes = preguntes.sort(() => Math.random() - 0.5);
+          }
+        } else {
+          // Orden aleatorio por defecto si no es repaso de errores
+          preguntes = preguntes.sort(() => Math.random() - 0.5);
+        }
+
         // Inicializar el array de respuestas
         answers = new Array(preguntes.length).fill(null);
-        // ordenar aleatoriamente las preguntas
-        preguntes = preguntes.sort(() => Math.random() - 0.5);
+        
         // Ordenar aleatoriamente las opciones de respuesta de cada pregunta
         preguntes.forEach(q => {
           if (Array.isArray(q.answerOptions)) {
