@@ -862,9 +862,10 @@
   
   /**
    * Cargar preguntas desde localStorage y prepararlas para el test
+   * @param {boolean} skipAnsweredCheck - Si es true, no pregunta por preguntas contestadas
    * @returns {boolean} - true si se cargaron correctamente, false si hubo error
    */
-  function loadQuestions() {
+  function loadQuestions(skipAnsweredCheck = false) {
       try {
         localStorage.setItem(LS_KEYS.ESTUDIO_WIP, 'true');
 
@@ -889,13 +890,13 @@
           return false;
         }
 
-        // PASO 1: Detectar preguntas ya contestadas
-        const preguntesContestades = preguntes.filter(p => {
+        // PASO 1: Detectar preguntas ya contestadas (solo si no es un reinicio)
+        const preguntesContestades = !skipAnsweredCheck ? preguntes.filter(p => {
           return p.guid && getContestadaCount(p.guid) > 0;
-        });
+        }) : [];
 
         // PASO 2 y 3: Mostrar alert y filtrar según respuesta
-        if (preguntesContestades.length > 0) {
+        if (!skipAnsweredCheck && preguntesContestades.length > 0) {
           const excluir = confirm(
             `Hi ha ${preguntesContestades.length} pregunta${preguntesContestades.length > 1 ? 'es' : ''} ja contestada${preguntesContestades.length > 1 ? 'es' : ''} prèviament.\n\n` +
             `Vols excloure-les de l'estudi?\n\n` +
@@ -1692,14 +1693,15 @@
           localStorage.removeItem(LS_KEYS.CRONOMETRO);
           cronometroElapsed = 0;
           updateCronometroDisplay();
-          if (loadQuestions()) {
+          // Reiniciar: saltar comprobación de contestadas (ya estaban filtradas)
+          if (loadQuestions(true)) {
             showQuestion(0);
             startCronometro();
           }
         }
       } else {
-        // Load questions normally if no saved state exists
-        if (loadQuestions()) {
+        // Load questions normally if no saved state exists (primer inicio: sí comprobar)
+        if (loadQuestions(false)) {
           showQuestion(0);
           startCronometro();
         }
