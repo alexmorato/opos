@@ -1780,7 +1780,13 @@
         // Guardar en localStorage
         localStorage.setItem('PREGUNTAS_REPORTADAS', JSON.stringify(reportadas));
 
-        toast.showToast(`✅ Pregunta reportada! (Total: ${reportadas.length})`);
+        // Copiar GUID al portapapeles
+        navigator.clipboard.writeText(guid).then(() => {
+          toast.showToast(`✅ Pregunta reportada i copiada! (Total: ${reportadas.length})`);
+        }).catch(err => {
+          console.error('Error al copiar GUID:', err);
+          toast.showToast(`✅ Pregunta reportada! (Total: ${reportadas.length}) - Error copiant`);
+        });
       } catch (e) {
         console.error('Error reportando pregunta:', e);
         toast.showToast('❌ Error al reportar pregunta');
