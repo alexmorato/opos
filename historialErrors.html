@@ -1246,37 +1246,32 @@
     }
 
     function esborrarAction() {
-      // Copiar solo las preguntas seleccionadas
+      // Obtener GUIDs de las preguntas seleccionadas
       const selectedCards = Array.from(document.querySelectorAll('.pregunta-card.selected'));
-      const total = historialFallos.length;
-      let preguntasSeleccionadas = [];
+      let guidsSeleccionados = [];
+      
       if (selectedCards.length > 0) {
-        preguntasSeleccionadas = selectedCards.map(card => {
-          const guid = card.dataset.guid;
-          return historialFallos.find(p => p.guid === guid);
-        }).filter(p => p !== undefined);
-      } else {
-        preguntasSeleccionadas = historialFallos;
+        guidsSeleccionados = selectedCards.map(card => card.dataset.guid).filter(Boolean);
       }
 
-      if (preguntasSeleccionadas.length > 0) {
-        const total = historialFallos.length;
+      const total = historialFallos.length;
+      const numSeleccionadas = guidsSeleccionados.length > 0 ? guidsSeleccionados.length : total;
 
-
-        if (confirm(`Segur que vols ⚠️ esborrar ${preguntasSeleccionadas.length} de ${total} ⚠️ l\'historial de fallos? Aquesta acció no es pot desfer.`)) {
-          if(preguntasSeleccionadas.length > 0 && preguntasSeleccionadas.length < total) {
-            let preguntasAConservar = [];
-            const nonSelectedCards = Array.from(document.querySelectorAll('.pregunta-card:not(.selected)'));
-            preguntasAConservar = nonSelectedCards.map(card => {
-              const guid = card.dataset.guid;
-              return historialFallos.find(p => p.guid === guid);
-            }).filter(p => p !== undefined);
-            historialFallos = preguntasAConservar;
+      if (numSeleccionadas > 0) {
+        if (confirm(`Segur que vols ⚠️ esborrar ${numSeleccionadas} de ${total} ⚠️ l\'historial de fallos? Aquesta acció no es pot desfer.`)) {
+          if (guidsSeleccionados.length > 0 && guidsSeleccionados.length < total) {
+            // Borrar solo las seleccionadas: conservar las que NO están en guidsSeleccionados
+            historialFallos = historialFallos.filter(p => !guidsSeleccionados.includes(p.guid));
           } else {
+            // Borrar todo
             historialFallos = [];
           }
           guardarHistorial();
           actualizarUI();
+          
+          if (window.toast && typeof window.toast.showToast === 'function') {
+            toast.showToast(`✅ S'han esborrat ${numSeleccionadas} pregunta${numSeleccionadas > 1 ? 'es' : ''}`);
+          }
         }
       }
     }
