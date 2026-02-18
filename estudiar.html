@@ -1806,11 +1806,13 @@
           reportadas = JSON.parse(reportadasStr);
         }
 
+
         // Verificar si ya está reportada
         if (reportadas.includes(guid)) {
-          toast.showToast('⚠️ Aquesta pregunta ja estava reportada');
+          copiarReportadasAlPortapapeles(reportadas);
           return;
         }
+
 
         // Añadir GUID al array
         reportadas.push(guid);
@@ -1818,13 +1820,20 @@
         // Guardar en localStorage
         localStorage.setItem('PREGUNTAS_REPORTADAS', JSON.stringify(reportadas));
 
-        // Copiar GUID al portapapeles
-        navigator.clipboard.writeText(guid).then(() => {
-          toast.showToast(`✅ Pregunta reportada i copiada! (Total: ${reportadas.length})`);
-        }).catch(err => {
-          console.error('Error al copiar GUID:', err);
-          toast.showToast(`✅ Pregunta reportada! (Total: ${reportadas.length}) - Error copiant`);
-        });
+        // Copiar array actualizado al portapapeles
+        copiarReportadasAlPortapapeles(reportadas);
+          /**
+           * Copiar array de preguntas reportadas al portapapeles y mostrar toast
+           * @param {Array} reportadas - Array de GUIDs reportados
+           */
+          function copiarReportadasAlPortapapeles(reportadas) {
+            navigator.clipboard.writeText(JSON.stringify(reportadas)).then(() => {
+              toast.showToast(`✅ Pregunta reportada! ${reportadas.length} copiadas en el portapapeles para revisión.`);
+            }).catch(err => {
+              console.error('Error al copiar GUID:', err);
+              toast.showToast(`✅ Pregunta reportada! (Total: ${reportadas.length}) - Error copiant`);
+            });
+          }
       } catch (e) {
         console.error('Error reportando pregunta:', e);
         toast.showToast('❌ Error al reportar pregunta');
