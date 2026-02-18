@@ -700,7 +700,7 @@
 
     // Variables globales
     let historialFallos = [];
-    let historialFallosFiltradosURL = []; // Historial filtrado por URL params
+    let historialFallosFiltradosURL = null; // Historial filtrado por URL params (null = sin filtros URL)
     let temasFiltrados = [];
     let ordenarPor = 'fecha'; // 'fecha' o 'count'
     const preguntesContainer = document.getElementById('preguntesContainer');
@@ -850,7 +850,7 @@
 
       // Si no hay parámetros, usar historial completo
       if (!subjectIdParam && !questionParam) {
-        historialFallosFiltradosURL = [];
+        historialFallosFiltradosURL = null;
         return;
       }
 
@@ -889,6 +889,13 @@
         setTimeout(() => {
           if (window.toast && typeof window.toast.showToast === 'function') {
             toast.showToast(`🔍 Filtre URL: ${historialFallosFiltradosURL.length} pregunta${historialFallosFiltradosURL.length > 1 ? 's' : ''} trobada${historialFallosFiltradosURL.length > 1 ? 's' : ''}`);
+          }
+        }, 500);
+      } else {
+        // No hay coincidencias con los filtros
+        setTimeout(() => {
+          if (window.toast && typeof window.toast.showToast === 'function') {
+            toast.showToast(`⚠️ No hi ha coincidències amb els filtres introduïts. Prova de canviar els paràmetres de cerca.`, 5000);
           }
         }, 500);
       }
@@ -939,11 +946,17 @@
       preguntesContainer.innerHTML = '';
       
       // Determinar qué historial usar: filtrado por URL o completo
-      let preguntasAMostrar = historialFallosFiltradosURL.length > 0 ? historialFallosFiltradosURL : historialFallos;
+      let preguntasAMostrar = historialFallosFiltradosURL !== null ? historialFallosFiltradosURL : historialFallos;
       
       // Aplicar filtro de temas si existe
       if (temasFiltrados.length > 0) {
         preguntasAMostrar = preguntasAMostrar.filter(p => temasFiltrados.includes(p.subjectId));
+      }
+
+      // Si no hay preguntas para mostrar después de aplicar filtros
+      if (preguntasAMostrar.length === 0) {
+        preguntesContainer.innerHTML = '<div class="empty-state">No hi ha preguntes que coincideixin amb els filtres aplicats.</div>';
+        return;
       }
 
       // Ordenar según criterio seleccionado
@@ -1020,7 +1033,7 @@
         });
 
         // Si hay temas filtrados o filtros URL, marcar como seleccionada
-        if (temasFiltrados.length > 0 || historialFallosFiltradosURL.length > 0) {
+        if (temasFiltrados.length > 0 || (historialFallosFiltradosURL !== null && historialFallosFiltradosURL.length > 0)) {
           card.classList.add('selected');
         }
 
