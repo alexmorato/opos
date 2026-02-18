@@ -1,0 +1,374 @@
+[
+  {
+    "guid": "39a2bf20-ee93-4277-b2be-b14e1a7c1b55",
+    "subjectId": "T08",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "¿Cuál es la característica principal de la ruta crítica dentro de un modelo de programación de proyecto?",
+    "answerOptions": [
+      {
+        "text": "Representa el camino más corto a través del proyecto y determina su duración máxima.",
+        "rationale": "La ruta crítica representa el camino más largo, no el más corto, y determina la menor duración posible del proyecto.",
+        "isCorrect": false
+      },
+      {
+        "text": "Es la secuencia de actividades que representa el camino más largo y determina la menor duración posible del proyecto.",
+        "rationale": "Por definición, la ruta crítica es la secuencia con la duración total más larga, lo que dicta el tiempo mínimo necesario para completar el proyecto.",
+        "isCorrect": true
+      },
+      {
+        "text": "Es el conjunto de actividades que poseen la mayor holgura total disponible.",
+        "rationale": "Las actividades en la ruta crítica se caracterizan normalmente por tener holgura cero o mínima, no la mayor.",
+        "isCorrect": false
+      },
+      {
+        "text": "Consiste en las actividades con menor riesgo que deben ejecutarse de forma secuencial.",
+        "rationale": "La ruta crítica se define por la duración y la lógica de las actividades, no necesariamente por su nivel de riesgo.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considera qué camino determina el tiempo total que tomará el proyecto hasta su finalización."
+  },
+  {
+    "guid": "635c9974-9ba0-4c13-88d1-a1e04634b4e7",
+    "subjectId": "T08",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "Si una actividad tiene un inicio temprano ($ES$) el día $10$ y un inicio tardío ($LS$) el día $14$, ¿cuál es su holgura total?",
+    "answerOptions": [
+      {
+        "text": "$4$ días",
+        "rationale": "La holgura total se calcula mediante la fórmula $Holgura = LS - ES$, lo que resulta en $14 - 10 = 4$.",
+        "isCorrect": true
+      },
+      {
+        "text": "$24$ días",
+        "rationale": "Este valor parece ser la suma de las fechas, lo cual no corresponde a ninguna métrica de holgura.",
+        "isCorrect": false
+      },
+      {
+        "text": "$0$ días",
+        "rationale": "Una holgura de cero indicaría que la actividad está en la ruta crítica, pero los valores de inicio temprano y tardío difieren.",
+        "isCorrect": false
+      },
+      {
+        "text": "$14$ días",
+        "rationale": "Este valor simplemente repite el inicio tardío sin realizar el cálculo de la diferencia.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Aplica la fórmula matemática que resta el inicio temprano del inicio tardío."
+  },
+  {
+    "guid": "fc1765b9-17fe-4758-b353-ce60cb5ab0a5",
+    "subjectId": "T08",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "¿Qué técnica de optimización de recursos se caracteriza por no retrasar la fecha de finalización del proyecto ni modificar la ruta crítica?",
+    "answerOptions": [
+      {
+        "text": "Nivelación de recursos",
+        "rationale": "La nivelación de recursos a menudo provoca cambios en la ruta crítica original y puede retrasar la fecha de finalización.",
+        "isCorrect": false
+      },
+      {
+        "text": "Compresión del cronograma",
+        "rationale": "Esta técnica busca acortar la duración, no optimizar recursos manteniendo la ruta crítica intacta.",
+        "isCorrect": false
+      },
+      {
+        "text": "Estabilización de recursos (Smoothing)",
+        "rationale": "En la estabilización, las actividades solo se retrasan dentro de su holgura libre y total, por lo que la fecha de finalización no se ve afectada.",
+        "isCorrect": true
+      },
+      {
+        "text": "Análisis de red del cronograma",
+        "rationale": "Esta es una técnica global para generar el modelo, no una técnica específica de optimización con esas restricciones.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piensa en la técnica que 'suaviza' el uso de recursos sin tocar el camino crítico."
+  },
+  {
+    "guid": "a29d033b-cdbf-41b0-af91-20f3a6a5b572",
+    "subjectId": "T08",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "En el contexto de estimación por tres valores, ¿cuál es la definición correcta del valor de duración más probable ($tM$)?",
+    "answerOptions": [
+      {
+        "text": "La duración basada en el análisis del mejor escenario posible.",
+        "rationale": "Esta definición corresponde a la estimación optimista ($tO$).",
+        "isCorrect": false
+      },
+      {
+        "text": "La duración basada en el análisis del peor escenario para la actividad.",
+        "rationale": "Esta definición corresponde a la estimación pesimista ($tP$).",
+        "isCorrect": false
+      },
+      {
+        "text": "La duración estimada en función de la productividad, disponibilidad de recursos y dependencias realistas.",
+        "rationale": "El valor $tM$ se basa en expectativas realistas y en los recursos que probablemente serán asignados.",
+        "isCorrect": true
+      },
+      {
+        "text": "El promedio aritmético simple entre los escenarios extremos.",
+        "rationale": "El valor $tM$ es una estimación independiente por sí misma, no un promedio de los otros dos valores.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Busca el término que se alinea con las condiciones de trabajo cotidianas y realistas."
+  },
+  {
+    "guid": "04b519f6-6a2b-4f8e-97a2-6b6e0902a5ae",
+    "subjectId": "T08",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "¿Cuál es un riesgo principal asociado con la técnica de compresión llamada ejecución rápida (fast tracking)?",
+    "answerOptions": [
+      {
+        "text": "Aumento significativo de los costos directos por añadir recursos.",
+        "rationale": "El aumento de costos es el riesgo principal de la intensificación (crashing), no necesariamente de la ejecución rápida.",
+        "isCorrect": false
+      },
+      {
+        "text": "Necesidad de reducir el alcance del proyecto para cumplir las fechas.",
+        "rationale": "La compresión del cronograma busca mantener el alcance mientras se acorta la duración.",
+        "isCorrect": false
+      },
+      {
+        "text": "Aumento del riesgo de retrabajo debido al solapamiento de actividades.",
+        "rationale": "Al realizar actividades en paralelo que originalmente eran secuenciales, aumenta la probabilidad de errores o cambios.",
+        "isCorrect": true
+      },
+      {
+        "text": "Pérdida de la ruta crítica original del proyecto.",
+        "rationale": "Aunque puede cambiar, el riesgo operativo más crítico es el potencial retrabajo por la falta de información secuencial.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Recuerda qué sucede cuando intentas hacer pasos sucesivos al mismo tiempo."
+  },
+  {
+    "guid": "4d8a1b76-f10c-41f1-b74b-b3ef823f88e0",
+    "subjectId": "T08",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "Durante el proceso de 'Controlar el Cronograma' en un entorno ágil, ¿qué se utiliza para determinar el ritmo al que se generan y aceptan los entregables?",
+    "answerOptions": [
+      {
+        "text": "Ruta crítica",
+        "rationale": "La ruta crítica es un concepto más común en metodologías predictivas que en el control de ciclos ágiles.",
+        "isCorrect": false
+      },
+      {
+        "text": "Velocidad",
+        "rationale": "La velocidad mide el ritmo de generación, validación y aceptación de entregables por cada iteración.",
+        "isCorrect": true
+      },
+      {
+        "text": "Análisis de reserva",
+        "rationale": "El análisis de reserva se usa para gestionar contingencias, no para medir el ritmo de entrega de valor.",
+        "isCorrect": false
+      },
+      {
+        "text": "Gráfica de hitos",
+        "rationale": "Aunque útil, no proporciona la métrica de ritmo o cadencia de trabajo que ofrece la velocidad.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Busca el término que describe la rapidez o cadencia de un equipo en marcos de trabajo iterativos."
+  },
+  {
+    "guid": "22092798-46e6-4005-98ff-ef6f6584002b",
+    "subjectId": "T08",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "¿Cómo se define la holgura libre (free float) de una actividad?",
+    "answerOptions": [
+      {
+        "text": "Tiempo que una actividad puede retrasarse sin afectar la fecha de finalización del proyecto.",
+        "rationale": "Esta es la definición de holgura total, no de holgura libre.",
+        "isCorrect": false
+      },
+      {
+        "text": "Tiempo que una actividad puede demorarse sin retrasar la fecha de inicio temprana de cualquier sucesor.",
+        "rationale": "La holgura libre se limita al impacto sobre las actividades inmediatamente posteriores, no sobre todo el proyecto.",
+        "isCorrect": true
+      },
+      {
+        "text": "Diferencia entre la fecha de finalización tardía y la fecha de inicio temprana.",
+        "rationale": "Esta operación no define correctamente ningún tipo de holgura estándar según el PMBOK.",
+        "isCorrect": false
+      },
+      {
+        "text": "Margen de seguridad añadido a las actividades de alto riesgo.",
+        "rationale": "Esto se asocia más con las reservas para contingencias que con el cálculo de la red lógica.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Enfócate en la relación inmediata entre una actividad y la siguiente en la secuencia."
+  },
+  {
+    "guid": "a3d079a0-ab64-4ddc-916a-cb202dcdb4af",
+    "subjectId": "T08",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "En el análisis de red, ¿qué indica la existencia de una holgura total negativa?",
+    "answerOptions": [
+      {
+        "text": "Que el proyecto terminará antes de lo previsto.",
+        "rationale": "La holgura negativa indica un retraso respecto a un objetivo, no una finalización temprana.",
+        "isCorrect": false
+      },
+      {
+        "text": "Que se ha violado una restricción relativa a las fechas tardías o impuestas.",
+        "rationale": "La holgura negativa ocurre cuando la lógica y la duración exceden una fecha límite obligatoria en el cronograma.",
+        "isCorrect": true
+      },
+      {
+        "text": "Que la ruta crítica ha desaparecido del modelo de programación.",
+        "rationale": "La ruta crítica siempre existe; en este caso, simplemente tendría holgura negativa.",
+        "isCorrect": false
+      },
+      {
+        "text": "Que los recursos asignados son insuficientes para la tarea.",
+        "rationale": "Aunque puede ser la causa, la holgura negativa es un síntoma matemático de violación de restricciones de tiempo.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piensa en qué sucede cuando el tiempo calculado para el trabajo es mayor que el tiempo permitido por una fecha límite."
+  },
+  {
+    "guid": "e33ccfb8-38fd-4239-83df-ece09145ce22",
+    "subjectId": "T08",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "¿Cuál de las siguientes afirmaciones sobre las reservas para contingencias es correcta?",
+    "answerOptions": [
+      {
+        "text": "Se asocian a los 'desconocidos-desconocidos' que no pueden estimarse.",
+        "rationale": "Las reservas para contingencias son para 'conocidos-desconocidos'; las de gestión son para 'desconocidos-desconocidos'.",
+        "isCorrect": false
+      },
+      {
+        "text": "Forman parte de la línea base del cronograma y se asignan por riesgos identificados y aceptados.",
+        "rationale": "Estas reservas se incluyen para manejar la incertidumbre de riesgos que han sido previamente analizados.",
+        "isCorrect": true
+      },
+      {
+        "text": "Son cantidades fijas de dinero que no pueden expresarse en tiempo.",
+        "rationale": "En la gestión del cronograma, las reservas para contingencias se expresan habitualmente en periodos de trabajo o porcentaje de duración.",
+        "isCorrect": false
+      },
+      {
+        "text": "Solo pueden ser utilizadas con la aprobación previa de la alta gerencia.",
+        "rationale": "Las reservas para contingencias suelen estar bajo el control del director del proyecto, a diferencia de las reservas de gestión.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considera qué tipo de incertidumbre (identificada o no) intentan mitigar estas reservas."
+  },
+  {
+    "guid": "6993768c-e4c0-4985-9385-2e167bb3395b",
+    "subjectId": "T08",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "Al desarrollar el cronograma, ¿cuál es el propósito de realizar un análisis de escenarios '¿Qué pasa si...?'?",
+    "answerOptions": [
+      {
+        "text": "Calcular la duración mínima posible del proyecto sin restricciones.",
+        "rationale": "Ese es el propósito del método de la ruta crítica, no específicamente del análisis de escenarios.",
+        "isCorrect": false
+      },
+      {
+        "text": "Evaluar la probabilidad de diferentes resultados basados en riesgos para alinear el modelo con el plan.",
+        "rationale": "Este análisis permite prever el impacto de condiciones adversas o cambios y preparar respuestas de contingencia.",
+        "isCorrect": true
+      },
+      {
+        "text": "Identificar todas las actividades necesarias para completar el alcance.",
+        "rationale": "Esta es la función del proceso 'Definir las Actividades', no de un análisis de escenarios.",
+        "isCorrect": false
+      },
+      {
+        "text": "Garantizar que todos los interesados aprueben la línea base.",
+        "rationale": "La aprobación es un paso administrativo, mientras que el análisis es una técnica de evaluación técnica.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Visualiza este análisis como una forma de probar la robustez del cronograma ante eventos hipotéticos."
+  },
+  {
+    "guid": "ce7e5a88-c84a-4f64-9d5b-97912cb9a383",
+    "subjectId": "T08",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "¿Qué herramienta se utiliza en proyectos ágiles para realizar el seguimiento del trabajo que queda por completar en una iteración?",
+    "answerOptions": [
+      {
+        "text": "Diagrama de red de precedencia",
+        "rationale": "Esta herramienta es típica de enfoques predictivos para mostrar dependencias lógicas.",
+        "isCorrect": false
+      },
+      {
+        "text": "Estructura de Desglose del Trabajo (EDT)",
+        "rationale": "La EDT define el alcance total, pero no es una herramienta de seguimiento de trabajo pendiente diario.",
+        "isCorrect": false
+      },
+      {
+        "text": "Gráfica de trabajo pendiente (Burndown chart)",
+        "rationale": "La gráfica muestra la tendencia del trabajo restante frente al tiempo, ayudando a predecir la finalización de la iteración.",
+        "isCorrect": true
+      },
+      {
+        "text": "Línea base de costos",
+        "rationale": "Esta se enfoca en el desempeño financiero, no en el seguimiento del trabajo pendiente por completar.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Es un gráfico visual muy común en Scrum que muestra cómo se 'queman' las tareas pendientes."
+  },
+  {
+    "guid": "5386e081-4630-4889-b3a6-2e59da28f76e",
+    "subjectId": "T08",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "En el método de diagramación por precedencia ($PDM$), ¿qué tipo de relación es la más comúnmente utilizada?",
+    "answerOptions": [
+      {
+        "text": "Inicio a Inicio ($SS$)",
+        "rationale": "Aunque se usa, no es la más frecuente en la lógica de la mayoría de los proyectos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Final a Inicio ($FS$)",
+        "rationale": "La relación $FS$ (la actividad sucesora no puede iniciar hasta que la predecesora finalice) es la lógica secuencial estándar.",
+        "isCorrect": true
+      },
+      {
+        "text": "Final a Final ($FF$)",
+        "rationale": "Se utiliza para tareas que deben terminar juntas, pero no es la base principal de la mayoría de las redes.",
+        "isCorrect": false
+      },
+      {
+        "text": "Inicio a Final ($SF$)",
+        "rationale": "Esta relación es muy poco frecuente y rara vez se utiliza en la práctica.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piensa en la secuencia lógica natural: primero termina una cosa y luego empieza la siguiente."
+  }
+]

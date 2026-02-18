@@ -1,0 +1,808 @@
+[
+  {
+    "guid": "58e28777-9c52-4499-a9d1-8ea0882c3ec6",
+    "subjectId": "T07",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 4,
+    "question": "Un proyecto tiene un presupuesto hasta la conclusión ($BAC$) de $10,000. Al día de hoy, el valor ganado ($EV$) es de $4,000 y el costo real ($AC$) es de $4,500. Si se espera que las variaciones actuales continúen, ¿cuál es la estimación a la conclusión ($EAC$)?",
+    "answerOptions": [
+      {
+        "text": "$11,250",
+        "rationale": "Cuando las variaciones actuales se consideran típicas, la fórmula es $EAC = \\frac{BAC}{CPI}$. Aquí, $CPI = \\frac{4,000}{4,500} = 0.888$, entonces $EAC = \\frac{10,000}{0.888} = 11,250$.",
+        "isCorrect": true
+      },
+      {
+        "text": "$10,500",
+        "rationale": "Este valor asume erróneamente que el trabajo restante se realizará al costo presupuestado original ($AC + BAC - EV$).",
+        "isCorrect": false
+      },
+      {
+        "text": "$9,000",
+        "rationale": "Este resultado ignora que el proyecto está gastando más de lo planificado, lo cual debería elevar la estimación final.",
+        "isCorrect": false
+      },
+      {
+        "text": "$12,500",
+        "rationale": "Este cálculo utiliza una interpretación incorrecta del índice de desempeño del costo ($CPI$).",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Recuerda que si el desempeño actual es representativo del futuro, debes usar el índice de desempeño del costo ($CPI$) para ajustar el presupuesto total."
+  },
+  {
+    "guid": "b2197fae-d6c4-4be2-9004-c5b0b0876678",
+    "subjectId": "T07",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 4,
+    "question": "Se ha determinado que el valor planificado ($PV$) es de $2,000 y el valor ganado ($EV$) es de $1,800. ¿Cuál es la variación del cronograma ($SV$) y qué indica sobre el estado del proyecto?",
+    "answerOptions": [
+      {
+        "text": "$-200$; el proyecto está retrasado con respecto al cronograma.",
+        "rationale": "La fórmula es $SV = EV - PV$. Un resultado negativo indica que se ha completado menos trabajo del que se había planificado para este momento.",
+        "isCorrect": true
+      },
+      {
+        "text": "$200$; el proyecto está adelantado con respecto al cronograma.",
+        "rationale": "Este cálculo invierte los términos de la fórmula $EV - PV$, lo que lleva a una conclusión errónea de adelanto.",
+        "isCorrect": false
+      },
+      {
+        "text": "$0.9$; el proyecto progresa al $90\\%$ de lo esperado.",
+        "rationale": "Este valor corresponde al índice de desempeño del cronograma ($SPI$), no a la variación ($SV$), que se expresa en unidades monetarias.",
+        "isCorrect": false
+      },
+      {
+        "text": "$-200$; el proyecto tiene un sobrecosto.",
+        "rationale": "Aunque el valor es correcto, la variación del cronograma ($SV$) mide tiempo expresado en valor monetario, no el desempeño del costo.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "La variación se obtiene restando lo que se planeó de lo que realmente se ha ganado hasta la fecha."
+  },
+  {
+    "guid": "98f29ca2-d3eb-4a46-a9bf-d1f7b5e4f3d4",
+    "subjectId": "T07",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 4,
+    "question": "Si el índice de desempeño del costo ($CPI$) es $1.2$ y el índice de desempeño del cronograma ($SPI$) es $0.7$, ¿cuál es la situación real del proyecto?",
+    "answerOptions": [
+      {
+        "text": "El proyecto gasta menos de lo previsto pero está retrasado.",
+        "rationale": "Un $CPI > 1$ indica eficiencia en costos (gasto menor al planificado), mientras que un $SPI < 1$ indica que el trabajo progresa más lento de lo previsto.",
+        "isCorrect": true
+      },
+      {
+        "text": "El proyecto tiene un sobrecosto y está adelantado.",
+        "rationale": "Esta conclusión contradice los índices, ya que un $CPI$ mayor a $1$ nunca indica sobrecosto.",
+        "isCorrect": false
+      },
+      {
+        "text": "El proyecto es eficiente en tiempo y en costo.",
+        "rationale": "Un $SPI$ de $0.7$ es inferior a $1$, lo que imposibilita que el proyecto sea eficiente en tiempo.",
+        "isCorrect": false
+      },
+      {
+        "text": "El proyecto gasta más de lo previsto y está retrasado.",
+        "rationale": "El $CPI$ de $1.2$ significa que por cada dólar invertido se obtiene más de un dólar de trabajo, por lo que no hay sobrecosto.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considera que un valor superior a $1.0$ en los índices de desempeño es generalmente favorable, excepto para el cronograma si se analiza solo la velocidad."
+  },
+  {
+    "guid": "3640dfec-2ca8-4dde-af9b-03ba1df6bd31",
+    "subjectId": "T07",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 4,
+    "question": "En una estimación de tres valores (distribución Beta), un paquete de trabajo tiene los siguientes costos: Optimista ($100$), Más Probable ($150$) y Pesimista ($260$). ¿Cuál es el costo estimado?",
+    "answerOptions": [
+      {
+        "text": "$160$",
+        "rationale": "La fórmula Beta (PERN) es $E = \\frac{O + 4M + P}{6}$. Aplicando los valores: $\\frac{100 + 4(150) + 260}{6} = \\frac{960}{6} = 160$.",
+        "isCorrect": true
+      },
+      {
+        "text": "$170$",
+        "rationale": "Este resultado se obtiene usando la distribución triangular $\\frac{O + M + P}{3}$, que no es la estándar para el método Beta.",
+        "isCorrect": false
+      },
+      {
+        "text": "$150$",
+        "rationale": "Este valor simplemente utiliza el costo más probable, ignorando los riesgos representados por los valores optimistas y pesimistas.",
+        "isCorrect": false
+      },
+      {
+        "text": "$130$",
+        "rationale": "Este cálculo es incorrecto y no sigue ninguna de las fórmulas estándar de estimación por tres valores mencionadas en el material.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Esta técnica da más peso al valor 'Más Probable' multiplicándolo por cuatro antes de promediar sobre seis."
+  },
+  {
+    "guid": "4a14cdf4-6513-4bb5-a214-0ab892d7ec0b",
+    "subjectId": "T07",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 4,
+    "question": "Estás calculando el índice de desempeño del trabajo por completar ($TCPI$) para ver si puedes cumplir con el presupuesto original ($BAC$). Si $BAC = $5,000, $EV = $2,000 y $AC = $2,500, ¿cuál es el $TCPI$?",
+    "answerOptions": [
+      {
+        "text": "$1.2$",
+        "rationale": "La fórmula del $TCPI$ basado en el $BAC$ es $\\frac{BAC - EV}{BAC - AC}$. Sustituyendo: $\\frac{5,000 - 2,000}{5,000 - 2,500} = \\frac{3,000}{2,500} = 1.2$.",
+        "isCorrect": true
+      },
+      {
+        "text": "$0.83$",
+        "rationale": "Este valor resultaría de invertir la fórmula, lo cual es un error común al calcular índices de desempeño.",
+        "isCorrect": false
+      },
+      {
+        "text": "$0.8$",
+        "rationale": "Este es el $CPI$ del proyecto ($\\frac{2,000}{2,500}$), no el $TCPI$, que mide el desempeño futuro requerido.",
+        "isCorrect": false
+      },
+      {
+        "text": "$1.5$",
+        "rationale": "Este valor no corresponde a la relación entre el trabajo restante y los fondos restantes según los datos proporcionados.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Divide el trabajo que falta por hacer entre el dinero que te queda en el presupuesto original."
+  },
+  {
+    "guid": "08090fec-e21e-4dfe-b843-b59541202018",
+    "subjectId": "T07",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 4,
+    "question": "Al inicio de un proyecto, el Director del Proyecto proporciona una estimación de costos que oscila entre $-25\\%$ y $+75\\%$. Según el material de Rita Mulcahy, ¿cómo se denomina este tipo de estimación?",
+    "answerOptions": [
+      {
+        "text": "Estimación por orden de magnitud aproximada ($ROM$).",
+        "rationale": "El rango de $-25\\%$ a $+75\\%$ es característico de las estimaciones iniciales cuando se tiene poca información detallada del proyecto.",
+        "isCorrect": true
+      },
+      {
+        "text": "Estimación definitiva.",
+        "rationale": "Una estimación definitiva es mucho más precisa, con un rango típico de $-5\\%$ a $+10\\%$.",
+        "isCorrect": false
+      },
+      {
+        "text": "Estimación de presupuesto.",
+        "rationale": "Las estimaciones de presupuesto suelen tener un rango intermedio, como $-10\\%$ a $+25\\%$, no tan amplio como el $ROM$.",
+        "isCorrect": false
+      },
+      {
+        "text": "Estimación análoga.",
+        "rationale": "Aunque es una técnica rápida, 'análoga' se refiere al método de cálculo (comparación), no al rango de precisión técnica del resultado.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Es la estimación que se realiza en las fases muy tempranas del proyecto debido a la alta incertidumbre."
+  },
+  {
+    "guid": "07c2d5db-47f8-4873-9534-1f8a7f5be221",
+    "subjectId": "T07",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 4,
+    "question": "Si un Director de Proyecto está realizando un 'Análisis de Valor', ¿cuál es su objetivo principal?",
+    "answerOptions": [
+      {
+        "text": "Encontrar formas de realizar el mismo alcance a un menor costo sin afectar el desempeño.",
+        "rationale": "El análisis de valor busca optimizar el costo del proyecto manteniendo el alcance y los estándares de calidad definidos.",
+        "isCorrect": true
+      },
+      {
+        "text": "Reducir el alcance del proyecto para cumplir con el presupuesto.",
+        "rationale": "Reducir el alcance es una medida de control de cambios, no el propósito técnico del análisis de valor.",
+        "isCorrect": false
+      },
+      {
+        "text": "Aumentar la calidad de los entregables mediante una mayor inversión.",
+        "rationale": "El análisis de valor se centra en la eficiencia del costo, no necesariamente en elevar la calidad por encima de los requisitos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Calcular el retorno de la inversión ($ROI$) del proyecto.",
+        "rationale": "El $ROI$ es una métrica de selección de proyectos, mientras que el análisis de valor se aplica durante la planificación y ejecución.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Se trata de mantener la funcionalidad y el beneficio esperado pero siendo más eficiente con los recursos monetarios."
+  },
+  {
+    "guid": "c43a1c2c-c311-4448-8743-6c0eee6acb6b",
+    "subjectId": "T07",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 4,
+    "question": "En la estructura de los costos del proyecto, ¿qué elemento diferencia la 'Línea Base de Costos' del 'Presupuesto del Proyecto'?",
+    "answerOptions": [
+      {
+        "text": "Las Reservas de Gestión.",
+        "rationale": "El presupuesto total incluye la línea base de costos más las reservas de gestión destinadas a riesgos no identificados ('desconocidos-desconocidos').",
+        "isCorrect": true
+      },
+      {
+        "text": "Las Reservas para Contingencias.",
+        "rationale": "Las reservas para contingencias forman parte de la línea base de costos, ya que cubren riesgos identificados.",
+        "isCorrect": false
+      },
+      {
+        "text": "Los Estimados de Costos de las Actividades.",
+        "rationale": "Estos son los componentes básicos que se agregan para formar los paquetes de trabajo y, eventualmente, la línea base.",
+        "isCorrect": false
+      },
+      {
+        "text": "Las Cuentas de Control.",
+        "rationale": "Las cuentas de control son puntos de integración en la línea base de costos, no algo que se sume fuera de ella.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Es la reserva que no está bajo el control directo del Director del Proyecto y se usa para imprevistos no planificados."
+  },
+  {
+    "guid": "d3c55872-01b0-4390-89f0-fb89a31dffd2",
+    "subjectId": "T07",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 4,
+    "question": "Se ha producido un evento de riesgo que no fue identificado previamente. Para cubrir los costos adicionales, el Director del Proyecto debe solicitar fondos que normalmente se encuentran en:",
+    "answerOptions": [
+      {
+        "text": "La Reserva de Gestión.",
+        "rationale": "Esta reserva está específicamente diseñada para cubrir 'desconocidos-desconocidos', es decir, riesgos que no se anticiparon.",
+        "isCorrect": true
+      },
+      {
+        "text": "La Reserva para Contingencias.",
+        "rationale": "Esta reserva se asigna a riesgos que sí fueron identificados y analizados en el registro de riesgos.",
+        "isCorrect": false
+      },
+      {
+        "text": "El Valor Ganado ($EV$).",
+        "rationale": "El $EV$ es una medida del trabajo realizado, no un fondo de reserva para emergencias o imprevistos.",
+        "isCorrect": false
+      },
+      {
+        "text": "La Línea Base de Costos.",
+        "rationale": "La línea base es el plan aprobado; si ocurre un riesgo no identificado, la línea base generalmente debe ser modificada mediante un control de cambios.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Esta reserva no forma parte de la línea base de costos del proyecto."
+  },
+  {
+    "guid": "61a779a0-c36e-4573-905d-c3f98c8a033e",
+    "subjectId": "T07",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 4,
+    "question": "Un proyecto tiene un $BAC = $20,000. Actualmente, el $AC = $12,000 y el $EV = $10,000. Si la variación que causó el bajo desempeño se considera una anomalía (atípica) y no volverá a ocurrir, ¿cuál es la estimación a la conclusión ($EAC$)?",
+    "answerOptions": [
+      {
+        "text": "$22,000",
+        "rationale": "Para variaciones atípicas, la fórmula es $AC + (BAC - EV)$. Entonces, $12,000 + (20,000 - 10,000) = 22,000$.",
+        "isCorrect": true
+      },
+      {
+        "text": "$24,000",
+        "rationale": "Este valor se obtendría si la variación fuera típica ($BAC / CPI$), resultando en $20,000 / 0.833$.",
+        "isCorrect": false
+      },
+      {
+        "text": "$20,000",
+        "rationale": "Este es el presupuesto original, pero el proyecto ya ha gastado $2,000 más de lo que ha ganado, por lo que el total debe aumentar.",
+        "isCorrect": false
+      },
+      {
+        "text": "$18,000",
+        "rationale": "Este cálculo sugeriría que el proyecto terminará por debajo del presupuesto inicial, lo cual es imposible dado el $AC$ y $EV$ actuales.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Cuando algo malo pasa solo una vez, sumas el costo real actual a lo que originalmente pensabas que costaría el trabajo restante."
+  },
+  {
+    "guid": "3e768b4b-723f-4aeb-a3d7-5f579d8f826b",
+    "subjectId": "T07",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 4,
+    "question": "El concepto de 'Costo del Ciclo de Vida' incluye no solo los costos del proyecto, sino también:",
+    "answerOptions": [
+      {
+        "text": "Los costos de operación y mantenimiento del producto final.",
+        "rationale": "Este enfoque busca optimizar el costo total de propiedad a lo largo de toda la vida útil del producto, no solo su creación.",
+        "isCorrect": true
+      },
+      {
+        "text": "Únicamente los costos directos de mano de obra y materiales.",
+        "rationale": "Esto ignora los costos operativos y de soporte que ocurren después de que el proyecto se cierra.",
+        "isCorrect": false
+      },
+      {
+        "text": "Solo los costos de las fases de inicio y planificación.",
+        "rationale": "Estos son solo una pequeña fracción del costo total del ciclo de vida de un producto o servicio.",
+        "isCorrect": false
+      },
+      {
+        "text": "El costo de las reservas de gestión exclusivamente.",
+        "rationale": "Las reservas de gestión son un componente del presupuesto del proyecto, pero el ciclo de vida abarca mucho más que el proyecto en sí.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piensa en el costo total que tendrá el dueño del producto desde que se crea hasta que se descarta."
+  },
+  {
+    "guid": "bfd8df23-a6df-4523-b254-af871a74a3a3",
+    "subjectId": "T07",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 4,
+    "question": "¿Cuál de las siguientes técnicas de estimación de costos es generalmente la más lenta pero también la más precisa?",
+    "answerOptions": [
+      {
+        "text": "Estimación ascendente (Bottom-up).",
+        "rationale": "Requiere descomponer el trabajo en niveles detallados para estimar cada componente, lo que consume tiempo pero reduce la incertidumbre.",
+        "isCorrect": true
+      },
+      {
+        "text": "Estimación análoga.",
+        "rationale": "Es la más rápida porque se basa en comparaciones históricas de alto nivel, pero suele ser la menos precisa.",
+        "isCorrect": false
+      },
+      {
+        "text": "Estimación paramétrica.",
+        "rationale": "Es rápida si se tienen los datos, pero su precisión depende totalmente de la calidad de los modelos estadísticos utilizados.",
+        "isCorrect": false
+      },
+      {
+        "text": "Estimación por juicio de expertos.",
+        "rationale": "Aunque es valiosa, por sí sola carece de la estructura detallada que proporciona el método ascendente.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Esta técnica suma las estimaciones de los componentes de nivel inferior de la estructura de desglose del trabajo ($EDT$)."
+  },
+  {
+    "guid": "61f8b97f-2a55-40e3-b82f-c5503c72ffbb",
+    "subjectId": "T07",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 4,
+    "question": "Si el índice de desempeño del cronograma ($SPI$) es $1.1$ y el índice de desempeño del costo ($CPI$) es $0.9$, el proyecto está:",
+    "answerOptions": [
+      {
+        "text": "Adelantado con respecto al cronograma y por encima del presupuesto.",
+        "rationale": "Un $SPI > 1$ significa que se avanza más rápido de lo previsto, pero un $CPI < 1$ significa que el trabajo está costando más de lo planeado.",
+        "isCorrect": true
+      },
+      {
+        "text": "Retrasado con respecto al cronograma y por debajo del presupuesto.",
+        "rationale": "Un $SPI$ de $1.1$ contradice la idea de un retraso.",
+        "isCorrect": false
+      },
+      {
+        "text": "Adelantado con respecto al cronograma y por debajo del presupuesto.",
+        "rationale": "Para estar por debajo del presupuesto, el $CPI$ debería ser mayor a $1.0$.",
+        "isCorrect": false
+      },
+      {
+        "text": "En el estado ideal de ejecución.",
+        "rationale": "Aunque el adelanto es bueno, el sobrecosto ($CPI = 0.9$) indica ineficiencia financiera.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Recuerda que los índices menores a uno indican problemas en esa área específica (tiempo o dinero)."
+  },
+  {
+    "guid": "b9d12d33-5441-4472-adb3-1c9b9d3890c6",
+    "subjectId": "T07",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 4,
+    "question": "Al realizar el proceso de 'Controlar los Costos', el Director del Proyecto nota que el $EV$ es menor que el $PV$. Esto significa que:",
+    "answerOptions": [
+      {
+        "text": "El proyecto ha progresado más lentamente de lo planificado.",
+        "rationale": "Dado que $EV$ representa el trabajo real completado y $PV$ el trabajo que debería estar hecho, si $EV < PV$, hay un retraso.",
+        "isCorrect": true
+      },
+      {
+        "text": "El proyecto está gastando más dinero del previsto.",
+        "rationale": "La relación entre $EV$ y $PV$ mide el cronograma; para saber sobre el gasto, se necesita comparar $EV$ con $AC$.",
+        "isCorrect": false
+      },
+      {
+        "text": "El presupuesto hasta la conclusión ($BAC$) debe ser aumentado.",
+        "rationale": "Un retraso en el cronograma no implica automáticamente la necesidad de aumentar el presupuesto total.",
+        "isCorrect": false
+      },
+      {
+        "text": "El proyecto ha completado más trabajo del esperado.",
+        "rationale": "Eso solo ocurriría si el $EV$ fuera mayor que el $PV$.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "El Valor Ganado comparado con el Valor Planificado mide el avance físico de la obra."
+  },
+  {
+    "guid": "f3a803cd-6be2-431c-b922-8dcd6f89659e",
+    "subjectId": "T07",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 4,
+    "question": "¿Cuál es el propósito principal del 'Plan de Gestión de los Costos'?",
+    "answerOptions": [
+      {
+        "text": "Establecer los criterios y actividades para planificar, estructurar y controlar los costos del proyecto.",
+        "rationale": "Es un plan subsidiario que define el 'cómo' se manejarán los procesos de costos a lo largo de la vida del proyecto.",
+        "isCorrect": true
+      },
+      {
+        "text": "Proporcionar una estimación detallada de cada actividad del cronograma.",
+        "rationale": "Esta es la salida del proceso 'Estimar los Costos', no del proceso de planificación de la gestión.",
+        "isCorrect": false
+      },
+      {
+        "text": "Asignar los fondos específicos a cada paquete de trabajo.",
+        "rationale": "La asignación de fondos ocurre durante el proceso 'Determinar el Presupuesto'.",
+        "isCorrect": false
+      },
+      {
+        "text": "Garantizar que no se produzcan variaciones de costo en el proyecto.",
+        "rationale": "Ningún plan puede garantizar la ausencia de variaciones; el plan define cómo monitorearlas y responder a ellas.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Se centra en definir los procedimientos, unidades de medida y niveles de precisión, más que en los números finales."
+  },
+  {
+    "guid": "6f5c02b9-b2e4-4d7a-affd-1dde0764f11c",
+    "subjectId": "T07",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 4,
+    "question": "Un proyecto tiene un $BAC = $50,000. Los datos actuales muestran $EV = $25,000, $PV = $30,000 y $AC = $22,000. ¿Cuál es la Variación del Costo ($CV$)?",
+    "answerOptions": [
+      {
+        "text": "$3,000",
+        "rationale": "La fórmula es $CV = EV - AC$. Entonces, $25,000 - 22,000 = 3,000$ (positivo, indicando ahorro).",
+        "isCorrect": true
+      },
+      {
+        "text": "$-5,000",
+        "rationale": "Este valor es la variación del cronograma ($SV = EV - PV$), no la del costo.",
+        "isCorrect": false
+      },
+      {
+        "text": "$8,000",
+        "rationale": "Este valor se obtiene de restar erróneamente el costo real del valor planificado ($PV - AC$).",
+        "isCorrect": false
+      },
+      {
+        "text": "$1.13",
+        "rationale": "Este valor es el índice de desempeño del costo ($CPI$), no la variación expresada en moneda.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Resta el costo real de lo que has ganado hasta el momento."
+  },
+  {
+    "guid": "be9f0494-0e20-4f07-9acc-88f316374198",
+    "subjectId": "T07",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 4,
+    "question": "Se te pide calcular la estimación para completar ($ETC$) asumiendo que el desempeño futuro del costo será igual al presupuestado. Si $BAC = $10,000 y $EV = $4,000, ¿cuál es el resultado?",
+    "answerOptions": [
+      {
+        "text": "$6,000",
+        "rationale": "Cuando se asume que el trabajo restante se hará según el plan original, la fórmula es $ETC = BAC - EV$.",
+        "isCorrect": true
+      },
+      {
+        "text": "$10,000",
+        "rationale": "Este es el presupuesto total, no el dinero adicional necesario para terminar lo que falta.",
+        "isCorrect": false
+      },
+      {
+        "text": "$1.50",
+        "rationale": "Este número no tiene sentido como una estimación de costo monetario para completar el trabajo.",
+        "isCorrect": false
+      },
+      {
+        "text": "$4,000",
+        "rationale": "Este es el valor del trabajo ya completado, no lo que falta por hacer.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Simplemente calcula cuánto trabajo (en términos de presupuesto) queda pendiente por realizar."
+  },
+  {
+    "guid": "a491b878-4200-45fb-90a5-5d802012e005",
+    "subjectId": "T07",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 4,
+    "question": "Si el presupuesto al finalizar ($BAC$) es de $20,000 y la estimación a la conclusión ($EAC$) es de $22,000, ¿cuál es la variación a la conclusión ($VAC$)?",
+    "answerOptions": [
+      {
+        "text": "$-2,000",
+        "rationale": "La fórmula es $VAC = BAC - EAC$. Un valor negativo indica que se proyecta terminar con un sobrecosto.",
+        "isCorrect": true
+      },
+      {
+        "text": "$2,000",
+        "rationale": "Esta respuesta asume una variación positiva, lo cual significaría terminar por debajo del presupuesto, lo que contradice los datos.",
+        "isCorrect": false
+      },
+      {
+        "text": "$42,000",
+        "rationale": "Este resultado es la suma de ambos valores, lo cual no tiene significado en el análisis de valor ganado.",
+        "isCorrect": false
+      },
+      {
+        "text": "$0.91",
+        "rationale": "Este sería el índice de desempeño necesario para terminar según el plan, no la variación monetaria proyectada.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Calcula la diferencia entre lo que pensabas gastar al principio y lo que ahora proyectas gastar al final."
+  },
+  {
+    "guid": "bd7587d6-47e6-4da6-8bcf-0477756423da",
+    "subjectId": "T07",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 4,
+    "question": "¿Cuál es la principal diferencia entre costos directos e indirectos según el material?",
+    "answerOptions": [
+      {
+        "text": "Los directos se atribuyen específicamente a un proyecto, mientras que los indirectos se comparten entre varios.",
+        "rationale": "Costos como el salario del equipo son directos; costos como el alquiler de la oficina central de la empresa son indirectos.",
+        "isCorrect": true
+      },
+      {
+        "text": "Los directos siempre son fijos y los indirectos siempre son variables.",
+        "rationale": "La fijeza o variabilidad es otra clasificación independiente de si el costo es directo o indirecto.",
+        "isCorrect": false
+      },
+      {
+        "text": "Los indirectos los paga el cliente y los directos la empresa ejecutora.",
+        "rationale": "Quién paga el costo depende del tipo de contrato, no de la naturaleza del gasto.",
+        "isCorrect": false
+      },
+      {
+        "text": "Los directos se estiman al inicio y los indirectos al final del proyecto.",
+        "rationale": "Todos los costos relevantes deben ser estimados y presupuestados desde las etapas de planificación.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piensa en si el gasto existe únicamente por causa de este proyecto en particular o si es un gasto general de la organización."
+  },
+  {
+    "guid": "44206427-7711-42f3-a080-08b782e37a60",
+    "subjectId": "T07",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 4,
+    "question": "En la técnica de 'Análisis de Valor Ganado', ¿qué representa el punto donde la curva del $EV$ se encuentra por encima de la curva del $PV$?",
+    "answerOptions": [
+      {
+        "text": "El proyecto está adelantado respecto al cronograma.",
+        "rationale": "Significa que el valor del trabajo realmente realizado es superior al valor del trabajo que se planeó haber terminado para esa fecha.",
+        "isCorrect": true
+      },
+      {
+        "text": "El proyecto está ahorrando dinero.",
+        "rationale": "Para saber si hay ahorro, se debe comparar $EV$ con $AC$, no con $PV$.",
+        "isCorrect": false
+      },
+      {
+        "text": "El proyecto ha terminado antes de tiempo.",
+        "rationale": "Solo indica el estado en un momento dado; no garantiza que todo el proyecto terminará prematuramente.",
+        "isCorrect": false
+      },
+      {
+        "text": "El presupuesto original era demasiado alto.",
+        "rationale": "No necesariamente; puede deberse a un desempeño excepcional del equipo o a menos obstáculos de los previstos.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Compara el progreso físico real con el planificado en la línea base de tiempo."
+  },
+  {
+    "guid": "dc67f689-9a13-4c40-ab8d-6d705a090cdd",
+    "subjectId": "T07",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 4,
+    "question": "Un proyecto ha gastado $6,000 hasta ahora ($AC$). El valor del trabajo realizado es de $5,000 ($EV$). Si el presupuesto total es de $10,000 ($BAC$), ¿cuál es el índice de desempeño del costo ($CPI$)?",
+    "answerOptions": [
+      {
+        "text": "$0.833$",
+        "rationale": "La fórmula es $CPI = \\frac{EV}{AC}$. Entonces, $\\frac{5,000}{6,000} = 0.833$.",
+        "isCorrect": true
+      },
+      {
+        "text": "$1.20$",
+        "rationale": "Este valor resultaría de dividir $AC$ entre $EV$, lo cual es incorrecto según las fórmulas del PMBOK.",
+        "isCorrect": false
+      },
+      {
+        "text": "$0.50$",
+        "rationale": "Este valor resultaría de comparar $EV$ con el $BAC$, lo cual mide el progreso total pero no la eficiencia actual.",
+        "isCorrect": false
+      },
+      {
+        "text": "$1.00$",
+        "rationale": "Este valor indicaría que el proyecto está exactamente en presupuesto, pero los datos muestran que el gasto supera al valor ganado.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Divide el valor de lo que has hecho entre lo que te ha costado hacerlo."
+  },
+  {
+    "guid": "b583990e-9211-45dd-b6d4-0501d14d8c96",
+    "subjectId": "T07",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 4,
+    "question": "Estás utilizando la fórmula de estimación de tres valores triangular. Los valores son: Optimista=$10$, Más Probable=$20$, Pesimista=$60$. ¿Cuál es el estimado?",
+    "answerOptions": [
+      {
+        "text": "$30$",
+        "rationale": "La estimación triangular es $\\frac{O + M + P}{3}$. En este caso: $\\frac{10 + 20 + 60}{3} = \\frac{90}{3} = 30$.",
+        "isCorrect": true
+      },
+      {
+        "text": "$25$",
+        "rationale": "Este valor se obtendría aplicando la distribución Beta (PERN), no la triangular requerida en la pregunta.",
+        "isCorrect": false
+      },
+      {
+        "text": "$20$",
+        "rationale": "Este valor solo considera el caso más probable, ignorando la incertidumbre de los otros escenarios.",
+        "isCorrect": false
+      },
+      {
+        "text": "$45$",
+        "rationale": "Este es un promedio simple de los extremos, pero no sigue la fórmula estándar para la distribución triangular.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Simplemente suma los tres valores y divídelos entre tres."
+  },
+  {
+    "guid": "4cdd80f1-253f-4b95-8cca-79aab0bec3d5",
+    "subjectId": "T07",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 4,
+    "question": "Al definir los 'Umbrales de Control' en el Plan de Gestión de los Costos, el Director del Proyecto está estableciendo:",
+    "answerOptions": [
+      {
+        "text": "El porcentaje permitido de variación antes de que se requiera tomar una acción.",
+        "rationale": "Los umbrales definen qué tan grande puede ser una desviación (por ejemplo, $5\\%$ o $10\\%$) antes de activar medidas correctivas.",
+        "isCorrect": true
+      },
+      {
+        "text": "El límite máximo de dinero que puede gastar el proyecto.",
+        "rationale": "Eso es el Presupuesto Total, no un umbral de control de variaciones.",
+        "isCorrect": false
+      },
+      {
+        "text": "La cantidad exacta de reserva de gestión disponible.",
+        "rationale": "La reserva de gestión se determina mediante el análisis de riesgos, no mediante los umbrales de monitoreo.",
+        "isCorrect": false
+      },
+      {
+        "text": "El salario máximo permitido para los miembros del equipo.",
+        "rationale": "Las tarifas de recursos se manejan en el proceso de estimación, no como umbrales de control de desempeño.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Son como alarmas que se disparan cuando el desempeño del costo se desvía demasiado del plan."
+  },
+  {
+    "guid": "bec716fc-1d43-4405-9537-6d1b7158fc8f",
+    "subjectId": "T07",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 4,
+    "question": "Un proyecto tiene un $BAC = $100. El $AC = $50 y el $EV = $40. El patrocinador te pregunta cuánto dinero adicional se necesita para terminar el proyecto, asumiendo que el $CPI$ actual se mantendrá. Debes calcular:",
+    "answerOptions": [
+      {
+        "text": "$ETC = $75",
+        "rationale": "Primero calculas el $CPI = \\frac{40}{50} = 0.8$. Luego el $EAC = \\frac{BAC}{CPI} = \\frac{100}{0.8} = 125$. Finalmente $ETC = EAC - AC = 125 - 50 = 75$.",
+        "isCorrect": true
+      },
+      {
+        "text": "$ETC = $60",
+        "rationale": "Este valor asume erróneamente que el trabajo restante se hará al costo planificado ($100 - 40$).",
+        "isCorrect": false
+      },
+      {
+        "text": "$ETC = $125",
+        "rationale": "Este es el costo total proyectado ($EAC$), no el dinero adicional requerido ($ETC$).",
+        "isCorrect": false
+      },
+      {
+        "text": "$ETC = $50",
+        "rationale": "Este valor no refleja la ineficiencia actual del costo que se proyecta hacia el futuro.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Primero proyecta el costo final total basado en la eficiencia actual y luego resta lo que ya has gastado."
+  },
+  {
+    "guid": "96f15db3-62fc-44d9-9d71-f746b9bdba50",
+    "subjectId": "T07",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 4,
+    "question": "¿Qué técnica de estimación utiliza una relación estadística entre los datos históricos y otras variables para calcular una estimación de costos?",
+    "answerOptions": [
+      {
+        "text": "Estimación paramétrica.",
+        "rationale": "Utiliza algoritmos o modelos (como costo por metro cuadrado) basados en datos históricos para proyectar costos.",
+        "isCorrect": true
+      },
+      {
+        "text": "Estimación análoga.",
+        "rationale": "Se basa en el juicio y la comparación directa con proyectos similares, no necesariamente en modelos estadísticos matemáticos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Estimación ascendente.",
+        "rationale": "Se basa en la agregación de costos detallados de abajo hacia arriba, no en modelos estadísticos globales.",
+        "isCorrect": false
+      },
+      {
+        "text": "Análisis de reserva.",
+        "rationale": "Esta técnica se usa para determinar los fondos de contingencia, no para estimar el costo base de las actividades.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piensa en modelos matemáticos que usan parámetros como 'costo por unidad'."
+  },
+  {
+    "guid": "c015b83d-9adb-4d3f-b90f-cae9b1f127e3",
+    "subjectId": "T07",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 4,
+    "question": "El proceso 'Determinar el Presupuesto' consiste fundamentalmente en:",
+    "answerOptions": [
+      {
+        "text": "Sumar los costos estimados de las actividades individuales para establecer una línea base de costos autorizada.",
+        "rationale": "Es la agregación formal de costos para obtener la referencia contra la cual se medirá el desempeño.",
+        "isCorrect": true
+      },
+      {
+        "text": "Desarrollar una aproximación de los recursos monetarios necesarios para completar el trabajo.",
+        "rationale": "Esta es la definición de 'Estimar los Costos', no de determinar el presupuesto.",
+        "isCorrect": false
+      },
+      {
+        "text": "Monitorear el estado del proyecto para actualizar los costos del mismo.",
+        "rationale": "Esta actividad pertenece al proceso 'Controlar los Costos'.",
+        "isCorrect": false
+      },
+      {
+        "text": "Negociar con los proveedores para obtener los mejores precios.",
+        "rationale": "Esto es parte de la gestión de adquisiciones, no de la determinación del presupuesto interno del proyecto.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Es el paso donde las estimaciones individuales se unen para formar el compromiso financiero oficial del proyecto."
+  }
+]
