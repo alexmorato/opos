@@ -888,7 +888,7 @@
         
         setTimeout(() => {
           if (window.toast && typeof window.toast.showToast === 'function') {
-            toast.showToast(`🔍 Filtre URL: ${historialFallosFiltradosURL.length} pregunta${historialFallosFiltradosURL.length > 1 ? 'es' : ''} trobada${historialFallosFiltradosURL.length > 1 ? 'es' : ''}`);
+            toast.showToast(`🔍 Filtre URL: ${historialFallosFiltradosURL.length} pregunta${historialFallosFiltradosURL.length > 1 ? 's' : ''} trobada${historialFallosFiltradosURL.length > 1 ? 's' : ''}`);
           }
         }, 500);
       }
@@ -1019,8 +1019,8 @@
           card.classList.toggle('selected');
         });
 
-        // Si hay temas filtrados, marcar como seleccionada
-        if (temasFiltrados.length > 0) {
+        // Si hay temas filtrados o filtros URL, marcar como seleccionada
+        if (temasFiltrados.length > 0 || historialFallosFiltradosURL.length > 0) {
           card.classList.add('selected');
         }
 
