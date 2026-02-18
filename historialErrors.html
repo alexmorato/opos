@@ -700,6 +700,7 @@
 
     // Variables globales
     let historialFallos = [];
+    let historialFallosFiltradosURL = []; // Historial filtrado por URL params
     let temasFiltrados = [];
     let ordenarPor = 'fecha'; // 'fecha' o 'count'
     const preguntesContainer = document.getElementById('preguntesContainer');
@@ -831,11 +832,66 @@
       try {
         const historialStr = localStorage.getItem(LS_KEYS.HISTORIAL_FALLOS);
         historialFallos = historialStr ? JSON.parse(historialStr) : [];
+        
+        // Aplicar filtros de URL si existen
+        aplicarFiltrosURL();
       } catch (e) {
         console.error('Error al cargar historial:', e);
         historialFallos = [];
       }
       actualizarUI();
+    }
+
+    // Aplicar filtros desde URL params
+    function aplicarFiltrosURL() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const subjectIdParam = urlParams.get('subjectid');
+      const questionParam = urlParams.get('question');
+
+      // Si no hay parámetros, usar historial completo
+      if (!subjectIdParam && !questionParam) {
+        historialFallosFiltradosURL = [];
+        return;
+      }
+
+      // Convertir parámetros en arrays de palabras (dividir por espacios)
+      const subjectIdWords = subjectIdParam ? subjectIdParam.toLowerCase().split(/\s+/).filter(Boolean) : [];
+      const questionWords = questionParam ? questionParam.toLowerCase().split(/\s+/).filter(Boolean) : [];
+
+      // Filtrar preguntas
+      historialFallosFiltradosURL = historialFallos.filter(pregunta => {
+        let coincide = false;
+
+        // Verificar coincidencias en subjectId
+        if (subjectIdWords.length > 0) {
+          const subjectId = (pregunta.subjectId || '').toLowerCase();
+          coincide = subjectIdWords.some(word => subjectId.includes(word));
+        }
+
+        // Verificar coincidencias en question/pregunta
+        if (questionWords.length > 0) {
+          const questionText = ((pregunta.question || pregunta.pregunta) || '').toLowerCase();
+          const coincideQuestion = questionWords.some(word => questionText.includes(word));
+          
+          // Si había filtro de subjectId, usar OR, si no, usar el resultado de question
+          coincide = subjectIdWords.length > 0 ? (coincide || coincideQuestion) : coincideQuestion;
+        }
+
+        return coincide;
+      });
+
+      // Si hay filtros aplicados, mostrar toast informativo
+      if (historialFallosFiltradosURL.length > 0) {
+        const filtrosAplicados = [];
+        if (subjectIdParam) filtrosAplicados.push(`SubjectId: "${subjectIdParam}"`);
+        if (questionParam) filtrosAplicados.push(`Question: "${questionParam}"`);
+        
+        setTimeout(() => {
+          if (window.toast && typeof window.toast.showToast === 'function') {
+            toast.showToast(`🔍 Filtre URL: ${historialFallosFiltradosURL.length} pregunta${historialFallosFiltradosURL.length > 1 ? 'es' : ''} trobada${historialFallosFiltradosURL.length > 1 ? 'es' : ''}`);
+          }
+        }, 500);
+      }
     }
 
     // Actualizar interfaz de usuario
@@ -881,10 +937,13 @@
     // Renderizar lista de preguntas
     function renderizarPreguntes() {
       preguntesContainer.innerHTML = '';
-      // Filtrar preguntas si hay filtro
-      let preguntasAMostrar = historialFallos;
+      
+      // Determinar qué historial usar: filtrado por URL o completo
+      let preguntasAMostrar = historialFallosFiltradosURL.length > 0 ? historialFallosFiltradosURL : historialFallos;
+      
+      // Aplicar filtro de temas si existe
       if (temasFiltrados.length > 0) {
-        preguntasAMostrar = historialFallos.filter(p => temasFiltrados.includes(p.subjectId));
+        preguntasAMostrar = preguntasAMostrar.filter(p => temasFiltrados.includes(p.subjectId));
       }
 
       // Ordenar según criterio seleccionado
