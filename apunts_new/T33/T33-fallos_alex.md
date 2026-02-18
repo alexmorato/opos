@@ -1,5 +1,26 @@
+
 Perfecto.
 Te doy la **lista real de tus fallos y dudas en SAP**, sin añadir nada nuevo, solo lo que ha salido en esta sesión.
+
+Perfecto. Vamos directo a lo esencial.
+
+## 📄 Documento PSCD vs 📁 Expediente RM
+
+**Documento PSCD**
+→ Registro financiero de una deuda o cobro.
+→ Vive en el módulo de recaudación.
+→ Representa importe, vencimiento y estado de pago.
+
+**Expediente RM**
+→ Conjunto documental de un procedimiento administrativo.
+→ Vive en gestión de expedientes.
+→ Representa tramitación, actuaciones y documentos.
+
+---
+
+# 🎯 Frase clave final
+
+> RM gestiona el procedimiento; PSCD gestiona el dinero.
 
 ---
 
