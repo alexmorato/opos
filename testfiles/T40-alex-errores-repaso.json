@@ -1,0 +1,622 @@
+[
+  {
+    "guid": "3f1c7a2e-8d4b-4a5e-9c1e-2b7f6d9a1c01",
+    "subjectId": "T40",
+    "difficulty": 2,
+    "origin": "OPOS24_gpt",
+    "type": "test",
+    "question": "¿Qué se entiende por dominio de un atributo en el modelo Entidad-Relación?",
+    "answerOptions": [
+      {
+        "text": "El conjunto de valores válidos que puede tomar el atributo",
+        "isCorrect": true,
+        "rationale": "El dominio define los valores permitidos para un atributo (tipo, rango, formato o restricciones). Es una propiedad semántica del dato, no estructural del esquema."
+      },
+      {
+        "text": "El nombre del esquema donde se encuentra la entidad",
+        "isCorrect": false,
+        "rationale": "El esquema organiza objetos de base de datos, pero no define los valores válidos de un atributo."
+      },
+      {
+        "text": "La cardinalidad de la relación",
+        "isCorrect": false,
+        "rationale": "La cardinalidad indica cuántas veces puede participar una entidad en una relación, no los valores que puede tomar un atributo."
+      },
+      {
+        "text": "La clave primaria de la entidad",
+        "isCorrect": false,
+        "rationale": "La clave primaria identifica de forma única instancias, pero no define el conjunto de valores posibles de un atributo."
+      }
+    ],
+    "hint": "Piensa en qué limita el contenido del atributo."
+  },
+  {
+    "guid": "8a9e2c44-1b6f-4e7d-9f0c-6d2b3a7e5f12",
+    "subjectId": "T40",
+    "difficulty": 2,
+    "origin": "OPOS24_gpt",
+    "type": "test",
+    "question": "En una jerarquía EER, la especialización es un proceso:",
+    "answerOptions": [
+      {
+        "text": "Descendente desde la superclase hacia las subclases",
+        "isCorrect": true,
+        "rationale": "La especialización parte de una entidad general y la descompone en entidades más específicas. Es un proceso top-down."
+      },
+      {
+        "text": "Ascendente desde las subclases hacia la superclase",
+        "isCorrect": false,
+        "rationale": "Ese proceso corresponde a la generalización, no a la especialización."
+      },
+      {
+        "text": "Horizontal entre entidades del mismo nivel",
+        "isCorrect": false,
+        "rationale": "La especialización implica jerarquía, no relaciones horizontales."
+      },
+      {
+        "text": "Independiente de la dirección conceptual",
+        "isCorrect": false,
+        "rationale": "La dirección es clave para diferenciar especialización y generalización."
+      }
+    ],
+    "hint": "¿Vas de lo general a lo particular?"
+  },
+  {
+    "guid": "c1d4e5f6-7a89-4bcd-8e12-3f4567a9b321",
+    "subjectId": "T40",
+    "difficulty": 2,
+    "origin": "OPOS24_gpt",
+    "type": "test",
+    "question": "¿Qué indica una línea doble entre una entidad y una relación en notación Chen?",
+    "answerOptions": [
+      {
+        "text": "Participación obligatoria",
+        "isCorrect": true,
+        "rationale": "La línea doble indica participación total: todas las instancias de esa entidad deben participar en la relación."
+      },
+      {
+        "text": "Cardinalidad muchos a muchos",
+        "isCorrect": false,
+        "rationale": "La cardinalidad se representa con notación 1, N, etc., no con línea doble."
+      },
+      {
+        "text": "Entidad débil",
+        "isCorrect": false,
+        "rationale": "La entidad débil se representa con rectángulo doble, no con línea doble."
+      },
+      {
+        "text": "Clave compuesta",
+        "isCorrect": false,
+        "rationale": "La clave compuesta se indica mediante varios atributos subrayados, no con líneas dobles."
+      }
+    ],
+    "hint": "No habla de cantidad, sino de obligatoriedad."
+  },
+  {
+    "guid": "f7b3c2d1-9e8a-4c6d-b123-7e4f5a6b8c90",
+    "subjectId": "T40",
+    "difficulty": 3,
+    "origin": "OPOS24_gpt",
+    "type": "test",
+    "question": "¿Qué elimina la Segunda Forma Normal (2FN)?",
+    "answerOptions": [
+      {
+        "text": "Dependencias parciales respecto a claves compuestas",
+        "isCorrect": true,
+        "rationale": "La 2FN elimina dependencias de atributos no clave respecto a solo una parte de una clave compuesta. Solo aplica cuando existe clave compuesta."
+      },
+      {
+        "text": "Dependencias transitivas",
+        "isCorrect": false,
+        "rationale": "Las dependencias transitivas se eliminan en la 3FN."
+      },
+      {
+        "text": "Dependencias multivaluadas independientes",
+        "isCorrect": false,
+        "rationale": "Las dependencias multivaluadas se tratan en la 4FN."
+      },
+      {
+        "text": "Valores repetidos en una celda",
+        "isCorrect": false,
+        "rationale": "La atomicidad de valores corresponde a la 1FN."
+      }
+    ],
+    "hint": "Depende de una parte de la clave."
+  },
+  {
+    "guid": "2a4b6c8d-0e1f-4a2b-9c3d-5e6f7a8b9c10",
+    "subjectId": "T40",
+    "difficulty": 3,
+    "origin": "OPOS24_gpt",
+    "type": "test",
+    "question": "Si una tabla presenta dependencias multivaluadas independientes, ¿qué forma normal se está violando?",
+    "answerOptions": [
+      {
+        "text": "Cuarta Forma Normal",
+        "isCorrect": true,
+        "rationale": "La 4FN elimina dependencias multivaluadas no triviales. Si un determinante tiene varios conjuntos de valores independientes, la tabla no está en 4FN."
+      },
+      {
+        "text": "Tercera Forma Normal",
+        "isCorrect": false,
+        "rationale": "La 3FN elimina dependencias transitivas, no multivaluadas."
+      },
+      {
+        "text": "Segunda Forma Normal",
+        "isCorrect": false,
+        "rationale": "La 2FN elimina dependencias parciales, no multivaluadas."
+      },
+      {
+        "text": "Forma Normal de Boyce-Codd",
+        "isCorrect": false,
+        "rationale": "BCNF exige que todo determinante sea superclave, pero no trata específicamente dependencias multivaluadas."
+      }
+    ],
+    "hint": "Piensa en varios valores independientes del mismo determinante."
+  },
+  {
+    "guid": "a9f1b2c3-d4e5-4f67-8a90-b1c2d3e4f501",
+    "subjectId": "T40",
+    "difficulty": 2,
+    "origin": "OPOS24_gpt",
+    "type": "test",
+    "question": "¿Qué elimina la Primera Forma Normal (1FN)?",
+    "answerOptions": [
+      {
+        "text": "Grupos repetitivos o valores no atómicos",
+        "isCorrect": true,
+        "rationale": "La 1FN exige atomicidad: cada atributo debe contener un único valor indivisible. Elimina listas o conjuntos dentro de una misma celda."
+      },
+      {
+        "text": "Dependencias parciales",
+        "isCorrect": false,
+        "rationale": "Las dependencias parciales se eliminan en la Segunda Forma Normal."
+      },
+      {
+        "text": "Dependencias transitivas",
+        "isCorrect": false,
+        "rationale": "Las dependencias transitivas se eliminan en la Tercera Forma Normal."
+      },
+      {
+        "text": "Dependencias multivaluadas",
+        "isCorrect": false,
+        "rationale": "Las dependencias multivaluadas independientes se tratan en la Cuarta Forma Normal."
+      }
+    ],
+    "hint": "Piensa en una celda con varios valores separados por comas."
+  },
+  {
+    "guid": "b2c3d4e5-f6a7-48b9-9c01-d2e3f4a5b602",
+    "subjectId": "T40",
+    "difficulty": 3,
+    "origin": "OPOS24_gpt",
+    "type": "test",
+    "question": "¿Qué elimina la Tercera Forma Normal (3FN)?",
+    "answerOptions": [
+      {
+        "text": "Dependencias transitivas entre atributos no clave",
+        "isCorrect": true,
+        "rationale": "La 3FN elimina dependencias donde un atributo no clave depende de otro atributo no clave, que a su vez depende de la clave primaria."
+      },
+      {
+        "text": "Dependencias parciales",
+        "isCorrect": false,
+        "rationale": "Las dependencias parciales se eliminan en la Segunda Forma Normal."
+      },
+      {
+        "text": "Grupos repetitivos",
+        "isCorrect": false,
+        "rationale": "Los grupos repetitivos se eliminan en la Primera Forma Normal."
+      },
+      {
+        "text": "Determinantes que no son superclave",
+        "isCorrect": false,
+        "rationale": "Eso corresponde a la Forma Normal de Boyce-Codd."
+      }
+    ],
+    "hint": "Un atributo depende de otro atributo que no es clave."
+  },
+  {
+    "guid": "c3d4e5f6-a7b8-4c90-8d12-e3f4a5b6c703",
+    "subjectId": "T40",
+    "difficulty": 3,
+    "origin": "OPOS24_gpt",
+    "type": "test",
+    "question": "¿Qué exige la Forma Normal de Boyce-Codd (BCNF)?",
+    "answerOptions": [
+      {
+        "text": "Que todo determinante sea superclave",
+        "isCorrect": true,
+        "rationale": "BCNF es más estricta que 3FN y exige que en toda dependencia funcional el determinante sea una superclave."
+      },
+      {
+        "text": "Que no existan dependencias transitivas",
+        "isCorrect": false,
+        "rationale": "Eso es requisito de la Tercera Forma Normal."
+      },
+      {
+        "text": "Que no existan dependencias multivaluadas",
+        "isCorrect": false,
+        "rationale": "Las dependencias multivaluadas se tratan en la Cuarta Forma Normal."
+      },
+      {
+        "text": "Que todos los atributos sean claves",
+        "isCorrect": false,
+        "rationale": "No todos los atributos deben ser clave, sino que todo determinante debe ser superclave."
+      }
+    ],
+    "hint": "Más estricta que la 3FN."
+  },
+  {
+    "guid": "d4e5f6a7-b8c9-4d01-9e23-f4a5b6c7d804",
+    "subjectId": "T40",
+    "difficulty": 3,
+    "origin": "OPOS24_gpt",
+    "type": "test",
+    "question": "En una jerarquía EER, una restricción disjunta (D) indica que:",
+    "answerOptions": [
+      {
+        "text": "Una instancia solo puede pertenecer a una subclase",
+        "isCorrect": true,
+        "rationale": "La restricción disjunta implica exclusividad: una instancia de la superclase no puede pertenecer simultáneamente a varias subclases."
+      },
+      {
+        "text": "Debe pertenecer obligatoriamente a alguna subclase",
+        "isCorrect": false,
+        "rationale": "Eso corresponde a la restricción total (T), no a la disjunta."
+      },
+      {
+        "text": "Puede pertenecer a varias subclases",
+        "isCorrect": false,
+        "rationale": "Eso describe la restricción solapada (S)."
+      },
+      {
+        "text": "No puede pertenecer a ninguna subclase",
+        "isCorrect": false,
+        "rationale": "Eso sería una restricción parcial (P), no disjunta."
+      }
+    ],
+    "hint": "Piensa en exclusividad."
+  },
+  {
+    "guid": "e5f6a7b8-c9d0-4e12-8f34-a5b6c7d8e905",
+    "subjectId": "T40",
+    "difficulty": 4,
+    "origin": "OPOS24_gpt",
+    "type": "test",
+    "question": "Una relación R(A,B,C) tiene clave primaria compuesta (A,B) y C depende solo de A. ¿Qué forma normal se está violando?",
+    "answerOptions": [
+      {
+        "text": "Segunda Forma Normal",
+        "isCorrect": true,
+        "rationale": "Existe una dependencia parcial: C depende solo de A, que es parte de la clave compuesta (A,B). Esto viola la 2FN."
+      },
+      {
+        "text": "Primera Forma Normal",
+        "isCorrect": false,
+        "rationale": "No hay información sobre valores no atómicos o grupos repetitivos."
+      },
+      {
+        "text": "Tercera Forma Normal",
+        "isCorrect": false,
+        "rationale": "La dependencia no es transitiva, sino parcial respecto a la clave compuesta."
+      },
+      {
+        "text": "Cuarta Forma Normal",
+        "isCorrect": false,
+        "rationale": "No se menciona dependencia multivaluada, sino dependencia funcional parcial."
+      }
+    ],
+    "hint": "Depende de una parte de la clave."
+  },
+  {
+    "guid": "f1a2b3c4-d5e6-4f78-9a01-b2c3d4e5f611",
+    "subjectId": "T40",
+    "difficulty": 3,
+    "origin": "OPOS24_gpt",
+    "type": "test",
+    "question": "Una relación R(A,B,C) tiene A como clave primaria y existe la dependencia A → B y B → C. ¿Qué forma normal se está violando?",
+    "answerOptions": [
+      {
+        "text": "Tercera Forma Normal",
+        "isCorrect": true,
+        "rationale": "Existe una dependencia transitiva: A determina B y B determina C, por lo que C depende indirectamente de A a través de B. Esto viola la 3FN."
+      },
+      {
+        "text": "Primera Forma Normal",
+        "isCorrect": false,
+        "rationale": "No hay indicios de valores no atómicos o grupos repetitivos."
+      },
+      {
+        "text": "Segunda Forma Normal",
+        "isCorrect": false,
+        "rationale": "La 2FN se viola cuando hay dependencia parcial respecto a una clave compuesta, y aquí la clave no es compuesta."
+      },
+      {
+        "text": "Cuarta Forma Normal",
+        "isCorrect": false,
+        "rationale": "No se describen dependencias multivaluadas independientes."
+      }
+    ],
+    "hint": "Una dependencia a través de otro atributo."
+  },
+  {
+    "guid": "a2b3c4d5-e6f7-4a89-8b12-c3d4e5f6a722",
+    "subjectId": "T40",
+    "difficulty": 4,
+    "origin": "OPOS24_gpt",
+    "type": "test",
+    "question": "Si en una relación existe una dependencia funcional X → Y y X no es superclave, ¿qué forma normal se viola?",
+    "answerOptions": [
+      {
+        "text": "BCNF",
+        "isCorrect": true,
+        "rationale": "BCNF exige que todo determinante en una dependencia funcional sea superclave. Si X determina Y y no es superclave, se viola BCNF."
+      },
+      {
+        "text": "Primera Forma Normal",
+        "isCorrect": false,
+        "rationale": "La 1FN trata la atomicidad de atributos, no los determinantes."
+      },
+      {
+        "text": "Segunda Forma Normal",
+        "isCorrect": false,
+        "rationale": "La 2FN trata dependencias parciales respecto a claves compuestas."
+      },
+      {
+        "text": "Cuarta Forma Normal",
+        "isCorrect": false,
+        "rationale": "La 4FN trata dependencias multivaluadas, no funcionales simples."
+      }
+    ],
+    "hint": "Forma más estricta que la 3FN."
+  },
+  {
+    "guid": "b3c4d5e6-f7a8-4b90-9c23-d4e5f6a7b833",
+    "subjectId": "T40",
+    "difficulty": 3,
+    "origin": "OPOS24_gpt",
+    "type": "test",
+    "question": "En una jerarquía EER con restricción total (T), significa que:",
+    "answerOptions": [
+      {
+        "text": "Toda instancia de la superclase debe pertenecer a alguna subclase",
+        "isCorrect": true,
+        "rationale": "La restricción total implica obligatoriedad: ninguna instancia de la superclase puede quedar sin clasificar en alguna subclase."
+      },
+      {
+        "text": "Solo puede pertenecer a una subclase",
+        "isCorrect": false,
+        "rationale": "Eso describe la restricción disjunta, no la total."
+      },
+      {
+        "text": "Puede pertenecer a varias subclases",
+        "isCorrect": false,
+        "rationale": "Eso describe la restricción solapada."
+      },
+      {
+        "text": "No puede pertenecer a ninguna subclase",
+        "isCorrect": false,
+        "rationale": "Eso correspondería a una restricción parcial."
+      }
+    ],
+    "hint": "Piensa en obligatoriedad."
+  },
+  {
+    "guid": "c4d5e6f7-a8b9-4c01-8d34-e5f6a7b8c944",
+    "subjectId": "T40",
+    "difficulty": 4,
+    "origin": "OPOS24_gpt",
+    "type": "test",
+    "question": "Una relación R(A,B,C) donde A →→ B y A →→ C son dependencias multivaluadas independientes, viola:",
+    "answerOptions": [
+      {
+        "text": "Cuarta Forma Normal",
+        "isCorrect": true,
+        "rationale": "Cuando existen dependencias multivaluadas independientes con el mismo determinante, la relación no está en 4FN y debe descomponerse."
+      },
+      {
+        "text": "Tercera Forma Normal",
+        "isCorrect": false,
+        "rationale": "La 3FN trata dependencias funcionales transitivas, no multivaluadas."
+      },
+      {
+        "text": "BCNF",
+        "isCorrect": false,
+        "rationale": "BCNF trata dependencias funcionales donde el determinante no es superclave."
+      },
+      {
+        "text": "Segunda Forma Normal",
+        "isCorrect": false,
+        "rationale": "La 2FN trata dependencias parciales respecto a claves compuestas."
+      }
+    ],
+    "hint": "Múltiples valores independientes."
+  },
+  {
+    "guid": "d5e6f7a8-b9c0-4d12-9e45-f6a7b8c9d055",
+    "subjectId": "T40",
+    "difficulty": 3,
+    "origin": "OPOS24_gpt",
+    "type": "test",
+    "question": "¿Qué diferencia fundamental existe entre cardinalidad y participación en un modelo E-R?",
+    "answerOptions": [
+      {
+        "text": "La cardinalidad indica cuántas veces puede participar y la participación indica si es obligatorio",
+        "isCorrect": true,
+        "rationale": "La cardinalidad (1:N, N:M) indica número máximo de participaciones. La participación (total o parcial) indica si es obligatorio o no participar en la relación."
+      },
+      {
+        "text": "La participación indica número máximo y la cardinalidad obligatoriedad",
+        "isCorrect": false,
+        "rationale": "Está invertido: cardinalidad es cantidad, participación es obligatoriedad."
+      },
+      {
+        "text": "Ambos conceptos significan lo mismo",
+        "isCorrect": false,
+        "rationale": "Son conceptos distintos: uno cuantitativo y otro de obligatoriedad."
+      },
+      {
+        "text": "Ambos solo aplican a entidades débiles",
+        "isCorrect": false,
+        "rationale": "Aplican a cualquier entidad y relación."
+      }
+    ],
+    "hint": "Cantidad vs obligatoriedad."
+  },
+  {
+    "guid": "e6f7a8b9-c0d1-4e23-9f56-a7b8c9d0e166",
+    "subjectId": "T40",
+    "difficulty": 3,
+    "origin": "OPOS24_gpt",
+    "type": "test",
+    "question": "Una relación está en 2FN pero no en 3FN. ¿Qué tipo de problema puede existir?",
+    "answerOptions": [
+      {
+        "text": "Dependencia transitiva",
+        "isCorrect": true,
+        "rationale": "Si está en 2FN, ya no hay dependencias parciales. Si no está en 3FN, debe existir una dependencia transitiva entre atributos no clave."
+      },
+      {
+        "text": "Dependencia parcial",
+        "isCorrect": false,
+        "rationale": "Las dependencias parciales se eliminan en la 2FN, por lo que no puede ser el problema si ya cumple 2FN."
+      },
+      {
+        "text": "Dependencia multivaluada independiente",
+        "isCorrect": false,
+        "rationale": "Las dependencias multivaluadas se tratan en 4FN, no determinan la diferencia entre 2FN y 3FN."
+      },
+      {
+        "text": "Valores no atómicos",
+        "isCorrect": false,
+        "rationale": "La atomicidad se corrige en 1FN."
+      }
+    ],
+    "hint": "Un atributo depende de otro que no es clave."
+  },
+  {
+    "guid": "f7a8b9c0-d1e2-4f34-8a67-b8c9d0e1f277",
+    "subjectId": "T40",
+    "difficulty": 4,
+    "origin": "OPOS24_gpt",
+    "type": "test",
+    "question": "Si todos los atributos no clave dependen funcionalmente de la clave completa, pero existe una dependencia X → Y donde X no es superclave, la relación está en:",
+    "answerOptions": [
+      {
+        "text": "3FN pero no en BCNF",
+        "isCorrect": true,
+        "rationale": "Puede cumplir 3FN si Y es atributo primo o si la dependencia cumple sus condiciones, pero si X no es superclave, viola BCNF, que es más estricta."
+      },
+      {
+        "text": "2FN pero no en 3FN",
+        "isCorrect": false,
+        "rationale": "Si no hay dependencias parciales ni transitivas, ya cumple 3FN."
+      },
+      {
+        "text": "4FN pero no en BCNF",
+        "isCorrect": false,
+        "rationale": "La 4FN trata dependencias multivaluadas, no dependencias funcionales simples."
+      },
+      {
+        "text": "1FN solamente",
+        "isCorrect": false,
+        "rationale": "El enunciado indica que cumple dependencias completas respecto a la clave."
+      }
+    ],
+    "hint": "BCNF es más estricta que 3FN."
+  },
+  {
+    "guid": "a8b9c0d1-e2f3-4a45-9b78-c9d0e1f2a388",
+    "subjectId": "T40",
+    "difficulty": 3,
+    "origin": "OPOS24_gpt",
+    "type": "test",
+    "question": "¿Qué representa una elipse doble en notación Chen?",
+    "answerOptions": [
+      {
+        "text": "Atributo multivaluado",
+        "isCorrect": true,
+        "rationale": "La elipse doble indica que un atributo puede tener múltiples valores asociados a una misma entidad, como varios teléfonos."
+      },
+      {
+        "text": "Atributo derivado",
+        "isCorrect": false,
+        "rationale": "El atributo derivado se representa con elipse punteada."
+      },
+      {
+        "text": "Clave primaria",
+        "isCorrect": false,
+        "rationale": "La clave primaria se representa subrayando el atributo."
+      },
+      {
+        "text": "Entidad débil",
+        "isCorrect": false,
+        "rationale": "La entidad débil se representa con rectángulo doble."
+      }
+    ],
+    "hint": "Piensa en varios valores posibles."
+  },
+  {
+    "guid": "b9c0d1e2-f3a4-4b56-8c89-d0e1f2a3b499",
+    "subjectId": "T40",
+    "difficulty": 4,
+    "origin": "OPOS24_gpt",
+    "type": "test",
+    "question": "Si una relación cumple BCNF pero tiene dependencias multivaluadas independientes, ¿qué forma normal se está violando?",
+    "answerOptions": [
+      {
+        "text": "Cuarta Forma Normal",
+        "isCorrect": true,
+        "rationale": "BCNF solo controla dependencias funcionales. Si existen dependencias multivaluadas independientes, la relación viola la 4FN."
+      },
+      {
+        "text": "Tercera Forma Normal",
+        "isCorrect": false,
+        "rationale": "Si cumple BCNF, necesariamente cumple 3FN."
+      },
+      {
+        "text": "Segunda Forma Normal",
+        "isCorrect": false,
+        "rationale": "La 2FN trata dependencias parciales."
+      },
+      {
+        "text": "Primera Forma Normal",
+        "isCorrect": false,
+        "rationale": "La 1FN trata atomicidad, no dependencias multivaluadas."
+      }
+    ],
+    "hint": "BCNF no controla multivaluaciones."
+  },
+  {
+    "guid": "c0d1e2f3-a4b5-4c67-9d90-e1f2a3b4c5aa",
+    "subjectId": "T40",
+    "difficulty": 5,
+    "origin": "OPOS24_gpt",
+    "type": "test",
+    "question": "En una relación R(A,B,C) donde A es clave primaria y existen dependencias A → B y C → B, ¿qué forma normal se viola?",
+    "answerOptions": [
+      {
+        "text": "BCNF",
+        "isCorrect": true,
+        "rationale": "Existe una dependencia C → B donde C no es superclave. Aunque A sea clave primaria, la existencia de un determinante no superclave viola BCNF."
+      },
+      {
+        "text": "Primera Forma Normal",
+        "isCorrect": false,
+        "rationale": "No hay información sobre atomicidad."
+      },
+      {
+        "text": "Segunda Forma Normal",
+        "isCorrect": false,
+        "rationale": "No se trata de dependencia parcial respecto a clave compuesta."
+      },
+      {
+        "text": "Cuarta Forma Normal",
+        "isCorrect": false,
+        "rationale": "No se describen dependencias multivaluadas."
+      }
+    ],
+    "hint": "Determinante que no es superclave."
+  }
+]
