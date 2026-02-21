@@ -36,9 +36,9 @@ for carpeta in sorted(carpetas_txx):
     faltantes = []
     for nombre in NOMBRES:
         if not encontrados[nombre]["jpg"]:
-            faltantes.append(f".jpg de {nombre}")
+            faltantes.append(f".jpg {nombre}")
         if not encontrados[nombre]["dir"]:
-            faltantes.append(f"carpeta {nombre}")
+            faltantes.append(f".pdf {nombre}")
     if faltantes:
         faltantes_global[carpeta] = faltantes
 

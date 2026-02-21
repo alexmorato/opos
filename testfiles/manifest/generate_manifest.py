@@ -103,6 +103,28 @@ manifest_path = os.path.join(carpeta_destino, "manifest.json")
 with open(manifest_path, "w", encoding="utf-8") as f:
     json.dump(manifest, f, ensure_ascii=False, indent=2)
 
-print(f"\n✓ Manifest generado correctamente en: {manifest_path}")
-print(f"  Total de archivos en manifest: {len(ficheros)}")
+# PASO 3: Generar manifest_date.json con fechas de actualización
+print("\nPASO 3: Generando manifest_date.json...")
+manifest_date_list = []
+for fname in ficheros:
+    ruta = os.path.join(carpeta, fname)
+    try:
+        updated = os.path.getmtime(ruta)
+        # Convertir a formato legible
+        from datetime import datetime
+        updated_str = datetime.fromtimestamp(updated).strftime('%Y-%m-%d %H:%M:%S')
+    except Exception as e:
+        updated_str = "error"
+    manifest_date_list.append({"file": fname, "updated": updated_str})
+
+# Ordenar descendentemente por fecha
+manifest_date_list.sort(key=lambda x: x["updated"], reverse=True)
+
+manifest_date = {"files": manifest_date_list}
+manifest_date_path = os.path.join(carpeta_destino, "manifest_date.json")
+with open(manifest_date_path, "w", encoding="utf-8") as f:
+    json.dump(manifest_date, f, ensure_ascii=False, indent=2)
+
+print(f"\n✓ Manifest_date generado correctamente en: {manifest_date_path}")
+print(f"  Total de archivos en manifest_date: {len(manifest_date_list)}")
 print("=" * 60)
