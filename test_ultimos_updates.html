@@ -216,8 +216,9 @@
   </div>
 
   <script>
-    // Cargar manifest_date.json
-    fetch('./testfiles/manifest_date.json')
+    // Cargar manifest_date.json con parámetro timestamp para evitar caché
+    const timestamp = Date.now();
+    fetch(`./testfiles/manifest_date.json?t=${timestamp}`)
       .then(res => res.json())
       .then(data => {
         const files = data.files;
