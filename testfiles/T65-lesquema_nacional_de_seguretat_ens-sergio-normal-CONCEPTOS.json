@@ -1,0 +1,808 @@
+[
+  {
+    "guid": "379129f3-a3c1-4010-a5c3-22b7d919a6ed",
+    "subjectId": "T65",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Un organismo público está desplegando un nuevo sistema de gestión de expedientes donde la confidencialidad se ha valorado como nivel ALTO, mientras que la disponibilidad e integridad se mantienen en nivel MEDIO. ¿Cuál es la categoría de seguridad global del sistema y qué implica esto para la selección de medidas según el Anexo II del ENS?",
+    "answerOptions": [
+      {
+        "text": "Categoría ALTA; se deben aplicar las medidas de seguridad y los refuerzos correspondientes a dicha categoría o a las dimensiones con nivel ALTO.",
+        "rationale": "La categoría del sistema se determina por el nivel más alto alcanzado en cualquiera de sus dimensiones, y la selección de medidas se realiza de forma holística para el sistema y específica para las dimensiones afectadas.",
+        "isCorrect": true
+      },
+      {
+        "text": "Categoría MEDIA; la categoría se define por el promedio de los niveles de las dimensiones de seguridad analizadas.",
+        "rationale": "El ENS no utiliza promedios para determinar la categoría, sino el valor máximo encontrado entre las dimensiones de seguridad evaluadas.",
+        "isCorrect": false
+      },
+      {
+        "text": "Categoría ALTA; no obstante, solo se aplican refuerzos de nivel ALTO exclusivamente en la dimensión de confidencialidad.",
+        "rationale": "Aunque la categoría sea ALTA por una sola dimensión, existen medidas del Anexo II que se aplican por 'categoría del sistema', afectando a todo el conjunto independientemente de la dimensión que forzó el nivel.",
+        "isCorrect": false
+      },
+      {
+        "text": "Categoría BÁSICA; al ser un sistema de gestión interna, la normativa permite degradar la categoría si no hay servicios críticos externos.",
+        "rationale": "La naturaleza interna o externa no permite degradar automáticamente la categoría si el análisis de impacto sobre la información o activos determina niveles superiores.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Consulte cómo influye el nivel más exigente de una dimensión en la clasificación general del sistema de información."
+  },
+  {
+    "guid": "6207f5af-8ca5-4a7e-960f-6f099d6352ac",
+    "subjectId": "T65",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Durante una auditoría de seguridad en una Entidad Local, se detecta que el Responsable de Seguridad es la misma persona que el Responsable del Sistema. ¿Qué principio básico del ENS se está vulnerando en este escenario?",
+    "answerOptions": [
+      {
+        "text": "Diferenciación de responsabilidades.",
+        "rationale": "Este principio exige que la responsabilidad de la seguridad esté separada de la responsabilidad sobre la explotación del sistema para evitar conflictos de intereses y garantizar una supervisión independiente.",
+        "isCorrect": true
+      },
+      {
+        "text": "Seguridad como proceso integral.",
+        "rationale": "Este principio se refiere a la amalgama de elementos humanos y técnicos, no específicamente a la segregación de funciones jerárquicas en la organización.",
+        "isCorrect": false
+      },
+      {
+        "text": "Gestión de la seguridad basada en los riesgos.",
+        "rationale": "Aunque la acumulación de roles es un riesgo, el incumplimiento directo es contra la estructura organizativa y el reparto de funciones definido en el Artículo 11.",
+        "isCorrect": false
+      },
+      {
+        "text": "Vigilancia continua.",
+        "rationale": "La vigilancia continua se centra en la detección de eventos y anomalías, no en la definición de roles y perfiles organizativos iniciales.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en el artículo que regula la necesidad de evitar que una misma persona supervise su propia gestión técnica."
+  },
+  {
+    "guid": "a7c9af22-3e02-45b0-961a-69f9cc4ef642",
+    "subjectId": "T65",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Una empresa proveedora de servicios en la nube (CSP) presta servicios a una administración de justicia. El sistema ha sido categorizado como MEDIA. ¿Cuál es el requisito mínimo de madurez que el auditor debe verificar para las medidas de seguridad implantadas?",
+    "answerOptions": [
+      {
+        "text": "L3 - Proceso definido.",
+        "rationale": "El ENS establece una escala de madurez donde el nivel L3 es el mínimo exigible para sistemas de categoría MEDIA, asegurando que los procesos están documentados y estandarizados.",
+        "isCorrect": true
+      },
+      {
+        "text": "L2 - Reproducible, pero intuitivo.",
+        "rationale": "Este nivel de madurez es el mínimo aceptable únicamente para sistemas de categoría BÁSICA, resultando insuficiente para categorías superiores.",
+        "isCorrect": false
+      },
+      {
+        "text": "L4 - Gestionado y medible.",
+        "rationale": "El nivel L4 es el requisito mínimo de madurez para sistemas de categoría ALTA, donde se requiere además una gestión cuantitativa del proceso.",
+        "isCorrect": false
+      },
+      {
+        "text": "L5 - Optimizado.",
+        "rationale": "Aunque es el nivel más alto de excelencia, el ENS no lo exige como mínimo obligatorio para ninguna de sus categorías de seguridad.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Revise la tabla de correspondencia entre categorías de sistema y niveles mínimos de madurez requeridos."
+  },
+  {
+    "guid": "0259d1a1-9f0e-44b4-af56-a61f2fee0468",
+    "subjectId": "T65",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En un sistema de categoría ALTA, se requiere implementar la medida [op.acc.6] relativa al mecanismo de autenticación para usuarios de la organización. ¿Qué combinación de refuerzos (R) es obligatoria según el Anexo II?",
+    "answerOptions": [
+      {
+        "text": "+ [R1 o R2 o R3 o R4] + R5 + R6 + R7 + R8 + R9.",
+        "rationale": "Para el nivel ALTO, se exige la aplicación de múltiples factores de autenticación, protección de credenciales en tránsito y almacenamiento, y límites de intentos, sumando todos los refuerzos críticos detallados en la tabla de medidas.",
+        "isCorrect": true
+      },
+      {
+        "text": "+ [R1 o R2 o R3 o R4] + R8 + R9.",
+        "rationale": "Esta configuración corresponde al nivel BAJO, siendo insuficiente para cubrir los riesgos de suplantación en un sistema de categoría ALTA.",
+        "isCorrect": false
+      },
+      {
+        "text": "Solo se requiere R1 para asegurar el uso de contraseñas robustas.",
+        "rationale": "El refuerzo R1 por sí solo no satisface los requisitos de autenticación multifactor o robustez exigidos por el ENS para niveles de seguridad elevados.",
+        "isCorrect": false
+      },
+      {
+        "text": "+ [R1 o R2 o R3 o R4] + R5 + R8 + R9.",
+        "rationale": "Esta estructura es la requerida para el nivel MEDIO, omitiendo refuerzos adicionales de seguridad que el nivel ALTO demanda específicamente.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "El nivel ALTO requiere la suma de casi todos los refuerzos disponibles para garantizar la identidad del usuario."
+  },
+  {
+    "guid": "2d8c909c-6a47-407d-b210-d900f6f59056",
+    "subjectId": "T65",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Una entidad del sector público desea contratar la auditoría de certificación de un sistema de categoría MEDIA. Según la Instrucción Técnica de Seguridad (ITS) de Auditoría, ¿quién debe analizar el informe de auditoría y elevar conclusiones para adoptar medidas correctoras?",
+    "answerOptions": [
+      {
+        "text": "El Responsable de la Seguridad.",
+        "rationale": "Según el Anexo 3 del ENS, los informes de auditoría deben ser analizados por el responsable de seguridad competente, quien presentará las conclusiones al responsable del sistema.",
+        "isCorrect": true
+      },
+      {
+        "text": "El Auditor Jefe de la entidad externa.",
+        "rationale": "El auditor emite el dictamen y los hallazgos, pero la función de análisis interno y propuesta de corrección recae en la estructura organizativa de la entidad auditada.",
+        "isCorrect": false
+      },
+      {
+        "text": "El Centro Criptológico Nacional directamente.",
+        "rationale": "El CCN puede requerir el informe, pero la gestión operativa de las no conformidades es responsabilidad de la organización titular del sistema.",
+        "isCorrect": false
+      },
+      {
+        "text": "El Responsable de la Información únicamente.",
+        "rationale": "El responsable de la información decide los niveles de seguridad, pero la gestión técnica y el seguimiento de la auditoría corresponden al área de seguridad.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Busque el rol encargado de la vigilancia del cumplimiento normativo técnico dentro de la organización."
+  },
+  {
+    "guid": "f2c85b0f-b650-408e-b168-6679fa561673",
+    "subjectId": "T65",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Un Ayuntamiento ha categorizado su portal de transparencia como BÁSICA. ¿Es obligatorio que este sistema se someta a una auditoría externa realizada por una Entidad de Certificación acreditada?",
+    "answerOptions": [
+      {
+        "text": "No, para la categoría BÁSICA es suficiente con una autoevaluación realizada por el personal que administra el sistema o en quien delegue.",
+        "rationale": "El Artículo 38 del ENS especifica que los sistemas de categoría BÁSICA solo requieren una autoevaluación para su declaración de conformidad, siendo la auditoría externa voluntaria.",
+        "isCorrect": true
+      },
+      {
+        "text": "Sí, todos los sistemas del sector público deben certificarse externamente cada dos años independientemente de su categoría.",
+        "rationale": "La obligatoriedad de la auditoría externa para certificación se reserva para los sistemas con impacto MEDIO o ALTO.",
+        "isCorrect": false
+      },
+      {
+        "text": "No, pero la autoevaluación debe ser validada por el CCN-CERT de forma presencial.",
+        "rationale": "La autoevaluación es un proceso interno documentado que analiza el responsable de seguridad competente, sin requerir validación presencial sistemática del CCN.",
+        "isCorrect": false
+      },
+      {
+        "text": "Sí, porque el portal de transparencia maneja información pública oficial.",
+        "rationale": "El criterio para la auditoría obligatoria no es la oficialidad de la información, sino la categoría de seguridad resultante del análisis de impacto.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Diferencie entre autoevaluación y auditoría de certificación según la categoría del sistema."
+  },
+  {
+    "guid": "572d2934-8878-4d36-806f-e0e032b4967c",
+    "subjectId": "T65",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "De acuerdo con el Artículo 14 del ENS, el análisis de riesgos debe ser objeto de una revisión y aprobación con una periodicidad mínima de:",
+    "answerOptions": [
+      {
+        "text": "Anual.",
+        "rationale": "El ENS exige que el análisis de riesgos se mantenga actualizado y sea revisado y aprobado formalmente al menos una vez al año para adaptarse a nuevas amenazas.",
+        "isCorrect": true
+      },
+      {
+        "text": "Bienal.",
+        "rationale": "Aunque la auditoría de seguridad se realiza cada dos años, el análisis de riesgos requiere una vigilancia más frecuente dada la volatilidad del entorno de amenazas.",
+        "isCorrect": false
+      },
+      {
+        "text": "Trimestral.",
+        "rationale": "No existe una obligación legal de revisión trimestral, aunque la organización puede decidir hacerlo voluntariamente como parte de su mejora continua.",
+        "isCorrect": false
+      },
+      {
+        "text": "Solo cuando se produzcan cambios significativos en el sistema.",
+        "rationale": "Los cambios significativos obligan a una revisión, pero independientemente de estos, existe la obligación de una revisión periódica mínima anual.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Es la misma frecuencia que se exige habitualmente para la aprobación de los planes de tratamiento de riesgos en marcos de gestión."
+  },
+  {
+    "guid": "e3f2a9aa-eb0d-4cb9-ad5a-ab2dc4d283ec",
+    "subjectId": "T65",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Al realizar la selección de medidas de seguridad para un sistema, el auditor observa que se ha omitido la medida [op.ext.3] 'Protección de la cadena de suministro'. ¿En qué caso sería esta omisión una no conformidad técnica clara?",
+    "answerOptions": [
+      {
+        "text": "Si el sistema ha sido categorizado como ALTA.",
+        "rationale": "La medida op.ext.3 solo es de aplicación obligatoria para sistemas de categoría ALTA, según la tabla de medidas del Anexo II.",
+        "isCorrect": true
+      },
+      {
+        "text": "Si el sistema ha sido categorizado como BÁSICA.",
+        "rationale": "Para sistemas de categoría BÁSICA, esta medida se considera 'no aplica' (n.a.), por lo que su ausencia no constituye un incumplimiento.",
+        "isCorrect": false
+      },
+      {
+        "text": "Si el sistema ha sido categorizado como MEDIA.",
+        "rationale": "En categoría MEDIA la medida op.ext.3 todavía figura como 'no aplica', empezando su exigencia únicamente en el nivel superior de seguridad.",
+        "isCorrect": false
+      },
+      {
+        "text": "En todos los casos en que se utilicen proveedores externos.",
+        "rationale": "El ENS gradúa la exigencia; el uso de proveedores externos activa otras medidas en MEDIA (como op.ext.1), pero la protección específica de la cadena de suministro se reserva para ALTA.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Identifique el color (rojo) asociado a esta medida en las tablas del Anexo II."
+  },
+  {
+    "guid": "12787de9-3ffd-4d21-8073-fdd8dd37a11e",
+    "subjectId": "T65",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En el contexto del ENS, ¿qué documento es fundamental para que el auditor pueda constatar qué medidas de seguridad del Anexo II ha decidido aplicar la organización y cuáles ha excluido justificadamente?",
+    "answerOptions": [
+      {
+        "text": "Declaración de Aplicabilidad.",
+        "rationale": "Este documento, regulado en el artículo 28, detalla la relación de medidas aplicables y es la base sobre la cual se realiza la auditoría de cumplimiento.",
+        "isCorrect": true
+      },
+      {
+        "text": "Análisis de Impacto en el Negocio (BIA).",
+        "rationale": "El BIA se centra en los tiempos de recuperación y la continuidad del servicio, no en la relación exhaustiva de controles de seguridad implantados.",
+        "isCorrect": false
+      },
+      {
+        "text": "Informe INES.",
+        "rationale": "El INES es una herramienta de reporte del estado de seguridad al CCN, pero la base normativa para la auditoría técnica es la Declaración de Aplicabilidad.",
+        "isCorrect": false
+      },
+      {
+        "text": "Política de Seguridad de la Información.",
+        "rationale": "La política establece directrices y roles generales, pero no desciende al detalle técnico de la aplicabilidad de cada medida del Anexo II.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Es el documento que actúa como 'puente' entre los requisitos del Anexo II y la realidad del sistema auditado."
+  },
+  {
+    "guid": "d65ea404-09ab-466d-a6a3-6f83c0ef3454",
+    "subjectId": "T65",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Un sistema de información trata datos de carácter personal. Según el Artículo 3 del ENS, ¿qué consideración es correcta respecto a su seguridad?",
+    "answerOptions": [
+      {
+        "text": "Se aplicará el ENS para la protección de los datos personales de acuerdo con los niveles de seguridad requeridos por el RGPD y la LOPDGDD.",
+        "rationale": "El ENS actúa como el marco de medidas de seguridad técnica para los sistemas que tratan datos personales en el sector público, debiendo alinearse con el análisis de riesgos de protección de datos.",
+        "isCorrect": true
+      },
+      {
+        "text": "El ENS queda invalidado y se aplican únicamente las auditorías de protección de datos personales.",
+        "rationale": "El ENS y la normativa de protección de datos son complementarios y concurrentes; el ENS proporciona la infraestructura de seguridad sobre la que se asienta el cumplimiento del RGPD.",
+        "isCorrect": false
+      },
+      {
+        "text": "Solo se aplica el ENS si el nivel de los datos personales es calificado como 'Bajo' según la LOPDGDD.",
+        "rationale": "La aplicación del ENS es obligatoria para todos los sistemas del ámbito público, independientemente de la calificación específica de los datos personales.",
+        "isCorrect": false
+      },
+      {
+        "text": "Los datos personales no influyen en la determinación de la categoría de seguridad del sistema.",
+        "rationale": "El impacto sobre la privacidad de los individuos es un criterio explícito para determinar los niveles de seguridad y, por ende, la categoría del sistema.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en la relación de complementariedad entre la seguridad técnica y la privacidad jurídica."
+  },
+  {
+    "guid": "0871c78d-1630-4c38-8812-d85453935418",
+    "subjectId": "T65",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Según el Anexo 3, ¿cuál de los siguientes elementos constituye una evidencia válida para sustentar objetivamente el cumplimiento durante una auditoría?",
+    "answerOptions": [
+      {
+        "text": "El empleo de productos de seguridad certificados de acuerdo con lo establecido en el artículo 19.",
+        "rationale": "El ENS otorga presunción de evidencia suficiente al uso de productos que cumplan con los requisitos de certificación de seguridad previstos.",
+        "isCorrect": true
+      },
+      {
+        "text": "La mera existencia de una política de seguridad firmada por la dirección hace dos años.",
+        "rationale": "Una política antigua sin revisiones anuales del análisis de riesgos no constituye evidencia de cumplimiento actualizado según el Anexo 3.",
+        "isCorrect": false
+      },
+      {
+        "text": "La declaración verbal del administrador de sistemas afirmando que se realizan copias de seguridad.",
+        "rationale": "La auditoría debe basarse en evidencias documentales o registros técnicos, no siendo las declaraciones verbales sustento objetivo suficiente.",
+        "isCorrect": false
+      },
+      {
+        "text": "Un contrato de outsourcing que delegue toda la responsabilidad legal de la seguridad en el proveedor.",
+        "rationale": "La responsabilidad de la seguridad es indelegable por parte de la entidad pública titular, aunque se externalicen las tareas operativas.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Busque el elemento que vincula la adquisición de tecnología confiable con la simplificación del proceso auditor."
+  },
+  {
+    "guid": "9d2b9ba2-6194-40cd-8d10-f95cf209873d",
+    "subjectId": "T65",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En la categorización de sistemas, si un incidente que afecta a la dimensión de Trazabilidad causa un 'perjuicio grave' a un individuo, ¿qué nivel de seguridad se debe asignar a dicha dimensión?",
+    "answerOptions": [
+      {
+        "text": "ALTO.",
+        "rationale": "El Anexo I especifica que causar un perjuicio grave de difícil o imposible reparación a un individuo escala la dimensión al nivel ALTO.",
+        "isCorrect": true
+      },
+      {
+        "text": "MEDIO.",
+        "rationale": "El nivel MEDIO se asocia a perjuicios significativos pero no calificados como graves sobre los individuos.",
+        "isCorrect": false
+      },
+      {
+        "text": "BAJO.",
+        "rationale": "El nivel BAJO implica un perjuicio limitado que no alcanza la gravedad descrita en el escenario.",
+        "isCorrect": false
+      },
+      {
+        "text": "BÁSICO.",
+        "rationale": "BÁSICO es una categoría del sistema de información, no un nivel asignable a una dimensión de seguridad individual según el Anexo I.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Consulte los criterios de impacto sobre las personas en el apartado 3 del Anexo I."
+  },
+  {
+    "guid": "7a5dcdeb-014a-422f-92ab-8be091142bf3",
+    "subjectId": "T65",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Un organismo decide utilizar un 'perfil de cumplimiento específico' aprobado por el Centro Criptológico Nacional. ¿Cuál es el objetivo primordial de esta figura introducida en el ENS actualizado?",
+    "answerOptions": [
+      {
+        "text": "Lograr una adaptación del ENS más eficaz y eficiente, racionalizando los recursos requeridos sin menoscabo de la protección.",
+        "rationale": "Los perfiles permiten ajustar los requisitos a la realidad de colectivos o sistemas con riesgos similares, evitando cargas administrativas innecesarias.",
+        "isCorrect": true
+      },
+      {
+        "text": "Eximir al organismo de la realización de auditorías de certificación para sistemas de categoría MEDIA.",
+        "rationale": "El perfil de cumplimiento ajusta las medidas, pero no elimina la obligación de auditoría para categorías MEDIA o ALTA.",
+        "isCorrect": false
+      },
+      {
+        "text": "Permitir que el organismo defina sus propias dimensiones de seguridad fuera de las cinco estándares (C-I-T-A-D).",
+        "rationale": "Las dimensiones son inamovibles en el marco del ENS; el perfil actúa sobre la selección y personalización de las medidas de seguridad.",
+        "isCorrect": false
+      },
+      {
+        "text": "Sustituir el análisis de riesgos por una lista de chequeo predefinida por el proveedor.",
+        "rationale": "El análisis de riesgos sigue siendo un principio básico obligatorio (Art. 7) que no puede ser sustituido por el uso de perfiles de cumplimiento.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Consulte el preámbulo del Real Decreto sobre la capacidad de ajustar requisitos a colectivos específicos."
+  },
+  {
+    "guid": "64b0f745-626f-43d4-9a56-0b39663575a8",
+    "subjectId": "T65",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Durante la planificación de una auditoría, el auditor informa que realizará comprobaciones en los sistemas operativos en producción. Según el Anexo 3, ¿qué requisito debe cumplirse previamente?",
+    "answerOptions": [
+      {
+        "text": "Deben ser planificadas y acordadas previamente.",
+        "rationale": "El punto 1.3 del Anexo 3 exige que las actividades de auditoría que afecten a sistemas operativos sean pactadas para evitar interrupciones no deseadas en el servicio.",
+        "isCorrect": true
+      },
+      {
+        "text": "Debe solicitarse permiso expreso y por escrito al Ministro competente.",
+        "rationale": "La coordinación se realiza a nivel operativo entre el equipo auditor y los responsables del sistema de la entidad, sin requerir nivel ministerial.",
+        "isCorrect": false
+      },
+      {
+        "text": "No pueden realizarse comprobaciones en sistemas operativos; la auditoría del ENS es puramente documental.",
+        "rationale": "La auditoría se basa en evidencias, y esto incluye la verificación técnica de la implantación de las medidas, no solo la revisión de papeles.",
+        "isCorrect": false
+      },
+      {
+        "text": "Deben realizarse siempre por sorpresa para garantizar la veracidad de los datos.",
+        "rationale": "El ENS prioriza la continuidad del servicio y la seguridad operacional sobre el factor sorpresa en las revisiones técnicas de sistemas operativos.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Mire el apartado relativo al programa o plan de auditorías en el Anexo 3."
+  },
+  {
+    "guid": "df774079-d980-4813-83c5-6311c1d3e692",
+    "subjectId": "T65",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "El principio de 'Seguridad como proceso integral' (Artículo 6) implica que la aplicación del ENS debe excluir:",
+    "answerOptions": [
+      {
+        "text": "Cualquier actuación puntual o tratamiento coyuntural.",
+        "rationale": "La seguridad debe entenderse como un conjunto de elementos humanos y técnicos en constante evolución, no como una intervención aislada en el tiempo.",
+        "isCorrect": true
+      },
+      {
+        "text": "La participación de personal externo a la administración pública.",
+        "rationale": "El proceso integral incluye a terceros y proveedores del sector privado que presten servicios a la administración.",
+        "isCorrect": false
+      },
+      {
+        "text": "El uso de tecnologías de código abierto por no ser certificables.",
+        "rationale": "El principio integral no veta tecnologías específicas, sino que exige que su integración en el sistema sea coherente y segura.",
+        "isCorrect": false
+      },
+      {
+        "text": "La gestión de riesgos de seguridad física, centrándose solo en la lógica.",
+        "rationale": "Un proceso integral abarca explícitamente elementos materiales y organizativos, lo que incluye la seguridad física e infraestructuras.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Este principio se opone a la idea de 'parches' de seguridad reactivos."
+  },
+  {
+    "guid": "33eae257-44e3-4214-b89a-45fac308ebb9",
+    "subjectId": "T65",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En un sistema de categoría MEDIA, se requiere la medida [mp.sw.1] sobre 'Desarrollo de aplicaciones'. ¿Qué conjunto de refuerzos se aplican en esta categoría?",
+    "answerOptions": [
+      {
+        "text": "$+R1+R2+R3+R4$.",
+        "rationale": "Para categoría MEDIA, la medida mp.sw.1 exige todos sus refuerzos de seguridad (R1 a R4) para garantizar un ciclo de vida de desarrollo seguro.",
+        "isCorrect": true
+      },
+      {
+        "text": "No aplica (n.a.).",
+        "rationale": "Esta medida es 'n.a.' solo en categoría BÁSICA, empezando su obligatoriedad con refuerzos en MEDIA.",
+        "isCorrect": false
+      },
+      {
+        "text": "Solo R1.",
+        "rationale": "El nivel de exigencia en MEDIA para desarrollo de software es elevado, requiriendo la totalidad de los refuerzos definidos en la medida base.",
+        "isCorrect": false
+      },
+      {
+        "text": "Solo se aplica si el desarrollo es externalizado.",
+        "rationale": "La medida se aplica a todo desarrollo, sea interno o externo, para asegurar que el software resultante no degrade la seguridad del sistema.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Observe que los refuerzos para MEDIA y ALTA en esta medida específica son idénticos."
+  },
+  {
+    "guid": "9fada465-8e0e-44a0-b8ca-31cffec42fac",
+    "subjectId": "T65",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Si una organización titular de un sistema de categoría ALTA sufre una agresión grave, el CCN-CERT puede requerir los informes de auditoría en virtud de qué artículo del ENS?",
+    "answerOptions": [
+      {
+        "text": "Artículo 37.",
+        "rationale": "El artículo 37 regula los mecanismos de control y faculta al CCN-CERT para recabar los informes de auditoría ante incidentes significativos.",
+        "isCorrect": true
+      },
+      {
+        "text": "Artículo 1.",
+        "rationale": "El artículo 1 define el objeto de la norma pero no detalla las potestades operativas de control del CCN-CERT.",
+        "isCorrect": false
+      },
+      {
+        "text": "Disposición Adicional Primera.",
+        "rationale": "Esta disposición se centra en la formación y capacitación del personal, no en la entrega de informes técnicos de auditoría.",
+        "isCorrect": false
+      },
+      {
+        "text": "Artículo 15.",
+        "rationale": "El artículo 15 trata sobre la gestión de personal y no sobre la supervisión externa de la seguridad por organismos nacionales.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Busque el artículo que habla sobre los 'Mecanismos de control'."
+  },
+  {
+    "guid": "2f071295-68dc-460c-9614-4e3d3e216857",
+    "subjectId": "T65",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Un sistema gestiona servicios 5G para una administración pública. Además del ENS, ¿qué otra normativa de seguridad es de aplicación obligatoria según el Real Decreto 311/2022?",
+    "answerOptions": [
+      {
+        "text": "Real Decreto-ley 7/2022 sobre seguridad de redes y servicios 5G.",
+        "rationale": "El ENS especifica que para despliegues 5G se sumarán las previsiones de esta normativa específica, especialmente en lo relativo a la gestión de seguridad.",
+        "isCorrect": true
+      },
+      {
+        "text": "ISO 9001 de gestión de la calidad.",
+        "rationale": "ISO 9001 no es una normativa de seguridad de obligado cumplimiento mencionada por el ENS para servicios 5G.",
+        "isCorrect": false
+      },
+      {
+        "text": "Reglamento General de Vehículos Eléctricos.",
+        "rationale": "Esta normativa es totalmente ajena al ámbito de la ciberseguridad y las redes de comunicaciones electrónicas del ENS.",
+        "isCorrect": false
+      },
+      {
+        "text": "Únicamente el ENS, pues es norma prevalente en el sector público.",
+        "rationale": "El ENS admite y señala la aplicación concurrente de otras leyes específicas cuando la tecnología así lo requiere, como en el caso del 5G.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Mire el capítulo I del Real Decreto, en el apartado relativo al ámbito de aplicación."
+  },
+  {
+    "guid": "62866af6-8886-4702-bdeb-2c433747dcd7",
+    "subjectId": "T65",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "La medida [op.cont.2] 'Plan de continuidad' solo es exigible cuando la dimensión de Disponibilidad tiene un nivel:",
+    "answerOptions": [
+      {
+        "text": "ALTO.",
+        "rationale": "Según la tabla del Anexo II, el plan de continuidad (op.cont.2) aparece marcado como 'n.a.' para niveles bajo y medio, siendo obligatorio solo en ALTO.",
+        "isCorrect": true
+      },
+      {
+        "text": "MEDIO o ALTO.",
+        "rationale": "A diferencia del análisis de impacto (op.cont.1) que sí aplica en MEDIO, el Plan formal de continuidad es un requisito exclusivo de nivel ALTO.",
+        "isCorrect": false
+      },
+      {
+        "text": "BAJO.",
+        "rationale": "En nivel BAJO la organización asume un perjuicio limitado por la indisponibilidad, por lo que no se exige normativamente un plan de continuidad formal.",
+        "isCorrect": false
+      },
+      {
+        "text": "No depende de la dimensión de Disponibilidad, sino de la categoría del sistema.",
+        "rationale": "Las medidas del marco operacional de continuidad están vinculadas específicamente a la dimensión de Disponibilidad (D), no a la categoría global.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Esta medida es una de las que aparece en color 'rojo' en la tabla de continuidad."
+  },
+  {
+    "guid": "ab0b208b-4489-45f5-b56a-3a1ad9051efc",
+    "subjectId": "T65",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Según la Guía CCN-STIC 802, ¿cuál es el periodo máximo permitido para la ejecución de una autoevaluación en sistemas de categoría BÁSICA?",
+    "answerOptions": [
+      {
+        "text": "Al menos cada dos años.",
+        "rationale": "Tanto para auditorías externas como para autoevaluaciones, el ciclo de revisión ordinario establecido por el ENS es de dos años.",
+        "isCorrect": true
+      },
+      {
+        "text": "Cada cuatro años coincidiendo con la renovación de cargos.",
+        "rationale": "El ciclo de seguridad es técnico y normativo, no político, y cuatro años exceden el límite de vigilancia razonable para un sistema TIC.",
+        "isCorrect": false
+      },
+      {
+        "text": "No tiene periodo fijo, depende de la voluntad del Responsable del Sistema.",
+        "rationale": "La norma establece un marco temporal fijo de dos años para garantizar que la postura de seguridad no quede obsoleta.",
+        "isCorrect": false
+      },
+      {
+        "text": "Anualmente junto con el presupuesto.",
+        "rationale": "Anual es la revisión del análisis de riesgos, pero la auditoría completa (o autoevaluación) se permite cada dos años.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Es la misma frecuencia que se aplica a la auditoría de certificación de categorías superiores."
+  },
+  {
+    "guid": "ffec6acb-2617-4c5d-8f7a-de882e3127fc",
+    "subjectId": "T65",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En un escenario de auditoría, se observa que no existen procedimientos para la resolución de conflictos entre los responsables de la información y de la seguridad. ¿Qué apartado del Anexo 3 se está incumpliendo?",
+    "answerOptions": [
+      {
+        "text": "1.1 b).",
+        "rationale": "El Anexo 3 exige explícitamente constatar la existencia de procedimientos para la resolución de conflictos entre los distintos responsables definidos en la política.",
+        "isCorrect": true
+      },
+      {
+        "text": "2.1 a).",
+        "rationale": "Este apartado se refiere a los requisitos de autoevaluación de sistemas de categoría BÁSICA, no a la estructura de gobernanza general.",
+        "isCorrect": false
+      },
+      {
+        "text": "1.2 d).",
+        "rationale": "Este punto trata sobre los productos certificados como evidencia, no sobre la resolución de conflictos organizativos.",
+        "isCorrect": false
+      },
+      {
+        "text": "3.1.",
+        "rationale": "El apartado 3 del Anexo se titula 'Interpretación' y versa sobre los criterios hermenéuticos de la norma, no sobre requisitos técnicos u organizativos.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Revise el apartado de 'Objeto de la auditoría' en el Anexo 3."
+  },
+  {
+    "guid": "67665c40-ec04-4c5e-acb5-df6a5c672532",
+    "subjectId": "T65",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Un sistema de información maneja exclusivamente información calificada como 'Nivel BAJO' en todas sus dimensiones. ¿Qué categoría de seguridad le corresponde?",
+    "answerOptions": [
+      {
+        "text": "BÁSICA.",
+        "rationale": "Un sistema es de categoría BÁSICA si alguna de sus dimensiones alcanza el nivel BAJO y ninguna alcanza un nivel superior.",
+        "isCorrect": true
+      },
+      {
+        "text": "BAJA.",
+        "rationale": "El ENS define categorías como BÁSICA, MEDIA o ALTA. 'BAJA' no es una denominación de categoría de sistema válida.",
+        "isCorrect": false
+      },
+      {
+        "text": "MEDIA.",
+        "rationale": "La categoría MEDIA requiere que al menos una dimensión alcance el nivel MEDIO.",
+        "isCorrect": false
+      },
+      {
+        "text": "Ninguna, los sistemas con todo nivel bajo están exentos de categorización.",
+        "rationale": "Todo sistema dentro del ámbito de aplicación del ENS debe ser categorizado para determinar sus medidas de seguridad mínimas.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Consulte la escala de tres niveles para las categorías de los sistemas."
+  },
+  {
+    "guid": "10e53678-3213-4b9c-bf32-8cabd12d3870",
+    "subjectId": "T65",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "La medida [op.acc.1] 'Identificación' requiere el refuerzo R1 para los niveles de seguridad MEDIO y ALTO. ¿A qué dimensiones de seguridad afecta este refuerzo específicamente?",
+    "answerOptions": [
+      {
+        "text": "Trazabilidad y Autenticidad.",
+        "rationale": "La identificación robusta es la base para asegurar quién realiza una acción (Autenticidad) y poder imputársela posteriormente (Trazabilidad).",
+        "isCorrect": true
+      },
+      {
+        "text": "Confidencialidad e Integridad.",
+        "rationale": "Aunque indirectamente ayudan, la medida de identificación está codificada en las tablas (TA) para Trazabilidad y Autenticidad.",
+        "isCorrect": false
+      },
+      {
+        "text": "Disponibilidad únicamente.",
+        "rationale": "La disponibilidad no se ve reforzada directamente por el mecanismo de identificación de usuarios, sino por medidas de redundancia y capacidad.",
+        "isCorrect": false
+      },
+      {
+        "text": "A todas las dimensiones por igual.",
+        "rationale": "El Anexo II especifica dimensiones concretas para cada medida; en el caso de la identificación, se centra en TA.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Fíjese en las siglas que aparecen en la columna 'Por categoría o dimensión(es)' para op.acc.1."
+  },
+  {
+    "guid": "9e075422-d6aa-4035-a1f5-91a0cea72594",
+    "subjectId": "T65",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Se está auditando un sistema donde el Responsable del Sistema ha decidido suspender el tratamiento de informaciones tras un informe de auditoría muy desfavorable. ¿Qué categoría de sistema es más probable que tenga para que se mencione esta facultad explícitamente?",
+    "answerOptions": [
+      {
+        "text": "ALTA.",
+        "rationale": "La 'Guía para contratación de auditorías' señala que en sistemas de categoría ALTA, el responsable puede suspender la operación ante deficiencias graves halladas en la auditoría.",
+        "isCorrect": true
+      },
+      {
+        "text": "BÁSICA.",
+        "rationale": "En sistemas BÁSICA, el impacto de las deficiencias es limitado y habitualmente se gestionan con medidas correctoras sin llegar a la suspensión total del servicio.",
+        "isCorrect": false
+      },
+      {
+        "text": "Cualquiera, es una potestad general para todo sistema TIC.",
+        "rationale": "Aunque es posible, la normativa del ENS y sus guías de desarrollo enfatizan esta acción extrema específicamente para sistemas de nivel de criticidad ALTO.",
+        "isCorrect": false
+      },
+      {
+        "text": "Sistemas de proveedores externos únicamente.",
+        "rationale": "La facultad de suspensión corresponde al responsable del sistema de la entidad titular, independientemente de si el sistema es interno o externo.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Consulte la sección sobre informes de auditoría y dictámenes en la Guía IC-02/20."
+  },
+  {
+    "guid": "d49d3fef-9fc4-4fa1-877e-98321a137221",
+    "subjectId": "T65",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Un organismo público realiza una compra de equipos informáticos financiados con fondos del Plan de Recuperación, Transformación y Resiliencia (PRTR). Según la Disposición adicional tercera del ENS, ¿qué principio medioambiental debe respetarse?",
+    "answerOptions": [
+      {
+        "text": "No causar un perjuicio significativo (DNSH).",
+        "rationale": "Todas las actuaciones bajo el PRTR en cumplimiento del ENS deben respetar el principio 'Do No Significant Harm' al medioambiente.",
+        "isCorrect": true
+      },
+      {
+        "text": "Emisiones Cero de Carbono inmediatas.",
+        "rationale": "El principio exigido es el de no causar perjuicio significativo, que es un estándar regulado, no la neutralidad de carbono inmediata total.",
+        "isCorrect": false
+      },
+      {
+        "text": "Eliminación total del uso de papel.",
+        "rationale": "La administración digital fomenta el no uso de papel, pero la Disposición Adicional Tercera se refiere específicamente al etiquetado climático y digital y al principio DNSH.",
+        "isCorrect": false
+      },
+      {
+        "text": "Uso exclusivo de energías renovables en el CPD.",
+        "rationale": "Aunque deseable, el cumplimiento normativo citado se centra en el principio DNSH general para todas las actuaciones financiadas por el PRTR.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Identifique las siglas en inglés que representan el compromiso de no dañar el entorno natural en los proyectos europeos."
+  },
+  {
+    "guid": "80f62ae6-34da-41d8-a49d-9122c6744f46",
+    "subjectId": "T65",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En un sistema de categoría MEDIA, se decide no implementar la medida [op.pl.5] 'Componentes certificados'. ¿Es esto correcto según el Anexo II?",
+    "answerOptions": [
+      {
+        "text": "No, es incorrecto; para categoría MEDIA esta medida ya es obligatoria ('aplica').",
+        "rationale": "La medida op.pl.5 empieza a aplicarse obligatoriamente en la categoría MEDIA, mientras que en BÁSICA es 'n.a.'.",
+        "isCorrect": true
+      },
+      {
+        "text": "Sí, solo es obligatoria para categoría ALTA.",
+        "rationale": "Aunque el nivel ALTO pueda requerir certificaciones más estrictas, la medida base de usar componentes certificados ya aplica en MEDIA.",
+        "isCorrect": false
+      },
+      {
+        "text": "Sí, el uso de productos certificados es siempre voluntario según el Artículo 19.",
+        "rationale": "El artículo 19 indica que se fomentará su uso, pero el Anexo II lo convierte en un requisito exigible ('aplica') para categorías MEDIA y ALTA.",
+        "isCorrect": false
+      },
+      {
+        "text": "Depende de si existe presupuesto para adquirir licencias certificadas.",
+        "rationale": "El cumplimiento normativo del ENS no está condicionado a la disponibilidad presupuestaria una vez determinada la categoría de seguridad del sistema.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Busque la fila op.pl.5 y verifique cuándo deja de ser 'n.a.'."
+  }
+]
