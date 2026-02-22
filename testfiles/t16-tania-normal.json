@@ -1,0 +1,467 @@
+[
+  {
+    "guid": "842cbd59-f4dd-44c1-a1e2-696fd47faa0a",
+    "subjectId": "T16",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Cuál de las siguientes afirmaciones define mejor la diferencia entre los datos espaciales y los datos temáticos en un SIG?",
+    "answerOptions": [
+      {
+        "text": "Los datos espaciales representan la posición mediante coordenadas, mientras que los temáticos describen características cualitativas o cuantitativas de esa posición.",
+        "rationale": "Esta distinción refleja la estructura dual de la información geográfica, combinando la localización geométrica con los atributos que la describen.",
+        "isCorrect": true
+      },
+      {
+        "text": "Los datos espaciales son de naturaleza cualitativa, mientras que los datos temáticos son estrictamente numéricos.",
+        "rationale": "Los datos espaciales suelen ser numéricos (coordenadas), mientras que los temáticos pueden ser tanto cualitativos como cuantitativos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Los datos temáticos definen la forma geométrica, mientras que los espaciales se limitan a almacenar metadatos del sistema.",
+        "rationale": "La forma geométrica es una propiedad intrínseca de los datos espaciales, no de los temáticos.",
+        "isCorrect": false
+      },
+      {
+        "text": "No existe diferencia funcional, ya que ambos tipos de datos se almacenan siempre de forma binaria en campos de tipo BLOB.",
+        "rationale": "Aunque pueden almacenarse juntos en bases de datos, cumplen funciones distintas: uno localiza y el otro describe.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Relaciona el término 'espacial' con la ubicación física y 'temático' con las propiedades del objeto."
+  },
+  {
+    "guid": "09f4b203-08b0-43a1-a6d8-36a28c052a06",
+    "subjectId": "T16",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En el contexto de los estándares OGC, ¿qué diferencia principal existe entre un servicio WMS y un servicio WMTS?",
+    "answerOptions": [
+      {
+        "text": "El WMS sirve imágenes de mapas generadas dinámicamente, mientras que el WMTS ofrece teselas pre-generadas para mejorar la velocidad de respuesta.",
+        "rationale": "El uso de teselas (tiles) permite al WMTS una mayor eficiencia en la entrega de mapas al no tener que renderizar la imagen en cada petición.",
+        "isCorrect": true
+      },
+      {
+        "text": "El WMS entrega datos vectoriales en formato GML, mientras que el WMTS entrega exclusivamente archivos ráster.",
+        "rationale": "El estándar para entrega de datos vectoriales es el WFS, no el WMS.",
+        "isCorrect": false
+      },
+      {
+        "text": "El WMTS es el sucesor moderno del WFS y permite la edición de geometrías de forma remota mediante protocolos transaccionales.",
+        "rationale": "La edición transaccional es propia del WFS-T, mientras que el WMTS se enfoca en la visualización eficiente.",
+        "isCorrect": false
+      },
+      {
+        "text": "El WMS requiere un navegador estándar para ser invocado, mientras que el WMTS requiere obligatoriamente un cliente GIS de escritorio.",
+        "rationale": "Ambos servicios pueden ser consumidos tanto por navegadores web como por aplicaciones SIG de escritorio.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Fíjate en el significado de la 'T' adicional en el acrónimo WMTS."
+  },
+  {
+    "guid": "4f02a0bf-ab4b-4227-aa01-fce1c09cede3",
+    "subjectId": "T16",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Respecto a la georreferenciación indirecta o discreta, ¿cuál de los siguientes es un ejemplo válido según el material proporcionado?",
+    "answerOptions": [
+      {
+        "text": "La localización mediante sistemas de direcciones postales o códigos de zona.",
+        "rationale": "La georreferenciación indirecta se basa en referencias a entidades de posición conocida en lugar de coordenadas continuas.",
+        "isCorrect": true
+      },
+      {
+        "text": "El uso de coordenadas UTM en el huso $31T$.",
+        "rationale": "El sistema UTM es un ejemplo de georreferenciación directa o continua basada en coordenadas proyectadas.",
+        "isCorrect": false
+      },
+      {
+        "text": "La determinación de la posición mediante latitud y longitud en grados decimales.",
+        "rationale": "Las coordenadas geográficas son un método de georreferenciación directa.",
+        "isCorrect": false
+      },
+      {
+        "text": "Cualquier sistema que utilice mediciones métricas absolutas desde un origen definido.",
+        "rationale": "Los sistemas métricos absolutos suelen corresponder a la georreferenciación directa.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piensa en métodos que usan nombres o códigos en lugar de números sobre un eje cartesiano."
+  },
+  {
+    "guid": "bbc51c5e-aab6-4794-af65-4c355f6d093f",
+    "subjectId": "T16",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Si un técnico necesita trabajar con coordenadas que minimicen la complejidad de los cálculos matemáticos para distancias cortas, ¿qué sistema de coordenadas es más recomendable?",
+    "answerOptions": [
+      {
+        "text": "Coordenadas proyectadas (planas), como el sistema UTM.",
+        "rationale": "Las coordenadas proyectadas transforman la superficie curva en un plano, permitiendo el uso de geometría euclidiana simple.",
+        "isCorrect": true
+      },
+      {
+        "text": "Coordenadas geográficas basadas en el dátum WGS84.",
+        "rationale": "Las coordenadas geográficas requieren cálculos trigonométricos complejos sobre una superficie esférica o elipsoidal.",
+        "isCorrect": false
+      },
+      {
+        "text": "Coordenadas esféricas expresadas en grados, minutos y segundos.",
+        "rationale": "Al igual que las geográficas, su manejo matemático es más complejo debido a la curvatura terrestre.",
+        "isCorrect": false
+      },
+      {
+        "text": "Sistemas de coordenadas polares basados en azimut y distancia absoluta.",
+        "rationale": "Aunque útiles en topografía, no son el estándar general para simplificar cálculos cartográficos a escala regional.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Compara la facilidad de medir en un mapa de papel frente a un globo terráqueo."
+  },
+  {
+    "guid": "99146cc2-50e7-4919-a6fd-c338c7286846",
+    "subjectId": "T16",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Cuál es la proyección cartográfica y el sistema de referencia oficial actualmente vigente en la ciudad de Barcelona?",
+    "answerOptions": [
+      {
+        "text": "Proyección UTM y sistema de referencia ETRS89.",
+        "rationale": "ETRS89 es el estándar europeo adoptado oficialmente en España para garantizar la interoperabilidad.",
+        "isCorrect": true
+      },
+      {
+        "text": "Proyección Cilíndrica Conforme y sistema de referencia ED50.",
+        "rationale": "El sistema ED50 fue el estándar anterior, pero quedó sustituido obligatoriamente a partir de 2015.",
+        "isCorrect": false
+      },
+      {
+        "text": "Proyección Mercator Transversa y sistema de referencia WGS84.",
+        "rationale": "Aunque WGS84 es compatible, el estándar oficial para la cartografía estatal es ETRS89.",
+        "isCorrect": false
+      },
+      {
+        "text": "Proyección Azimutal y sistema de referencia ETRS50.",
+        "rationale": "ETRS50 no es una denominación de sistema de referencia válida en este contexto.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Recuerda el estándar que se volvió obligatorio en España el 1 de enero de 2015."
+  },
+  {
+    "guid": "7e51770d-c37b-44c4-a305-7fc5cf7c00da",
+    "subjectId": "T16",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Sobre el modelo de datos ràster, ¿cuál de las siguientes opciones describe una de sus limitaciones principales frente al modelo vectorial?",
+    "answerOptions": [
+      {
+        "text": "La pérdida de resolución al ampliar la escala de visualización.",
+        "rationale": "Al estar basado en una malla de píxels fijos, aumentar el zoom revela la estructura de la celda, perdiendo detalle.",
+        "isCorrect": true
+      },
+      {
+        "text": "La incapacidad para representar fenómenos de variación continua como la elevación.",
+        "rationale": "El modelo ràster es precisamente el más apropiado para representar variables continuas.",
+        "isCorrect": false
+      },
+      {
+        "text": "La imposibilidad de ser almacenado en bases de datos relacionales modernas.",
+        "rationale": "Formatos como GeoPackage o bases de datos como PostGIS permiten almacenar datos ràster perfectamente.",
+        "isCorrect": false
+      },
+      {
+        "text": "La excesiva complejidad de su estructura de datos básica comparada con los polígonos vectoriales.",
+        "rationale": "La estructura de un ràster (malla regular) es técnicamente más simple que la topología de nodos y aristas del modelo vectorial.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piensa en lo que ocurre cuando amplías mucho una fotografía digital."
+  },
+  {
+    "guid": "5beefa33-82b0-4f9a-8aca-79d264865db7",
+    "subjectId": "T16",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En una base de datos geoespacial, ¿qué función cumple el índice espacial, como por ejemplo el 'R-tree'?",
+    "answerOptions": [
+      {
+        "text": "Optimizar la búsqueda y recuperación de datos basándose en el rectángulo envolvente mínimo (MBR) de los objetos.",
+        "rationale": "El índice espacial permite al motor de la base de datos descartar rápidamente áreas geográficas que no coinciden con la consulta.",
+        "isCorrect": true
+      },
+      {
+        "text": "Garantizar la integridad referencial entre la tabla de atributos y la geometría binaria.",
+        "rationale": "Esa es una función de las restricciones (constraints) de la base de datos, no de la indexación.",
+        "isCorrect": false
+      },
+      {
+        "text": "Transformar automáticamente las coordenadas entre diferentes sistemas de referencia durante la consulta.",
+        "rationale": "La transformación de coordenadas es una operación de reproyección, independiente de la indexación.",
+        "isCorrect": false
+      },
+      {
+        "text": "Comprimir los datos ràster para que ocupen menos espacio en el disco duro.",
+        "rationale": "La compresión es una técnica de almacenamiento, mientras que el índice es una estructura de búsqueda.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Su objetivo principal es la velocidad de acceso a la información."
+  },
+  {
+    "guid": "406cd346-ce49-41f0-8612-d116482f2a8f",
+    "subjectId": "T16",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "De acuerdo con la Directiva INSPIRE, ¿cuál es la función de los servicios de 'localización'?",
+    "answerOptions": [
+      {
+        "text": "Posibilitar la búsqueda de conjuntos de datos y servicios espaciales a partir de sus metadatos.",
+        "rationale": "Los servicios de localización se implementan típicamente mediante catálogos (CSW) para descubrir qué información está disponible.",
+        "isCorrect": true
+      },
+      {
+        "text": "Permitir la descarga directa de copias completas de conjuntos de datos espaciales.",
+        "rationale": "Esa es la función específica de los servicios de descarga (WFS/Atom).",
+        "isCorrect": false
+      },
+      {
+        "text": "Visualizar las capas de información sobre un mapa interactivo en el navegador.",
+        "rationale": "Esa función corresponde a los servicios de visualización (WMS).",
+        "isCorrect": false
+      },
+      {
+        "text": "Traducir los datos de un idioma a otro para cumplir con la interoperabilidad europea.",
+        "rationale": "Aunque la interoperabilidad es clave, la localización se refiere al hallazgo de los datos, no a la traducción lingüística.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Se asocia frecuentemente con el uso de catálogos y metadatos."
+  },
+  {
+    "guid": "68908e5a-a14c-4465-ad95-5ee99fdd784c",
+    "subjectId": "T16",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Qué herramienta del Ayuntamiento de Barcelona ofrece un framework de programación (APIs) para integrar mapas en aplicaciones propias?",
+    "answerOptions": [
+      {
+        "text": "GeoBCN (GeoComponents).",
+        "rationale": "GeoBCN proporciona las librerías necesarias para que los desarrolladores creen piezas cartográficas en entornos web municipales.",
+        "isCorrect": true
+      },
+      {
+        "text": "Carto BCN.",
+        "rationale": "Carto BCN es fundamentalmente un portal de descarga de cartografía terminada.",
+        "isCorrect": false
+      },
+      {
+        "text": "Geoportal BCN.",
+        "rationale": "El Geoportal es la infraestructura IDE que centraliza el acceso a servicios, no el framework de desarrollo per se.",
+        "isCorrect": false
+      },
+      {
+        "text": "PIC (Punt d'Informació Cartogràfica).",
+        "rationale": "El PIC es un servicio de consulta e impresión para ciudadanos, sin funciones de API de desarrollo.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Busca el nombre del conjunto de librerías destinadas específicamente a desarrolladores."
+  },
+  {
+    "guid": "7331f5c2-84ed-47cc-ae3d-6802950ae9ec",
+    "subjectId": "T16",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En el modelo 'Simple Feature Access', ¿cómo se pueden representar las geometrías para que sean legibles por humanos en una consulta SQL?",
+    "answerOptions": [
+      {
+        "text": "Utilizando el formato WKT (Well Known Text).",
+        "rationale": "WKT permite definir puntos, líneas y polígonos mediante texto plano (ej: 'POINT(1 1)').",
+        "isCorrect": true
+      },
+      {
+        "text": "Mediante el uso exclusivo de objetos BLOB cifrados.",
+        "rationale": "Los BLOB son formatos binarios no legibles directamente por humanos sin un intérprete.",
+        "isCorrect": false
+      },
+      {
+        "text": "A través de archivos de extensión .shp vinculados dinámicamente.",
+        "rationale": "El Shapefile es un formato de archivo externo, no una representación de texto dentro de un lenguaje de consulta.",
+        "isCorrect": false
+      },
+      {
+        "text": "Usando el formato binario WKB (Well Known Binary).",
+        "rationale": "Aunque es un estándar, el WKB está diseñado para el intercambio eficiente entre máquinas, no para la lectura humana.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "El nombre del formato incluye explícitamente la palabra 'Text'."
+  },
+  {
+    "guid": "77889110-53d0-413f-95ad-6e7eb764dea5",
+    "subjectId": "T16",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Cuál es la característica principal de una proyección 'Conforme'?",
+    "answerOptions": [
+      {
+        "text": "Mantiene las formas y los ángulos localmente.",
+        "rationale": "Las proyecciones conformes son vitales para la navegación y la topografía porque no deforman los ángulos en áreas pequeñas.",
+        "isCorrect": true
+      },
+      {
+        "text": "Preserva las proporciones de las superficies (áreas).",
+        "rationale": "Esa es la característica de las proyecciones 'equivalentes'.",
+        "isCorrect": false
+      },
+      {
+        "text": "Mantiene las distancias exactas desde cualquier punto al centro del mapa.",
+        "rationale": "Esa propiedad define a las proyecciones 'equidistantes'.",
+        "isCorrect": false
+      },
+      {
+        "text": "Evita cualquier tipo de distorsión en el mapa resultante.",
+        "rationale": "Es matemáticamente imposible representar una esfera en un plano sin introducir algún tipo de distorsión.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piensa en el término 'conformidad' aplicado a la similitud de las formas."
+  },
+  {
+    "guid": "32dc2542-ba9b-4480-a191-ddb397e03e20",
+    "subjectId": "T16",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "El formato GeoPackage (.gpkg) se está consolidando como estándar frente al antiguo Shapefile porque:",
+    "answerOptions": [
+      {
+        "text": "Es un formato abierto basado en una base de datos SQLite que permite almacenar vectores y ràsters en un solo archivo.",
+        "rationale": "GeoPackage supera las limitaciones de tamaño y de múltiples archivos del Shapefile al ser un contenedor único y moderno.",
+        "isCorrect": true
+      },
+      {
+        "text": "Es el único formato que permite la representación tridimensional mediante lenguaje XML.",
+        "rationale": "El KML también permite representaciones 3D y está basado en XML; GeoPackage es binario (SQLite).",
+        "isCorrect": false
+      },
+      {
+        "text": "Ha sido desarrollado exclusivamente por la empresa ESRI para sus aplicaciones ArcGIS.",
+        "rationale": "GeoPackage es un estándar abierto de la OGC, no un formato propietario de una sola empresa.",
+        "isCorrect": false
+      },
+      {
+        "text": "No requiere de ningún sistema de referencia de coordenadas para visualizar los datos.",
+        "rationale": "Todo dato geográfico requiere un sistema de referencia; GeoPackage incluye soporte explícito para estos sistemas.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considera su naturaleza como contenedor basado en una base de datos ligera."
+  },
+  {
+    "guid": "512b135b-f1fd-474e-bf94-9ccc291dda0c",
+    "subjectId": "T16",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En el sistema UTM, ¿cómo se divide la Tierra para minimizar las distorsiones cartográficas?",
+    "answerOptions": [
+      {
+        "text": "En 60 husos de $6^{\\circ}$ de longitud cada uno.",
+        "rationale": "Esta división en zonas estrechas permite que la proyección cilíndrica sea casi exacta cerca del meridiano central de cada huso.",
+        "isCorrect": true
+      },
+      {
+        "text": "En 20 bandas horizontales de $15^{\\circ}$ de latitud.",
+        "rationale": "Las bandas de latitud en UTM son de $8^{\\circ}$, a excepción de la zona más al norte.",
+        "isCorrect": false
+      },
+      {
+        "text": "En una cuadrícula única global sin subdivisiones para evitar saltos de zona.",
+        "rationale": "La esencia del UTM es precisamente la división en zonas para reducir el error de escala.",
+        "isCorrect": false
+      },
+      {
+        "text": "Mediante proyecciones polares que cubren todo el hemisferio norte de forma continua.",
+        "rationale": "El UTM se complementa con UPS en los polos, pero su diseño principal es cilíndrico para zonas no polares.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Recuerda el número total de 'gajos de naranja' en los que se divide el globo."
+  },
+  {
+    "guid": "a044d8f0-b9bb-4549-ad7d-f0291095c367",
+    "subjectId": "T16",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Qué proceso se define como la obtención de una descripción textual (como una dirección) a partir de un par de coordenadas geográficas?",
+    "answerOptions": [
+      {
+        "text": "Geocodificación inversa.",
+        "rationale": "La geocodificación 'normal' va de la dirección a la coordenada; la inversa realiza el camino contrario.",
+        "isCorrect": true
+      },
+      {
+        "text": "Georreferenciación directa.",
+        "rationale": "La georreferenciación directa consiste en asignar la coordenada, no en traducirla a texto.",
+        "isCorrect": false
+      },
+      {
+        "text": "Invocación de servicio WCS.",
+        "rationale": "WCS es un servicio para datos de cobertura (ràster), no para traducir direcciones.",
+        "isCorrect": false
+      },
+      {
+        "text": "Transformación de Dátum.",
+        "rationale": "La transformación de dátum cambia las coordenadas entre sistemas de referencia, sin involucrar descripciones textuales.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Es la operación opuesta a buscar una calle en un mapa para ver su punto."
+  },
+  {
+    "guid": "91666761-48e0-4ca6-b441-f7db33f3eb2c",
+    "subjectId": "T16",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En las tendencias actuales 'Cloud-Native', ¿qué formato destaca por permitir el streaming de imágenes satelitales tesela a tesela sin descargar el archivo completo?",
+    "answerOptions": [
+      {
+        "text": "COG (Cloud Optimized GeoTIFF).",
+        "rationale": "COG organiza los datos de forma que un servidor HTTP pueda solicitar rangos de bytes específicos, facilitando el streaming.",
+        "isCorrect": true
+      },
+      {
+        "text": "GeoJSON.",
+        "rationale": "GeoJSON es un formato basado en texto para datos vectoriales, no está optimizado para grandes imágenes satelitales.",
+        "isCorrect": false
+      },
+      {
+        "text": "Shapefile comprimido (SHZ).",
+        "rationale": "El Shapefile es un formato antiguo que requiere la lectura total o el acceso a múltiples archivos para ser útil.",
+        "isCorrect": false
+      },
+      {
+        "text": "ASCII Grid.",
+        "rationale": "ASCII Grid es un formato de texto muy ineficiente para el almacenamiento y transmisión de grandes volúmenes de datos ràster.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Sus siglas significan 'GeoTIFF Optimizado para la Nube'."
+  }
+]
