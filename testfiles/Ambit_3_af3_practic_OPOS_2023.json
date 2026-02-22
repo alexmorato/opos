@@ -1,0 +1,901 @@
+[
+  {
+    "guid": "f4c2a6c3-2b1b-4a8c-9f74-8d6b2b7d1b9a",
+    "subjectId": "AF3",
+    "difficulty": 3,
+    "origin": "AF3 Test",
+    "type": "test",
+    "question": "El primer que es planteja l'equip és la infraestructura que suportarà el projecte. Encara\nno està definida l’arquitectura final, però el projecte ha de ser àgil (tant des de la gestió\nde projectes com de la configuració de la infraestructura). Quina seria la forma\nCORRECTA de gestionar la infraestructura en un entorn àgil i segur?",
+    "answerOptions": [
+      {
+        "text": "Gestionar manualment la configuració de la infraestructura.",
+        "isCorrect": false,
+        "rationale": "La gestió manual és lenta, poc repetible i augmenta el risc d’errors i deriva (config drift)."
+      },
+      {
+        "text": "Utilitzar una eina de gestió de la configuració per automatitzar la configuració i la implementació.",
+        "isCorrect": true,
+        "rationale": "En entorns àgils i segurs es recomana automatitzar (IaC/config management) per repetir, auditar i reduir errors."
+      },
+      {
+        "text": "Depurar només les aplicacions en una infraestructura diferent de la de producció.",
+        "isCorrect": false,
+        "rationale": "És una pràctica útil, però no defineix la manera correcta de gestionar la infraestructura (no aborda automatització ni control de canvis)."
+      },
+      {
+        "text": "Evitar la implementació d'eines de monitoratge per reduir els costos.",
+        "isCorrect": false,
+        "rationale": "El monitoratge és clau per seguretat i operació; evitar-lo incrementa riscos i impactes."
+      }
+    ],
+    "hint": "Pensa en infraestructura com a codi i automatització repetible."
+  },
+  {
+    "guid": "2f5bb0e3-2a2c-4f1e-8a2c-1f3d2a3e4b5c",
+    "subjectId": "AF3",
+    "difficulty": 2,
+    "origin": "AF3 Test",
+    "type": "test",
+    "question": "Un cop es té clar com es definirà la infraestructura, l’equip es pregunta quina seria la\nmillor tecnologia per implementar-ho. Quina de les següents tecnologies\nd’automatització està especialment enfocada per al desplegament i configuració de tota\nmena d’infraestructura a partir de codi?",
+    "answerOptions": [
+      {
+        "text": "Yaml",
+        "isCorrect": false,
+        "rationale": "YAML és un format de dades, no una eina d’automatització per desplegar i configurar infraestructura."
+      },
+      {
+        "text": "Ansible",
+        "isCorrect": true,
+        "rationale": "Ansible és una eina d’automatització/configuració (Infrastructure as Code) per desplegament i aprovisionament."
+      },
+      {
+        "text": "Bash",
+        "isCorrect": false,
+        "rationale": "Bash permet scripts, però no és una eina específica de gestió d’infraestructura amb model declaratiu i idempotència."
+      },
+      {
+        "text": "Kubectl",
+        "isCorrect": false,
+        "rationale": "kubectl és una eina de línia d’ordres per operar Kubernetes, no una solució generalista de desplegament/configuració d’infraestructura."
+      }
+    ],
+    "hint": "Eina clàssica de ‘configuration management’/automatització: la de playbooks."
+  },
+  {
+    "guid": "b8b0fb1b-20b8-4c2c-8c30-9f4e3d2c1b0a",
+    "subjectId": "AF3",
+    "difficulty": 2,
+    "origin": "AF3 Test",
+    "type": "test",
+    "question": "Josep Lluis, el cap de projecte, veu que el projecte serà més complicat dels que ha portat\nfins ara i encara hi ha moltes decisions a prendre. No serà suficient requerir un bon nivell\nd'experiència a les persones desenvolupadores. Per solucionar-ho, planteja fer servir la\nfilosofia anomenada DevOps (Desenvolupament i Operacions). Quina és la principal\nfinalitat d’aquesta filosofia?",
+    "answerOptions": [
+      {
+        "text": "Augmentar la qualitat de les aplicacions.",
+        "isCorrect": false,
+        "rationale": "Pot ser un efecte, però la finalitat principal és organitzativa i de col·laboració/flux entre equips."
+      },
+      {
+        "text": "Reduir el temps de desenvolupament de les aplicacions.",
+        "isCorrect": false,
+        "rationale": "També pot ser una conseqüència (time-to-market), però no és la finalitat principal formulada."
+      },
+      {
+        "text": "Millorar la col·laboració entre els equips de desenvolupament i operacions.",
+        "isCorrect": true,
+        "rationale": "DevOps busca integrar i millorar la col·laboració Dev–Ops per lliuraments més fluids i fiables."
+      },
+      {
+        "text": "Reduir el cost dels servidors on s'executen les aplicacions.",
+        "isCorrect": false,
+        "rationale": "No és l’objectiu principal; el cost pot optimitzar-se però no defineix DevOps."
+      }
+    ],
+    "hint": "DevOps = trencar silos Dev/Ops."
+  },
+  {
+    "guid": "0c1c8f41-6e5a-4e08-99e8-5d3e2c1b0a9f",
+    "subjectId": "AF3",
+    "difficulty": 4,
+    "origin": "AF3 Test",
+    "type": "test",
+    "question": "Un cop muntat l’equip de DevOPs, començen a discutir sobre l’arquitectura general de la\nsolució, i es remarca la necessitat de disposar d’una aplicació nativa al mòbil per\nconsultar l’estat de les remeses i d’una aplicació web per realitzar el tràmit, com a\nrequisits del projecte. Fins i tot, que s’hagin de publicar en altres webs part de les dades\ndel nou negoci. Una persona de l’equip planteja que, per complir amb aquest requisit,\nseria necessària una arquitectura orientada a serveis. Tothom sembla estar d’acord amb\nla proposta, però quin és el principal avantatge d’aquest tipus d’arquitectura?",
+    "answerOptions": [
+      {
+        "text": "Millorar la capacitat de mantenir la coherència de les dades a través de múltiples aplicacions.",
+        "isCorrect": true,
+        "rationale": "Entre les opcions, és la que millor encaixa amb l’objectiu de reutilització i integració de serveis consumits per múltiples canals (web, mòbil, tercers)."
+      },
+      {
+        "text": "Reduir el nombre de servidors necessaris per a l'execució de les aplicacions.",
+        "isCorrect": false,
+        "rationale": "SOA no garanteix menys servidors; pot fins i tot requerir més components."
+      },
+      {
+        "text": "Augmentar la complexitat dels processos de desenvolupament.",
+        "isCorrect": false,
+        "rationale": "Això seria un inconvenient, no un avantatge."
+      },
+      {
+        "text": "Reduir la necessitat de personal especialitzat en la gestió d'aplicacions.",
+        "isCorrect": false,
+        "rationale": "L’orientació a serveis sovint incrementa necessitats (governança, integració, seguretat)."
+      }
+    ],
+    "hint": "Orientació a serveis: reutilització i consum per múltiples canals."
+  },
+  {
+    "guid": "d3c2b1a0-4e5f-4a6b-9c8d-1e2f3a4b5c6d",
+    "subjectId": "AF3",
+    "difficulty": 3,
+    "origin": "AF3 Test",
+    "type": "test",
+    "question": "Atès que ja s'ha decidit que tindrem una arquitectura orientada a serveis i que aquests\npodran ser consumits des d'internet a través d’una o diverses aplicacions web, i alguna\nmòbil, els companys/es d’arquitectura, seguretat i operacions comenten la necessitat de\ndisposar d’un gestor d’APIs (interfície de programació d'aplicacions). Quina és la\nprincipal funció d'un API Manager?",
+    "answerOptions": [
+      {
+        "text": "Proporcionar una interfície gràfica per interactuar amb les API.",
+        "isCorrect": false,
+        "rationale": "Pot oferir portals, però la funció principal d’un API Manager és governança i control (no només UI)."
+      },
+      {
+        "text": "Controlar l'accés a les API i gestionar les polítiques de seguretat.",
+        "isCorrect": true,
+        "rationale": "Un API Manager aplica autenticació/autorització, límits, polítiques, claus, i governança d’APIs."
+      },
+      {
+        "text": "Definir els protocols de comunicació per a les API.",
+        "isCorrect": false,
+        "rationale": "Els protocols (HTTP/REST, etc.) no els defineix l’API Manager; els aplica o els suporta."
+      },
+      {
+        "text": "Desenvolupar les API i proporcionar la seva implementació.",
+        "isCorrect": false,
+        "rationale": "Implementar APIs és responsabilitat dels equips de desenvolupament; l’API Manager les gestiona i publica."
+      }
+    ],
+    "hint": "Pensa en gateway, policies, autenticació i rate limiting."
+  },
+  {
+    "guid": "9a8b7c6d-5e4f-4a3b-9c2d-1e0f2a3b4c5d",
+    "subjectId": "AF3",
+    "difficulty": 3,
+    "origin": "AF3 Test",
+    "type": "test",
+    "question": "Les persones desenvolupadores, que seran les encarregades de publicar les APIs\nnecessàries a l’API Manager pensen que el més important és definir la interfície que es\nfarà servir per publicar els diferents serveis amb les APIs. Però, què és una interfície en\nuna arquitectura orientada a serveis?",
+    "answerOptions": [
+      {
+        "text": "Una eina que permet connectar diversos serveis entre ells.",
+        "isCorrect": false,
+        "rationale": "Això s’assembla més a middleware/integració, no a la definició d’interfície."
+      },
+      {
+        "text": "Un protocol de comunicació entre diversos serveis.",
+        "isCorrect": false,
+        "rationale": "El protocol és el ‘com’ (HTTP, gRPC...), però la interfície és el ‘què’ (contracte)."
+      },
+      {
+        "text": "Un contracte entre el proveïdor i el consumidor del servei.",
+        "isCorrect": true,
+        "rationale": "En SOA, la interfície defineix el contracte: operacions, dades, comportament i expectatives."
+      },
+      {
+        "text": "Un component de maquinari.",
+        "isCorrect": false,
+        "rationale": "No té relació amb el concepte d’interfície de servei."
+      }
+    ],
+    "hint": "Interfície = contracte (què ofereix el servei)."
+  },
+  {
+    "guid": "7b2a5c19-8f4e-4f6c-8f71-3d2c1b0a9e8d",
+    "subjectId": "AF3",
+    "difficulty": 2,
+    "origin": "AF3 Test",
+    "type": "test",
+    "question": "Arriba el moment de parlar del llenguatge, o llenguatges de programació que es faran\nservir durant el projecte. Aquí Josep Lluís se sent molt més còmode i proposa fer servir\nPython, encara que l’Institut Municipal d’Informàtica (IMI) ha utilitzat massivament Java\nfins ara en els seus desenvolupaments web. Quin és el principal avantatge dels\nllenguatges de programació interpretats, com Python, respecte als llenguatges de\nprogramació compilats, com C o Java?",
+    "answerOptions": [
+      {
+        "text": "Els programes escrits en llenguatges interpretats són més eficients.",
+        "isCorrect": false,
+        "rationale": "Habitualment els compilats solen ser més eficients a execució (segons cas)."
+      },
+      {
+        "text": "Els programes escrits en llenguatges interpretats són més fàcils de mantenir.",
+        "isCorrect": false,
+        "rationale": "Pot ser cert en alguns casos, però no és la diferència clau definicional entre interpretat i compilat."
+      },
+      {
+        "text": "Els programes escrits en llenguatges interpretats són més segurs.",
+        "isCorrect": false,
+        "rationale": "La seguretat depèn de moltes coses (llibreries, pràctiques, runtime), no del fet de ser interpretat."
+      },
+      {
+        "text": "Els programes escrits en llenguatges interpretats no requereixen una fase de compilació.",
+        "isCorrect": true,
+        "rationale": "El codi s’executa mitjançant un intèrpret/runtime, sense una compilació prèvia tradicional."
+      }
+    ],
+    "hint": "Interpretat: execute sense compilar (fase prèvia)."
+  },
+  {
+    "guid": "c2a1b0d9-3e4f-4a5b-8c7d-6e5f4a3b2c1e",
+    "subjectId": "AF3",
+    "difficulty": 2,
+    "origin": "AF3 Test",
+    "type": "test",
+    "question": "Una part de l’equip desvia momentàniament la discussió sobre el llenguatge de\nprogramació al·legant que independentment del seleccionat, caldrà disposar d’una eina\nde qualitat de codi. Quin dels següents productes està enfocat únicament en la inspecció\ncontinua de la qualitat del codi?",
+    "answerOptions": [
+      {
+        "text": "Gitlab",
+        "isCorrect": false,
+        "rationale": "GitLab és una plataforma de codi i DevOps (repos, CI/CD), no específicament inspecció contínua de qualitat."
+      },
+      {
+        "text": "Jenkins",
+        "isCorrect": false,
+        "rationale": "Jenkins és CI/CD (automatitza pipelines), però no és una eina de qualitat de codi per si mateixa."
+      },
+      {
+        "text": "Maven",
+        "isCorrect": false,
+        "rationale": "Maven és gestió de dependències i build, no inspecció contínua de qualitat."
+      },
+      {
+        "text": "SonarQube",
+        "isCorrect": true,
+        "rationale": "SonarQube està enfocada a inspecció contínua: bugs, code smells, cobertura, seguretat, etc."
+      }
+    ],
+    "hint": "Eina típica de ‘code smells’ i quality gates."
+  },
+  {
+    "guid": "4d3c2b1a-0e9f-4a8b-9c7d-6e5f4a3b2c1d",
+    "subjectId": "AF3",
+    "difficulty": 3,
+    "origin": "AF3 Test",
+    "type": "test",
+    "question": "La reunió continua i ara està centrada en la realització de les proves de programari, de\nfet, alguns al·leguen que són tant o més importants que la qualitat del codi. Quina és la\nforma CORRECTA de realitzar d’aquestes proves de programari?",
+    "answerOptions": [
+      {
+        "text": "Realitzar les proves només en l'última fase del cicle de vida del desenvolupament.",
+        "isCorrect": false,
+        "rationale": "Les proves s’han d’integrar al llarg del cicle (shift-left), no només al final."
+      },
+      {
+        "text": "Utilitzar dades de prova que no siguin representatives dels casos d'ús reals.",
+        "isCorrect": false,
+        "rationale": "Dades poc representatives redueixen la capacitat de detectar errors reals."
+      },
+      {
+        "text": "Fer servir eines de proves automatitzades per reduir el temps de proves.",
+        "isCorrect": true,
+        "rationale": "L’automatització millora la repetició, velocitat i consistència de les proves, especialment en entorns àgils."
+      },
+      {
+        "text": "Dur a terme les proves només en l'entorn de desenvolupament.",
+        "isCorrect": false,
+        "rationale": "Calen entorns (test/preproducció) i proves en condicions similars a producció."
+      }
+    ],
+    "hint": "Agile/DevOps: automatització de tests i integració contínua."
+  },
+  {
+    "guid": "8e7d6c5b-4a3b-4c2d-9e1f-0a9b8c7d6e5f",
+    "subjectId": "AF3",
+    "difficulty": 3,
+    "origin": "AF3 Test",
+    "type": "test",
+    "question": "Seguint el fil de la discussió, Josep Lluis proposa implementar des de l’inici proves de\nvalidació d’usuari, anomenades també proves funcionals, per ajudar que, arribin a\nproducció encara menys errors del software,. No obstant, aquest tipus d’implementació\nacostuma a ser costosa i a fer servir eines propietàries de pagament. En aquest context\nàgil i de software lliure en el que es planteja el projecte, quina de les següents eines, o\nconjunt d'eines, seria una bona opció?",
+    "answerOptions": [
+      {
+        "text": "Junit",
+        "isCorrect": false,
+        "rationale": "JUnit és principalment per proves unitàries, no per validació funcional d’usuari en navegadors."
+      },
+      {
+        "text": "Maven",
+        "isCorrect": false,
+        "rationale": "Maven és build/dependències, no una eina de proves funcionals."
+      },
+      {
+        "text": "SonarQube",
+        "isCorrect": false,
+        "rationale": "SonarQube inspecciona qualitat de codi, no executa proves funcionals d’usuari."
+      },
+      {
+        "text": "Selenium",
+        "isCorrect": true,
+        "rationale": "Selenium és una suite open-source per automatitzar proves funcionals (UI web) i validació d’usuari."
+      }
+    ],
+    "hint": "Proves funcionals d’usuari en web: automatització de navegador."
+  },
+  {
+    "guid": "1f2e3d4c-5b6a-4c7d-8e9f-0a1b2c3d4e5a",
+    "subjectId": "AF3",
+    "difficulty": 2,
+    "origin": "AF3 Test",
+    "type": "test",
+    "question": "S’ha arribat a un consens en totes les decisions preses fins ara, però encara ens queda\nparlar del desplegament. Concretament, sobre quina tecnologia desplegarà, el projecte,\nel seu software. Està clar que la base Java i Python, es desplegarà sobre màquines\nLunix, però a l’Ajuntament existeix un producte molt útil per la generació de documents\nPDF que només pot ser instal·lat sobre sistemes operatius Windows. Tot i que sembla un\nsobrecost la funcionalitat és prou important per tenir-la en compte. Així que l’equip ha de\ntornar a prendre una decisió. Quina de les següents tecnologies permet desplegar, a\nsobre d’ella, software de diferents sistemes operatius complets: Linux, Windows, Mac...\nde forma completament independent sobre un mateix hardware?",
+    "answerOptions": [
+      {
+        "text": "Contenidors",
+        "isCorrect": false,
+        "rationale": "Els contenidors comparteixen kernel de l’host; no virtualitzen un sistema operatiu complet diferent."
+      },
+      {
+        "text": "Màquines virtuals",
+        "isCorrect": true,
+        "rationale": "Les VM virtualitzen maquinari i permeten executar sistemes operatius complets diferents sobre el mateix host."
+      },
+      {
+        "text": "Chroot",
+        "isCorrect": false,
+        "rationale": "chroot és aïllament a nivell de filesystem en Unix; no executa un OS complet diferent."
+      },
+      {
+        "text": "Big IP",
+        "isCorrect": false,
+        "rationale": "Big-IP és una solució d’ADC/load balancing, no tecnologia de virtualització d’OS."
+      }
+    ],
+    "hint": "Si necessites Windows i Linux al mateix host: virtualització completa."
+  },
+  {
+    "guid": "6a5b4c3d-2e1f-4a0b-9c8d-7e6f5a4b3c2d",
+    "subjectId": "AF3",
+    "difficulty": 2,
+    "origin": "AF3 Test",
+    "type": "test",
+    "question": "Quan s’ha de concretar com es desplegaran les aplicacions a mida fetes amb Java i/o\nPython, hem decidit fer-ho en contenidors. Però, el més difícil és decidir en quina\nplataforma de contenidors. Quina de les següents plataformes NO està ideada ni\ndissenyada per desplegar contenidors?",
+    "answerOptions": [
+      {
+        "text": "Rancher",
+        "isCorrect": false,
+        "rationale": "Rancher és una plataforma de gestió de Kubernetes/containers."
+      },
+      {
+        "text": "Open Shift",
+        "isCorrect": false,
+        "rationale": "OpenShift és una plataforma Kubernetes enfocada a desplegament i operació de contenidors."
+      },
+      {
+        "text": "IBM Cloud Platform",
+        "isCorrect": false,
+        "rationale": "Plataformes cloud ofereixen serveis per contenidors/Kubernetes."
+      },
+      {
+        "text": "VMware vSAN",
+        "isCorrect": true,
+        "rationale": "vSAN és una solució d’emmagatzematge definit per programari, no una plataforma per desplegar contenidors."
+      }
+    ],
+    "hint": "Una opció és storage, no container platform."
+  },
+  {
+    "guid": "0a9b8c7d-6e5f-4a3b-9c2d-1e0f2a3b4c5e",
+    "subjectId": "AF3",
+    "difficulty": 2,
+    "origin": "AF3 Test",
+    "type": "test",
+    "question": "Finalment, sembla que podem donar la reunió per acabada. Josep Lluis comença a\nrevisar els seus apunts per formalitzar l’acta quan Marcos, un dels becaris, indica que\nfaltaria decidir com s’executaran els processos per lots (o processos batch) que\nòbviament necessita el projecte. Té tota la raó. Afortunadament, Josep Lluis creu\nrecordar que Kubernetes (que és la base de la plataforma que faran servir) també permet\nl’execució d’aquest tipus de processos. Però, quin és l’objecte de Kubernetes que\npermet l’execució d’1 o diversos contenidors (encapsulat en Pods, que és el nom que rep\na Kubernetes un conjunt de contenidors) a una hora programada puntual o\nrecurrentment?",
+    "answerOptions": [
+      {
+        "text": "ConfigMap",
+        "isCorrect": false,
+        "rationale": "ConfigMap emmagatzema configuració, no planifica execucions."
+      },
+      {
+        "text": "StorageClass",
+        "isCorrect": false,
+        "rationale": "StorageClass defineix classes d’emmagatzematge, no execució programada."
+      },
+      {
+        "text": "DeploymentConfig",
+        "isCorrect": false,
+        "rationale": "És per desplegament/rolling updates (i és específic d’OpenShift), no per planificació temporal de jobs."
+      },
+      {
+        "text": "CronJob",
+        "isCorrect": true,
+        "rationale": "CronJob executa Jobs segons un horari (puntual o recurrent) definit amb sintaxi cron."
+      }
+    ],
+    "hint": "Batch programat a Kubernetes: objecte tipus cron."
+  },
+  {
+    "guid": "3d2c1b0a-9e8d-4c7b-8a6f-5e4d3c2b1a0f",
+    "subjectId": "AF3",
+    "difficulty": 4,
+    "origin": "AF3 Test",
+    "type": "test",
+    "question": "Quina eina de SAP seria la millor per gestionar i controlar la taxa del pagament de lloguer\ndels horts urbans?",
+    "answerOptions": [
+      {
+        "text": "SAP PCM",
+        "isCorrect": false,
+        "rationale": "No és el mòdul típicment associat a gestió de taxes/recaptació en entorns públics."
+      },
+      {
+        "text": "SAP TRM",
+        "isCorrect": true,
+        "rationale": "En l’àmbit públic, TRM (Tax and Revenue Management) s’associa a gestió/recaptació d’ingressos i taxes."
+      },
+      {
+        "text": "SAP BPC",
+        "isCorrect": false,
+        "rationale": "BPC és planificació i consolidació; no és per gestionar taxes/pagaments."
+      },
+      {
+        "text": "SAP HCM",
+        "isCorrect": false,
+        "rationale": "HCM és gestió de recursos humans."
+      }
+    ],
+    "hint": "Taxa/recaptació/ingressos: mòdul orientat a taxes i ingressos."
+  },
+  {
+    "guid": "5e4d3c2b-1a0f-4b9c-8d7e-6f5a4b3c2d1f",
+    "subjectId": "AF3",
+    "difficulty": 2,
+    "origin": "AF3 Test",
+    "type": "test",
+    "question": "S’està analitzant la possibilitat d’utilitzar un ERP (enterprise resource planning) per la\nmillor gestió del sistema. Quina de les següents opcions NO és un objectiu d’un ERP?",
+    "answerOptions": [
+      {
+        "text": "Accés a les dades i creació de la informació estructurada.",
+        "isCorrect": false,
+        "rationale": "Un ERP integra dades i facilita informació estructurada."
+      },
+      {
+        "text": "Unificar i traçar tots els processos en un mateix sistema.",
+        "isCorrect": false,
+        "rationale": "La integració de processos és un objectiu clau dels ERP."
+      },
+      {
+        "text": "Gestionar recursos de maquinari.",
+        "isCorrect": true,
+        "rationale": "L’ERP gestiona recursos del negoci (finances, compres, RRHH...), no maquinari TI com a objectiu principal."
+      },
+      {
+        "text": "Planificació de recursos.",
+        "isCorrect": false,
+        "rationale": "És l’essència d’un ERP: planificar i gestionar recursos empresarials."
+      }
+    ],
+    "hint": "ERP = processos i recursos del negoci, no infraestructura TI."
+  },
+  {
+    "guid": "9f74a1b2-c3d4-4a5b-8c6d-7e8f9a0b1c2d",
+    "subjectId": "AF3",
+    "difficulty": 4,
+    "origin": "AF3 Test",
+    "type": "test",
+    "question": "Al fer un tràmit es crea un expedient electrònic. Els expedients electrònics estan\nconformats al gestor documental tenint les seves pròpies metadades. En referència a les\nmetadades dels expedients dels horts urbans i dels seus documents, quina d'aquestes\ncaracterístiques haurien de tenir per complir amb el MGDE (model de gestió documental\nelectrònic)?",
+    "answerOptions": [
+      {
+        "text": "En aquest cas, en el grup de metadades de gestió obligatòriament s'ha d'incloure el districte\ni la parcel·la.",
+        "isCorrect": false,
+        "rationale": "Aquests camps poden ser útils, però no són universalment obligatoris per MGDE com a regla general."
+      },
+      {
+        "text": "La forma en què s'han d'informar les metadades dels documents i expedients serà la que\ndetermini l'anàlisi documental de la sèrie documental corresponent a la tramitació\nadministrativa per la cessió d'horts urbans.",
+        "isCorrect": true,
+        "rationale": "MGDE exigeix coherència i definició segons l’anàlisi de la sèrie documental i el seu esquema de metadades."
+      },
+      {
+        "text": "Tots els documents de l'expedient tindran una metadada que recull l'identificador únic de de\nla persona.",
+        "isCorrect": false,
+        "rationale": "No és un requisit general; a més, pot tenir implicacions de minimització i disseny de metadades."
+      },
+      {
+        "text": "Les metadades de les dades de registre no s'han de complimentar automàticament.",
+        "isCorrect": false,
+        "rationale": "Habitualment metadades de registre es poden incorporar automàticament des dels sistemes de registre."
+      }
+    ],
+    "hint": "MGDE: metadades definides per la sèrie documental i el seu anàlisi."
+  },
+  {
+    "guid": "1c2d3e4f-5a6b-4c7d-8e9f-0a1b2c3d4e6f",
+    "subjectId": "AF3",
+    "difficulty": 3,
+    "origin": "AF3 Test",
+    "type": "test",
+    "question": "Quan es finalitzi la tramitació i se li notifiqui al ciutadà/ana la cessió o no cessió de l’hort,\nl’òrgan gestor farà un tancament manual de l’expedient en el seu backoffice. Al\ntancament dels expedients es fan una sèrie de comprovacions, mitjançant els serveis\nespecífics de serveis documentals. Quina resposta és CORRECTA?",
+    "answerOptions": [
+      {
+        "text": "Aquests serveis s’asseguren que els documents de sol·licitud i justificant de sol·licitud no\nestiguin inclosos en l’expedient.",
+        "isCorrect": false,
+        "rationale": "Precisament aquests documents solen ser obligatoris i han d’estar inclosos."
+      },
+      {
+        "text": "Aquests serveis s’asseguren que tots els documents hagin registrat al Registre d’entrada i\nsortida de l’Ajuntament.",
+        "isCorrect": false,
+        "rationale": "No tots els documents necessàriament són assentaments de registre; depèn del tipus documental."
+      },
+      {
+        "text": "Aquests serveis s’asseguren que al fer el tancament de l’expedient només els documents\nde sol·licitud, justificant de sol·licitud i el document de foliat estiguin inclosos en l’expedient .",
+        "isCorrect": false,
+        "rationale": "Un expedient pot contenir molts altres documents; limitar-ho a aquests no és correcte."
+      },
+      {
+        "text": "Aquests serveis s’asseguren que tots els documents obligatoris estan inclosos en\nl'expedient, en estat definitiu i amb les seves corresponents signatures quan correspongui.",
+        "isCorrect": true,
+        "rationale": "El tancament ha de validar completitud, estat definitiu i signatures/validacions pertinents."
+      }
+    ],
+    "hint": "Tancament d’expedient: completitud + definitiu + signatures quan pertoqui."
+  },
+  {
+    "guid": "6e5f4a3b-2c1d-4e0f-9a8b-7c6d5e4f3a2b",
+    "subjectId": "AF3",
+    "difficulty": 3,
+    "origin": "AF3 Test",
+    "type": "test",
+    "question": "Un dels requisits és que les persones usuàries del tràmit puguin tenir accés a recuperar\nels documents quan els necessitin. Selecciona l’opció CORRECTA:",
+    "answerOptions": [
+      {
+        "text": "El ciutadà/ana només podrà recuperar els documents si ho demana a l’òrgan gestor.",
+        "isCorrect": false,
+        "rationale": "El requisit apunta a accés del ciutadà amb identificació, no a dependència del gestor."
+      },
+      {
+        "text": "El ciutadà/ana podrà recuperar els documents sempre que s’identifiqui i quedarà traçabilitat\nde l’accés a documents i expedients.",
+        "isCorrect": true,
+        "rationale": "Accés amb autenticació i traçabilitat (auditoria) és l’enfocament correcte per control i seguretat."
+      },
+      {
+        "text": "El ciutadà/ana podrà recuperar els documents sempre que s’identifiqui i no quedarà\ntraçabilitat de l’accés a documents i expedients.",
+        "isCorrect": false,
+        "rationale": "Sense traçabilitat s’incompleix el control d’accés/auditoria esperable en sistemes públics."
+      },
+      {
+        "text": "El ciutadà/ana podrà recuperar els documents només si té un certificat i no quedarà\ntraçabilitat de l’accés a documents i expedients.",
+        "isCorrect": false,
+        "rationale": "A més de limitar mecanismes d’identificació, elimina traçabilitat, cosa no acceptable."
+      }
+    ],
+    "hint": "Accés ciutadà: identificació i registre d’auditoria."
+  },
+  {
+    "guid": "2d1e0f9a-8b7c-4a6d-9e5f-4a3b2c1d0e9f",
+    "subjectId": "AF3",
+    "difficulty": 2,
+    "origin": "AF3 Test",
+    "type": "test",
+    "question": "Atès que hi ha moltes peticions i volum de dades dels darrers 15 anys, l’òrgan gestor es\nplanteja tenir un Bussines Intelligence (BI). Quina és la principal funció de les solucions\nde BI?",
+    "answerOptions": [
+      {
+        "text": "Control d’accés.",
+        "isCorrect": false,
+        "rationale": "El control d’accés és seguretat, no la funció principal d’un BI."
+      },
+      {
+        "text": "Gestió de les relacions amb els clients.",
+        "isCorrect": false,
+        "rationale": "Això correspon a CRM."
+      },
+      {
+        "text": "Anàlisi i presentació de dades per a la presa de decisions.",
+        "isCorrect": true,
+        "rationale": "BI transforma dades en informació/indicadors i visualitzacions per suportar decisions."
+      },
+      {
+        "text": "Control i optimització dels processos empresarials.",
+        "isCorrect": false,
+        "rationale": "Pot ajudar-hi, però la funció definicional principal és analitzar i presentar dades."
+      }
+    ],
+    "hint": "BI = dades → informació → decisions."
+  },
+  {
+    "guid": "0e9f8a7b-6c5d-4a3b-9c2d-1e0f9a8b7c6d",
+    "subjectId": "AF3",
+    "difficulty": 3,
+    "origin": "AF3 Test",
+    "type": "test",
+    "question": "Quina característica rellevant de les solucions de Business Intelligence permet a les\npersones usuàries dels òrgans gestors crear informes personalitzats per a la presentació\nde dades?",
+    "answerOptions": [
+      {
+        "text": "Reporting.",
+        "isCorrect": false,
+        "rationale": "El reporting genera informes, però la capacitat que l’usuari els construeixi/adapti per si mateix és autoservei."
+      },
+      {
+        "text": "Anàlisi.",
+        "isCorrect": false,
+        "rationale": "L’anàlisi és explorar i interpretar dades, però no defineix per si sola la creació personalitzada per l’usuari."
+      },
+      {
+        "text": "Autoservei.",
+        "isCorrect": true,
+        "rationale": "El BI d’autoservei permet que l’usuari creï informes/dashboards personalitzats amb poca dependència de TI."
+      },
+      {
+        "text": "Integració amb altres sistemes.",
+        "isCorrect": false,
+        "rationale": "La integració ajuda a obtenir dades, però no és la característica que habilita la creació d’informes personalitzats per l’usuari."
+      }
+    ],
+    "hint": "Quan l’usuari crea el seu informe sense TI: autoservei."
+  },
+  {
+    "guid": "7c6d5e4f-3a2b-4c1d-9e0f-8a7b6c5d4e3f",
+    "subjectId": "AF3",
+    "difficulty": 2,
+    "origin": "AF3 Test",
+    "type": "test",
+    "question": "Quina de les següents eines NO és una eina de reporting BI?",
+    "answerOptions": [
+      {
+        "text": "SAP BI",
+        "isCorrect": false,
+        "rationale": "SAP BI és una plataforma de BI/reporting."
+      },
+      {
+        "text": "QlikView",
+        "isCorrect": false,
+        "rationale": "QlikView és una eina de BI i reporting."
+      },
+      {
+        "text": "Power BI",
+        "isCorrect": false,
+        "rationale": "Power BI és una eina de BI/reporting molt estesa."
+      },
+      {
+        "text": "BlockReport",
+        "isCorrect": true,
+        "rationale": "No és una eina de BI/reporting reconeguda en aquest context; és el distractor."
+      }
+    ],
+    "hint": "Tres són marques/plataformes BI conegudes."
+  },
+  {
+    "guid": "4a3b2c1d-0e9f-4a8b-9c7d-6e5f4a3b2c1f",
+    "subjectId": "AF3",
+    "difficulty": 2,
+    "origin": "AF3 Test",
+    "type": "test",
+    "question": "Quan parlem de Big Data diem que s’han de complir les 4 V. Quines són aquestes 4 V?",
+    "answerOptions": [
+      {
+        "text": "Volum, velocitat, virtualització i valor.",
+        "isCorrect": false,
+        "rationale": "Virtualització no forma part de les 4V clàssiques."
+      },
+      {
+        "text": "Volum, veracitat, viabilitat i valor de les dades.",
+        "isCorrect": false,
+        "rationale": "Viabilitat no és una de les 4V estàndard."
+      },
+      {
+        "text": "Volum, velocitat, varietat i veracitat.",
+        "isCorrect": true,
+        "rationale": "Les 4V clàssiques: Volume, Velocity, Variety, Veracity."
+      },
+      {
+        "text": "Velocitat, versatilitat, volum i veracitat.",
+        "isCorrect": false,
+        "rationale": "Versatilitat no és una de les 4V clàssiques."
+      }
+    ],
+    "hint": "Les 4V clàssiques són les més repetides als temaris."
+  },
+  {
+    "guid": "8a7b6c5d-4e3f-4a2b-9c1d-0e9f8a7b6c5d",
+    "subjectId": "AF3",
+    "difficulty": 2,
+    "origin": "AF3 Test",
+    "type": "test",
+    "question": "Quina solució de Big Data és més adequada per processar i analitzar grans quantitats de\ndades generades pel tràmit de cessió d'horts urbans?",
+    "answerOptions": [
+      {
+        "text": "Microsoft Excel",
+        "isCorrect": false,
+        "rationale": "Excel no està pensat per big data massiu (volum/escala) ni processament distribuït."
+      },
+      {
+        "text": "Apache Hadoop",
+        "isCorrect": true,
+        "rationale": "Hadoop (ecosistema) està dissenyat per emmagatzematge i processament distribuït de grans volums."
+      },
+      {
+        "text": "SQL Server",
+        "isCorrect": false,
+        "rationale": "És una BD relacional potent, però la pregunta demana una solució típica de Big Data."
+      },
+      {
+        "text": "MySQL",
+        "isCorrect": false,
+        "rationale": "És una BD relacional, no una solució Big Data distribuïda per grans volums."
+      }
+    ],
+    "hint": "Ecosistema distribuït per lots i grans volums: Hadoop."
+  },
+  {
+    "guid": "1e0f9a8b-7c6d-4e5f-9a4b-3c2d1e0f9a8b",
+    "subjectId": "AF3",
+    "difficulty": 2,
+    "origin": "AF3 Test",
+    "type": "test",
+    "question": "L'objectiu fonamental del Big Data és extreure valor de les dades, informació útil per a\nles decisions de negoci. El concepte engloba moltes idees i s'associa a altres termes\ncom (indica la resposta INCORRECTA):",
+    "answerOptions": [
+      {
+        "text": "Data Science",
+        "isCorrect": false,
+        "rationale": "Està clarament relacionat amb Big Data i analítica avançada."
+      },
+      {
+        "text": "Data Analytics",
+        "isCorrect": false,
+        "rationale": "És un terme directament associat a l’explotació i anàlisi de dades."
+      },
+      {
+        "text": "Data Mining",
+        "isCorrect": false,
+        "rationale": "La mineria de dades és una tècnica/àmbit relacionat amb l’extracció de patrons i coneixement."
+      },
+      {
+        "text": "Data Export",
+        "isCorrect": true,
+        "rationale": "Exportar dades no és un concepte associat al valor/analítica de Big Data; és una operació tècnica genèrica."
+      }
+    ],
+    "hint": "Busca el terme que no és analítica ni ciència de dades."
+  },
+  {
+    "guid": "9c2d1e0f-9a8b-4c7d-8e6f-5a4b3c2d1e0f",
+    "subjectId": "AF3",
+    "difficulty": 3,
+    "origin": "AF3 Test",
+    "type": "test",
+    "question": "Quina de les següents propostes correspon a una solució de gestió documental\nactualment en el mercat?",
+    "answerOptions": [
+      {
+        "text": "La que té per objectiu la planificació, la creació, la captura, l’ús, l’organització, el tractament i\nl’avaluació dels documents generats o rebuts per un organisme en l’exercici de les seves\nfuncions.",
+        "isCorrect": false,
+        "rationale": "Descriu la disciplina/funció de gestió documental (records management), però no identifica una ‘solució de mercat’ com a producte/proposta concreta."
+      },
+      {
+        "text": "Una aplicació web que permet la creació, administració i publicació de contingut en una\npàgina web.",
+        "isCorrect": false,
+        "rationale": "Això és un CMS (gestió de continguts web), no gestió documental d’expedients i documents."
+      },
+      {
+        "text": "Una tecnologia usada per capturar, gestionar i emmagatzemar sense preservar contingut ni\ndocuments relacionats amb processos de negoci.",
+        "isCorrect": false,
+        "rationale": "Si no preserva contingut/documentació, no compleix l’essència d’una solució de gestió documental."
+      },
+      {
+        "text": "Un sistema de gestió documental ens ha de permetre tenir controlada la documentació\nsempre.",
+        "isCorrect": true,
+        "rationale": "És l’opció que s’alinea amb la finalitat d’un DMS: control i gestió de documentació (la resta descriu altres coses)."
+      }
+    ],
+    "hint": "DMS = control, organització i gestió de documents (no CMS)."
+  },
+  {
+    "guid": "5a4b3c2d-1e0f-4b9c-8d7e-6f5a4b3c2d2a",
+    "subjectId": "AF3",
+    "difficulty": 3,
+    "origin": "AF3 Test",
+    "type": "test",
+    "question": "Quina tecnologia és més apropiada per processar dades en temps real en el context d'un\ntràmit telemàtic i un aplicatiu de backoffice pel tràmit de cessió d'horts urbans?",
+    "answerOptions": [
+      {
+        "text": "Apache Kafka",
+        "isCorrect": true,
+        "rationale": "Kafka és una plataforma d’streaming/missatgeria per ingestió i processament en temps real."
+      },
+      {
+        "text": "MongoDB",
+        "isCorrect": false,
+        "rationale": "MongoDB és una base de dades NoSQL; pot servir per emmagatzemar, però no és la tecnologia principal d’streaming en temps real."
+      },
+      {
+        "text": "Microsoft SQL Server",
+        "isCorrect": false,
+        "rationale": "És una BD relacional; el temps real aquí apunta a streaming/eventos."
+      },
+      {
+        "text": "Oracle Database",
+        "isCorrect": false,
+        "rationale": "És una BD relacional; no és l’eina típica per processament d’esdeveniments en streaming."
+      }
+    ],
+    "hint": "Temps real i esdeveniments: streaming platform."
+  },
+  {
+    "guid": "6f5a4b3c-2d1e-4f0a-9b8c-7d6e5f4a3b2c",
+    "subjectId": "AF3",
+    "difficulty": 2,
+    "origin": "AF3 Test",
+    "type": "test",
+    "question": "Quina de les següents característiques NO és una característica de BI d’autoservei?",
+    "answerOptions": [
+      {
+        "text": "La interfície d’usuari/ària és fàcil.",
+        "isCorrect": false,
+        "rationale": "Self-service BI busca facilitar l’ús amb interfícies amigables."
+      },
+      {
+        "text": "Orientada a usuaris/àries ocasionals i usuaris/àries avançats/ades.",
+        "isCorrect": false,
+        "rationale": "Self-service BI està pensat per diversos perfils, des d’ocasional fins avançat."
+      },
+      {
+        "text": "Les persones usuàries han de ser expertes en tecnologia.",
+        "isCorrect": true,
+        "rationale": "Justament el self-service BI pretén reduir la necessitat d’expertesa tècnica per crear informes."
+      },
+      {
+        "text": "Es poden crear informes personalitzats amb poc esforç.",
+        "isCorrect": false,
+        "rationale": "Aquesta és una característica clau del self-service BI."
+      }
+    ],
+    "hint": "Self-service = menys dependència d’experts TI."
+  },
+  {
+    "guid": "8d7e6f5a-4b3c-4d2e-9f1a-0b1c2d3e4f5b",
+    "subjectId": "AF3",
+    "difficulty": 3,
+    "origin": "AF3 Test",
+    "type": "test",
+    "question": "Quina característica rellevant de les solucions de Business Intelligence permet a les\npersones usuàries dels òrgans gestors accedir i analitzar dades en temps real?",
+    "answerOptions": [
+      {
+        "text": "Reporting.",
+        "isCorrect": false,
+        "rationale": "Reporting pot ser estàtic o periòdic; no implica necessàriament temps real."
+      },
+      {
+        "text": "Anàlisi.",
+        "isCorrect": false,
+        "rationale": "L’anàlisi és una capacitat general, però el ‘temps real’ depèn de connexions i integració amb fonts."
+      },
+      {
+        "text": "Autoservei.",
+        "isCorrect": false,
+        "rationale": "Autoservei facilita crear informes, però no garanteix temps real."
+      },
+      {
+        "text": "Integració amb altres sistemes.",
+        "isCorrect": true,
+        "rationale": "L’accés en temps real depèn d’integració/connectors i actualització de dades des de sistemes font."
+      }
+    ],
+    "hint": "Temps real = connexió/integració amb fonts actualitzades."
+  },
+  {
+    "guid": "3a2b1c0d-9e8f-4a7b-8c6d-5e4f3a2b1c0d",
+    "subjectId": "AF3",
+    "difficulty": 3,
+    "origin": "AF3 Test",
+    "type": "test",
+    "question": "Algunes persones de l'equip han volgut aprofundir en la gestió de les APIs i de la seva\nseguretat. De totes les opcions possibles s'ha decidit anar a protocols estàndards oberts\namb un alt índex d'ús per tal de garantir la compatibilitat amb desenvolupaments externs\nactuals i de futur. Quina de les següents opcions és un estàndard dissenyat per permetre\nque una aplicació accedeixi a recursos allotjats per altres aplicacions web en nom d’una\npersona usuària?",
+    "answerOptions": [
+      {
+        "text": "Oauth (Oauth 2.0, OpenID...)",
+        "isCorrect": true,
+        "rationale": "OAuth 2.0 és l’estàndard d’autorització delegada per accedir a recursos en nom de l’usuari."
+      },
+      {
+        "text": "REST",
+        "isCorrect": false,
+        "rationale": "REST és un estil d’arquitectura per APIs, no un estàndard d’autorització delegada."
+      },
+      {
+        "text": "Kerberos",
+        "isCorrect": false,
+        "rationale": "Kerberos és autenticació en xarxa (tickets), no l’estàndard web d’autorització delegada per apps."
+      },
+      {
+        "text": "GraphQL",
+        "isCorrect": false,
+        "rationale": "GraphQL és un llenguatge de consulta per APIs, no un protocol d’autorització."
+      }
+    ],
+    "hint": "Autorització delegada en entorns web: tokens i flows."
+  }
+]
