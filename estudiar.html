@@ -616,6 +616,9 @@
           // Reportar pregunta con tecla R
           reportarPregunta();
           e.preventDefault();
+        } else if ((e.key === 'e' || e.key === 'E')) {
+          eliminarDelHistorial();
+          e.preventDefault();
         }
       });
       const header = document.getElementById('headerTitle');
@@ -1160,7 +1163,7 @@
         `;
       });
 
-      // Botón comprobar para preguntas con múltiples respuestas correctas
+      // Botón comprovar para preguntas con múltiples respuestas correctas
       if (isMultiCorrect && !userAnswered) {
         const hasSelection = Array.isArray(answers[index]) && answers[index].length > 0;
         html += `
@@ -1351,7 +1354,7 @@
     // ============================================================
     
     /**
-     * Mostrar resultados finales del test
+     * Mostrar resultados finals del test
      */
     function showResults() {
       localStorage.removeItem(LS_KEYS.ESTUDIO_WIP);
@@ -1570,6 +1573,8 @@
      * Eliminar pregunta actual del historial de fallos
      */
     function eliminarDelHistorial() {
+      const btn = document.getElementById('removeFromHistoryBtn');
+      if (!btn || btn.disabled) return;
       if (!canRemoveFromHistory || !isRepassingErrors) return;
       // Encontrar la pregunta actual en el historial original
       const preguntaActual = preguntes[currentQuestion];
@@ -1587,6 +1592,7 @@
         }
         localStorage.setItem(LS_KEYS.HISTORIAL_FALLOS, JSON.stringify(historialFallos));
         actualizarTextareaHistorial();
+        toast.showToast('Pregunta eliminada del historial de dubtes!');
       }
       // Desactivar botón después de usar
       canRemoveFromHistory = false;
