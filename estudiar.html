@@ -568,14 +568,21 @@
     });
 
     // Botón tornar
-    menuTornarBtn.addEventListener('click', () => {
-      if (window.history.length > 2) {
+    menuTornarBtn.addEventListener('click', irAtrasMenu);
+
+    /**
+     * Función para navegar atrás desde el menú o Backspace
+     */
+    function irAtrasMenu() {
+      // Cierra el menú si está abierto
+      menuPanel.classList.remove('visible');
+      // Navega atrás: si hay historial, vuelve; si no, va al index
+      if (window.history.length > 1) {
         window.history.back();
       } else {
         window.location.href = 'index.html';
       }
-    });
-
+    }
     menuIndexBtn.addEventListener('click', () => {
       window.location.href = 'index.html';
     });
@@ -618,6 +625,9 @@
           e.preventDefault();
         } else if ((e.key === 'e' || e.key === 'E')) {
           eliminarDelHistorial();
+          e.preventDefault();
+        } else if (e.key === 'Backspace') {
+          irAtrasMenu();
           e.preventDefault();
         }
       });
