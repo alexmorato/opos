@@ -1,0 +1,622 @@
+[
+  {
+    "guid": "a21100dd-ff5e-498f-ac41-6867f19c8e1b",
+    "subjectId": "T28",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Cuál es la distinción fundamental entre el marco IAM y la capa superior denominada IGA?",
+    "answerOptions": [
+      {
+        "text": "IGA se centra en la gobernanza y cumplimiento del acceso, mientras que IAM se encarga de la implementación tecnológica.",
+        "rationale": "La gobernanza (IGA) define las políticas de 'quién debe tener acceso', mientras que la gestión (IAM) ejecuta técnicamente esas decisiones.",
+        "isCorrect": true
+      },
+      {
+        "text": "IAM gestiona exclusivamente identidades humanas, mientras que IGA se ocupa de aplicaciones, dispositivos y servicios.",
+        "rationale": "Ambos marcos pueden gestionar identidades tanto humanas como no humanas, ya que el concepto de identidad digital es amplio.",
+        "isCorrect": false
+      },
+      {
+        "text": "IGA es el protocolo de comunicación entre directorios, mientras que IAM es la base de datos central de usuarios.",
+        "rationale": "IGA no es un protocolo, sino una capa de administración y auditoría; IAM es un marco de procesos, no solo una base de datos.",
+        "isCorrect": false
+      },
+      {
+        "text": "IAM se aplica únicamente en entornos locales, mientras que IGA es el modelo de gestión específico para la nube.",
+        "rationale": "Tanto IAM como IGA son aplicables en entornos híbridos, locales y de nube, permitiendo una gestión unificada y coherente.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en qué capa define las políticas de negocio y cumplimiento frente a cuál ejecuta la autenticación."
+  },
+  {
+    "guid": "62ad3688-a83a-4bae-a15c-86340e34b806",
+    "subjectId": "T28",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En el contexto de los servicios de directorio, ¿cómo se diferencia su optimización técnica de la de una base de datos relacional estándar?",
+    "answerOptions": [
+      {
+        "text": "Los directorios están optimizados para consultas de lectura frecuentes pero no para escrituras constantes.",
+        "rationale": "Su estructura jerárquica permite verificar identidades y atributos con una latencia mínima, priorizando la lectura sobre la edición.",
+        "isCorrect": true
+      },
+      {
+        "text": "Los directorios permiten realizar transacciones de escritura masiva con mayor rendimiento que las bases SQL.",
+        "rationale": "A diferencia de los sistemas transaccionales, los directorios no están diseñados para actualizaciones constantes de datos a alta velocidad.",
+        "isCorrect": false
+      },
+      {
+        "text": "Los directorios utilizan tablas planas para agilizar la búsqueda de registros en lugar de estructuras jerárquicas.",
+        "rationale": "La característica definitoria de un directorio es precisamente su organización jerárquica y optimizada para la navegación por ramas.",
+        "isCorrect": false
+      },
+      {
+        "text": "Los directorios requieren motores de búsqueda externos para indexar los objetos de red y gestionar sus atributos.",
+        "rationale": "Los servicios de directorio integran de forma nativa sus propios mecanismos de indexación y búsqueda rápida de objetos y metadatos.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considere si un servidor de autenticación necesita leer datos o escribir nuevos registros con más frecuencia."
+  },
+  {
+    "guid": "577de24e-9d13-455a-a977-c628694c0acd",
+    "subjectId": "T28",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Dentro del ciclo de vida de las identidades (JML), ¿qué riesgo específico mitiga una gestión adecuada de la fase 'Mover'?",
+    "answerOptions": [
+      {
+        "text": "Evita la acumulación progresiva de permisos innecesarios conocida habitualmente como 'privilege creep'.",
+        "rationale": "Al actualizar los roles según los cambios de puesto, se asegura que el usuario pierda los permisos que ya no requiere para su nueva función.",
+        "isCorrect": true
+      },
+      {
+        "text": "Impide que las cuentas de antiguos empleados permanezcan activas tras su salida definitiva de la empresa.",
+        "rationale": "Esta es la función principal del desaprovisionamiento en la fase 'Leaver', no de la fase de movimiento interno o 'Mover'.",
+        "isCorrect": false
+      },
+      {
+        "text": "Garantiza que la sincronización de identidades entre el entorno local y la nube sea siempre unidireccional.",
+        "rationale": "La sincronización es un proceso técnico de infraestructura, no una medida de control de permisos vinculada al cambio de rol.",
+        "isCorrect": false
+      },
+      {
+        "text": "Elimina la necesidad de realizar auditorías periódicas de acceso al automatizar la creación de cuentas nuevas.",
+        "rationale": "Aunque la automatización ayuda, la auditoría y la recertificación de accesos son procesos de gobernanza (IGA) siempre necesarios.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en lo que sucede cuando un usuario cambia de departamento pero mantiene sus permisos anteriores."
+  },
+  {
+    "guid": "5f76e0b2-f523-4088-8dda-4927e61208d5",
+    "subjectId": "T28",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Cuál es la función principal del estándar abierto SCIM (System for Cross-domain Identity Management)?",
+    "answerOptions": [
+      {
+        "text": "Automatizar el intercambio de identidades para el aprovisionamiento entre dominios y aplicaciones SaaS.",
+        "rationale": "SCIM permite que los cambios en el directorio principal se reflejen automáticamente en otras plataformas sin intervención manual.",
+        "isCorrect": true
+      },
+      {
+        "text": "Establecer una capa de transporte cifrada para las consultas realizadas mediante el protocolo LDAP tradicional.",
+        "rationale": "LDAP utiliza TLS/SSL para el cifrado (LDAPS); SCIM es un estándar basado en REST para la gestión del ciclo de vida de usuarios.",
+        "isCorrect": false
+      },
+      {
+        "text": "Definir el formato de los tickets de autenticación en entornos basados exclusivamente en dominios Windows.",
+        "rationale": "Esa función corresponde a Kerberos, mientras que SCIM se orienta a la interoperabilidad de identidades en entornos web y nube.",
+        "isCorrect": false
+      },
+      {
+        "text": "Gestionar la rotación automática de contraseñas de cuentas con privilegios elevados en servidores críticos.",
+        "rationale": "La rotación de contraseñas para cuentas de administración es una funcionalidad típica de las soluciones PAM, no del estándar SCIM.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Relacione este estándar con la automatización del ciclo de vida en entornos híbridos y modernos."
+  },
+  {
+    "guid": "eea9156d-a8f8-4d3d-8905-46a76d0e94d2",
+    "subjectId": "T28",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿En qué se diferencia fundamentalmente OpenID Connect (OIDC) del protocolo OAuth 2.0?",
+    "answerOptions": [
+      {
+        "text": "OIDC añade una capa de autenticación sobre OAuth 2.0, que es estrictamente un protocolo de autorización.",
+        "rationale": "OIDC permite saber 'quién es' el usuario, mientras que OAuth 2.0 solo permite dar permiso a una app para acceder a recursos.",
+        "isCorrect": true
+      },
+      {
+        "text": "OIDC utiliza archivos XML para el intercambio de datos, mientras que OAuth 2.0 se basa en tokens JSON.",
+        "rationale": "Ambos suelen utilizar JSON; el intercambio basado en XML es característico del protocolo SAML 2.0.",
+        "isCorrect": false
+      },
+      {
+        "text": "OAuth 2.0 permite el inicio de sesión único (SSO), mientras que OIDC está limitado a aplicaciones móviles.",
+        "rationale": "OIDC es precisamente el estándar moderno que habilita el SSO en aplicaciones web y móviles utilizando la base de OAuth 2.0.",
+        "isCorrect": false
+      },
+      {
+        "text": "OAuth 2.0 es un protocolo propietario de Microsoft, mientras que OIDC es un estándar de la comunidad IETF.",
+        "rationale": "Ambos son estándares abiertos ampliamente adoptados por la industria y no pertenecen a un único fabricante de software.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considere la diferencia entre identificar a alguien y dar permiso a una aplicación para actuar en su nombre."
+  },
+  {
+    "guid": "755349f9-6d15-4d5f-985a-857f9fb3df54",
+    "subjectId": "T28",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Qué característica define al modelo de control de acceso basado en atributos (ABAC)?",
+    "answerOptions": [
+      {
+        "text": "Las decisiones de acceso son dinámicas y consideran el contexto como la ubicación, la hora y el riesgo.",
+        "rationale": "A diferencia de los roles fijos, ABAC evalúa múltiples atributos del sujeto, del recurso y del entorno en tiempo real.",
+        "isCorrect": true
+      },
+      {
+        "text": "Los permisos se asignan a perfiles laborales estáticos que el usuario hereda según su posición orgánica.",
+        "rationale": "Esta descripción corresponde al modelo RBAC (Role-Based Access Control), que es más rígido que el modelo basado en atributos.",
+        "isCorrect": false
+      },
+      {
+        "text": "El acceso se concede únicamente en función de la dirección IP de origen desde la que se conecta el usuario.",
+        "rationale": "La ubicación (o IP) es solo uno de los muchos atributos que ABAC puede considerar, pero no es el único factor determinante.",
+        "isCorrect": false
+      },
+      {
+        "text": "Se basa en la creación de listas de control de acceso (ACL) vinculadas a cada archivo individual del sistema.",
+        "rationale": "Las ACL son un método de control de acceso discrecional, mientras que ABAC es un modelo lógico basado en políticas y atributos.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en un modelo que pregunte no solo quién es usted, sino también desde dónde y a qué hora está accediendo."
+  },
+  {
+    "guid": "3ca5f652-0d68-486c-8e30-7dd0d78b6d3f",
+    "subjectId": "T28",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En una estrategia PAM, ¿qué implica el concepto de acceso 'Just-in-Time' (JIT)?",
+    "answerOptions": [
+      {
+        "text": "Los privilegios se activan temporalmente para una tarea específica y se revocan automáticamente al terminar.",
+        "rationale": "JIT reduce la superficie de ataque al evitar que las cuentas tengan permisos de administrador de forma permanente o persistente.",
+        "isCorrect": true
+      },
+      {
+        "text": "Las contraseñas de administrador se cambian en tiempo real cada vez que un usuario intenta iniciar sesión.",
+        "rationale": "Aunque PAM incluye rotación de claves, JIT se refiere específicamente a la temporalidad de los privilegios asignados, no solo a la clave.",
+        "isCorrect": false
+      },
+      {
+        "text": "El sistema detecta intentos de intrusión y bloquea el acceso a la red de forma inmediata y automática.",
+        "rationale": "Eso es una función de respuesta ante incidentes o de un IDS/IPS, no es el objetivo principal del aprovisionamiento JIT.",
+        "isCorrect": false
+      },
+      {
+        "text": "Garantiza que el tiempo de respuesta del servidor de identidades sea inferior a un milisegundo por consulta.",
+        "rationale": "JIT es un concepto de seguridad de privilegios, no un indicador de rendimiento técnico (SLA) de la infraestructura de red.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Relacione el término con la concesión de permisos 'solo cuando se necesitan'."
+  },
+  {
+    "guid": "b35b41f4-c277-48b6-a826-e322999d39ff",
+    "subjectId": "T28",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Cuál es el objetivo principal de la billetera de identidad digital europea (EUDI Wallet)?",
+    "answerOptions": [
+      {
+        "text": "Permitir que el usuario controle y presente sus credenciales digitales sin depender de un repositorio central.",
+        "rationale": "Se basa en el modelo de identidad descentralizada para reforzar la autonomía, la privacidad y el control del ciudadano.",
+        "isCorrect": true
+      },
+      {
+        "text": "Crear una base de datos única centralizada en Bruselas con todos los datos personales de los ciudadanos.",
+        "rationale": "El objetivo es precisamente lo opuesto: evitar la centralización mediante el uso de identificadores descentralizados y credenciales verificables.",
+        "isCorrect": false
+      },
+      {
+        "text": "Sustituir todos los certificados de servidor SSL actuales por una infraestructura de clave pública europea.",
+        "rationale": "EUDI Wallet se enfoca en la identidad de las personas y sus atributos (títulos, licencias), no en la seguridad de los dominios web.",
+        "isCorrect": false
+      },
+      {
+        "text": "Proporcionar un sistema de pago criptográfico obligatorio para todas las administraciones públicas de la UE.",
+        "rationale": "Aunque puede facilitar transacciones, su propósito es la gestión de la identidad y atributos digitales, no ser una moneda digital.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en la soberanía del usuario sobre sus propios datos personales y documentos acreditativos."
+  },
+  {
+    "guid": "075b2492-609a-4db5-bb3c-45dc1c47d650",
+    "subjectId": "T28",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Bajo el paradigma de Zero Trust Architecture (ZTA), ¿cómo debe tratarse la identidad?",
+    "answerOptions": [
+      {
+        "text": "La identidad debe verificarse continuamente en función del contexto y el riesgo, sin confianza implícita.",
+        "rationale": "En Zero Trust, el hecho de estar dentro de la red corporativa no otorga confianza; cada solicitud de acceso debe ser validada.",
+        "isCorrect": true
+      },
+      {
+        "text": "La confianza se otorga automáticamente a cualquier identidad que se conecte desde la red interna de la oficina.",
+        "rationale": "Ese es el modelo tradicional de seguridad perimetral que Zero Trust busca eliminar por considerarlo insuficiente y vulnerable.",
+        "isCorrect": false
+      },
+      {
+        "text": "Una vez realizada la autenticación inicial mediante MFA, la identidad se considera confiable para toda la sesión.",
+        "rationale": "Zero Trust requiere una verificación continua, ya que el contexto o el nivel de riesgo pueden cambiar durante una misma sesión activa.",
+        "isCorrect": false
+      },
+      {
+        "text": "La seguridad se centra exclusivamente en proteger los dispositivos físicos, asumiendo que el usuario es legítimo.",
+        "rationale": "Zero Trust sitúa a la identidad como el nuevo perímetro, reconociendo que los dispositivos pueden ser comprometidos o robados.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considere el lema 'nunca confiar, siempre verificar'."
+  },
+  {
+    "guid": "4592ea5c-0492-442b-8053-f42415f56e21",
+    "subjectId": "T28",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Qué normativa española establece los requisitos de seguridad para la gestión de identidades en el sector público?",
+    "answerOptions": [
+      {
+        "text": "El Esquema Nacional de Seguridad (ENS), que exige garantizar la trazabilidad y el control de privilegios.",
+        "rationale": "El ENS define los principios básicos y requisitos para proteger la información y los servicios en las administraciones públicas.",
+        "isCorrect": true
+      },
+      {
+        "text": "La Ley General de Telecomunicaciones, que regula específicamente los protocolos de autenticación por radio.",
+        "rationale": "Dicha ley se centra en las infraestructuras de comunicación, no en los marcos de gobernanza de identidades y accesos corporativos.",
+        "isCorrect": false
+      },
+      {
+        "text": "El Esquema Nacional de Infraestructuras (ENI), que define los estándares de cableado para centros de datos.",
+        "rationale": "El ENI (Esquema Nacional de Interoperabilidad) trata sobre el intercambio de datos, pero no es el marco principal de seguridad.",
+        "isCorrect": false
+      },
+      {
+        "text": "La normativa ISO 9001, que establece los criterios de calidad para el desarrollo de software de directorios.",
+        "rationale": "ISO 9001 es una norma de gestión de calidad general, mientras que la gestión de identidades se rige por marcos de seguridad específicos.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Es la normativa de referencia para la ciberseguridad en la administración pública en España."
+  },
+  {
+    "guid": "f6315c7b-fc6a-475a-a0ef-d0cccbcd9ff5",
+    "subjectId": "T28",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Cuál es la función técnica de Microsoft Entra Connect Sync en un entorno híbrido?",
+    "answerOptions": [
+      {
+        "text": "Asegurar la coherencia de las identidades sincronizando el Active Directory local con Microsoft Entra ID.",
+        "rationale": "Permite que los usuarios utilicen las mismas credenciales tanto para recursos locales como para servicios en la nube.",
+        "isCorrect": true
+      },
+      {
+        "text": "Cifrar las comunicaciones entre los puestos de trabajo de los usuarios y el servidor de correo electrónico.",
+        "rationale": "El cifrado de correo suele depender de protocolos como TLS o S/MIME, no de la herramienta de sincronización de identidades.",
+        "isCorrect": false
+      },
+      {
+        "text": "Realizar copias de seguridad de los archivos de los usuarios en la nube para prevenir ataques de ransomware.",
+        "rationale": "Esta función correspondería a herramientas de backup o almacenamiento como OneDrive, no a un sincronizador de identidades.",
+        "isCorrect": false
+      },
+      {
+        "text": "Bloquear automáticamente el acceso a internet si el usuario no ha actualizado su sistema operativo local.",
+        "rationale": "El cumplimiento de políticas de dispositivo (compliance) es función de soluciones MDM como Intune, no de Entra Connect Sync.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en la necesidad de tener un 'Single Source of Truth' compartido entre el on-premise y el cloud."
+  },
+  {
+    "guid": "dbc21d68-ae83-4c4a-a30d-766de2919415",
+    "subjectId": "T28",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En el marco del cumplimiento normativo, ¿qué exigen los anexos A.5.17 y A.5.18 de la ISO/IEC 27001:2022?",
+    "answerOptions": [
+      {
+        "text": "Definen requisitos específicos para la gestión de identidades y la gestión de los derechos de acceso.",
+        "rationale": "Estos controles son fundamentales para asegurar que solo las personas autorizadas tengan acceso a la información de la organización.",
+        "isCorrect": true
+      },
+      {
+        "text": "Establecen los parámetros físicos para la refrigeración y el suministro eléctrico de los servidores críticos.",
+        "rationale": "Esos controles pertenecen a la sección de seguridad física y ambiental, no a la gestión lógica de identidades y accesos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Obligan a las empresas a externalizar toda su infraestructura de identidad a un proveedor de servicios en la nube.",
+        "rationale": "ISO 27001 no obliga a la externalización; proporciona un marco de gestión de riesgos independientemente de dónde resida la tecnología.",
+        "isCorrect": false
+      },
+      {
+        "text": "Prohíben el uso de biometría como factor de autenticación por considerarlo un riesgo para la privacidad.",
+        "rationale": "Al contrario, las normativas suelen incentivar el uso de factores fuertes como la biometría, siempre que se cumpla con la protección de datos.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Estos anexos están alineados con los pilares de IAM tratados en el material fuente."
+  },
+  {
+    "guid": "8a1883fc-89bf-4b67-8731-4796552c88d9",
+    "subjectId": "T28",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "El protocolo Kerberos, utilizado frecuentemente en dominios Windows, se basa en:",
+    "answerOptions": [
+      {
+        "text": "Un sistema de tickets y claves simétricas para proporcionar autenticación única en la red interna.",
+        "rationale": "Permite que los usuarios se autentiquen una vez y accedan a múltiples servicios sin volver a introducir su contraseña.",
+        "isCorrect": true
+      },
+      {
+        "text": "El intercambio de certificados digitales de clave pública para cada transacción individual de datos.",
+        "rationale": "Kerberos utiliza principalmente criptografía de clave simétrica; el uso de certificados es propio de infraestructuras PKI.",
+        "isCorrect": false
+      },
+      {
+        "text": "La transmisión de la contraseña en texto plano cifrada únicamente mediante algoritmos de hash MD5.",
+        "rationale": "Kerberos nunca envía la contraseña por la red y utiliza algoritmos mucho más robustos que MD5 para sus operaciones.",
+        "isCorrect": false
+      },
+      {
+        "text": "Un modelo de confianza descentralizada donde cada dispositivo valida de forma autónoma a los demás.",
+        "rationale": "Kerberos es un protocolo centralizado que depende de un Centro de Distribución de Claves (KDC) confiable.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en el mecanismo que evita que el usuario tenga que introducir sus credenciales constantemente dentro de la oficina."
+  },
+  {
+    "guid": "a13491af-291e-48e9-bf80-1b901cc42e73",
+    "subjectId": "T28",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Qué implica que un sistema de autenticación sea 'passwordless' basado en FIDO2/WebAuthn?",
+    "answerOptions": [
+      {
+        "text": "Utiliza criptografía de clave pública y biometría o dispositivos físicos en lugar de contraseñas memorizables.",
+        "rationale": "Este modelo elimina el riesgo de phishing de contraseñas al no existir un secreto compartido que el usuario pueda revelar.",
+        "isCorrect": true
+      },
+      {
+        "text": "Se basa en el envío de un código SMS al teléfono móvil como único método para validar la identidad.",
+        "rationale": "El SMS es un factor de MFA (algo que tienes), pero FIDO2 es una arquitectura más segura que no depende de redes de telefonía.",
+        "isCorrect": false
+      },
+      {
+        "text": "Permite el acceso libre a las aplicaciones si el usuario se conecta desde un dispositivo reconocido previamente.",
+        "rationale": "Estar en un dispositivo reconocido no es 'passwordless' por sí solo; FIDO2 requiere un acto de verificación explícito (biometría o gesto).",
+        "isCorrect": false
+      },
+      {
+        "text": "Consiste en utilizar una única contraseña muy larga y compleja para todas las aplicaciones de la organización.",
+        "rationale": "Eso sería Single Sign-On con contraseña robusta, pero no 'passwordless', ya que sigue habiendo una contraseña que proteger.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considere las tecnologías que eliminan por completo la necesidad de recordar cadenas de caracteres."
+  },
+  {
+    "guid": "e139858c-8d2b-4ee3-bc35-68742dc1d13b",
+    "subjectId": "T28",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Cuál es la función del 'desaprovisionamiento' dentro de la automatización del ciclo de vida de identidades?",
+    "answerOptions": [
+      {
+        "text": "Garantizar la revocación inmediata de todos los accesos cuando una identidad ya no es necesaria.",
+        "rationale": "Es un proceso crítico de seguridad para evitar que cuentas huérfanas o de ex-empleados sean utilizadas para ataques.",
+        "isCorrect": true
+      },
+      {
+        "text": "Reducir el espacio en disco eliminando los archivos temporales de los perfiles de usuario locales.",
+        "rationale": "Aunque libera recursos, el objetivo del desaprovisionamiento es la seguridad de los accesos, no el mantenimiento del disco duro.",
+        "isCorrect": false
+      },
+      {
+        "text": "Actualizar los atributos de contacto del usuario en el directorio cuando este cambia de domicilio.",
+        "rationale": "La actualización de atributos es parte de la fase de 'Gestión' o 'Mover', no del desaprovisionamiento o baja.",
+        "isCorrect": false
+      },
+      {
+        "text": "Asignar licencias de software adicionales a los usuarios que promocionan dentro de la organización.",
+        "rationale": "La asignación de nuevos recursos es parte del aprovisionamiento (Joiner) o actualización (Mover), no de la eliminación de accesos.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en la fase final del ciclo JML (Joiner, Mover, Leaver)."
+  },
+  {
+    "guid": "3658c699-fe15-4eb2-8cfd-065d0d36c29e",
+    "subjectId": "T28",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En el contexto de la federación de identidades, ¿qué papel juega el Proveedor de Identidad (IdP)?",
+    "answerOptions": [
+      {
+        "text": "Es el sistema encargado de autenticar al usuario y emitir tokens de afirmación de su identidad.",
+        "rationale": "El IdP valida las credenciales y le dice al Proveedor de Servicio (SP) que el usuario es quien dice ser.",
+        "isCorrect": true
+      },
+      {
+        "text": "Es la aplicación final que ofrece el servicio al usuario y decide qué permisos otorgarle tras el acceso.",
+        "rationale": "Ese es el papel del Proveedor de Servicio (SP); el IdP solo se encarga de la verificación inicial de la identidad.",
+        "isCorrect": false
+      },
+      {
+        "text": "Actúa como un cortafuegos que filtra el tráfico de red antes de que llegue al servidor de directorio.",
+        "rationale": "Un IdP es un componente lógico de gestión de identidades, no un dispositivo de seguridad de red perimetral como un firewall.",
+        "isCorrect": false
+      },
+      {
+        "text": "Es el responsable de almacenar las copias de seguridad de las bases de datos de todos los usuarios federados.",
+        "rationale": "Su función es la autenticación en tiempo real, no la gestión de backups de datos de terceros proveedores.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en quién es el responsable de decir 'esta persona es realmente el usuario X'."
+  },
+  {
+    "guid": "778c1850-30f6-42a9-bc94-e41862dbcce2",
+    "subjectId": "T28",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Qué establece el principio de 'mínimo privilegio' (PoLP) en la gestión de accesos?",
+    "answerOptions": [
+      {
+        "text": "Cada identidad solo debe tener los permisos estrictamente necesarios para realizar su función laboral.",
+        "rationale": "Al limitar los permisos al mínimo, se reduce drásticamente el daño potencial en caso de que una cuenta sea comprometida.",
+        "isCorrect": true
+      },
+      {
+        "text": "Los usuarios con mayor antigüedad deben tener acceso total a todos los recursos de la empresa por confianza.",
+        "rationale": "La antigüedad no es un criterio de seguridad; el acceso debe basarse en la necesidad operativa real y actual.",
+        "isCorrect": false
+      },
+      {
+        "text": "Todos los usuarios de un mismo departamento deben compartir las mismas credenciales de administrador de grupo.",
+        "rationale": "Compartir credenciales viola el principio de no repudio y trazabilidad, y es contrario a cualquier buena práctica de seguridad.",
+        "isCorrect": false
+      },
+      {
+        "text": "El sistema debe conceder todos los permisos posibles por defecto y luego restringirlos si se detecta un mal uso.",
+        "rationale": "La seguridad debe ser por defecto (secure by default); se empieza sin permisos y se conceden solo los necesarios.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considere cómo limitar la superficie de ataque mediante la restricción de facultades de los usuarios."
+  },
+  {
+    "guid": "70aeeea4-48c1-4dbe-b20f-d8fe83554482",
+    "subjectId": "T28",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Cuál es la principal diferencia entre autenticación y autorización según el marco IAM?",
+    "answerOptions": [
+      {
+        "text": "La autenticación valida la identidad (quién eres); la autorización valida los permisos (qué puedes hacer).",
+        "rationale": "Son dos procesos distintos: primero se comprueba la identidad y luego se decide si esa identidad tiene permiso para el recurso.",
+        "isCorrect": true
+      },
+      {
+        "text": "La autenticación se realiza en el servidor local, mientras que la autorización ocurre siempre en la nube.",
+        "rationale": "Ambos procesos pueden ocurrir en cualquier entorno (local, nube o híbrido) dependiendo de la arquitectura del sistema.",
+        "isCorrect": false
+      },
+      {
+        "text": "La autorización es el proceso de crear la cuenta, mientras que la autenticación es el proceso de borrarla.",
+        "rationale": "Esos términos se refieren al ciclo de vida (aprovisionamiento y desaprovisionamiento), no al acceso en tiempo de ejecución.",
+        "isCorrect": false
+      },
+      {
+        "text": "La autenticación requiere obligatoriamente biometría, mientras que la autorización solo requiere una contraseña.",
+        "rationale": "Los factores de autenticación pueden variar (contraseña, MFA, biometría), y la autorización no usa contraseñas sino políticas.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en las preguntas '¿Quién eres?' frente a '¿Qué tienes permitido hacer?'."
+  },
+  {
+    "guid": "ae99473b-1713-482d-a9d3-ee49ec264fdd",
+    "subjectId": "T28",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Qué representa la 'convergencia IAM-IGA-PAM' mencionada como tendencia de futuro?",
+    "answerOptions": [
+      {
+        "text": "La integración de la gestión de identidades, gobernanza y cuentas privilegiadas en plataformas unificadas.",
+        "rationale": "Esto simplifica la administración y mejora la visibilidad total sobre los riesgos de identidad en una organización.",
+        "isCorrect": true
+      },
+      {
+        "text": "La sustitución de todos los servidores de bases de datos por un único servicio de directorio global.",
+        "rationale": "La convergencia no elimina las bases de datos funcionales, sino que unifica las herramientas que gestionan el acceso a ellas.",
+        "isCorrect": false
+      },
+      {
+        "text": "El requisito legal de que todas las empresas utilicen el mismo proveedor de identidad por motivos de seguridad.",
+        "rationale": "No existe tal requisito legal; las empresas son libres de elegir sus proveedores, pero tienden a usar plataformas integradas.",
+        "isCorrect": false
+      },
+      {
+        "text": "La fusión de los departamentos de Recursos Humanos y de TI para gestionar las altas de los empleados.",
+        "rationale": "Aunque colaboran en el ciclo de vida, la convergencia mencionada es tecnológica y de procesos de seguridad, no organizativa.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Se refiere a dejar de ver estos tres dominios como silos tecnológicos separados."
+  },
+  {
+    "guid": "e58a797a-836a-4186-b810-6c6a7ab688ec",
+    "subjectId": "T28",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En la gestión de directorios según el estándar X.500, ¿qué se almacena principalmente en ellos?",
+    "answerOptions": [
+      {
+        "text": "Información sobre objetos de interés como usuarios de red y recursos compartidos de infraestructura.",
+        "rationale": "Un directorio es un inventario estructurado de los elementos que componen la red y sus propiedades asociadas.",
+        "isCorrect": true
+      },
+      {
+        "text": "El código fuente de todas las aplicaciones web que la organización ofrece a sus clientes externos.",
+        "rationale": "Los directorios no son repositorios de código; para eso se utilizan sistemas de control de versiones como Git.",
+        "isCorrect": false
+      },
+      {
+        "text": "Un registro histórico de todas las direcciones IP que han visitado la página web corporativa.",
+        "rationale": "Esa información se encuentra en los logs del servidor web o en herramientas de analítica, no en el servicio de directorio.",
+        "isCorrect": false
+      },
+      {
+        "text": "La configuración detallada del hardware de los routers y switches de la red troncal de la empresa.",
+        "rationale": "Aunque puede haber objetos que los representen, la configuración técnica detallada reside en los propios equipos o sistemas de gestión de red.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Recuerde que un directorio sirve para organizar y localizar personas y equipos en la red."
+  }
+]
