@@ -1,0 +1,467 @@
+[
+  {
+    "guid": "ec540cbd-bbc8-4269-93c9-7feaa0ea407e",
+    "subjectId": "T31",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Dentro de la arquitectura de UC4 (Automic), ¿cuál es la función primordial del componente denominado Service Manager?",
+    "answerOptions": [
+      {
+        "text": "Proporcionar la consola de administración y monitorización para los operadores del sistema.",
+        "rationale": "Esta es la función del Operation Manager, no del Service Manager.",
+        "isCorrect": false
+      },
+      {
+        "text": "Supervisar la disponibilidad y el estado del motor de automatización y de los agentes remotos.",
+        "rationale": "El Service Manager actúa como un vigilante que asegura que los servicios críticos (motor y agentes) estén operativos.",
+        "isCorrect": true
+      },
+      {
+        "text": "Gestionar la base de datos central donde se aloja el histórico y la configuración.",
+        "rationale": "La base de datos es un componente pasivo gestionado por el motor, no por el Service Manager directamente.",
+        "isCorrect": false
+      },
+      {
+        "text": "Orquestar la ejecución de tareas batch en entornos multiplataforma mediante scripts internos.",
+        "rationale": "La orquestación es responsabilidad del Automation Engine (el núcleo del sistema).",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en la diferencia entre el 'cerebro' que ejecuta las órdenes y la herramienta que vigila que el sistema esté 'vivo'."
+  },
+  {
+    "guid": "ca558c57-bc6c-43da-91a9-e92e5c064bba",
+    "subjectId": "T31",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En el contexto de la gestión de objetos en UC4, ¿cuál de las siguientes afirmaciones sobre la Job Queue (JOBQ) es correcta?",
+    "answerOptions": [
+      {
+        "text": "Es un objeto ejecutable que el administrador debe configurar para cada flujo de trabajo.",
+        "rationale": "La JOBQ no es un objeto que se cree o configure de forma independiente por el usuario.",
+        "isCorrect": false
+      },
+      {
+        "text": "Se trata de un mecanismo interno del motor para gestionar la concurrencia y el orden de ejecución.",
+        "rationale": "Es una funcionalidad lógica del sistema que controla prioridades y límites sin ser un objeto de definición propia.",
+        "isCorrect": true
+      },
+      {
+        "text": "Es el identificador único (RunID) que se asigna a cada tarea una vez que entra en estado de ejecución.",
+        "rationale": "El RunID es un número de seguimiento, mientras que la JOBQ es la estructura que gestiona el flujo de las tareas.",
+        "isCorrect": false
+      },
+      {
+        "text": "Funciona como un contenedor de scripts de sistema operativo de tipo Windows o Linux.",
+        "rationale": "Los contenedores de scripts son los objetos JOBS, no la cola de trabajos (JOBQ).",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considere si este elemento aparece en el explorador de objetos como algo que usted pueda crear manualmente."
+  },
+  {
+    "guid": "391444ec-a84e-454f-a71f-35244719422c",
+    "subjectId": "T31",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Al diseñar un Workflow (JOBP), ¿qué funcionalidad permite que una tarea se ignore o se ejecute dependiendo del resultado de un job anterior dentro del mismo flujo?",
+    "answerOptions": [
+      {
+        "text": "La configuración de un Schedule (JSCH) asociado directamente al objeto hijo.",
+        "rationale": "El Schedule gestiona cuándo se lanza el workflow completo, no la lógica interna entre tareas.",
+        "isCorrect": false
+      },
+      {
+        "text": "El uso de Sync Objects para bloquear el acceso al recurso compartido.",
+        "rationale": "Los Sync Objects gestionan la concurrencia de recursos, no la lógica condicional de éxito/error.",
+        "isCorrect": false
+      },
+      {
+        "text": "La definición de Preconditions y Postconditions en las propiedades de la tarea.",
+        "rationale": "Estas condiciones permiten evaluar estados antes de iniciar o decidir acciones (como saltar pasos) tras finalizar una tarea.",
+        "isCorrect": true
+      },
+      {
+        "text": "La asignación de un Calendar Event que restrinja los días de ejecución.",
+        "rationale": "Los calendarios restringen fechas, no reaccionan al flujo lógico de resultados de jobs previos.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en los mecanismos de control que se aplican justo antes o justo después de que una tarea individual intente ejecutarse."
+  },
+  {
+    "guid": "57e87055-f3fb-43a4-be93-7e903545954e",
+    "subjectId": "T31",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Qué tipo de objeto específico debe utilizarse en UC4 si el objetivo es detectar automáticamente la llegada de un archivo a un servidor para disparar un proceso?",
+    "answerOptions": [
+      {
+        "text": "JOBF (File Transfer Job)",
+        "rationale": "El JOBF se usa para mover o transferir archivos, no para 'esperar' de forma pasiva su aparición.",
+        "isCorrect": false
+      },
+      {
+        "text": "EVNT (Event Object) de tipo File",
+        "rationale": "Los objetos de evento están diseñados para permanecer inactivos hasta que se cumple una condición externa, como la presencia de un archivo.",
+        "isCorrect": true
+      },
+      {
+        "text": "SCRI (Script Object)",
+        "rationale": "Un script realiza acciones lógicas internas, pero no es el mecanismo nativo de detección de eventos externos.",
+        "isCorrect": false
+      },
+      {
+        "text": "JSCH (Schedule Object)",
+        "rationale": "Un Schedule lanza tareas basadas en el tiempo (reloj), no basadas en eventos del sistema de archivos.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Diferencie entre la acción de 'transferir' algo y la acción de 'vigilar' que algo ocurra."
+  },
+  {
+    "guid": "7c60b561-9d01-42e4-897d-9f6b31b55604",
+    "subjectId": "T31",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Sobre los estados de ejecución en UC4, ¿qué indica específicamente la causa de error denominada 'FAULT_OTHER'?",
+    "answerOptions": [
+      {
+        "text": "Que el job ha finalizado con un código de retorno (exit code) distinto de cero definido en el script.",
+        "rationale": "Un código de retorno distinto de cero suele resultar en un estado ENDED_NOT_OK, no FAULT_OTHER.",
+        "isCorrect": false
+      },
+      {
+        "text": "Que existe un error de configuración, de lógica o un fallo externo que impide que el job se procese.",
+        "rationale": "Este código se asocia a problemas de infraestructura o parámetros incorrectos que bloquean la ejecución normal.",
+        "isCorrect": true
+      },
+      {
+        "text": "Que el operador ha cancelado manualmente la tarea desde la Activity Window.",
+        "rationale": "La cancelación manual resulta típicamente en el estado ENDED_CANCEL.",
+        "isCorrect": false
+      },
+      {
+        "text": "Que el job no se ha ejecutado porque las dependencias del Workflow no se han cumplido.",
+        "rationale": "Esto resultaría en el estado ENDED_INACTIVE, indicando que el flujo decidió no lanzarlo.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Distinga entre un fallo en la lógica del programa (script) y un fallo en la propia definición o entorno del objeto."
+  },
+  {
+    "guid": "4df5fb70-ba99-4525-9709-231ea6868f51",
+    "subjectId": "T31",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Un administrador necesita evitar que dos procesos batch modifiquen simultáneamente la misma tabla de base de datos. ¿Qué objeto de UC4 es el más adecuado para esta gestión de exclusión mutua?",
+    "answerOptions": [
+      {
+        "text": "JOBG (Job Group)",
+        "rationale": "Los grupos de jobs sirven para organizar tareas, pero no gestionan bloqueos de recursos de forma nativa.",
+        "isCorrect": false
+      },
+      {
+        "text": "Sync Object",
+        "rationale": "Los Sync Objects actúan como semáforos para coordinar el acceso de múltiples jobs a recursos compartidos.",
+        "isCorrect": true
+      },
+      {
+        "text": "VARA.SQL (SQL Variable)",
+        "rationale": "Este objeto sirve para consultar datos de la BD, no para gestionar bloqueos o concurrencia.",
+        "isCorrect": false
+      },
+      {
+        "text": "Notification Object",
+        "rationale": "Se utiliza para alertas y comunicaciones, no para el control de flujo de recursos.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en el concepto de semáforo informático aplicado a la planificación de tareas."
+  },
+  {
+    "guid": "b1429a4b-3774-4fa9-9630-d9de66de3abb",
+    "subjectId": "T31",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En la operativa del Ayuntamiento de Barcelona (IMI), ¿qué equipo es el responsable de la supervisión $24 \\times 7$ y de la apertura de incidencias ante fallos en los procesos nocturnos de UC4?",
+    "answerOptions": [
+      {
+        "text": "El equipo de Desarrollo de Aplicaciones.",
+        "rationale": "Los desarrolladores suelen ser el segundo nivel de escalado, no quienes realizan la vigilancia activa 24x7.",
+        "isCorrect": false
+      },
+      {
+        "text": "La OTE (Operación Técnica de Explotación).",
+        "rationale": "Este equipo centraliza la monitorización proactiva y la gestión inicial de errores en el entorno de producción.",
+        "isCorrect": true
+      },
+      {
+        "text": "El Administrador de Base de Datos (DBA).",
+        "rationale": "El DBA solo interviene si la causa del fallo es específicamente la base de datos, no supervisa el planificador global.",
+        "isCorrect": false
+      },
+      {
+        "text": "El Service Desk de nivel 1 genérico.",
+        "rationale": "Aunque están relacionados, la supervisión técnica específica de procesos batch recae en la OTE.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Busque las siglas que identifican específicamente al grupo operativo mencionado en el material."
+  },
+  {
+    "guid": "edcd5061-2e7d-409b-a87a-6c63fb3c37ac",
+    "subjectId": "T31",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "El objeto Schedule (JSCH) en UC4 tiene una característica de diseño fundamental respecto a su periodo de rotación. ¿Cuál es?",
+    "answerOptions": [
+      {
+        "text": "Funciona en ciclos de ejecución continua basados en eventos de archivo.",
+        "rationale": "El Schedule se basa en el tiempo, no en eventos de archivo (que son para los EVNT).",
+        "isCorrect": false
+      },
+      {
+        "text": "Su periodo de planificación se reinicia automáticamente cada 24 horas.",
+        "rationale": "Los objetos JSCH están diseñados para gestionar las tareas en ciclos diarios de 24 horas.",
+        "isCorrect": true
+      },
+      {
+        "text": "Permite definir calendarios de ejecución con una validez máxima de una semana.",
+        "rationale": "Los calendarios pueden ser multianuales; el Schedule solo organiza el 'cuándo' dentro de un ciclo diario.",
+        "isCorrect": false
+      },
+      {
+        "text": "Requiere una intervención manual diaria para cargar las tareas del día siguiente.",
+        "rationale": "La herramienta es de automatización desatendida, por lo que el proceso es automático.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considere cuál es la unidad de tiempo estándar en la que un planificador batch suele 'refrescar' su cola de tareas."
+  },
+  {
+    "guid": "bb60668e-8859-4e21-bdb6-e691f2789345",
+    "subjectId": "T31",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Cuál es la diferencia principal entre un objeto IF Workflow y un objeto FOREACH Workflow?",
+    "answerOptions": [
+      {
+        "text": "El IF gestiona errores de red y el FOREACH gestiona errores de base de datos.",
+        "rationale": "Ambos gestionan lógica de flujo; el tipo de error no determina el objeto a usar.",
+        "isCorrect": false
+      },
+      {
+        "text": "El IF permite bifurcar el camino según una condición, mientras que el FOREACH repite tareas para cada elemento de una lista.",
+        "rationale": "El IF es una estructura condicional (si/entonces) y el FOREACH es una estructura de bucle (iterativa).",
+        "isCorrect": true
+      },
+      {
+        "text": "El IF es un objeto de tipo script (SCRI) y el FOREACH es un objeto de transferencia (JOBF).",
+        "rationale": "Ambos son tipos especiales de Workflows (JOBP), no scripts ni transferencias de ficheros.",
+        "isCorrect": false
+      },
+      {
+        "text": "El IF solo puede ejecutarse en Windows y el FOREACH solo en entornos Unix/Linux.",
+        "rationale": "UC4 es multiplataforma y estos objetos lógicos son independientes del sistema operativo del agente.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Relacione estos conceptos con las estructuras básicas de control en programación (condicionales vs. bucles)."
+  },
+  {
+    "guid": "79f570e2-bfcc-4ce6-b4b8-ca5feeec42dc",
+    "subjectId": "T31",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Qué herramienta de UC4 permite a los administradores predecir el impacto de futuros cambios en los calendarios y visualizar las próximas ejecuciones previstas?",
+    "answerOptions": [
+      {
+        "text": "Activity Window",
+        "rationale": "Esta ventana muestra lo que está ocurriendo 'ahora' o está activo, no lo que pasará en el futuro lejano.",
+        "isCorrect": false
+      },
+      {
+        "text": "Execution Report",
+        "rationale": "Es un informe de algo que ya ha sucedido (pasado), no una predicción.",
+        "isCorrect": false
+      },
+      {
+        "text": "Forecast",
+        "rationale": "La función Forecast calcula y muestra las ejecuciones futuras basándose en las definiciones de calendarios y schedules.",
+        "isCorrect": true
+      },
+      {
+        "text": "Workflow Monitor",
+        "rationale": "Se usa para seguir gráficamente una ejecución que ya está en curso.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en el término inglés que se utiliza comúnmente para la previsión meteorológica."
+  },
+  {
+    "guid": "2d79e5e9-e7a7-4cf2-b950-fde7d5691943",
+    "subjectId": "T31",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "De acuerdo con la normativa mencionada en el material, ¿qué estándar exige específicamente que los procesos automáticos dejen rastro (log) y mantengan la trazabilidad de las operaciones?",
+    "answerOptions": [
+      {
+        "text": "ISO 9001 (Gestión de la Calidad).",
+        "rationale": "Esta norma es general sobre procesos de calidad, no se menciona específicamente para la seguridad de procesos batch.",
+        "isCorrect": false
+      },
+      {
+        "text": "ENS (Esquema Nacional de Seguridad).",
+        "rationale": "El ENS obliga al control, registro y trazabilidad de los procesos automáticos para garantizar la seguridad.",
+        "isCorrect": true
+      },
+      {
+        "text": "Manifiesto Ágil (Desarrollo de Software).",
+        "rationale": "Es una metodología de trabajo, no una normativa legal de seguridad y trazabilidad de sistemas.",
+        "isCorrect": false
+      },
+      {
+        "text": "Reglamento General de Protección de Datos (RGPD) exclusivamente.",
+        "rationale": "Aunque influye, el material cita específicamente normativas de seguridad técnica y gestión de servicios IT.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Busque la normativa de ámbito nacional español citada en la sección final del documento."
+  },
+  {
+    "guid": "0f857fe6-d9cf-4fe8-bff9-b691c7209924",
+    "subjectId": "T31",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Al definir un Job (objeto de tarea), se requiere especificar el 'Agente'. ¿Cuál es la función técnica de este componente?",
+    "answerOptions": [
+      {
+        "text": "Actuar como la interfaz gráfica donde el usuario diseña el flujo de trabajo.",
+        "rationale": "Esa es la función del Operation Manager.",
+        "isCorrect": false
+      },
+      {
+        "text": "Almacenar el histórico de todas las ejecuciones para auditoría.",
+        "rationale": "El histórico se guarda en la base de datos central de UC4.",
+        "isCorrect": false
+      },
+      {
+        "text": "Ejecutar localmente las órdenes enviadas por el motor en el sistema destino (Windows, SAP, etc.).",
+        "rationale": "El agente es el puente que traduce las órdenes del motor en acciones reales sobre el sistema operativo remoto.",
+        "isCorrect": true
+      },
+      {
+        "text": "Gestionar las licencias de usuario y los roles de acceso a la plataforma.",
+        "rationale": "La seguridad y los roles se gestionan de forma centralizada en el Automation Engine.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Imagine al agente como el 'brazo ejecutor' que reside fuera del servidor central."
+  },
+  {
+    "guid": "acbe0b66-c331-4f8a-b667-8e9922ad22e9",
+    "subjectId": "T31",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Dentro de las variables de UC4 (VARA), ¿cuál es la principal diferencia entre una variable de tipo STATIC y una de tipo SQL?",
+    "answerOptions": [
+      {
+        "text": "La STATIC solo admite números y la SQL solo admite texto plano.",
+        "rationale": "El tipo de dato (número/texto) no es la distinción principal entre estos dos tipos de objetos variable.",
+        "isCorrect": false
+      },
+      {
+        "text": "La STATIC contiene valores fijos definidos manualmente, mientras que la SQL obtiene valores dinámicamente de una base de datos.",
+        "rationale": "La procedencia del dato (manual vs. consulta automática a BD) es lo que las define.",
+        "isCorrect": true
+      },
+      {
+        "text": "La STATIC se borra al terminar el job y la SQL es permanente.",
+        "rationale": "Ambas son objetos persistentes en el repositorio, lo que cambia es cómo se pueblan sus valores.",
+        "isCorrect": false
+      },
+      {
+        "text": "La STATIC se usa en Workflows y la SQL solo se puede usar en scripts internos (SCRI).",
+        "rationale": "Ambos tipos de variables pueden ser referenciados desde múltiples tipos de objetos en UC4.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en el origen del dato: ¿lo escribe usted o lo recupera el sistema automáticamente?"
+  },
+  {
+    "guid": "00bfb88d-e06e-4259-b211-9afeb8d324e4",
+    "subjectId": "T31",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En la gestión de estados de un job, ¿qué diferencia existe entre ENDED_NOT_OK y ENDED_INACTIVE?",
+    "answerOptions": [
+      {
+        "text": "ENDED_NOT_OK es un error de red y ENDED_INACTIVE es un error de permisos.",
+        "rationale": "Los motivos técnicos pueden ser variados; la diferencia es lógica, no técnica de red.",
+        "isCorrect": false
+      },
+      {
+        "text": "En ENDED_NOT_OK el job se ejecutó y falló; en ENDED_INACTIVE el job ni siquiera llegó a ejecutarse por falta de condiciones.",
+        "rationale": "ENDED_NOT_OK implica un fallo post-lanzamiento, mientras que el otro indica que se saltó la ejecución.",
+        "isCorrect": true
+      },
+      {
+        "text": "ENDED_NOT_OK es un estado automático y ENDED_INACTIVE solo lo puede poner un operador manualmente.",
+        "rationale": "Ambos estados pueden ser asignados automáticamente por el motor según las reglas del workflow.",
+        "isCorrect": false
+      },
+      {
+        "text": "No hay diferencia real, ambos detienen el workflow de la misma manera por defecto.",
+        "rationale": "La gestión de un job 'saltado' (inactive) suele ser muy distinta a la de uno que ha fallado críticamente.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considere si el proceso llegó a intentar realizar su trabajo o si el planificador decidió que no era su turno."
+  },
+  {
+    "guid": "0e4fd7fe-4e3f-4702-a317-97e842a87dc5",
+    "subjectId": "T31",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Cuál de las siguientes se considera una 'buena práctica' recomendada para el mantenimiento a largo plazo de un entorno UC4 empresarial?",
+    "answerOptions": [
+      {
+        "text": "Codificar las fechas críticas directamente dentro de los scripts de sistema operativo (hardcoding).",
+        "rationale": "Esto dificulta el mantenimiento; se deben usar calendarios centralizados de UC4.",
+        "isCorrect": false
+      },
+      {
+        "text": "Utilizar una nomenclatura clara, descriptiva y consistente para todos los objetos.",
+        "rationale": "Una nomenclatura estandarizada es vital para la gestión de cientos de jobs y el trabajo en equipo.",
+        "isCorrect": true
+      },
+      {
+        "text": "Ejecutar todos los procesos con el usuario 'root' o 'Administrator' para evitar problemas de permisos.",
+        "rationale": "Esto viola el principio de mínimos privilegios exigido por normativas como ISO 27001.",
+        "isCorrect": false
+      },
+      {
+        "text": "Evitar el uso de dependencias lógicas y usar esperas de tiempo fijas (sleeps) entre tareas.",
+        "rationale": "Las esperas artificiales son ineficientes; se deben usar dependencias reales (predecesores/sucesores).",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en qué facilita que un compañero entienda su trabajo sin tener que abrir cada script."
+  }
+]

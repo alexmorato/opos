@@ -1,0 +1,622 @@
+[
+  {
+    "guid": "8d59da91-c8e4-4472-a19e-a1a792149191",
+    "subjectId": "T31",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Cuál es el componente central de la arquitectura de UC4 que se encarga de la comunicación con los agentes remotos?",
+    "answerOptions": [
+      {
+        "text": "El núcleo denominado Automation Engine.",
+        "rationale": "Este servidor central actúa como el motor de ejecución y orquestación que se comunica con todos los agentes del sistema.",
+        "isCorrect": true
+      },
+      {
+        "text": "La consola llamada Operation Manager.",
+        "rationale": "Este componente se encarga de la interfaz de administración y monitoreo, no de la comunicación directa con agentes.",
+        "isCorrect": false
+      },
+      {
+        "text": "El supervisor técnico Service Manager.",
+        "rationale": "Su función principal es supervisar la disponibilidad del motor y los agentes, no procesar la comunicación de tareas.",
+        "isCorrect": false
+      },
+      {
+        "text": "La base de datos de configuración global.",
+        "rationale": "Aunque almacena toda la configuración y el histórico, no es el componente que gestiona la comunicación en red.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Identifica el componente que actúa como el 'cerebro' o motor de la solución de automatización."
+  },
+  {
+    "guid": "1a0c0e74-9bb4-4e6b-aa5a-e318f530d6c8",
+    "subjectId": "T31",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En el contexto de UC4, ¿cuál es la función principal asignada al rol del programador?",
+    "answerOptions": [
+      {
+        "text": "Lanzar trabajos manualmente bajo demanda.",
+        "rationale": "Esta es una tarea típica de los operadores para consultar resultados o ejecutar procesos puntuales.",
+        "isCorrect": false
+      },
+      {
+        "text": "Diseñar calendarios y dependencias complejas.",
+        "rationale": "Los programadores definen la lógica de negocio, flujos de trabajo y reglas temporales sin necesidad de código adicional.",
+        "isCorrect": true
+      },
+      {
+        "text": "Establecer controles de acceso y roles de seguridad.",
+        "rationale": "La gestión de la seguridad y el control de accesos robustos es una responsabilidad propia de los administradores.",
+        "isCorrect": false
+      },
+      {
+        "text": "Supervisar físicamente la infraestructura de red.",
+        "rationale": "Aunque es vital para el sistema, el diseño lógico de las tareas batch es el enfoque principal del programador en UC4.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piensa en quién se encarga de estructurar el flujo de trabajo y las reglas de ejecución."
+  },
+  {
+    "guid": "1ff875a3-f5af-4a7a-a511-1f269c3d9b8f",
+    "subjectId": "T31",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Qué información esencial debe contener un objeto de tipo Job para su correcta ejecución?",
+    "answerOptions": [
+      {
+        "text": "El historial completo de ejecuciones previas.",
+        "rationale": "El historial se almacena en la base de datos central y no forma parte de la definición estática del objeto Job.",
+        "isCorrect": false
+      },
+      {
+        "text": "El identificador RunID asignado por el motor.",
+        "rationale": "El RunID es una propiedad dinámica que se genera solo cuando el trabajo se activa para su ejecución.",
+        "isCorrect": false
+      },
+      {
+        "text": "El agente y las credenciales de usuario locales.",
+        "rationale": "Un Job requiere especificar dónde se ejecutará, quién lo hará y la ubicación exacta del programa o script.",
+        "isCorrect": true
+      },
+      {
+        "text": "La descripción de todos los tickets de incidencia.",
+        "rationale": "Las incidencias son registros externos vinculados a fallos y no son un parámetro de configuración del Job.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considera los elementos necesarios para que una tarea sepa dónde y cómo ejecutarse en un servidor remoto."
+  },
+  {
+    "guid": "3dc55d9b-312d-404f-a877-79363e21e279",
+    "subjectId": "T31",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Cuál es la característica principal que define a un Workflow (JOBP) dentro de UC4?",
+    "answerOptions": [
+      {
+        "text": "Es un mecanismo interno para gestionar colas.",
+        "rationale": "La gestión de la concurrencia y el orden de ejecución es tarea de la Job Queue, no de un objeto Workflow.",
+        "isCorrect": false
+      },
+      {
+        "text": "Es un contenedor de tareas con inicio y fin.",
+        "rationale": "Un Workflow organiza objetos ejecutables en una estructura determinada con puntos START y END obligatorios.",
+        "isCorrect": true
+      },
+      {
+        "text": "Es un script interno para automatizar registros.",
+        "rationale": "Los scripts internos se definen en objetos SCRI, mientras que los Workflows se enfocan en la orquestación visual.",
+        "isCorrect": false
+      },
+      {
+        "text": "Es una regla de fechas para la planificación anual.",
+        "rationale": "La definición de reglas temporales y fechas específicas es responsabilidad de los objetos de Calendario.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Se trata del objeto que permite encadenar múltiples tareas de forma gráfica y lógica."
+  },
+  {
+    "guid": "324d8c1e-5fe1-4d88-a74b-591157c44fd6",
+    "subjectId": "T31",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Para qué se utiliza específicamente un Workflow de tipo FOREACH?",
+    "answerOptions": [
+      {
+        "text": "Para ejecutar una rama condicional de tipo if/else.",
+        "rationale": "La lógica de decisión condicional entre dos caminos diferentes es propia del objeto IF Workflow.",
+        "isCorrect": false
+      },
+      {
+        "text": "Para repetir tareas por cada elemento de una lista.",
+        "rationale": "Este workflow especial actúa como un bucle para procesar múltiples archivos o registros de forma iterativa.",
+        "isCorrect": true
+      },
+      {
+        "text": "Para transferir archivos entre servidores remotos.",
+        "rationale": "La transferencia de archivos se realiza mediante el objeto JOBF, no mediante una estructura de workflow iterativa.",
+        "isCorrect": false
+      },
+      {
+        "text": "Para sincronizar el acceso a bases de datos críticas.",
+        "rationale": "La coordinación de recursos compartidos se gestiona mediante Sync Objects para evitar colisiones.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Relaciona este término con el concepto de bucle o iteración sobre un conjunto de datos."
+  },
+  {
+    "guid": "3840ed7d-383a-4584-a728-40557cd5d6b8",
+    "subjectId": "T31",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Qué diferencia fundamental existe entre un Event (EVNT) y un Trigger en UC4?",
+    "answerOptions": [
+      {
+        "text": "El Event es un objeto y el Trigger es un mecanismo.",
+        "rationale": "EVNT es un objeto ejecutable que espera condiciones, mientras que Trigger es cualquier origen que activa un proceso.",
+        "isCorrect": true
+      },
+      {
+        "text": "El Event es manual y el Trigger es automático.",
+        "rationale": "Ambos conceptos están ligados a la automatización; un Event detecta sucesos y un Trigger es la acción de disparo.",
+        "isCorrect": false
+      },
+      {
+        "text": "El Event gestiona archivos y el Trigger las bases.",
+        "rationale": "Un objeto Event puede configurarse tanto para archivos como para bases de datos según su tipo específico.",
+        "isCorrect": false
+      },
+      {
+        "text": "El Event solo funciona en Windows y el Trigger en Linux.",
+        "rationale": "UC4 es multiplataforma, por lo que estos conceptos de activación se aplican independientemente del sistema operativo.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Uno es una entidad que configuras en el sistema y el otro es el concepto general de activación."
+  },
+  {
+    "guid": "fcb5c994-1469-432f-a109-bc73292632d4",
+    "subjectId": "T31",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En la gestión de dependencias, ¿cuál es la función de las Postconditions?",
+    "answerOptions": [
+      {
+        "text": "Verificar la existencia de archivos antes de iniciar.",
+        "rationale": "Las comprobaciones previas al inicio de una tarea se definen mediante las Preconditions.",
+        "isCorrect": false
+      },
+      {
+        "text": "Determinar acciones según el resultado del Job.",
+        "rationale": "Permiten definir qué hacer (notificar, reiniciar o saltar) una vez que el trabajo ha finalizado y devuelto un código.",
+        "isCorrect": true
+      },
+      {
+        "text": "Establecer el horario de inicio del ciclo diario.",
+        "rationale": "La programación horaria se define en los objetos Schedule o en las propiedades de calendario del objeto.",
+        "isCorrect": false
+      },
+      {
+        "text": "Cifrar las credenciales de los agentes remotos.",
+        "rationale": "La seguridad de las credenciales se gestiona en la configuración del Job y variables de tipo SECURITY.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Observa el prefijo de la palabra para saber si la acción ocurre antes o después de la tarea."
+  },
+  {
+    "guid": "2041dc72-c123-48a3-8ad5-49759886af4c",
+    "subjectId": "T31",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Cuál es la función principal de los Sync Objects en la orquestación de procesos?",
+    "answerOptions": [
+      {
+        "text": "Coordinar el acceso a los recursos compartidos.",
+        "rationale": "Funcionan como semáforos para evitar que varios trabajos modifiquen el mismo archivo o tabla simultáneamente.",
+        "isCorrect": true
+      },
+      {
+        "text": "Sincronizar la hora de todos los agentes remotos.",
+        "rationale": "La sincronización horaria es una función de infraestructura de red y no se gestiona con objetos Sync de UC4.",
+        "isCorrect": false
+      },
+      {
+        "text": "Realizar copias de seguridad de la base de datos.",
+        "rationale": "Las copias de seguridad son Jobs de mantenimiento, no objetos de control de concurrencia.",
+        "isCorrect": false
+      },
+      {
+        "text": "Duplicar Workflows entre entornos de test y prod.",
+        "rationale": "El transporte entre entornos es un proceso de despliegue, no una función de sincronización de recursos.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piensa en cómo evitar colisiones cuando dos procesos quieren escribir en el mismo sitio al mismo tiempo."
+  },
+  {
+    "guid": "d4459dd7-6449-4f90-995a-10c33d250003",
+    "subjectId": "T31",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Qué indica el estado ENDED_INACTIVE en la monitorización de un Job?",
+    "answerOptions": [
+      {
+        "text": "Que el Job ha finalizado con un error crítico.",
+        "rationale": "Los errores de ejecución se marcan como ENDED_NOT_OK, no como inactivos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Que el Job no se ejecutó por falta de condiciones.",
+        "rationale": "Este estado aparece cuando las dependencias o reglas de calendario impiden que la tarea se inicie.",
+        "isCorrect": true
+      },
+      {
+        "text": "Que el operador ha cancelado el Job manualmente.",
+        "rationale": "La intervención manual para detener un proceso resulta en el estado ENDED_CANCEL.",
+        "isCorrect": false
+      },
+      {
+        "text": "Que el agente remoto ha perdido la conexión.",
+        "rationale": "Los problemas de conectividad suelen derivar en estados de error o FAULT_OTHER, no en inactividad programada.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Este estado sugiere que el sistema decidió 'saltarse' la tarea por una razón lógica predefinida."
+  },
+  {
+    "guid": "c688a610-843f-4ee8-adf8-cf0d67932695",
+    "subjectId": "T31",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Qué herramienta de UC4 permite predecir las ejecuciones futuras considerando calendarios y condiciones?",
+    "answerOptions": [
+      {
+        "text": "La ventana denominada Activity Window.",
+        "rationale": "Esta ventana muestra la actividad actual y en tiempo real, no proyecciones a futuro.",
+        "isCorrect": false
+      },
+      {
+        "text": "La función de visualización Forecast.",
+        "rationale": "Forecast permite validar la planificación futura para detectar posibles conflictos antes de que ocurran.",
+        "isCorrect": true
+      },
+      {
+        "text": "El reporte técnico Statistical Report.",
+        "rationale": "Los reportes estadísticos se basan en datos históricos de ejecuciones pasadas para análisis posterior.",
+        "isCorrect": false
+      },
+      {
+        "text": "El monitor gráfico Workflow Monitor.",
+        "rationale": "Se utiliza para supervisar el progreso de un flujo de trabajo que ya está en curso.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Busca el término inglés que se traduce comúnmente como 'pronóstico' o 'previsión'."
+  },
+  {
+    "guid": "d452c5a4-8425-424d-8796-914215184282",
+    "subjectId": "T31",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Cuál es la característica principal de un objeto Schedule (JSCH)?",
+    "answerOptions": [
+      {
+        "text": "Funciona exclusivamente en ciclos de 24 horas.",
+        "rationale": "Los Schedule están diseñados para gestionar la carga diaria recurrente y se reinician cada jornada.",
+        "isCorrect": true
+      },
+      {
+        "text": "Gestiona únicamente transferencias de archivos.",
+        "rationale": "Es un contenedor general que puede albergar cualquier tipo de Job o Workflow para su ejecución cíclica.",
+        "isCorrect": false
+      },
+      {
+        "text": "Se utiliza para definir festivos en el calendario.",
+        "rationale": "La lógica de días festivos y reglas de fechas reside en los Calendar Objects, no en el Schedule.",
+        "isCorrect": false
+      },
+      {
+        "text": "Sustituye por completo al uso de los agentes.",
+        "rationale": "El Schedule es un planificador lógico; los agentes siguen siendo necesarios para la ejecución física en servidores.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Recuerda el periodo de tiempo estándar en el que se basa la planificación cíclica de este objeto."
+  },
+  {
+    "guid": "904359f8-1f50-4cd3-8980-4aff57b6ca9a",
+    "subjectId": "T31",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En el Ayuntamiento de Barcelona, ¿qué equipo es responsable de la supervisión 24x7 de los procesos batch?",
+    "answerOptions": [
+      {
+        "text": "El equipo de desarrollo de aplicaciones ERP.",
+        "rationale": "Los desarrolladores crean la lógica, pero la supervisión operativa constante recae en un equipo de explotación.",
+        "isCorrect": false
+      },
+      {
+        "text": "El grupo de Operación Técnica de Explotación (OTE).",
+        "rationale": "Este equipo supervisa procesos, genera informes de anomalías y gestiona la resolución inicial de fallos.",
+        "isCorrect": true
+      },
+      {
+        "text": "La unidad de administración de base de datos.",
+        "rationale": "Aunque gestionan el motor de BD de UC4, no son los encargados del monitoreo funcional de todos los flujos batch.",
+        "isCorrect": false
+      },
+      {
+        "text": "El departamento de seguridad física del IMI.",
+        "rationale": "La seguridad física es distinta de la explotación técnica de procesos batch automatizados en la plataforma.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Sus siglas coinciden con el equipo encargado de la 'Operación Técnica' en el entorno municipal."
+  },
+  {
+    "guid": "dcb8ad34-6f52-49e1-a198-22adba1de62b",
+    "subjectId": "T31",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Cómo se integra UC4 con la gestión de incidencias en el entorno del Ayuntamiento de Barcelona?",
+    "answerOptions": [
+      {
+        "text": "Mediante el envío de SMS manuales por los técnicos.",
+        "rationale": "La integración es automatizada a través de herramientas de Help Desk, no depende de acciones manuales.",
+        "isCorrect": false
+      },
+      {
+        "text": "Creando un ticket automático al detectar un fallo.",
+        "rationale": "UC4 está vinculado a la herramienta corporativa para asignar tareas de resolución al grupo pertinente de forma inmediata.",
+        "isCorrect": true
+      },
+      {
+        "text": "Bloqueando todos los agentes hasta que se resuelva.",
+        "rationale": "El bloqueo total sería contraproducente; el sistema continúa operando mientras se gestiona la incidencia específica.",
+        "isCorrect": false
+      },
+      {
+        "text": "Eliminando el historial del Job para ahorrar espacio.",
+        "rationale": "El historial es fundamental para el diagnóstico, por lo que nunca se elimina ante una incidencia.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piensa en el proceso estándar de ITIL para registrar fallos de forma automática."
+  },
+  {
+    "guid": "4e4da601-c74c-4203-b1c3-80812392357c",
+    "subjectId": "T31",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Qué normativa exige que cada Job en UC4 deje un rastro en el log para asegurar la trazabilidad?",
+    "answerOptions": [
+      {
+        "text": "La ley general de presupuestos municipales.",
+        "rationale": "Aunque afecta a la gestión, no es la norma técnica que regula la seguridad de los sistemas de información.",
+        "isCorrect": false
+      },
+      {
+        "text": "El Esquema Nacional de Seguridad (ENS).",
+        "rationale": "El ENS obliga al control, registro y trazabilidad de todos los procesos automáticos en la administración pública.",
+        "isCorrect": true
+      },
+      {
+        "text": "El protocolo de comunicaciones TCP/IP estándar.",
+        "rationale": "TCP/IP es un protocolo de red, no una normativa de seguridad y auditoría de procesos batch.",
+        "isCorrect": false
+      },
+      {
+        "text": "La guía de estilo de programación en Shell script.",
+        "rationale": "Esta es una recomendación de buenas prácticas de código, no un imperativo legal de seguridad nacional.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Se trata de un marco normativo español de obligado cumplimiento para la seguridad en el sector público."
+  },
+  {
+    "guid": "6c0782a3-6ee5-4e80-ac50-bd4f2e6793f1",
+    "subjectId": "T31",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Dentro de los tipos de variables en UC4, ¿qué función cumple una variable de tipo SQL (VARA.SQL)?",
+    "answerOptions": [
+      {
+        "text": "Almacenar archivos de texto en formato plano.",
+        "rationale": "Este tipo de almacenamiento es ineficiente para una variable diseñada para consultas estructuradas.",
+        "isCorrect": false
+      },
+      {
+        "text": "Obtener valores directamente de una base de datos.",
+        "rationale": "Permite recuperar información dinámica mediante consultas SQL para ser usada en otros Jobs o condiciones.",
+        "isCorrect": true
+      },
+      {
+        "text": "Cifrar las contraseñas de los administradores.",
+        "rationale": "Para la gestión de accesos y credenciales se utilizan variables específicas de tipo SECURITY o LOGIN.",
+        "isCorrect": false
+      },
+      {
+        "text": "Definir los nombres de los servidores agentes.",
+        "rationale": "Los agentes se definen como objetos de sistema y no mediante variables SQL de consulta dinámica.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considera qué lenguaje se utiliza habitualmente para interactuar con bases de datos relacionales."
+  },
+  {
+    "guid": "99304d79-1a58-4607-86d8-40d4ab370fb7",
+    "subjectId": "T31",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Cuál es una 'buena práctica' recomendada para el mantenimiento de Workflows complejos?",
+    "answerOptions": [
+      {
+        "text": "Codificar fechas específicas dentro de los scripts.",
+        "rationale": "Esto dificulta el mantenimiento; es preferible usar objetos de Calendario centralizados para mayor flexibilidad.",
+        "isCorrect": false
+      },
+      {
+        "text": "Fomentar la modularidad y reutilización de Jobs.",
+        "rationale": "Definir componentes genéricos reduce la duplicación y facilita la aplicación de cambios globales en un solo punto.",
+        "isCorrect": true
+      },
+      {
+        "text": "Evitar el uso de nombres descriptivos para ahorrar bits.",
+        "rationale": "La nomenclatura clara y consistente es vital para que el equipo de operación identifique los procesos rápidamente.",
+        "isCorrect": false
+      },
+      {
+        "text": "Asignar permisos totales a todos los usuarios.",
+        "rationale": "Se debe aplicar el principio de mínimos privilegios para garantizar la seguridad y estabilidad del entorno.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piensa en un principio de diseño que permita hacer cambios en un sitio y que se reflejen en muchos otros."
+  },
+  {
+    "guid": "fa1bc060-a3a4-452c-81d2-9bb9fbb25768",
+    "subjectId": "T31",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En el Activity Window, ¿qué acciones puede realizar un operador sobre un proceso en tiempo real?",
+    "answerOptions": [
+      {
+        "text": "Modificar el código fuente del script original.",
+        "rationale": "El código del script debe modificarse en la definición del objeto, no desde la ventana de monitorización activa.",
+        "isCorrect": false
+      },
+      {
+        "text": "Parar, cancelar o poner en espera una ejecución.",
+        "rationale": "Esta ventana permite el control operativo directo sobre las tareas que están activas o planificadas.",
+        "isCorrect": true
+      },
+      {
+        "text": "Borrar permanentemente el objeto de la base de datos.",
+        "rationale": "El borrado de objetos es una tarea de administración de diseño, no una acción de control de flujo en ejecución.",
+        "isCorrect": false
+      },
+      {
+        "text": "Cambiar la contraseña del usuario del sistema operativo.",
+        "rationale": "La gestión de identidades es ajena a las funciones de control de tareas del Activity Window.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Identifica las funciones típicas de control de flujo que un técnico necesitaría para gestionar un Job atascado."
+  },
+  {
+    "guid": "ebc93116-d586-4056-b7a6-4308f7c67116",
+    "subjectId": "T31",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Qué representa el RunID en el ciclo de vida de un proceso en UC4?",
+    "answerOptions": [
+      {
+        "text": "El nombre único que se le da al Job al crearlo.",
+        "rationale": "El nombre del objeto es estático, mientras que el RunID es un número que identifica una instancia de ejecución única.",
+        "isCorrect": false
+      },
+      {
+        "text": "Un identificador numérico único de la ejecución.",
+        "rationale": "Cada vez que un objeto se activa, se le asigna este ID para rastrear sus logs, resultados y estadísticas.",
+        "isCorrect": true
+      },
+      {
+        "text": "La dirección IP del agente donde corre la tarea.",
+        "rationale": "La IP es un atributo de red del Agente, no un identificador de la tarea ejecutada.",
+        "isCorrect": false
+      },
+      {
+        "text": "El código de error devuelto al finalizar el script.",
+        "rationale": "El código de retorno se conoce como exit code; el RunID se asigna incluso antes de saber si el Job fallará.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Es la 'matrícula' que recibe cada intento de ejecución para poder localizar su información posteriormente."
+  },
+  {
+    "guid": "f7007e46-7958-4d1a-9643-e6660e6bed2e",
+    "subjectId": "T31",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Qué tipo de objeto se utiliza específicamente para la transferencia de ficheros (File Transfer)?",
+    "answerOptions": [
+      {
+        "text": "El objeto de tipo script interno SCRI.",
+        "rationale": "SCRI se usa para lógica interna de UC4 y no para mover datos entre servidores remotos.",
+        "isCorrect": false
+      },
+      {
+        "text": "El objeto ejecutable de tipo JOBF.",
+        "rationale": "JOBF es el objeto especializado que gestiona el origen, destino y seguridad en el movimiento de archivos.",
+        "isCorrect": true
+      },
+      {
+        "text": "El objeto de grupo de tareas JOBG.",
+        "rationale": "JOBG agrupa múltiples trabajos para su gestión conjunta, pero no define la lógica de transferencia de datos.",
+        "isCorrect": false
+      },
+      {
+        "text": "El objeto de evento de tiempo EVNT.",
+        "rationale": "Este evento solo lanza tareas basándose en el reloj, no realiza el movimiento físico de la información.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Busca la abreviatura que incluye la 'F' de 'File' en su nomenclatura técnica."
+  },
+  {
+    "guid": "50ba1236-ed04-468e-8105-daea3da423e1",
+    "subjectId": "T31",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En el Monitor de Workflow, ¿qué color indica visualmente que una tarea ha fallado (Error)?",
+    "answerOptions": [
+      {
+        "text": "El color verde esmeralda intenso.",
+        "rationale": "El color verde se reserva exclusivamente para indicar que una tarea ha finalizado con éxito (OK).",
+        "isCorrect": false
+      },
+      {
+        "text": "El color rojo en el diagrama del flujo.",
+        "rationale": "El rojo es el estándar visual en UC4 para alertar sobre tareas que han terminado con error o ENDED_NOT_OK.",
+        "isCorrect": true
+      },
+      {
+        "text": "El color gris o azulado pálido.",
+        "rationale": "Estos colores suelen representar tareas que están pendientes, bloqueadas o que aún no han sido iniciadas.",
+        "isCorrect": false
+      },
+      {
+        "text": "El color amarillo brillante intermitente.",
+        "rationale": "El amarillo suele indicar estados de espera o advertencia, pero no es el color definitivo de fallo en el monitor.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Es el color universalmente utilizado para indicar peligro o detención por fallo en sistemas de control."
+  }
+]
