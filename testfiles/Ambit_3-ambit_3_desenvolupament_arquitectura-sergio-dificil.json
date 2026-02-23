@@ -1,0 +1,932 @@
+[
+  {
+    "guid": "bc5a2629-63b8-4ffa-a9dd-ce8fabbe5136",
+    "subjectId": "Ambit_3",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Una administración local está implementando SAP TRM para la gestión del IBI. Durante el diseño del modelo de datos maestros, surge una duda sobre cómo vincular a un ciudadano que posee tres inmuebles distintos. ¿Cuál es la estructura de relación más adecuada siguiendo el estándar de SAP TRM?",
+    "answerOptions": [
+      {
+        "text": "Un único Business Partner (BP) vinculado a una única Cuenta de Contrato, la cual agrupa tres Objetos de Contrato independientes.",
+        "rationale": "El Business Partner representa a la persona, la Cuenta de Contrato gestiona la relación financiera y los Objetos de Contrato representan los bienes tributables individuales.",
+        "isCorrect": true
+      },
+      {
+        "text": "Tres Business Partner (BP) distintos, uno por cada inmueble, vinculados a un único Objeto de Contrato central.",
+        "rationale": "Esto duplicaría la información del ciudadano innecesariamente y contraviene la visión de 360 grados del contribuyente.",
+        "isCorrect": false
+      },
+      {
+        "text": "Un Business Partner (BP) vinculado directamente a tres Cuentas de Contrato, sin necesidad de definir Objetos de Contrato.",
+        "rationale": "Los Objetos de Contrato son técnicos e imprescindibles en TRM para representar la base imponible física como el inmueble.",
+        "isCorrect": false
+      },
+      {
+        "text": "Un solo Objeto de Contrato que contenga tres Cuentas de Contrato para el mismo Business Partner.",
+        "rationale": "Un objeto de contrato representa un bien específico; agrupar tres inmuebles en uno dificultaría la gestión individual de recibos.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considere la jerarquía de entidades: persona, relación financiera y bien físico."
+  },
+  {
+    "guid": "8f21f4a4-ca4d-4c9d-b7b4-5e4191d3e9b4",
+    "subjectId": "Ambit_3",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "En el marco del Esquema Nacional de Seguridad (ENS), una organización de categoría ALTA debe nombrar a los responsables de sus sistemas. Según el Artículo 11 (anteriormente 10), ¿qué restricción es crítica respecto a la segregación de funciones?",
+    "answerOptions": [
+      {
+        "text": "El Responsable del Sistema y el Responsable de la Seguridad no deben recaer en la misma persona.",
+        "rationale": "La normativa exige que la función de seguridad sea diferenciada para garantizar la objetividad y supervisión de los controles técnicos.",
+        "isCorrect": true
+      },
+      {
+        "text": "El Responsable de la Información y el Responsable del Servicio deben ser obligatoriamente personal externo para evitar conflictos de interés.",
+        "rationale": "La norma no exige que sean externos, sino que define sus roles dentro de la organización administrativa.",
+        "isCorrect": false
+      },
+      {
+        "text": "El Administrador de Sistemas puede asumir el rol de Responsable de Seguridad si posee la Habilitación Personal de Seguridad (HPS).",
+        "rationale": "Incluso con HPS, la segregación de funciones impide que quien opera el sistema sea quien audite su seguridad.",
+        "isCorrect": false
+      },
+      {
+        "text": "La función de seguridad debe estar integrada dentro de la unidad de desarrollo de software para asegurar el DevSecOps.",
+        "rationale": "Aunque el DevSecOps es una buena práctica, el ENS requiere una diferenciación jerárquica o funcional clara para la responsabilidad de seguridad.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en quién supervisa el cumplimiento de las políticas de protección frente a quién opera la infraestructura."
+  },
+  {
+    "guid": "630ce92b-5aa4-47aa-acf6-7f170410a5e4",
+    "subjectId": "Ambit_3",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Un arquitecto de datos está diseñando un Data Lake para un organismo público que recibe millones de registros de sensores IoT urbanos. Se debate entre aplicar 'schema-on-read' o 'schema-on-write'. ¿Cuál es la implicación principal de optar por un enfoque de Data Lake puro?",
+    "answerOptions": [
+      {
+        "text": "Se aplica 'schema-on-read', permitiendo almacenar los datos en su formato original (raw) y definiendo la estructura solo en el momento de la consulta.",
+        "rationale": "Esta es la característica fundamental de los Data Lakes, proporcionando flexibilidad para diversos análisis futuros sin procesamiento previo rígido.",
+        "isCorrect": true
+      },
+      {
+        "text": "Se aplica 'schema-on-write', obligando a que todos los datos se transformen mediante procesos ETL antes de entrar al repositorio.",
+        "rationale": "Este enfoque es propio de los Data Warehouses tradicionales, donde la estructura debe estar predefinida y limpia.",
+        "isCorrect": false
+      },
+      {
+        "text": "El uso de 'schema-on-read' invalida la posibilidad de realizar consultas SQL mediante motores como Presto o Spark.",
+        "rationale": "Al contrario, estos motores están diseñados precisamente para proyectar esquemas sobre datos almacenados en bruto.",
+        "isCorrect": false
+      },
+      {
+        "text": "El 'schema-on-write' es más económico en términos de almacenamiento ya que elimina los metadatos innecesarios.",
+        "rationale": "El almacenamiento en Data Lakes suele ser más barato (objetos en la nube) que el almacenamiento estructurado en bases de datos relacionales.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Recuerde cuándo se decide la estructura del dato en un entorno de almacenamiento masivo y flexible."
+  },
+  {
+    "guid": "6fbc4ce0-74a2-45f8-8b2a-a25aadd0319c",
+    "subjectId": "Ambit_3",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "En una arquitectura de microservicios para la tramitación de subvenciones, se requiere asegurar la consistencia entre el servicio de 'Expedientes' y el servicio de 'Contabilidad' (SAP FM). Si una reserva de crédito falla en SAP, se debe cancelar el expediente. ¿Qué patrón es el más adecuado para gestionar esta transacción distribuida?",
+    "answerOptions": [
+      {
+        "text": "Patrón SAGA, ejecutando transacciones locales y compensaciones si alguno de los pasos falla.",
+        "rationale": "Las SAGAs gestionan transacciones largas y distribuidas sin bloqueos de base de datos, manteniendo la consistencia final.",
+        "isCorrect": true
+      },
+      {
+        "text": "Transacción Distribuida Two-Phase Commit (2PC) para garantizar atomicidad inmediata en todos los servicios.",
+        "rationale": "2PC no escala bien en microservicios y genera acoplamiento y bloqueos que afectan la disponibilidad.",
+        "isCorrect": false
+      },
+      {
+        "text": "Integración síncrona mediante REST con reintentos infinitos hasta que SAP confirme la operación.",
+        "rationale": "Esto puede causar un desbordamiento de hilos y no soluciona el problema si el fallo es funcional (ej. falta de presupuesto).",
+        "isCorrect": false
+      },
+      {
+        "text": "Patrón Sidecar para que un contenedor auxiliar gestione la base de datos compartida por ambos microservicios.",
+        "rationale": "Los microservicios no deben compartir base de datos; el patrón Sidecar se usa para funcionalidades de infraestructura, no de negocio.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considere el concepto de 'consistencia eventual' y la necesidad de deshacer pasos previos."
+  },
+  {
+    "guid": "3cb50ab0-e32f-443c-a9dd-00aaaf709f4c",
+    "subjectId": "Ambit_3",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "El departamento de Recursos Humanos de una Diputación utiliza SAP HCM y desea asegurar que ninguna contratación nueva se realice si la plaza no tiene dotación presupuestaria suficiente en el ejercicio actual. ¿Qué componente técnico es responsable de esta validación?",
+    "answerOptions": [
+      {
+        "text": "Position Budgeting and Control (PBC), que vincula las posiciones de OM con el presupuesto de FM.",
+        "rationale": "PBC permite controlar que las plazas (posiciones) estén autorizadas y presupuestadas antes de ser ocupadas por un empleado.",
+        "isCorrect": true
+      },
+      {
+        "text": "SAP SuccessFactors Employee Central, mediante la integración nativa con el módulo de Controlling (CO).",
+        "rationale": "SuccessFactors es principalmente para gestión de talento; el control presupuestario estricto de plazas públicas reside en el núcleo ERP/HCM.",
+        "isCorrect": false
+      },
+      {
+        "text": "Módulo de Personnel Administration (PA), configurando una regla de nómina (PCR) para el concepto retributivo.",
+        "rationale": "PA gestiona los datos maestros del empleado, pero el control preventivo del presupuesto de la estructura se hace desde OM/PBC.",
+        "isCorrect": false
+      },
+      {
+        "text": "Módulo de SAP Travel Management, verificando los gastos de viaje asociados a la plaza.",
+        "rationale": "Este módulo gestiona liquidaciones de viajes y no tiene relación con el control de vacantes o dotación de plazas.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Busque la herramienta que une la estructura organizativa con la disponibilidad de crédito."
+  },
+  {
+    "guid": "afc960ce-563b-462c-be43-8d59a8561b1a",
+    "subjectId": "Ambit_3",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Un equipo de desarrollo está migrando una aplicación legacy a un entorno cloud-native en Kubernetes. Necesitan implementar la recolección de logs sin modificar el código fuente de la aplicación principal. ¿Qué enfoque arquitectónico es el más recomendado?",
+    "answerOptions": [
+      {
+        "text": "Implementar un contenedor Sidecar en el mismo Pod que ejecute un agente de logging (ej. Fluentd) que lea los logs de un volumen compartido.",
+        "rationale": "El patrón Sidecar permite añadir funcionalidades periféricas como observabilidad o seguridad de forma transparente al contenedor principal.",
+        "isCorrect": true
+      },
+      {
+        "text": "Configurar el servidor de aplicaciones para que envíe los logs directamente a una base de datos MySQL centralizada mediante JDBC.",
+        "rationale": "Esto obligaría a modificar el código o la configuración interna, aumentando el acoplamiento y afectando el rendimiento.",
+        "isCorrect": false
+      },
+      {
+        "text": "Crear un DaemonSet que obligue a todos los nodos del clúster a escribir en el sistema de archivos del host.",
+        "rationale": "Escribir en el host rompe el aislamiento de contenedores y dificulta la persistencia y centralización de los logs.",
+        "isCorrect": false
+      },
+      {
+        "text": "Utilizar el patrón SAGA para coordinar la escritura de logs entre los diferentes microservicios.",
+        "rationale": "El patrón SAGA es para transacciones de negocio, no para la gestión técnica de logs de infraestructura.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en un componente que acompaña a la aplicación dentro de la misma unidad de despliegue."
+  },
+  {
+    "guid": "a489185e-963b-4e83-a61d-c58e060bf228",
+    "subjectId": "Ambit_3",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "En un proyecto de Big Data con Hadoop, se observa que el rendimiento de las consultas analíticas sobre grandes volúmenes de datos históricos es muy pobre. Los datos están almacenados en formato JSON. ¿Qué cambio estructural mejoraría drásticamente el rendimiento de lectura?",
+    "answerOptions": [
+      {
+        "text": "Migrar los datos a un formato columnar como Apache Parquet, que permite leer solo las columnas necesarias para el análisis.",
+        "rationale": "Los formatos columnares optimizan el almacenamiento y la velocidad de consulta en cargas de trabajo de tipo OLAP al minimizar el I/O.",
+        "isCorrect": true
+      },
+      {
+        "text": "Aumentar el número de NameNodes en el clúster HDFS para mejorar la gestión de los metadatos.",
+        "rationale": "El NameNode gestiona la estructura de archivos, no el contenido; el cuello de botella en consultas analíticas suele ser el escaneo de datos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Cambiar el motor de procesamiento MapReduce por un sistema de archivos ext4 local en cada nodo.",
+        "rationale": "Eliminar HDFS rompería la capacidad de procesamiento distribuido y escalabilidad del clúster.",
+        "isCorrect": false
+      },
+      {
+        "text": "Convertir todos los datos JSON a archivos CSV planos para eliminar la sobrecarga de las etiquetas.",
+        "rationale": "CSV sigue siendo un formato orientado a filas y no ofrece las ventajas de compresión y proyección de columnas de Parquet.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "La clave está en cómo se organizan los datos físicamente para optimizar el acceso a campos específicos."
+  },
+  {
+    "guid": "07f6e2ca-6360-40b0-9d81-81f0760fb505",
+    "subjectId": "Ambit_3",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Se está diseñando la base de datos para una nueva red de bibliotecas. Se define una entidad 'Socio' que tiene dos subtipos: 'Infantil' y 'Adulto'. ¿Qué significa que esta especialización sea 'Total' y 'Disjunta'?",
+    "answerOptions": [
+      {
+        "text": "Todo socio debe pertenecer obligatoriamente a una de las categorías (Total) y no puede ser infantil y adulto al mismo tiempo (Disjunta).",
+        "rationale": "La especialización total obliga a la pertenencia a un subtipo y la disjunta prohíbe la superposición de instancias.",
+        "isCorrect": true
+      },
+      {
+        "text": "Existen socios que pueden no ser ni infantiles ni adultos (Total) y un socio puede tener ambos carnets (Disjunta).",
+        "rationale": "Esto describiría una especialización parcial y solapada, lo contrario a lo solicitado.",
+        "isCorrect": false
+      },
+      {
+        "text": "La categoría 'Adulto' hereda todos los atributos de 'Infantil' de forma automática.",
+        "rationale": "La herencia se produce desde el supertipo (Socio) hacia los subtipos, no entre subtipos hermanos.",
+        "isCorrect": false
+      },
+      {
+        "text": "El sistema permite crear socios sin asignarles categoría, siempre que no tengan préstamos activos.",
+        "rationale": "La especialización total impide precisamente la existencia de instancias en el supertipo que no estén en algún subtipo.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Relacione 'Total' con obligatoriedad y 'Disjunta' con exclusividad."
+  },
+  {
+    "guid": "72ced4cb-3d7f-4cc4-9e6a-a73f5dd8800f",
+    "subjectId": "Ambit_3",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "En el contexto de FinOps, un Director TIC observa que los costes de la nube han aumentado un 30% sin un incremento correlativo en el uso de los servicios. Al analizarlo, descubre que hay miles de recursos sin identificar. ¿Qué práctica es prioritaria para corregir esta situación?",
+    "answerOptions": [
+      {
+        "text": "Implementar una política de etiquetado (Tagging) obligatoria para asignar cada recurso a un centro de coste o proyecto.",
+        "rationale": "El etiquetado es la base de la fase 'Inform' de FinOps para lograr visibilidad y asignación de costes precisa.",
+        "isCorrect": true
+      },
+      {
+        "text": "Apagar todos los entornos de desarrollo y pruebas durante los fines de semana de forma manual.",
+        "rationale": "Aunque ahorra dinero, no soluciona el problema de fondo de la falta de trazabilidad y gobernanza de los costes.",
+        "isCorrect": false
+      },
+      {
+        "text": "Migrar todos los servicios a una arquitectura On-Premise para eliminar la variabilidad de la factura.",
+        "rationale": "Esto ignora los beneficios del cloud y no resuelve la mala gestión interna de los activos existentes.",
+        "isCorrect": false
+      },
+      {
+        "text": "Solicitar un descuento por volumen (Reserved Instances) al proveedor cloud inmediatamente.",
+        "rationale": "Antes de comprometerse a pagos a largo plazo, es necesario saber qué se está usando y si es eficiente.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en la necesidad de categorizar los activos para poder auditarlos."
+  },
+  {
+    "guid": "ab0b2b8b-0a0d-464f-8f1e-c48ef94f2ab4",
+    "subjectId": "Ambit_3",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Un desarrollador de aplicaciones móviles para un ayuntamiento debe elegir entre Flutter o una App Nativa (Swift/Kotlin) para una nueva herramienta de avisos ciudadanos. ¿Qué factor técnico de Flutter sería determinante para elegirlo en un entorno de recursos limitados?",
+    "answerOptions": [
+      {
+        "text": "La capacidad de usar un único código base para desplegar en Android e iOS manteniendo un rendimiento cercano al nativo.",
+        "rationale": "Flutter permite el desarrollo multiplataforma eficiente, reduciendo costes de mantenimiento y tiempos de salida al mercado.",
+        "isCorrect": true
+      },
+      {
+        "text": "El acceso directo a las APIs del kernel de cada sistema operativo sin necesidad de puentes (bridges) de comunicación.",
+        "rationale": "Flutter usa un motor gráfico propio y requiere canales de plataforma para acceder a funciones nativas específicas.",
+        "isCorrect": false
+      },
+      {
+        "text": "La posibilidad de ejecutar la aplicación directamente en un navegador web sin necesidad de compilación previa.",
+        "rationale": "Aunque existe Flutter Web, las apps móviles requieren un proceso de compilación específico para generar los binarios .apk o .ipa.",
+        "isCorrect": false
+      },
+      {
+        "text": "La eliminación total del riesgo de errores de interfaz gracias a que no utiliza componentes visuales (widgets).",
+        "rationale": "Al contrario, Flutter se basa enteramente en widgets; todo en su arquitectura es un widget.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en la eficiencia de mantener un solo equipo de desarrollo frente a dos."
+  },
+  {
+    "guid": "d42599a4-7a02-4abc-9dd3-39d38cbcc6d4",
+    "subjectId": "Ambit_3",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Se está planificando la estrategia de pruebas para un nuevo ERP. El equipo propone realizar 'Pruebas Alfa'. ¿En qué momento y entorno deben realizarse según las buenas prácticas del PMBOK y la gestión de calidad?",
+    "answerOptions": [
+      {
+        "text": "Al final de la fase de desarrollo, realizadas por personal interno de la organización en el entorno de desarrollo.",
+        "rationale": "Las pruebas Alfa son pruebas de aceptación interna antes de pasar a usuarios reales externos o finales (Beta).",
+        "isCorrect": true
+      },
+      {
+        "text": "Durante la operación real del sistema, realizadas por los ciudadanos para detectar errores de usabilidad en producción.",
+        "rationale": "Esto describiría pruebas Beta o monitorización post-lanzamiento, lo cual es muy arriesgado para una fase Alfa.",
+        "isCorrect": false
+      },
+      {
+        "text": "Únicamente después de que el sistema haya fallado en producción, para verificar que el parche funciona.",
+        "rationale": "Eso serían pruebas de regresión o de reparación de defectos, no pruebas Alfa.",
+        "isCorrect": false
+      },
+      {
+        "text": "Automáticamente por el compilador cada vez que se sube una línea de código al repositorio central.",
+        "rationale": "Eso son pruebas unitarias o de integración continua, no pruebas de aceptación de nivel Alfa.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Diferencie entre el equipo que construye el producto y el usuario final que lo consume."
+  },
+  {
+    "guid": "5439d256-5670-4003-b3e8-ac6b06fdf6e5",
+    "subjectId": "Ambit_3",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "En una red corporativa que utiliza el protocolo OSPF, se dispone de dos enlaces para llegar a un destino: un enlace de fibra a $1000\\text{ Mbps}$ y un radioenlace de respaldo de $100\\text{ Mbps}$. Si los costes se calculan por el método estándar ($10^8/\\text{BW}$), ¿cómo actuará el router?",
+    "answerOptions": [
+      {
+        "text": "Elegirá siempre el enlace de fibra porque su coste asociado es menor ($1$ frente a $10$).",
+        "rationale": "OSPF es un protocolo de estado de enlace que siempre busca el camino con el coste total acumulado más bajo.",
+        "isCorrect": true
+      },
+      {
+        "text": "Dividirá el tráfico al $50\\%$ entre ambos enlaces para maximizar el aprovechamiento de la red.",
+        "rationale": "OSPF solo hace balanceo de carga (ECMP) si los costes de los caminos son exactamente iguales.",
+        "isCorrect": false
+      },
+      {
+        "text": "Elegirá el radioenlace si la latencia es menor, independientemente del ancho de banda.",
+        "rationale": "Por defecto, OSPF utiliza el ancho de banda para calcular el coste y no tiene en cuenta la latencia del enlace.",
+        "isCorrect": false
+      },
+      {
+        "text": "Elegirá el camino con el valor de coste más alto para asegurar que el enlace tenga capacidad de reserva.",
+        "rationale": "Los algoritmos de encaminamiento buscan la ruta más eficiente, lo cual equivale matemáticamente al coste mínimo.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Recuerde la relación entre el ancho de banda y la métrica de OSPF."
+  },
+  {
+    "guid": "bc4b2193-8cd1-4199-b9c2-856576fdc277",
+    "subjectId": "Ambit_3",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Una institución pública está evaluando el uso de Blockchain para el registro de títulos académicos. Se debate sobre el uso de 'Proof of Work' (PoW). ¿Cuál es la principal desventaja técnica de este mecanismo de consenso en un entorno gubernamental?",
+    "answerOptions": [
+      {
+        "text": "El altísimo consumo energético y la baja escalabilidad en número de transacciones por segundo.",
+        "rationale": "PoW requiere una potencia de cómputo masiva para resolver acertijos criptográficos, lo que lo hace ineficiente para redes privadas o de alto rendimiento.",
+        "isCorrect": true
+      },
+      {
+        "text": "La imposibilidad de garantizar la inmutabilidad de los datos una vez registrados en el bloque.",
+        "rationale": "PoW es precisamente uno de los mecanismos más seguros para garantizar la inmutabilidad gracias al coste de revertir la cadena.",
+        "isCorrect": false
+      },
+      {
+        "text": "Que cualquier nodo de la red puede borrar registros si posee el $10\\%$ de la potencia de cálculo.",
+        "rationale": "Se necesitaría al menos el $51\\%$ de la potencia de cálculo para intentar un ataque de doble gasto o censura.",
+        "isCorrect": false
+      },
+      {
+        "text": "La necesidad de utilizar algoritmos de cifrado simétrico que son vulnerables a la computación cuántica.",
+        "rationale": "Blockchain usa principalmente criptografía asimétrica y funciones hash, no es una debilidad exclusiva de PoW.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en la eficiencia del proceso de 'minado' y la sostenibilidad."
+  },
+  {
+    "guid": "c4fe2045-cfdf-4ac3-a4ff-110dcf2eefdf",
+    "subjectId": "Ambit_3",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Durante una auditoría del ENS, se detecta que los administradores de un sistema de categoría MEDIA no cuentan con HPS (Habilitación Personal de Seguridad). ¿Cuál es la interpretación correcta de la norma en este caso?",
+    "answerOptions": [
+      {
+        "text": "La medida [mp.per.1.r1] solo es de aplicación obligatoria para categorías MEDIA y ALTA si así lo determina el análisis de riesgos o un sistema específico.",
+        "rationale": "Los refuerzos como la HPS dependen de la criticidad detectada en el análisis de riesgos previo para esas categorías.",
+        "isCorrect": true
+      },
+      {
+        "text": "Es un incumplimiento grave ya que la HPS es obligatoria para cualquier rol en cualquier categoría del ENS.",
+        "rationale": "En la categoría BÁSICA la medida no aplica y en las superiores está sujeta a condicionantes técnicos.",
+        "isCorrect": false
+      },
+      {
+        "text": "La HPS solo se requiere para el personal externo, el personal funcionario está exento por su propia condición.",
+        "rationale": "La norma aplica por igual a personal propio y externo si las funciones de administración lo requieren por riesgo.",
+        "isCorrect": false
+      },
+      {
+        "text": "La medida se subsana automáticamente si el administrador firma un compromiso de confidencialidad estándar.",
+        "rationale": "Un compromiso de confidencialidad es una medida distinta (Deberes y obligaciones) y no sustituye a la habilitación formal.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Revise la tabla de aplicación de la medida 'Refuerzo R1-Habilitación Personal de Seguridad'."
+  },
+  {
+    "guid": "6f61a977-39b7-4113-a1bc-78f6259f878a",
+    "subjectId": "Ambit_3",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "En SAP Financials para el Sector Público (EA-PS), un usuario intenta contabilizar una factura de proveedor (FI-AP), pero el sistema emite un error indicando 'Presupuesto excedido'. ¿Qué módulo de la extensión EA-PS está bloqueando la operación?",
+    "answerOptions": [
+      {
+        "text": "Funds Management (FM), que realiza el control preventivo de disponibilidad de crédito.",
+        "rationale": "FM es el encargado de verificar que existe saldo presupuestario antes de permitir compromisos u obligaciones legales.",
+        "isCorrect": true
+      },
+      {
+        "text": "General Ledger Accounting (FI-GL), que valida que la partida doble sea correcta.",
+        "rationale": "FI-GL se ocupa de la contabilidad financiera general y balances, pero no de los límites presupuestarios administrativos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Treasury and Risk Management (TRM), que controla la posición de caja en los bancos.",
+        "rationale": "TRM gestiona la liquidez y las cuentas bancarias, no los créditos presupuestarios asignados a las unidades.",
+        "isCorrect": false
+      },
+      {
+        "text": "Controlling (CO), que calcula los costes internos de los centros de coste.",
+        "rationale": "CO se usa para contabilidad analítica; aunque puede avisar de desviaciones, el bloqueo legal presupuestario es función de FM.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Identifique el módulo cuya función principal es el 'seguimiento de ejecución presupuestaria'."
+  },
+  {
+    "guid": "aea6ff5f-d861-4b3a-9b86-ec42bba08289",
+    "subjectId": "Ambit_3",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Un organismo decide utilizar una plataforma No-Code para que los inspectores de vía pública creen sus propios formularios de recogida de datos. ¿Qué riesgo de gobierno TI es el más probable si no se establecen controles adecuados?",
+    "answerOptions": [
+      {
+        "text": "Proliferación de 'Shadow IT', con aplicaciones que manejan datos sensibles fuera del control de seguridad y cumplimiento normativo (GDPR/ENS).",
+        "rationale": "La facilidad de uso de No-Code permite a usuarios no técnicos crear herramientas que pueden evadir los estándares corporativos.",
+        "isCorrect": true
+      },
+      {
+        "text": "Incompatibilidad total con protocolos de red estándar como TCP/IP.",
+        "rationale": "Las plataformas No-Code suelen funcionar sobre navegadores y protocolos estándar; el riesgo es la gestión del dato, no la red.",
+        "isCorrect": false
+      },
+      {
+        "text": "Necesidad de contratar programadores expertos en Java para mantener la lógica de los formularios.",
+        "rationale": "El No-Code se basa precisamente en no requerir programación manual, por lo que este riesgo es contradictorio.",
+        "isCorrect": false
+      },
+      {
+        "text": "Reducción drástica de la velocidad de despliegue de nuevos servicios ciudadanos.",
+        "rationale": "Al contrario, una de las ventajas del No-Code es la agilidad y rapidez en la creación de aplicaciones sencillas.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en lo que ocurre cuando el departamento de informática pierde la visibilidad de lo que se desarrolla."
+  },
+  {
+    "guid": "f7492450-8edd-4ada-a552-06093e00d8ac",
+    "subjectId": "Ambit_3",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "En el diseño de una arquitectura SOA (Arquitectura Basada en Servicios), ¿cuál era la función principal de UDDI antes de ser desplazado por los portales de API modernos?",
+    "answerOptions": [
+      {
+        "text": "Servir como un directorio o catálogo para descubrir y publicar servicios web basados en SOAP.",
+        "rationale": "UDDI actuaba como las 'páginas amarillas' de los servicios en las arquitecturas SOA tradicionales.",
+        "isCorrect": true
+      },
+      {
+        "text": "Transformar automáticamente mensajes XML en formato JSON para aplicaciones móviles.",
+        "rationale": "La transformación de formatos es tarea del ESB (Enterprise Service Bus) o de Gateways, no de UDDI.",
+        "isCorrect": false
+      },
+      {
+        "text": "Garantizar que las transacciones entre microservicios sean ACID mediante el protocolo SAGA.",
+        "rationale": "UDDI no gestiona la lógica de las transacciones ni es propio de la arquitectura de microservicios pura.",
+        "isCorrect": false
+      },
+      {
+        "text": "Encriptar el canal de comunicación mediante certificados SSL/TLS de forma centralizada.",
+        "rationale": "UDDI es un registro de metadatos de servicios, no una herramienta de seguridad de transporte.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considere la necesidad de localizar un servicio en un ecosistema complejo."
+  },
+  {
+    "guid": "7d7e3d80-ba94-45f8-b40c-34f9f35f8435",
+    "subjectId": "Ambit_3",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Se está realizando un análisis de impacto de protección de datos (AIPD). ¿Cuál de los siguientes supuestos obligaría legalmente a realizarlo según el RGPD?",
+    "answerOptions": [
+      {
+        "text": "Observación sistemática a gran escala de una zona de acceso público (ej. videovigilancia inteligente urbana).",
+        "rationale": "El RGPD exige AIPD en casos de vigilancia sistemática y masiva de espacios públicos por el alto riesgo para los derechos.",
+        "isCorrect": true
+      },
+      {
+        "text": "Tratamiento de datos de contacto de empleados para la gestión de la nómina mensual.",
+        "rationale": "Este tratamiento es necesario para la ejecución del contrato y no supone, por sí solo, un riesgo excepcional.",
+        "isCorrect": false
+      },
+      {
+        "text": "Mantenimiento de una base de datos de proveedores con información puramente mercantil.",
+        "rationale": "Los datos de personas jurídicas o contactos profesionales para fines mercantiles suelen estar fuera del foco de alto riesgo del AIPD.",
+        "isCorrect": false
+      },
+      {
+        "text": "Uso de una hoja de cálculo local para organizar los turnos de vacaciones de un departamento de 5 personas.",
+        "rationale": "El bajo volumen y la baja sensibilidad de los datos no justifican la complejidad de una evaluación de impacto formal.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en la combinación de 'gran escala' y 'vigilancia'."
+  },
+  {
+    "guid": "68e6c017-6c3f-4099-afba-fc49c90bb591",
+    "subjectId": "Ambit_3",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Un director de proyecto está utilizando la técnica SIPOC para analizar un proceso de atención al ciudadano. ¿Qué representan las siglas S y P en este modelo?",
+    "answerOptions": [
+      {
+        "text": "Suppliers (Proveedores) y Process (Proceso).",
+        "rationale": "SIPOC es una herramienta para visualizar el flujo de trabajo desde los proveedores hasta los clientes.",
+        "isCorrect": true
+      },
+      {
+        "text": "Security (Seguridad) y Performance (Rendimiento).",
+        "rationale": "Aunque son términos importantes, no forman parte de la estructura del acrónimo SIPOC de gestión de procesos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Scope (Alcance) y Planning (Planificación).",
+        "rationale": "El modelo SIPOC se centra en los elementos del flujo de valor, no en las fases de gestión de proyectos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Software y Platforms (Plataformas).",
+        "rationale": "SIPOC es un diagrama de procesos de negocio independiente de si la ejecución es mediante software o manual.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Recuerde quién entrega las entradas y qué se hace con ellas."
+  },
+  {
+    "guid": "7aa2f620-528c-4e29-a5d5-4310c428b6cd",
+    "subjectId": "Ambit_3",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "En un Centro de Procesamiento de Datos (CPD) que aspira a ser TIER 3 (Concurrentemente Mantenible), ¿cuál es el requisito fundamental respecto a la infraestructura de energía y refrigeración?",
+    "answerOptions": [
+      {
+        "text": "Capacidad de realizar cualquier tarea de mantenimiento planificada en cualquier componente sin interrumpir el servicio.",
+        "rationale": "El TIER 3 requiere múltiples rutas de distribución activa y redundancia $N+1$ que permita el mantenimiento 'en caliente'.",
+        "isCorrect": true
+      },
+      {
+        "text": "Tener componentes redundantes $2N$, garantizando que el sistema soporte el fallo total de una rama activa.",
+        "rationale": "La tolerancia a fallos totales ($2N$ o $2N+1$) es una característica específica del TIER 4.",
+        "isCorrect": false
+      },
+      {
+        "text": "Contar con un único grupo electrógeno que se active en menos de 10 segundos tras un apagón.",
+        "rationale": "Eso sería insuficiente para TIER 3; un fallo en ese único grupo durante un mantenimiento detendría el servicio.",
+        "isCorrect": false
+      },
+      {
+        "text": "Uso obligatorio de refrigeración líquida directa al chip para todos los servidores.",
+        "rationale": "Los niveles TIER definen disponibilidad y redundancia, no obligan a una tecnología de refrigeración específica.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en la posibilidad de reparar una avería sin que los usuarios lo noten."
+  },
+  {
+    "guid": "73fa6ee5-aa91-4b6f-b270-0efe600678d8",
+    "subjectId": "Ambit_3",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Se desea automatizar el cálculo de las tasas de grúa municipal, que varían según el peso del vehículo, el tiempo de depósito y las bonificaciones por discapacidad. ¿Qué componente de SAP TRM es el motor ideal para definir estas reglas de negocio?",
+    "answerOptions": [
+      {
+        "text": "BRF+ (Business Rules Framework plus).",
+        "rationale": "BRF+ es el motor de reglas de SAP que permite modelar lógicas fiscales y de cálculo complejas sin programar código ABAP.",
+        "isCorrect": true
+      },
+      {
+        "text": "SAP Fiori.",
+        "rationale": "Fiori es la capa de interfaz de usuario, no el motor de procesamiento de reglas de negocio.",
+        "isCorrect": false
+      },
+      {
+        "text": "SAP CRM.",
+        "rationale": "CRM se usa para la interacción con el ciudadano (visión 360), pero no es el motor de cálculo de cuotas tributarias.",
+        "isCorrect": false
+      },
+      {
+        "text": "Business Partner (BP).",
+        "rationale": "BP es una entidad de datos maestros que representa al sujeto, no un motor de cálculo.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Busque la herramienta que permite configurar 'si sucede A y B, entonces el resultado es C'."
+  },
+  {
+    "guid": "14fda1b9-b8f0-406c-a75f-cc7ec46e7e70",
+    "subjectId": "Ambit_3",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Durante el desarrollo de una aplicación, se aplica el concepto 'Design for X' (DfX). Si el objetivo es minimizar los problemas de seguridad detectados tras el despliegue, ¿cuál es el enfoque correcto?",
+    "answerOptions": [
+      {
+        "text": "Design for Security, integrando guías técnicas y validaciones de seguridad desde la fase inicial de diseño del producto.",
+        "rationale": "DfX permite optimizar aspectos específicos (como la seguridad) durante el diseño para mejorar la calidad final.",
+        "isCorrect": true
+      },
+      {
+        "text": "Design for Manufacturing, centrándose exclusivamente en que el código se compile de la forma más rápida posible.",
+        "rationale": "Esto optimiza el proceso de construcción, pero no garantiza la protección contra vulnerabilidades en el uso.",
+        "isCorrect": false
+      },
+      {
+        "text": "Design for Cost, eliminando todas las funciones de cifrado para ahorrar ciclos de CPU y almacenamiento.",
+        "rationale": "Ahorrar costes eliminando seguridad es una mala práctica que compromete la integridad del sistema.",
+        "isCorrect": false
+      },
+      {
+        "text": "Design for Service, priorizando que el soporte técnico pueda acceder a todas las bases de datos sin contraseñas.",
+        "rationale": "Facilitar el servicio violando el principio de mínimo privilegio es un error grave de diseño de seguridad.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considere qué significa la 'X' en este conjunto de guías técnicas."
+  },
+  {
+    "guid": "8be3b054-c4e7-47fc-8a22-e54ec31ef7d0",
+    "subjectId": "Ambit_3",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Un desarrollador de DevOps está configurando una infraestructura como código (IaC) con Terraform. Para cumplir con los principios de FinOps, utiliza la herramienta Infracost. ¿Cuál es la utilidad de este flujo de trabajo?",
+    "answerOptions": [
+      {
+        "text": "Estimar el impacto económico de los cambios en la infraestructura antes de que se desplieguen y generen gasto real.",
+        "rationale": "Infracost analiza los archivos de configuración y proporciona una estimación de costes, permitiendo tomar decisiones informadas.",
+        "isCorrect": true
+      },
+      {
+        "text": "Bloquear automáticamente cualquier despliegue que no tenga un certificado SSL válido.",
+        "rationale": "La validación de certificados es una tarea de seguridad o cumplimiento (Compliance), no el objetivo principal de Infracost.",
+        "isCorrect": false
+      },
+      {
+        "text": "Optimizar el rendimiento de las consultas SQL mediante el análisis de los planes de ejecución.",
+        "rationale": "Infracost se centra en costes de infraestructura cloud, no en la optimización lógica de bases de datos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Garantizar que el código Terraform no contenga errores sintácticos o bucles infinitos.",
+        "rationale": "Esa es la función de comandos como 'terraform validate' o 'terraform plan' a nivel técnico, no financiero.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Relacione la herramienta con la prevención del 'despilfarro' en la nube."
+  },
+  {
+    "guid": "33522e1b-b76a-4e13-80d5-068361863468",
+    "subjectId": "Ambit_3",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "En el modelo entidad-relación de un sistema de gestión hospitalaria, se quiere representar que un 'Médico' puede tener varios 'Especialidades' y una 'Especialidad' puede ser ejercida por varios 'Médicos'. ¿Cómo se traduce esto al modelo relacional físico?",
+    "answerOptions": [
+      {
+        "text": "Creando una tabla intermedia (relación N:M) que contenga las claves foráneas de ambos y, opcionalmente, atributos de la relación.",
+        "rationale": "Las relaciones muchos a muchos requieren una tabla de unión para mantener la integridad referencial y evitar redundancias.",
+        "isCorrect": true
+      },
+      {
+        "text": "Incluyendo la clave del médico como un campo multivaluado dentro de la tabla de especialidades.",
+        "rationale": "Los campos multivaluados rompen la Primera Forma Normal (1FN) y dificultan enormemente las consultas.",
+        "isCorrect": false
+      },
+      {
+        "text": "Creando una relación 1:N donde la especialidad sea un atributo obligatorio y único del médico.",
+        "rationale": "Esto impediría que un médico tuviera más de una especialidad, violando el requisito del enunciado.",
+        "isCorrect": false
+      },
+      {
+        "text": "Fusionando ambas entidades en una única tabla llamada 'Personal_Medico_Especializado' con campos repetidos.",
+        "rationale": "Esto generaría anomalías de inserción y borrado, además de una duplicidad masiva de datos.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en la estructura necesaria para romper una relación de muchos a muchos."
+  },
+  {
+    "guid": "629dbd64-5cb4-49c9-b8d0-c4d690598bbe",
+    "subjectId": "Ambit_3",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Se está configurando un sistema de backup siguiendo la regla 3-2-1. ¿Qué acción describe correctamente la aplicación de esta metodología para protegerse contra un ransomware que infecte la red local?",
+    "answerOptions": [
+      {
+        "text": "Mantener 3 copias de los datos, en 2 soportes diferentes, y 1 de ellas fuera de línea (off-site/offline).",
+        "rationale": "La copia externa o desconectada es la única garantía de recuperación si el ransomware cifra todos los recursos conectados a la red.",
+        "isCorrect": true
+      },
+      {
+        "text": "Realizar 3 backups diarios, almacenarlos en 2 servidores de la misma sala y revisarlos 1 vez al mes.",
+        "rationale": "Tener las copias en la misma ubicación física y red no protege contra desastres locales o ataques de red masivos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Cifrar el backup con 3 claves distintas, usar 2 algoritmos y 1 firewall de última generación.",
+        "rationale": "Aunque mejora la seguridad, la regla 3-2-1 se refiere específicamente a la redundancia y ubicación física de las copias.",
+        "isCorrect": false
+      },
+      {
+        "text": "Utilizar solo aplicaciones SaaS ya que éstas eliminan la necesidad de realizar copias de seguridad adicionales.",
+        "rationale": "Falso. La responsabilidad de los datos en SaaS sigue siendo del cliente; es necesario asegurar la disponibilidad de copias propias.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considere la importancia de la 'desconexión' o el 'aislamiento'."
+  },
+  {
+    "guid": "78041417-d32c-4bdb-9db7-c1e6927b0a80",
+    "subjectId": "Ambit_3",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "En una red IPv6, se desea que un equipo obtenga su dirección IP y otros parámetros de red automáticamente sin usar un servidor DHCPv6 persistente. ¿Qué mecanismo permite esto?",
+    "answerOptions": [
+      {
+        "text": "SLAAC (Stateless Address Autoconfiguration).",
+        "rationale": "SLAAC permite a los dispositivos generar su propia dirección IPv6 global combinando el prefijo del router con su identificador de interfaz.",
+        "isCorrect": true
+      },
+      {
+        "text": "NAT64.",
+        "rationale": "NAT64 es un mecanismo de transición para permitir que equipos IPv6 se comuniquen con redes IPv4, no un sistema de direccionamiento automático.",
+        "isCorrect": false
+      },
+      {
+        "text": "ARP (Address Resolution Protocol).",
+        "rationale": "ARP es de IPv4; en IPv6 sus funciones las realiza ICMPv6 mediante Neighbor Discovery.",
+        "isCorrect": false
+      },
+      {
+        "text": "BGP (Border Gateway Protocol).",
+        "rationale": "BGP es un protocolo de enrutamiento externo entre sistemas autónomos, no para la autoconfiguración de hosts locales.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Busque el término que significa 'autoconfiguración sin estado'."
+  },
+  {
+    "guid": "573f6174-eb55-42db-9575-9c13d4a02b66",
+    "subjectId": "Ambit_3",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Un analista de calidad está revisando el código de una aplicación desarrollada con metodologías ágiles. Observa que el equipo utiliza 'Historias de Usuario'. ¿Cuál es el propósito técnico principal de este artefacto?",
+    "answerOptions": [
+      {
+        "text": "Documentar características o funciones requeridas por los interesados desde una perspectiva de valor de negocio.",
+        "rationale": "Las historias de usuario facilitan la comunicación de requisitos de forma sencilla y centrada en el usuario final.",
+        "isCorrect": true
+      },
+      {
+        "text": "Servir como manual de usuario final para explicar cómo instalar la aplicación en sistemas Windows.",
+        "rationale": "Los manuales de usuario son documentación técnica de soporte, no herramientas de definición de requisitos de desarrollo.",
+        "isCorrect": false
+      },
+      {
+        "text": "Calcular exactamente el número de milisegundos que tarda un proceso de base de datos.",
+        "rationale": "Eso es una métrica de rendimiento (benchmark), mientras que las historias definen funcionalidad.",
+        "isCorrect": false
+      },
+      {
+        "text": "Sustituir al contrato legal firmado con el proveedor externo de desarrollo.",
+        "rationale": "Las historias de usuario son parte del alcance funcional, pero no tienen naturaleza de contrato mercantil o administrativo.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en cómo se capturan las necesidades del cliente en Scrum."
+  },
+  {
+    "guid": "142e23e1-354e-4df0-8bab-4c33116a2776",
+    "subjectId": "Ambit_3",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Se está evaluando la migración del ERP SAP actual a la nueva generación SAP S/4HANA. ¿Cuál es el cambio arquitectónico más profundo que justifica esta evolución tecnológica?",
+    "answerOptions": [
+      {
+        "text": "El uso exclusivo de la base de datos en memoria SAP HANA, eliminando la compatibilidad con otras bases de datos relacionales.",
+        "rationale": "S/4HANA está optimizado específicamente para HANA, permitiendo procesamiento masivo en tiempo real y simplificación del modelo de datos.",
+        "isCorrect": true
+      },
+      {
+        "text": "La vuelta a una arquitectura monolítica para reducir la latencia de red entre las capas de aplicación.",
+        "rationale": "S/4HANA sigue siendo un sistema multicapa y tiende cada vez más a la integración de servicios cloud.",
+        "isCorrect": false
+      },
+      {
+        "text": "La eliminación de la capa de interfaz de usuario para que todo funcione mediante líneas de comandos (CLI).",
+        "rationale": "Al contrario, S/4HANA introduce SAP Fiori para ofrecer una interfaz moderna, visual e intuitiva.",
+        "isCorrect": false
+      },
+      {
+        "text": "Que el sistema deja de soportar la contabilidad de partida doble para pasarse a un modelo de libro mayor distribuido (blockchain).",
+        "rationale": "S/4HANA sigue los principios contables estándar; blockchain es una tecnología complementaria, no el motor contable del ERP.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en la base de datos que da nombre al producto."
+  },
+  {
+    "guid": "111b1a1e-dfa2-4c11-8548-68930b3bf6f2",
+    "subjectId": "Ambit_3",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Una administración quiere implementar un canal de denuncias interno para cumplir con la normativa de Compliance. ¿Qué herramienta o plataforma mencionada en los textos es compatible con este requisito legal?",
+    "answerOptions": [
+      {
+        "text": "Xnet, como entidad civil que ayuda a implementar canales con los requisitos legales de protección al denunciante.",
+        "rationale": "El texto cita a Xnet como opción compatible para organizaciones de más de 50 trabajadores.",
+        "isCorrect": true
+      },
+      {
+        "text": "MINERVA, ya que es el canal universal de denuncias para cualquier irregularidad administrativa.",
+        "rationale": "MINERVA es una herramienta específica para la detección de conflictos de interés en fondos europeos de recuperación.",
+        "isCorrect": false
+      },
+      {
+        "text": "SAP SuccessFactors, mediante el módulo de reclutamiento de personal.",
+        "rationale": "SuccessFactors gestiona talento; aunque tiene herramientas de ética, su función principal es la gestión de RRHH.",
+        "isCorrect": false
+      },
+      {
+        "text": "Apache Kafka, procesando las denuncias en tiempo real como eventos de streaming.",
+        "rationale": "Kafka es una infraestructura tecnológica, no una solución funcional o legal de Compliance.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Busque la referencia a entidades externas y obligaciones de organizaciones de cierto tamaño."
+  },
+  {
+    "guid": "804bfadd-b464-43aa-b085-f88061f35a74",
+    "subjectId": "Ambit_3",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Un gestor de problemas (Problem Manager) en ITIL recibe un informe sobre un error que se repite aleatoriamente. Tras la investigación, identifica la causa raíz pero la solución definitiva tardará meses. ¿Qué debe proporcionar inmediatamente a Gestión de Incidencias?",
+    "answerOptions": [
+      {
+        "text": "Un 'Workaround' (solución temporal) y registrar el error en la base de datos de 'Known Errors' (Errores Conocidos).",
+        "rationale": "Esto permite restaurar el servicio rápidamente o mitigar el impacto mientras se trabaja en la resolución definitiva.",
+        "isCorrect": true
+      },
+      {
+        "text": "Una solicitud de cambio (RfC) para comprar hardware nuevo inmediatamente.",
+        "rationale": "La compra de hardware puede no ser la solución y requiere una justificación y proceso de cambio que no ayuda a la incidencia actual.",
+        "isCorrect": false
+      },
+      {
+        "text": "El código fuente corregido para que el usuario lo compile en su propio equipo.",
+        "rationale": "Esto viola los principios de transición de servicios y seguridad, además de ser inviable para la mayoría de usuarios.",
+        "isCorrect": false
+      },
+      {
+        "text": "Un informe detallado de las 5 V's del Big Data que generó el problema.",
+        "rationale": "Las 5 V's son características de datos masivos y no tienen relación directa con la gestión operativa de un problema de ITIL.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en cómo ayudar a los técnicos de soporte a manejar el fallo de forma rápida."
+  }
+]

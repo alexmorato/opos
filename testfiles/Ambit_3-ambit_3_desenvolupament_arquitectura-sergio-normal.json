@@ -1,0 +1,932 @@
+[
+  {
+    "guid": "bb9dedef-03dc-458f-aae7-b544ea858a10",
+    "subjectId": "Ambit_3",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Como responsable técnico de SAP en un ayuntamiento, estás supervisando una compra que supera el crédito disponible en una partida específica. ¿Qué componente de SAP Financials EA-PS impedirá que la transacción se complete para asegurar el cumplimiento presupuestario?",
+    "answerOptions": [
+      {
+        "text": "SAP FI-GL (General Ledger)",
+        "rationale": "Este módulo se encarga del registro contable central y libros mayores, pero no gestiona el bloqueo preventivo por falta de crédito.",
+        "isCorrect": false
+      },
+      {
+        "text": "SAP PSM-FM (Funds Management)",
+        "rationale": "Este componente está diseñado específicamente para controlar el ciclo presupuestario y bloquear gastos si no existe disponibilidad de crédito.",
+        "isCorrect": true
+      },
+      {
+        "text": "SAP TRM (Treasury and Risk Management)",
+        "rationale": "TRM se orienta a la gestión de tesorería, flujos de caja y riesgos financieros, no al control preventivo de la ejecución presupuestaria de gastos.",
+        "isCorrect": false
+      },
+      {
+        "text": "SAP FI-AP (Accounts Payable)",
+        "rationale": "Gestiona las facturas y pagos a proveedores una vez realizado el gasto, pero no realiza el control previo de disponibilidad de fondos.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Identifica el módulo cuyo pilar central es la gestión y control del ciclo presupuestario completo."
+  },
+  {
+    "guid": "7e3aa566-457e-48f9-9c02-c1923d576c4f",
+    "subjectId": "Ambit_3",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "El Institut Municipal d'Hisenda necesita registrar un nuevo impuesto sobre los vados de la ciudad en SAP TRM. ¿Qué entidad técnica de SAP debe utilizarse para representar físicamente el vado vinculado al contribuyente?",
+    "answerOptions": [
+      {
+        "text": "Business Partner (BP)",
+        "rationale": "El BP representa a la persona física o jurídica (el contribuyente), no al objeto o bien que origina el tributo.",
+        "isCorrect": false
+      },
+      {
+        "text": "Compte contracte",
+        "rationale": "Es el registro técnico que vincula al contribuyente con sus obligaciones, pero no es la representación del bien físico.",
+        "isCorrect": false
+      },
+      {
+        "text": "Objecte contracte",
+        "rationale": "Representa técnicamente el objeto tributario, como un inmueble, un vehículo o, en este caso, un vado.",
+        "isCorrect": true
+      },
+      {
+        "text": "Document PSCD",
+        "rationale": "Es el registro contable de un movimiento económico, como una deuda o un pago, generado tras la liquidación.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Busca el componente que actúa como la representación técnica de un bien o actividad dentro del modelo de datos maestros de TRM."
+  },
+  {
+    "guid": "b41ab56a-7078-4924-aaaa-a8c75bad5790",
+    "subjectId": "Ambit_3",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En la gestión de Recursos Humanos de una Diputación, se decide que ninguna plaza de nueva creación pueda ser ocupada si no tiene una dotación económica asignada. ¿Qué funcionalidad de SAP HCM permite esta validación entre la estructura organizativa y el presupuesto?",
+    "answerOptions": [
+      {
+        "text": "Personnel Administration (PA)",
+        "rationale": "PA se centra en los datos maestros del empleado y su historial, no en la vinculación presupuestaria de las posiciones.",
+        "isCorrect": false
+      },
+      {
+        "text": "Organizational Management (OM)",
+        "rationale": "Aunque gestiona las posiciones y jerarquías, por sí solo no impone la restricción de crédito presupuestario.",
+        "isCorrect": false
+      },
+      {
+        "text": "Position Budget Control (PBC)",
+        "rationale": "Este componente vincula las plazas (posiciones) con el presupuesto aprobado, asegurando que estén dotadas antes de su ocupación.",
+        "isCorrect": true
+      },
+      {
+        "text": "Learning Solution (LS)",
+        "rationale": "Se dedica exclusivamente a la gestión de la formación y capacitación del personal.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Recuerda el término que conecta directamente las 'posiciones' del organigrama con la disponibilidad de fondos."
+  },
+  {
+    "guid": "86e59f7c-cd03-4bab-a1b1-9a7796e8393d",
+    "subjectId": "Ambit_3",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Un equipo de Data Science está diseñando un sistema de detección de fraudes en tiempo real para transacciones telemáticas. ¿Qué arquitectura de procesamiento de Big Data sería la más eficiente al tratar todos los datos como un flujo continuo, eliminando la capa de lotes (batch)?",
+    "answerOptions": [
+      {
+        "text": "Arquitectura Lambda",
+        "rationale": "Lambda combina una capa de procesamiento por lotes con una de tiempo real, lo que duplica la complejidad del mantenimiento del código.",
+        "isCorrect": false
+      },
+      {
+        "text": "Arquitectura Kappa",
+        "rationale": "Kappa reduce la complejidad al procesar todo mediante una única ruta de 'streaming', ideal para análisis inmediatos sin esperar a procesos históricos.",
+        "isCorrect": true
+      },
+      {
+        "text": "Data LakeHouse",
+        "rationale": "Es un modelo de almacenamiento que combina Data Lake y Warehouse, pero no define específicamente la ruta de procesamiento del flujo de datos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Procesamiento MapReduce",
+        "rationale": "MapReduce es un modelo tradicional orientado al procesamiento por lotes sobre HDFS, no optimizado para flujos en tiempo real.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considera la arquitectura que simplifica el flujo de datos eliminando la redundancia entre lotes y tiempo real."
+  },
+  {
+    "guid": "bc9f3ba9-77d4-4ab2-9c7b-97ca6473893e",
+    "subjectId": "Ambit_3",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Durante el desarrollo de una nueva App móvil corporativa, se te pregunta cómo garantiza el sistema operativo que el código malicioso de una aplicación no acceda a los archivos de otra aplicación instalada. ¿A qué concepto de seguridad debes referirte?",
+    "answerOptions": [
+      {
+        "text": "Ofuscación de código",
+        "rationale": "La ofuscación dificulta la ingeniería inversa del código, pero no impide que la aplicación acceda a recursos externos en tiempo de ejecución.",
+        "isCorrect": false
+      },
+      {
+        "text": "Sandboxing",
+        "rationale": "Es un entorno de ejecución aislado que asigna memoria y usuarios propios a cada app, limitando su interacción con el resto del sistema.",
+        "isCorrect": true
+      },
+      {
+        "text": "Certificate Pinning",
+        "rationale": "Esta técnica protege las comunicaciones contra ataques man-in-the-middle, pero no gestiona el acceso local a archivos del sistema.",
+        "isCorrect": false
+      },
+      {
+        "text": "API-First",
+        "rationale": "Es una estrategia de diseño de software centrada en la interoperabilidad, no un mecanismo de aislamiento del sistema operativo.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piensa en el término metafórico que describe un entorno de juego delimitado y seguro para una aplicación."
+  },
+  {
+    "guid": "095cdaf9-fc87-48b8-bf59-581811cd4668",
+    "subjectId": "Ambit_3",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En cumplimiento con el Esquema Nacional de Seguridad (ENS), se te solicita auditar las actividades de los usuarios en un sistema de categoría Media. ¿Qué principio rige la retención de esta información de registro según la normativa consolidada?",
+    "answerOptions": [
+      {
+        "text": "Retención total de todos los paquetes de red por tiempo indefinido.",
+        "rationale": "El registro debe ser proporcional y estar alineado con la normativa de protección de datos, evitando el almacenamiento masivo innecesario.",
+        "isCorrect": false
+      },
+      {
+        "text": "Retención de la información estrictamente necesaria para monitorizar e investigar actividades indebidas.",
+        "rationale": "La norma exige registrar actividades permitiendo identificar a la persona, pero limitándose a lo estrictamente necesario para la seguridad.",
+        "isCorrect": true
+      },
+      {
+        "text": "Uso de logs exclusivamente para el análisis de rendimiento de hardware.",
+        "rationale": "El ENS requiere registros para la seguridad y trazabilidad de acciones de usuarios, no solo para mantenimiento técnico.",
+        "isCorrect": false
+      },
+      {
+        "text": "Eliminación diaria de logs para proteger el derecho a la intimidad.",
+        "rationale": "Aunque la intimidad es clave, los logs deben retenerse durante plazos legales suficientes para permitir investigaciones de incidentes de seguridad.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Busca el equilibrio entre la capacidad de investigación y la minimización de datos personales."
+  },
+  {
+    "guid": "68071174-8939-4462-ab5d-b743fd6f7950",
+    "subjectId": "Ambit_3",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Estás diseñando una arquitectura de microservicios para la gestión de tributos y necesitas asegurar la consistencia final en una operación que involucra al servicio de 'Facturación' y al de 'Contabilidad Presupuestaria'. ¿Qué patrón es el más adecuado?",
+    "answerOptions": [
+      {
+        "text": "Sidecar Pattern",
+        "rationale": "Este patrón añade funcionalidades extra a un contenedor (como logs) pero no gestiona transacciones distribuidas entre múltiples servicios.",
+        "isCorrect": false
+      },
+      {
+        "text": "SAGA Pattern",
+        "rationale": "Permite gestionar transacciones largas mediante una secuencia de transacciones locales y acciones de compensación en caso de fallo.",
+        "isCorrect": true
+      },
+      {
+        "text": "API Gateway",
+        "rationale": "Es un punto de entrada único para las peticiones, pero no resuelve la lógica de consistencia transaccional entre servicios internos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Twelve-factor app",
+        "rationale": "Es una metodología general para construir aplicaciones SaaS escalables, no un patrón específico para transacciones distribuidas.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considera el patrón que utiliza transacciones de compensación para mantener la consistencia eventual."
+  },
+  {
+    "guid": "0deda770-c880-4457-87ad-44fbbf9d0a29",
+    "subjectId": "Ambit_3",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En un modelo Entidad-Relación de una base de datos de personal, se define la entidad 'Empleado' con dos subclases: 'Funcionario' y 'Laboral'. Si un empleado no puede pertenecer a ambas categorías simultáneamente, ¿cómo se define esta restricción?",
+    "answerOptions": [
+      {
+        "text": "Especialización Parcial",
+        "rationale": "La especialización parcial indica que algunas instancias de la superclase pueden no pertenecer a ninguna subclase.",
+        "isCorrect": false
+      },
+      {
+        "text": "Especialización Total",
+        "rationale": "La especialización total obliga a que cada instancia de la superclase pertenezca al menos a una subclase, pero no impide pertenecer a varias.",
+        "isCorrect": false
+      },
+      {
+        "text": "Subclases Solapadas",
+        "rationale": "El solapamiento permitiría que un empleado fuera funcionario y laboral al mismo tiempo, lo cual contradice el enunciado.",
+        "isCorrect": false
+      },
+      {
+        "text": "Subclases Disjuntas",
+        "rationale": "La restricción de disyunción asegura que una instancia de la entidad padre no pueda estar en más de una subclase a la vez.",
+        "isCorrect": true
+      }
+    ],
+    "hint": "Piensa en el término que describe conjuntos que no tienen elementos en común."
+  },
+  {
+    "guid": "ef574500-ea7c-48da-891f-3f205d1b75eb",
+    "subjectId": "Ambit_3",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Tu organización quiere implementar un sistema de trazabilidad de documentos mediante Blockchain, pero existe una fuerte preocupación por el consumo energético. ¿Qué algoritmo de consenso deberías evitar por su alta demanda de potencia computacional?",
+    "answerOptions": [
+      {
+        "text": "Proof of Stake (PoS)",
+        "rationale": "PoS es mucho más eficiente energéticamente ya que se basa en la posesión de criptoactivos en lugar de en el cálculo intensivo.",
+        "isCorrect": false
+      },
+      {
+        "text": "Proof of Work (PoW)",
+        "rationale": "PoW requiere que los mineros resuelvan puzles criptográficos complejos (como en Bitcoin), lo que implica un consumo eléctrico muy elevado.",
+        "isCorrect": true
+      },
+      {
+        "text": "Algoritmo Scrypt",
+        "rationale": "Aunque es una variante de PoW, se diseñó para requerir menos potencia computacional bruta que SHA-256.",
+        "isCorrect": false
+      },
+      {
+        "text": "Contratos Inteligentes",
+        "rationale": "No es un algoritmo de consenso, sino scripts de código que se ejecutan sobre la red blockchain.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Identifica el mecanismo que ajusta la dificultad de un puzle matemático para validar bloques."
+  },
+  {
+    "guid": "82e1ebd3-0bbf-4399-acaa-b2a047b2ea96",
+    "subjectId": "Ambit_3",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Como administrador de una plataforma Low-Code para usuarios no técnicos (Citizen Developers), ¿qué medida es fundamental para evitar la proliferación de aplicaciones descontroladas y sin soporte (Shadow IT)?",
+    "answerOptions": [
+      {
+        "text": "Prohibir el uso de cualquier herramienta que no use SQL nativo.",
+        "rationale": "Las herramientas Low-Code están diseñadas precisamente para evitar el uso de código complejo, por lo que esta medida anularía su propósito.",
+        "isCorrect": false
+      },
+      {
+        "text": "Implementar un registro centralizado y políticas de aprobación de despliegue.",
+        "rationale": "La gobernanza técnica requiere visibilidad y control sobre lo que se construye para asegurar la integración y seguridad corporativa.",
+        "isCorrect": true
+      },
+      {
+        "text": "Permitir el acceso total a todas las bases de datos de producción mediante OAuth 2.0.",
+        "rationale": "Esto violaría el principio de mínimo privilegio y pondría en grave riesgo la integridad de los datos críticos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Delegar la seguridad exclusivamente en el proveedor del servicio Cloud.",
+        "rationale": "Aunque el proveedor asegura la infraestructura, la organización es responsable de la configuración y el uso seguro de las aplicaciones creadas.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Recuerda los marcos de gobernanza como ITIL o COBIT mencionados para estas herramientas."
+  },
+  {
+    "guid": "66f2b04e-1b39-4d59-bfa0-dab8896e95d6",
+    "subjectId": "Ambit_3",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Un organismo público recibe fondos europeos y necesita gestionar la justificación de estos gastos. ¿Qué módulo de SAP permite específicamente el seguimiento de programas presupuestarios financiados externamente?",
+    "answerOptions": [
+      {
+        "text": "SAP FI-AA (Asset Accounting)",
+        "rationale": "Se ocupa de la gestión de activos fijos como inmuebles y maquinaria, no de subvenciones o fondos finalistas.",
+        "isCorrect": false
+      },
+      {
+        "text": "SAP GM (Grants Management)",
+        "rationale": "Este módulo está diseñado para el registro, gestión y justificación de subvenciones recibidas y otorgadas.",
+        "isCorrect": true
+      },
+      {
+        "text": "SAP FI-AR (Accounts Receivable)",
+        "rationale": "Gestiona las deudas de clientes y cobros, pero no tiene la lógica específica de cumplimiento de una subvención.",
+        "isCorrect": false
+      },
+      {
+        "text": "SAP CO (Controlling)",
+        "rationale": "Se orienta a la contabilidad analítica interna de costes, pero no está especializado en la trazabilidad legal de fondos públicos.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Busca el acrónimo que representa la gestión de ayudas o subvenciones en el ecosistema SAP."
+  },
+  {
+    "guid": "93a33f14-e916-4c13-abcb-b6e6e39f552d",
+    "subjectId": "Ambit_3",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Para optimizar un Data Lake en el Cloud, se recomienda utilizar formatos de archivo que permitan la lectura de columnas específicas sin tener que procesar todo el archivo. ¿Cuál es el formato estándar más eficiente para este propósito?",
+    "answerOptions": [
+      {
+        "text": "JSON",
+        "rationale": "JSON es un formato basado en texto y orientado a filas, lo que lo hace ineficiente para analítica a gran escala en Big Data.",
+        "isCorrect": false
+      },
+      {
+        "text": "CSV",
+        "rationale": "Aunque es simple, no soporta esquemas complejos ni compresión por columna, penalizando el rendimiento en consultas masivas.",
+        "isCorrect": false
+      },
+      {
+        "text": "Parquet",
+        "rationale": "Es un formato de almacenamiento columnar que permite saltar datos no deseados y ofrece una alta tasa de compresión.",
+        "isCorrect": true
+      },
+      {
+        "text": "XML",
+        "rationale": "Es un formato muy verboso y lento de procesar en comparación con los formatos binarios modernos para Big Data.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Este formato es de tipo binario y columnar, muy utilizado en ecosistemas como Spark y Hadoop."
+  },
+  {
+    "guid": "fa294911-df88-4f9d-9aa0-b6182445c8d9",
+    "subjectId": "Ambit_3",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Desde 2021, Google Play exige un formato específico para las aplicaciones Android que permite generar APKs dinámicos optimizados para cada dispositivo. ¿Cuál es este formato?",
+    "answerOptions": [
+      {
+        "text": ".apk",
+        "rationale": "Es el formato binario tradicional de instalación, pero ya no es el estándar exigido para la subida inicial a la tienda.",
+        "isCorrect": false
+      },
+      {
+        "text": ".ipa",
+        "rationale": "Este es el formato de archivo de aplicaciones exclusivo para el sistema operativo iOS de Apple.",
+        "isCorrect": false
+      },
+      {
+        "text": ".aab (Android App Bundle)",
+        "rationale": "Este formato permite a Google Play optimizar el tamaño de descarga entregando solo el código y recursos necesarios para el dispositivo del usuario.",
+        "isCorrect": true
+      },
+      {
+        "text": ".dex",
+        "rationale": "Son los archivos ejecutables de Dalvik que van dentro del paquete, no el formato de distribución de la aplicación.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Busca el término que incluye la palabra 'Bundle' y que ha reemplazado al APK como estándar de publicación."
+  },
+  {
+    "guid": "0f36f32d-def9-41b1-8783-105355c46a2c",
+    "subjectId": "Ambit_3",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En una arquitectura de microservicios, el intercambio de tokens de seguridad para la autorización entre servicios suele realizarse mediante el estándar JWT. ¿En qué formato se estructuran estos tokens?",
+    "answerOptions": [
+      {
+        "text": "XML",
+        "rationale": "El formato XML es típico de servicios SOAP y protocolos como SAML, pero no de JWT.",
+        "isCorrect": false
+      },
+      {
+        "text": "WSDL",
+        "rationale": "WSDL es un lenguaje de descripción de servicios web, no un formato de intercambio de datos o tokens.",
+        "isCorrect": false
+      },
+      {
+        "text": "JSON",
+        "rationale": "JWT significa JSON Web Token, y utiliza este formato ligero para representar el contenido de las reclamaciones (claims).",
+        "isCorrect": true
+      },
+      {
+        "text": "HTML",
+        "rationale": "HTML se utiliza para la representación visual de páginas web, no para la transferencia segura de credenciales de autorización.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "El nombre del propio estándar revela el formato de datos utilizado."
+  },
+  {
+    "guid": "b6a31ad6-4f23-4dcd-894b-e623ad5a93bf",
+    "subjectId": "Ambit_3",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Según el ENS, un administrador de sistemas que gestione activos críticos de seguridad nacional requiere una Habilitación Personal de Seguridad (HPS). ¿Quién es el encargado de otorgar esta habilitación?",
+    "answerOptions": [
+      {
+        "text": "El Director General de la empresa subcontratada.",
+        "rationale": "La seguridad nacional es competencia estatal y no puede ser delegada en directivos de empresas privadas.",
+        "isCorrect": false
+      },
+      {
+        "text": "La autoridad competente basándose en el análisis de riesgos o requisitos específicos.",
+        "rationale": "La HPS es otorgada por la autoridad estatal pertinente tras evaluar la sensibilidad de la función y los resultados de seguridad.",
+        "isCorrect": true
+      },
+      {
+        "text": "Cualquier auditor externo certificado en ISO 27001.",
+        "rationale": "Los auditores certifican el cumplimiento de procesos, pero no tienen potestad para emitir habilitaciones de seguridad personal.",
+        "isCorrect": false
+      },
+      {
+        "text": "El propio empleado tras completar un curso de formación en el CCN.",
+        "rationale": "La formación es necesaria, pero la habilitación requiere una validación oficial por parte de un organismo público de seguridad.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considera que la competencia sobre seguridad pública reside exclusivamente en el Estado según la Constitución."
+  },
+  {
+    "guid": "48e2a574-9814-4f13-b4d7-38621119a917",
+    "subjectId": "Ambit_3",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Estás configurando la integración entre SAP HCM y SAP Financials. ¿Qué proceso asegura que los asientos contables de la nómina se generen correctamente en el Llibre Major sin intervención manual?",
+    "answerOptions": [
+      {
+        "text": "Integración nativa entre Payroll (PY) y Financial Accounting (FI).",
+        "rationale": "SAP permite que cada ejecución de nómina refleje automáticamente los hechos económicos en la contabilidad general.",
+        "isCorrect": true
+      },
+      {
+        "text": "Exportación de archivos CSV desde PY e importación manual en FI-GL.",
+        "rationale": "Esto anularía uno de los beneficios principales de un ERP, que es la eliminación de conciliaciones manuales.",
+        "isCorrect": false
+      },
+      {
+        "text": "Uso exclusivo de SAP TRM para pagar los salarios.",
+        "rationale": "TRM se encarga de la recaudación de tributos e ingresos, no del pago de nóminas al personal interno.",
+        "isCorrect": false
+      },
+      {
+        "text": "Sincronización semanal mediante procesos batch de SAP MM.",
+        "rationale": "SAP MM gestiona materiales y compras, no tiene relación directa con la generación de asientos contables de nómina.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Busca el término que describe la comunicación automática entre el módulo de pagos a empleados y el de contabilidad general."
+  },
+  {
+    "guid": "bfc2f46e-3498-4d1f-a322-5a743b77796e",
+    "subjectId": "Ambit_3",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Un Data Lake que carece de catálogos de metadades, gobernanza de datos y controles de calidad corre el riesgo de volverse inútil para la organización. ¿Cómo se denomina técnicamente este fenómeno?",
+    "answerOptions": [
+      {
+        "text": "Data Warehouse",
+        "rationale": "Un Warehouse es un entorno altamente estructurado y optimizado, justo lo contrario a un entorno sin control.",
+        "isCorrect": false
+      },
+      {
+        "text": "Data Mesh",
+        "rationale": "Es un paradigma de diseño descentralizado basado en dominios, no una degradación del almacenamiento.",
+        "isCorrect": false
+      },
+      {
+        "text": "Data Swamp (Llacuna de dades)",
+        "rationale": "Ocurre cuando se ingieren datos masivos sin control, haciendo imposible su localización o uso efectivo por falta de contexto.",
+        "isCorrect": true
+      },
+      {
+        "text": "Raw Data Layer",
+        "rationale": "Es la capa inicial legítima de un Data Lake donde los datos están en bruto, pero no implica necesariamente falta de gobernanza.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piensa en un ecosistema acuático estancado donde es difícil ver o encontrar algo útil."
+  },
+  {
+    "guid": "fa8bd147-0555-4c30-8db3-7e333f427e46",
+    "subjectId": "Ambit_3",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Para mejorar la calidad del software antes de un despliegue, el equipo decide realizar pruebas de seguridad que analicen la aplicación mientras está en ejecución. ¿Qué técnica se está aplicando?",
+    "answerOptions": [
+      {
+        "text": "SAST (Static Application Security Testing)",
+        "rationale": "SAST analiza el código fuente sin ejecutar la aplicación, buscando vulnerabilidades estructurales o de sintaxis.",
+        "isCorrect": false
+      },
+      {
+        "text": "DAST (Dynamic Application Security Testing)",
+        "rationale": "DAST examina la aplicación en su entorno de ejecución, simulando ataques externos para encontrar fallos de seguridad activos.",
+        "isCorrect": true
+      },
+      {
+        "text": "Code Review manual",
+        "rationale": "Es una revisión humana del código, no una prueba dinámica sobre el binario en ejecución.",
+        "isCorrect": false
+      },
+      {
+        "text": "Documentación de APIs",
+        "rationale": "Es una tarea de soporte para el desarrollo, pero no constituye una técnica de prueba de seguridad por sí misma.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Diferencia entre el análisis estático del código y el análisis dinámico durante la ejecución."
+  },
+  {
+    "guid": "e15ba8d6-09ae-49ce-9686-ab215cffa416",
+    "subjectId": "Ambit_3",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Al adoptar una arquitectura 'Cloud Native' siguiendo la metodología 'Twelve-factor app', ¿cuál es el objetivo principal de tratar las dependencias de forma explícita y aislada?",
+    "answerOptions": [
+      {
+        "text": "Aumentar el tamaño del ejecutable final.",
+        "rationale": "El aislamiento de dependencias busca la limpieza y control del entorno, no el aumento innecesario del tamaño del software.",
+        "isCorrect": false
+      },
+      {
+        "text": "Garantizar la portabilidad entre diferentes entornos de nube.",
+        "rationale": "Al declarar explícitamente las dependencias, la aplicación puede moverse entre nubes sin depender de librerías preinstaladas en el sistema anfitrión.",
+        "isCorrect": true
+      },
+      {
+        "text": "Evitar el uso de bases de datos externas.",
+        "rationale": "Las dependencias se refieren a librerías y herramientas de código, no a los servicios de almacenamiento que la app consume.",
+        "isCorrect": false
+      },
+      {
+        "text": "Reducir la seguridad de la red interna.",
+        "rationale": "Tener dependencias controladas mejora la seguridad al conocer exactamente qué código de terceros se está ejecutando.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piensa en la facilidad de mover una aplicación de un servidor a otro sin que nada 'se rompa'."
+  },
+  {
+    "guid": "26459a1b-e21c-424c-a6ba-afa5314a15d2",
+    "subjectId": "Ambit_3",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En SAP TRM, el ayuntamiento desea tener una visión unificada de un ciudadano que es a la vez contribuyente de IBI y de multas de tráfico. ¿Qué entidad permite esta visión de 360 grados?",
+    "answerOptions": [
+      {
+        "text": "Document PSCD",
+        "rationale": "Es un registro de una transacción puntual, no un contenedor de la información completa del sujeto.",
+        "isCorrect": false
+      },
+      {
+        "text": "Objecte contracte",
+        "rationale": "Representa el bien (el coche o la casa), pero un ciudadano puede tener múltiples objetos asociados.",
+        "isCorrect": false
+      },
+      {
+        "text": "Business Partner (BP)",
+        "rationale": "El BP centraliza todos los datos de contacto, fiscales y el historial de interacciones de una persona o entidad con la administración.",
+        "isCorrect": true
+      },
+      {
+        "text": "Universal Journal (ACDOCA)",
+        "rationale": "Es una tabla técnica de S/4HANA para finanzas, no una entidad funcional para la gestión de ciudadanos.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Busca el término que se refiere al 'socio de negocio' o entidad personal en el sistema."
+  },
+  {
+    "guid": "4b731184-c7c2-4a1d-8645-0fc3d661e14f",
+    "subjectId": "Ambit_3",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Un microservicio encargado de procesar pagos necesita un componente adicional para enviar métricas de rendimiento a un sistema externo sin modificar su lógica principal. ¿Qué patrón de diseño de contenedores permite esto?",
+    "answerOptions": [
+      {
+        "text": "Microservicio Monolítico",
+        "rationale": "Es una contradicción en los términos; un monolito no utiliza la modularidad de los microservicios.",
+        "isCorrect": false
+      },
+      {
+        "text": "Sidecar Pattern",
+        "rationale": "Permite adjuntar un contenedor auxiliar al principal para añadir funcionalidades como logs, proxies o agentes de monitoreo.",
+        "isCorrect": true
+      },
+      {
+        "text": "SAGA de Orquestación",
+        "rationale": "Se utiliza para coordinar transacciones distribuidas, no para añadir infraestructura de apoyo a un solo servicio.",
+        "isCorrect": false
+      },
+      {
+        "text": "Client-Side Rendering",
+        "rationale": "Es una técnica de desarrollo web para cargar interfaces en el navegador, no un patrón de arquitectura de contenedores.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Imagina una moto que lleva un compartimento lateral para añadir capacidad sin cambiar el motor principal."
+  },
+  {
+    "guid": "60e90f2b-36a3-484e-b14d-a29b161bb5f0",
+    "subjectId": "Ambit_3",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En la notación de Chen para el modelo Entidad-Relación, ¿cómo se representa gráficamente un atributo que no se almacena físicamente sino que se calcula a partir de otros (ej. la edad a partir de la fecha de nacimiento)?",
+    "answerOptions": [
+      {
+        "text": "Elipse doble",
+        "rationale": "La elipse doble representa atributos multivalorados, no calculados.",
+        "isCorrect": false
+      },
+      {
+        "text": "Elipse puntejada",
+        "rationale": "Se utiliza para indicar atributos derivados, cuyo valor se obtiene mediante un proceso sobre otros datos existentes.",
+        "isCorrect": true
+      },
+      {
+        "text": "Elipse subratllada",
+        "rationale": "El subrayado identifica los atributos que forman parte de la clave primaria de la entidad.",
+        "isCorrect": false
+      },
+      {
+        "text": "Rectangle",
+        "rationale": "En el modelo E-R, el rectángulo representa a las entidades, no a sus propiedades o atributos.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Este estilo de línea sugiere algo que no es sólido o permanente porque depende de otro valor."
+  },
+  {
+    "guid": "84727177-0c7f-4bd1-aef1-48f2cbf4b612",
+    "subjectId": "Ambit_3",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Para un sistema de información de categoría ALTA, el ENS establece que la auditoría de seguridad debe realizarse siguiendo una regulación específica. ¿A cuál se refiere?",
+    "answerOptions": [
+      {
+        "text": "Normas ISO 9001 de calidad general.",
+        "rationale": "ISO 9001 se enfoca en la gestión de la calidad de procesos, no específicamente en la auditoría técnica de seguridad informática del Estado.",
+        "isCorrect": false
+      },
+      {
+        "text": "Instrucción Técnica de Seguridad de Auditoría de la Seguridad de los Sistemas de Información.",
+        "rationale": "El ENS remite a esta Instrucción Técnica específica para determinar cómo y bajo qué criterios se deben auditar los sistemas.",
+        "isCorrect": true
+      },
+      {
+        "text": "Manual de buenas prácticas del PMBOK.",
+        "rationale": "PMBOK es una guía para la dirección de proyectos, no una normativa legal de auditoría de seguridad.",
+        "isCorrect": false
+      },
+      {
+        "text": "Ley de Prevención de Riesgos Laborales.",
+        "rationale": "Esta ley se centra en la salud física y seguridad de los trabajadores, no en la seguridad lógica de los sistemas de información.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Busca la denominación que incluya 'Instrucción Técnica de Seguridad'."
+  },
+  {
+    "guid": "ae2f7428-4539-4252-935b-547b1f84beab",
+    "subjectId": "Ambit_3",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "El núcleo de la plataforma Apache Hadoop para Big Data se compone de tres piezas fundamentales. ¿Cuáles son según el material proporcionado?",
+    "answerOptions": [
+      {
+        "text": "Kafka, Spark y Hive.",
+        "rationale": "Aunque son herramientas comunes del ecosistema, no forman parte del núcleo (core) de Hadoop.",
+        "isCorrect": false
+      },
+      {
+        "text": "HDFS, MapReduce y Hadoop Common.",
+        "rationale": "HDFS gestiona el almacenamiento, MapReduce el procesamiento y Common contiene las bibliotecas necesarias.",
+        "isCorrect": true
+      },
+      {
+        "text": "S3, Redshift y Glue.",
+        "rationale": "Estos son servicios específicos de la nube de Amazon Web Services (AWS) para gestión de datos.",
+        "isCorrect": false
+      },
+      {
+        "text": "MySQL, Oracle y PostgreSQL.",
+        "rationale": "Son bases de datos relacionales tradicionales (SQL) que no forman parte de la arquitectura de Hadoop.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piensa en el sistema de archivos distribuido, el paradigma de programación y el conjunto de utilidades comunes."
+  },
+  {
+    "guid": "7c56c254-0edb-4fc4-9206-9b67de055de8",
+    "subjectId": "Ambit_3",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Un gestor de SAP HCM te informa que los costes de personal del próximo mes han variado significativamente. ¿Qué módulo de SAP se encarga de transferir estos costes a la contabilidad analítica para analizar la rentabilidad de cada departamento?",
+    "answerOptions": [
+      {
+        "text": "SAP FI-GL",
+        "rationale": "Registra la contabilidad financiera externa, pero no el detalle analítico de centros de coste internos.",
+        "isCorrect": false
+      },
+      {
+        "text": "SAP CO (Controlling)",
+        "rationale": "Este módulo permite ver el uso interno de los recursos por las unidades gestoras mediante centros de coste y órdenes.",
+        "isCorrect": true
+      },
+      {
+        "text": "SAP TRM",
+        "rationale": "Se limita a la gestión de tributos e ingresos públicos, no al control de costes internos de personal.",
+        "isCorrect": false
+      },
+      {
+        "text": "SAP MM",
+        "rationale": "Gestiona la logística y compras de materiales, no los costes derivados de la nómina de empleados.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Identifica el módulo cuyo nombre abreviado significa 'Controlling'."
+  },
+  {
+    "guid": "a2ebfd63-3f18-444d-b287-55a82e61e787",
+    "subjectId": "Ambit_3",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Al realizar una transacción contable de un ingreso masivo en el sistema de gestión tributaria de Barcelona (HM), se genera un documento base en la capa de recaudación. ¿Cómo se denomina técnicamente este documento en SAP TRM?",
+    "answerOptions": [
+      {
+        "text": "Asiento de Llibre Major",
+        "rationale": "Es el registro final en contabilidad financiera, pero el documento de origen en la gestión tributaria tiene otro nombre.",
+        "isCorrect": false
+      },
+      {
+        "text": "Document PSCD",
+        "rationale": "Es el registro contable de cualquier movimiento tributario (deuda, pago, recargo) dentro de la capa FI-CA/PSCD.",
+        "isCorrect": true
+      },
+      {
+        "text": "Expedient RM",
+        "rationale": "RM se refiere a la gestión de expedientes administrativos y flujos de trabajo, no a los registros contables directos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Formulari BRF+",
+        "rationale": "BRF+ es el motor de reglas de cálculo, no el documento que registra el movimiento económico resultante.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Este documento es el 'asiento base' optimizado para grandes volúmenes de recaudación pública."
+  },
+  {
+    "guid": "c9d84db3-be0e-468c-b654-938f80c37cd9",
+    "subjectId": "Ambit_3",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Se plantea desarrollar una App para operarios de mantenimiento que funcione tanto en iOS como en Android con un único desarrollo, pero que requiera acceso fluido a los sensores del dispositivo. ¿Qué ventaja principal aportan las herramientas cross-platform como Flutter o React Native en este escenario?",
+    "answerOptions": [
+      {
+        "text": "Eliminación total de la necesidad de validar la app en los Markets.",
+        "rationale": "Independientemente de la tecnología, tanto Apple como Google exigen validar las apps antes de publicarlas.",
+        "isCorrect": false
+      },
+      {
+        "text": "Reducción de costes de desarrollo al reutilizar la lógica de negocio y UI.",
+        "rationale": "Permiten escribir el código una vez y desplegarlo en ambas plataformas, ahorrando tiempo y recursos frente al desarrollo nativo dual.",
+        "isCorrect": true
+      },
+      {
+        "text": "Funcionamiento garantizado sin conexión a internet en todos los casos.",
+        "rationale": "La conexión depende de cómo se diseñe la app, no del framework de desarrollo multiplataforma utilizado.",
+        "isCorrect": false
+      },
+      {
+        "text": "Uso exclusivo de HTML para toda la interfaz de usuario.",
+        "rationale": "Flutter utiliza widgets propios y React Native componentes nativos; no son simples aplicaciones web cargadas en un navegador.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considera el impacto económico de no tener que programar la misma aplicación dos veces."
+  },
+  {
+    "guid": "f02a5fbf-8212-437e-a8fa-a27fc658ff57",
+    "subjectId": "Ambit_3",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Un analista de datos necesita mapear las relaciones sociales entre los ciudadanos para detectar posibles redes de influencia en la solicitud de subvenciones. ¿Qué tipo de base de datos NoSQL es la más eficiente para consultas de caminos y conexiones complejas?",
+    "answerOptions": [
+      {
+        "text": "Clau-valor (Redis)",
+        "rationale": "Es excelente para acceso rápido por clave única, pero muy deficiente para representar relaciones complejas entre múltiples entidades.",
+        "isCorrect": false
+      },
+      {
+        "text": "Documentals (MongoDB)",
+        "rationale": "Aunque es flexible, el análisis de relaciones profundas requiere múltiples consultas o desnormalización compleja.",
+        "isCorrect": false
+      },
+      {
+        "text": "De grafs (Neo4j)",
+        "rationale": "Utiliza un modelo de nodos y aristas diseñado específicamente para recorrer relaciones y conexiones de forma extremadamente rápida.",
+        "isCorrect": true
+      },
+      {
+        "text": "Wide-column (Cassandra)",
+        "rationale": "Está optimizada para grandes volúmenes de datos planos y escalabilidad masiva, no para el análisis de topologías de red.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Busca el modelo que utiliza nodos y aristas (o relaciones) como ciudadanos y sus vínculos."
+  },
+  {
+    "guid": "1f307114-e2db-49ca-91ff-e0609b9e154b",
+    "subjectId": "Ambit_3",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "De acuerdo con el ENS, se define 'perjuicio grave' bajo ciertos supuestos. ¿Cuál de los siguientes casos se considera un incumplimiento material que encaja en esta definición?",
+    "answerOptions": [
+      {
+        "text": "Un error tipográfico en un manual de usuario interno.",
+        "rationale": "Los errores de forma subsanables no constituyen un perjuicio grave según la normativa.",
+        "isCorrect": false
+      },
+      {
+        "text": "El incumplimiento material de alguna ley o regulación, o el formal no subsanable.",
+        "rationale": "La norma define explícitamente el incumplimiento material de leyes como uno de los criterios de perjuicio grave.",
+        "isCorrect": true
+      },
+      {
+        "text": "La baja por enfermedad de un técnico de soporte de nivel 1.",
+        "rationale": "Aunque afecta a la operativa, no suele representar una reducción significativa de la capacidad de la organización para cumplir sus funciones básicas.",
+        "isCorrect": false
+      },
+      {
+        "text": "El retraso de un día en la entrega de material de oficina.",
+        "rationale": "Se trata de un inconveniente operativo menor que no escala a la categoría de perjuicio grave para la seguridad o misión de la entidad.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Busca la opción que mencione la legalidad y el carácter 'no subsanable' del incumplimiento."
+  },
+  {
+    "guid": "ba5dc1d5-3d70-4e8c-a7f5-f7a16885209e",
+    "subjectId": "Ambit_3",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En SAP HCM, al tramitar el alta de un nuevo funcionario, el sistema activa automáticamente una secuencia de pantallas para recoger nombre, dirección, cuenta bancaria y contrato. ¿Cómo se denomina técnicamente a este conjunto de pantallas y datos?",
+    "answerOptions": [
+      {
+        "text": "Organizational Unit",
+        "rationale": "Representa un departamento o unidad en el organigrama, no un proceso de entrada de datos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Acción de Personal (conjunto de Infotypes)",
+        "rationale": "Una acción de personal agrupa varios infotypes (unidades de información) que se procesan de forma secuencial ante un evento como el alta.",
+        "isCorrect": true
+      },
+      {
+        "text": "Esquema de Nòmina",
+        "rationale": "Define las reglas para el cálculo del salario, pero no la estructura de introducción de datos maestros del empleado.",
+        "isCorrect": false
+      },
+      {
+        "text": "Self-Service (ESS)",
+        "rationale": "Es el portal donde el empleado consulta sus datos, no el mecanismo técnico de gestión administrativa para el alta.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Recuerda el término para las unidades de información estructurada y cómo se agrupan ante un cambio de estado del empleado."
+  }
+]

@@ -1,0 +1,1242 @@
+[
+  {
+    "guid": "5563ae52-389e-442b-a987-96b1edd20f02",
+    "subjectId": "T31",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Cuál de las siguientes afirmaciones sobre la arquitectura de UC4/Automic Automation es FALSA?",
+    "answerOptions": [
+      {
+        "text": "El núcleo del sistema es el Automation Engine, que actúa como servidor central comunicándose con agentes remotos.",
+        "rationale": "El Automation Engine es efectivamente el motor central que orquesta las comunicaciones en toda la infraestructura.",
+        "isCorrect": false
+      },
+      {
+        "text": "El Service Manager es el componente encargado de proporcionar la consola de administración y el monitoreo de tareas.",
+        "rationale": "El Service Manager supervisa la disponibilidad del motor y agentes; la consola de administración y monitoreo la proporciona el Operation Manager.",
+        "isCorrect": true
+      },
+      {
+        "text": "Toda la configuración y los datos históricos se almacenan de forma centralizada en una base de datos.",
+        "rationale": "UC4 utiliza una base de datos central para asegurar la persistencia de toda la lógica y el histórico de ejecuciones.",
+        "isCorrect": false
+      },
+      {
+        "text": "Los agentes son intermediarios instalados en sistemas remotos (Windows, SAP, Unix) para ejecutar las tareas locales.",
+        "rationale": "Los agentes actúan como puentes entre el servidor central y los sistemas operativos finales donde se ejecutan los scripts.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Diferencia entre la herramienta de supervisión de servicios y la consola de operación principal."
+  },
+  {
+    "guid": "5ce5c129-bb0a-4e3b-9494-2871198e4f7e",
+    "subjectId": "T31",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Sobre el objeto de tipo Job (JOBS), ¿cuál de las siguientes opciones es FALSA?",
+    "answerOptions": [
+      {
+        "text": "Un Job representa la unidad básica de trabajo y contiene las credenciales de ejecución en el sistema destino.",
+        "rationale": "Definido como la unidad mínima, un job incluye usuario, agente y comando a ejecutar.",
+        "isCorrect": false
+      },
+      {
+        "text": "Al ser modificado un Job, el cambio se aplica automáticamente a todos los Workflows donde esté incluido.",
+        "rationale": "La reutilización de objetos permite que una única actualización afecte a todas las instancias en los flujos de trabajo.",
+        "isCorrect": false
+      },
+      {
+        "text": "Cada ejecución de un Job recibe un identificador único denominado RunID.",
+        "rationale": "El RunID es la clave única generada por UC4 para rastrear cada instancia específica de ejecución.",
+        "isCorrect": false
+      },
+      {
+        "text": "El Job objeto de tipo SCRI se utiliza exclusivamente para la transferencia de archivos entre diferentes agentes.",
+        "rationale": "El objeto SCRI es para scripts internos de UC4; la transferencia de archivos se gestiona mediante el objeto JOBF.",
+        "isCorrect": true
+      }
+    ],
+    "hint": "Revisa la nomenclatura de los prefijos de los objetos según su funcionalidad específica."
+  },
+  {
+    "guid": "95916f49-840f-4b5a-825d-2e587304bbad",
+    "subjectId": "T31",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Respecto a los Workflows (JOBP), indique la afirmación que es FALSA:",
+    "answerOptions": [
+      {
+        "text": "Un Workflow actúa como contenedor de objetos ejecutables con dependencias definidas.",
+        "rationale": "Los JOBP orquestan la secuencia y lógica de ejecución de múltiples tareas.",
+        "isCorrect": false
+      },
+      {
+        "text": "Los bloques START y END son opcionales y pueden omitirse si el flujo es lineal.",
+        "rationale": "UC4 añade automáticamente START y END, y es obligatorio que todos los caminos desemboquen en END para considerar el flujo completo.",
+        "isCorrect": true
+      },
+      {
+        "text": "Permiten diseñar ejecuciones en paralelo y ramas condicionales complejas.",
+        "rationale": "La flexibilidad del Workflow permite ramificaciones y procesamiento simultáneo de tareas.",
+        "isCorrect": false
+      },
+      {
+        "text": "Dentro de un Workflow, cada elemento insertado (como un job o notificación) se denomina 'task'.",
+        "rationale": "En el contexto de un Job Plan, los objetos individuales adquieren propiedades adicionales como 'tareas' del flujo.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considera la estructura visual obligatoria que UC4 impone al crear un diagrama de flujo."
+  },
+  {
+    "guid": "e627f34d-b870-4483-8a97-43e716b91fd2",
+    "subjectId": "T31",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Sobre las precondiciones y postcondiciones en UC4, ¿qué afirmación es FALSA?",
+    "answerOptions": [
+      {
+        "text": "Las precondiciones son verificaciones que se realizan antes de ejecutar una tarea específica.",
+        "rationale": "Se usan típicamente para validar estados previos como la existencia de archivos o éxito de tareas anteriores.",
+        "isCorrect": false
+      },
+      {
+        "text": "Las postcondiciones permiten definir acciones, como reintentar un job, basadas en el resultado de su ejecución.",
+        "rationale": "La lógica posterior al job sirve para la gestión inteligente de errores y control de flujo.",
+        "isCorrect": false
+      },
+      {
+        "text": "Las precondiciones y postcondiciones se configuran a nivel de objeto global y afectan a todas sus ejecuciones manuales ad-hoc.",
+        "rationale": "Estas condiciones se configuran a menudo como propiedades de la 'task' dentro de un Workflow específico, no necesariamente en la definición base del objeto.",
+        "isCorrect": true
+      },
+      {
+        "text": "Un uso típico de la postcondición es enviar una notificación si el job termina en estado de error.",
+        "rationale": "La automatización de alertas tras fallos es una de las funciones principales de las postcondiciones.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piensa si estas reglas pertenecen a la definición aislada del comando o a su orquestación dentro de un plan."
+  },
+  {
+    "guid": "efe58f4c-4ef3-4242-a722-e80d15d013d2",
+    "subjectId": "T31",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En relación a los Workflows especiales, indique la opción FALSA:",
+    "answerOptions": [
+      {
+        "text": "El FOREACH Workflow repite un conjunto de tareas para cada elemento de una lista.",
+        "rationale": "Este tipo de flujo funciona como un bucle de programación aplicado a la automatización de tareas.",
+        "isCorrect": false
+      },
+      {
+        "text": "El IF Workflow permite incluir lógica condicional con ramas alternativas (if/else).",
+        "rationale": "Se utiliza para desviar el flujo de ejecución según el cumplimiento de una condición lógica específica.",
+        "isCorrect": false
+      },
+      {
+        "text": "Un FOREACH Workflow es ideal para procesar múltiples archivos sin tener que duplicar las definiciones de los jobs.",
+        "rationale": "Aumenta la modularidad al aplicar el mismo proceso a diferentes parámetros de entrada dinámicamente.",
+        "isCorrect": false
+      },
+      {
+        "text": "El IF Workflow es el único método en UC4 para ejecutar jobs en paralelo basándose en el tiempo.",
+        "rationale": "La ejecución en paralelo es una propiedad nativa de los Workflows estándar (JOBP); el IF Workflow es específicamente para decisiones binarias de lógica.",
+        "isCorrect": true
+      }
+    ],
+    "hint": "Analiza si la lógica de 'paralelismo' depende de una condición 'si/entonces' o de la estructura del contenedor."
+  },
+  {
+    "guid": "4834246b-5517-4e2a-8144-30b9ba977268",
+    "subjectId": "T31",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Cuál de las siguientes afirmaciones sobre los Calendarios (Calendar Objects) es FALSA?",
+    "answerOptions": [
+      {
+        "text": "Un calendario contiene reglas llamadas Calendar Events que determinan un conjunto de fechas.",
+        "rationale": "Los eventos de calendario definen los patrones lógicos de fechas resultantes.",
+        "isCorrect": false
+      },
+      {
+        "text": "Los calendarios se utilizan para adaptar los procesos batch a horarios, festivos y excepciones específicas.",
+        "rationale": "Su función es asegurar que el proceso se ejecute solo en los días permitidos por la lógica de negocio.",
+        "isCorrect": false
+      },
+      {
+        "text": "Es obligatorio crear un calendario único y exclusivo para cada Job definido en el sistema.",
+        "rationale": "Las buenas prácticas recomiendan el uso centralizado de calendarios corporativos reutilizables para facilitar el mantenimiento.",
+        "isCorrect": true
+      },
+      {
+        "text": "Un Schedule puede combinar su programación con un calendario para omitir ejecuciones en días no deseados.",
+        "rationale": "La combinación de Schedule y Calendario permite una programación horaria con filtros de fechas precisos.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Evalúa las recomendaciones de 'buenas prácticas' sobre la gestión centralizada versus la fragmentada."
+  },
+  {
+    "guid": "80be9305-a460-486c-b61c-a50ac01b8669",
+    "subjectId": "T31",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Sobre los Eventos (EVNT) y Triggers, señale la afirmación FALSA:",
+    "answerOptions": [
+      {
+        "text": "Un File Event es un objeto diseñado para esperar a que aparezca o cambie un archivo antes de actuar.",
+        "rationale": "Esta es la función principal de detección de condiciones externas en el sistema de archivos.",
+        "isCorrect": false
+      },
+      {
+        "text": "El concepto de Trigger se refiere estrictamente a un objeto de tipo script (SCRI) que lanza otros procesos.",
+        "rationale": "Un Trigger es un concepto amplio que incluye eventos, condiciones de workflow, schedules o llamadas desde scripts; no es solo un objeto SCRI.",
+        "isCorrect": true
+      },
+      {
+        "text": "Los Database Events permiten activar tareas tras detectar cambios en una base de datos.",
+        "rationale": "UC4 puede monitorizar el estado de tablas o registros para disparar flujos de trabajo.",
+        "isCorrect": false
+      },
+      {
+        "text": "Un Trigger permite que los jobs se lancen automáticamente en respuesta a sucesos, eliminando la intervención humana.",
+        "rationale": "La esencia de la automatización desatendida es la reacción proactiva a disparadores predefinidos.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Distingue entre un objeto técnico específico y un concepto general de activación."
+  },
+  {
+    "guid": "b9c1cd2d-97a7-4314-9c8b-6482e13d1b28",
+    "subjectId": "T31",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Respecto a la gestión de errores e incidencias en UC4, ¿qué afirmación es FALSA?",
+    "answerOptions": [
+      {
+        "text": "UC4 interpreta los códigos de salida (exit codes) para determinar si un job es OK o Not OK.",
+        "rationale": "El motor utiliza el retorno del sistema operativo para clasificar el estado final de la tarea.",
+        "isCorrect": false
+      },
+      {
+        "text": "Si un job falla, el workflow se detiene automáticamente a menos que existan postcondiciones que definan lo contrario.",
+        "rationale": "El comportamiento por defecto es la parada por seguridad para evitar inconsistencias en procesos dependientes.",
+        "isCorrect": false
+      },
+      {
+        "text": "Los informes de error (logs) solo pueden ser consultados por los administradores del sistema desde el servidor central.",
+        "rationale": "Los técnicos y operadores pueden acceder a los reports de ejecución y logs directamente desde la consola de monitorización.",
+        "isCorrect": true
+      },
+      {
+        "text": "Una buena práctica es configurar objetos de Notificación para alertar automáticamente en caso de fallo.",
+        "rationale": "Las notificaciones automáticas son fundamentales para cumplir con los tiempos de respuesta en entornos críticos.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considera quiénes son los usuarios que deben diagnosticar problemas en el día a día."
+  },
+  {
+    "guid": "99fda942-01b1-497c-a239-05e3c46e5336",
+    "subjectId": "T31",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Cuál de los siguientes pasos en la creación de un proceso batch es FALSO o incorrecto?",
+    "answerOptions": [
+      {
+        "text": "Primero se definen los jobs individuales detallando el agente, el script y el usuario.",
+        "rationale": "La base del proceso es la definición técnica de cada paso atómico.",
+        "isCorrect": false
+      },
+      {
+        "text": "Es aconsejable realizar simulaciones con la opción 'forecast' antes de pasar a producción.",
+        "rationale": "El forecast ayuda a predecir el comportamiento del flujo y detectar conflictos de calendario previos.",
+        "isCorrect": false
+      },
+      {
+        "text": "UC4 prohíbe el uso de variables dinámicas en los scripts para garantizar que el código sea inmutable.",
+        "rationale": "UC4 permite y fomenta el uso de variables y PromptSets para pasar valores dinámicos a los scripts según sea necesario.",
+        "isCorrect": true
+      },
+      {
+        "text": "Se deben configurar las propiedades de las tareas en el workflow para establecer dependencias de precedencia.",
+        "rationale": "La orquestación requiere definir qué tareas deben completarse antes de que otras comiencen.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Recuerda el propósito de los PromptSets y las variables dentro de la plataforma."
+  },
+  {
+    "guid": "fa7331b4-3cf3-40b2-96ad-7006fc68fc84",
+    "subjectId": "T31",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En cuanto a los Schedules (JSCH), indique la afirmación FALSA:",
+    "answerOptions": [
+      {
+        "text": "Un Schedule es un objeto diseñado para la ejecución cíclica de procesos.",
+        "rationale": "Son los contenedores principales para la planificación recurrente en UC4.",
+        "isCorrect": false
+      },
+      {
+        "text": "Opera típicamente en periodos de 24 horas antes de reiniciarse.",
+        "rationale": "El ciclo de vida estándar de un objeto Schedule es diario, gestionando las tareas previstas para esa jornada.",
+        "isCorrect": false
+      },
+      {
+        "text": "Un Schedule no puede contener workflows, solo jobs individuales de tipo Windows o Linux.",
+        "rationale": "Los Schedules pueden contener tanto jobs individuales como workflows (JOBP) completos para su ejecución planificada.",
+        "isCorrect": true
+      },
+      {
+        "text": "Cada entrada en un Schedule puede tener su propia hora de inicio y condiciones de calendario.",
+        "rationale": "Permite una granularidad total al definir cuándo debe activarse cada componente dentro del ciclo.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Analiza la capacidad de 'anidación' de objetos complejos dentro de la planificación cíclica."
+  },
+  {
+    "guid": "b1d7e71d-9e72-4ee3-a801-d9b1ca963f2f",
+    "subjectId": "T31",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Sobre los Sync Objects, señale la opción FALSA:",
+    "answerOptions": [
+      {
+        "text": "Sirven para coordinar el acceso a recursos compartidos como archivos o tablas de base de datos.",
+        "rationale": "Su objetivo es la gestión de la concurrencia para evitar conflictos entre procesos simultáneos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Si un recurso está ocupado, el job puede configurarse para esperar o cancelarse.",
+        "rationale": "Ofrecen flexibilidad en el manejo de bloqueos según la criticidad de la tarea.",
+        "isCorrect": false
+      },
+      {
+        "text": "Un Sync Object garantiza que dos jobs escriban en el mismo log exactamente al mismo tiempo para ahorrar tiempo de proceso.",
+        "rationale": "Al contrario, se usan para asegurar que solo uno escriba a la vez y evitar así la corrupción de datos o colisiones.",
+        "isCorrect": true
+      },
+      {
+        "text": "Cada job solicita un estado del Sync Object, como por ejemplo 'bloqueado' o 'libre'.",
+        "rationale": "Funcionan mediante un sistema de semáforos o estados lógicos compartidos.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Evalúa el concepto de 'sincronización' frente al de 'concurrencia descontrolada'."
+  },
+  {
+    "guid": "c6c0c2a4-e55c-42a3-9152-95c8eb45d7ce",
+    "subjectId": "T31",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Indique cuál de las siguientes definiciones de estados de un job es FALSA:",
+    "answerOptions": [
+      {
+        "text": "ACTIVATED: El job ha sido activado por el sistema pero la ejecución física aún no ha comenzado.",
+        "rationale": "Representa el estado inicial de preparación en la cola de tareas.",
+        "isCorrect": false
+      },
+      {
+        "text": "ENDED_INACTIVE: El job ha finalizado con éxito pero el log se ha borrado por falta de espacio.",
+        "rationale": "ENDED_INACTIVE significa que el job no se ejecutó debido al incumplimiento de condiciones o dependencias de calendario.",
+        "isCorrect": true
+      },
+      {
+        "text": "FAULT_OTHER: Indica un error de lógica, configuración o dependencia externa fallida.",
+        "rationale": "Se usa para errores que no son directamente fallos de ejecución del script sino del entorno o precondiciones.",
+        "isCorrect": false
+      },
+      {
+        "text": "ENDED_CANCEL: El job ha sido detenido manualmente por un operador o por una acción externa.",
+        "rationale": "Refleja una interrupción forzada del flujo de trabajo normal.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considera por qué un job podría aparecer como 'gris' o 'omitido' en el monitor."
+  },
+  {
+    "guid": "1e192d33-6ca7-426c-bd32-9d27053bc3a7",
+    "subjectId": "T31",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Sobre el uso de variables en UC4, ¿cuál de las siguientes opciones es FALSA?",
+    "answerOptions": [
+      {
+        "text": "Las variables de tipo STATIC almacenan valores fijos definidos manualmente.",
+        "rationale": "Son constantes gestionadas dentro de UC4 para su reutilización.",
+        "isCorrect": false
+      },
+      {
+        "text": "Las variables SQL (VARA.SQL) pueden obtener valores directamente de una base de datos externa.",
+        "rationale": "Permiten la integración de datos dinámicos provenientes de consultas a sistemas externos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Las variables son exclusivas de los administradores y no pueden ser utilizadas dentro de los scripts ejecutados por los agentes.",
+        "rationale": "Las variables están diseñadas precisamente para ser inyectadas dinámicamente en los scripts y jobs de los agentes.",
+        "isCorrect": true
+      },
+      {
+        "text": "El uso de variables evita la duplicación de datos y facilita la configuración centralizada.",
+        "rationale": "Centralizar rutas o parámetros en variables hace que el mantenimiento sea mucho más ágil.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Reflexiona sobre cómo se pasan los parámetros desde el motor de Automic hacia el sistema operativo final."
+  },
+  {
+    "guid": "e6683446-fb46-4637-8d47-d62720e263d8",
+    "subjectId": "T31",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Respecto a la supervisión y el monitoreo, indique la afirmación FALSA:",
+    "answerOptions": [
+      {
+        "text": "La Activity Window permite ver qué procesos están activos, esperando o planificados.",
+        "rationale": "Es la ventana operativa principal para el seguimiento de la carga de trabajo diaria.",
+        "isCorrect": false
+      },
+      {
+        "text": "El Monitor de Workflow muestra visualmente el estado de cada tarea mediante códigos de colores (verde, rojo, etc.).",
+        "rationale": "Facilita la identificación rápida de puntos de fallo en flujos complejos.",
+        "isCorrect": false
+      },
+      {
+        "text": "UC4 permite realizar acciones en tiempo real como poner en 'hold' (pausa) un workflow entero.",
+        "rationale": "La gestión dinámica permite intervenir en procesos en marcha para realizar ajustes o mantenimientos.",
+        "isCorrect": false
+      },
+      {
+        "text": "El módulo Process Monitoring es una herramienta externa que debe comprarse por separado para ver los logs de los agentes.",
+        "rationale": "Process Monitoring es una funcionalidad integrada y central en la consola de Automic para la supervisión en tiempo real.",
+        "isCorrect": true
+      }
+    ],
+    "hint": "Distingue entre funciones nativas de la consola y productos complementarios de análisis avanzado."
+  },
+  {
+    "guid": "72a3147e-73ee-4e22-b0e2-f45852719aa0",
+    "subjectId": "T31",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En relación al uso de UC4 en el Ayuntamiento de Barcelona, ¿cuál es la opción FALSA?",
+    "answerOptions": [
+      {
+        "text": "El IMI utiliza UC4 para centralizar la planificación batch en lugar de usar cron jobs locales en cada servidor.",
+        "rationale": "La centralización evita la fragmentación y mejora el control corporativo de las tareas.",
+        "isCorrect": false
+      },
+      {
+        "text": "El equipo OTE (Operación Técnica de Explotación) es el encargado de la supervisión 24x7 de la plataforma.",
+        "rationale": "Este equipo vela por la continuidad de los servicios y la resolución de fallos nocturnos.",
+        "isCorrect": false
+      },
+      {
+        "text": "La integración con el Help Desk corporativo permite la apertura automática de tickets cuando falla un proceso batch.",
+        "rationale": "La automatización del ciclo de incidencia garantiza que los errores se asignen rápidamente al grupo resolutor.",
+        "isCorrect": false
+      },
+      {
+        "text": "Debido a restricciones de seguridad, el Ayuntamiento prohíbe el uso de conectores de UC4 para sistemas ERP como SAP.",
+        "rationale": "El Ayuntamiento aprovecha precisamente los conectores especiales de UC4 para SAP y Oracle para integrar sus procesos de negocio.",
+        "isCorrect": true
+      }
+    ],
+    "hint": "Considera si una gran organización informática limitaría la integración con sus sistemas de gestión más importantes."
+  },
+  {
+    "guid": "95ab8923-bab1-404f-86fe-de12e99879fc",
+    "subjectId": "T31",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Sobre la normativa aplicada a la gestión de batch en UC4, indique la afirmación FALSA:",
+    "answerOptions": [
+      {
+        "text": "ITIL 4 enmarca la gestión del batch dentro del proceso de 'Job Scheduling' en Service Operation.",
+        "rationale": "Define las bases de la gestión de operaciones de TI para la ejecución planificada de trabajos.",
+        "isCorrect": false
+      },
+      {
+        "text": "El ENS exige que cada job automatizado deje rastro en un log y esté debidamente protegido.",
+        "rationale": "La trazabilidad y la integridad son pilares fundamentales del Esquema Nacional de Seguridad.",
+        "isCorrect": false
+      },
+      {
+        "text": "La norma ISO/IEC 27001 prohíbe la ejecución de procesos automáticos durante el horario nocturno por riesgo de ciberataques.",
+        "rationale": "La ISO 27001 no prohíbe horarios, sino que promueve la gestión segura, el control de acceso y la trazabilidad de dichos procesos.",
+        "isCorrect": true
+      },
+      {
+        "text": "El principio de mínimos privilegios recomienda dar acceso a los usuarios solo a los workflows que necesitan operar.",
+        "rationale": "La seguridad granular en UC4 permite restringir acciones según el rol del usuario para cumplir con estándares de seguridad.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Analiza si una normativa de seguridad restringiría la operatividad temporal o si se enfoca en el control y registro."
+  },
+  {
+    "guid": "3d9022c0-2d2d-4c6f-997f-9ba773495489",
+    "subjectId": "T31",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Respecto a las buenas prácticas de diseño en UC4, señale la afirmación FALSA:",
+    "answerOptions": [
+      {
+        "text": "Se recomienda usar nomenclaturas claras y homogéneas para facilitar el mantenimiento.",
+        "rationale": "Los estándares de nombrado son cruciales en entornos con cientos de jobs.",
+        "isCorrect": false
+      },
+      {
+        "text": "Es preferible utilizar esperas arbitrarias (sleeps) de tiempo fijo entre jobs en lugar de dependencias lógicas.",
+        "rationale": "Las esperas arbitrarias son una mala práctica; se deben usar dependencias reales para optimizar tiempos y asegurar la lógica.",
+        "isCorrect": true
+      },
+      {
+        "text": "La modularidad permite crear componentes reutilizables y evitar la duplicación de código.",
+        "rationale": "El diseño modular simplifica las actualizaciones globales y reduce errores de copia.",
+        "isCorrect": false
+      },
+      {
+        "text": "Separar los entornos en clientes (desarrollo, test, producción) es esencial para evitar interferencias.",
+        "rationale": "La segregación de entornos garantiza que las pruebas no afecten a la operativa real del negocio.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Evalúa qué método de coordinación es más robusto ante retrasos inesperados en la ejecución de un paso previo."
+  },
+  {
+    "guid": "295f92f0-64c7-4bcb-820a-ffa612b2c231",
+    "subjectId": "T31",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Cuál de las siguientes afirmaciones sobre el objeto de tipo JOBF es FALSA?",
+    "answerOptions": [
+      {
+        "text": "Es un objeto específico para realizar transferencias de ficheros entre agentes.",
+        "rationale": "JOBF (File Transfer) está diseñado nativamente para el movimiento seguro de datos entre sistemas.",
+        "isCorrect": false
+      },
+      {
+        "text": "Permite definir el agente de origen y el agente de destino del archivo.",
+        "rationale": "La configuración requiere especificar ambos extremos de la comunicación para establecer el puente.",
+        "isCorrect": false
+      },
+      {
+        "text": "Solo permite transferencias de archivos dentro del mismo servidor físico donde reside el motor UC4.",
+        "rationale": "Los JOBF pueden transferir archivos entre cualquier par de agentes remotos instalados en diferentes servidores de la red.",
+        "isCorrect": true
+      },
+      {
+        "text": "Se configura de manera similar a otros jobs, definiendo condiciones y gestión de salida.",
+        "rationale": "Mantiene la coherencia de configuración de la plataforma Automic.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Recuerda el propósito multiplataforma y distribuido de los agentes de UC4."
+  },
+  {
+    "guid": "66ca48c6-07d0-4435-90b0-17c102cca1df",
+    "subjectId": "T31",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Sobre los PromptSets en UC4, indique la opción FALSA:",
+    "answerOptions": [
+      {
+        "text": "Son interfaces de formulario que permiten al usuario introducir valores antes de lanzar un proceso.",
+        "rationale": "Aportan interactividad controlada a los procesos que requieren parámetros manuales variables.",
+        "isCorrect": false
+      },
+      {
+        "text": "Los valores introducidos en el PromptSet se pueden pasar dinámicamente al script del job.",
+        "rationale": "Actúan como una capa de entrada de datos que alimenta la lógica interna del proceso.",
+        "isCorrect": false
+      },
+      {
+        "text": "Un PromptSet solo puede ser utilizado en ejecuciones manuales, nunca en ejecuciones automáticas programadas.",
+        "rationale": "Pueden tener valores por defecto y utilizarse en ejecuciones automáticas, aunque su uso principal sea facilitar lanzamientos ad-hoc.",
+        "isCorrect": true
+      },
+      {
+        "text": "Contribuyen a la documentación y guía del usuario al definir qué datos son necesarios.",
+        "rationale": "Mejoran la usabilidad al presentar campos claros para la entrada de parámetros.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piensa si un workflow con parámetros podría ejecutarse solo con valores predefinidos sin intervención humana."
+  },
+  {
+    "guid": "c9a70cf9-1e9e-47b4-895c-bbf6964b8b8b",
+    "subjectId": "T31",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Respecto a la gestión de agentes, ¿qué afirmación es FALSA?",
+    "answerOptions": [
+      {
+        "text": "El agente actúa como intermediario entre el motor central y el sistema operativo local.",
+        "rationale": "Es el software ejecutor que recibe instrucciones del servidor de automatización.",
+        "isCorrect": false
+      },
+      {
+        "text": "Cada agente puede tener configuraciones de seguridad y permisos específicas.",
+        "rationale": "La seguridad se puede granularizar según el entorno o la criticidad del servidor donde reside el agente.",
+        "isCorrect": false
+      },
+      {
+        "text": "El motor central de UC4 ejecuta físicamente los scripts de Linux dentro de su propia CPU y envía solo el resultado al agente.",
+        "rationale": "Es el agente quien ejecuta las órdenes localmente en su propio servidor; el motor central solo orquestra y registra.",
+        "isCorrect": true
+      },
+      {
+        "text": "Permiten distribuir la carga de trabajo entre diferentes servidores de la organización.",
+        "rationale": "La arquitectura distribuida evita la saturación del servidor central de gestión.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considera dónde reside realmente el script y dónde se consumen los recursos de computación durante el batch."
+  },
+  {
+    "guid": "8da9387b-a9e0-4d22-9223-91f4abb1a97a",
+    "subjectId": "T31",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Cuál de las siguientes afirmaciones sobre el objeto de tipo JOBQ es FALSA?",
+    "answerOptions": [
+      {
+        "text": "Se utiliza para gestionar la cola de ejecución de jobs según prioridades.",
+        "rationale": "Permite el control del orden de entrada en ejecución cuando hay mucha demanda.",
+        "isCorrect": false
+      },
+      {
+        "text": "Permite establecer límites de concurrencia para no saturar los recursos de un sistema.",
+        "rationale": "Es una herramienta de control de carga (throttling) para proteger la estabilidad del entorno.",
+        "isCorrect": false
+      },
+      {
+        "text": "Un JOBQ es obligatorio para que cualquier Job individual pueda ser guardado en la base de datos.",
+        "rationale": "No es obligatorio; es un objeto de gestión de recursos opcional para optimizar flujos masivos o limitados.",
+        "isCorrect": true
+      },
+      {
+        "text": "Ayuda a evitar colapsos en entornos con un volumen muy alto de procesos simultáneos.",
+        "rationale": "Su función principal es la racionalización del uso de recursos del sistema mediante colas.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Evalúa si todos los jobs pequeños necesitan obligatoriamente una cola de gestión de recursos compleja."
+  },
+  {
+    "guid": "36861946-c2f7-4542-a67b-e2b356a18d07",
+    "subjectId": "T31",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Sobre la pestaña de documentación en los objetos de UC4, indique la opción FALSA:",
+    "answerOptions": [
+      {
+        "text": "Permite describir la función del job, el autor y la fecha de creación.",
+        "rationale": "Fomenta la mantenibilidad y el conocimiento compartido sobre el propósito del objeto.",
+        "isCorrect": false
+      },
+      {
+        "text": "La información introducida en la pestaña de documentación se compila y se convierte automáticamente en código ejecutable.",
+        "rationale": "La documentación es puramente informativa y de gestión de cambios; no tiene impacto funcional en la ejecución técnica.",
+        "isCorrect": true
+      },
+      {
+        "text": "Es útil para indicar contactos de referencia en caso de incidencia funcional.",
+        "rationale": "Facilita la labor de los operadores al proporcionarles información de escalado rápido.",
+        "isCorrect": false
+      },
+      {
+        "text": "Ayuda a cumplir con los estándares de control de cambios y auditoría corporativa.",
+        "rationale": "Mantener registros de quién y por qué se creó un proceso es parte del cumplimiento normativo.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Diferencia entre metadatos informativos y lógica de programación activa."
+  },
+  {
+    "guid": "01fe74be-6437-4b47-9d40-0c981822e67f",
+    "subjectId": "T31",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Respecto al 'Activity Window' y el monitoreo, ¿qué afirmación es FALSA?",
+    "answerOptions": [
+      {
+        "text": "Los técnicos pueden forzar el lanzamiento de una tarea antes de su hora programada.",
+        "rationale": "La intervención manual permite adelantar ejecuciones si los requisitos previos se cumplen.",
+        "isCorrect": false
+      },
+      {
+        "text": "Una tarea en estado 'Waiting' significa que está esperando una condición horaria o de archivo.",
+        "rationale": "Indica que el objeto está activo pero pendiente de un disparador o dependencia.",
+        "isCorrect": false
+      },
+      {
+        "text": "Una vez que un job ha terminado en error, la Activity Window impide ver el log para proteger la privacidad del fallo.",
+        "rationale": "Al contrario, la ventana de actividades es el lugar principal para abrir y diagnosticar los logs de jobs fallidos.",
+        "isCorrect": true
+      },
+      {
+        "text": "Es posible cancelar manualmente un job que se encuentra actualmente en ejecución.",
+        "rationale": "Proporciona control total para detener procesos que presentan comportamientos anómalos.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considera la utilidad de la consola para un técnico que debe resolver un error de inmediato."
+  },
+  {
+    "guid": "f32c78cf-654c-47d5-9517-0169b99aad2f",
+    "subjectId": "T31",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Sobre la integración de procesos SAP en UC4, indique la afirmación FALSA:",
+    "answerOptions": [
+      {
+        "text": "UC4 permite orquestar jobs de SAP integrándolos con el resto de la operativa batch.",
+        "rationale": "La visibilidad única unifica procesos de negocio complejos que atraviesan diferentes sistemas.",
+        "isCorrect": false
+      },
+      {
+        "text": "Para lanzar jobs en SAP, UC4 requiere de conectores o agentes especializados.",
+        "rationale": "Existen agentes específicos para interactuar con la capa de aplicación de sistemas ERP.",
+        "isCorrect": false
+      },
+      {
+        "text": "Un job de SAP lanzado por UC4 no genera ningún tipo de log ni histórico en la consola central.",
+        "rationale": "Todos los jobs, incluidos los de SAP, devuelven informes y estados a UC4 para su control centralizado.",
+        "isCorrect": true
+      },
+      {
+        "text": "Ayuda a sincronizar el intercambio de datos entre SAP y otras aplicaciones externas.",
+        "rationale": "La automatización cruzada garantiza que los datos estén disponibles cuando el proceso de negocio los requiere.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piensa en el valor de UC4 como 'punto único de control' para toda la organización."
+  },
+  {
+    "guid": "05475e3a-544f-43e2-a073-d4b8467e708f",
+    "subjectId": "T31",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Indique la opción FALSA sobre los objetos de sincronización (SYNC):",
+    "answerOptions": [
+      {
+        "text": "Pueden usarse para limitar el número máximo de jobs que acceden a una base de datos simultáneamente.",
+        "rationale": "Actúan como gestores de recursos limitados para evitar la degradación del rendimiento.",
+        "isCorrect": false
+      },
+      {
+        "text": "Un job puede configurarse para abortar si el Sync Object no está disponible tras un tiempo determinado.",
+        "rationale": "Permite definir políticas de gestión de errores ante la indisponibilidad de recursos compartidos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Los Sync Objects solo pueden ser modificados manualmente por un operador humano durante la ejecución del job.",
+        "rationale": "Los Sync Objects son gestionados automáticamente por el Automation Engine según las peticiones de los jobs.",
+        "isCorrect": true
+      },
+      {
+        "text": "Evitan inconsistencias de datos al impedir que múltiples procesos modifiquen el mismo recurso a la vez.",
+        "rationale": "Su función primordial es garantizar la exclusión mutua en procesos críticos.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Evalúa si la 'automatización' de procesos permitiría una gestión manual constante de los semáforos de recursos."
+  },
+  {
+    "guid": "e8c8e3f4-4fd7-49fa-9c8d-8b2f66b78f76",
+    "subjectId": "T31",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Sobre la 'Forecast View' (Vista de Predicción), señale la afirmación FALSA:",
+    "answerOptions": [
+      {
+        "text": "Permite visualizar qué jobs están previstos para ejecutarse en el futuro cercano.",
+        "rationale": "Es una herramienta de planificación proactiva basada en la configuración actual.",
+        "isCorrect": false
+      },
+      {
+        "text": "Tiene en cuenta los calendarios y las reglas horarias de los Schedules.",
+        "rationale": "La predicción calcula las fechas resultantes aplicando todos los filtros lógicos definidos.",
+        "isCorrect": false
+      },
+      {
+        "text": "La ejecución de un Forecast en entorno de Test borra automáticamente los archivos reales del entorno de Producción.",
+        "rationale": "El Forecast es una simulación lógica del calendario; no ejecuta físicamente los scripts ni afecta a los archivos.",
+        "isCorrect": true
+      },
+      {
+        "text": "Ayuda a identificar posibles colapsos o solapamientos de procesos antes de que ocurran.",
+        "rationale": "Permite realizar 'capacity planning' y ajuste de ventanas de mantenimiento.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Diferencia entre una simulación de fechas y una ejecución física de comandos."
+  },
+  {
+    "guid": "4d9a6a21-36ba-4b6a-bf4a-75390b87b005",
+    "subjectId": "T31",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Respecto a los informes estadísticos de ejecución, ¿qué opción es FALSA?",
+    "answerOptions": [
+      {
+        "text": "Resumen la hora de inicio y fin de cada tarea.",
+        "rationale": "Proporcionan métricas temporales precisas para cada ejecución.",
+        "isCorrect": false
+      },
+      {
+        "text": "Incluyen el código de retorno entregado por el sistema operativo.",
+        "rationale": "Registran el resultado técnico fundamental para auditar el éxito del job.",
+        "isCorrect": false
+      },
+      {
+        "text": "Permiten analizar tendencias y frecuencias de errores a lo largo del tiempo.",
+        "rationale": "El histórico es vital para el 'tuning' y la mejora continua de la plataforma batch.",
+        "isCorrect": false
+      },
+      {
+        "text": "Están diseñados para ser leídos únicamente por máquinas y no son legibles por humanos.",
+        "rationale": "Los informes están pensados para que los técnicos puedan diagnosticar problemas y entender el comportamiento del sistema.",
+        "isCorrect": true
+      }
+    ],
+    "hint": "Considera el papel del técnico de explotación al revisar un proceso nocturno fallido."
+  },
+  {
+    "guid": "5459326c-66f4-47e1-a439-a7b4abdd4e2c",
+    "subjectId": "T31",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Cuál de las siguientes afirmaciones sobre la gestión de incidencias 24x7 es FALSA?",
+    "answerOptions": [
+      {
+        "text": "Implica la detección, notificación, diagnosis y resolución de fallos.",
+        "rationale": "Cubre todo el ciclo de vida de una anomalía en el entorno productivo.",
+        "isCorrect": false
+      },
+      {
+        "text": "Si un proceso falla, se revisa el log para identificar causas como 'fichero no encontrado' o 'falta de espacio'.",
+        "rationale": "La inspección de la salida estándar es el primer paso para la resolución técnica.",
+        "isCorrect": false
+      },
+      {
+        "text": "Los protocolos de resolución prohíben estrictamente relanzar tareas manualmente una vez corregido el problema.",
+        "rationale": "Al contrario, el relanzamiento manual tras la corrección es una práctica habitual de operación para completar el flujo.",
+        "isCorrect": true
+      },
+      {
+        "text": "Se puede escalar la incidencia a los responsables de la aplicación si el error es funcional y no técnico.",
+        "rationale": "La distinción entre errores de plataforma y errores de lógica de negocio es clave para el escalado.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piensa en cuál sería el siguiente paso lógico de un operador tras arreglar un disco lleno."
+  },
+  {
+    "guid": "7d45d939-c6b4-4613-aeb9-b89983e2d4cb",
+    "subjectId": "T31",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Sobre la modularidad y reutilización en UC4, indique la afirmación FALSA:",
+    "answerOptions": [
+      {
+        "text": "Un mismo Job definido una vez puede utilizarse en múltiples flujos de trabajo (Workflows).",
+        "rationale": "La arquitectura orientada a objetos fomenta la economía de definiciones.",
+        "isCorrect": false
+      },
+      {
+        "text": "La reutilización de scripts genéricos facilita el mantenimiento ante cambios globales.",
+        "rationale": "Permite aplicar mejoras o correcciones en un solo lugar con efecto inmediato en toda la malla.",
+        "isCorrect": false
+      },
+      {
+        "text": "Para ejecutar el mismo comando en dos servidores distintos, es obligatorio copiar y renombrar el objeto Job para cada uno.",
+        "rationale": "Se pueden usar variables de agente o configuraciones dinámicas para usar el mismo objeto en diferentes sistemas sin duplicarlo físicamente.",
+        "isCorrect": true
+      },
+      {
+        "text": "Ayuda a evitar errores de inconsistencia entre diferentes procesos que realizan tareas similares.",
+        "rationale": "Estandarizar tareas comunes reduce la variabilidad y el riesgo de errores manuales.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considera cómo la herramienta optimiza el trabajo de administración al manejar cientos de sistemas."
+  },
+  {
+    "guid": "ba389c31-67c4-4ff8-9123-c74b3a61105a",
+    "subjectId": "T31",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Respecto a los beneficios de la centralización del batch, señale la opción FALSA:",
+    "answerOptions": [
+      {
+        "text": "Aporta una visión global y control unificado de todos los procesos de la empresa.",
+        "rationale": "Elimina silos de información y permite una supervisión coherente.",
+        "isCorrect": false
+      },
+      {
+        "text": "Permite la aplicación de estándares comunes para la gestión de errores y notificaciones.",
+        "rationale": "Homogeniza la respuesta operativa ante fallos en diferentes áreas.",
+        "isCorrect": false
+      },
+      {
+        "text": "La centralización obliga a que todos los jobs se ejecuten secuencialmente en un único hilo para no estresar al servidor central.",
+        "rationale": "UC4 permite ejecuciones masivas en paralelo y distribuidas; la centralización es de gestión, no de ejecución física.",
+        "isCorrect": true
+      },
+      {
+        "text": "Optimiza el uso de recursos al permitir una mejor distribución horaria de las cargas.",
+        "rationale": "La visión periférica facilita la identificación de huecos en la planificación para nuevas tareas.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Diferencia entre 'control centralizado' y 'cuello de botella en la ejecución'."
+  },
+  {
+    "guid": "7d67db0b-b8ac-4cfb-89d1-c20102c40ae2",
+    "subjectId": "T31",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Sobre las variables dinámicas de tipo XML (VARA.XML), indique la afirmación FALSA:",
+    "answerOptions": [
+      {
+        "text": "Permiten almacenar y recuperar valores estructurados en formato XML.",
+        "rationale": "Proporcionan una forma de manejar datos complejos dentro de la lógica de UC4.",
+        "isCorrect": false
+      },
+      {
+        "text": "Son útiles para integraciones que requieren el intercambio de parámetros formateados.",
+        "rationale": "Facilitan la comunicación con servicios web o aplicaciones que hablen este estándar.",
+        "isCorrect": false
+      },
+      {
+        "text": "Estas variables solo pueden almacenar un único número entero y no admiten etiquetas de texto.",
+        "rationale": "Al ser de tipo XML, están diseñadas precisamente para estructuras jerárquicas complejas de texto y datos.",
+        "isCorrect": true
+      },
+      {
+        "text": "Ayudan a centralizar configuraciones que de otro modo estarían dispersas en múltiples archivos.",
+        "rationale": "La gestión de parámetros estructurados mejora la organización de la automatización.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Analiza el nombre del formato de datos para deducir su capacidad de almacenamiento."
+  },
+  {
+    "guid": "08e5087f-4955-498c-aff6-f87649db4741",
+    "subjectId": "T31",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En relación a la seguridad y el principio de mínimos privilegios, ¿qué es FALSO?",
+    "answerOptions": [
+      {
+        "text": "Se debe restringir el acceso para que los usuarios solo vean los procesos que les competen.",
+        "rationale": "Minimiza el riesgo de ejecuciones o modificaciones accidentales no autorizadas.",
+        "isCorrect": false
+      },
+      {
+        "text": "UC4 permite definir roles granulares para separar a los desarrolladores de los operadores.",
+        "rationale": "La segregación de funciones es un requisito de seguridad estándar.",
+        "isCorrect": false
+      },
+      {
+        "text": "El sistema de seguridad de UC4 se basa en otorgar permiso de 'Administrador Total' a cada nuevo empleado para facilitar el aprendizaje.",
+        "rationale": "Esto viola frontalmente el principio de mínimos privilegios y las normativas ENS/ISO.",
+        "isCorrect": true
+      },
+      {
+        "text": "El control de acceso por objetos permite asegurar que solo personal autorizado modifique calendarios críticos.",
+        "rationale": "La protección de activos de configuración es vital para la estabilidad del servicio.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considera las consecuencias de dar control total de la malla batch a cualquier usuario."
+  },
+  {
+    "guid": "cd8af879-26e9-49bb-9b62-8b4d8b072737",
+    "subjectId": "T31",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Sobre el objeto de tipo Job Group (JOBG), indique la opción FALSA:",
+    "answerOptions": [
+      {
+        "text": "Permite agrupar jobs de forma lógica para tratarlos como una unidad ejecutable.",
+        "rationale": "Facilita la organización de mallas complejas en bloques manejables.",
+        "isCorrect": false
+      },
+      {
+        "text": "Se puede configurar para que los jobs dentro del grupo se ejecuten en secuencia o en paralelo.",
+        "rationale": "Ofrece flexibilidad en la orquestación interna del grupo.",
+        "isCorrect": false
+      },
+      {
+        "text": "Una vez creado un JOBG, UC4 impide que sus jobs internos vuelvan a ser utilizados en otros workflows.",
+        "rationale": "La inclusión en un grupo lógico no quita la propiedad de reutilización de los objetos en la plataforma.",
+        "isCorrect": true
+      },
+      {
+        "text": "Es útil para aplicar condiciones de error que afecten a todo el conjunto de tareas agrupadas.",
+        "rationale": "Permite una gestión de excepciones más cohesiva para procesos relacionados.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Recuerda el principio básico de 'reutilización de objetos' en Automic."
+  },
+  {
+    "guid": "ad2db922-fbca-4d6a-ada1-9b880a90bbd7",
+    "subjectId": "T31",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Cuál de las siguientes afirmaciones sobre el monitoreo proactivo y el tuning es FALSA?",
+    "answerOptions": [
+      {
+        "text": "Sirve para detectar anomalías en los tiempos de ejecución antes de que afecten al servicio.",
+        "rationale": "El análisis de desviaciones ayuda a prevenir incumplimientos de acuerdos de nivel de servicio (SLA).",
+        "isCorrect": false
+      },
+      {
+        "text": "Permite generar estadísticas que se utilizan para el 'capacity planning' de los servidores.",
+        "rationale": "Los datos históricos informan sobre la necesidad de ampliar recursos de infraestructura.",
+        "isCorrect": false
+      },
+      {
+        "text": "El tuning de procesos batch se hace exclusivamente eliminando todos los logs históricos cada 10 minutos.",
+        "rationale": "El tuning implica optimizar dependencias, horarios y recursos; borrar logs indiscriminadamente impide la auditoría y diagnóstico.",
+        "isCorrect": true
+      },
+      {
+        "text": "Analizar los logs ayuda a identificar pasos de script ineficientes que ralentizan la malla.",
+        "rationale": "La mejora continua se basa en la revisión técnica detallada de las ejecuciones pasadas.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Diferencia entre 'limpieza de sistema' y 'optimización de procesos'."
+  },
+  {
+    "guid": "53e7f620-9f4a-43f0-b0a1-1fdef4aa533a",
+    "subjectId": "T31",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Respecto a los SLA (Service Level Agreements) en UC4, indique la opción FALSA:",
+    "answerOptions": [
+      {
+        "text": "Son compromisos de que los procesos acabarán antes de una hora determinada.",
+        "rationale": "Aseguran que los datos críticos estén listos para el inicio de la jornada laboral.",
+        "isCorrect": false
+      },
+      {
+        "text": "UC4 no monitoriza automáticamente los SLA de base, pero existen productos complementarios para ello.",
+        "rationale": "Herramientas como Automic Monitoring o Analytics añaden esta capa de supervisión de negocio.",
+        "isCorrect": false
+      },
+      {
+        "text": "Un incumplimiento de SLA en un proceso batch suele carecer de importancia para el negocio y nunca se notifica.",
+        "rationale": "Los retrasos en procesos críticos (como nóminas o tributos) tienen un alto impacto y su seguimiento es fundamental.",
+        "isCorrect": true
+      },
+      {
+        "text": "El seguimiento proactivo permite alertar si un proceso va más lento de lo habitual y podría romper el SLA.",
+        "rationale": "La detección temprana de retrasos permite tomar medidas correctivas antes de que se venza el plazo.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Evalúa la relevancia de los procesos nocturnos para la operativa del día siguiente."
+  },
+  {
+    "guid": "33bb1151-056e-4f94-ae87-83babed1d600",
+    "subjectId": "T31",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Sobre la gestión de calendarios corporativos en el Ayuntamiento, indique la afirmación FALSA:",
+    "answerOptions": [
+      {
+        "text": "Se definen calendarios reutilizables para evitar codificar fechas festivas dentro de cada script.",
+        "rationale": "Abstraer la lógica temporal del código mejora la flexibilidad y evita errores manuales anuales.",
+        "isCorrect": false
+      },
+      {
+        "text": "Los calendarios permiten definir reglas como 'último día laborable del mes'.",
+        "rationale": "La potencia de los Calendar Keywords permite cubrir escenarios de negocio complejos.",
+        "isCorrect": false
+      },
+      {
+        "text": "En el Ayuntamiento, cada funcionario debe crear su propio calendario personal para lanzar jobs de prueba en Producción.",
+        "rationale": "Esto iría en contra de la gestión centralizada, la seguridad y las buenas prácticas de segregación de entornos.",
+        "isCorrect": true
+      },
+      {
+        "text": "El uso centralizado de calendarios asegura que todos los departamentos sigan el mismo calendario laboral oficial.",
+        "rationale": "Garantiza la consistencia en la ejecución de procesos interdepartamentales.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Recuerda quién gestiona la plataforma y qué políticas de 'orden y control' se aplican."
+  },
+  {
+    "guid": "c3969552-470c-4ecb-98d0-862cdcbf6dc8",
+    "subjectId": "T31",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Cuál de las siguientes afirmaciones sobre el 'Operation Manager' es FALSA?",
+    "answerOptions": [
+      {
+        "text": "Proporciona la consola para el monitoreo de los procesos en curso.",
+        "rationale": "Es la interfaz principal para la supervisión operativa del sistema.",
+        "isCorrect": false
+      },
+      {
+        "text": "Es el componente encargado de almacenar físicamente los archivos de backup en cintas magnéticas.",
+        "rationale": "El Operation Manager es una consola de software; el almacenamiento físico de backups es una tarea externa de infraestructura de IT.",
+        "isCorrect": true
+      },
+      {
+        "text": "Desde aquí se pueden consultar los resultados de las ejecuciones pasadas.",
+        "rationale": "Ofrece acceso al histórico para auditoría y resolución de problemas.",
+        "isCorrect": false
+      },
+      {
+        "text": "Es una de las herramientas clave para el equipo de Operación Tècnica (OTE).",
+        "rationale": "Es la herramienta de trabajo diaria para velar por la continuidad de los servicios batch.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Diferencia entre una interfaz de software de gestión y hardware de almacenamiento físico."
+  },
+  {
+    "guid": "49e43df1-69bc-4dd3-8e3c-00665859544a",
+    "subjectId": "T31",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Sobre los tipos de jobs según la plataforma, indique la afirmación FALSA:",
+    "answerOptions": [
+      {
+        "text": "Existen jobs específicos para sistemas Windows y otros para Linux/Unix.",
+        "rationale": "La especialización permite interactuar correctamente con las particularidades de cada SO.",
+        "isCorrect": false
+      },
+      {
+        "text": "UC4 puede lanzar comandos directamente en el shell del sistema operativo destino.",
+        "rationale": "La capacidad de ejecución nativa es fundamental para la automatización de scripts existentes.",
+        "isCorrect": false
+      },
+      {
+        "text": "Un Job de tipo Windows puede ejecutarse en un servidor Linux sin necesidad de cambios, gracias a la 'magia' de UC4.",
+        "rationale": "Cada job está vinculado a un tipo de agente y sistema operativo; los scripts de Windows (.bat/.ps1) no son compatibles nativamente con Linux.",
+        "isCorrect": true
+      },
+      {
+        "text": "La configuración de cada tipo de job varía ligeramente según los parámetros requeridos por el sistema destino.",
+        "rationale": "Cada plataforma requiere detalles específicos como rutas de directorios o intérpretes de comandos.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considera la compatibilidad básica de los scripts entre sistemas operativos distintos."
+  },
+  {
+    "guid": "3f086d96-f01d-4479-880e-8b4cbd819812",
+    "subjectId": "T31",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Respecto a las notificaciones automáticas, señale la opción FALSA:",
+    "answerOptions": [
+      {
+        "text": "Pueden configurarse para enviar un correo electrónico si un workflow termina correctamente.",
+        "rationale": "Se usan para confirmar el éxito de procesos críticos que otros departamentos esperan.",
+        "isCorrect": false
+      },
+      {
+        "text": "Las alertas críticas se integran a menudo con herramientas de monitorización externa.",
+        "rationale": "La integración permite una visibilidad unificada de la salud de toda la infraestructura de IT.",
+        "isCorrect": false
+      },
+      {
+        "text": "UC4 solo permite notificaciones mediante señales de humo digitales que requieren hardware especial.",
+        "rationale": "UC4 utiliza métodos estándar como email, mensajes de consola o integraciones vía API/tickets.",
+        "isCorrect": true
+      },
+      {
+        "text": "Un pasaje final en un workflow puede enviar un resumen de las tareas ejecutadas.",
+        "rationale": "Facilita la labor de reporte y seguimiento de la operativa diaria.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Evalúa la verosimilitud de los métodos de comunicación mencionados."
+  },
+  {
+    "guid": "59e6edce-10cf-441a-8bfd-6189f48abe28",
+    "subjectId": "T31",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Sobre la trazabilidad de las ejecuciones, ¿qué afirmación es FALSA?",
+    "answerOptions": [
+      {
+        "text": "Permite saber qué usuario modificó un job y cuándo lo hizo.",
+        "rationale": "La auditoría de cambios es un requisito de cumplimiento para la seguridad de la información.",
+        "isCorrect": false
+      },
+      {
+        "text": "El RunID permite rastrear todas las incidencias asociadas a una ejecución específica.",
+        "rationale": "Es la referencia clave para cruzar datos entre UC4 y el sistema de ticketing.",
+        "isCorrect": false
+      },
+      {
+        "text": "Para ahorrar espacio en la base de datos, UC4 borra el rastro de quién ejecutó un job manual a los 5 segundos de terminar.",
+        "rationale": "UC4 guarda un histórico persistente de ejecuciones y auditoría por periodos prolongados para cumplir con normativas como el ENS.",
+        "isCorrect": true
+      },
+      {
+        "text": "Es fundamental para analizar la frecuencia de errores y mejorar la fiabilidad de los procesos.",
+        "rationale": "Los datos históricos son la base para la diagnosis de problemas recurrentes.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considera si un registro de seguridad sería útil si desapareciera casi instantáneamente."
+  }
+]
