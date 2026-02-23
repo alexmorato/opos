@@ -1,0 +1,467 @@
+[
+  {
+    "guid": "e3f46433-e401-472f-8653-3590c79e989a",
+    "subjectId": "T25",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Cuál es la diferencia fundamental entre la monitorización tradicional y la observabilidad en un entorno IT?",
+    "answerOptions": [
+      {
+        "text": "La monitorización se centra en el 'qué' sucede mediante métricas predefinidas, mientras que la observabilidad busca entender el 'porqué' analizando el estado interno desde las salidas externas.",
+        "rationale": "La monitorización es esencialmente reactiva y basada en umbrales, mientras que la observabilidad es proactiva y permite diagnosticar problemas complejos mediante la correlación de datos.",
+        "isCorrect": true
+      },
+      {
+        "text": "La monitorización es exclusiva para el hardware y la infraestructura física, mientras que la observabilidad se aplica únicamente al desarrollo de software y microservicios.",
+        "rationale": "Ambas disciplinas pueden abarcar tanto infraestructura (HW) como aplicaciones (SW), no son exclusivas de una capa específica.",
+        "isCorrect": false
+      },
+      {
+        "text": "La monitorización utiliza datos en tiempo real para alertar, mientras que la observabilidad se basa únicamente en el análisis de datos históricos para la toma de decisiones.",
+        "rationale": "La observabilidad también requiere y utiliza datos en tiempo real para permitir la detección y resolución proactiva de incidencias.",
+        "isCorrect": false
+      },
+      {
+        "text": "La monitorización sustituye a las herramientas de APM y NPM, mientras que la observabilidad es un complemento opcional para sistemas distribuidos.",
+        "rationale": "La observabilidad no sustituye a la monitorización, sino que la potencia y mejora las capacidades de APM y NPM.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en qué enfoque se limita a detectar síntomas y cuál busca encontrar la causa raíz."
+  },
+  {
+    "guid": "c336564b-3cff-46c4-81c9-c2b2983da324",
+    "subjectId": "T25",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En el contexto de los pilares de la observabilidad, ¿qué caracteriza específicamente a las 'Métricas' (Metrics)?",
+    "answerOptions": [
+      {
+        "text": "Son mensajes textuales inmutables que registran cada evento detallado de una aplicación con una marca de tiempo.",
+        "rationale": "Esta descripción corresponde a los registros o Logs, no a las métricas.",
+        "isCorrect": false
+      },
+      {
+        "text": "Son valores numéricos agregados que representan el estado del sistema, como el uso de CPU o la latencia, durante un período determinado.",
+        "rationale": "Las métricas proporcionan una visión cuantitativa y estadística del rendimiento y la salud de los componentes del sistema.",
+        "isCorrect": true
+      },
+      {
+        "text": "Son registros del recorrido completo que realiza una petición de usuario a través de múltiples microservicios.",
+        "rationale": "Este concepto define la traza o trazabilidad distribuida.",
+        "isCorrect": false
+      },
+      {
+        "text": "Son acciones puntuales con significado operativo que sirven únicamente para ofrecer contexto sobre despliegues o reinicios.",
+        "rationale": "Eso describe a los Eventos, que son complementarios a los tres pilares principales.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Busque la opción que defina medidas cuantitativas sobre el rendimiento del hardware o software."
+  },
+  {
+    "guid": "f10d20b8-aca5-4d2c-99bd-f6d41e96c76a",
+    "subjectId": "T25",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Dentro de una arquitectura de trazado distribuido, ¿qué representa el concepto de 'Span'?",
+    "answerOptions": [
+      {
+        "text": "El identificador único que agrupa todas las operaciones de una misma transacción de usuario.",
+        "rationale": "Eso sería el Trace ID; el Span es una parte individual dentro de esa estructura.",
+        "isCorrect": false
+      },
+      {
+        "text": "Una unidad de trabajo individual, como una consulta a base de dades o una llamada a una API, dentro de una operación más grande.",
+        "rationale": "Las trazas se componen de múltiples spans que permiten visualizar la jerarquía y el tiempo dedicado a cada micro-operación.",
+        "isCorrect": true
+      },
+      {
+        "text": "Un algoritmo de aprendizaje automático utilizado para predecir cuándo un servidor se quedará sin memoria.",
+        "rationale": "El Span es un dato de telemetría de trazado, no un algoritmo de predicción.",
+        "isCorrect": false
+      },
+      {
+        "text": "Un panel de visualización en Grafana que muestra la correlación entre logs y métricas de red.",
+        "rationale": "Grafana visualiza datos, pero el Span es un componente estructural de la telemetría de trazas.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considere la unidad mínima de medida temporal en el seguimiento de una petición entre servicios."
+  },
+  {
+    "guid": "e10f186f-397c-431a-9306-e1a5bbfdd4c9",
+    "subjectId": "T25",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Qué ventaja principal ofrece el estándar OpenTelemetry frente a soluciones de observabilidad propietarias?",
+    "answerOptions": [
+      {
+        "text": "Garantiza una instrumentación unificada y neutral que evita la dependencia de un solo proveedor (vendor lock-in).",
+        "rationale": "OpenTelemetry permite recoger telemetría de forma estándar y enviarla a múltiples plataformas sin cambiar el código de la aplicación.",
+        "isCorrect": true
+      },
+      {
+        "text": "Es el único protocolo capaz de cifrar los logs de acuerdo con el esquema de seguridad del Esquema Nacional de Seguridad (ENS).",
+        "rationale": "Aunque es seguro, su principal valor no es el cifrado exclusivo sino la interoperabilidad y la estandarización.",
+        "isCorrect": false
+      },
+      {
+        "text": "Permite eliminar por completo la necesidad de agentes de recolección en los servidores físicos.",
+        "rationale": "OpenTelemetry utiliza componentes como el 'Collector', que actúa como un agente para procesar y exportar los datos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Reduce automáticamente el coste de las licencias de almacenamiento de datos en la nube de forma nativa.",
+        "rationale": "El estándar se enfoca en la recolección y transmisión, no en la gestión económica del almacenamiento del proveedor de destino.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en la libertad de cambiar de plataforma de análisis sin tener que re-instrumentar todo el sistema."
+  },
+  {
+    "guid": "587ba977-d000-499e-a68a-8597e12f7bc0",
+    "subjectId": "T25",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿A qué se refiere el problema técnico conocido como 'Cardinality Explosion' en la gestión de métricas?",
+    "answerOptions": [
+      {
+        "text": "A la imposibilidad de correlacionar logs con trazas cuando el volumen de peticiones es demasiado bajo.",
+        "rationale": "La cardinalidad no tiene que ver con el bajo volumen, sino con el exceso de variabilidad en las etiquetas.",
+        "isCorrect": false
+      },
+      {
+        "text": "A la creación de un número excesivo de series temporales debido a etiquetas con demasiados valores únicos, lo que degrada el rendimiento.",
+        "rationale": "Usar etiquetas como 'user_id' en una métrica puede generar millones de combinaciones, saturando la memoria y la base de datos de series temporales (TSDB).",
+        "isCorrect": true
+      },
+      {
+        "text": "Al fallo en cascada de los microservicios cuando una sonda sintética detecta un error de red.",
+        "rationale": "Este concepto se refiere a la gestión de datos de telemetría, no a la propagación de fallos en la infraestructura.",
+        "isCorrect": false
+      },
+      {
+        "text": "A la duplicidad de alertas generadas por diferentes herramientas de monitorización desincronizadas.",
+        "rationale": "Eso se conoce más comúnmente como ruido de alertas o duplicidad, no como explosión de cardinalidad.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Relacione este término con el impacto que tiene en el rendimiento el uso de demasiadas etiquetas únicas en los datos."
+  },
+  {
+    "guid": "5ca36fa3-2e86-4370-8960-dccdbd4a6f03",
+    "subjectId": "T25",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En el marco de SRE (Site Reliability Engineering), ¿cómo se utilizan los SLO (Service Level Objectives) en la observabilidad?",
+    "answerOptions": [
+      {
+        "text": "Como acuerdos legales con proveedores externos que definen las penalizaciones económicas por caídas de servicio.",
+        "rationale": "Esa es la definición de SLA (Service Level Agreement), no de SLO.",
+        "isCorrect": false
+      },
+      {
+        "text": "Como objetivos internos medibles basados en indicadores (SLI) para garantizar la fiabilidad y guiar las decisiones operativas.",
+        "rationale": "Los SLO permiten a los equipos de SRE determinar si el sistema es lo suficientemente fiable o si deben priorizar la estabilidad sobre nuevas funcionalidades.",
+        "isCorrect": true
+      },
+      {
+        "text": "Como herramientas de visualización de bajo nivel para los técnicos de comunicaciones de los CPD.",
+        "rationale": "Los SLO son objetivos estratégicos y operativos, no herramientas de visualización técnica per se.",
+        "isCorrect": false
+      },
+      {
+        "text": "Como scripts automatizados que reinician los servicios de forma reactiva ante cualquier error detectado.",
+        "rationale": "Eso sería una remediación automática, no un objetivo de nivel de servicio.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considere la diferencia entre un acuerdo legal externo y una meta técnica interna de calidad."
+  },
+  {
+    "guid": "0f437f5e-1553-4e2e-82e6-66b4a7c2a3ef",
+    "subjectId": "T25",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En el contexto de la infraestructura de observabilidad del IMI, ¿cuál es la función principal de 'Instana'?",
+    "answerOptions": [
+      {
+        "text": "Monitorización tradicional de la infraestructura física y hardware de los CPD.",
+        "rationale": "Para esa función, el IMI utiliza herramientas como Nagios y CheckMK.",
+        "isCorrect": false
+      },
+      {
+        "text": "Gestión de logs y búsqueda avanzada de eventos de seguridad mediante inteligencia artificial.",
+        "rationale": "Dicha función se realiza principalmente a través de Elastic Cloud.",
+        "isCorrect": false
+      },
+      {
+        "text": "Monitorización del rendimiento de aplicaciones (APM) y trazabilidad de microservicios en tiempo real.",
+        "rationale": "Instana es la herramienta seleccionada por el IMI para obtener visibilidad profunda en la capa de aplicación y experiencia de usuario.",
+        "isCorrect": true
+      },
+      {
+        "text": "Actuar como la base de datos de series temporales (TSDB) principal para el almacenamiento de métricas de red.",
+        "rationale": "Instana es una plataforma de APM; el almacenamiento y análisis masivo suele delegarse en el Datalake o Elastic.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Recuerde qué herramienta se asocia específicamente con el Application Performance Management en el entorno ÁLIGA."
+  },
+  {
+    "guid": "caa388e3-2333-49dc-9a01-f2c974f3f9d6",
+    "subjectId": "T25",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Qué componente de la arquitectura de Prometheus es responsable de extraer métricas de sistemas que no las exponen de forma nativa?",
+    "answerOptions": [
+      {
+        "text": "Alertmanager.",
+        "rationale": "Este componente se encarga únicamente de la gestión y el envío de notificaciones de alerta.",
+        "isCorrect": false
+      },
+      {
+        "text": "Exporter.",
+        "rationale": "Los 'exporters' actúan como traductores que recogen datos locales y los exponen en un formato que el servidor de Prometheus puede leer vía HTTP.",
+        "isCorrect": true
+      },
+      {
+        "text": "Pushgateway.",
+        "rationale": "Se usa para trabajos de corta duración (batch jobs) que no pueden ser 'scrapeados', pero no es el método estándar para sistemas persistentes.",
+        "isCorrect": false
+      },
+      {
+        "text": "PromQL.",
+        "rationale": "PromQL es el lenguaje de consulta utilizado para analizar los datos, no para recogerlos.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en la pieza de software que 'expone' los datos hacia el exterior."
+  },
+  {
+    "guid": "04291649-84fb-408a-a095-3a6f20fad85f",
+    "subjectId": "T25",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Uno de los retos de implantación en la administración local es el 'Tool Sprawl'. ¿En qué consiste exactamente?",
+    "answerOptions": [
+      {
+        "text": "En la dificultad legal de adquirir nuevas licencias debido a la rigidez de la Ley de Contratos del Sector Público.",
+        "rationale": "Aunque es un reto real, eso describe la rigidez burocrática, no el 'tool sprawl'.",
+        "isCorrect": false
+      },
+      {
+        "text": "En la proliferación de herramientas de monitorización desconectadas que crean silos de información y duplican costes.",
+        "rationale": "El 'tool sprawl' impide tener una visión global ('única fuente de verdad') y dificulta la correlación de eventos entre distintos departamentos.",
+        "isCorrect": true
+      },
+      {
+        "text": "En el exceso de logs no estructurados que saturan la capacidad de almacenamiento de los servidores antiguos.",
+        "rationale": "Eso es un reto de volumen y gestión de datos, no necesariamente de fragmentación de herramientas.",
+        "isCorrect": false
+      },
+      {
+        "text": "En la falta de personal técnico con formación específica para configurar dashboards avanzados.",
+        "rationale": "Esto se refiere a la escasez de talento especializado, un reto organizativo distinto.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Relacione el término con la fragmentación y la falta de una estrategia de herramientas unificada."
+  },
+  {
+    "guid": "623d14a2-ae34-4e86-91c7-3915c37f5a33",
+    "subjectId": "T25",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Según el RGPD, ¿qué medida es esencial aplicar sobre los logs en una plataforma de observabilidad que maneja datos personales?",
+    "answerOptions": [
+      {
+        "text": "Almacenamiento indefinido de todos los registros para garantizar auditorías de seguridad completas.",
+        "rationale": "El RGPD exige periodos de retención limitados y justificados, no indefinidos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Cifrado de disco únicamente, permitiendo el acceso en texto claro a cualquier administrador del sistema.",
+        "rationale": "El control de acceso y la minimización son necesarios además del cifrado en reposo.",
+        "isCorrect": false
+      },
+      {
+        "text": "Aplicación de principios de minimización, anonimización o seudonimización de campos sensibles.",
+        "rationale": "Para cumplir con la normativa de protección de datos, solo se deben recoger los datos estrictamente necesarios y proteger la identidad de los usuarios en los logs.",
+        "isCorrect": true
+      },
+      {
+        "text": "Publicación de los dashboards en portales de transparencia sin ningún tipo de filtro previo.",
+        "rationale": "Esto violaría gravemente la privacidad si los dashboards contienen información técnica o personal sensible.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en las técnicas que reducen el riesgo de identificar a una persona a través de los registros técnicos."
+  },
+  {
+    "guid": "89c01c4e-9040-4cb3-baec-818d4f8fd0a7",
+    "subjectId": "T25",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En el modelo ELK, ¿cuál es la función específica de 'Logstash'?",
+    "answerOptions": [
+      {
+        "text": "Es la base de datos NoSQL donde se indexan y buscan los mensajes de log.",
+        "rationale": "Esa es la función de Elasticsearch.",
+        "isCorrect": false
+      },
+      {
+        "text": "Es la interfaz gráfica que permite crear dashboards y visualizar los datos.",
+        "rationale": "Esa es la función de Kibana.",
+        "isCorrect": false
+      },
+      {
+        "text": "Es el pipeline de procesamiento que ingiere, transforma y enriquece los datos antes de enviarlos al motor de búsqueda.",
+        "rationale": "Logstash permite filtrar, parsear (por ejemplo, de texto plano a JSON) y normalizar los datos de diversas fuentes.",
+        "isCorrect": true
+      },
+      {
+        "text": "Es el agente ligero que se instala en los servidores cliente para el transporte de archivos.",
+        "rationale": "Esa descripción encaja mejor con 'Beats', que son agentes más ligeros que Logstash.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considere la fase intermedia de 'extracción, transformación y carga' (ETL) dentro del stack."
+  },
+  {
+    "guid": "809a9e64-5849-4c34-a4bb-ecbeeb2c3e43",
+    "subjectId": "T25",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Cuál es el objetivo principal de realizar un 'Sampling' (muestreo) en la recogida de trazas distribuídas?",
+    "answerOptions": [
+      {
+        "text": "Garantizar que se capturan el $100\\%$ de los errores de red sin ninguna pérdida de datos.",
+        "rationale": "El sampling precisamente descarta parte de los datos para ser eficiente, no busca capturarlos todos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Reducir el volumen de datos y los costes de almacenamiento manteniendo una muestra estadísticamente representativa.",
+        "rationale": "En sistemas con millones de peticiones, trazar cada una de ellas sería prohibitivo en términos de coste y rendimiento.",
+        "isCorrect": true
+      },
+      {
+        "text": "Aumentar la precisión de las métricas de CPU mediante la captura de más eventos por segundo.",
+        "rationale": "El sampling se aplica típicamente a trazas y logs, no se usa para aumentar la frecuencia de las métricas.",
+        "isCorrect": false
+      },
+      {
+        "text": "Eliminar la necesidad de utilizar herramientas de visualización como Grafana.",
+        "rationale": "El muestreo es una técnica de recolección de datos, no afecta a la necesidad de visualizarlos.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en cómo gestionar el enorme volumen de información generado por miles de microservicios."
+  },
+  {
+    "guid": "aa65ebcc-416f-4577-91c3-1a91351b46fe",
+    "subjectId": "T25",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En el entorno de observabilidad ÁLIGA del Ayuntamiento de Barcelona, ¿qué papel juegan las 'Sondas Sintéticas'?",
+    "answerOptions": [
+      {
+        "text": "Detectan fallos físicos en los ventiladores y sensores de temperatura del CPD.",
+        "rationale": "Esa es monitorización de hardware puro, no el propósito principal de las sondas sintéticas web.",
+        "isCorrect": false
+      },
+      {
+        "text": "Simulan el comportamiento de un usuario para verificar la disponibilidad y el rendimiento extremo a extremo (e2e) de un servicio.",
+        "rationale": "Las sondas sintéticas permiten detectar problemas antes de que los usuarios reales los encuentren, probando flujos críticos de forma automática.",
+        "isCorrect": true
+      },
+      {
+        "text": "Analizan el código fuente de las aplicaciones en busca de vulnerabilidades de seguridad antes del despliegue.",
+        "rationale": "Esto corresponde a herramientas de análisis estático (SAST), no a observabilidad sintética.",
+        "isCorrect": false
+      },
+      {
+        "text": "Registran únicamente las llamadas a las API externas de terceros para controlar el gasto de consumo.",
+        "rationale": "Aunque pueden hacerlo, su objetivo es mucho más amplio: validar la experiencia completa del servicio.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considere la diferencia entre esperar a que un usuario real falle y realizar pruebas automatizadas del flujo de negocio."
+  },
+  {
+    "guid": "592dea21-fa69-4703-8acd-df79e1442155",
+    "subjectId": "T25",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Qué diferencia a un 'Log estructurado' de uno 'no estructurado'?",
+    "answerOptions": [
+      {
+        "text": "El estructurado se guarda en archivos de texto plano y el no estructurado en bases de datos relacionales.",
+        "rationale": "La diferencia radica en el formato del contenido del mensaje, no necesariamente en el soporte de almacenamiento.",
+        "isCorrect": false
+      },
+      {
+        "text": "El estructurado utiliza formatos como JSON que facilitan la indexación y búsqueda automática por campos.",
+        "rationale": "Los logs estructurados permiten que las herramientas de observabilidad analicen datos de forma mucho más rápida y precisa que el texto libre.",
+        "isCorrect": true
+      },
+      {
+        "text": "El estructurado es exclusivo para sistemas operativos Linux y el no estructurado para Windows.",
+        "rationale": "Cualquier sistema puede generar logs en ambos formatos dependiendo de la configuración de la aplicación.",
+        "isCorrect": false
+      },
+      {
+        "text": "El no estructurado es obligatorio para cumplir con los estándares de interoperabilidad de la administración pública.",
+        "rationale": "Al contrario, se prefiere la estructuración de datos para mejorar la interoperabilidad y el análisis.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en qué formato permite a una máquina realizar búsquedas por 'usuario' o 'código de error' de forma nativa."
+  },
+  {
+    "guid": "fc83299e-9d38-48e1-8b51-68e5bd6dcdfc",
+    "subjectId": "T25",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Desde el punto de vista económico, ¿cómo se justifica el ROI (Retorno de Inversión) de una plataforma de observabilidad en una administración pública?",
+    "answerOptions": [
+      {
+        "text": "Principalmente a través de la venta de los datos de telemetría anonimizados a empresas del sector tecnológico.",
+        "rationale": "Las administraciones públicas no suelen comercializar estos datos operativos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Mediante la reducción de tiempos de caída de servicios críticos, la mejora de la eficiencia operativa y la detección proactiva de problemas.",
+        "rationale": "Evitar caídas de servicio ahorra costes de soporte y mejora la satisfacción ciudadana, lo que justifica la inversión inicial.",
+        "isCorrect": true
+      },
+      {
+        "text": "A través de la eliminación total de todos los contratos de mantenimiento de hardware existentes.",
+        "rationale": "La observabilidad mejora el mantenimiento, pero no elimina la necesidad de soporte físico del hardware.",
+        "isCorrect": false
+      },
+      {
+        "text": "Únicamente mediante la recepción de subvenciones europeas como los fondos Next Generation, sin necesidad de otros ahorros.",
+        "rationale": "Las subvenciones financian la implantación, pero el ROI debe demostrar la sostenibilidad y rentabilidad a largo plazo del sistema.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en los ahorros derivados de no tener servicios públicos esenciales inoperativos durante horas."
+  }
+]

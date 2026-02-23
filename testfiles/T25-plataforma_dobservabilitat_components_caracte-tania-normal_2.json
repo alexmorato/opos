@@ -1,0 +1,622 @@
+[
+  {
+    "guid": "6aa77183-b611-4208-aaf8-1e984fa768ba",
+    "subjectId": "T25",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Qué significan las siglas SRE en el contexto de la gestión de infraestructuras y fiabilidad?",
+    "answerOptions": [
+      {
+        "text": "Site Reliability Engineering",
+        "rationale": "Este término define la disciplina que incorpora aspectos de la ingeniería de software y los aplica a problemas de operaciones para crear sistemas altamente fiables.",
+        "isCorrect": true
+      },
+      {
+        "text": "System Resource Evaluation",
+        "rationale": "Aunque la evaluación de recursos es parte del monitoreo, no es el nombre de la metodología impulsada originalmente por Google.",
+        "isCorrect": false
+      },
+      {
+        "text": "Software Response Efficiency",
+        "rationale": "Este concepto es plausible en optimización de código, pero no representa el marco de trabajo organizativo mencionado en el material.",
+        "isCorrect": false
+      },
+      {
+        "text": "Service Recovery Execution",
+        "rationale": "Se confunde con el proceso de recuperación de desastres, que es solo una de las muchas áreas que cubre un ingeniero de fiabilidad.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considere la disciplina que utiliza principios de ingeniería para garantizar que los sistemas sean escalables y fáciles de mantener."
+  },
+  {
+    "guid": "7b9ffd60-0860-4688-9b86-b6e9325dc046",
+    "subjectId": "T25",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Dentro de una plataforma de observabilidad, ¿qué función principal cumple la herramienta Grafana?",
+    "answerOptions": [
+      {
+        "text": "Visualización y creación de cuadros de mando interactivos",
+        "rationale": "Es la herramienta líder para visualizar datos y correlacionar información proveniente de múltiples fuentes de telemetría.",
+        "isCorrect": true
+      },
+      {
+        "text": "Almacenamiento de logs estructurados en formato NoSQL",
+        "rationale": "Esta es la función de motores de búsqueda como Elasticsearch, no de la capa de presentación visual.",
+        "isCorrect": false
+      },
+      {
+        "text": "Recolección de métricas mediante un modelo pull",
+        "rationale": "La recolección activa es característica de Prometheus; Grafana solo consulta los datos que estas herramientas ya han recolectado.",
+        "isCorrect": false
+      },
+      {
+        "text": "Instrumentación automática de código fuente",
+        "rationale": "La instrumentación la realizan agentes o SDKs específicos como los de OpenTelemetry, no las plataformas de visualización.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en la capa del sistema que permite a los humanos interpretar los datos mediante gráficos."
+  },
+  {
+    "guid": "7d0520a3-9dfd-4a5f-8786-3a303ba724f4",
+    "subjectId": "T25",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En el ecosistema de observabilidad, ¿cuál es el propósito fundamental de un APM?",
+    "answerOptions": [
+      {
+        "text": "Monitorizar el rendimiento y la salud de las aplicaciones",
+        "rationale": "Application Performance Monitoring se centra en entender cómo se ejecutan las aplicaciones, detectando errores y cuellos de botella.",
+        "isCorrect": true
+      },
+      {
+        "text": "Gestionar las actualizaciones automáticas del hardware",
+        "rationale": "El APM se sitúa en la capa de software y servicios, no en la gestión del ciclo de vida del hardware físico.",
+        "isCorrect": false
+      },
+      {
+        "text": "Analizar exclusivamente el tráfico de la red física",
+        "rationale": "Esa función corresponde al NPM (Network Performance Monitoring), mientras que el APM mira el interior de la aplicación.",
+        "isCorrect": false
+      },
+      {
+        "text": "Administrar los permisos de acceso de los usuarios",
+        "rationale": "Esto pertenece al ámbito de IAM (Identity and Access Management) y no a la observabilidad del rendimiento.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Las siglas hacen referencia directa al seguimiento del comportamiento del software en ejecución."
+  },
+  {
+    "guid": "b139096e-4ae2-4c58-a144-30e8b4b8a0b2",
+    "subjectId": "T25",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Si una organización utiliza Prometheus, ¿qué tipo de datos está priorizando recolectar?",
+    "answerOptions": [
+      {
+        "text": "Métricas numéricas agregadas en series temporales",
+        "rationale": "Prometheus es una base de datos de series temporales (TSDB) especializada en métricas como el uso de CPU o la latencia.",
+        "isCorrect": true
+      },
+      {
+        "text": "Registros de texto inmutables y completos",
+        "rationale": "Este tipo de datos son los logs, para los cuales Prometheus no es la herramienta adecuada.",
+        "isCorrect": false
+      },
+      {
+        "text": "Capturas de pantalla de errores de usuario final",
+        "rationale": "Esto es parte de herramientas de monitorización sintética o RUM avanzada, no de un recolector de métricas estándar.",
+        "isCorrect": false
+      },
+      {
+        "text": "Flujos completos de paquetes de red",
+        "rationale": "El análisis de paquetes (sniffing) es una tarea de red que requiere herramientas específicas distintas a los exportadores de métricas.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Prometheus utiliza su propio lenguaje de consulta llamado PromQL para operar con valores cuantitativos."
+  },
+  {
+    "guid": "f5d718f1-9e1c-428d-91db-50d982c530ed",
+    "subjectId": "T25",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Qué componente del stack ELK se encarga de la ingesta, transformación y enriquecimiento de los datos antes de su indexación?",
+    "answerOptions": [
+      {
+        "text": "Logstash",
+        "rationale": "Actúa como una tubería (pipeline) de procesamiento de datos que recibe información de diversas fuentes y la prepara para Elasticsearch.",
+        "isCorrect": true
+      },
+      {
+        "text": "Kibana",
+        "rationale": "Kibana es la interfaz de visualización; no procesa ni transforma los datos en la fase de ingesta.",
+        "isCorrect": false
+      },
+      {
+        "text": "Elasticsearch",
+        "rationale": "Es el motor de almacenamiento y búsqueda, pero no es el encargado principal de la lógica de transformación inicial.",
+        "isCorrect": false
+      },
+      {
+        "text": "Beats",
+        "rationale": "Son agentes ligeros para enviar datos, pero tienen capacidades de transformación mucho más limitadas que Logstash.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Es la 'L' en las siglas del stack tecnológico más común para la gestión de logs."
+  },
+  {
+    "guid": "8a0503ad-1d6c-43d3-aeba-1e303a1c8fad",
+    "subjectId": "T25",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Cuál es la utilidad principal de la herramienta Jaeger en arquitecturas de microservicios?",
+    "answerOptions": [
+      {
+        "text": "Realizar seguimiento o traza distribuida de peticiones",
+        "rationale": "Jaeger permite visualizar el recorrido de una transacción a través de múltiples servicios para identificar latencias.",
+        "isCorrect": true
+      },
+      {
+        "text": "Servir como servidor de nombres para el descubrimiento de servicios",
+        "rationale": "Esa es la función de herramientas como Consul o el propio Service Discovery de Kubernetes, no de una herramienta de tracing.",
+        "isCorrect": false
+      },
+      {
+        "text": "Ejecutar scripts de autoreparación de infraestructura",
+        "rationale": "Aunque el tracing informa la decisión, la ejecución de la remediación la hacen herramientas de automatización o RPA.",
+        "isCorrect": false
+      },
+      {
+        "text": "Balancear la carga de peticiones entre contenedores",
+        "rationale": "Esta es la tarea de un Ingress Controller o un Load Balancer, no de un sistema de observabilidad de trazas.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en cómo se puede ver el camino que sigue una compra online desde el carrito hasta el pago en diferentes servidores."
+  },
+  {
+    "guid": "7ca76d0d-da00-4e46-a854-e7e15378d96a",
+    "subjectId": "T25",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En el contexto de la experiencia de usuario, ¿qué significa el acrónimo RUM?",
+    "answerOptions": [
+      {
+        "text": "Real User Monitoring",
+        "rationale": "Es la técnica que captura y analiza cada transacción de un usuario real en una aplicación o sitio web en tiempo real.",
+        "isCorrect": true
+      },
+      {
+        "text": "Remote Unit Management",
+        "rationale": "Es un término plausible en gestión de flotas de dispositivos, pero no se aplica a la observabilidad de la experiencia web.",
+        "isCorrect": false
+      },
+      {
+        "text": "Resource Usage Metrics",
+        "rationale": "Aunque es un concepto general de monitoreo, no es el nombre específico de la tecnología de diagnóstico proactivo de usuarios.",
+        "isCorrect": false
+      },
+      {
+        "text": "Random User Modeling",
+        "rationale": "El RUM no utiliza modelos aleatorios, sino datos reales de interacciones efectuadas por personas reales.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Esta técnica se diferencia de las sondas sintéticas porque no simula tráfico, sino que observa el tráfico auténtico."
+  },
+  {
+    "guid": "7f0f9c88-901c-4d00-b416-e1e31db65b98",
+    "subjectId": "T25",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Dentro de la metodología SRE, ¿qué representa un SLI?",
+    "answerOptions": [
+      {
+        "text": "Service Level Indicator",
+        "rationale": "Es una medida cuantitativa específica del nivel de servicio proporcionado, como la latencia o la tasa de errores.",
+        "isCorrect": true
+      },
+      {
+        "text": "Service Level Integration",
+        "rationale": "La integración es un proceso técnico, mientras que el SLI es una métrica de medición de cumplimiento.",
+        "isCorrect": false
+      },
+      {
+        "text": "System Latency Index",
+        "rationale": "La latencia puede ser un SLI, pero el término es mucho más amplio y cubre otros tipos de indicadores de rendimiento.",
+        "isCorrect": false
+      },
+      {
+        "text": "Software License Inventory",
+        "rationale": "Este concepto pertenece a la gestión de activos de software (SAM), no a la ingeniería de fiabilidad de servicios.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Es la métrica base sobre la cual se construyen los objetivos de rendimiento (SLO)."
+  },
+  {
+    "guid": "9e9d97bb-9865-45cd-89f8-22739f260a0a",
+    "subjectId": "T25",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Cuál es la diferencia clave entre un SLO y un SLA según el material proporcionado?",
+    "answerOptions": [
+      {
+        "text": "El SLO es un objetivo interno mientras que el SLA es un acuerdo externo con consecuencias legales o económicas",
+        "rationale": "Los SLOs guían a los equipos de ingeniería, mientras que los SLAs definen las expectativas y penalizaciones con los clientes.",
+        "isCorrect": true
+      },
+      {
+        "text": "El SLO mide hardware y el SLA mide software",
+        "rationale": "Ambos conceptos pueden aplicarse tanto a la infraestructura física como a las aplicaciones lógicas.",
+        "isCorrect": false
+      },
+      {
+        "text": "El SLO es reactivo y el SLA es proactivo",
+        "rationale": "En realidad, el SLO se usa proactivamente para no llegar a incumplir el SLA, que suele ser la base de la reacción ante fallos.",
+        "isCorrect": false
+      },
+      {
+        "text": "No hay diferencia; son acrónimos sinónimos utilizados por diferentes fabricantes",
+        "rationale": "En la cultura SRE y DevOps, tienen funciones y audiencias claramente diferenciadas.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en cuál de los dos términos suele aparecer en un contrato comercial con penalizaciones."
+  },
+  {
+    "guid": "7ec2a58d-31b2-4e79-a345-593ccbe15ac1",
+    "subjectId": "T25",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En la monitorización White-box (Caja blanca), ¿cuáles son las cuatro 'Golden Signals' o señales de oro de Google?",
+    "answerOptions": [
+      {
+        "text": "Latencia, Tráfico, Errores y Saturación",
+        "rationale": "Estos cuatro indicadores son fundamentales para entender el estado interno de cualquier sistema distribuido.",
+        "isCorrect": true
+      },
+      {
+        "text": "CPU, Memoria, Disco y Red",
+        "rationale": "Estos son recursos de infraestructura (utilizados en modelos como USE), pero no son las señales de oro enfocadas en el servicio.",
+        "isCorrect": false
+      },
+      {
+        "text": "Disponibilidad, Seguridad, Coste y Rendimiento",
+        "rationale": "Aunque son KPIs importantes de negocio, no conforman el cuarteto técnico definido por el SRE de Google.",
+        "isCorrect": false
+      },
+      {
+        "text": "Logs, Métricas, Trazas y Eventos",
+        "rationale": "Estos son los pilares de la observabilidad (tipos de datos), no los indicadores específicos de salud del servicio.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Tres de ellas miden el trabajo y el fallo, mientras que la última mide qué tan 'lleno' está el sistema."
+  },
+  {
+    "guid": "d2c166f2-3d02-4e25-a112-ddd252115eab",
+    "subjectId": "T25",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Qué es un 'Span' en el contexto de una traza distribuida?",
+    "answerOptions": [
+      {
+        "text": "La unidad básica de trabajo que representa una operación individual",
+        "rationale": "Una traza completa se compone de múltiples spans, donde cada uno tiene un nombre, tiempo de inicio y duración.",
+        "isCorrect": true
+      },
+      {
+        "text": "El tiempo total de respuesta desde que el usuario hace clic",
+        "rationale": "Eso sería la duración total de la traza (Trace duration), mientras que el span es solo una pieza del rompecabezas.",
+        "isCorrect": false
+      },
+      {
+        "text": "Un error crítico detectado en la base de datos",
+        "rationale": "Un span puede contener información sobre un error, pero el concepto en sí se refiere a la medida de tiempo de una operación.",
+        "isCorrect": false
+      },
+      {
+        "text": "El intervalo de tiempo entre dos mediciones de métricas",
+        "rationale": "Eso se conoce como intervalo de muestreo o 'scrape interval', propio de las métricas y no de las trazas.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Imagine una cadena donde la traza es el objeto completo y el 'span' es cada uno de los eslabones."
+  },
+  {
+    "guid": "e543ee09-9599-46da-aa62-a2ee28d52ac4",
+    "subjectId": "T25",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Qué ventaja principal ofrece OpenTelemetry (OTel) frente a agentes de monitorización propietarios?",
+    "answerOptions": [
+      {
+        "text": "Evita la dependencia de un solo proveedor (vendor lock-in)",
+        "rationale": "Al ser un estándar abierto, permite enviar los datos a cualquier plataforma compatible sin cambiar la instrumentación del código.",
+        "isCorrect": true
+      },
+      {
+        "text": "Garantiza que el sistema no tenga errores de seguridad",
+        "rationale": "OTel facilita la visibilidad, pero la seguridad del sistema depende de las prácticas de desarrollo y configuración.",
+        "isCorrect": false
+      },
+      {
+        "text": "Reduce automáticamente el consumo de CPU de la aplicación",
+        "rationale": "Toda instrumentación añade un pequeño overhead; la ventaja de OTel es la interoperabilidad, no necesariamente la optimización de recursos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Sustituye por completo la necesidad de tener un equipo de SRE",
+        "rationale": "Es una herramienta que ayuda a los SREs, pero no reemplaza la necesidad de ingeniería y toma de decisiones humana.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considere la libertad de cambiar de Datadog a New Relic sin tener que modificar ni una línea de código de su aplicación."
+  },
+  {
+    "guid": "6829599e-6a46-47fc-a243-33064b126395",
+    "subjectId": "T25",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En la arquitectura de observabilidad del IMI (Ajuntament de Barcelona), ¿qué papel desempeña Instana?",
+    "answerOptions": [
+      {
+        "text": "Proporcionar monitorización del rendimiento de aplicaciones (APM)",
+        "rationale": "Instana se utiliza específicamente para la gestión del rendimiento de las aplicaciones y la detección proactiva mediante diagnósticos.",
+        "isCorrect": true
+      },
+      {
+        "text": "Gestionar el inventario de servidores físicos en los CPDs",
+        "rationale": "Para la infraestructura física tradicional, el IMI utiliza otras herramientas como Nagios o CheckMK.",
+        "isCorrect": false
+      },
+      {
+        "text": "Almacenar todos los logs históricos de las bases de datos",
+        "rationale": "Esta función recae sobre Elastic Cloud, que actúa como el repositorio centralizado de datos y logs.",
+        "isCorrect": false
+      },
+      {
+        "text": "Controlar el acceso físico de personas a los centros de datos",
+        "rationale": "Esto es seguridad física y no forma parte de las funciones de una herramienta de observabilidad de software como Instana.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Busque la herramienta que se menciona como solución para el nivel de negocio y experiencia de usuario proactiva."
+  },
+  {
+    "guid": "18012b6c-2807-4ed1-85b5-4f1e60bea50a",
+    "subjectId": "T25",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Para qué se utilizan las herramientas Nagios y CheckMK en el contexto del modelo de capas del IMI?",
+    "answerOptions": [
+      {
+        "text": "Monitorización reactiva de infraestructura y disponibilidad",
+        "rationale": "Estas herramientas tradicionales son fundamentales para saber si un servidor o servicio está 'vivo' o 'muerto' (disponibilidad).",
+        "isCorrect": true
+      },
+      {
+        "text": "Análisis profundo de trazas distribuidas en microservicios",
+        "rationale": "Nagios no está diseñado para el tracing complejo; para eso se requieren herramientas como Jaeger o Instana.",
+        "isCorrect": false
+      },
+      {
+        "text": "Generación de informes de impacto de negocio mediante Machine Learning",
+        "rationale": "Estas herramientas suelen basarse en umbrales estáticos y no en algoritmos avanzados de IA para análisis de negocio.",
+        "isCorrect": false
+      },
+      {
+        "text": "Visualización de la experiencia de usuario real (RUM)",
+        "rationale": "Nagios monitoriza desde la perspectiva del servidor o red, no desde el navegador del usuario final.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Se asocian con el tipo de monitoreo 'antiguo' que se debe mantener para el control básico de salud de los sistemas."
+  },
+  {
+    "guid": "3a409bb9-666b-4087-b712-4655c18978bc",
+    "subjectId": "T25",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Dentro de OpenTelemetry, ¿qué función cumple el 'Collector'?",
+    "answerOptions": [
+      {
+        "text": "Recibir, procesar y exportar datos de telemetría",
+        "rationale": "Es el componente intermedio que permite filtrar, agregar y enviar datos a múltiples destinos de forma centralizada.",
+        "isCorrect": true
+      },
+      {
+        "text": "Almacenar de forma permanente los logs para auditoría legal",
+        "rationale": "El Collector es un componente de paso (proxy/pipeline); el almacenamiento lo realiza el backend (como Elasticsearch).",
+        "isCorrect": false
+      },
+      {
+        "text": "Inyectar código automáticamente en las aplicaciones Java",
+        "rationale": "Eso es tarea de los agentes de instrumentación o SDKs, no del Collector que reside fuera de la aplicación.",
+        "isCorrect": false
+      },
+      {
+        "text": "Visualizar los datos en forma de mapas de calor",
+        "rationale": "La visualización es tarea de herramientas como Grafana o Kibana, no de un componente de recolección.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Actúa como un 'hub' o intercambiador de tráfico para logs, métricas y trazas."
+  },
+  {
+    "guid": "faf35569-4a93-4869-a33f-82fd0e3b3823",
+    "subjectId": "T25",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En el diseño de métricas, ¿qué problema describe el concepto de 'Cardinality Explosion'?",
+    "answerOptions": [
+      {
+        "text": "Un exceso de valores únicos en las etiquetas que degrada el rendimiento",
+        "rationale": "Tener demasiadas combinaciones de etiquetas (como el ID de cada usuario individual) dispara el uso de memoria y CPU en la base de datos de métricas.",
+        "isCorrect": true
+      },
+      {
+        "text": "Una saturación de alertas enviadas al correo electrónico",
+        "rationale": "Esto se conoce como 'Alert Fatigue' o fatiga de alertas, no explosión de cardinalidad.",
+        "isCorrect": false
+      },
+      {
+        "text": "El crecimiento incontrolado del tamaño de los archivos de log",
+        "rationale": "Aunque es un problema de volumen, la cardinalidad es un concepto específico de la estructura de las dimensiones en las métricas.",
+        "isCorrect": false
+      },
+      {
+        "text": "La pérdida de datos al intentar correlacionar trazas con logs",
+        "rationale": "Eso es un problema de propagación de contexto o de sincronización, no de cardinalidad.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Ocurre cuando se añaden etiquetas con una variedad de valores casi infinita a una métrica temporal."
+  },
+  {
+    "guid": "1b2502b0-8b1d-4030-9f07-777e8ce0409b",
+    "subjectId": "T25",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Cuál es la característica principal del 'Black-box monitoring'?",
+    "answerOptions": [
+      {
+        "text": "Observa el comportamiento externo del sistema sin conocer su estado interno",
+        "rationale": "Se basa en probar el sistema desde fuera (como lo haría un usuario) comprobando respuestas y disponibilidad.",
+        "isCorrect": true
+      },
+      {
+        "text": "Requiere modificar el código fuente para añadir logs específicos",
+        "rationale": "Esto describe el monitoreo 'White-box', donde se tiene acceso y visibilidad sobre el interior del código.",
+        "isCorrect": false
+      },
+      {
+        "text": "Solo funciona en sistemas que están apagados o en mantenimiento",
+        "rationale": "El monitoreo de caja negra se realiza activamente sobre sistemas en producción para verificar que responden correctamente.",
+        "isCorrect": false
+      },
+      {
+        "text": "Es un tipo de monitorización que no permite generar alertas",
+        "rationale": "Al contrario, las alertas de caja negra (ej. 'la web no carga') son las más críticas para el negocio.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en un examinador que solo ve si la máquina entrega el producto solicitado sin saber cómo funciona por dentro."
+  },
+  {
+    "guid": "c1200edb-efec-4d07-90ab-f9659e014438",
+    "subjectId": "T25",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Qué mide el indicador MTTR y por qué es vital en observabilidad?",
+    "answerOptions": [
+      {
+        "text": "Mean Time To Recovery: el tiempo medio para recuperar el servicio",
+        "rationale": "Es una métrica clave de eficiencia operativa que indica cuánto tarda el equipo en resolver una incidencia tras ser detectada.",
+        "isCorrect": true
+      },
+      {
+        "text": "Maximum Throughput Time Rate: la tasa máxima de transferencia",
+        "rationale": "Es un término inventado que suena a rendimiento de red, pero no es una métrica estándar de fiabilidad SRE.",
+        "isCorrect": false
+      },
+      {
+        "text": "Mean Time To Response: el tiempo medio de respuesta del servidor",
+        "rationale": "Aunque se suele medir la latencia, el MTTR se refiere específicamente a la resolución de incidentes operativos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Memory Total Transfer Ratio: la relación de transferencia de memoria",
+        "rationale": "Es un concepto técnico de hardware, pero no es el indicador de gestión de incidencias que define la agilidad del equipo TIC.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Mide la rapidez con la que el sistema vuelve a la normalidad después de un fallo."
+  },
+  {
+    "guid": "1e16f8c0-213f-4799-afa6-934c8bc1c76e",
+    "subjectId": "T25",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En la tríada de la observabilidad, ¿cuál es la diferencia fundamental entre 'Logs' y 'Metrics'?",
+    "answerOptions": [
+      {
+        "text": "Los logs son eventos textuales detallados y las métricas son valores numéricos agregados",
+        "rationale": "Los logs ofrecen el contexto del 'qué' y 'cuándo' ocurrió algo específico, mientras que las métricas ofrecen la tendencia del rendimiento general.",
+        "isCorrect": true
+      },
+      {
+        "text": "Los logs son proactivos y las métricas son reactivas",
+        "rationale": "En realidad, las métricas suelen usarse para alertas proactivas mediante umbrales, mientras que los logs se usan reactivamente para investigar la causa raíz.",
+        "isCorrect": false
+      },
+      {
+        "text": "Las métricas ocupan mucho más espacio de almacenamiento que los logs",
+        "rationale": "Generalmente es al revés: los logs generan un volumen masivo de datos de texto, mientras que las métricas son datos numéricos muy comprimibles.",
+        "isCorrect": false
+      },
+      {
+        "text": "Los logs solo sirven para errores y las métricas solo para el tráfico",
+        "rationale": "Ambos pueden usarse para múltiples propósitos: los logs para auditoría y las métricas para uso de memoria o CPU.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en la diferencia entre una frase descriptiva y un número en una hoja de cálculo."
+  },
+  {
+    "guid": "53a19e73-433e-480c-a2a0-4d1ad80500cf",
+    "subjectId": "T25",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Qué función cumple Kibana dentro del stack de observabilidad de Elastic Cloud?",
+    "answerOptions": [
+      {
+        "text": "Actuar como la interfaz visual para explorar logs y crear dashboards",
+        "rationale": "Es la ventana a través de la cual los usuarios interactúan con los datos almacenados en Elasticsearch.",
+        "isCorrect": true
+      },
+      {
+        "text": "Indexar los datos en disco para que las búsquedas sean rápidas",
+        "rationale": "La indexación y el motor de búsqueda son responsabilidad de Elasticsearch, no de Kibana.",
+        "isCorrect": false
+      },
+      {
+        "text": "Recopilar logs de los servidores Linux mediante el protocolo Syslog",
+        "rationale": "La recolección la hacen agentes como Filebeat o Logstash; Kibana solo muestra lo que ya ha sido recolectado.",
+        "isCorrect": false
+      },
+      {
+        "text": "Analizar el código fuente en busca de vulnerabilidades",
+        "rationale": "Eso es tarea de herramientas de seguridad (SAST/DAST) y no forma parte de las funciones de visualización de Kibana.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Es la herramienta que permite a los técnicos del IMI ver las gráficas y realizar búsquedas de eventos."
+  }
+]
