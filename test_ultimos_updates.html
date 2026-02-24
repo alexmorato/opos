@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>Seleccionar archivos para estudiar</title>
   <link rel="stylesheet" href="../assets/styles.css">
+  <script src="assets/js/localstorage-utils.js"></script>
   <style>
     body {
       background: #181c2a;
@@ -52,7 +53,7 @@
       padding: 18px 16px 12px 16px;
       display: none;
       flex-direction: column;
-      gap: 10px;
+      gap: 2px;
       z-index: 1001;
       box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
       min-width: 220px;
@@ -205,8 +206,11 @@
       👨‍💻 Menu
     </button>
     <hr class="menu-separator">
-    <button class="btn-menu-action primary" id="menuCopiarBtn">
+    <button class="btn-menu-action" id="menuCopiarBtn">
       📋 Copiar <span id="copiarCount">0</span>
+    </button>
+        <button class="btn-menu-action primary" id="menuHacerTestBtn">
+      📝 Fer <span id="hacerTestCount">0</span> test
     </button>
   </div>
 
@@ -248,6 +252,7 @@
     function actualizarCopiarCount() {
       const checked = document.querySelectorAll('.file-item input[type="checkbox"]:checked');
       document.getElementById('copiarCount').textContent = checked.length;
+      document.getElementById('hacerTestCount').textContent = checked.length;
     }
 
     document.addEventListener('change', function(e) {
@@ -288,6 +293,41 @@
           menuCopiarBtn.innerHTML = `📋 Copiar <span id="copiarCount">${selectedFiles.length}</span>`;
         }, 1200);
       });
+    });
+
+    // Nuevo botón: Hacer esos test
+    const menuHacerTestBtn = document.getElementById('menuHacerTestBtn');
+    menuHacerTestBtn.addEventListener('click', async () => {
+      const checked = Array.from(document.querySelectorAll('.file-item input[type="checkbox"]:checked'));
+      const selectedFiles = checked.map(cb => cb.value);
+      if (selectedFiles.length === 0) return;
+
+      // Borrar estado anterior de estudio
+      if (typeof borrarEstudioEnProgreso === 'function') borrarEstudioEnProgreso();
+
+      // Guardar selección en localStorage
+      localStorage.setItem(LS_KEYS.FITXER, JSON.stringify(selectedFiles));
+
+      // Cargar preguntas de los ficheros y empezar estudio
+      let preguntesTot = [];
+      await Promise.all(selectedFiles.map(fitxer => {
+        return fetch('testfiles/' + fitxer)
+          .then(r => r.json())
+          .then(data => {
+            if (Array.isArray(data)) {
+              preguntesTot = preguntesTot.concat(data);
+            } else if (Array.isArray(data.preguntes)) {
+              preguntesTot = preguntesTot.concat(data.preguntes);
+            }
+          })
+          .catch(() => {
+            // Si falla, no añade preguntas
+          });
+      }));
+
+      // Guardar preguntas concatenadas y navegar
+      localStorage.setItem(LS_KEYS.PREGUNTES, JSON.stringify(preguntesTot));
+      window.location.href = 'estudiar.html';
     });
   </script>
 </body>
