@@ -161,8 +161,8 @@
       <button class="btn" id="convertBtn">Convertir</button>
     </div>
     <div class="actions">
-      <button class="btn secondary" id="copyBtn" disabled>Copiar al portapapeles</button>
-      <button class="btn secondary" id="estudiarBtn" disabled>Estudiar estas preguntas</button>
+      <button class="btn secondary" id="copyBtn" disabled>📋 Copiar JSON</button>
+      <button class="btn secondary" id="estudiarBtn" disabled>👨‍💻 Estudiar rápido</button>
     </div>
     <div class="result-area">
       <span class="result-label">JSON Preguntas:</span>
@@ -260,36 +260,65 @@
     // --- Fin menú hamburguesa ---
     // Cargar temas al iniciar
     window.addEventListener('DOMContentLoaded', function() {
+      // --- TEMAS ---
       fetch('assets/opos24_temes.json')
         .then(r => r.json())
         .then(temes => {
           const select = document.getElementById('temaSelect');
           select.innerHTML = '';
+          // Leer tema guardado en localStorage
+          const temaGuardado = localStorage.getItem('quickconverter_tema');
+          let temaSeleccionado = false;
           temes.forEach(t => {
             const opt = document.createElement('option');
             opt.value = t.tema;
             opt.textContent = t.tema + ' - ' + t.titol;
+            if (temaGuardado && t.tema === temaGuardado) {
+              opt.selected = true;
+              temaSeleccionado = true;
+            }
             select.appendChild(opt);
           });
-          if (select.options.length > 0) select.selectedIndex = 0;
+          // Si no se encontró el tema guardado, seleccionar el primero
+          if (!temaSeleccionado && select.options.length > 0) {
+            select.selectedIndex = 0;
+          }
         })
         .catch(() => {
           const select = document.getElementById('temaSelect');
           select.innerHTML = '<option>Error carregant temes</option>';
         });
+      // --- DIFICULTAD ---
       fetch('assets/difficulty.json')
         .then(r => r.json())
         .then(arr => {
           const sel = document.getElementById('difficultySelect');
           sel.innerHTML = '';
+          // Leer dificultad guardada en localStorage
+          const diffGuardada = localStorage.getItem('quickconverter_dificultat');
+          let diffSeleccionada = false;
           arr.forEach(d => {
             const opt = document.createElement('option');
             opt.value = d.id;
             opt.textContent = d.text;
+            if (diffGuardada && String(d.id) === diffGuardada) {
+              opt.selected = true;
+              diffSeleccionada = true;
+            }
             sel.appendChild(opt);
           });
-          if (sel.options.length > 0) sel.selectedIndex = 0;
+          // Si no se encontró la dificultad guardada, seleccionar el primero
+          if (!diffSeleccionada && sel.options.length > 0) {
+            sel.selectedIndex = 0;
+          }
         });
+      // Guardar cambios al seleccionar tema o dificultad
+      document.getElementById('temaSelect').addEventListener('change', function() {
+        localStorage.setItem('quickconverter_tema', this.value);
+      });
+      document.getElementById('difficultySelect').addEventListener('change', function() {
+        localStorage.setItem('quickconverter_dificultat', this.value);
+      });
     });
 
     // Utilidad para generar GUID
