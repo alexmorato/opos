@@ -605,17 +605,26 @@
         } else if (e.key === 'ArrowLeft') {
           previousQuestion();
           e.preventDefault();
-        } else if (["1","2","3","4"].includes(e.key)) {
-          // Selección rápida de respuesta
+        } else if (["1","2","3","4","5","6","7","8","9"].includes(e.key)) {
+          // Selección rápida de respuesta o expandir opción si ya está respondida
           const idx = parseInt(e.key, 10) - 1;
           const pregunta = preguntes[currentQuestion];
           if (!pregunta || !Array.isArray(pregunta.answerOptions)) return;
           if (idx >= 0 && idx < pregunta.answerOptions.length) {
             const isMultiCorrect = pregunta.answerOptions.filter(opt => opt.isCorrect).length > 1;
-            if (!isMultiCorrect) {
-              selectAnswer(idx);
+            // Detectar si la pregunta ya está respondida
+            let userAnswered = isMultiCorrect 
+              ? (multiCorrectChecked[currentQuestion] === true)
+              : (answers[currentQuestion] !== null);
+            if (!userAnswered) {
+              if (!isMultiCorrect) {
+                selectAnswer(idx);
+              } else {
+                toggleMultiSelect(idx);
+              }
             } else {
-              toggleMultiSelect(idx);
+              // Si ya está respondida, expandir/collapse la opción
+              toggleOptionRationale(idx);
             }
           }
         } else if (e.key === 'g' || e.key === 'G') {
