@@ -1,0 +1,622 @@
+[
+  {
+    "guid": "ac8b4ac3-af85-4192-80fe-20fc7616bc7b",
+    "subjectId": "T34",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Cuál es la arquitectura fundamental en la que se basa la solución SAP TRM para la gestión de ingresos públicos?",
+    "answerOptions": [
+      {
+        "text": "Es una solución integrada basada principalmente en FI-CA y su adaptación PSCD.",
+        "rationale": "SAP TRM no es un módulo único, sino que utiliza el núcleo de Contract Accounts Receivable and Payable adaptado al sector público.",
+        "isCorrect": true
+      },
+      {
+        "text": "Se trata de un módulo independiente que sustituye íntegramente a FI-AR y FI-AP.",
+        "rationale": "TRM coexiste e integra con la contabilidad general en lugar de ser un sustituto aislado de los módulos de deudores y acreedores estándar.",
+        "isCorrect": false
+      },
+      {
+        "text": "Es una evolución del módulo de Tesorería (TR) optimizada para el cálculo de impuestos corporativos.",
+        "rationale": "Aunque comparten siglas similares, SAP TRM está orientado a la gestión tributaria pública y no a la tesorería corporativa estándar.",
+        "isCorrect": false
+      },
+      {
+        "text": "Se basa exclusivamente en el componente de CRM para la gestión de la relación con el contribuyente.",
+        "rationale": "Si bien puede integrarse con CRM, el núcleo técnico y financiero reside en PSCD y FI-CA para la gestión de procesos masivos.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considere la relación técnica entre la gestión de cuentas de contrato masivas y su aplicación específica en administraciones públicas."
+  },
+  {
+    "guid": "332c9f37-8578-4f59-a977-624b7117a84f",
+    "subjectId": "T34",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Dentro del modelo de datos maestros de SAP TRM, ¿qué función cumple el 'Contract Account' (Cuenta de Contrato)?",
+    "answerOptions": [
+      {
+        "text": "Actúa como el registro técnico que vincula al contribuyente con sus tributos y gestiona los movimientos financieros.",
+        "rationale": "La cuenta de contrato es la entidad que organiza la relación financiera y los procedimientos de recaudación entre el Business Partner y sus obligaciones.",
+        "isCorrect": true
+      },
+      {
+        "text": "Representa físicamente el objeto tributario, como un inmueble o un vehículo de motor.",
+        "rationale": "La representación física o jurídica del bien que genera el impuesto corresponde al Contract Object, no a la cuenta de contrato.",
+        "isCorrect": false
+      },
+      {
+        "text": "Es el registro contable básico donde se asientan todas las operaciones en la contabilidad general FI.",
+        "rationale": "Esa descripción corresponde al documento PSCD, mientras que la cuenta de contrato es un dato maestro de agrupación financiera.",
+        "isCorrect": false
+      },
+      {
+        "text": "Define exclusivamente los datos demográficos y de identificación legal del ciudadano.",
+        "rationale": "Los datos de identificación y perfil del ciudadano se centralizan en el Business Partner (BP).",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en el nivel intermedio que conecta la identidad del sujeto con el hecho imponible para gestionar cobros y deudas."
+  },
+  {
+    "guid": "c30de7b1-b7a2-4a71-93d9-50626a04baa3",
+    "subjectId": "T34",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Qué herramienta utiliza SAP TRM para permitir la configuración de la lógica de cálculo de cuotas sin necesidad de recurrir a programación ABAP?",
+    "answerOptions": [
+      {
+        "text": "SAP Business Rule Framework plus (BRF+).",
+        "rationale": "BRF+ es el motor de reglas de negocio que permite definir bases, tipos y exenciones de forma configurable y flexible.",
+        "isCorrect": true
+      },
+      {
+        "text": "SAP Process Orchestration (PO).",
+        "rationale": "PO es una herramienta de integración de sistemas, no un motor de reglas para el cálculo de impuestos internos.",
+        "isCorrect": false
+      },
+      {
+        "text": "SAP Case Management.",
+        "rationale": "Case Management se utiliza para la gestión de expedientes administrativos, no para la ejecución de lógica de cálculo tributario.",
+        "isCorrect": false
+      },
+      {
+        "text": "Public Sector Management (PBFM).",
+        "rationale": "PBFM se refiere a la gestión presupuestaria en entornos S/4HANA y no al motor de reglas de liquidación.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Identifique el componente de soporte que actúa como motor de decisiones y cálculos basados en condiciones configurables."
+  },
+  {
+    "guid": "ff2e7f1a-5570-4ad4-9776-fccb1bc8f611",
+    "subjectId": "T34",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En el contexto de SAP S/4HANA Public Sector, ¿qué tabla técnica representa el 'Universal Journal' donde se unifican las funciones de FI y FM?",
+    "answerOptions": [
+      {
+        "text": "$ACDOCA$",
+        "rationale": "La tabla $ACDOCA$ centraliza toda la información contable y presupuestaria, permitiendo una conciliación nativa y simplificada.",
+        "isCorrect": true
+      },
+      {
+        "text": "$FAGLFLEXT$",
+        "rationale": "Esta es una tabla de totales del libro mayor de versiones anteriores de ERP y no el diario universal de S/4HANA.",
+        "isCorrect": false
+      },
+      {
+        "text": "$BUT000$",
+        "rationale": "La tabla $BUT000$ almacena los datos generales del Business Partner, no información del diario contable universal.",
+        "isCorrect": false
+      },
+      {
+        "text": "$DFKKOP$",
+        "rationale": "Es una tabla central de partidas abiertas en FI-CA/PSCD, pero no representa el Universal Journal de la contabilidad general.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Recuerde el nombre de la tabla principal de S/4HANA que eliminó la necesidad de reconciliación entre distintos sub-libros."
+  },
+  {
+    "guid": "0390cb35-c515-4c81-86e5-9714c2c08785",
+    "subjectId": "T34",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Cuál es la diferencia principal entre la gestión 'por objeto' y 'por formulario' en SAP TRM?",
+    "answerOptions": [
+      {
+        "text": "La gestión por objeto se asocia a tributos periódicos (como el IBI), mientras que la de formulario se usa para autoliquidaciones puntuales.",
+        "rationale": "Los objetos tributarios representan bienes persistentes, mientras que los formularios gestionan declaraciones específicas iniciadas por el contribuyente.",
+        "isCorrect": true
+      },
+      {
+        "text": "La gestión por objeto es puramente informativa, mientras que la de formulario genera deudas reales en PSCD.",
+        "rationale": "Ambas modalidades generan documentos PSCD y deudas exigibles, simplemente difieren en el origen del hecho imponible.",
+        "isCorrect": false
+      },
+      {
+        "text": "El cálculo de cuotas en la gestión por objeto requiere ABAP, mientras que en formulario usa BRF+.",
+        "rationale": "Ambas modalidades pueden y suelen utilizar BRF+ para garantizar la coherencia normativa en el cálculo de impuestos.",
+        "isCorrect": false
+      },
+      {
+        "text": "La gestión por formulario es exclusiva para inspecciones y la de objeto para recaudación voluntaria.",
+        "rationale": "La gestión por formulario es el estándar para tasas por licencias o plusvalías, no una herramienta limitada a inspección.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considere la naturaleza del hecho imponible: si es algo que existe permanentemente o algo que ocurre en un momento dado tras una declaración."
+  },
+  {
+    "guid": "ea43f945-32ba-4a21-8615-ba7401e3856d",
+    "subjectId": "T34",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En la implementación del Ayuntamiento de Barcelona (Hisenda Municipal), ¿qué significan las siglas HMD, HMI y HMP?",
+    "answerOptions": [
+      {
+        "text": "Los entornos de Desarrollo, Integración y Producción del sistema SAP.",
+        "rationale": "Estas siglas identifican los distintos paisajes de sistemas necesarios para el ciclo de vida del software en el entorno municipal.",
+        "isCorrect": true
+      },
+      {
+        "text": "Módulos específicos para la Gestión de Deuda, Inspección y Patrimonio.",
+        "rationale": "Aunque suenen a funciones, en la arquitectura de sistemas de SAP suelen referirse a las capas del entorno técnico (Landscape).",
+        "isCorrect": false
+      },
+      {
+        "text": "Protocolos de comunicación para la interoperabilidad con otras administraciones.",
+        "rationale": "La interoperabilidad se gestiona mediante herramientas como PO/CPI, no mediante estas siglas de entorno.",
+        "isCorrect": false
+      },
+      {
+        "text": "Diferentes tipos de Business Partner según su residencia fiscal.",
+        "rationale": "La tipología de BP se define mediante roles y grupos dentro del maestro de datos, no con estas siglas de sistema.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Asocie estas siglas con las fases típicas de un proyecto tecnológico: creación de código, pruebas y puesta en marcha real."
+  },
+  {
+    "guid": "07483b25-87c5-4249-be84-caafcec403c8",
+    "subjectId": "T34",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Dentro del flujo funcional de TRM, ¿cuál es el paso inmediato posterior al cálculo y liquidación de la deuda mediante BRF+?",
+    "answerOptions": [
+      {
+        "text": "Billing e Invoicing para la generación del documento PSCD.",
+        "rationale": "Tras determinar la cuota, el sistema debe facturar y emitir el registro contable básico que refleja la deuda en la cuenta del contribuyente.",
+        "isCorrect": true
+      },
+      {
+        "text": "El inicio automático del proceso de apremio o recaudación ejecutiva.",
+        "rationale": "La ejecución (Enforcement) solo ocurre tras el impago en el periodo voluntario, no inmediatamente después de la liquidación.",
+        "isCorrect": false
+      },
+      {
+        "text": "La asignación presupuestaria inmediata en el módulo FM.",
+        "rationale": "Aunque hay integración, la contabilización en FM suele ocurrir vinculada al proceso de registro contable o al cobro efectivo.",
+        "isCorrect": false
+      },
+      {
+        "text": "La creación de un expediente en Case Management.",
+        "rationale": "Case Management se usa para casos excepcionales o complejos (inspecciones, recursos), no para el flujo ordinario de facturación masiva.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en el proceso de transformar un cálculo teórico en un documento contable formalmente emitido al ciudadano."
+  },
+  {
+    "guid": "37e05737-c4f3-4959-805e-01132448a2a4",
+    "subjectId": "T34",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Qué componente de SAP TRM permite gestionar expedientes administrativos complejos, como los derivados de una inspección tributaria?",
+    "answerOptions": [
+      {
+        "text": "Case Management / Records Management (RM).",
+        "rationale": "Esta herramienta permite agrupar documentos, flujos de trabajo y registros PSCD bajo una misma unidad administrativa o expediente.",
+        "isCorrect": true
+      },
+      {
+        "text": "Central Address Management (CAM).",
+        "rationale": "CAM se limita a la administración de adreces para evitar duplicidades, no gestiona el ciclo de vida de un expediente legal.",
+        "isCorrect": false
+      },
+      {
+        "text": "SAP Fiori Taxpayer Portal.",
+        "rationale": "Fiori es la interfaz de acceso para el usuario o ciudadano, pero no la lógica de gestión de expedientes internos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Governance, Risk and Compliance (GRC).",
+        "rationale": "GRC se enfoca en auditoría y control interno, no en la instrucción diaria de expedientes de gestión tributaria.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Busque la solución diseñada para estructurar carpetas, documentos y flujos de decisión administrativa."
+  },
+  {
+    "guid": "9932fa44-50e9-4b55-a45a-4c921a247c18",
+    "subjectId": "T34",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Cuál es la función del componente PSCD en relación con el módulo estándar FI-CA?",
+    "answerOptions": [
+      {
+        "text": "Es la adaptación funcional de FI-CA para los requerimientos específicos del Sector Público.",
+        "rationale": "PSCD (Public Sector Collection and Disbursement) extiende FI-CA para incluir objetos y procesos propios de las administraciones.",
+        "isCorrect": true
+      },
+      {
+        "text": "Es un middleware que conecta FI-CA con la base de datos HANA.",
+        "rationale": "HANA es la base de datos, mientras que PSCD es una capa funcional de aplicación, no un conector técnico de base de datos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Es la herramienta encargada exclusivamente de la impresión de recibos físicos.",
+        "rationale": "La impresión es solo una pequeña parte de la facturación; PSCD gestiona todo el ciclo financiero de deudas y pagos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Funciona como una base de datos analítica independiente de FI-CA.",
+        "rationale": "PSCD es transaccional y reside en el mismo sistema que FI-CA; la parte analítica corresponde a BW o SAC.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Reflexione sobre cómo SAP adapta sus soluciones transversales de industria a las necesidades de los organismos gubernamentales."
+  },
+  {
+    "guid": "caaf1ecd-5234-4d00-a0f7-f3e2a91c9bf8",
+    "subjectId": "T34",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Cómo gestiona SAP TRM las situaciones de impago una vez vencido el periodo voluntario?",
+    "answerOptions": [
+      {
+        "text": "Mediante procesos de 'Dunning' y 'Enforcement' (Recaudación ejecutiva).",
+        "rationale": "Estos procesos automatizan reclamaciones, recargos, embargos y el seguimiento de la deuda en fase ejecutiva.",
+        "isCorrect": true
+      },
+      {
+        "text": "A través de la compensación automática inmediata con cualquier otro Business Partner.",
+        "rationale": "La compensación automática suele realizarse entre cuentas del mismo BP, no de forma indiscriminada entre distintos contribuyentes.",
+        "isCorrect": false
+      },
+      {
+        "text": "Mediante la eliminación automática del 'Contract Object' para anular la deuda.",
+        "rationale": "Eliminar el objeto no extingue la deuda generada; la deuda debe gestionarse mediante procedimientos de cobro o anulación contable.",
+        "isCorrect": false
+      },
+      {
+        "text": "Delegando el proceso íntegramente al módulo FI-GL (Contabilidad General).",
+        "rationale": "FI-GL solo recibe los totales contables; la gestión operativa de reclamaciones y apremios reside en PSCD.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Identifique los términos técnicos para el ciclo de reclamación de deudas desde el aviso amistoso hasta la vía de apremio."
+  },
+  {
+    "guid": "70a57996-c4fc-4170-a592-f94e5c5b27d8",
+    "subjectId": "T34",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En el modelo de datos maestros, ¿qué representa el 'Contract Object' (Objeto de Contrato)?",
+    "answerOptions": [
+      {
+        "text": "El bien o actividad que genera el tributo, como un inmueble o una actividad económica.",
+        "rationale": "El objeto de contrato permite identificar qué se está gravando (ej. IBI sobre un local) y vincularlo a un contribuyente.",
+        "isCorrect": true
+      },
+      {
+        "text": "El asiento contable base dentro de FI-CA para registrar un pago.",
+        "rationale": "Esa descripción corresponde al documento PSCD, que es el registro de la transacción económica.",
+        "isCorrect": false
+      },
+      {
+        "text": "La relación legal de parentesco entre dos o más contribuyentes.",
+        "rationale": "Las relaciones entre personas se definen en el Business Partner (BP), no en el objeto de contrato.",
+        "isCorrect": false
+      },
+      {
+        "text": "La configuración de las reglas de cálculo de BRF+.",
+        "rationale": "BRF+ es una herramienta de lógica, mientras que el objeto de contrato es una entidad de datos maestros del sistema.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en la entidad que describe el 'qué' de la imposición fiscal, diferenciándolo del 'quién'."
+  },
+  {
+    "guid": "1181c226-d12b-4ac5-b60b-6641d353abdb",
+    "subjectId": "T34",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Cuál es la función de SAP Analytics Cloud (SAC) o SAP BW en el ecosistema de TRM?",
+    "answerOptions": [
+      {
+        "text": "Ofrecer cuadros de mando, informes de recaudación y análisis predictivo.",
+        "rationale": "Estas herramientas proporcionan la capa analítica y de planificación necesaria para la toma de decisiones basada en datos masivos.",
+        "isCorrect": true
+      },
+      {
+        "text": "Gestionar la integración técnica con los terminales de pago bancario.",
+        "rationale": "La integración técnica con bancos se realiza a través de PO/CPI, no con herramientas analíticas.",
+        "isCorrect": false
+      },
+      {
+        "text": "Almacenar las imágenes escaneadas de las declaraciones presentadas.",
+        "rationale": "El almacenamiento de documentos corresponde a sistemas de ECM (Enterprise Content Management) como OpenText.",
+        "isCorrect": false
+      },
+      {
+        "text": "Configurar las reglas de validación de los formularios de autoliquidación.",
+        "rationale": "La validación y lógica de formularios reside principalmente en BRF+, no en la capa analítica.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Identifique el propósito de las herramientas destinadas al Business Intelligence y la visualización de datos estratégicos."
+  },
+  {
+    "guid": "395d4716-2f2f-47a0-a70f-4e1f5ea4b946",
+    "subjectId": "T34",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Qué ventaja aporta el uso de Central Address Management (CAM) en SAP TRM?",
+    "answerOptions": [
+      {
+        "text": "Centraliza la administración de direcciones para evitar duplicados e incoherencias entre entidades.",
+        "rationale": "CAM asegura que una actualización de dirección se refleje consistentemente en todos los roles del Business Partner.",
+        "isCorrect": true
+      },
+      {
+        "text": "Permite el geoposicionamiento de los inspectores de tributos en tiempo real.",
+        "rationale": "Esa funcionalidad podría ser parte de un GIS o una solución móvil, pero no es la función de CAM.",
+        "isCorrect": false
+      },
+      {
+        "text": "Gestiona el envío masivo de correos electrónicos certificados a los ciudadanos.",
+        "rationale": "CAM gestiona los datos de las direcciones, pero el envío de notificaciones depende de otros componentes de salida y comunicación.",
+        "isCorrect": false
+      },
+      {
+        "text": "Es el motor que calcula el recargo de apremio según la zona postal del contribuyente.",
+        "rationale": "Los cálculos de recargos se definen en las reglas de negocio (BRF+) o en la configuración de PSCD.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en la importancia de mantener un dato maestro tan crítico como el domicilio de forma unificada y limpia."
+  },
+  {
+    "guid": "02c580a0-b232-4748-99c0-9f0f66684e95",
+    "subjectId": "T34",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Cómo se realiza la integración entre SAP TRM y la contabilidad presupuestaria (FM)?",
+    "answerOptions": [
+      {
+        "text": "Mediante la asignación de ingresos a capítulos y programas presupuestarios correspondientes.",
+        "rationale": "La integración asegura que cada ingreso recaudado se refleje correctamente en la ejecución del presupuesto público.",
+        "isCorrect": true
+      },
+      {
+        "text": "Mediante un proceso manual de cuadre al final de cada ejercicio fiscal.",
+        "rationale": "La integración es automatizada para garantizar la transparencia y trazabilidad en tiempo real, no manual.",
+        "isCorrect": false
+      },
+      {
+        "text": "Sustituyendo el presupuesto por una estimación basada en el Business Partner.",
+        "rationale": "El presupuesto (FM) y la gestión de contribuyentes (BP) son dimensiones complementarias, no sustitutivas.",
+        "isCorrect": false
+      },
+      {
+        "text": "A través de la duplicación de todos los documentos PSCD en tablas de FM.",
+        "rationale": "En S/4HANA, la tendencia es la unificación en el Universal Journal, evitando la duplicidad innecesaria de datos.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considere la necesidad de las administraciones de clasificar sus ingresos según la normativa de contabilidad pública."
+  },
+  {
+    "guid": "3f363115-8f1a-4c80-bf8a-bd4705e07006",
+    "subjectId": "T34",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Qué componente se encarga de la integración de SAP TRM con plataformas de pago electrónico y sistemas bancarios?",
+    "answerOptions": [
+      {
+        "text": "SAP PO (Process Orchestration) o SAP CPI (Cloud Platform Integration).",
+        "rationale": "Estas herramientas actúan como middleware para conectar el núcleo SAP con servicios externos de manera segura.",
+        "isCorrect": true
+      },
+      {
+        "text": "SAP Fiori Launchpad.",
+        "rationale": "Fiori es el punto de acceso para la interfaz de usuario, no la plataforma de integración de procesos backend con bancos.",
+        "isCorrect": false
+      },
+      {
+        "text": "SAP Business Partner (BP).",
+        "rationale": "El BP es un objeto de datos maestros, no una herramienta de comunicación o integración técnica.",
+        "isCorrect": false
+      },
+      {
+        "text": "SAP UI Logging.",
+        "rationale": "UI Logging se utiliza para el registro de accesos y cumplimiento de seguridad, no para el intercambio de datos con bancos.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Busque las siglas que representan las herramientas de integración (middleware) tradicionales y en la nube de SAP."
+  },
+  {
+    "guid": "0e3727b7-352d-4be2-ad7a-49f300beebfd",
+    "subjectId": "T34",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En el contexto de SAP TRM, ¿qué es un 'Documento PSCD'?",
+    "answerOptions": [
+      {
+        "text": "Es el registro contable de cualquier movimiento económico como deudas, pagos o recargos.",
+        "rationale": "El documento PSCD es el átomo contable en FI-CA que sustenta la transparencia y el seguimiento de cada transacción.",
+        "isCorrect": true
+      },
+      {
+        "text": "Un archivo PDF que se envía al ciudadano para notificarle su deuda.",
+        "rationale": "El PDF es una representación visual del documento, pero el documento PSCD es el registro técnico en la base de datos.",
+        "isCorrect": false
+      },
+      {
+        "text": "La normativa legal que regula un impuesto específico.",
+        "rationale": "La normativa se traduce en reglas de cálculo en BRF+ y definiciones de producto, no es un documento PSCD.",
+        "isCorrect": false
+      },
+      {
+        "text": "El contrato físico firmado entre la administración y el banco colaborador.",
+        "rationale": "Esos acuerdos son externos al flujo transaccional de deuda/cobro que gestiona PSCD.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Identifique el elemento que constituye el asiento contable básico dentro del sub-libro de cuentas a cobrar masivas."
+  },
+  {
+    "guid": "1673c41c-2f12-4c19-8ec0-d9d2572c8f6a",
+    "subjectId": "T34",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Qué utilidad tiene SAP UI Logging en una implementación de gestión tributaria?",
+    "answerOptions": [
+      {
+        "text": "Registrar el acceso y visualización de datos sensibles para garantizar la seguridad y privacidad.",
+        "rationale": "Dado que TRM maneja información fiscal protegida, UI Logging es vital para el cumplimiento de normativas de protección de datos.",
+        "isCorrect": true
+      },
+      {
+        "text": "Acelerar el rendimiento de la interfaz de usuario mediante caché avanzada.",
+        "rationale": "UI Logging consume recursos para el registro; su fin no es el rendimiento, sino la auditoría y seguridad.",
+        "isCorrect": false
+      },
+      {
+        "text": "Traducir automáticamente la interfaz a los diferentes idiomas regionales.",
+        "rationale": "La traducción se gestiona a través de los servicios estándar de internacionalización de SAP, no mediante logging.",
+        "isCorrect": false
+      },
+      {
+        "text": "Generar informes de errores técnicos para el equipo de desarrollo ABAP.",
+        "rationale": "Aunque registra eventos, su enfoque principal es la seguridad de los datos del ciudadano, no el debugging técnico general.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en las estrictas leyes de protección de datos que afectan a la información fiscal de los ciudadanos."
+  },
+  {
+    "guid": "4cfdd1ca-fc32-4823-9c99-b84bf354d204",
+    "subjectId": "T34",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Dentro del ciclo de vida de un tributo en SAP TRM, ¿en qué fase se determina la base imponible y se aplica el tipo impositivo?",
+    "answerOptions": [
+      {
+        "text": "Fase de Evaluación y Liquidación.",
+        "rationale": "En esta etapa se procesan los datos de la declaración o del objeto para realizar el cálculo matemático de la cuota.",
+        "isCorrect": true
+      },
+      {
+        "text": "Fase de Billing.",
+        "rationale": "El Billing se encarga de agrupar las liquidaciones ya calculadas para prepararlas para su facturación contable.",
+        "isCorrect": false
+      },
+      {
+        "text": "Fase de Dunning.",
+        "rationale": "El Dunning es posterior al impago; no calcula la cuota original del impuesto, sino reclamaciones y recargos por mora.",
+        "isCorrect": false
+      },
+      {
+        "text": "Fase de Alta del Business Partner.",
+        "rationale": "El alta del contribuyente es un paso previo necesario, pero en él no se calculan impuestos específicos.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Identifique la fase donde se aplica la lógica tributaria para convertir datos en una cifra económica a pagar."
+  },
+  {
+    "guid": "35395b31-6f20-4c0e-9d81-03fb876e3873",
+    "subjectId": "T34",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Cuál es la función del componente ECM (Enterprise Content Management) como OpenText en SAP TRM?",
+    "answerOptions": [
+      {
+        "text": "Gestionar de manera segura documentos electrónicos como formularios, justificantes y notificaciones.",
+        "rationale": "ECM proporciona un repositorio robusto para toda la documentación adjunta a expedientes y procesos tributarios.",
+        "isCorrect": true
+      },
+      {
+        "text": "Ejecutar la conciliación bancaria diaria de forma automática.",
+        "rationale": "La conciliación bancaria es una función financiera de PSCD/FI, no una tarea de gestión documental.",
+        "isCorrect": false
+      },
+      {
+        "text": "Simular escenarios de ingresos futuros basados en cambios legislativos.",
+        "rationale": "La simulación y planificación de ingresos corresponde a herramientas como SAP BPC o SAC.",
+        "isCorrect": false
+      },
+      {
+        "text": "Definir los periodos impositivos y calendarios fiscales.",
+        "rationale": "Esta configuración se realiza en el núcleo funcional de TRM/PSCD, no en el gestor documental.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Asocie este componente con la necesidad de digitalizar y almacenar evidencias y archivos relacionados con el contribuyente."
+  },
+  {
+    "guid": "ae334c63-1817-4907-acf1-bd808c705dad",
+    "subjectId": "T34",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En la evolución hacia SAP S/4HANA, ¿qué mejora se destaca específicamente para la experiencia del usuario?",
+    "answerOptions": [
+      {
+        "text": "El uso de la interfaz SAP Fiori tanto para funcionarios como para ciudadanos.",
+        "rationale": "Fiori ofrece una experiencia moderna, intuitiva y accesible desde múltiples dispositivos, mejorando la interacción con el sistema.",
+        "isCorrect": true
+      },
+      {
+        "text": "La sustitución completa de BRF+ por código ABAP en memoria.",
+        "rationale": "Al contrario, S/4HANA potencia BRF+ como herramienta central para mantener la flexibilidad normativa sin programar.",
+        "isCorrect": false
+      },
+      {
+        "text": "La eliminación de la necesidad de usar el Business Partner.",
+        "rationale": "En S/4HANA, el Business Partner se convierte en el objeto obligatorio y central para todas las entidades (proveedores, deudores, etc.).",
+        "isCorrect": false
+      },
+      {
+        "text": "El traslado de toda la contabilidad a un sistema externo no-SAP.",
+        "rationale": "S/4HANA busca precisamente la máxima integración interna de todas las funciones financieras en una única plataforma.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en el estándar de diseño visual y de usabilidad que SAP ha adoptado para todas sus aplicaciones modernas."
+  }
+]

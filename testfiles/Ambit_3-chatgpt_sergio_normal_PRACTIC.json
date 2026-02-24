@@ -1,0 +1,932 @@
+[
+  {
+    "guid": "2b0b4e6c-0b5e-4b7a-8c6a-0f9a6b2e9a11",
+    "subjectId": "T33",
+    "difficulty": 5,
+    "origin": "TS TIC AF3 Cas pràctic",
+    "type": "test",
+    "question": "En el circuit de despesa d’un ajuntament (MM→FI/EA-PS), Intervenció exigeix que cap comanda es pugui crear si no hi ha crèdit disponible.\nA producció apareixen casos on la comanda es crea, però el bloqueig salta més tard a la recepció de factura.\nA més, en imputacions múltiples (diversos centres/partides) es veu consum duplicat de crèdit en algunes línies.\nEl proveïdor proposa “correccions” manuals de consum a final de mes, però auditoria ho rebutja.\nQuina actuació és la més adequada per assegurar control preventiu i evitar dobles consums?",
+    "answerOptions": [
+      {
+        "text": "Alinear update points i derivació FM",
+        "isCorrect": true,
+        "rationale": "Correcta: el problema apunta a punts d’actualització (commitment/actual) i derivació FM inconsistents, sobretot amb imputació múltiple. Cal ajustar configuració i regles perquè el control preventiu s’apliqui a la creació i el consum no es dupliqui."
+      },
+      {
+        "text": "Ajustos manuals mensuals",
+        "isCorrect": false,
+        "rationale": "Incorrecta: els ajustos manuals degraden control intern, no resolen la causa arrel i comprometen traçabilitat i auditoria."
+      },
+      {
+        "text": "Desactivar control i informar desviacions",
+        "isCorrect": false,
+        "rationale": "Incorrecta: elimina el control preventiu i incrementa risc d’execució per sobre del crèdit, contravenint el requisit."
+      },
+      {
+        "text": "Traslladar tot el consum a FI",
+        "isCorrect": false,
+        "rationale": "Incorrecta: pot perdre semàntica pressupostària i no garanteix el bloqueig preventiu en el punt requerit."
+      }
+    ],
+    "hint": "Busca una solució de parametrització (punts d’actualització + derivació) i no una “compensació” posterior."
+  },
+  {
+    "guid": "4d9c7a25-7a3d-4f10-9f4e-79f5c6d7c0d2",
+    "subjectId": "T33",
+    "difficulty": 4,
+    "origin": "TS TIC AF3 Cas pràctic",
+    "type": "test",
+    "question": "Es vol alimentar un Data Lake amb execució pressupostària i FI per un quadre de comandament diari.\nQuan hi ha tancament mensual, alguns informes mostren discrepàncies entre valors provisionals i finals.\nNo es pot carregar el sistema SAP amb consultes pesades i cal coherència per auditoria.\nQuina estratègia de càrrega és més robusta per períodes de tancament?",
+    "answerOptions": [
+      {
+        "text": "Snapshots post-tancament + incremental",
+        "isCorrect": true,
+        "rationale": "Correcta: combinar incremental/CDC amb snapshots controlats després del tancament evita estats transitoris i facilita reconciliació per auditoria."
+      },
+      {
+        "text": "Lectura directa en temps real",
+        "isCorrect": false,
+        "rationale": "Incorrecta: impacta rendiment i pot captar estats transitoris durant batch, generant inconsistència."
+      },
+      {
+        "text": "Carga mensual única sense reconciliació",
+        "isCorrect": false,
+        "rationale": "Incorrecta: pot no complir la necessitat operativa (diari) i no gestiona bé els estats de tancament."
+      },
+      {
+        "text": "Recalcular FM a partir de FI",
+        "isCorrect": false,
+        "rationale": "Incorrecta: FM i FI tenen lògiques diferents; reconstruir FM des de FI pot perdre control pressupostari i traçabilitat."
+      }
+    ],
+    "hint": "Els tancaments creen estats transitoris: pensa en snapshots com a “veritat” per període."
+  },
+  {
+    "guid": "a7b1c9a2-1bde-4d6d-9a3d-5c9f2a8d0f4e",
+    "subjectId": "T34",
+    "difficulty": 5,
+    "origin": "TS TIC AF3 Cas pràctic",
+    "type": "test",
+    "question": "En TRM, el portal del contribuent permet reintents de pagament. Un dia, el banc envia un fitxer amb duplicats.\nAlguns cobraments s’han conciliat contra deutes equivocats per col·lisió d’identificadors.\nIntervenció exigeix traçabilitat jurídica: res d’editar imputacions “a mà” sense reversions.\nENS obliga a controls de mínim privilegi i registre d’operacions.\nQuina resposta és la més adequada per corregir i prevenir recurrència?",
+    "answerOptions": [
+      {
+        "text": "Reversió traçable + idempotència",
+        "isCorrect": true,
+        "rationale": "Correcta: cal corregir amb documents de reversió/reassentament auditable i introduir clau idempotent d’operació per evitar duplicats en reintents i conciliació."
+      },
+      {
+        "text": "Editar imputacions amb rol especial",
+        "isCorrect": false,
+        "rationale": "Incorrecta: l’edició directa sense circuit formal debilita control intern, segregació de funcions i traçabilitat jurídica."
+      },
+      {
+        "text": "Esborrar i reimportar el fitxer",
+        "isCorrect": false,
+        "rationale": "Incorrecta: esborrar evidència és crític en recaptació; s’ha de preservar rastre i corregir amb reversions."
+      },
+      {
+        "text": "Bloquejar pagament online indefinidament",
+        "isCorrect": false,
+        "rationale": "Incorrecta: pot ser mitigació temporal, però no resol la causa arrel ni el problema de traçabilitat dels cobraments ja afectats."
+      }
+    ],
+    "hint": "Pagaments duplicats: correcció amb reversions + prevenció amb idempotència a la integració."
+  },
+  {
+    "guid": "c1a0d0e9-b2d7-4c6c-9c6a-2a0b8b2fd4a6",
+    "subjectId": "T34",
+    "difficulty": 4,
+    "origin": "TS TIC AF3 Cas pràctic",
+    "type": "test",
+    "question": "En TRM, un fraccionament aprovat canvia d’escenari: entra en vigor una nova ordenança d’interessos i recàrrecs.\nEls plans nous ja apliquen la regla, però els plans ja notificats no.\nJurídic recorda que no es poden modificar actes notificats sense procediment.\nQuina opció és la més correcta per aplicar la normativa sense vulnerar validesa jurídica?",
+    "answerOptions": [
+      {
+        "text": "Aplicar a fets futurs amb traçabilitat",
+        "isCorrect": true,
+        "rationale": "Correcta: respecta actes notificats i aplica la nova norma a esdeveniments futurs (p. ex. impagament) amb registre del canvi normatiu i, si cal, procediment formal."
+      },
+      {
+        "text": "Recalcular retroactivament tots els plans",
+        "isCorrect": false,
+        "rationale": "Incorrecta: pot vulnerar validesa jurídica i drets del contribuent si modifica actes sense procediment."
+      },
+      {
+        "text": "Mantenir sempre la norma inicial del pla",
+        "isCorrect": false,
+        "rationale": "Incorrecta: recàrrecs/impagaments poden dependre de normativa vigent en el moment del fet, no només la inicial."
+      },
+      {
+        "text": "Calcular recàrrecs manualment cas a cas",
+        "isCorrect": false,
+        "rationale": "Incorrecta: no escala, incrementa risc d’errors i debilita control intern."
+      }
+    ],
+    "hint": "Diferencia “acte notificat” de “esdeveniment futur” (impagament, recàrrec)."
+  },
+  {
+    "guid": "6c9d0c8c-4ed5-4e6d-8c50-7e8f1b2f6b7a",
+    "subjectId": "T35",
+    "difficulty": 5,
+    "origin": "TS TIC AF3 Cas pràctic",
+    "type": "test",
+    "question": "SAP HCM recalcula nòmina retroactiva per correcció de categoria amb efecte de 6 mesos.\nFI reflecteix els assentaments, però l’execució pressupostària de personal per centres de cost queda incoherent en reporting.\nAuditoria demana traçabilitat: qui va aprovar el canvi, quin període afecta i quins ajustos genera.\nNo es pot prohibir el retrocàlcul per obligacions laborals.\nQuina mesura és la més adequada?",
+    "answerOptions": [
+      {
+        "text": "Governança de retro + reconciliació",
+        "isCorrect": true,
+        "rationale": "Correcta: cal finestres controlades, flux d’aprovació, auditories i reconciliació HCM→FI→FM per període i centre de cost."
+      },
+      {
+        "text": "Bloquejar canvis a períodes tancats",
+        "isCorrect": false,
+        "rationale": "Incorrecta: pot impedir correccions obligatòries i generar desviacions temporals i pressupostàries no explicables."
+      },
+      {
+        "text": "Desactivar integració amb FI en retro",
+        "isCorrect": false,
+        "rationale": "Incorrecta: trenca integritat i incrementa ajustos manuals, complicant auditoria."
+      },
+      {
+        "text": "Guardar només resultat final",
+        "isCorrect": false,
+        "rationale": "Incorrecta: RGPD no implica eliminar traçabilitat; cal minimització i control d’accés, però mantenint evidència."
+      }
+    ],
+    "hint": "No és ‘evitar retro’; és governar-lo i reconciliar impacte pressupostari."
+  },
+  {
+    "guid": "f3c9e7b2-2f8a-4c87-8d30-4d0f4e2a9d3e",
+    "subjectId": "T35",
+    "difficulty": 4,
+    "origin": "TS TIC AF3 Cas pràctic",
+    "type": "test",
+    "question": "S’habilita autoservei (absències i consulta de nòmina) amb app corporativa.\nEs detecta que alguns comandaments veuen dades salarials d’unitats que ja no gestionen per canvis freqüents d’organigrama i substitucions.\nHi ha requisits RGPD/ENS: mínim privilegi i logs d’accés.\nQuina decisió és la més adequada per permisos robustos en un organigrama dinàmic?",
+    "answerOptions": [
+      {
+        "text": "Autoritzacions estructurals + substitucions",
+        "isCorrect": true,
+        "rationale": "Correcta: control d’accés per estructura organitzativa, amb gestió de substitucions i auditories, s’adapta a canvis freqüents."
+      },
+      {
+        "text": "Rols estàtics per supervisor",
+        "isCorrect": false,
+        "rationale": "Incorrecta: els rols estàtics fallen amb canvis d’organigrama i poden deixar accessos indeguts."
+      },
+      {
+        "text": "Accés complet i sancions",
+        "isCorrect": false,
+        "rationale": "Incorrecta: no compleix mínim privilegi ni ENS; la seguretat no pot basar-se en dissuasió."
+      },
+      {
+        "text": "Treure dades salarials sempre",
+        "isCorrect": false,
+        "rationale": "Incorrecta: pot no complir requisits funcionals i no resol governança d’altres dades sensibles."
+      }
+    ],
+    "hint": "En HCM, si l’estructura canvia sovint, el control d’accés ha de dependre de l’estructura."
+  },
+  {
+    "guid": "d1f6a5c3-1d1a-4f7e-8f5c-8b4b0d5b9f47",
+    "subjectId": "T36",
+    "difficulty": 5,
+    "origin": "TS TIC AF3 Cas pràctic",
+    "type": "test",
+    "question": "Un Data Lake corporatiu rep dades de padró, recaptació i logs d’aplicacions.\nAl cap de setmanes, hi ha “dues veritats” del mateix indicador perquè cada equip defineix transformacions diferents.\nA més, apareixen dades personals sense etiquetatge i sense controls de qualitat.\nLa direcció vol rapidesa, però també governança i compliment.\nQuina combinació és la més adequada?",
+    "answerOptions": [
+      {
+        "text": "Capes + catàleg + controls automàtics",
+        "isCorrect": true,
+        "rationale": "Correcta: zones (raw/curated/semantic), catàleg/metadades, contractes d’esquema i controls automatitzats de qualitat i classificació PII donen governança sense frenar ingesta."
+      },
+      {
+        "text": "Ingesta lliure i mesures a BI",
+        "isCorrect": false,
+        "rationale": "Incorrecta: perpetua caos semàntic i risc de dades personals sense control."
+      },
+      {
+        "text": "Validació manual centralitzada",
+        "isCorrect": false,
+        "rationale": "Incorrecta: crea coll d’ampolla i no escala; cal automatització i ownership."
+      },
+      {
+        "text": "Substituir-ho per DWH únic",
+        "isCorrect": false,
+        "rationale": "Incorrecta: pot limitar casos d’ús (logs, semi-estructurat) i no resol necessitat d’agilitat; la governança s’ha d’implantar al lake."
+      }
+    ],
+    "hint": "Solució típica: raw→curated→semantic + metadades + qualitat + classificació de dades."
+  },
+  {
+    "guid": "8b1c2f7a-5b61-4b7a-9b5d-2c1a1c7f0db3",
+    "subjectId": "T36",
+    "difficulty": 4,
+    "origin": "TS TIC AF3 Cas pràctic",
+    "type": "test",
+    "question": "FinOps detecta cost alt al Data Lake per logs i reprocessaments.\nPer ENS cal conservar evidència i traçabilitat mínima; els analistes volen poder reprocessar històrics.\nQuina estratègia és la més adequada per reduir cost i mantenir capacitat de reprocessament?",
+    "answerOptions": [
+      {
+        "text": "Retenció per capes + tiering",
+        "isCorrect": true,
+        "rationale": "Correcta: conservar raw immutable optimitzat (particions/compressió), derivar agregats, i aplicar hot/warm/cold amb lineage manté traçabilitat i controla cost."
+      },
+      {
+        "text": "Esborrar raw i deixar agregats",
+        "isCorrect": false,
+        "rationale": "Incorrecta: pot perdre evidència i reprocessament; agregats no sempre són suficients per auditoria."
+      },
+      {
+        "text": "Tot en hot storage sempre",
+        "isCorrect": false,
+        "rationale": "Incorrecta: és la configuració més cara i no discrimina per ús."
+      },
+      {
+        "text": "Exportar a discos locals fora governança",
+        "isCorrect": false,
+        "rationale": "Incorrecta: trenca controls, lineage i integritat; incrementa risc."
+      }
+    ],
+    "hint": "Cost s’optimitza amb capes, retenció i tiering, no eliminant evidència necessària."
+  },
+  {
+    "guid": "9c6b7b1f-7c1a-4e8d-9f5d-1d9bba2f4ad1",
+    "subjectId": "T37",
+    "difficulty": 5,
+    "origin": "TS TIC AF3 Cas pràctic",
+    "type": "test",
+    "question": "Una app d’inspecció ha de funcionar offline. Dos inspectors editen el mateix expedient sense cobertura i després sincronitzen.\nEl backend és legacy i només exposa SOAP amb latència.\nHeu tingut pèrdues de dades per sobrescriptura. A més, cal traçabilitat d’accions (ENS).\nQuina solució és la més adequada per sincronització i conflictes?",
+    "answerOptions": [
+      {
+        "text": "Op-log + versions + idempotència",
+        "isCorrect": true,
+        "rationale": "Correcta: un log d’operacions amb control de versions (ETag/vector) i idempotència permet detectar/gestionar conflictes i conservar traçabilitat."
+      },
+      {
+        "text": "Dump complet i last-write-wins",
+        "isCorrect": false,
+        "rationale": "Incorrecta: genera pèrdua silenciosa i no és acceptable per expedients amb valor probatori."
+      },
+      {
+        "text": "Bloqueig offline per expedient",
+        "isCorrect": false,
+        "rationale": "Incorrecta: és fràgil (què passa si no reconnecta?) i pot paralitzar operativa."
+      },
+      {
+        "text": "Conflictes sempre manuals",
+        "isCorrect": false,
+        "rationale": "Incorrecta: pot ser suport puntual, però no estratègia base; no escala i incrementa risc."
+      }
+    ],
+    "hint": "Offline-first robust: operacions versionades, idempotents i auditables."
+  },
+  {
+    "guid": "0b4f0e1c-6ef7-4b2a-9bd4-9db3a7b0d3d8",
+    "subjectId": "T37",
+    "difficulty": 4,
+    "origin": "TS TIC AF3 Cas pràctic",
+    "type": "test",
+    "question": "Una app ciutadana mostra notificacions i documents. UX vol ‘recorda’m’ i molta rapidesa.\nSeguretat (ENS/RGPD) demana minimització, revocació i evitar cache de contingut sensible.\nQuina decisió és la més adequada per equilibrar rendiment i seguretat?",
+    "answerOptions": [
+      {
+        "text": "Tokens curts + xifrat + cache selectiva",
+        "isCorrect": true,
+        "rationale": "Correcta: tokens de curta durada amb refresh, xifrat en repòs, i directives de cache per evitar CDN/app cache de contingut sensible manté UX i seguretat."
+      },
+      {
+        "text": "Cachejar documents sense xifrat",
+        "isCorrect": false,
+        "rationale": "Incorrecta: risc alt per pèrdua/compromís del dispositiu i incompliment de minimització."
+      },
+      {
+        "text": "Tokens de vida indefinida",
+        "isCorrect": false,
+        "rationale": "Incorrecta: incrementa impacte de robatori de token i dificulta revocació."
+      },
+      {
+        "text": "Desactivar tota cache sempre",
+        "isCorrect": false,
+        "rationale": "Incorrecta: és desproporcionat; cal cache “intel·ligent” segons sensibilitat."
+      }
+    ],
+    "hint": "No és blanc o negre: cache només el no sensible i assegura revocació i xifrat."
+  },
+  {
+    "guid": "fb4ce0e2-53c2-4db3-9c13-c6f1f3c0e75e",
+    "subjectId": "T38",
+    "difficulty": 4,
+    "origin": "TS TIC AF3 Cas pràctic",
+    "type": "test",
+    "question": "Una unitat funcional vol una app low-code amb canvis setmanals i dades personals.\nCal integrar-se amb APIs corporatives i complir ENS (auditoria, control d’accés, gestió de canvis).\nQuina governança és la més adequada per evitar shadow IT i mantenir velocitat?",
+    "answerOptions": [
+      {
+        "text": "Citizen dev amb guardrails",
+        "isCorrect": true,
+        "rationale": "Correcta: entorns separats, revisió segons risc, catàleg d’APIs corporatives, pipeline i auditories permeten autonomia amb control."
+      },
+      {
+        "text": "Publicar a producció sense revisió",
+        "isCorrect": false,
+        "rationale": "Incorrecta: no assegura traçabilitat ni controls ENS; augmenta risc."
+      },
+      {
+        "text": "Prohibir low-code sempre",
+        "isCorrect": false,
+        "rationale": "Incorrecta: pot ser viable amb governança; prohibir elimina beneficis sense necessitat."
+      },
+      {
+        "text": "Integracions amb scripts locals per app",
+        "isCorrect": false,
+        "rationale": "Incorrecta: crea duplicació i risc; millor API management/catàleg."
+      }
+    ],
+    "hint": "Low-code en sector públic: autonomia sí, però amb entorns, APIs governades i traçabilitat."
+  },
+  {
+    "guid": "9b6c7a2d-3c7b-4b9a-9cbe-4f61d9a2c1c0",
+    "subjectId": "T38",
+    "difficulty": 5,
+    "origin": "TS TIC AF3 Cas pràctic",
+    "type": "test",
+    "question": "Una solució no-code d’incidències creix i ara requereix integració bidireccional amb ITSM, SSO i export al Data Lake.\nEl proveïdor ofereix connectors propietaris i no hi ha bon versionat/test automatitzat.\nQuina decisió és MENYS adequada si voleu evitar lock-in i facilitar evolució?",
+    "answerOptions": [
+      {
+        "text": "Lògica crítica dins plataforma i connectors",
+        "isCorrect": true,
+        "rationale": "Correcta (com a menys adequada): concentrar lògica crítica en no-code i dependre de connectors propietaris incrementa lock-in i limita evolució."
+      },
+      {
+        "text": "Capa d’APIs i contractes externs",
+        "isCorrect": false,
+        "rationale": "Incorrecta: això redueix lock-in i millora governança."
+      },
+      {
+        "text": "Export incremental governat al lake",
+        "isCorrect": false,
+        "rationale": "Incorrecta: és recomanable per analítica i governança."
+      },
+      {
+        "text": "SSO i entorns separats",
+        "isCorrect": false,
+        "rationale": "Incorrecta: és alineat amb seguretat i operació."
+      }
+    ],
+    "hint": "Lock-in típic: connectors propietaris + lògica crítica dins el no-code sense capa d’API."
+  },
+  {
+    "guid": "f0e2d1c3-4b5a-4c6d-8e9f-1a2b3c4d5e6f",
+    "subjectId": "T39",
+    "difficulty": 5,
+    "origin": "TS TIC AF3 Cas pràctic",
+    "type": "test",
+    "question": "Microserveis al núvol: DevOps desplega sovint, però FinOps detecta costos disparats.\nHi ha entorns de prova encesos, logs massa verbosos i autoscaling reaccionant a jobs batch.\nENS exigeix monitoratge i registres; no es pot “apagar observabilitat”.\nQuina combinació és la més adequada per reduir cost sense perdre control?",
+    "answerOptions": [
+      {
+        "text": "Tagging + budgets + lifecycle + retenció",
+        "isCorrect": true,
+        "rationale": "Correcta: etiquetatge/chargeback, pressupostos/alertes, auto-shutdown d’entorns, ajust de logs/retenció i separar batch evita escalat inútil i manté ENS."
+      },
+      {
+        "text": "Desactivar logs i traces",
+        "isCorrect": false,
+        "rationale": "Incorrecta: pot vulnerar ENS i dificulta resposta a incidents; cal ajustar, no eliminar."
+      },
+      {
+        "text": "Fixar capacitat gran permanent",
+        "isCorrect": false,
+        "rationale": "Incorrecta: sovint encareix i no resol entorns inactius ni observabilitat."
+      },
+      {
+        "text": "Només optimitzar codi i prou",
+        "isCorrect": false,
+        "rationale": "Incorrecta: sense governança FinOps, el cost pot seguir descontrolat encara que el codi millori."
+      }
+    ],
+    "hint": "FinOps pràctic: etiquetar, limitar, automatitzar lifecycle i racionalitzar observabilitat."
+  },
+  {
+    "guid": "a4d7e6c5-2b1a-4d3c-8b7a-6f5e4d3c2b1a",
+    "subjectId": "T39",
+    "difficulty": 4,
+    "origin": "TS TIC AF3 Cas pràctic",
+    "type": "test",
+    "question": "Hi ha incidents recurrents. Es fan postmortems, però no hi ha accions ni gates de qualitat/seguretat a CI/CD.\nSeguretat demana controls (ENS) i l’equip diu que això “sempre” frena.\nQuina afirmació és la FALSA?",
+    "answerOptions": [
+      {
+        "text": "Controls automatitzats poden reduir fricció",
+        "isCorrect": false,
+        "rationale": "Incorrecta com a falsa: és certa; automatitzar controls pot fer el procés més ràpid i fiable."
+      },
+      {
+        "text": "Sense accions, els postmortems no milloren res",
+        "isCorrect": false,
+        "rationale": "Incorrecta com a falsa: és certa; sense seguiment no hi ha millora contínua."
+      },
+      {
+        "text": "Gates sempre empitjoren velocitat a llarg termini",
+        "isCorrect": true,
+        "rationale": "Correcta (FALSA): gates ben dissenyats redueixen rework i incidents, millorant velocitat sostinguda."
+      },
+      {
+        "text": "SLO/DoD alineen entrega i operació",
+        "isCorrect": false,
+        "rationale": "Incorrecta com a falsa: és certa; SLO/DoD milloren disciplina operativa."
+      }
+    ],
+    "hint": "La falsa sol ser l’afirmació absolutista (“sempre”)."
+  },
+  {
+    "guid": "7b6a5f4e-3d2c-4b1a-9f8e-7d6c5b4a3f2e",
+    "subjectId": "T40",
+    "difficulty": 4,
+    "origin": "TS TIC AF3 Cas pràctic",
+    "type": "test",
+    "question": "Modelatge d’expedients: un expedient pot tenir múltiples interessats i un interessat pot aparèixer en múltiples expedients.\nLa relació té atributs (rol, data alta/baixa).\nEs proposa afegir columnes repetides a Expedient per “simplificar”.\nQuina és la decisió correcta de model ER?",
+    "answerOptions": [
+      {
+        "text": "Entitat associativa amb atributs",
+        "isCorrect": true,
+        "rationale": "Correcta: una relació N:M amb atributs es resol amb una taula associativa (ExpedientInteressat) amb els atributs de la participació."
+      },
+      {
+        "text": "Duplicar interessat per expedient",
+        "isCorrect": false,
+        "rationale": "Incorrecta: duplicació crea inconsistència i trenca integritat."
+      },
+      {
+        "text": "Columnes id_interessat2, id_interessat3",
+        "isCorrect": false,
+        "rationale": "Incorrecta: no escala, viola normalització i dificulta consultes."
+      },
+      {
+        "text": "JSON amb llista dins d’una taula",
+        "isCorrect": false,
+        "rationale": "Incorrecta: dificulta integritat i auditoria en model relacional estàndard."
+      }
+    ],
+    "hint": "Quan la relació té atributs propis, acostuma a ser una entitat associativa."
+  },
+  {
+    "guid": "3c2b1a0f-9e8d-4c7b-8a6f-5e4d3c2b1a0f",
+    "subjectId": "T40",
+    "difficulty": 5,
+    "origin": "TS TIC AF3 Cas pràctic",
+    "type": "test",
+    "question": "Gestió documental: cada document té versions amb metadades i hash. Cal versió vigent ràpida i històric immutable.\nUna proposta separa “actual” a Document i “històric” sense FK.\nQuin disseny és més robust per integritat i consulta de la versió vigent?",
+    "answerOptions": [
+      {
+        "text": "Taula de versions + punter a vigent",
+        "isCorrect": true,
+        "rationale": "Correcta: Document(1)–DocumentVersio(N) amb FK i un current_version_id (o criteri) permet integritat i accés ràpid a la vigent."
+      },
+      {
+        "text": "Exportar versions antigues fora BD",
+        "isCorrect": false,
+        "rationale": "Incorrecta: complica auditoria i pot perdre integritat i accés consistent."
+      },
+      {
+        "text": "Versions en JSON dins Document",
+        "isCorrect": false,
+        "rationale": "Incorrecta: pitjor indexació/consulta i més risc en governança."
+      },
+      {
+        "text": "Històric sense FK i batch de consistència",
+        "isCorrect": false,
+        "rationale": "Incorrecta: la integritat depèn d’operació; risc d’orfes i incoherències."
+      }
+    ],
+    "hint": "Versió vigent ràpida + històric immutable: normalitza versions i afegeix un “punter” a la vigent."
+  },
+  {
+    "guid": "d7c6b5a4-3f2e-4d1c-9b8a-7a6f5e4d3c2b",
+    "subjectId": "T41",
+    "difficulty": 5,
+    "origin": "TS TIC AF3 Cas pràctic",
+    "type": "test",
+    "question": "Projecte crític amb diversos proveïdors: hi ha defectes en producció i retards.\nLa direcció vol “més qualitat” sense burocràcia. Hi ha problemes de requisits, integració i seguretat.\nQuina combinació és la més efectiva per millora sostinguda?",
+    "answerOptions": [
+      {
+        "text": "DoD + gates automatitzats + mètriques",
+        "isCorrect": true,
+        "rationale": "Correcta: criteris de qualitat, Definition of Done, gates automàtics (tests/anàlisi/seguretat) i SLAs de qualitat amb proveïdors ataquen causes arrel i escalen."
+      },
+      {
+        "text": "Més testers manuals al final",
+        "isCorrect": false,
+        "rationale": "Incorrecta: ajuda puntual però no resol causes arrel ni prevé regressions."
+      },
+      {
+        "text": "Congelar requisits i prohibir canvis",
+        "isCorrect": false,
+        "rationale": "Incorrecta: irrealista; cal gestió de canvis i traçabilitat."
+      },
+      {
+        "text": "Mesurar només velocitat d’entrega",
+        "isCorrect": false,
+        "rationale": "Incorrecta: output no és qualitat; cal mètriques de defectes, fiabilitat i seguretat."
+      }
+    ],
+    "hint": "Qualitat a escala: criteris + automatització + contractació amb mètriques, no només ‘més proves’."
+  },
+  {
+    "guid": "1a9f0b2c-7d3e-4c1a-8b2f-3c4d5e6f7a8b",
+    "subjectId": "T41",
+    "difficulty": 4,
+    "origin": "TS TIC AF3 Cas pràctic",
+    "type": "test",
+    "question": "Auditoria: molts incidents menors i alguns greus. L’equip defensa que la qualitat és bona perquè la cobertura d’unit tests és alta.\nEls incidents greus venen d’integració i casos límit.\nQuina afirmació és la FALSA?",
+    "answerOptions": [
+      {
+        "text": "Unit tests no cobreixen tot el risc",
+        "isCorrect": false,
+        "rationale": "Incorrecta com a falsa: és certa; unit tests són necessaris però insuficients."
+      },
+      {
+        "text": "Contract tests i integració ajuden",
+        "isCorrect": false,
+        "rationale": "Incorrecta com a falsa: és certa; redueixen trencaments entre serveis."
+      },
+      {
+        "text": "Amb 80% cobertura, incidents greus baixen sols",
+        "isCorrect": true,
+        "rationale": "Correcta (FALSA): la cobertura unitària no garanteix robustesa end-to-end ni integracions."
+      },
+      {
+        "text": "Les mètriques s’han d’interpretar amb context",
+        "isCorrect": false,
+        "rationale": "Incorrecta com a falsa: és certa; sense context les mètriques enganyen."
+      }
+    ],
+    "hint": "La falsa és la que fa equivaldre cobertura unitària amb qualitat global."
+  },
+  {
+    "guid": "5a6b7c8d-9e0f-4a1b-8c2d-3e4f5a6b7c8d",
+    "subjectId": "T42",
+    "difficulty": 4,
+    "origin": "TS TIC AF3 Cas pràctic",
+    "type": "test",
+    "question": "Voleu traçabilitat de documents entre organismes: provar existència i integritat en una data.\nRequisits: no publicar dades personals, governança entre organismes i cost raonable.\nQuina arquitectura encaixa millor?",
+    "answerOptions": [
+      {
+        "text": "Permisionada amb hashos i identitats",
+        "isCorrect": true,
+        "rationale": "Correcta: permisionada facilita governança i control d’accés; enregistrar hashos evita exposició de dades."
+      },
+      {
+        "text": "Pública amb documents complets",
+        "isCorrect": false,
+        "rationale": "Incorrecta: exposa dades i té problemes de governança i cost."
+      },
+      {
+        "text": "BD central amb hash i signatura",
+        "isCorrect": false,
+        "rationale": "Incorrecta: pot ser alternativa, però no compleix el requisit de confiança distribuïda sense custodi únic."
+      },
+      {
+        "text": "Pública amb documents xifrats",
+        "isCorrect": false,
+        "rationale": "Incorrecta: publicar xifrats no elimina riscos (metadades, permanència, gestió de claus) i no cal per aquest cas."
+      }
+    ],
+    "hint": "Si només necessites evidència d’integritat, registra hashos; i en sector públic, governança sol ser permisionada."
+  },
+  {
+    "guid": "0f9e8d7c-6b5a-4c3d-8e1f-2a3b4c5d6e7f",
+    "subjectId": "T42",
+    "difficulty": 5,
+    "origin": "TS TIC AF3 Cas pràctic",
+    "type": "test",
+    "question": "Es volen smart contracts per automatitzar ajuts públics.\nHi ha excepcions, canvis normatius i dret de recurs.\nA més, cal explicabilitat i traçabilitat per ENS.\nQuina afirmació és la FALSA?",
+    "answerOptions": [
+      {
+        "text": "Canvis normatius són un repte",
+        "isCorrect": false,
+        "rationale": "Incorrecta com a falsa: és certa; actualitzar lògica en smart contracts és complex."
+      },
+      {
+        "text": "Traça no substitueix explicació i recursos",
+        "isCorrect": false,
+        "rationale": "Incorrecta com a falsa: és certa; cal procediment i justificació."
+      },
+      {
+        "text": "Immutabilitat garanteix compliment i elimina controls",
+        "isCorrect": true,
+        "rationale": "Correcta (FALSA): immutabilitat no implica compliment normatiu ni elimina supervisió i garanties administratives."
+      },
+      {
+        "text": "Blockchain pot ser millor per evidència parcial",
+        "isCorrect": false,
+        "rationale": "Incorrecta com a falsa: és certa; sovint es fa servir per traçabilitat, no automatització total."
+      }
+    ],
+    "hint": "Immutabilitat ≠ compliment legal automàtic."
+  },
+  {
+    "guid": "b3c2d1e0-f4a5-4b6c-8d7e-9f0a1b2c3d4e",
+    "subjectId": "T43",
+    "difficulty": 5,
+    "origin": "TS TIC AF3 Cas pràctic",
+    "type": "test",
+    "question": "Migració d’una app de tràmits cap a cloud-native. El monòlit té transaccions llargues i BD central.\nCal desplegar sovint, escalar i ser resilient.\nENS demana logs centralitzats, gestió d’identitats i segmentació.\nQuina estratègia és més adequada per començar reduint risc?",
+    "answerOptions": [
+      {
+        "text": "Strangler + API + migració gradual",
+        "isCorrect": true,
+        "rationale": "Correcta: el patró strangler permet extraure funcionalitats progressivament, afegir observabilitat/IaC i evitar big-bang."
+      },
+      {
+        "text": "Reescriptura completa amb tall únic",
+        "isCorrect": false,
+        "rationale": "Incorrecta: risc alt en entorns públics i amb dependències; falles en el tall poden ser crítiques."
+      },
+      {
+        "text": "Només contenidors del monòlit",
+        "isCorrect": false,
+        "rationale": "Incorrecta: containeritzar no resol acoblament, transaccions llargues ni resiliència real."
+      },
+      {
+        "text": "WAF i després ja mirarem ENS",
+        "isCorrect": false,
+        "rationale": "Incorrecta: ENS s’incorpora des del disseny; posposar genera rework i risc."
+      }
+    ],
+    "hint": "Evita el ‘big-bang’: pensa en migració progressiva i controls cloud-native des del principi."
+  },
+  {
+    "guid": "e2f1a0b9-8c7d-4e6f-9a0b-1c2d3e4f5a6b",
+    "subjectId": "T43",
+    "difficulty": 4,
+    "origin": "TS TIC AF3 Cas pràctic",
+    "type": "test",
+    "question": "Heu de gestionar secrets (BD, APIs) en microserveis al núvol.\nNo es poden posar credencials a repositoris i cal rotació i auditories (ENS).\nQuina opció és la més adequada?",
+    "answerOptions": [
+      {
+        "text": "Secret manager amb policies i auditoria",
+        "isCorrect": true,
+        "rationale": "Correcta: gestor de secrets, identitats de workload, rotació i logs d’accés compleixen governança i ENS."
+      },
+      {
+        "text": "Variables al YAML del desplegament",
+        "isCorrect": false,
+        "rationale": "Incorrecta: exposa secrets, dificulta rotació i incrementa risc."
+      },
+      {
+        "text": "Secrets dins la imatge de contenidor",
+        "isCorrect": false,
+        "rationale": "Incorrecta: és pitjor; secrets incrustats i no rotables."
+      },
+      {
+        "text": "Fitxers locals i actualització manual",
+        "isCorrect": false,
+        "rationale": "Incorrecta: no escala ni compleix auditoria i control d’accés."
+      }
+    ],
+    "hint": "ENS + rotació: pensa en gestió centralitzada i auditable de secrets."
+  },
+  {
+    "guid": "c7d6e5f4-a3b2-4c1d-9e8f-7a6b5c4d3e2f",
+    "subjectId": "T44",
+    "difficulty": 5,
+    "origin": "TS TIC AF3 Cas pràctic",
+    "type": "test",
+    "question": "Arquitectura de microserveis: crear expedient, associar interessats i enviar notificació.\nAbans era una transacció única. Ara cada servei té BD.\nSi falla la notificació, no voleu inconsistències i cal reintents segurs i traçabilitat.\nQuina estratègia és la més adequada?",
+    "answerOptions": [
+      {
+        "text": "Saga amb compensacions i idempotència",
+        "isCorrect": true,
+        "rationale": "Correcta: sagues amb passos compensatoris i idempotència gestionen consistència eventual sense 2PC i permeten reintents i auditoria."
+      },
+      {
+        "text": "2PC entre totes les BDs",
+        "isCorrect": false,
+        "rationale": "Incorrecta: fràgil i pot degradar disponibilitat; sovint s’evita en microserveis."
+      },
+      {
+        "text": "Job nocturn que corregeix estats",
+        "isCorrect": false,
+        "rationale": "Incorrecta: pot complementar, però no resol disseny per fallades en fluxos crítics."
+      },
+      {
+        "text": "Accés directe a la BD d’un altre servei",
+        "isCorrect": false,
+        "rationale": "Incorrecta: trenca encapsulació i incrementa acoblament."
+      }
+    ],
+    "hint": "Consistència en microserveis: sagues + idempotència + correlació."
+  },
+  {
+    "guid": "1b2c3d4e-5f6a-4b7c-8d9e-0f1a2b3c4d5e",
+    "subjectId": "T44",
+    "difficulty": 4,
+    "origin": "TS TIC AF3 Cas pràctic",
+    "type": "test",
+    "question": "Temps de resposta empitjora i hi ha cascades de fallades: timeouts, reintents simultanis i threads bloquejats.\nA més, necessiteu traçabilitat end-to-end per ENS.\nQuina combinació és més adequada?",
+    "answerOptions": [
+      {
+        "text": "Timeouts + circuit breaker + tracing",
+        "isCorrect": true,
+        "rationale": "Correcta: timeouts coherents, circuit breaker, bulkheads i reintents amb backoff, més tracing amb correlation-id, redueixen cascades i milloren traçabilitat."
+      },
+      {
+        "text": "Augmentar timeouts globalment",
+        "isCorrect": false,
+        "rationale": "Incorrecta: pot empitjorar bloquejos i cascades."
+      },
+      {
+        "text": "Eliminar reintents sempre",
+        "isCorrect": false,
+        "rationale": "Incorrecta: pot degradar servei; millor reintents controlats i idempotents."
+      },
+      {
+        "text": "Centralitzar totes les crides en cadena",
+        "isCorrect": false,
+        "rationale": "Incorrecta: pot crear colls d’ampolla i punt únic de fallada."
+      }
+    ],
+    "hint": "Resiliència + observabilitat: patrons anti-cascada i correlation-id."
+  },
+  {
+    "guid": "9e0f1a2b-3c4d-4e5f-8a6b-7c8d9e0f1a2b",
+    "subjectId": "T45",
+    "difficulty": 5,
+    "origin": "TS TIC AF3 Cas pràctic",
+    "type": "test",
+    "question": "Un servei extern canvia un detall de contracte (null vs string buit) i es trenca producció.\nUnit tests passen, però falla parsing en alguns fluxos.\nVoleu detectar canvis subtils abans de desplegar i escalar-ho amb múltiples equips.\nQuina estratègia és la més adequada?",
+    "answerOptions": [
+      {
+        "text": "Contract testing automatitzat en CI",
+        "isCorrect": true,
+        "rationale": "Correcta: contract testing (consumer-driven) detecta canvis de contracte abans de desplegar i escala bé entre equips."
+      },
+      {
+        "text": "Només e2e manuals abans de cada deploy",
+        "isCorrect": false,
+        "rationale": "Incorrecta: no escala, és lent i inconsistent."
+      },
+      {
+        "text": "Més unit tests sense coordinar contractes",
+        "isCorrect": false,
+        "rationale": "Incorrecta: ajuda, però no evita trencaments per canvis del proveïdor."
+      },
+      {
+        "text": "No actualitzar mai versions externes",
+        "isCorrect": false,
+        "rationale": "Incorrecta: irrealista i no elimina necessitat de proves."
+      }
+    ],
+    "hint": "Si el risc és ‘canvi de contracte’, fes contract tests."
+  },
+  {
+    "guid": "7a6b5c4d-3e2f-4a1b-8c9d-0e1f2a3b4c5d",
+    "subjectId": "T45",
+    "difficulty": 4,
+    "origin": "TS TIC AF3 Cas pràctic",
+    "type": "test",
+    "question": "Es vol un pipeline ràpid i només unit tests per commit.\nPerò hi ha errors intermitents amb concurrència i integracions.\nQuina afirmació és la FALSA?",
+    "answerOptions": [
+      {
+        "text": "Unit tests són útils però insuficients",
+        "isCorrect": false,
+        "rationale": "Incorrecta com a falsa: és certa."
+      },
+      {
+        "text": "Calen proves de càrrega per fluxos crítics",
+        "isCorrect": false,
+        "rationale": "Incorrecta com a falsa: és certa."
+      },
+      {
+        "text": "Mai cal e2e si tens bons unit tests",
+        "isCorrect": true,
+        "rationale": "Correcta (FALSA): els unit tests no detecten fallades end-to-end ni problemes d’integració."
+      },
+      {
+        "text": "Piràmide de proves dona bon equilibri",
+        "isCorrect": false,
+        "rationale": "Incorrecta com a falsa: és certa."
+      }
+    ],
+    "hint": "Els “mai” solen ser falsos en testing de sistemes reals."
+  },
+  {
+    "guid": "2c3d4e5f-6a7b-4c8d-9e0f-1a2b3c4d5e6f",
+    "subjectId": "T46",
+    "difficulty": 4,
+    "origin": "TS TIC AF3 Cas pràctic",
+    "type": "test",
+    "question": "Hi ha un ESB SOA amb serveis corporatius reutilitzables.\nUn nou projecte vol exposar-los a apps i microserveis.\nNo voleu un ‘smart ESB’ amb lògica centralitzada. Cal governança i ENS.\nQuina estratègia és la més adequada per evolucionar?",
+    "answerOptions": [
+      {
+        "text": "API management + ESB per legacy",
+        "isCorrect": true,
+        "rationale": "Correcta: mantenir ESB per integració legacy i exposar via API gateway/catàleg redueix acoblament i millora governança."
+      },
+      {
+        "text": "Posar tota la lògica al bus",
+        "isCorrect": false,
+        "rationale": "Incorrecta: incrementa acoblament i crea coll d’ampolla."
+      },
+      {
+        "text": "Eliminar ESB en un tall únic",
+        "isCorrect": false,
+        "rationale": "Incorrecta: big-bang d’integració és d’alt risc."
+      },
+      {
+        "text": "Exposar SOAP directe a mòbil",
+        "isCorrect": false,
+        "rationale": "Incorrecta: dificulta evolució, seguretat i experiència; millor façana/API."
+      }
+    ],
+    "hint": "Evolució habitual: ESB per legacy + API gateway per consum modern."
+  },
+  {
+    "guid": "8d9e0f1a-2b3c-4d5e-8f9a-0b1c2d3e4f5a",
+    "subjectId": "T46",
+    "difficulty": 5,
+    "origin": "TS TIC AF3 Cas pràctic",
+    "type": "test",
+    "question": "Un servei de notificació té 20 consumidors. Heu d’afegir un camp nou que alguns encara no poden enviar.\nNo es pot tallar el servei ni vulnerar SLA.\nQuina estratègia és la millor per evolucionar el contracte?",
+    "answerOptions": [
+      {
+        "text": "Versionar o fer camp opcional + deprecació",
+        "isCorrect": true,
+        "rationale": "Correcta: evita breaking change, permet convivència i planifica retirada amb monitoratge."
+      },
+      {
+        "text": "Fer-lo obligatori immediatament",
+        "isCorrect": false,
+        "rationale": "Incorrecta: trenca consumidors i pot incomplir SLA."
+      },
+      {
+        "text": "Que l’ESB ompli el camp per sempre",
+        "isCorrect": false,
+        "rationale": "Incorrecta: pot ser pont temporal, però permanentment incrementa acoblament i deute."
+      },
+      {
+        "text": "Endpoint alternatiu no documentat",
+        "isCorrect": false,
+        "rationale": "Incorrecta: crea caos i manca de governança de versions."
+      }
+    ],
+    "hint": "En serveis compartits: compatibilitat i deprecació controlada."
+  },
+  {
+    "guid": "3e4f5a6b-7c8d-4e9f-8a0b-1c2d3e4f5a6b",
+    "subjectId": "T65",
+    "difficulty": 5,
+    "origin": "TS TIC AF3 Cas pràctic",
+    "type": "test",
+    "question": "Aplicació al núvol amb dades personals: es vol adequació ENS.\nEs detecta: logs dispersos, secrets a repositoris i preproducció amb dades reals.\nL’equip diu que ‘preproducció no importa’.\nQuina decisió és la més adequada per avançar cap a ENS sense parar el projecte?",
+    "answerOptions": [
+      {
+        "text": "Pla incremental per risc (dades, secrets, logs)",
+        "isCorrect": true,
+        "rationale": "Correcta: substituir dades reals per anonimitzades/sintètiques, gestionar secrets i centralitzar logs amb correlació i retenció, amb pla d’adequació per risc."
+      },
+      {
+        "text": "Mantenir dades reals i signar NDA",
+        "isCorrect": false,
+        "rationale": "Incorrecta: no és una mesura tècnica suficient; risc alt i possible incompliment RGPD/ENS."
+      },
+      {
+        "text": "Deixar ENS per al final",
+        "isCorrect": false,
+        "rationale": "Incorrecta: incrementa rework i risc; la seguretat s’integra des del principi."
+      },
+      {
+        "text": "Controls només a producció",
+        "isCorrect": false,
+        "rationale": "Incorrecta: preproducció pot ser vector d’atac i tractar dades; cal controls proporcionals en tots els entorns."
+      }
+    ],
+    "hint": "ENS afecta el sistema i processos, no només producció."
+  },
+  {
+    "guid": "0a1c2d3e-4f5a-4b6c-8d7e-9f0a1b2c3d4e",
+    "subjectId": "T65",
+    "difficulty": 4,
+    "origin": "TS TIC AF3 Cas pràctic",
+    "type": "test",
+    "question": "S’adopta un SaaS per formularis interns. El proveïdor diu tenir certificacions.\nL’equip afirma que això ja equival a complir ENS sense fer res.\nQuina afirmació és la FALSA?",
+    "answerOptions": [
+      {
+        "text": "Hi ha responsabilitat compartida",
+        "isCorrect": false,
+        "rationale": "Incorrecta com a falsa: és certa; l’organització continua responsable de configuració i accessos."
+      },
+      {
+        "text": "La classificació condiciona mesures ENS",
+        "isCorrect": false,
+        "rationale": "Incorrecta com a falsa: és certa; nivell i dades determinen controls."
+      },
+      {
+        "text": "Certificat del proveïdor = ENS automàtic del teu sistema",
+        "isCorrect": true,
+        "rationale": "Correcta (FALSA): cal anàlisi de riscos, adequació i declaració d’aplicabilitat del cas concret."
+      },
+      {
+        "text": "Cal revisar contracte i subencarregats",
+        "isCorrect": false,
+        "rationale": "Incorrecta com a falsa: és certa; és clau per governança i seguretat."
+      }
+    ],
+    "hint": "SaaS no elimina la teva responsabilitat ENS."
+  }
+]

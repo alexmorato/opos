@@ -1,0 +1,622 @@
+[
+  {
+    "guid": "9b7d920f-9bb8-4e81-99ff-e05a0b345a71",
+    "subjectId": "T34",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En relación con la naturaleza de SAP TRM (Tax and Revenue Management), indique la opción FALSA:",
+    "answerOptions": [
+      {
+        "text": "SAP TRM se define como un módulo único e independiente dentro del ecosistema SAP que no requiere de otros componentes para su funcionamiento.",
+        "rationale": "El material indica explícitamente que SAP TRM no es un único módulo, sino una solución integrada basada en diversos componentes como FI-CA y PSCD.",
+        "isCorrect": true
+      },
+      {
+        "text": "La solución está orientada a la gestión tributaria y de la recaptación de ingresos públicos en administraciones y empresas del sector público.",
+        "rationale": "Esta es una definición correcta de la solución, enfocada en el ciclo completo de tributos, impuestos y tasas.",
+        "isCorrect": false
+      },
+      {
+        "text": "Permite administrar el ciclo completo de los tributos, abarcando desde su definición y cálculo hasta la liquidación y contabilización.",
+        "rationale": "Es una afirmación verdadera que describe el alcance funcional de la herramienta para la gestión de ingresos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Se basa especialmente en el módulo FI-CA y su adaptación específica para el sector público denominada PSCD.",
+        "rationale": "Esta es la base técnica correcta de SAP TRM según la arquitectura descrita en el documento.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Revise si SAP TRM se describe como una entidad monolítica o como un conjunto de componentes integrados."
+  },
+  {
+    "guid": "63d15e81-1385-4310-9da9-b9142a684103",
+    "subjectId": "T34",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Sobre el núcleo funcional FI-CA / PSCD, ¿cuál de las siguientes afirmaciones es FALSA?",
+    "answerOptions": [
+      {
+        "text": "FI-CA está diseñado para gestionar cuentas a cobrar y pagar de forma masiva, mientras que PSCD es su adaptación al sector público.",
+        "rationale": "Esta es la distinción técnica correcta entre el componente estándar y su vertical para administraciones públicas.",
+        "isCorrect": false
+      },
+      {
+        "text": "Controla todo el cicle financiero de los tributos, incluyendo la generación de deudas, cobros, devoluciones e intereses.",
+        "rationale": "Es una descripción precisa de las capacidades de gestión financiera de este componente core.",
+        "isCorrect": false
+      },
+      {
+        "text": "Los documentos generados en PSCD son los registros contables básicos del sistema que se reflejan en la cuenta contrato.",
+        "rationale": "Correcto; el documento PSCD es el asiento base que vincula la deuda con la entidad técnica del contribuyente.",
+        "isCorrect": false
+      },
+      {
+        "text": "PSCD sustituye completamente la necesidad de integración con la contabilidad presupuestaria (FM) al gestionar sus propios presupuestos internos.",
+        "rationale": "Falso. PSCD no sustituye a FM, sino que se integra con él para asignar ingresos a los capítulos y programas presupuestarios correspondientes.",
+        "isCorrect": true
+      }
+    ],
+    "hint": "Considere la relación entre la gestión de cobros y el sistema de control presupuestario general."
+  },
+  {
+    "guid": "50ec3a09-2cb2-474f-aaed-f991eea58cc8",
+    "subjectId": "T34",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Respecto a la figura del Business Partner (BP), señale la opción FALSA:",
+    "answerOptions": [
+      {
+        "text": "Centraliza la información de los contribuyentes, ya sean personas físicas, jurídicas o entidades.",
+        "rationale": "El BP es efectivamente el objeto maestro central para identificar a cualquier sujeto relacionado con la administración.",
+        "isCorrect": false
+      },
+      {
+        "text": "Proporciona una visión de $360^{\\circ}$ del perfil, relaciones y el historial financiero del contribuyente.",
+        "rationale": "Es una característica fundamental para la trazabilidad y la gestión única del ciudadano.",
+        "isCorrect": false
+      },
+      {
+        "text": "Un contribuyente (BP) solo puede estar vinculado a una única Cuenta Contrato (Contract Account) por restricciones de integridad referencial.",
+        "rationale": "El material indica que un contribuyente (BP) puede tener diversos cuentas contrato, permitiendo flexibilizar su relación tributaria.",
+        "isCorrect": true
+      },
+      {
+        "text": "El modelo de datos lo sitúa como una de las cuatro entidades principales de SAP TRM junto con la Cuenta Contrato y el Objeto Tributario.",
+        "rationale": "El BP es el punto de partida del modelo de datos de TRM que se estructura sobre estas entidades base.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en la flexibilidad de la relación entre una persona y sus diferentes obligaciones fiscales."
+  },
+  {
+    "guid": "a3f1f6af-6928-4630-b225-a395560dbf0e",
+    "subjectId": "T34",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Sobre el motor de reglas BRF+ (Business Rule Framework plus), indique la opción FALSA:",
+    "answerOptions": [
+      {
+        "text": "Es el motor de reglas utilizado para el cálculo y la validación de cuotas de cada tributo o tasa.",
+        "rationale": "Correcto; es la herramienta central para definir la lógica de negocio fiscal.",
+        "isCorrect": false
+      },
+      {
+        "text": "Permite configurar la lógica de los productos fiscales sin necesidad de recurrir a la programación en código ABAP.",
+        "rationale": "Esta es una de sus ventajas principales, facilitando el mantenimiento por personal funcional o técnico sin codificación manual.",
+        "isCorrect": false
+      },
+      {
+        "text": "Se utiliza exclusivamente para la gestión de embargos y la comunicación con entidades bancarias externas.",
+        "rationale": "BRF+ se aplica al cálculo de cuotas, bases y exenciones de tributos, no es una herramienta exclusiva de comunicación bancaria.",
+        "isCorrect": true
+      },
+      {
+        "text": "Permite definir reglas propias para cada producto fiscal, como bases imponibles, exenciones y tipos de gravamen.",
+        "rationale": "Esta descripción encaja con la funcionalidad de definición de productos fiscales mencionada en el texto.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Evalúe si la función de BRF+ es de cálculo normativo o de conectividad técnica externa."
+  },
+  {
+    "guid": "85b7756a-16fa-4c51-ab8e-df2f6f4f45da",
+    "subjectId": "T34",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En relación con el modelo de datos y los flujos de negocio, señale la afirmación FALSA:",
+    "answerOptions": [
+      {
+        "text": "El Contract Object representa el objeto tributario, como un inmueble, un vehículo o una actividad económica.",
+        "rationale": "Es la definición correcta del objeto que genera la obligación tributaria.",
+        "isCorrect": false
+      },
+      {
+        "text": "La Cuenta Contrato (Contract Account) es el registro técnico que vincula al contribuyente con sus productos fiscales.",
+        "rationale": "Esta entidad actúa como puente entre el sujeto (BP) y sus obligaciones (Contract Objects).",
+        "isCorrect": false
+      },
+      {
+        "text": "Los movimientos financieros como deudas y pagos se asocian directamente al Business Partner sin pasar por la Cuenta Contrato.",
+        "rationale": "Falso. Los movimientos (documentos PSCD) se asocian a las cuentas contrato y a los objetos tributarios, no solo al BP.",
+        "isCorrect": true
+      },
+      {
+        "text": "Existen dos tipos principales de gestión: por objeto (tributos periódicos) y por formulario (autoliquidaciones).",
+        "rationale": "El material distingue claramente entre estos dos flujos operativos para gestionar diferentes tipos de ingresos.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Revise la jerarquía de las entidades principales en el modelo de datos de SAP TRM."
+  },
+  {
+    "guid": "1b0e09d5-80e6-4d3b-a57f-f6d0dedbfa19",
+    "subjectId": "T34",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Sobre la gestión de recaudación ejecutiva (Dunning y Enforcement), indique la opción FALSA:",
+    "answerOptions": [
+      {
+        "text": "Gestiona situaciones de impago mediante procesos de reclamación, recargos y embargos.",
+        "rationale": "Es la función principal del componente de Dunning y Enforcement para asegurar el ingreso de deudas no abonadas.",
+        "isCorrect": false
+      },
+      {
+        "text": "El sistema permite gestionar aplazamientos (ajornaments) y derivaciones de responsabilidad a terceros.",
+        "rationale": "Estas son funcionalidades avanzadas integradas en el ciclo de vida de la deuda en TRM.",
+        "isCorrect": false
+      },
+      {
+        "text": "El proceso de recaudación ejecutiva es totalmente manual y no genera registros en el módulo PSCD para evitar descuadres.",
+        "rationale": "Falso. SAP TRM automatiza estos procesos y genera registros contables (documentos PSCD) necesarios para el seguimiento.",
+        "isCorrect": true
+      },
+      {
+        "text": "Activa avisos y procesos de ejecución de forma integrada con el historial financiero del contribuyente.",
+        "rationale": "La integración permite que las acciones de cobro se basen en la visión única del contribuyente (BP).",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considere si un sistema ERP moderno optaría por procesos manuales o automatizados para la recaudación."
+  },
+  {
+    "guid": "13337e2f-afca-44e2-9484-b2373d1aae9d",
+    "subjectId": "T34",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Respecto a los componentes de soporte de SAP TRM, señale la afirmación FALSA:",
+    "answerOptions": [
+      {
+        "text": "Case Management y Records Management (RM) permiten gestionar expedientes administrativos asociados a inspecciones.",
+        "rationale": "Estos componentes son vitales para la gestión documental y de flujos de trabajo en procesos sancionadores o de revisión.",
+        "isCorrect": false
+      },
+      {
+        "text": "Central Address Management (CAM) se utiliza para administrar las direcciones de los contribuyentes evitando duplicidades.",
+        "rationale": "El CAM centraliza la gestión de datos de ubicación para garantizar la coherencia en las notificaciones.",
+        "isCorrect": false
+      },
+      {
+        "text": "El componente ECM / OpenText se encarga exclusivamente del cálculo actuarial de las pensiones de los funcionarios de Hacienda.",
+        "rationale": "Falso. El ECM/OpenText se utiliza para gestionar documentos electrónicos como formularios, justificantes y notificaciones.",
+        "isCorrect": true
+      },
+      {
+        "text": "SAP Fiori y los Portales del Contribuyente permiten a los ciudadanos consultar su situación fiscal y realizar trámites online.",
+        "rationale": "Es la capa de interfaz de usuario orientada a mejorar la relación digital entre administración y ciudadano.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Fíjese en la función real de un sistema de gestión de contenido empresarial (ECM)."
+  },
+  {
+    "guid": "1475e6a9-ab90-488d-a706-298c39bc4cb5",
+    "subjectId": "T34",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Sobre la integración de SAP TRM con el entorno ECOFIN (FI y FM), indique la opción FALSA:",
+    "answerOptions": [
+      {
+        "text": "FI (Financial Accounting) recibe datos de PSCD para realizar la conciliación contable y el cierre diario.",
+        "rationale": "La integración garantiza que la contabilidad auxiliar de tributos cuadre con la contabilidad general.",
+        "isCorrect": false
+      },
+      {
+        "text": "FM (Funds Management) se utiliza para la asignación presupuestaria de los ingresos según los capítulos correspondientes.",
+        "rationale": "Es la función típica de FM en el sector público para el control del presupuesto de ingresos.",
+        "isCorrect": false
+      },
+      {
+        "text": "En SAP S/4HANA, la integración se simplifica mediante el uso de la tabla ACDOCA o Universal Journal.",
+        "rationale": "ACDOCA es la tabla central que unifica la información financiera en la nueva arquitectura de SAP.",
+        "isCorrect": false
+      },
+      {
+        "text": "La integración con FM es opcional y solo se recomienda para administraciones de menos de $10.000$ habitantes.",
+        "rationale": "La integración con FM es fundamental para cualquier administración pública que gestione presupuestos, independientemente de su tamaño.",
+        "isCorrect": true
+      }
+    ],
+    "hint": "Valore la importancia de la contabilidad presupuestaria en el sector público."
+  },
+  {
+    "guid": "5dadf4a8-4036-4041-b9b6-b48e3528e9db",
+    "subjectId": "T34",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En cuanto a la implementación en el Ayuntamiento de Barcelona, señale la opción FALSA:",
+    "answerOptions": [
+      {
+        "text": "La solución se denomina internamente HM (Hisenda Municipal).",
+        "rationale": "Es la denominación específica que recibe el proyecto y el entorno en dicha administración local.",
+        "isCorrect": false
+      },
+      {
+        "text": "Cuenta con tres entornos diferenciados para el ciclo de vida del software: HMD, HMI y HMP.",
+        "rationale": "Estos corresponden a desarrollo, integración y producción, siguiendo las mejores prácticas de sistemas.",
+        "isCorrect": false
+      },
+      {
+        "text": "Se utiliza el componente UI Logging para el control de accesos y la seguridad de los datos sensibles de los ciudadanos.",
+        "rationale": "Correcto; es una medida de seguridad adicional para auditar quién accede a la información fiscal.",
+        "isCorrect": false
+      },
+      {
+        "text": "El sistema HM es una solución de software libre que no tiene relación alguna con el fabricante SAP.",
+        "rationale": "Falso. El material deja claro que HM es la denominación de la implementación basada precisamente en la solución SAP TRM.",
+        "isCorrect": true
+      }
+    ],
+    "hint": "Recuerde el título y el tema central de todo el documento de estudio."
+  },
+  {
+    "guid": "274d0c8d-779f-4763-9589-f736d882f215",
+    "subjectId": "T34",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Sobre la evolución hacia SAP S/4HANA Public Sector, indique la afirmación FALSA:",
+    "answerOptions": [
+      {
+        "text": "S/4HANA ofrece un rendimiento superior gracias a la base de datos in-memory denominada HANA.",
+        "rationale": "La tecnología HANA es el pilar de rendimiento de la nueva generación de ERP de SAP.",
+        "isCorrect": false
+      },
+      {
+        "text": "El Universal Journal (ACDOCA) permite la simplificación y unificación de las funciones de FI y FM.",
+        "rationale": "Es una de las mejoras arquitectónicas clave para reducir la redundancia de datos contables.",
+        "isCorrect": false
+      },
+      {
+        "text": "Con la llegada de S/4HANA, el motor de reglas BRF+ desaparece y es sustituido por código ABAP rígido en el kernel.",
+        "rationale": "Falso. S/4HANA mantiene y potencia BRF+ como herramienta central para la gestión de reglas configurables.",
+        "isCorrect": true
+      },
+      {
+        "text": "Fiori se consolida como la nueva interfaz de experiencia de usuario tanto para funcionarios como para ciudadanos.",
+        "rationale": "Fiori es el estándar de interfaz para todas las soluciones modernas de SAP, incluido TRM en S/4HANA.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en si las herramientas de configuración flexible tienden a desaparecer o a mantenerse en las nuevas versiones."
+  },
+  {
+    "guid": "ff179a3e-ed22-46ec-8f64-37b022d8db58",
+    "subjectId": "T34",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Respecto al ciclo de vida del tributo en SAP TRM, ¿cuál de las siguientes opciones es FALSA?",
+    "answerOptions": [
+      {
+        "text": "El ciclo se inicia habitualmente con la declaración o el alta del tributo en el sistema.",
+        "rationale": "Es el paso inicial lógico para registrar la base imponible o el hecho imponible.",
+        "isCorrect": false
+      },
+      {
+        "text": "Tras el cálculo y liquidación, el sistema genera automáticamente el documento PSCD para el registro de la deuda.",
+        "rationale": "La automatización de la facturación es una de las ventajas operativas clave descritas.",
+        "isCorrect": false
+      },
+      {
+        "text": "El pago es el único proceso posible tras la liquidación, impidiéndose por sistema cualquier proceso de ejecución o embargo.",
+        "rationale": "Falso. Tras la liquidación, si no hay pago, se activan los procesos de recaudación ejecutiva (Dunning/Enforcement).",
+        "isCorrect": true
+      },
+      {
+        "text": "La fase de evaluación cubre la determinación de bases imponibles y el cálculo de liquidaciones finales.",
+        "rationale": "Esta fase es crucial para transformar la declaración en un importe de deuda líquida y exigible.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considere qué ocurre cuando un contribuyente no cumple con su obligación de pago voluntario."
+  },
+  {
+    "guid": "fec7d056-d3b0-470b-9176-508c36c5ed20",
+    "subjectId": "T34",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Sobre la gestión de inspecciones y recursos, señale la opción FALSA:",
+    "answerOptions": [
+      {
+        "text": "Los expedientes de inspección se administran mediante Case Management integrando información documental y registros PSCD.",
+        "rationale": "La integración entre el expediente (caso) y los apuntes contables (PSCD) permite una visión holística de la inspección.",
+        "isCorrect": false
+      },
+      {
+        "text": "Los resultados de una inspección pueden derivar en liquidaciones adicionales o sanciones registradas en PSCD.",
+        "rationale": "Es el flujo normal cuando se detectan discrepancias en el cumplimiento de las obligaciones fiscales.",
+        "isCorrect": false
+      },
+      {
+        "text": "La gestión de recursos permite tramitar las objeciones de los contribuyentes ante las liquidaciones practicadas.",
+        "rationale": "El núcleo funcional incluye la gestión de 'Objections' para dar soporte al derecho de recurso administrativo.",
+        "isCorrect": false
+      },
+      {
+        "text": "Las inspecciones en SAP TRM solo pueden ser realizadas por auditores externos de la Unión Europea por motivos de transparencia.",
+        "rationale": "Falso. El sistema está diseñado para ser utilizado por los cuerpos de inspección de la propia administración pública gestora.",
+        "isCorrect": true
+      }
+    ],
+    "hint": "Piense en quién tiene la competencia ordinaria para realizar inspecciones tributarias locales."
+  },
+  {
+    "guid": "d46ba869-2df0-498d-8c98-e2b67a7f085a",
+    "subjectId": "T34",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En relación con las integraciones técnicas PO / CPI, indique la afirmación FALSA:",
+    "answerOptions": [
+      {
+        "text": "PO (Process Orchestration) es una herramienta de integración utilizada para conectar TRM con sistemas externos.",
+        "rationale": "PO es un componente estándar para la interoperabilidad entre SAP y otras plataformas.",
+        "isCorrect": false
+      },
+      {
+        "text": "CPI (Cloud Platform Integration) se orienta a la integración en entornos cloud y servicios de eGovernment.",
+        "rationale": "Es la evolución de SAP para gestionar integraciones en la nube.",
+        "isCorrect": false
+      },
+      {
+        "text": "Estas herramientas permiten la conexión con bancos y plataformas de pago electrónico para la recaudación.",
+        "rationale": "La automatización de cobros bancarios es un flujo crítico soportado por estas herramientas de integración.",
+        "isCorrect": false
+      },
+      {
+        "text": "PO / CPI sustituye por completo al motor BRF+ para el cálculo de los algoritmos de las cuotas tributarias.",
+        "rationale": "Falso. PO/CPI son herramientas de integración y comunicación, mientras que el cálculo de cuotas es responsabilidad de BRF+.",
+        "isCorrect": true
+      }
+    ],
+    "hint": "Diferencie entre las herramientas que 'comunican sistemas' y las que 'ejecutan lógica fiscal'."
+  },
+  {
+    "guid": "e2576c80-bb33-49a2-94a3-1fa002f7cb20",
+    "subjectId": "T34",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Sobre la gestión por objeto (IBI, IAE), señale la opción FALSA:",
+    "answerOptions": [
+      {
+        "text": "Se utiliza habitualmente para tributos periódicos vinculados a un bien inmueble o actividad.",
+        "rationale": "Es el modelo estándar para impuestos que se devengan de forma recurrente sobre un objeto físico o económico.",
+        "isCorrect": false
+      },
+      {
+        "text": "El sistema permite generar de manera masiva los recibos y documentos PSCD correspondientes.",
+        "rationale": "La capacidad de procesamiento masivo es fundamental para tributos como el IBI con miles de contribuyentes.",
+        "isCorrect": false
+      },
+      {
+        "text": "En la gestión por objeto, el contribuyente debe presentar obligatoriamente un formulario manual cada mes para poder pagar.",
+        "rationale": "Falso. En tributos periódicos por objeto, el sistema suele generar los recibos automáticamente (padrón) sin intervención del ciudadano.",
+        "isCorrect": true
+      },
+      {
+        "text": "Permite la domiciliación bancaria y el cobro masivo de los tributos de forma automatizada.",
+        "rationale": "Esta es una de las funcionalidades clave para mejorar la eficiencia de la recaudación en las administraciones.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en cómo funcionan habitualmente impuestos como el IBI o el Impuesto de Circulación."
+  },
+  {
+    "guid": "7fe2ffe8-80d3-4c4d-b7c6-fe3e0c253c3b",
+    "subjectId": "T34",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Respecto al componente Analytics y planificación, indique la opción FALSA:",
+    "answerOptions": [
+      {
+        "text": "SAP BW y SAP Analytics Cloud ofrecen cuadros de mando e informes sobre la evolución de la recaudación.",
+        "rationale": "Estas herramientas proporcionan la capa de inteligencia de negocio necesaria para la toma de decisiones.",
+        "isCorrect": false
+      },
+      {
+        "text": "SAP BPC permite planificar y simular diferentes escenarios de ingresos públicos.",
+        "rationale": "BPC (Business Planning and Consolidation) es la herramienta indicada para previsiones y simulaciones financieras.",
+        "isCorrect": false
+      },
+      {
+        "text": "El análisis de datos permite obtener una visión unificada de la eficacia en la recaudación ejecutiva.",
+        "rationale": "La integración de datos permite auditar qué porcentaje de deuda se recupera en vía voluntaria frente a ejecutiva.",
+        "isCorrect": false
+      },
+      {
+        "text": "Los informes de BW solo pueden exportarse en formato papel mediante impresoras matriciales por seguridad criptográfica.",
+        "rationale": "Falso. BW y SAC ofrecen interfaces digitales modernas, cuadros de mando interactivos y diversos formatos de exportación digital.",
+        "isCorrect": true
+      }
+    ],
+    "hint": "Evalúe si un sistema analítico moderno limitaría su salida a formatos físicos obsoletos."
+  },
+  {
+    "guid": "346a403e-64aa-4aea-8a1d-ed906098e20e",
+    "subjectId": "T34",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Sobre la estructura de la solución HM en el Ayuntamiento de Barcelona, señale la FALSA:",
+    "answerOptions": [
+      {
+        "text": "Integra la información fiscal con la contabilidad general para garantizar la transparencia.",
+        "rationale": "La integración contable es un objetivo fundamental del proyecto HM descrito.",
+        "isCorrect": false
+      },
+      {
+        "text": "Utiliza SAP TRM / PSCD como el corazón de la gestión y recaudación de sus tributos.",
+        "rationale": "Es la base tecnológica de la Hisenda Municipal según el material de estudio.",
+        "isCorrect": false
+      },
+      {
+        "text": "La solución HM prohíbe el uso de Business Partners para evitar que los ciudadanos tengan una visión de sus deudas.",
+        "rationale": "Falso. Precisamente el Business Partner (BP) es un módulo principal utilizado en HM para registrar contribuyentes.",
+        "isCorrect": true
+      },
+      {
+        "text": "Incluye herramientas para la gestión de expedientes y documentos (RM/ECM).",
+        "rationale": "La gestión documental es una parte integral de la implementación de la Hisenda Municipal.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considere si el Ayuntamiento querría ocultar o clarificar la relación fiscal con el ciudadano."
+  },
+  {
+    "guid": "bfeae4c3-1992-426e-be65-7f06bcf044ae",
+    "subjectId": "T34",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En cuanto a la integración con GIS (Geographic Information System), indique la opción FALSA:",
+    "answerOptions": [
+      {
+        "text": "Permite vincular impuestos con información geográfica relevante, como el catastro.",
+        "rationale": "La integración GIS es común para impuestos vinculados al territorio como el IBI o plusvalías.",
+        "isCorrect": false
+      },
+      {
+        "text": "Es una de las 'otras integraciones' mencionadas que complementan la arquitectura de SAP TRM.",
+        "rationale": "El texto cita expresamente al GIS como una herramienta de apoyo a la gestión tributaria.",
+        "isCorrect": false
+      },
+      {
+        "text": "El GIS sustituye al módulo FI-CA en la generación de asientos contables de deudas por inmuebles.",
+        "rationale": "Falso. El GIS aporta datos geográficos/espaciales, pero la contabilidad siempre la gestiona FI-CA/PSCD.",
+        "isCorrect": true
+      },
+      {
+        "text": "Facilita la visualización de la presión fiscal o el cumplimiento tributario por zonas geográficas.",
+        "rationale": "Es una de las aplicaciones típicas de combinar datos fiscales con capas de información geográfica.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Diferencie entre la fuente de datos espaciales y el motor de contabilidad financiera."
+  },
+  {
+    "guid": "89ad35ad-afd6-49a3-861d-87c6ed0dc09d",
+    "subjectId": "T34",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Sobre el registro de acceso de usuarios UI Logging, señale la afirmación FALSA:",
+    "answerOptions": [
+      {
+        "text": "Se utiliza para controlar quién accede a datos sensibles de los contribuyentes.",
+        "rationale": "Es una herramienta de cumplimiento normativo y seguridad para proteger la privacidad fiscal.",
+        "isCorrect": false
+      },
+      {
+        "text": "Es un componente relevante en implementaciones de gran envergadura como la del Ayuntamiento de Barcelona.",
+        "rationale": "El material lo cita específicamente dentro de la arquitectura de la implementación municipal.",
+        "isCorrect": false
+      },
+      {
+        "text": "UI Logging es el encargado de enviar automáticamente las notificaciones de embargo por correo postal.",
+        "rationale": "Falso. UI Logging se encarga de la seguridad y auditoría de accesos, no de los procesos de envío de notificaciones de recaudación.",
+        "isCorrect": true
+      },
+      {
+        "text": "Aporta una capa adicional de Governance, Risk and Compliance (GRC) al sistema.",
+        "rationale": "Al registrar accesos, contribuye a los objetivos de control interno y auditoría del sistema.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Relacione el término 'Logging' con su función habitual en sistemas informáticos de seguridad."
+  },
+  {
+    "guid": "85645200-6214-4644-a62d-c73a01bdd8c8",
+    "subjectId": "T34",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Respecto a la definición de Producto Fiscal, indique la opción FALSA:",
+    "answerOptions": [
+      {
+        "text": "Cada tributo o tasa se define en el sistema como un producto fiscal con sus propias reglas.",
+        "rationale": "Es el concepto base para parametrizar la lógica normativa de cada impuesto en TRM.",
+        "isCorrect": false
+      },
+      {
+        "text": "Los productos fiscales incluyen la definición de períodos de devengo y tipos impositivos aplicables.",
+        "rationale": "Estos parámetros son esenciales para que el motor BRF+ pueda realizar los cálculos correctos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Una vez definido un producto fiscal, sus reglas de cálculo no pueden ser modificadas nunca para garantizar la inmutabilidad histórica.",
+        "rationale": "Falso. El sistema permite adaptar y configurar las reglas según cambien las ordenanzas fiscales o la normativa legal.",
+        "isCorrect": true
+      },
+      {
+        "text": "La definición de productos fiscales interactúa con el componente Business Rules Framework plus.",
+        "rationale": "Existe una dependencia directa, ya que el producto define el 'qué' y BRF+ el 'cómo' se calcula.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en si las leyes y ordenanzas fiscales son estáticas o cambian con el tiempo."
+  },
+  {
+    "guid": "d330cdca-896a-4d93-986f-fb9ccb36c12f",
+    "subjectId": "T34",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Sobre la arquitectura funcional y técnica general, señale la opción FALSA:",
+    "answerOptions": [
+      {
+        "text": "La arquitectura combina módulos funcionales, herramientas de soporte y plataformas de integración.",
+        "rationale": "Es la descripción de alto nivel de cómo está estructurado SAP TRM.",
+        "isCorrect": false
+      },
+      {
+        "text": "El núcleo funcional incluye componentes como Declaration, Objections y Audit.",
+        "rationale": "Estos son los procesos de negocio core que dan soporte a la gestión tributaria.",
+        "isCorrect": false
+      },
+      {
+        "text": "SAP TRM no permite la integración con sistemas de analytics como BW para no comprometer el rendimiento de la base de datos.",
+        "rationale": "Falso. La analítica (BW/SAC) es una parte fundamental de la arquitectura para el reporte y control de la recaudación.",
+        "isCorrect": true
+      },
+      {
+        "text": "La arquitectura evoluciona hacia S/4HANA manteniendo principios de potencia financiera y flexibilidad normativa.",
+        "rationale": "Es la dirección estratégica de SAP para sus soluciones de gestión de ingresos públicos.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Valore la importancia de los informes de gestión en una administración que maneja fondos públicos."
+  }
+]

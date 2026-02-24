@@ -1,312 +1,622 @@
 [
   {
-    "guid": "0016da35-e86f-441f-a8cc-5919e29858e0",
+    "guid": "fc89bf7a-a5aa-40cc-b859-4803c28ab90c",
     "subjectId": "T36",
     "origin": "notebooklm",
     "type": "test",
     "difficulty": 3,
-    "question": "Dentro del marco de gobernanza de datos basado en DAMA-DMBOK2, ¿cuál es la distinción fundamental entre las responsabilidades operativas de un Data Steward y las funciones de un Data Custodian?",
+    "question": "¿Cuál de las 5 V del Big Data se refiere específicamente a la limpieza, validación y trazabilidad para garantizar la fiabilidad de la información?",
     "answerOptions": [
       {
-        "text": "El Data Steward es el propietario legal y estratégico de los activos de datos, mientras que el Data Custodian gestiona la calidad operativa diaria.",
-        "rationale": "El rol de propiedad estratégica y legal corresponde al Data Owner, no al Data Steward, quien se enfoca en la gestión operativa de la calidad.",
-        "isCorrect": false
-      },
-      {
-        "text": "El Data Steward se encarga de velar por la calidad y utilidad de los datos, mientras que el Data Custodian se centra en la infraestructura técnica y seguridad.",
-        "rationale": "Esta opción distingue correctamente la orientación al negocio y calidad del Steward frente a la orientación técnica y de soporte del Custodian.",
+        "text": "La Veracidad",
+        "rationale": "Esta dimensión se centra en la calidad de los datos y en asegurar que los resultados del análisis sean dignos de confianza.",
         "isCorrect": true
       },
       {
-        "text": "El Data Steward es responsable de la protección de datos personales (RGPD), mientras que el Data Custodian asegura la trazabilidad del linaje de datos.",
-        "rationale": "La responsabilidad del RGPD recae específicamente en la figura del DPO (Delegado de Protección de Datos), no necesariamente en el Data Steward.",
+        "text": "La Variedad",
+        "rationale": "Este concepto describe la diversidad de formatos como estructurados, semi-estructurados y no estructuradas dentro del sistema.",
         "isCorrect": false
       },
       {
-        "text": "El Data Steward define las políticas de acceso a nivel de red, mientras que el Data Custodian supervisa que los datos cumplan con las reglas de negocio.",
-        "rationale": "Las políticas de red son una tarea técnica del Custodian, mientras que las reglas de negocio son competencia del Steward.",
+        "text": "La Velocidad",
+        "rationale": "Se refiere al ritmo al que los datos son generados y procesados, a menudo asociado a tecnologías como Kafka o Spark.",
+        "isCorrect": false
+      },
+      {
+        "text": "El Valor",
+        "rationale": "Representa la capacidad de transformar los datos en conocimiento útil, pero no se encarga directamente del proceso de limpieza.",
         "isCorrect": false
       }
     ],
-    "hint": "Diferencie entre la gestión del contenido del dato frente a la gestión del contenedor técnico."
+    "hint": "Relaciona este concepto con la integridad y la procedencia de la información analizada."
   },
   {
-    "guid": "a46e872c-ce5d-4fe0-8504-414883862e84",
+    "guid": "f2104b45-24a4-452c-91d3-938c2b227be3",
     "subjectId": "T36",
     "origin": "notebooklm",
     "type": "test",
     "difficulty": 3,
-    "question": "En el contexto de arquitecturas Big Data, ¿qué característica define específicamente a la arquitectura Kappa frente a la arquitectura Lambda?",
+    "question": "En la arquitectura de un Data Lake, ¿qué significa el término técnico 'schema-on-read'?",
     "answerOptions": [
       {
-        "text": "La arquitectura Kappa utiliza una capa de 'Batch' para asegurar la precisión histórica mientras procesa datos en tiempo real mediante una 'Speed Layer'.",
-        "rationale": "Esa descripción corresponde precisamente a la arquitectura Lambda, que mantiene dos flujos de procesamiento separados.",
-        "isCorrect": false
-      },
-      {
-        "text": "La arquitectura Kappa elimina la capa de procesamiento por lotes, tratando todos los datos como un flujo continuo a través de una única ruta de 'Streaming'.",
-        "rationale": "Kappa simplifica el diseño al unificar el procesamiento en una sola capa de streaming, eliminando la duplicidad de código de Lambda.",
+        "text": "Que el esquema se aplica solo al consultar los datos",
+        "rationale": "Permite almacenar datos en bruto sin una estructura rígida previa, definiendo el formato en el momento de la lectura.",
         "isCorrect": true
       },
       {
-        "text": "La arquitectura Kappa se basa exclusivamente en el almacenamiento en disco mediante HDFS para garantizar la persistencia de los eventos en tiempo real.",
-        "rationale": "Kappa no se define por el almacenamiento en disco, sino por el paradigma de procesamiento de flujos, habitualmente usando sistemas como Kafka o Flink.",
+        "text": "Que los datos deben estructurarse antes de la carga",
+        "rationale": "Este es el enfoque 'schema-on-write' típico de los Data Warehouses tradicionales, no de los entornos Data Lake.",
         "isCorrect": false
       },
       {
-        "text": "La arquitectura Kappa requiere que todos los datos sean estructurados antes de la ingesta para poder ser procesados por motores como Apache Spark.",
-        "rationale": "El procesamiento en streaming no impone una estructura previa obligatoria; de hecho, suele gestionar datos semi-estructurados o en bruto.",
+        "text": "Que el motor de búsqueda valida los tipos al insertar",
+        "rationale": "La validación en la inserción limitaría la flexibilidad para almacenar datos no estructurados en su formato original.",
+        "isCorrect": false
+      },
+      {
+        "text": "Que el sistema de archivos prohíbe formatos binarios",
+        "rationale": "Los Data Lakes están diseñados precisamente para admitir formatos binarios y variados sin restricciones de esquema inicial.",
         "isCorrect": false
       }
     ],
-    "hint": "Piense en cuál de las dos arquitecturas busca la simplificación eliminando la redundancia de pipelines."
+    "hint": "Piensa en cuándo se decide la estructura de los datos: antes de guardarlos o al usarlos."
   },
   {
-    "guid": "71e3ff7b-af3e-4fa5-950a-ab3017a28607",
+    "guid": "30a40d11-b69d-48f9-aa55-770d1f525800",
     "subjectId": "T36",
     "origin": "notebooklm",
     "type": "test",
     "difficulty": 3,
-    "question": "Al analizar las '5 V' del Big Data, ¿cómo se define específicamente la 'Veracidad' y en qué se diferencia del concepto de 'Valor'?",
+    "question": "¿Qué componente de Hadoop es el responsable del sistema de archivos distribuido y escalable escrito en Java?",
     "answerOptions": [
       {
-        "text": "La Veracidad se refiere a la velocidad con la que llegan los datos, mientras que el Valor es la capacidad de almacenarlos a bajo coste.",
-        "rationale": "La velocidad de llegada es la 'Velocidad', y el coste de almacenamiento es una característica operativa, no la definición de 'Valor'.",
-        "isCorrect": false
-      },
-      {
-        "text": "La Veracidad trata sobre la limpieza, fiabilidad y trazabilidad de los datos, mientras que el Valor es la utilidad real para la toma de decisiones.",
-        "rationale": "La veracidad asegura que los datos sean correctos y confiables, mientras que el valor justifica el esfuerzo de Big Data al generar conocimiento útil.",
+        "text": "HDFS",
+        "rationale": "Es el acrónimo de Hadoop Distributed File System, la capa fundamental para el almacenamiento distribuido en el ecosistema.",
         "isCorrect": true
       },
       {
-        "text": "La Veracidad mide la cantidad de Terabytes generados por segundo, mientras que el Valor mide la diversidad de formatos como JSON o XML.",
-        "rationale": "La cantidad de datos se asocia al 'Volumen' y la diversidad de formatos se asocia a la 'Variedad'.",
+        "text": "YARN",
+        "rationale": "Este componente actúa como el gestor de recursos y planificador de tareas, no como el sistema de almacenamiento de archivos.",
         "isCorrect": false
       },
       {
-        "text": "La Veracidad es la capacidad de procesar datos en memoria, mientras que el Valor es la persistencia de los mismos en un Data Lakehouse.",
-        "rationale": "El procesamiento en memoria es una técnica tecnológica (como Spark) y no define la dimensión de veracidad del dato.",
+        "text": "MapReduce",
+        "rationale": "Es el modelo de programación y framework encargado del procesamiento paralelo de datos, no de su persistencia en disco.",
+        "isCorrect": false
+      },
+      {
+        "text": "Hadoop Common",
+        "rationale": "Contiene las bibliotecas y utilidades necesarias para los otros módulos, pero no es el sistema de archivos en sí mismo.",
         "isCorrect": false
       }
     ],
-    "hint": "Considere la diferencia entre la calidad intrínseca del dato y su beneficio final para la organización."
+    "hint": "Sus siglas indican claramente su función de almacenamiento de archivos en red."
   },
   {
-    "guid": "e9a49166-22db-4ae5-a904-42176d502d62",
+    "guid": "997cf088-3d7f-41df-b5df-c1069a4ed173",
     "subjectId": "T36",
     "origin": "notebooklm",
     "type": "test",
     "difficulty": 3,
-    "question": "Un 'Data Lakehouse' se considera una evolución híbrida. ¿Cuál de los siguientes elementos es fundamental para proporcionar las capacidades de un Data Warehouse sobre un Data Lake?",
+    "question": "¿Qué arquitectura combina el procesamiento por lotes (batch) y en tiempo real (streaming) para obtener alta precisión e inmediatez?",
     "answerOptions": [
       {
-        "text": "El uso exclusivo de bases de datos NoSQL como HBase para garantizar que todas las consultas SQL sean de baja latencia.",
-        "rationale": "El Lakehouse no se basa en bases NoSQL exclusivas, sino en la aplicación de estructuras analíticas sobre almacenamiento de objetos.",
-        "isCorrect": false
-      },
-      {
-        "text": "La implementación de una capa de metadatos y formatos de tabla como Delta Lake o Iceberg que permiten transacciones ACID.",
-        "rationale": "Las transacciones ACID y la gestión de esquemas sobre formatos abiertos son lo que permiten que un Data Lake actúe con la fiabilidad de un Warehouse.",
+        "text": "Arquitectura Lambda",
+        "rationale": "Utiliza una 'Batch Layer' para datos históricos y una 'Speed Layer' para datos recientes, manteniendo ambos flujos en paralelo.",
         "isCorrect": true
       },
       {
-        "text": "La migración de todo el almacenamiento de objetos (S3/ADLS) a sistemas de archivos distribuidos tradicionales como HDFS on-premise.",
-        "rationale": "El Lakehouse moderno suele apoyarse en el cloud object storage por su escalabilidad y bajo coste, no en el retorno a HDFS.",
+        "text": "Arquitectura Kappa",
+        "rationale": "Este modelo simplifica el proceso eliminando la capa de lotes y tratando toda la información como un flujo continuo de eventos.",
         "isCorrect": false
       },
       {
-        "text": "La eliminación del enfoque 'schema-on-read' para obligar a todas las fuentes de datos a cumplir un esquema rígido antes de la carga.",
-        "rationale": "El Lakehouse mantiene la flexibilidad del Data Lake, permitiendo tanto datos en bruto como datos con esquema gestionado, sin eliminar el schema-on-read.",
+        "text": "Arquitectura Delta",
+        "rationale": "Suele referirse a tecnologías de tablas transaccionales y no a un patrón de diseño que combine dos capas de procesamiento distintas.",
+        "isCorrect": false
+      },
+      {
+        "text": "Arquitectura Mesh",
+        "rationale": "Es un enfoque organizativo y técnico centrado en dominios de datos distribuidos, no en la dualidad de procesamiento temporal.",
         "isCorrect": false
       }
     ],
-    "hint": "Identifique la tecnología que aporta consistencia y control de versiones a los archivos almacenados en bruto."
+    "hint": "Este modelo requiere el mantenimiento de dos tuberías o pipelines de código diferentes."
   },
   {
-    "guid": "526e4f48-35a8-4a80-bf0a-a9696953ca89",
+    "guid": "a3fbf72c-db14-453d-8718-50c06f2daaff",
     "subjectId": "T36",
     "origin": "notebooklm",
     "type": "test",
     "difficulty": 3,
-    "question": "Respecto a los formatos de almacenamiento en Big Data, ¿cuál es la principal ventaja técnica de utilizar Apache Parquet en comparación con formatos como CSV o JSON para analítica masiva?",
+    "question": "¿Cuál es la función principal de Apache Kafka en un entorno moderno de Big Data?",
     "answerOptions": [
       {
-        "text": "Parquet es un formato basado en filas que facilita la lectura de registros completos en una sola operación de entrada/salida.",
-        "rationale": "Parquet es un formato columnar, no basado en filas, lo que lo hace ineficiente para leer registros individuales completos pero excelente para analítica.",
-        "isCorrect": false
-      },
-      {
-        "text": "Su estructura columnar permite leer solo las columnas necesarias para una consulta, optimizando drásticamente el rendimiento y la compresión.",
-        "rationale": "La orientación a columnas es clave para el rendimiento analítico, ya que minimiza el escaneo de datos innecesarios en grandes tablas.",
+        "text": "Ingesta y procesamiento de eventos en tiempo real",
+        "rationale": "Actúa como un sistema intermedio de mensajería distribuida capaz de gestionar flujos constantes de datos a alta velocidad.",
         "isCorrect": true
       },
       {
-        "text": "Al ser un formato de texto plano similar a XML, permite que cualquier editor de texto pueda modificar los datos sin necesidad de herramientas especializadas.",
-        "rationale": "Parquet es un formato binario complejo, no es texto plano y requiere motores de procesamiento específicos para su lectura y escritura.",
+        "text": "Almacenamiento de objetos fríos a muy bajo coste",
+        "rationale": "Esta función es propia de servicios como Amazon $S3$ o Azure Blob Storage, no de sistemas de mensajería.",
         "isCorrect": false
       },
       {
-        "text": "Parquet está diseñado específicamente para la serialización de datos en movimiento en tiempo real a través de APIs REST.",
-        "rationale": "Para serialización y transporte en streaming, el formato ideal suele ser Avro, mientras que Parquet se optimiza para el almacenamiento y consulta.",
+        "text": "Visualización interactiva de cuadros de mando BI",
+        "rationale": "Herramientas como Tableau o Power BI se encargan de la capa de presentación, no de la ingesta técnica de datos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Orquestación de flujos de trabajo tipo ETL batch",
+        "rationale": "La orquestación es tarea de herramientas como Airflow o NiFi, mientras que este sistema se enfoca en el transporte de datos.",
         "isCorrect": false
       }
     ],
-    "hint": "Piense en cómo se organizan los datos para reducir la carga de lectura en consultas que solo usan ciertos atributos."
+    "hint": "Se utiliza a menudo como el 'sistema nervioso' central para mover datos entre aplicaciones."
   },
   {
-    "guid": "9d8cbc47-ac6b-445d-88e2-bd5e8de2575e",
+    "guid": "3e0f7ae5-630c-4072-be3a-c91cdb74ba03",
     "subjectId": "T36",
     "origin": "notebooklm",
     "type": "test",
     "difficulty": 3,
-    "question": "En el ecosistema Apache Hadoop, ¿qué módulo es el responsable específico de la gestión de recursos del clúster y la planificación de las tareas de los usuarios?",
+    "question": "¿Qué formato de almacenamiento es de tipo columnar y está altamente optimizado para consultas analíticas y compresión?",
     "answerOptions": [
       {
-        "text": "HDFS (Hadoop Distributed File System), que actúa como el gestor de ejecución de hilos en cada nodo del sistema.",
-        "rationale": "HDFS es el sistema de archivos y se encarga del almacenamiento distribuido, no de la gestión de recursos de computación.",
-        "isCorrect": false
-      },
-      {
-        "text": "YARN (Yet Another Resource Negotiator), que separa la gestión de recursos de las funciones de monitorización de tareas.",
-        "rationale": "YARN es el 'sistema operativo' de Hadoop que decide qué recursos se asignan a cada aplicación o motor de procesamiento (Spark, MapReduce, etc.).",
+        "text": "Parquet",
+        "rationale": "Su estructura por columnas permite leer solo los datos necesarios para una consulta, mejorando drásticamente el rendimiento analítico.",
         "isCorrect": true
       },
       {
-        "text": "MapReduce, que proporciona la infraestructura de red necesaria para la comunicación entre los nodos esclavos y el maestro.",
-        "rationale": "MapReduce es un modelo de programación y framework de procesamiento, pero la gestión de recursos subyacente la realiza YARN.",
+        "text": "Avro",
+        "rationale": "Es un formato binario orientado a filas, lo que lo hace ideal para la serialización y el transporte de datos, pero no para analítica.",
         "isCorrect": false
       },
       {
-        "text": "Hadoop Common, que contiene exclusivamente las interfaces de usuario para la visualización de los jobs en ejecución.",
-        "rationale": "Hadoop Common contiene bibliotecas y utilidades comunes necesarias para los otros módulos, no es un gestor de recursos ni una interfaz visual.",
+        "text": "JSON",
+        "rationale": "Aunque es muy flexible y común, su naturaleza basada en texto no es eficiente para el almacenamiento masivo ni para la compresión.",
+        "isCorrect": false
+      },
+      {
+        "text": "CSV",
+        "rationale": "Es un formato simple pero carece de metadatos integrados y de las ventajas de rendimiento de los formatos binarios columnares.",
         "isCorrect": false
       }
     ],
-    "hint": "Busque el acrónimo que representa la capa de negociación de recursos introducida en Hadoop 2.0."
+    "hint": "Es el estándar de facto en ecosistemas Spark para reducir la $I/O$ de disco."
   },
   {
-    "guid": "57b83111-2bb6-4122-913a-474c90d673d4",
+    "guid": "6e9be351-5641-4994-accb-73498e9cee14",
     "subjectId": "T36",
     "origin": "notebooklm",
     "type": "test",
     "difficulty": 3,
-    "question": "¿Cuál es la diferencia crítica entre los procesos ETL tradicionales y el enfoque ELT utilizado habitualmente en entornos de Data Lake?",
+    "question": "Dentro de la gobernanza de datos (DAMA-DMBOK), ¿qué perfil es el responsable operativo de la calidad y gestión diaria de los datos?",
     "answerOptions": [
       {
-        "text": "En ETL las dadas se cargan directamente en el Data Lake sin ninguna transformación previa para ahorrar costes de transferencia.",
-        "rationale": "Esa es la descripción de ELT; en ETL la transformación ocurre obligatoriamente antes de la carga en el destino final.",
-        "isCorrect": false
-      },
-      {
-        "text": "ELT aprovecha la potencia de cálculo del sistema de destino para realizar las transformaciones después de que los datos hayan sido cargados.",
-        "rationale": "ELT permite una ingesta más rápida al diferir la transformación, utilizando motores distribuidos como Spark para procesar los datos ya almacenados.",
+        "text": "Data Steward",
+        "rationale": "Actúa como el enlace entre negocio y tecnología, velando por que los datos sean fiables, comprensibles y conformes.",
         "isCorrect": true
       },
       {
-        "text": "ETL permite el enfoque 'schema-on-read', mientras que ELT requiere que el esquema esté definido antes de extraer los datos de la fuente.",
-        "rationale": "Es al revés: ELT es el que habilita el 'schema-on-read' al cargar los datos en formato 'raw', mientras que ETL aplica 'schema-on-write'.",
+        "text": "Data Owner",
+        "rationale": "Suele ser un perfil de nivel estratégico que posee la responsabilidad última sobre el activo de datos, pero no su gestión operativa.",
         "isCorrect": false
       },
       {
-        "text": "ELT es exclusivo de entornos on-premise debido a la alta latencia que supone transformar datos en el almacenamiento de objetos cloud.",
-        "rationale": "ELT es el modelo dominante y más eficiente en el cloud, ya que utiliza la escalabilidad masiva del almacenamiento de objetos y clústeres elásticos.",
+        "text": "Data Custodian",
+        "rationale": "Es un rol técnico centrado en la infraestructura, la seguridad y el almacenamiento físico de la información.",
+        "isCorrect": false
+      },
+      {
+        "text": "Data Protection Officer",
+        "rationale": "Su función principal es garantizar el cumplimiento normativo de la privacidad (RGPD) y no la calidad técnica de los datos.",
         "isCorrect": false
       }
     ],
-    "hint": "Fíjese en el orden de las siglas y dónde reside la potencia de procesamiento para el cambio de formato."
+    "hint": "Este rol es fundamental para evitar que un Data Lake se convierta en un 'Data Swamp'."
   },
   {
-    "guid": "5505ebb5-3b76-4965-91ee-38cbb7029e39",
+    "guid": "0524c18d-ea29-4ca8-aa63-1cd2b91b7221",
     "subjectId": "T36",
     "origin": "notebooklm",
     "type": "test",
     "difficulty": 3,
-    "question": "Dentro de un 'Curated Data Lake', ¿cuál es la función principal de la denominada 'Business Layer' o 'Trusted Layer'?",
+    "question": "¿Qué tecnología permite añadir transacciones ACID y 'time travel' sobre un Data Lake basado en archivos Parquet?",
     "answerOptions": [
       {
-        "text": "Almacenar réplicas exactas de las bases de datos de origen sin aplicar ningún tipo de filtro o validación técnica.",
-        "rationale": "Esa función corresponde a la 'Raw Layer'; la capa de negocio requiere datos ya procesados y validados.",
-        "isCorrect": false
-      },
-      {
-        "text": "Mantener los datos tras procesos de limpieza técnica y normalización, pero todavía sin aplicar reglas específicas de lógica de negocio.",
-        "rationale": "Esa descripción encajaría mejor con la 'Cleansed Layer' o capa de limpieza intermedia.",
-        "isCorrect": false
-      },
-      {
-        "text": "Ofrecer datos estructurados y modelados según las necesidades del negocio, listos para ser consumidos por herramientas de BI y analítica.",
-        "rationale": "La Business Layer es el punto de consumo final donde los datos tienen valor semántico y están alineados con los requisitos de los usuarios finales.",
+        "text": "Delta Lake",
+        "rationale": "Es una capa de almacenamiento que aporta fiabilidad y capacidades de almacén de datos directamente sobre el almacenamiento de objetos.",
         "isCorrect": true
       },
       {
-        "text": "Actuar como un sistema de backup temporal para recuperar archivos corruptos de la capa de aterrizaje inicial del Data Lake.",
-        "rationale": "Las capas de un Data Lake no son sistemas de backup, sino etapas de maduración y calidad del dato para su explotación.",
+        "text": "Apache Flink",
+        "rationale": "Es un motor de procesamiento orientado a flujos de datos ilimitados, no una capa de almacenamiento transaccional.",
+        "isCorrect": false
+      },
+      {
+        "text": "Elasticsearch",
+        "rationale": "Se especializa en búsqueda de texto completo y analítica distribuida mediante indexación, pero no gestiona transacciones en archivos Parquet.",
+        "isCorrect": false
+      },
+      {
+        "text": "Presto",
+        "rationale": "Es un motor de consultas SQL distribuido que lee datos de diversas fuentes, pero no proporciona por sí mismo la capa de transacciones.",
         "isCorrect": false
       }
     ],
-    "hint": "Piense en la capa que está más cerca del usuario final y de los cuadros de mando."
+    "hint": "Esta solución es clave para la evolución hacia el concepto de Data Lakehouse."
   },
   {
-    "guid": "003ae12b-c28a-4318-b013-aa18c392ed05",
+    "guid": "f3dc3b3d-c394-4de1-b958-207f773978aa",
     "subjectId": "T36",
     "origin": "notebooklm",
     "type": "test",
     "difficulty": 3,
-    "question": "Apache Flink se diferencia de Apache Spark principalmente en su enfoque de procesamiento. ¿Qué afirmación describe correctamente esta diferencia técnica?",
+    "question": "En el contexto de Big Data, ¿cuál es la principal diferencia entre el modelo ETL y el modelo ELT?",
     "answerOptions": [
       {
-        "text": "Spark es un motor de streaming nativo, mientras que Flink procesa los flujos de datos como una serie de micro-lotes (micro-batches).",
-        "rationale": "Es al revés: Spark Streaming utiliza micro-batches, mientras que Flink es un motor de streaming nativo que procesa evento a evento.",
-        "isCorrect": false
-      },
-      {
-        "text": "Flink está diseñado para procesar flujos de datos ilimitados en tiempo real de forma nativa, tratando los lotes como flujos con límites definidos.",
-        "rationale": "Para Flink, el procesamiento por lotes es simplemente un caso especial de streaming con un inicio y un fin, lo que permite baja latencia real.",
+        "text": "El lugar donde se realiza la transformación",
+        "rationale": "En ELT, los datos se cargan primero en el destino y se transforman allí aprovechando la potencia de cálculo del Data Lake.",
         "isCorrect": true
       },
       {
-        "text": "Spark solo puede ejecutarse sobre clústeres Hadoop HDFS, mientras que Flink requiere obligatoriamente una arquitectura cloud S3.",
-        "rationale": "Ambos motores son versátiles y pueden ejecutarse en múltiples entornos (on-premise, cloud, Kubernetes) y con diversos sistemas de archivos.",
+        "text": "La cantidad de datos que se pueden extraer",
+        "rationale": "Ambos modelos pueden extraer grandes volúmenes, la diferencia reside en la secuencia de los pasos, no en la capacidad de extracción.",
         "isCorrect": false
       },
       {
-        "text": "Flink no soporta lenguajes de programación avanzados como Java o Scala, limitándose únicamente al uso de SQL para consultas sencillas.",
-        "rationale": "Tanto Spark como Flink tienen potentes APIs en Java, Scala y Python, además de soporte para SQL analítico.",
+        "text": "El tipo de lenguaje de programación usado",
+        "rationale": "Ambos pueden usar lenguajes similares como Python o SQL, por lo que el lenguaje no define la arquitectura del proceso.",
+        "isCorrect": false
+      },
+      {
+        "text": "La obligatoriedad de usar una nube pública",
+        "rationale": "Tanto ETL como ELT pueden implementarse en entornos locales (on-premise) o en el núvol sin restricción de modelo.",
         "isCorrect": false
       }
     ],
-    "hint": "Recuerde cuál de los dos motores trata el tiempo real como un flujo continuo 'true streaming' en lugar de pequeños trozos."
+    "hint": "Observa el orden de las siglas: la 'T' cambia de posición respecto a la 'L'."
   },
   {
-    "guid": "038a1b61-c50c-4aba-96e9-f209d627286d",
+    "guid": "372113c1-88e2-4fc7-8f53-35c08573777b",
     "subjectId": "T36",
     "origin": "notebooklm",
     "type": "test",
     "difficulty": 3,
-    "question": "Al implementar un modelo de 'Data Mesh' en una gran organización, ¿cuál es el cambio fundamental en la gestión de la propiedad de los datos?",
+    "question": "¿Qué riesgo técnico describe un 'Data Swamp' dentro de una estrategia de Big Data?",
     "answerOptions": [
       {
-        "text": "Centralizar toda la gestión y responsabilidad de los datos en una única Unidad TIC para asegurar un control estricto de la seguridad.",
-        "rationale": "El Data Mesh se opone a la centralización monolítica, proponiendo precisamente la descentralización de la responsabilidad.",
-        "isCorrect": false
-      },
-      {
-        "text": "Distribuir la propiedad de los datos por dominios funcionales, donde cada equipo de negocio gestiona sus datos como un producto.",
-        "rationale": "El Data Mesh promueve que los expertos de cada área (finanzas, salud, RRHH) sean los dueños y responsables de la calidad de sus propios datos.",
+        "text": "La acumulación de datos desordenados e inútiles",
+        "rationale": "Ocurre cuando se cargan datos sin metadatos ni gobernanza, impidiendo que los usuarios encuentren información valiosa.",
         "isCorrect": true
       },
       {
-        "text": "Delegar la seguridad y el cifrado de los datos únicamente en el proveedor de cloud, eliminando la necesidad de gobernanza interna.",
-        "rationale": "La gobernanza es imprescindible independientemente de la infraestructura; delegar la seguridad no define el modelo de Data Mesh.",
+        "text": "La pérdida de datos por fallos en el clúster",
+        "rationale": "Esto se refiere a problemas de disponibilidad o redundancia, no a la falta de organización del contenido del repositorio.",
         "isCorrect": false
       },
       {
-        "text": "Sustituir a los Data Owners por algoritmos de Inteligencia Artificial que decidan automáticamente quién puede acceder a cada dataset.",
-        "rationale": "Aunque la IA ayuda a la gobernanza (Smart Data Lakes), el Data Mesh es un cambio organizativo sobre la responsabilidad humana por dominios.",
+        "text": "El aumento excesivo de los costes de licencias",
+        "rationale": "El término está relacionado con la calidad y accesibilidad de los datos, no directamente con la factura económica del proveedor.",
+        "isCorrect": false
+      },
+      {
+        "text": "La saturación del ancho de banda de la red",
+        "rationale": "Este es un problema de rendimiento de infraestructura, mientras que el concepto en cuestión es un problema de gestión de datos.",
         "isCorrect": false
       }
     ],
-    "hint": "Piense en el concepto de soberanía de datos por departamento o área funcional."
+    "hint": "Se produce por una falta de catalogación y limpieza en la fase de ingesta."
+  },
+  {
+    "guid": "e3df62a4-8cfd-44bd-873e-8adc92b5b560",
+    "subjectId": "T36",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Para qué se utiliza principalmente el lenguaje de programación R en los entornos de analítica de datos?",
+    "answerOptions": [
+      {
+        "text": "Cálculos estadísticos y minería de datos",
+        "rationale": "Es un lenguaje orientado a objetos y vectorial muy potente para la investigación científica y el análisis matemático financiero.",
+        "isCorrect": true
+      },
+      {
+        "text": "Desarrollo de microservicios de baja latencia",
+        "rationale": "Lenguajes como Java o Go son más adecuados para la infraestructura de microservicios que un lenguaje puramente estadístico.",
+        "isCorrect": false
+      },
+      {
+        "text": "Gestión de la capa de seguridad del clúster",
+        "rationale": "La seguridad se gestiona mediante protocolos y herramientas específicas del sistema operativo o el cloud, no mediante este lenguaje.",
+        "isCorrect": false
+      },
+      {
+        "text": "Programación de controladores de hardware IoT",
+        "rationale": "Para el control directo de hardware se suelen emplear lenguajes de bajo nivel como C o C++ debido a su eficiencia.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Es el competidor natural de Python en el ámbito académico y estadístico."
+  },
+  {
+    "guid": "244f5f93-2654-466a-aead-c1e2b97ffb3d",
+    "subjectId": "T36",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Cuál es la característica fundamental de una base de datos de tipo NoSQL frente a una relacional tradicional?",
+    "answerOptions": [
+      {
+        "text": "Mayor flexibilidad para datos heterogéneos",
+        "rationale": "No requieren un esquema fijo previo, lo que facilita el almacenamiento de datos variados y el escalado horizontal distribuido.",
+        "isCorrect": true
+      },
+      {
+        "text": "Garantía total de consistencia inmediata",
+        "rationale": "Muchos sistemas NoSQL priorizan la disponibilidad y la tolerancia a particiones, ofreciendo a menudo consistencia eventual.",
+        "isCorrect": false
+      },
+      {
+        "text": "Uso estricto de tablas vinculadas por claves",
+        "rationale": "Esta es la base del modelo relacional (SQL), mientras que NoSQL usa documentos, grafos, columnas o pares clave-valor.",
+        "isCorrect": false
+      },
+      {
+        "text": "Optimización exclusiva para consultas complejas",
+        "rationale": "Las bases de datos NoSQL suelen estar limitadas a consultas simples comparadas con la potencia de los joins en SQL.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piensa en sistemas que necesitan crecer añadiendo más servidores comunes en lugar de uno más potente."
+  },
+  {
+    "guid": "8aab3978-2654-4789-86e8-81822dca3132",
+    "subjectId": "T36",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Qué herramienta del ecosistema Hadoop proporciona una interfaz similar a SQL para consultar datos almacenados en HDFS?",
+    "answerOptions": [
+      {
+        "text": "Apache Hive",
+        "rationale": "Permite realizar análisis de datos mediante un lenguaje llamado HiveQL, que traduce las consultas SQL en tareas de procesamiento.",
+        "isCorrect": true
+      },
+      {
+        "text": "Apache Storm",
+        "rationale": "Está diseñado para el procesamiento distribuido en tiempo real de flujos constantes, no para consultas tipo SQL sobre datos en reposo.",
+        "isCorrect": false
+      },
+      {
+        "text": "Apache HBase",
+        "rationale": "Es una base de datos NoSQL que ofrece acceso aleatorio a grandes volúmenes de datos, pero no es un motor SQL declarativo.",
+        "isCorrect": false
+      },
+      {
+        "text": "Apache Airflow",
+        "rationale": "Se utiliza para programar y monitorizar flujos de trabajo (workflows), no para realizar consultas directas sobre los archivos.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Es el 'Data Warehouse' construido sobre Hadoop."
+  },
+  {
+    "guid": "fb5bb620-b522-4f7e-9638-69241f75c5e2",
+    "subjectId": "T36",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Qué servicio de Amazon Web Services ($AWS$) se especializa en la preparación y carga de datos (ETL sin servidor)?",
+    "answerOptions": [
+      {
+        "text": "AWS Glue",
+        "rationale": "Es un servicio totalmente gestionado que facilita la clasificación, limpieza y transferencia de datos entre distintos almacenes.",
+        "isCorrect": true
+      },
+      {
+        "text": "Amazon S3",
+        "rationale": "Es el servicio de almacenamiento de objetos, pero no realiza por sí mismo tareas de transformación o lógica de negocio.",
+        "isCorrect": false
+      },
+      {
+        "text": "Amazon Redshift",
+        "rationale": "Es un almacén de datos (Data Warehouse) rápido y gestionado para análisis complejo, pero es el destino, no la herramienta de preparación.",
+        "isCorrect": false
+      },
+      {
+        "text": "Amazon EMR",
+        "rationale": "Es una plataforma de clústeres para procesar datos usando frameworks como Spark, pero requiere gestión de infraestructura de clúster.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Su nombre sugiere su función de 'pegar' o conectar diferentes fuentes de datos."
+  },
+  {
+    "guid": "87e3ba4d-be92-44ad-a158-1951619fc322",
+    "subjectId": "T36",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "En el modelo 'Curated Data Lake', ¿cuál es el propósito de la denominada 'Business Layer'?",
+    "answerOptions": [
+      {
+        "text": "Ofrecer datos estructurados y listos para negocio",
+        "rationale": "Es la capa final donde los datos ya han sido limpiados y modelados para ser consumidos directamente por herramientas de BI.",
+        "isCorrect": true
+      },
+      {
+        "text": "Almacenar archivos en su formato original exacto",
+        "rationale": "Esa es la función de la 'Raw Layer' o capa crujiente, donde no se aplica ninguna transformación inicial.",
+        "isCorrect": false
+      },
+      {
+        "text": "Ejecutar algoritmos de cifrado de disco físico",
+        "rationale": "La seguridad y el cifrado son funciones transversales de la plataforma y no definen una capa de organización de datos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Eliminar registros duplicados mediante procesos ETL",
+        "rationale": "La limpieza y deduplicación suele ocurrir en la 'Cleansed Layer' antes de llegar a la capa de negocio final.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Es la capa que consultaría un analista para crear un informe oficial de ventas."
+  },
+  {
+    "guid": "8a397b1a-7a91-4b53-b6cc-edadbfce2218",
+    "subjectId": "T36",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Por qué Apache Spark se considera generalmente más rápido que el modelo MapReduce de Hadoop?",
+    "answerOptions": [
+      {
+        "text": "Porque procesa la información en memoria",
+        "rationale": "Al evitar la lectura y escritura constante en disco entre etapas de procesamiento, reduce drásticamente los tiempos de ejecución.",
+        "isCorrect": true
+      },
+      {
+        "text": "Porque utiliza un lenguaje de programación único",
+        "rationale": "La velocidad no depende del lenguaje (soporta Scala, Java, Python), sino de la arquitectura técnica de ejecución.",
+        "isCorrect": false
+      },
+      {
+        "text": "Porque no requiere una red de alta velocidad",
+        "rationale": "Todos los sistemas distribuidos se benefician de redes rápidas; Spark no es una excepción en cuanto a necesidades de red.",
+        "isCorrect": false
+      },
+      {
+        "text": "Porque elimina la necesidad de usar metadatos",
+        "rationale": "Spark hace un uso intensivo de metadatos para optimizar sus planes de ejecución, por lo que no los elimina.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "La clave está en dónde se mantienen los datos durante los cálculos intermedios."
+  },
+  {
+    "guid": "ff787b6a-2875-41af-b407-5a5b22b2e970",
+    "subjectId": "T36",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Qué tecnología emergente permite simplificar los pipelines ETL al evitar recrear tablas enteras gracias a sus lecturas incrementales?",
+    "answerOptions": [
+      {
+        "text": "Apache Hudi",
+        "rationale": "Permite actualizar y borrar datos de forma eficiente, gestionando cambios recientes sin procesar todo el conjunto de nuevo.",
+        "isCorrect": true
+      },
+      {
+        "text": "Apache Storm",
+        "rationale": "Es un motor de computación en tiempo real, pero no gestiona el almacenamiento incremental de tablas en un Data Lake.",
+        "isCorrect": false
+      },
+      {
+        "text": "Google Dataproc",
+        "rationale": "Es un servicio para ejecutar clústeres de Hadoop/Spark en la nube de Google, no un formato de tabla incremental.",
+        "isCorrect": false
+      },
+      {
+        "text": "Tableau",
+        "rationale": "Es una herramienta de visualización y BI, por lo que no interviene en la lógica de actualización incremental del almacenamiento.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Sus siglas significan 'Hadoop Upserts Deletes and Incrementals'."
+  },
+  {
+    "guid": "237a030d-c41d-45cf-af2f-18f0f2062cee",
+    "subjectId": "T36",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "En el contexto de la inteligencia artificial, ¿qué significa el acrónimo NLP?",
+    "answerOptions": [
+      {
+        "text": "Natural Language Processing",
+        "rationale": "Es la rama de la IA dedicada a que las máquinas entiendan, interpreten y generen el lenguaje humano hablado o escrito.",
+        "isCorrect": true
+      },
+      {
+        "text": "Neural Logical Programming",
+        "rationale": "Aunque existen redes neuronales y programación lógica, este no es un término estándar utilizado en el campo de la IA.",
+        "isCorrect": false
+      },
+      {
+        "text": "Network Layer Protocol",
+        "rationale": "Este término pertenece al ámbito de las redes de comunicaciones y no tiene relación directa con el análisis de datos masivos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Node Linkage Procedure",
+        "rationale": "Podría sonar a teoría de grafos, pero no describe la tecnología de procesamiento de textos e idiomas.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Se encarga de tareas como el análisis de sentimientos en redes sociales o los asistentes de voz."
+  },
+  {
+    "guid": "af07e99d-c92c-47b0-b515-303890384231",
+    "subjectId": "T36",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Qué solución de Microsoft Azure ofrece una plataforma de análisis basada en Apache Spark optimizada para la nube?",
+    "answerOptions": [
+      {
+        "text": "Azure Databricks",
+        "rationale": "Es una implementación gestionada de Spark que ofrece un entorno colaborativo y gran rendimiento para ingeniería y ciencia de datos.",
+        "isCorrect": true
+      },
+      {
+        "text": "Azure Synapse",
+        "rationale": "Aunque incluye Spark, su foco principal es la integración de almacenes de datos y analítica a gran escala como sucesor de SQL DW.",
+        "isCorrect": false
+      },
+      {
+        "text": "Azure HDInsight",
+        "rationale": "Es un servicio para desplegar clústeres de Hadoop de código abierto, pero no es la plataforma específica nacida de los creadores de Spark.",
+        "isCorrect": false
+      },
+      {
+        "text": "Azure Data Factory",
+        "rationale": "Es principalmente un orquestador y herramienta de integración de datos (ETL), no un motor de computación Spark puro.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Fue creada por los fundadores originales de Apache Spark."
+  },
+  {
+    "guid": "96c490a6-e3bd-4a49-9ee0-1c3fbeefb8d1",
+    "subjectId": "T36",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Cuál es la función del motor de búsqueda Elasticsearch en un entorno de Big Data?",
+    "answerOptions": [
+      {
+        "text": "Búsqueda y analítica de datos complejos en tiempo real",
+        "rationale": "Permite indexar volúmenes masivos de datos (como logs) y realizar búsquedas de texto completo de manera distribuida.",
+        "isCorrect": true
+      },
+      {
+        "text": "Serialización de datos para transporte por API",
+        "rationale": "Formatos como Avro o protocolos como Protobuf son los encargados de la serialización, no este motor de búsqueda.",
+        "isCorrect": false
+      },
+      {
+        "text": "Gestión de la persistencia física en cintas magnéticas",
+        "rationale": "Elasticsearch requiere almacenamiento rápido (como discos $SSD$) para mantener sus índices y no se usa para almacenamiento en frío.",
+        "isCorrect": false
+      },
+      {
+        "text": "Entrenamiento de modelos de aprendizaje profundo",
+        "rationale": "Para el entrenamiento se usan frameworks como TensorFlow o PyTorch, mientras que esta herramienta se usa para consulta de datos.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Es muy común utilizarlo junto con Logstash y Kibana para el tratamiento de registros."
   }
 ]
