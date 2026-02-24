@@ -121,6 +121,9 @@
     .incorrect-feedback {
       color: #ff6b6b;
     }
+    .info-feedback {
+      color: #ffe066;
+    }
     .rationale {
       color: #c2d3ff;
       font-style: italic;
@@ -1146,7 +1149,7 @@
                 <div class="rationale">${option.rationale || ''}</div>`;
             } else if (isExpanded && option.rationale) {
               html += `
-                <div class="feedback incorrect-feedback">ℹ️ Informació</div>
+                <div class="feedback info-feedback">ℹ️ Informació</div>
                 <div class="rationale">${option.rationale}</div>`;
             }
           } else {
@@ -1162,7 +1165,7 @@
             } else if (isExpanded && option.rationale) {
               // Mostrar rationale de opción expandida (no seleccionada)
               html += `
-                <div class="feedback incorrect-feedback">ℹ️ Informació</div>
+                <div class="feedback info-feedback">ℹ️ Informació</div>
                 <div class="rationale">${option.rationale}</div>`;
             }
           }
