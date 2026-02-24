@@ -1,0 +1,1242 @@
+[
+  {
+    "guid": "19bfc6f8-758e-4fa7-9638-ea3ecba14e53",
+    "subjectId": "Ambit_3",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "En el contexto de SAP Tax & Revenue Management (TRM), ¿qué distinción fundamental debe realizar un consultor respecto al acrónimo homónimo en el entorno financiero corporativo?",
+    "answerOptions": [
+      {
+        "text": "SAP TRM en el sector público se orienta a la gestión de ingresos y tributos, mientras que en el privado se enfoca en tesorería y riesgos.",
+        "rationale": "La solución Tax & Revenue Management gestiona el ciclo del contribuyente, a diferencia de Treasury & Risk Management que gestiona inversiones y FX.",
+        "isCorrect": true
+      },
+      {
+        "text": "La versión pública de SAP TRM es un submódulo dependiente de SAP FI, mientras que la corporativa es un módulo independiente.",
+        "rationale": "Ambas soluciones pueden actuar de forma independiente aunque requieran integración con el libro mayor (FI-GL).",
+        "isCorrect": false
+      },
+      {
+        "text": "SAP TRM para el sector público requiere obligatoriamente una base de datos HANA, a diferencia de la versión de tesorería corporativa.",
+        "rationale": "Aunque HANA potencia el rendimiento, el requerimiento de base de datos no es la distinción funcional primaria entre ambas soluciones.",
+        "isCorrect": false
+      },
+      {
+        "text": "La gestión de deuda y morosidad en SAP TRM público se realiza en el núcleo del sistema, mientras que en el corporativo es manual.",
+        "rationale": "La gestión de deuda en el ámbito público suele delegarse en el motor PSCD, no necesariamente en el núcleo de la definición del tributo.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en la naturaleza del objeto de negocio que gestiona cada solución: ciudadanos frente a activos financieros."
+  },
+  {
+    "guid": "82df16e6-8d9b-41ab-a01c-7f5b1e32b415",
+    "subjectId": "Ambit_3",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "En una arquitectura de Big Data, ¿cuál es la implicación técnica principal del paradigma 'Schema on Read' aplicado en los entornos de Data Lake?",
+    "answerOptions": [
+      {
+        "text": "Los datos se almacenan en su formato bruto y la estructura se aplica únicamente al momento de realizar la consulta.",
+        "rationale": "Este enfoque permite una ingesta masiva y flexible de datos estructurados y no estructurados sin transformaciones previas.",
+        "isCorrect": true
+      },
+      {
+        "text": "Es obligatorio definir el modelo relacional y las restricciones de integridad antes de persistir la información en el repositorio.",
+        "rationale": "Esto describe el paradigma 'Schema on Write', típico de los Data Warehouses tradicionales.",
+        "isCorrect": false
+      },
+      {
+        "text": "El motor de procesamiento debe pre-indexar todas las columnas para garantizar latencias inferiores al milisegundo en el acceso.",
+        "rationale": "La pre-indexación rígida es contraria a la flexibilidad de formatos que busca un Data Lake.",
+        "isCorrect": false
+      },
+      {
+        "text": "La validación de la calidad de los datos se delega exclusivamente en el sistema de archivos distribuido durante la fase de carga.",
+        "rationale": "El sistema de archivos (como HDFS) se encarga de la persistencia, no de la validación semántica o esquemática del contenido.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considere la diferencia de flexibilidad entre un almacén estructurado y un repositorio de datos en bruto."
+  },
+  {
+    "guid": "6e0bbdcd-925d-4055-b34f-a4a03e138fc5",
+    "subjectId": "Ambit_3",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Al diseñar aplicaciones nativas en el nube bajo un modelo Serverless (FaaS), ¿qué fenómeno técnico describe el retardo experimentado en la primera ejecución de una función tras un periodo de inactividad?",
+    "answerOptions": [
+      {
+        "text": "Latencia de red por resolución DNS.",
+        "rationale": "La resolución DNS es un proceso externo a la preparación del entorno de ejecución de la función.",
+        "isCorrect": false
+      },
+      {
+        "text": "Cold Start (Arranque en frío).",
+        "rationale": "El proveedor debe aprovisionar el contenedor temporal y cargar el código, lo que introduce un retardo inicial que no ocurre en ejecuciones sucesivas.",
+        "isCorrect": true
+      },
+      {
+        "text": "Desbordamiento de la caché de instrucciones.",
+        "rationale": "El retardo inicial se debe a la instanciación de recursos, no a una limitación de la memoria caché del procesador físico.",
+        "isCorrect": false
+      },
+      {
+        "text": "Bloqueo por concurrencia de hilos.",
+        "rationale": "El modelo Serverless escala horizontalmente mediante instancias independientes, evitando bloqueos de hilos globales por inactividad.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Se trata del tiempo necesario para que el proveedor 'despierte' la infraestructura bajo demanda."
+  },
+  {
+    "guid": "488b62c3-15c2-4d21-8caf-dd2629ad0f07",
+    "subjectId": "Ambit_3",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Dentro de la suite SAP Financials para el Sector Público (EAPS), ¿cuál es la diferencia de propósito principal entre los módulos FI y CO?",
+    "answerOptions": [
+      {
+        "text": "FI se orienta a la información financiera externa y legal, mientras que CO se enfoca en el control y análisis de costes internos.",
+        "rationale": "FI registra transacciones para estados financieros oficiales y CO proporciona información de gestión para la toma de decisiones interna.",
+        "isCorrect": true
+      },
+      {
+        "text": "FI gestiona los activos físicos de la organización y CO se encarga de la gestión de tesorería y liquidez.",
+        "rationale": "La gestión de activos es un submódulo de FI (FI-AA) y la tesorería suele integrarse mediante TRM.",
+        "isCorrect": false
+      },
+      {
+        "text": "FI es un módulo exclusivo para entornos Cloud y CO es la versión tradicional para despliegues On-Premise.",
+        "rationale": "Ambos módulos son fundamentales en el núcleo de SAP ERP independientemente del modelo de despliegue.",
+        "isCorrect": false
+      },
+      {
+        "text": "FI permite la ejecución presupuestaria preventiva y CO realiza el registro contable a posteriori.",
+        "rationale": "La ejecución presupuestaria preventiva es competencia del módulo FM (Funds Management).",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en quién es el destinatario de la información: la ley/auditores o los gestores internos."
+  },
+  {
+    "guid": "8f6f99f0-29f8-4ec5-add2-603d9ad5ef5e",
+    "subjectId": "Ambit_3",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "En el Modelado Entidad-Relación, ¿cuál es el objetivo primordial de aplicar técnicas de normalización durante el diseño lógico de la base de datos?",
+    "answerOptions": [
+      {
+        "text": "Minimizar la redundancia de datos y prevenir anomalías en las operaciones de actualización.",
+        "rationale": "La normalización organiza los atributos para asegurar que cada dato se almacene en un solo lugar, manteniendo la integridad referencial.",
+        "isCorrect": true
+      },
+      {
+        "text": "Aumentar el rendimiento de las consultas de lectura mediante la duplicación estratégica de información.",
+        "rationale": "La duplicación de datos para rendimiento se denomina desnormalización y es un proceso opuesto.",
+        "isCorrect": false
+      },
+      {
+        "text": "Reducir el número total de tablas necesarias para representar el dominio del problema.",
+        "rationale": "La normalización generalmente incrementa el número de tablas al separar conceptos en entidades distintas.",
+        "isCorrect": false
+      },
+      {
+        "text": "Garantizar que todos los atributos de una entidad sean de tipo numérico para optimizar el almacenamiento.",
+        "rationale": "El tipo de dato de los atributos depende de la naturaleza de la información, no del proceso de normalización.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Se busca evitar que un cambio en un dato requiera actualizaciones en múltiples registros inconsistentes."
+  },
+  {
+    "guid": "0f7f5c17-1b92-4431-bd3f-9cfcc42398c6",
+    "subjectId": "Ambit_3",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Al implementar una arquitectura de microservicios, ¿cuál es el patrón de diseño más adecuado para garantizar la consistencia eventual de los datos en una transacción que afecta a múltiples servicios independientes?",
+    "answerOptions": [
+      {
+        "text": "Patrón Saga.",
+        "rationale": "Coordina una secuencia de transacciones locales y utiliza acciones compensatorias si alguna falla, asegurando la consistencia final.",
+        "isCorrect": true
+      },
+      {
+        "text": "Two-Phase Commit (2PC).",
+        "rationale": "Aunque garantiza consistencia fuerte, no escala bien en microservicios debido a su naturaleza bloqueante y dependencia de red.",
+        "isCorrect": false
+      },
+      {
+        "text": "Singleton Pattern.",
+        "rationale": "Es un patrón de creación de objetos a nivel de código, no un patrón de consistencia de datos distribuida.",
+        "isCorrect": false
+      },
+      {
+        "text": "Shared Database Pattern.",
+        "rationale": "Se considera un anti-patrón en microservicios, ya que acopla los servicios a nivel de esquema de datos.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considere una secuencia de pasos locales con mecanismos de compensación en caso de error."
+  },
+  {
+    "guid": "f1cf1fa1-82db-4dfd-82ef-e4193a43dfb6",
+    "subjectId": "Ambit_3",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "En el desarrollo de aplicaciones para la administración pública, ¿cuál es la razón técnica principal para preferir una red de Blockchain de consorcio (permisionada) frente a una red pública?",
+    "answerOptions": [
+      {
+        "text": "La necesidad de garantizar el cumplimiento de la normativa de protección de datos (RGPD) y el control de la gobernanza de los nodos.",
+        "rationale": "Las redes permisionadas permiten identificar a los participantes y gestionar el derecho al olvido o la privacidad de forma más controlada.",
+        "isCorrect": true
+      },
+      {
+        "text": "El anonimato total que ofrecen las redes de consorcio para los ciudadanos que realizan trámites.",
+        "rationale": "Las administraciones suelen requerir identificación fehaciente, por lo que el anonimato total no es un objetivo deseable.",
+        "isCorrect": false
+      },
+      {
+        "text": "La ausencia de mecanismos de consenso en las redes permisionadas, lo que acelera el procesamiento.",
+        "rationale": "Todas las blockchains requieren consenso; las permisionadas usan algoritmos más eficientes (como Raft o IBFT) que no requieren minería.",
+        "isCorrect": false
+      },
+      {
+        "text": "La imposibilidad de utilizar Smart Contracts en las redes públicas debido a su arquitectura abierta.",
+        "rationale": "Las redes públicas como Ethereum fueron pioneras en el uso de Smart Contracts.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en la soberanía de los datos y en quién tiene permiso para validar las transacciones."
+  },
+  {
+    "guid": "ea427c7d-c7d6-4e5b-927d-0c026ca04a46",
+    "subjectId": "Ambit_3",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Cuál es la diferencia fundamental de alcance entre las pruebas unitarias y las pruebas de integración en el ciclo de vida de desarrollo?",
+    "answerOptions": [
+      {
+        "text": "Las unitarias validan componentes aislados en memoria, mientras que las de integración verifican la interacción entre módulos o sistemas externos.",
+        "rationale": "El test unitario se centra en la lógica de una función/clase (a menudo con mocks) y el de integración en el flujo de datos entre ellas.",
+        "isCorrect": true
+      },
+      {
+        "text": "Las unitarias son realizadas por el usuario final y las de integración son ejecutadas exclusivamente por el equipo de desarrollo.",
+        "rationale": "Ambas son típicamente automatizadas y ejecutadas por desarrolladores o ingenieros de QA.",
+        "isCorrect": false
+      },
+      {
+        "text": "Las unitarias miden el rendimiento bajo carga y las de integración buscan vulnerabilidades de inyección de código.",
+        "rationale": "Estas descripciones corresponden a las pruebas de estrés/rendimiento y de seguridad, respectivamente.",
+        "isCorrect": false
+      },
+      {
+        "text": "Las unitarias requieren el despliegue completo de la infraestructura cloud y las de integración se ejecutan en local.",
+        "rationale": "Normalmente es al revés: las unitarias son ligeras y locales, mientras que la integración suele requerir entornos más complejos.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en el tamaño del 'trozo' de código que se está aislando para la prueba."
+  },
+  {
+    "guid": "21bbabf4-52d1-4c05-b3d2-b6c7289b3124",
+    "subjectId": "Ambit_3",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "En la estrategia de movilidad del Ayuntamiento de Barcelona, ¿qué capacidad técnica distingue a las Progressive Web Apps (PWA) de las aplicaciones web convencionales?",
+    "answerOptions": [
+      {
+        "text": "La capacidad de ejecutarse en segundo plano y ofrecer funcionalidad fuera de línea mediante el uso de Service Workers.",
+        "rationale": "Los Service Workers actúan como un proxy programable que gestiona la caché y las peticiones de red, permitiendo el modo offline.",
+        "isCorrect": true
+      },
+      {
+        "text": "La necesidad de ser descargadas exclusivamente desde las tiendas oficiales Google Play y Apple App Store.",
+        "rationale": "Una de las ventajas de las PWA es que se instalan directamente desde el navegador mediante el Web App Manifest.",
+        "isCorrect": false
+      },
+      {
+        "text": "El acceso exclusivo a los sensores biométricos del dispositivo sin mediación del sistema operativo.",
+        "rationale": "El acceso al hardware en una PWA siempre está mediado por las APIs del navegador y tiene más restricciones que el modo nativo.",
+        "isCorrect": false
+      },
+      {
+        "text": "El uso obligatorio de lenguajes compilados como Kotlin o Swift para el renderizado de la interfaz.",
+        "rationale": "Las PWA se construyen con tecnologías web estándar: HTML, CSS y JavaScript.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considere qué componente permite interceptar peticiones de red incluso sin conexión."
+  },
+  {
+    "guid": "388f690d-c8dd-4479-80c2-09ae0be742cd",
+    "subjectId": "Ambit_3",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Dentro del submódulo de SAP HCM 'Organizational Management' (OM), ¿cuál es la función primordial del objeto de tipo 'S' (Position)?",
+    "answerOptions": [
+      {
+        "text": "Representar el puesto de trabajo específico ocupado por un empleado y que sirve de enlace con la estructura de personal.",
+        "rationale": "La 'Position' (S) es la instancia concreta de un 'Job' (C) que permite asignar a una persona (P) a una unidad organizativa (O).",
+        "isCorrect": true
+      },
+      {
+        "text": "Almacenar los datos maestros de contacto y domicilio de los trabajadores municipales.",
+        "rationale": "Esa información reside en el submódulo PA (Personnel Administration), no en OM.",
+        "isCorrect": false
+      },
+      {
+        "text": "Definir las escalas salariales y los grupos de cotización a la Seguridad Social.",
+        "rationale": "Esta configuración forma parte de la estructura de nómina (Payroll) y administración de personal.",
+        "isCorrect": false
+      },
+      {
+        "text": "Gestionar el catálogo de cursos de formación disponibles para el personal funcionario.",
+        "rationale": "La formación se gestiona habitualmente en el submódulo PD (Personnel Development) o Learning Solution.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en el 'casillero' del organigrama que espera ser ocupado por un individuo."
+  },
+  {
+    "guid": "530b583b-8cae-45e7-8e35-b6415e7633a8",
+    "subjectId": "Ambit_3",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "En la metodología DevOps, ¿qué ventaja fundamental aporta la práctica de 'Infraestructura como Código' (IaC) para la resiliencia de los sistemas?",
+    "answerOptions": [
+      {
+        "text": "Permite la recreación rápida y consistente de entornos completos a partir de archivos de configuración versionados ante un desastre.",
+        "rationale": "Al tratar la infraestructura como software, se garantiza que los despliegues sean repetibles y libres de derivas de configuración manual.",
+        "isCorrect": true
+      },
+      {
+        "text": "Elimina la necesidad de realizar copias de seguridad de las bases de datos al estar el esquema definido en código.",
+        "rationale": "IaC gestiona los recursos de infraestructura, pero no sustituye el respaldo de los datos transaccionales de negocio.",
+        "isCorrect": false
+      },
+      {
+        "text": "Aísla físicamente los servidores de desarrollo de los de producción mediante un cifrado de hardware automático.",
+        "rationale": "El aislamiento se logra mediante políticas de red y arquitectura, no es una propiedad intrínseca del código de configuración.",
+        "isCorrect": false
+      },
+      {
+        "text": "Reduce el coste de licenciamiento de los sistemas operativos al optimizar el uso de la CPU.",
+        "rationale": "La optimización de costes (FinOps) puede apoyarse en IaC, pero no altera los términos de licenciamiento de software comercial.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en la capacidad de recuperar un entorno exacto sin intervención manual paso a paso."
+  },
+  {
+    "guid": "b0bb4dd0-66ca-4794-a67b-ed35ed5b9426",
+    "subjectId": "Ambit_3",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Qué métrica de calidad de software se refiere a la presencia de estructuras de código que, sin ser errores funcionales, indican una debilidad en el diseño que dificulta el mantenimiento?",
+    "answerOptions": [
+      {
+        "text": "Code Smells (Olores de código).",
+        "rationale": "Son patrones en el código (como clases demasiado grandes) que sugieren problemas de diseño y aumentan la deuda técnica.",
+        "isCorrect": true
+      },
+      {
+        "text": "Cyclomatic Complexity (Complejidad ciclomática).",
+        "rationale": "Esta métrica mide específicamente el número de caminos lineales independientes a través del código fuente.",
+        "isCorrect": false
+      },
+      {
+        "text": "Memory Leak (Fuga de memoria).",
+        "rationale": "Es un error de ejecución donde la memoria no se libera, no un problema de estructura o diseño de código.",
+        "isCorrect": false
+      },
+      {
+        "text": "Runtime Exception (Excepción en tiempo de ejecución).",
+        "rationale": "Es un error que ocurre durante la ejecución del programa, no una métrica de diseño de software.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "No es un bug evidente, pero 'huele' a que el código será difícil de modificar en el futuro."
+  },
+  {
+    "guid": "998ce47c-a56b-4605-8f4f-36a859de1e3d",
+    "subjectId": "Ambit_3",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "En la gestión de plataformas Low-code/No-code, ¿qué riesgo organizativo se asocia a la creación de aplicaciones por usuarios de negocio sin supervisión del departamento TIC?",
+    "answerOptions": [
+      {
+        "text": "Shadow IT (TI en la sombra).",
+        "rationale": "Representa el uso de sistemas o soluciones dentro de la organización sin la aprobación o el soporte explícito del área de TI central.",
+        "isCorrect": true
+      },
+      {
+        "text": "Vendor Lock-in (Dependencia del proveedor).",
+        "rationale": "Este riesgo se refiere a la dificultad de migrar fuera de una plataforma específica, no a quién desarrolla la solución.",
+        "isCorrect": false
+      },
+      {
+        "text": "Data Silos (Silos de datos).",
+        "rationale": "Aunque es una consecuencia posible, el concepto que define el fenómeno de desarrollo no supervisado es Shadow IT.",
+        "isCorrect": false
+      },
+      {
+        "text": "Technical Debt (Deuda técnica).",
+        "rationale": "La deuda técnica es una consecuencia del desarrollo apresurado o de baja calidad, aplicable tanto a TI como a negocio.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Se refiere a soluciones que operan 'bajo el radar' de las políticas oficiales de tecnología."
+  },
+  {
+    "guid": "af941c09-f9f5-49ce-b2bb-9ebe93b2a98d",
+    "subjectId": "Ambit_3",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "En una arquitectura orientada a servicios (SOA), ¿qué principio garantiza que los servicios puedan evolucionar internamente sin afectar a sus consumidores?",
+    "answerOptions": [
+      {
+        "text": "Abstracción del servicio y acoplamiento débil.",
+        "rationale": "Al ocultar la lógica interna tras un contrato de interfaz bien definido, los cambios internos no rompen la compatibilidad externa.",
+        "isCorrect": true
+      },
+      {
+        "text": "Estado persistente centralizado (Statefulness).",
+        "rationale": "SOA favorece generalmente la ausencia de estado (statelessness) para mejorar la escalabilidad y el desacoplo.",
+        "isCorrect": false
+      },
+      {
+        "text": "Dependencia directa de la base de datos subyacente.",
+        "rationale": "Esto violaría el principio de encapsulación y crearía un acoplamiento fuerte indeseado.",
+        "isCorrect": false
+      },
+      {
+        "text": "Uso exclusivo de protocolos binarios propietarios.",
+        "rationale": "SOA promueve el uso de estándares abiertos para facilitar la interoperabilidad entre plataformas heterogéneas.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considere la importancia de un contrato público que oculte los detalles de la implementación privada."
+  },
+  {
+    "guid": "68b8ace2-56a1-47e4-ad0c-abedb13277d0",
+    "subjectId": "Ambit_3",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Dentro de la filosofía FinOps para la gestión de costes cloud, ¿cuál es el propósito de aplicar el sistema de imputación ABC (Activity-Based Costing)?",
+    "answerOptions": [
+      {
+        "text": "Atribuir los costes de infraestructura a los servicios o equipos en función de las actividades reales que consumen esos recursos.",
+        "rationale": "ABC permite una visibilidad financiera precisa al vincular el gasto cloud con el valor de negocio generado por cada actividad.",
+        "isCorrect": true
+      },
+      {
+        "text": "Automatizar el apagado de máquinas virtuales durante los fines de semana para ahorrar energía.",
+        "rationale": "Esta es una técnica de optimización de costes (Right-sizing/Scheduling), pero no un sistema de imputación contable.",
+        "isCorrect": false
+      },
+      {
+        "text": "Comparar los precios de los distintos proveedores de nube pública (AWS, Azure, Google) para elegir el más barato.",
+        "rationale": "Esto forma parte del análisis de mercado y selección de proveedores, no de la imputación de costes internos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Calcular la depreciación del hardware físico en el centro de datos municipal.",
+        "rationale": "ABC puede usarse on-premises, pero en FinOps el foco es el gasto operativo (OpEx) de la nube, no la amortización de activos fijos (CapEx).",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Se busca responder con precisión a la pregunta: '¿Qué departamento o proyecto está gastando esto y por qué?'."
+  },
+  {
+    "guid": "2b686054-545b-4507-8513-cfdf2406cc86",
+    "subjectId": "Ambit_3",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "En la gestión tributaria con SAP TRM, el proceso comienza con el registro del contribuyente y finaliza con la recaudación. Entre la determinación de la deuda y el inicio de acciones de cobro por mora, ¿qué secuencia de pasos técnicos describe mejor el flujo estándar?",
+    "answerOptions": [
+      {
+        "text": "Assessment (Liquidación) -> Billing (Emisión de deuda) -> Payment (Pago) -> Clearing (Conciliación).",
+        "rationale": "El Assessment calcula la obligación, Billing la formaliza, y tras el pago, el Clearing compensa la partida abierta en el sistema económico.",
+        "isCorrect": true
+      },
+      {
+        "text": "Dunning (Reclamación) -> Clearing (Conciliación) -> Assessment (Liquidación) -> Return Filing (Declaración).",
+        "rationale": "Esta secuencia es incorrecta ya que el dunning es el final del proceso ante impago y la liquidación debe ser previa.",
+        "isCorrect": false
+      },
+      {
+        "text": "Registration (Alta) -> Payment (Pago) -> Assessment (Liquidación) -> Installment Plan (Fraccionamiento).",
+        "rationale": "No se puede procesar el pago de una deuda que no ha sido previamente liquidada (Assessment).",
+        "isCorrect": false
+      },
+      {
+        "text": "Billing (Facturación) -> Dunning (Reclamación) -> Clearing (Conciliación) -> Return Filing (Declaración).",
+        "rationale": "La declaración (Return Filing) suele ser el desencadenante de la liquidación, no un paso posterior al cobro o reclamación.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considere que primero se calcula el importe, luego se notifica la deuda y finalmente se extingue la partida mediante el cobro."
+  },
+  {
+    "guid": "e1368962-e63b-47fb-8aa0-11f0888198ab",
+    "subjectId": "Ambit_3",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Un Data Lake puede degradarse rápidamente si no se implementan medidas de control adecuadas. En comparación con un entorno gobernado, ¿cuál es la característica que define la transformación de un Data Lake en un 'Data Swamp'?",
+    "answerOptions": [
+      {
+        "text": "La ausencia de metadatos actualizados y de un catálogo de datos que impiden a los usuarios localizar información útil.",
+        "rationale": "Un Data Swamp es un repositorio donde los datos están presentes pero son inaccesibles o ininteligibles por falta de organización y gobernanza.",
+        "isCorrect": true
+      },
+      {
+        "text": "El uso excesivo de formatos de almacenamiento comprimidos que ralentizan las operaciones de lectura en tiempo real.",
+        "rationale": "La compresión es una buena práctica de ingeniería; el problema del swamp es semántico y de organización, no de rendimiento de compresión.",
+        "isCorrect": false
+      },
+      {
+        "text": "La migración de toda la infraestructura de almacenamiento distribuido desde un entorno local hacia una nube pública.",
+        "rationale": "El cambio de ubicación física no convierte un lago en pantano si se mantienen los procesos de gobernanza.",
+        "isCorrect": false
+      },
+      {
+        "text": "El incremento del número de usuarios con permisos de escritura que satura el ancho de banda de la red interna.",
+        "rationale": "La saturación de red es un problema de rendimiento de infraestructura, no una degradación funcional del modelo de datos.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en qué sucede cuando se acumula información sin etiquetas ni descripción de su origen."
+  },
+  {
+    "guid": "eaaeabde-ce67-4e97-9e54-dfd850170a58",
+    "subjectId": "Ambit_3",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "En el despliegue de software, es vital distinguir entre 'Entrega Continua' (Continuous Delivery) y 'Despliegue Continuo' (Continuous Deployment). ¿Cuál es el factor determinante que diferencia ambos procesos en un pipeline de DevOps?",
+    "answerOptions": [
+      {
+        "text": "En Continuous Delivery la promoción a producción requiere una aprobación manual, mientras que en Continuous Deployment es totalmente automática.",
+        "rationale": "Ambos automatizan hasta las pruebas, pero el despliegue automático final a producción solo ocurre en Continuous Deployment.",
+        "isCorrect": true
+      },
+      {
+        "text": "Continuous Delivery se aplica solo a aplicaciones monolíticas y Continuous Deployment es exclusivo de arquitecturas de microservicios.",
+        "rationale": "Ambas prácticas son aplicables a cualquier arquitectura, aunque los microservicios faciliten el despliegue continuo.",
+        "isCorrect": false
+      },
+      {
+        "text": "Continuous Delivery requiere el uso de contenedores Docker y Continuous Deployment puede realizarse sobre máquinas virtuales tradicionales.",
+        "rationale": "La tecnología de empaquetado es independiente del nivel de automatización del flujo de despliegue.",
+        "isCorrect": false
+      },
+      {
+        "text": "Continuous Delivery enfoca sus pruebas en la seguridad y Continuous Deployment se centra exclusivamente en las pruebas de rendimiento.",
+        "rationale": "Ambas prácticas deben integrar todos los tipos de pruebas necesarias para garantizar la calidad antes de la entrega.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "La clave reside en si hay o no un 'botón rojo' pulsado por un humano antes de llegar a los usuarios finales."
+  },
+  {
+    "guid": "991aa8e5-0a0d-40ee-982f-b7b547eaa371",
+    "subjectId": "Ambit_3",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Al gestionar las comunicaciones entre microservicios, se suele distinguir entre las funciones de un 'API Gateway' y un 'Service Mesh'. ¿Cómo se define el ámbito de actuación de cada uno respecto al flujo de tráfico?",
+    "answerOptions": [
+      {
+        "text": "El API Gateway gestiona el tráfico 'Norte-Sur' (externo), mientras que el Service Mesh gestiona el tráfico 'Este-Oeste' (interno).",
+        "rationale": "El Gateway es la puerta de entrada para clientes externos y el Mesh controla la comunicación, seguridad y observabilidad entre los servicios propios.",
+        "isCorrect": true
+      },
+      {
+        "text": "El API Gateway se encarga de la persistencia en base de datos y el Service Mesh de la lógica de negocio de los microservicios.",
+        "rationale": "Ambos son componentes de infraestructura de red y no deben contener lógica de negocio ni gestionar la persistencia directamente.",
+        "isCorrect": false
+      },
+      {
+        "text": "El API Gateway es una solución exclusiva para entornos locales y el Service Mesh se utiliza únicamente en nubes públicas gestionadas.",
+        "rationale": "Ambos componentes son agnósticos a la ubicación del despliegue y se usan comúnmente en Kubernetes tanto local como cloud.",
+        "isCorrect": false
+      },
+      {
+        "text": "El API Gateway utiliza protocolos síncronos como REST y el Service Mesh se basa exclusivamente en mensajería asíncrona por colas.",
+        "rationale": "Un Service Mesh suele gestionar tráfico síncrono (gRPC/HTTP) entre servicios para añadir control y seguridad mTLS.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en la orientación geográfica metafórica del tráfico: entrada al sistema vs. comunicación interna."
+  },
+  {
+    "guid": "52efc34c-25b5-452e-80a0-5811ea7a97f3",
+    "subjectId": "Ambit_3",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "En el ámbito de las pruebas de software, las metodologías TDD (Test Driven Development) y BDD (Behavior Driven Development) proponen enfoques distintos. ¿Cuál es la diferencia principal en su punto de partida?",
+    "answerOptions": [
+      {
+        "text": "TDD parte de pruebas técnicas unitarias antes del código, mientras que BDD se basa en historias de usuario y comportamiento en lenguaje natural.",
+        "rationale": "TDD ayuda al diseño detallado del desarrollador, mientras que BDD facilita la comunicación entre negocio y técnicos usando sintaxis tipo 'Given-When-Then'.",
+        "isCorrect": true
+      },
+      {
+        "text": "TDD se ejecuta solo al final del ciclo de desarrollo y BDD es una técnica de diseño que se realiza antes de la fase de análisis.",
+        "rationale": "Ambas metodologías proponen escribir las pruebas antes o durante el desarrollo, no al final (eso sería testing tradicional).",
+        "isCorrect": false
+      },
+      {
+        "text": "TDD es exclusivo para pruebas de seguridad y BDD se utiliza únicamente para validar la accesibilidad de la interfaz de usuario.",
+        "rationale": "Son enfoques generales de desarrollo que pueden aplicarse a cualquier requisito funcional o no funcional.",
+        "isCorrect": false
+      },
+      {
+        "text": "TDD requiere el uso de herramientas de caja negra y BDD se apoya exclusivamente en el análisis del código de caja blanca.",
+        "rationale": "TDD es típicamente caja blanca (el desarrollador ve el código) y BDD tiende a ser caja negra/gris al enfocarse en comportamiento.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Uno se enfoca en 'cómo' está construido el código y el otro en 'qué' hace el sistema para el usuario."
+  },
+  {
+    "guid": "f909e4fd-f01e-4807-ad26-75fb74c9b6f2",
+    "subjectId": "Ambit_3",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Para una aplicación municipal que requiere el uso intensivo de la cámara para realidad aumentada y ejecución fluida en segundo plano para geofencing, ¿cuál es la comparativa correcta entre una solución Nativa y una PWA?",
+    "answerOptions": [
+      {
+        "text": "La nativa ofrece acceso completo al hardware y mejor rendimiento en background, mientras que la PWA tiene restricciones severas en estos ámbitos.",
+        "rationale": "Las PWA están limitadas por el sandbox del navegador, lo que dificulta el uso de AR de alto rendimiento y tareas persistentes en segundo plano.",
+        "isCorrect": true
+      },
+      {
+        "text": "La PWA garantiza una ejecución más rápida de algoritmos gráficos complejos al no depender de las APIs intermedias del sistema operativo.",
+        "rationale": "Las aplicaciones nativas acceden directamente a las APIs de bajo nivel (Metal/Vulkan), siendo mucho más eficientes para gráficos.",
+        "isCorrect": false
+      },
+      {
+        "text": "La solución nativa permite actualizaciones inmediatas sin pasar por tiendas, mientras que la PWA requiere validación de Apple y Google.",
+        "rationale": "Es exactamente al revés: las PWA se actualizan instantáneamente en el servidor y las nativas dependen de los procesos de revisión de las stores.",
+        "isCorrect": false
+      },
+      {
+        "text": "La PWA es la única opción que permite el funcionamiento fuera de línea mediante el almacenamiento local de archivos binarios ejecutables.",
+        "rationale": "Ambas pueden funcionar offline, pero las nativas almacenan el código localmente por defecto y las PWA usan Service Workers.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considere qué tecnología tiene línea directa con los sensores y el kernel del teléfono móvil."
+  },
+  {
+    "guid": "81663fc8-d585-424a-b986-a9792adbab7e",
+    "subjectId": "Ambit_3",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Dentro de SAP Financials para el Sector Público, el módulo FM (Funds Management) desempeña un rol crítico. ¿Cómo interactúa este módulo con el proceso de compras para asegurar el cumplimiento legal?",
+    "answerOptions": [
+      {
+        "text": "Realiza un control preventivo del presupuesto, bloqueando la creación de pedidos si no existe crédito suficiente en la partida correspondiente.",
+        "rationale": "FM actúa como un filtro de disponibilidad presupuestaria en tiempo real integrado con el flujo logístico de compras (MM).",
+        "isCorrect": true
+      },
+      {
+        "text": "Calcula automáticamente el valor de amortización de los bienes adquiridos una vez que se registra la factura del proveedor.",
+        "rationale": "El cálculo de amortizaciones es responsabilidad del módulo FI-AA (Asset Accounting), no de FM.",
+        "isCorrect": false
+      },
+      {
+        "text": "Genera el fichero de transferencia bancaria (SEPA) de forma independiente a la aprobación del gasto presupuestario.",
+        "rationale": "El pago se gestiona en FI-AP/TRM tras las verificaciones de FM, pero FM no es el motor de pagos SEPA.",
+        "isCorrect": false
+      },
+      {
+        "text": "Modifica las cuentas del libro mayor (FI-GL) sin dejar rastro de auditoría para ajustar el balance al presupuesto aprobado.",
+        "rationale": "SAP garantiza la trazabilidad total; FM genera documentos de control presupuestario que referencian a los asientos de FI, no los manipula secretamente.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Su función principal es evitar que la administración gaste dinero que no tiene consignado."
+  },
+  {
+    "guid": "a152c20c-4759-42fa-a237-0799080cd3d7",
+    "subjectId": "Ambit_3",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "En el entorno SAP HCM, se ofrecen servicios de autoservicio para la plantilla. ¿Cuál es el matiz funcional que separa a ESS (Employee Self-Service) de MSS (Manager Self-Service)?",
+    "answerOptions": [
+      {
+        "text": "ESS permite gestionar datos personales y solicitudes individuales, mientras que MSS añade funciones de aprobación y supervisión de equipos.",
+        "rationale": "MSS es una extensión para responsables que necesitan ver informes de sus subordinados y validar sus peticiones (ej. vacaciones).",
+        "isCorrect": true
+      },
+      {
+        "text": "ESS se utiliza exclusivamente para el fichaje de presencia y MSS se encarga únicamente de la liquidación de impuestos de los empleados.",
+        "rationale": "ESS cubre mucho más que el fichaje (nóminas, datos bancarios) y la liquidación de impuestos es un proceso interno de Payroll (PY).",
+        "isCorrect": false
+      },
+      {
+        "text": "ESS es la interfaz para dispositivos móviles y MSS es el portal accesible solo desde ordenadores dentro de la red corporativa.",
+        "rationale": "Ambos servicios suelen ser accesibles vía web (Fiori/Portal) y son agnósticos al dispositivo según la implementación.",
+        "isCorrect": false
+      },
+      {
+        "text": "ESS requiere una licencia de usuario profesional de SAP y MSS funciona bajo un modelo de acceso gratuito por invitación.",
+        "rationale": "Ambos requieren licenciamiento adecuado de SAP HCM y están integrados en el ecosistema de permisos de la organización.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en quién tiene la potestad de 'autorizar' el permiso de un tercero."
+  },
+  {
+    "guid": "8ec10957-9775-417d-b400-eb9226a7de9b",
+    "subjectId": "Ambit_3",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "La observabilidad es un pilar de las aplicaciones Cloud-Native. ¿Cuál es la función específica y complementaria de los tres pilares de la observabilidad (Logs, Métricas y Trazas)?",
+    "answerOptions": [
+      {
+        "text": "Las métricas detectan anomalías, los logs proporcionan detalles del error y las trazas reconstruyen el camino de la petición entre microserveis.",
+        "rationale": "Juntos permiten entender 'qué' pasa (métricas), 'por qué' pasa (logs) y 'dónde' ocurre en un sistema distribuido (trazas).",
+        "isCorrect": true
+      },
+      {
+        "text": "Los logs sirven para predecir el coste cloud, las métricas para el control de versiones y las trazas para la seguridad perimetral.",
+        "rationale": "Estas funciones no corresponden a los pilares de observabilidad del rendimiento y estado del sistema.",
+        "isCorrect": false
+      },
+      {
+        "text": "Las métricas sustituyen a los logs en sistemas modernos para ahorrar espacio de almacenamiento en el Data Lake.",
+        "rationale": "Son complementarios; las métricas son agregadas y ligeras, pero carecen del detalle específico que contienen los logs.",
+        "isCorrect": false
+      },
+      {
+        "text": "Las trazas eliminan la necesidad de realizar pruebas unitarias al monitorizar el código en tiempo de ejecución en producción.",
+        "rationale": "La observabilidad monitoriza el sistema real, pero no sustituye la validación previa del código mediante pruebas.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Cada pilar responde a una pregunta diferente: ¿Cuándo hubo un pico?, ¿Qué dijo el servidor?, ¿Por qué servicios pasó la orden?"
+  },
+  {
+    "guid": "96ae5357-3b90-4814-86f2-2636f485b9a8",
+    "subjectId": "Ambit_3",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "En el diseño de un modelo Entidad-Relación, ¿en qué circunstancia técnica se debe optar por modelar un concepto como una Entidad Débil en lugar de una Entidad Fuerte?",
+    "answerOptions": [
+      {
+        "text": "Cuando la existencia de la entidad depende de otra y su clave primaria no es suficiente para identificarla de forma única sin la entidad propietaria.",
+        "rationale": "Una entidad débil (ej. 'Incidencia' en un 'Vivienda') requiere de la clave de su entidad fuerte para completar su identidad.",
+        "isCorrect": true
+      },
+      {
+        "text": "Cuando el número total de atributos de la entidad es inferior a tres y no tiene relaciones de tipo muchos-a-muchos.",
+        "rationale": "La debilidad de una entidad se define por su dependencia existencial e identificativa, no por su número de atributos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Cuando los datos de la entidad se actualizan con una frecuencia superior a una vez por segundo en sistemas transaccionales.",
+        "rationale": "La frecuencia de actualización es un requisito de rendimiento, no un criterio de modelado conceptual E-R.",
+        "isCorrect": false
+      },
+      {
+        "text": "Cuando se prevé que la entidad será migrada a un sistema de base de datos NoSQL de tipo clave-valor.",
+        "rationale": "El modelo E-R es conceptual y debe ser independiente de la tecnología de implementación final.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en un registro que no tiene sentido 'solo' y cuya identificación necesita del contexto de su 'padre'."
+  },
+  {
+    "guid": "a34c0581-e660-4964-95bd-33f472d08b23",
+    "subjectId": "Ambit_3",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Se define como el motor económico encargado de gestionar cuentas corrientes de interlocutores comerciales, permitiendo el procesamiento masivo de partidas abiertas, cobros, devoluciones y el escalado de reclamaciones por impago en el sector público.",
+    "answerOptions": [
+      {
+        "text": "PSCD",
+        "rationale": "Public Sector Collection and Disbursement es el motor de SAP que ejecuta la lógica de recaudación y gestión de deuda tras la liquidación tributaria.",
+        "isCorrect": true
+      },
+      {
+        "text": "FI-GL",
+        "rationale": "El General Ledger es el libro mayor para contabilidad financiera general, no para la gestión operativa masiva de tributos.",
+        "isCorrect": false
+      },
+      {
+        "text": "TRM CORE",
+        "rationale": "El núcleo de TRM define la lógica del tributo y el cálculo, pero delega la gestión económica del cobro en PSCD.",
+        "isCorrect": false
+      },
+      {
+        "text": "BPC",
+        "rationale": "Business Planning and Consolidation se utiliza para la planificación y consolidación financiera, no para recaudación operativa.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Sus siglas significan 'Public Sector Collection and Disbursement'."
+  },
+  {
+    "guid": "1b19a6d6-9fcc-46d5-bc7f-34f911ac877e",
+    "subjectId": "Ambit_3",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Se trata de la capa de almacenamiento fundamental en el ecosistema Hadoop, diseñada para ser altamente tolerante a fallos mediante la fragmentación de archivos en bloques y su replicación en múltiples nodos de un clúster de hardware convencional.",
+    "answerOptions": [
+      {
+        "text": "HDFS",
+        "rationale": "Hadoop Distributed File System es el estándar para el almacenamiento distribuido y escalable de grandes volúmenes de datos.",
+        "isCorrect": true
+      },
+      {
+        "text": "YARN",
+        "rationale": "YARN es el negociador de recursos (planificador) de Hadoop, no el sistema de archivos.",
+        "isCorrect": false
+      },
+      {
+        "text": "SPARK",
+        "rationale": "Spark es un motor de procesamiento en memoria, que suele leer datos de HDFS pero no es el sistema de almacenamiento en sí.",
+        "isCorrect": false
+      },
+      {
+        "text": "HBASE",
+        "rationale": "HBase es una base de datos NoSQL columnar que corre 'sobre' HDFS, pero no es el sistema de archivos básico.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en las siglas de 'Hadoop Distributed File System'."
+  },
+  {
+    "guid": "6db101dd-745a-4ca0-95ba-8134070b25c3",
+    "subjectId": "Ambit_3",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Herramienta de análisis estático que permite evaluar la calidad del código fuente, detectando vulnerabilidades de seguridad, errores potenciales y midiendo la deuda técnica mediante el análisis de métricas como la cobertura de pruebas y la complejidad.",
+    "answerOptions": [
+      {
+        "text": "SONARQUBE",
+        "rationale": "Es la plataforma líder para la inspección continua de la calidad del código en los pipelines de CI/CD.",
+        "isCorrect": true
+      },
+      {
+        "text": "JENKINS",
+        "rationale": "Jenkins es un orquestador de CI/CD, pero requiere de herramientas como SonarQube para el análisis de calidad.",
+        "isCorrect": false
+      },
+      {
+        "text": "DOCKER",
+        "rationale": "Docker es una tecnología de contenedores, no una herramienta de análisis de código fuente.",
+        "isCorrect": false
+      },
+      {
+        "text": "GITLAB",
+        "rationale": "GitLab es un gestor de repositorios y CI/CD; aunque incluye escaneos, SonarQube es la herramienta específica de análisis de calidad mencionada.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Ayuda a identificar 'Code Smells' y a mantener la 'limpieza' del desarrollo."
+  },
+  {
+    "guid": "74e62683-451f-4ed6-96d5-8d23e35b69d3",
+    "subjectId": "Ambit_3",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Plataforma de automatización de pruebas de código abierto que permite la creación de scripts para validar el funcionamiento de aplicaciones web en múltiples navegadores, simulando las acciones de un usuario real sobre la interfaz.",
+    "answerOptions": [
+      {
+        "text": "SELENIUM",
+        "rationale": "Es el estándar de la industria para automatizar pruebas funcionales en navegadores web.",
+        "isCorrect": true
+      },
+      {
+        "text": "APPIUM",
+        "rationale": "Appium se orienta a la automatización de aplicaciones móviles (nativas e híbridas), no exclusivamente web.",
+        "isCorrect": false
+      },
+      {
+        "text": "JUNIT",
+        "rationale": "JUnit es un framework para pruebas unitarias en Java, no para pruebas funcionales de interfaz web.",
+        "isCorrect": false
+      },
+      {
+        "text": "JMETER",
+        "rationale": "JMeter se especializa en pruebas de carga y rendimiento, no en la automatización funcional de la interfaz de usuario.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Es fundamental para las pruebas de regresión en portales web y PWAs."
+  },
+  {
+    "guid": "72283c78-871a-4f45-953b-3d523449421c",
+    "subjectId": "Ambit_3",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Sistema de orquestación de contenedores que automatiza el despliegue, el escalado horizontal y la gestión de la disponibilidad de aplicaciones, basándose en un modelo declarativo donde se define el estado deseado del clúster.",
+    "answerOptions": [
+      {
+        "text": "KUBERNETES",
+        "rationale": "Es la plataforma de facto para el despliegue de microservicios, permitiendo la auto-recuperación y el escalado elástico.",
+        "isCorrect": true
+      },
+      {
+        "text": "OPENSHIFT",
+        "rationale": "OpenShift es una distribución de Kubernetes de Red Hat; aunque es válida, Kubernetes es el núcleo tecnológico original.",
+        "isCorrect": false
+      },
+      {
+        "text": "TERRAFORM",
+        "rationale": "Terraform es una herramienta de IaC para provisionar infraestructura, no un orquestador de contenedores en tiempo de ejecución.",
+        "isCorrect": false
+      },
+      {
+        "text": "ANSIBLE",
+        "rationale": "Ansible es una herramienta de configuración y automatización basada en SSH, no un orquestador de contenedores nativo.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "A menudo se abrevia como 'K8s'."
+  },
+  {
+    "guid": "d1c66fe6-4065-4429-8c3f-66f5819b22d2",
+    "subjectId": "Ambit_3",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Herramienta de Infraestructura como Código (IaC) que permite definir recursos de nube y locales mediante un lenguaje declarativo, permitiendo la creación, cambio y mejora de la infraestructura de forma segura y predecible.",
+    "answerOptions": [
+      {
+        "text": "TERRAFORM",
+        "rationale": "Permite gestionar la infraestructura mediante archivos de configuración que pueden ser versionados y compartidos.",
+        "isCorrect": true
+      },
+      {
+        "text": "ANSIBLE",
+        "rationale": "Ansible se enfoca más en la configuración de software y gestión de nodos que en el provisionamiento de infraestructura de nube pura.",
+        "isCorrect": false
+      },
+      {
+        "text": "HELM",
+        "rationale": "Helm es un gestor de paquetes para Kubernetes, no una herramienta general de provisionamiento de infraestructura cloud.",
+        "isCorrect": false
+      },
+      {
+        "text": "PUPPET",
+        "rationale": "Puppet es una herramienta de gestión de configuración, similar a Ansible, pero no es la líder actual en provisionamiento multi-cloud.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Es conocida por su capacidad de gestionar múltiples proveedores de nube (multi-cloud) con un solo flujo de trabajo."
+  },
+  {
+    "guid": "a036534e-213e-4dbe-89ec-c0b146b92a20",
+    "subjectId": "Ambit_3",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Componente de red para microservicios que proporciona una capa de infraestructura dedicada para gestionar la comunicación entre servicios, ofreciendo capacidades de seguridad mTLS, observabilidad y control de tráfico sin modificar el código de la aplicación.",
+    "answerOptions": [
+      {
+        "text": "ISTIO",
+        "rationale": "Es la implementación más popular de Service Mesh, que utiliza proxies (sidecars) para interceptar el tráfico entre servicios.",
+        "isCorrect": true
+      },
+      {
+        "text": "KONG",
+        "rationale": "Kong es principalmente un API Gateway para tráfico externo, aunque tiene capacidades de mesh, Istio es el referente puro.",
+        "isCorrect": false
+      },
+      {
+        "text": "NGINX",
+        "rationale": "Nginx es un servidor web y proxy inverso; aunque puede actuar como ingress, no es un Service Mesh completo por sí mismo.",
+        "isCorrect": false
+      },
+      {
+        "text": "TRAEFIK",
+        "rationale": "Traefik es un moderno proxy inverso y balanceador de carga, muy usado como Ingress Controller, pero no es un Mesh dedicado.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Utiliza el patrón 'Sidecar' para inyectar su funcionalidad en los Pods de Kubernetes."
+  },
+  {
+    "guid": "2c5e5a6d-4023-4206-90b8-12976eed6bcd",
+    "subjectId": "Ambit_3",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Plataforma integral de SAP diseñada para la monitorización, gestión de operaciones, soporte técnico y administración del ciclo de vida de las aplicaciones dentro de un paisaje tecnológico SAP complejo.",
+    "answerOptions": [
+      {
+        "text": "SOLUTION MANAGER",
+        "rationale": "Es la herramienta central de administración (ALM) para asegurar el correcto funcionamiento de todos los componentes de SAP.",
+        "isCorrect": true
+      },
+      {
+        "text": "NETWEAVER",
+        "rationale": "NetWeaver es la plataforma tecnológica de integración y aplicación sobre la que corren muchos sistemas SAP, no una herramienta de gestión.",
+        "isCorrect": false
+      },
+      {
+        "text": "FIORI",
+        "rationale": "Fiori es el lenguaje de diseño y la interfaz de usuario moderna de SAP, no una herramienta de administración técnica.",
+        "isCorrect": false
+      },
+      {
+        "text": "BASIS",
+        "rationale": "Basis es el nombre del área técnica de administración de sistemas SAP, pero no es el nombre de la herramienta de gestión de ciclo de vida.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Se le conoce comúnmente por su abreviatura 'SolMan'."
+  },
+  {
+    "guid": "28ca4320-5f90-42b7-935f-9235351dc8bd",
+    "subjectId": "Ambit_3",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Tecnología de procesamiento de flujo distribuido diseñada para la ingesta de datos en tiempo real, que funciona mediante un modelo de publicación/suscripción basado en un log de eventos persistente y escalable.",
+    "answerOptions": [
+      {
+        "text": "KAFKA",
+        "rationale": "Apache Kafka es el estándar para pipelines de datos en tiempo real y streaming de eventos a gran escala.",
+        "isCorrect": true
+      },
+      {
+        "text": "FLUME",
+        "rationale": "Flume es una herramienta de recolección de logs antigua, con menor flexibilidad y escalabilidad que Kafka.",
+        "isCorrect": false
+      },
+      {
+        "text": "SPARK STREAMING",
+        "rationale": "Spark Streaming es un motor de procesamiento de flujos que suele consumir de Kafka, pero no es la plataforma de mensajería en sí.",
+        "isCorrect": false
+      },
+      {
+        "text": "SQOOP",
+        "rationale": "Sqoop es una herramienta para transferir datos entre Hadoop y bases de datos relacionales, no para streaming en tiempo real.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Permite desacoplar a los productores de datos de los consumidores mediante 'topics'."
+  },
+  {
+    "guid": "a1979e48-3e1f-4e6d-aa9a-02f4d40aba60",
+    "subjectId": "Ambit_3",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Patrón arquitectónico en soluciones de Blockchain que consiste en almacenar los archivos pesados o datos privados en bases de datos externas (SQL/NoSQL) mientras que solo se persiste el resumen criptográfico (hash) en la cadena de bloques.",
+    "answerOptions": [
+      {
+        "text": "OFF-CHAIN STORAGE",
+        "rationale": "Optimiza el rendimiento de la cadena y cumple con la privacidad al no saturar el registro inmutable con datos voluminosos o sensibles.",
+        "isCorrect": true
+      },
+      {
+        "text": "SIDECHAIN",
+        "rationale": "Una sidechain es una cadena de bloques paralela, no una base de datos externa convencional para almacenamiento masivo.",
+        "isCorrect": false
+      },
+      {
+        "text": "SMART CONTRACT",
+        "rationale": "Es código ejecutable dentro de la cadena, no una técnica de almacenamiento externo.",
+        "isCorrect": false
+      },
+      {
+        "text": "SHARDING",
+        "rationale": "El sharding es una técnica de particionamiento de la propia base de datos blockchain para escalabilidad, no almacenamiento externo.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Es vital para cumplir el RGPD (derecho al olvido) en sistemas de registro inmutable."
+  },
+  {
+    "guid": "db631ea1-8394-4983-8606-eba90bd64115",
+    "subjectId": "Ambit_3",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Respecto a las plataformas de desarrollo Low-code y No-code, señale la afirmación FALSA:",
+    "answerOptions": [
+      {
+        "text": "Las herramientas No-code están diseñadas exclusivamente para que los ingenieros de software senior aceleren la escritura de código complejo.",
+        "rationale": "El No-code se orienta a perfiles de negocio o 'citizen developers' para que creen soluciones sin conocimientos de programación.",
+        "isCorrect": true
+      },
+      {
+        "text": "El Low-code permite la inserción de código personalizado para extender las funcionalidades más allá de los componentes visuales predefinidos.",
+        "rationale": "Esta es una característica verídica que distingue al Low-code del No-code.",
+        "isCorrect": false
+      },
+      {
+        "text": "Uno de los riesgos de estas plataformas es el 'vendor lock-in', que dificulta la migración de la aplicación a otro proveedor o tecnología.",
+        "rationale": "Es una afirmación correcta debido a que estas plataformas suelen usar motores de ejecución propietarios.",
+        "isCorrect": false
+      },
+      {
+        "text": "Estas herramientas fomentan la agilidad al permitir la creación rápida de prototipos funcionales y pruebas de concepto (PoC).",
+        "rationale": "Es una de las principales ventajas reconocidas en el material de origen.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en quién es el 'público objetivo' de una herramienta que promete 'no escribir código'."
+  },
+  {
+    "guid": "9b39cb11-f937-424c-b584-0f8a84762c6d",
+    "subjectId": "Ambit_3",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "En relación con las aplicaciones móviles en el sector público, identifique la opción FALSA:",
+    "answerOptions": [
+      {
+        "text": "Las Progressive Web Apps (PWA) deben ser publicadas obligatoriamente en la App Store para poder enviar notificaciones push en iOS.",
+        "rationale": "Las PWA se instalan vía navegador y, desde iOS 16.4, pueden recibir notificaciones push sin estar en la App Store (aunque con requisitos).",
+        "isCorrect": true
+      },
+      {
+        "text": "Las aplicaciones nativas suelen ofrecer un rendimiento superior en animaciones complejas y acceso total a las APIs del hardware.",
+        "rationale": "Es una afirmación correcta y una de las razones para elegir desarrollo nativo.",
+        "isCorrect": false
+      },
+      {
+        "text": "El desarrollo multiplataforma (Cross-platform) permite compartir una gran parte de la base de código entre Android e iOS.",
+        "rationale": "Es la definición correcta de frameworks como Flutter o React Native.",
+        "isCorrect": false
+      },
+      {
+        "text": "La accesibilidad en aplicaciones móviles del sector público español está regulada por la norma EN 301 549 y el RD 1112/2018.",
+        "rationale": "Es el marco legal y técnico vigente para la accesibilidad digital en España.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Recuerde las novedades recientes de Apple respecto a las notificaciones web en Safari."
+  },
+  {
+    "guid": "fc3d1f3d-0b49-4eca-96fc-5bf55775403e",
+    "subjectId": "Ambit_3",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Sobre el submódulo SAP HCM Payroll (PY), señale cuál de las siguientes afirmaciones es FALSA:",
+    "answerOptions": [
+      {
+        "text": "El motor de nómina PY se encarga de realizar el inventario físico y la valoración patrimonial de los edificios municipales.",
+        "rationale": "Esa función corresponde a la contabilidad de activos fijos (FI-AA), no al cálculo de nóminas de personal.",
+        "isCorrect": true
+      },
+      {
+        "text": "SAP PY integra automáticamente los resultados del cálculo con el módulo de contabilidad financiera (FI) mediante asientos contables.",
+        "rationale": "Es una función verídica y esencial de la integración financiera de SAP.",
+        "isCorrect": false
+      },
+      {
+        "text": "El cálculo de la nómina toma como entrada los datos maestros de personal (PA) y los registros de tiempos y ausencias (PT).",
+        "rationale": "Es el flujo correcto de datos dentro del módulo HCM.",
+        "isCorrect": false
+      },
+      {
+        "text": "SAP PY permite la adaptación a la legislación local para el cálculo de retenciones de IRPF y cuotas de la Seguridad Social.",
+        "rationale": "SAP proporciona localizaciones específicas para cumplir con la normativa fiscal de cada país.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Diferencie entre la gestión de personas (nómina) y la gestión de inmuebles (patrimonio)."
+  },
+  {
+    "guid": "fe5a5214-8378-448d-a63a-3d0edae4240c",
+    "subjectId": "Ambit_3",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Respecto a las relaciones en el modelo Entidad-Relación, señale la opción FALSA:",
+    "answerOptions": [
+      {
+        "text": "Una relación muchos-a-muchos (N:M) se implementa directamente en el modelo físico relacional mediante una clave foránea en una de las dos tablas originales.",
+        "rationale": "Las relaciones N:M requieren una tabla intermedia (de unión) para su implementación en el modelo relacional.",
+        "isCorrect": true
+      },
+      {
+        "text": "La cardinalidad (1,1) indica que una entidad debe participar obligatoriamente y exactamente una vez en la relación.",
+        "rationale": "Es la definición técnica correcta de una restricción de participación total y unitaria.",
+        "isCorrect": false
+      },
+      {
+        "text": "Las relaciones pueden tener atributos propios que no pertenecen de forma exclusiva a ninguna de las entidades participantes.",
+        "rationale": "Es una característica válida del modelo de Chen, especialmente útil en relaciones N:M (ej: fecha de inicio).",
+        "isCorrect": false
+      },
+      {
+        "text": "Una relación recursiva es aquella donde una entidad se relaciona consigo misma desempeñando distintos roles.",
+        "rationale": "Es la definición correcta, común en estructuras jerárquicas (ej: un empleado supervisa a otros).",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en cómo se resuelve la relación 'Muchos Alumnos' se inscriben en 'Muchos Cursos' en una base de datos real."
+  },
+  {
+    "guid": "a356632d-dd04-4fe7-83c6-b256d77e285d",
+    "subjectId": "Ambit_3",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "En el marco de FinOps y la gestión cloud, señale la afirmación FALSA:",
+    "answerOptions": [
+      {
+        "text": "FinOps es una metodología puramente técnica que debe ser ejecutada de forma aislada por los administradores de sistemas sin intervención de finanzas.",
+        "rationale": "FinOps es cultural y requiere la colaboración de equipos técnicos, financieros y de negocio para optimizar el valor de la nube.",
+        "isCorrect": true
+      },
+      {
+        "text": "El objetivo de FinOps no es necesariamente pagar menos, sino obtener el máximo valor de negocio por cada euro invertido en la nube.",
+        "rationale": "Es el mantra principal de la metodología FinOps.",
+        "isCorrect": false
+      },
+      {
+        "text": "La fase de 'Inform' en FinOps busca dar visibilidad sobre el gasto y permitir la asignación de costes a las unidades de negocio.",
+        "rationale": "Es la primera etapa del ciclo de vida de FinOps (Inform, Optimize, Operate).",
+        "isCorrect": false
+      },
+      {
+        "text": "El uso de instancias reservadas o planes de ahorro es una técnica común de optimización de costes en la fase 'Optimize'.",
+        "rationale": "Es una práctica verídica para reducir el coste unitario de los recursos cloud.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considere si el control del gasto es un problema de un solo departamento o una responsabilidad compartida."
+  }
+]
