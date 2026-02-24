@@ -1,0 +1,622 @@
+[
+  {
+    "guid": "79353d56-86ae-4e35-9526-a7092641b36f",
+    "subjectId": "T43",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Cuál de las siguientes afirmaciones sobre las características fundamentales de las aplicaciones cloud-native es FALSA?",
+    "answerOptions": [
+      {
+        "text": "La resiliencia implica que el sistema debe estar diseñado para tolerar fallos parciales sin impacto técnico para el usuario.",
+        "rationale": "La resiliencia es una capacidad crítica que permite la autorrecuperación y la continuidad del servicio ante errores locales.",
+        "isCorrect": false
+      },
+      {
+        "text": "El desacoplamiento busca construir sistemas altamente interdependientes para asegurar que los cambios se propaguen rápidamente.",
+        "rationale": "El objetivo del desarrollo cloud-native es precisamente lo contrario: el 'loose coupling' o bajo acoplamiento para que los componentes sean autónomos e independientes.",
+        "isCorrect": true
+      },
+      {
+        "text": "La escalabilidad vertical consiste en añadir más recursos como CPU o RAM a una instancia ya existente.",
+        "rationale": "A diferencia de la horizontal, la escalabilidad vertical se centra en mejorar las capacidades de una única máquina o nodo.",
+        "isCorrect": false
+      },
+      {
+        "text": "La observabilidad permite conocer el estado interno del sistema a través de logs, métricas y trazas distribuidas.",
+        "rationale": "Estos tres elementos forman la tríada de la observabilidad, necesaria para diagnosticar problemas en sistemas distribuidos.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Recuerda que la tendencia moderna es evitar que un fallo en un componente afecte obligatoriamente a todos los demás."
+  },
+  {
+    "guid": "299837b0-f827-4aaa-81ac-466338dadef7",
+    "subjectId": "T43",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Sobre la arquitectura de microservicios, señale la opción FALSA:",
+    "answerOptions": [
+      {
+        "text": "Permite el desarrollo políglota, donde cada equipo puede elegir la tecnología que mejor se adapte a su servicio.",
+        "rationale": "Esta es una de las grandes ventajas, permitiendo usar diferentes lenguajes o bases de datos según la necesidad funcional.",
+        "isCorrect": false
+      },
+      {
+        "text": "El aislamiento de errores garantiza que una falla en un microservicio no colapse necesariamente toda la aplicación.",
+        "rationale": "Mediante patrones como el 'circuit breaker', se evita que los fallos se propaguen en cascada por todo el sistema.",
+        "isCorrect": false
+      },
+      {
+        "text": "La gestión de la consistencia de datos entre servicios es más sencilla que en una arquitectura monolítica con base de datos única.",
+        "rationale": "Al tener cada servicio su propia base de datos, asegurar la consistencia distribuida es uno de los mayores retos técnicos de los microservicios.",
+        "isCorrect": true
+      },
+      {
+        "text": "Cada microservicio debe ser una unidad funcional independiente que se pueda desplegar de forma desacoplada.",
+        "rationale": "La independencia en el despliegue es una característica central para permitir iteraciones rápidas sin afectar al resto.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Pensa en el desafío que supone que la información esté repartida en múltiples lugares en lugar de un solo sitio centralizado."
+  },
+  {
+    "guid": "575ff1ce-c9d4-417c-aa08-47694b9cd499",
+    "subjectId": "T43",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En relación con el uso de contenedores, ¿cuál de las siguientes afirmaciones es FALSA?",
+    "answerOptions": [
+      {
+        "text": "A diferencia de las máquinas virtuales, los contenedores comparten el kernel del sistema operativo host.",
+        "rationale": "Esta característica los hace mucho más ligeros y rápidos de arrancar que una máquina virtual completa.",
+        "isCorrect": false
+      },
+      {
+        "text": "Docker utiliza un motor de ejecución a bajo nivel llamado containerd para gestionar el ciclo de vida de los contenedores.",
+        "rationale": "Containerd es el estándar de la industria que Docker utiliza internamente para las operaciones de ejecución.",
+        "isCorrect": false
+      },
+      {
+        "text": "La portabilidad de los contenedores asegura que el software se comporte exactamente igual en desarrollo que en producción.",
+        "rationale": "Al incluir todas las dependencias y librerías en la imagen, se eliminan las discrepancias entre entornos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Un contenedor es una máquina virtual ligera que incluye su propio kernel dedicado para garantizar el aislamiento total.",
+        "rationale": "Los contenedores NO incluyen su propio kernel; utilizan el del host, lo cual es la diferencia técnica fundamental con las máquinas virtuales.",
+        "isCorrect": true
+      }
+    ],
+    "hint": "Considera qué parte del sistema operativo se comparte para ahorrar recursos y qué parte se empaqueta."
+  },
+  {
+    "guid": "07f38ce9-aa8c-4c73-8cf6-c3b899d7f02f",
+    "subjectId": "T43",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Sobre la arquitectura Serverless (FaaS), indique la afirmación FALSA:",
+    "answerOptions": [
+      {
+        "text": "El desarrollador es responsable de gestionar el aprovisionamiento y mantenimiento de los servidores físicos o virtuales.",
+        "rationale": "En serverless, la infraestructura está completamente abstraída y es responsabilidad total del proveedor de nube.",
+        "isCorrect": true
+      },
+      {
+        "text": "Permite un modelo de pago por uso real, donde si una función no se ejecuta, el coste es cero.",
+        "rationale": "Es una ventaja económica clave, ya que se paga por el tiempo de ejecución efectivo y no por mantener recursos inactivos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Uno de los retos principales es la latencia de arranque o 'cold start' de funciones que llevan tiempo inactivas.",
+        "rationale": "Cuando una función no está en memoria, la plataforma tarda un tiempo adicional en instanciarla para responder a la primera petición.",
+        "isCorrect": false
+      },
+      {
+        "text": "Las funciones se invocan mediante eventos, como peticiones HTTP, mensajes en colas o cambios en bases de datos.",
+        "rationale": "El modelo de ejecución de funciones serverless es reactivo y se basa estrictamente en desencadenadores o 'triggers'.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "El término 'sin servidor' se refiere a quién se encarga de la administración de la máquina donde corre el código."
+  },
+  {
+    "guid": "271b6ad5-e6af-4ce5-9d72-4deff148df7e",
+    "subjectId": "T43",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Respecto a las estrategias de despliegue en Kubernetes, señale la afirmación FALSA:",
+    "answerOptions": [
+      {
+        "text": "Un 'Rolling Update' consiste en reemplazar gradualmente las instancias antiguas por nuevas hasta completar la actualización.",
+        "rationale": "Es el método por defecto que asegura que siempre haya instancias disponibles durante el proceso de cambio de versión.",
+        "isCorrect": false
+      },
+      {
+        "text": "Un 'Canary Release' despliega la nueva versión para todos los usuarios simultáneamente, permitiendo un rollback rápido si falla.",
+        "rationale": "El 'Canary Release' solo despliega la versión a una pequeña muestra de usuarios inicialmente; el despliegue total simultáneo es más propio de otras estrategias como Blue-Green.",
+        "isCorrect": true
+      },
+      {
+        "text": "El modelo declarativo de Kubernetes utiliza manifiestos YAML para definir el estado deseado del clúster.",
+        "rationale": "Kubernetes trabaja para reconciliar constantemente el estado actual con el estado definido en los ficheros YAML.",
+        "isCorrect": false
+      },
+      {
+        "text": "El Horizontal Pod Autoscaler permite ajustar el número de réplicas de una aplicación basándose en métricas como el uso de CPU.",
+        "rationale": "Es el mecanismo nativo de Kubernetes para implementar la elasticidad horizontal de forma automática.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piensa en el ave que se usaba en las minas para detectar peligros antes de que afectaran a todos los mineros."
+  },
+  {
+    "guid": "d49dca19-6e42-43c0-b03d-a73423b44cb1",
+    "subjectId": "T43",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En el contexto de la observabilidad, ¿qué afirmación es FALSA?",
+    "answerOptions": [
+      {
+        "text": "Las trazas distribuidas permiten seguir el recorrido de una petición a través de múltiples microservicios.",
+        "rationale": "El tracing es vital para identificar cuellos de botella y latencias en arquitecturas donde intervienen muchos componentes.",
+        "isCorrect": false
+      },
+      {
+        "text": "La tríada de la observabilidad está compuesta por logs, métricas y el código fuente de la aplicación.",
+        "rationale": "La tríada se compone de logs, métricas y trazas (tracing); el código fuente no es uno de los tres pilares de la telemetría externa.",
+        "isCorrect": true
+      },
+      {
+        "text": "Prometheus es una herramienta estándar en Kubernetes para la recolección de métricas en tiempo real.",
+        "rationale": "Es la solución de monitorización más extendida en el ecosistema cloud-native para gestionar datos de series temporales.",
+        "isCorrect": false
+      },
+      {
+        "text": "La agregación de logs centraliza los registros de todos los componentes para facilitar la correlación de eventos.",
+        "rationale": "Sin centralización, sería imposible depurar un error que afecta a varios servicios con instancias dinámicas.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "La observabilidad se basa en los datos que el sistema 'emite' hacia el exterior para ser analizados."
+  },
+  {
+    "guid": "870b4e21-dc3e-4305-ab3d-e598103ac48d",
+    "subjectId": "T43",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Sobre los frameworks cloud-native como Quarkus o Micronaut, señale la opción FALSA:",
+    "answerOptions": [
+      {
+        "text": "Quarkus está optimizado para GraalVM y ofrece tiempos de arranque extremadamente reducidos.",
+        "rationale": "Su diseño 'container-first' busca minimizar el consumo de memoria y maximizar la velocidad de inicio.",
+        "isCorrect": false
+      },
+      {
+        "text": "Micronaut elimina el uso de reflexión en tiempo de ejecución para mejorar el rendimiento en entornos limitados.",
+        "rationale": "Al realizar la inyección de dependencias en tiempo de compilación, evita la sobrecarga de memoria habitual en otros frameworks.",
+        "isCorrect": false
+      },
+      {
+        "text": "Estos frameworks están diseñados específicamente para aplicaciones monolíticas de gran tamaño que no requieren contenedores.",
+        "rationale": "Todo lo contrario: están optimizados para microservicios, contenedores y entornos serverless donde la eficiencia es crítica.",
+        "isCorrect": true
+      },
+      {
+        "text": "Eclipse Vert.x es un toolkit reactivo ideal para aplicaciones que necesitan gestionar muchas conexiones concurrentes de forma asíncrona.",
+        "rationale": "Su modelo de programación no bloqueante lo hace extremadamente eficiente para sistemas de alto rendimiento.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Analiza si estos nuevos frameworks buscan la pesadez de los sistemas antiguos o la ligereza de los entornos modernos."
+  },
+  {
+    "guid": "9349fa73-10e0-4475-9741-98dad88ef15d",
+    "subjectId": "T43",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Cuál de las siguientes afirmaciones sobre Service Mesh (Malla de Servicios) es FALSA?",
+    "answerOptions": [
+      {
+        "text": "Istio y Linkerd son herramientas populares para gestionar la comunicación entre microservicios.",
+        "rationale": "Son las implementaciones de referencia más utilizadas para proporcionar control y seguridad en la red del clúster.",
+        "isCorrect": false
+      },
+      {
+        "text": "Una de sus funciones principales es gestionar la seguridad mediante mTLS (TLS mutuo) de forma automática entre servicios.",
+        "rationale": "El service mesh abstrae la encriptación de la comunicación para que los desarrolladores no tengan que programarla manualmente.",
+        "isCorrect": false
+      },
+      {
+        "text": "El Service Mesh sustituye completamente la necesidad de utilizar un orquestador como Kubernetes.",
+        "rationale": "El service mesh corre SOBRE el orquestador; Kubernetes gestiona el ciclo de vida de los contenedores, mientras el mesh gestiona su comunicación.",
+        "isCorrect": true
+      },
+      {
+        "text": "Utiliza proxies sidecar para interceptar el tráfico de red sin modificar el código de la aplicación principal.",
+        "rationale": "Este patrón permite añadir observabilidad y control de tráfico de manera transparente al microservicio.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Diferencia entre quién gestiona 'dónde' corren los procesos y quién gestiona 'cómo' hablan entre ellos."
+  },
+  {
+    "guid": "121455c1-61c4-4fbb-95d6-db816b6fa1d1",
+    "subjectId": "T43",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Sobre el patrón de diseño Sidecar, indique la afirmación FALSA:",
+    "answerOptions": [
+      {
+        "text": "El contenedor sidecar comparte la misma red y sistema de archivos que el contenedor principal dentro de un pod.",
+        "rationale": "Esta cercanía es lo que permite que el sidecar ayude al principal en tareas de red o gestión de logs de forma eficiente.",
+        "isCorrect": false
+      },
+      {
+        "text": "Se despliega y escala de manera independiente al contenedor principal para ahorrar recursos cuando no se necesita.",
+        "rationale": "Un sidecar siempre se despliega y escala JUNTO al contenedor principal, ya que forman parte de la misma unidad lógica (Pod).",
+        "isCorrect": true
+      },
+      {
+        "text": "Permite añadir funcionalidades extra como logging, proxies o gestión de secretos sin alterar el código del microservicio.",
+        "rationale": "Es la base del principio de separación de responsabilidades en el despliegue de infraestructuras modernas.",
+        "isCorrect": false
+      },
+      {
+        "text": "Un ejemplo típico es el uso de Fluentd para recoger logs del microservicio y enviarlos a un sistema centralizado.",
+        "rationale": "Es uno de los casos de uso más comunes para desacoplar la lógica de negocio de la lógica de operaciones.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Recuerda la analogía de la moto con el sidecar: ¿pueden ir por carreteras diferentes?"
+  },
+  {
+    "guid": "2365be58-af47-46b0-a283-0143a1a9db75",
+    "subjectId": "T43",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En relación con la metodología 'Twelve-Factor App', señale la opción FALSA:",
+    "answerOptions": [
+      {
+        "text": "Busca que las aplicaciones sean portables entre diferentes proveedores de nube para evitar el 'vendor lock-in'.",
+        "rationale": "La portabilidad es un pilar que facilita el movimiento de cargas de trabajo sin rediseñar la aplicación.",
+        "isCorrect": false
+      },
+      {
+        "text": "Recomienda que la configuración de la aplicación (como credenciales de BD) se guarde directamente dentro del código fuente.",
+        "rationale": "El factor III indica estrictamente que la configuración debe almacenarse en el entorno (variables de entorno), nunca en el código.",
+        "isCorrect": true
+      },
+      {
+        "text": "Fomenta la paridad entre los entornos de desarrollo, preproducción y producción para reducir errores de despliegue.",
+        "rationale": "Minimizar las diferencias entre entornos es clave para que los tests sean fiables antes de llegar a producción.",
+        "isCorrect": false
+      },
+      {
+        "text": "Promueve que los procesos de la aplicación sean 'stateless' (sin estado) para facilitar la escalabilidad horitzontal.",
+        "rationale": "Si los procesos no guardan estado interno, cualquier instancia puede atender cualquier petición, permitiendo replicación infinita.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piensa en la seguridad y en qué pasaría si subieras tus contraseñas de base de datos a un repositorio público de Git."
+  },
+  {
+    "guid": "859455a0-fa4c-4926-9ec5-7b4d5123f301",
+    "subjectId": "T43",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Sobre el modelo GitOps, indique qué afirmación es FALSA:",
+    "answerOptions": [
+      {
+        "text": "El repositorio Git actúa como la 'fuente única de verdad' para el estado deseado de la infraestructura.",
+        "rationale": "Cualquier cambio en el sistema debe pasar primero por un commit en Git, asegurando trazabilidad y auditoría.",
+        "isCorrect": false
+      },
+      {
+        "text": "Las herramientas como ArgoCD monitorizan el clúster y aplican automáticamente los cambios detectados en el repositorio.",
+        "rationale": "Este mecanismo de 'reconciliación' asegura que el estado real siempre converja hacia el estado declarado en Git.",
+        "isCorrect": false
+      },
+      {
+        "text": "Permite realizar despliegues directos mediante comandos interactivos en la consola del servidor de producción.",
+        "rationale": "GitOps prohíbe los cambios manuales directos; todo debe ser declarativo y gestionado a través de flujos de trabajo de Git.",
+        "isCorrect": true
+      },
+      {
+        "text": "Facilita la recuperación ante desastres, ya que la configuración completa del sistema está versionada y puede replicarse.",
+        "rationale": "Si un clúster se pierde, basta con apuntar la herramienta GitOps al repositorio para reconstruir todo el entorno.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "GitOps trata las operaciones como si fueran desarrollo de software, evitando las 'manos' humanas en los servidores."
+  },
+  {
+    "guid": "458d578e-a94a-4ae0-aab9-bbfb9df5f62c",
+    "subjectId": "T43",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Respecto a la Infraestructura como Código (IaC), señale la afirmación FALSA:",
+    "answerOptions": [
+      {
+        "text": "Herramientas como Terraform permiten definir recursos (servidores, redes) de forma declarativa.",
+        "rationale": "Terraform es el estándar para gestionar infraestructura en múltiples nubes usando código versionable.",
+        "isCorrect": false
+      },
+      {
+        "text": "La IaC garantiza que la configuración de la infraestructura sea reproducible y libre de errores humanos manuales.",
+        "rationale": "Al eliminar la configuración manual por interfaz gráfica, se asegura la consistencia en cada despliegue.",
+        "isCorrect": false
+      },
+      {
+        "text": "La infraestructura se trata de la misma manera que el código de la aplicación, incluyendo el control de versiones.",
+        "rationale": "Esto permite aplicar las mejores prácticas de software (code reviews, tests) a la gestión de servidores.",
+        "isCorrect": false
+      },
+      {
+        "text": "Ansible es una herramienta que requiere la instalación obligatoria de agentes en todos los servidores para poder gestionarlos.",
+        "rationale": "Ansible destaca precisamente por ser 'agentless' (sin agentes), comunicándose habitualmente a través de SSH.",
+        "isCorrect": true
+      }
+    ],
+    "hint": "Considera cómo se comunica una de estas herramientas con los servidores remotos para configurarlos."
+  },
+  {
+    "guid": "89061c57-d474-4396-b3fe-5b26296e06fe",
+    "subjectId": "T43",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Cuál de las siguientes afirmaciones sobre SOA (Arquitectura Orientada a Servicios) es FALSA?",
+    "answerOptions": [
+      {
+        "text": "El ESB (Enterprise Service Bus) es un componente central encargado de la orquestación y transformación de mensajes.",
+        "rationale": "En SOA, el bus de servicios centraliza la inteligencia de la comunicación entre los distintos sistemas.",
+        "isCorrect": false
+      },
+      {
+        "text": "SOA fomenta el uso de servicios con una granularidad muy fina, idéntica a la de los microservicios modernos.",
+        "rationale": "SOA suele trabajar con servicios de grano grueso (coarse-grained) que exponen funciones de negocio amplias, a diferencia de la extrema granularidad de los microservicios.",
+        "isCorrect": true
+      },
+      {
+        "text": "Un contrato de servicio (como un WSDL) define el acuerdo formal entre el proveedor y el consumidor del servicio.",
+        "rationale": "Los contratos aseguran que ambas partes sepan exactamente qué datos se intercambian y bajo qué protocolo.",
+        "isCorrect": false
+      },
+      {
+        "text": "SOA permite la reutilización de lógica de negocio compartida entre diferentes aplicaciones de la organización.",
+        "rationale": "Es uno de sus objetivos principales: evitar duplicar funciones creando servicios que sirvan a múltiples consumidores.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Compara el tamaño y la responsabilidad de un servicio en un banco tradicional frente a un microservicio de una startup tecnológica."
+  },
+  {
+    "guid": "4b914228-ffda-486f-a436-3798da9b7a23",
+    "subjectId": "T43",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Sobre los protocolos SOAP y REST, señale la opción FALSA:",
+    "answerOptions": [
+      {
+        "text": "SOAP es un protocolo basado estrictamente en el formato XML para el envío de mensajes.",
+        "rationale": "A diferencia de REST, SOAP tiene una estructura de sobre (envelope) muy definida y obligatoriamente en XML.",
+        "isCorrect": false
+      },
+      {
+        "text": "REST es un estilo arquitectónico que aprovecha los verbos nativos de HTTP como GET, POST, PUT y DELETE.",
+        "rationale": "REST utiliza la semántica del protocolo HTTP para realizar operaciones sobre recursos identificados por URIs.",
+        "isCorrect": false
+      },
+      {
+        "text": "SOAP es generalmente más ligero y rápido que REST debido a su uso nativo del formato JSON.",
+        "rationale": "Es falso: SOAP es más 'pesado' por su verbosidad XML, y JSON es el formato estándar de REST, no de SOAP.",
+        "isCorrect": true
+      },
+      {
+        "text": "WSDL es el lenguaje utilizado para describir técnicamente los servicios web basados en SOAP.",
+        "rationale": "Proporciona la definición formal de los métodos, parámetros y puntos de acceso del servicio SOAP.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Recuerda cuál de los dos es un 'protocolo' formal y cuál es un 'estilo' más flexible y ligero."
+  },
+  {
+    "guid": "b9f24dd4-2d3d-4f5b-a879-c088b1301afd",
+    "subjectId": "T43",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En el ámbito de la seguridad y gestión de APIs, ¿qué afirmación es FALSA?",
+    "answerOptions": [
+      {
+        "text": "OAuth2 es un estándar diseñado para permitir que una aplicación acceda a recursos en nombre de un usuario sin compartir su contraseña.",
+        "rationale": "Es el marco de autorización más utilizado para delegar acceso de forma segura en aplicaciones web y móviles.",
+        "isCorrect": false
+      },
+      {
+        "text": "El API Manager permite controlar el acceso, monitorizar estadísticas de uso y aplicar políticas de seguridad sobre los servicios.",
+        "rationale": "Centraliza la gobernanza de las APIs, ofreciendo un punto de control para la organización.",
+        "isCorrect": false
+      },
+      {
+        "text": "JWT (JSON Web Token) es un estándar que utiliza el formato XML para la creación de tokens de seguridad compactos.",
+        "rationale": "Como su propio nombre indica (JSON Web Token), utiliza el formato JSON, no XML.",
+        "isCorrect": true
+      },
+      {
+        "text": "Un API Gateway actúa como punto de entrada único para los clientes, pudiendo realizar tareas de autenticación y balanceo.",
+        "rationale": "Simplifica la arquitectura del cliente al exponer una única interfaz que redirige a múltiples microservicios internos.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Fíjate bien en el nombre de las siglas de las tecnologías de tokens más comunes."
+  },
+  {
+    "guid": "70f55d3c-5bd1-4e78-b423-9f8ed59f190b",
+    "subjectId": "T43",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Sobre el concepto de 'Service Discovery' (Descubrimiento de Servicios), señale la opción FALSA:",
+    "answerOptions": [
+      {
+        "text": "Permite que los servicios se localicen dinámicamente sin necesidad de configurar IPs estáticas manualmente.",
+        "rationale": "Es esencial en nubes donde las instancias de contenedores se crean y destruyen constantemente con IPs nuevas.",
+        "isCorrect": false
+      },
+      {
+        "text": "En Kubernetes, el DNS dinámico asigna nombres internos a los servicios para facilitar que se encuentren entre sí.",
+        "rationale": "Este mecanismo permite llamar a un servicio por su nombre (ej: 'users-service') en lugar de por una dirección IP volátil.",
+        "isCorrect": false
+      },
+      {
+        "text": "Herramientas como Consul o Eureka mantienen un registro centralizado de las instancias de servicio disponibles.",
+        "rationale": "Actúan como una 'guía telefónica' actualizada en tiempo real para todos los microservicios del sistema.",
+        "isCorrect": false
+      },
+      {
+        "text": "El descubrimiento de servicios solo es necesario cuando se utiliza una arquitectura monolítica con múltiples servidores físicos.",
+        "rationale": "Es falso: donde es verdaderamente crítico es en microservicios y contenedores, debido al alto dinamismo y cambio frecuente de IPs.",
+        "isCorrect": true
+      }
+    ],
+    "hint": "Piensa en qué tipo de entornos las direcciones de red cambian con más frecuencia."
+  },
+  {
+    "guid": "3cb0dafc-ad47-43d2-80d6-23a422cecff8",
+    "subjectId": "T43",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Respecto a la resiliencia en aplicaciones distribuidas, ¿cuál de las siguientes opciones es FALSA?",
+    "answerOptions": [
+      {
+        "text": "El patrón 'Circuit Breaker' evita que las llamadas a un servicio que está fallando saturen el sistema.",
+        "rationale": "Al 'abrirse' el circuito, se devuelve un error rápido o una respuesta por defecto sin intentar la conexión real.",
+        "isCorrect": false
+      },
+      {
+        "text": "La autorrecuperación permite que el orquestador reinicie automáticamente contenedores que han dejado de responder.",
+        "rationale": "Es una de las funciones de salud (health checks) de Kubernetes para mantener la disponibilidad declarada.",
+        "isCorrect": false
+      },
+      {
+        "text": "Para garantizar la resiliencia, es imprescindible que todos los microservicios compartan la misma instancia de base de datos.",
+        "rationale": "Al contrario, compartir la misma base de datos crea un 'punto único de fallo' (SPOF) que reduce drásticamente la resiliencia global.",
+        "isCorrect": true
+      },
+      {
+        "text": "Las estrategias de 'Retry' deben incluir un retroceso exponencial (backoff) para no sobrecargar un servicio que intenta recuperarse.",
+        "rationale": "Reintentar peticiones instantáneamente y con mucha frecuencia puede provocar un ataque de denegación de servicio accidental.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considera qué pasaría si muchos servicios dependieran de un único componente que acaba de fallar."
+  },
+  {
+    "guid": "ac041bf8-2c48-428f-8d65-dc82a625b788",
+    "subjectId": "T43",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Sobre la monitorización y métricas en entornos cloud-native, señale la afirmación FALSA:",
+    "answerOptions": [
+      {
+        "text": "La latencia $p99$ indica que el $99\\%$ de las peticiones tienen un tiempo de respuesta igual o inferior al valor mostrado.",
+        "rationale": "Es una métrica de percentil crucial para detectar comportamientos anómalos que la media aritmética suele ocultar.",
+        "isCorrect": false
+      },
+      {
+        "text": "Grafana es una herramienta de visualización que permite crear paneles de control a partir de diversas fuentes de datos.",
+        "rationale": "Se utiliza para convertir las métricas brutas de herramientas como Prometheus en gráficos comprensibles para humanos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Las métricas de negocio, como el número de pedidos por segundo, son irrelevantes para la observabilidad técnica del sistema.",
+        "rationale": "La observabilidad moderna integra métricas técnicas y de negocio para entender el impacto real de los fallos de infraestructura.",
+        "isCorrect": true
+      },
+      {
+        "text": "El 'distributed tracing' es fundamental para diagnosticar qué servicio específico está introduciendo latencia en una cadena de llamadas.",
+        "rationale": "Permite visualizar el tiempo que cada 'salto' entre microservicios añade al tiempo total de respuesta percibido por el usuario.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "¿Crees que a los ingenieros de sistemas solo les importan los hercios y los bytes, o también si los usuarios pueden comprar?"
+  },
+  {
+    "guid": "be6cc149-cf21-47a8-b0a1-546e340cea47",
+    "subjectId": "T43",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En cuanto al itinerario recomendado por la CNCF para aplicaciones cloud-native, ¿qué afirmación es FALSA?",
+    "answerOptions": [
+      {
+        "text": "La contenerización es el primer paso recomendado para encapsular aplicaciones y sus dependencias.",
+        "rationale": "Es la base necesaria antes de poder orquestar o aplicar técnicas avanzadas de malla de servicios.",
+        "isCorrect": false
+      },
+      {
+        "text": "La implementación de CI/CD debe realizarse después de haber configurado toda la malla de servicios (Service Mesh).",
+        "rationale": "La automatización del ciclo de vida (CI/CD) se recomienda en las etapas iniciales (paso 2), mucho antes que la complejidad de un Service Mesh (paso 5).",
+        "isCorrect": true
+      },
+      {
+        "text": "Kubernetes es la herramienta de referencia para la orquestación y definición declarativa de aplicaciones.",
+        "rationale": "Es el estándar de facto que centraliza la gestión de las cargas de trabajo en contenedores.",
+        "isCorrect": false
+      },
+      {
+        "text": "El streaming y la mensajería (como Kafka) se utilizan para la comunicación desacoplada y basada en eventos.",
+        "rationale": "Permiten que los servicios se comuniquen de forma asíncrona, mejorando la escalabilidad y la tolerancia a fallos.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Evalúa qué es más prioritario: ¿automatizar cómo subes el código o configurar la seguridad avanzada de las comunicaciones de red?"
+  },
+  {
+    "guid": "e65e9e62-feb7-4791-bbde-f7c2ba502771",
+    "subjectId": "T43",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Respecto a los desafíos del enfoque cloud-native, señale la afirmación FALSA:",
+    "answerOptions": [
+      {
+        "text": "La complejidad del sistema aumenta significativamente al pasar de un solo bloque a decenas de microservicios.",
+        "rationale": "Gestionar la comunicación, el despliegue y la monitorización de muchos servicios requiere un esfuerzo técnico superior.",
+        "isCorrect": false
+      },
+      {
+        "text": "La superficie de ataque se reduce drásticamente al exponer múltiples APIs independientes en lugar de una sola.",
+        "rationale": "Al contrario, tener más servicios y APIs significa tener más puntos de entrada potenciales que deben protegerse individualmente.",
+        "isCorrect": true
+      },
+      {
+        "text": "La depuración de errores locales puede ser más difícil debido a la dependencia de servicios que corren en la nube.",
+        "rationale": "Reproducir fielmente un entorno distribuido complejo en el ordenador de un desarrollador es un reto constante.",
+        "isCorrect": false
+      },
+      {
+        "text": "Requiere un cambio cultural en la empresa (DevOps) y una formación continua del personal en nuevas herramientas.",
+        "rationale": "No es solo un cambio tecnológico; requiere que los equipos de desarrollo y operaciones trabajen de forma integrada y responsable.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piensa en una casa con una sola puerta frente a un hotel con cien ventanas: ¿cuál es más difícil de vigilar por completo?"
+  }
+]

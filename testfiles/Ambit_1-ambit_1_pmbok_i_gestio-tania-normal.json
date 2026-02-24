@@ -1,0 +1,932 @@
+[
+  {
+    "guid": "137b4939-41b5-4b70-a1ba-8c41b643c5af",
+    "subjectId": "Ambit_1",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Escenario del Caso Práctico: Proyecto SITRAM. El Ministerio de Administraciones Públicas inicia el proyecto 'SITRAM' (Sistema de Tramitación Administrativa), un desarrollo de software crítico para la gestión de subvenciones. El proyecto tiene un presupuesto total ($BAC$) de $100.000$ euros y una duración estimada de $50$ días laborales. Las actividades planificadas son: A (Requisitos, $5$d, pred: -), B (Diseño, $10$d, pred: A), C (Codificación Módulo 1, $20$d, pred: B), D (Codificación Módulo 2, $15$d, pred: B), E (Integración y Pruebas, $10$d, pred: C, D), y F (Despliegue y Cierre, $5$d, pred: E). En el día $25$, el estado es: Actividades A y B finalizadas; C al $40\\%$; D al $60\\%$. Datos económicos: $PV = 43.000$ euros; $EV = 42.000$ euros; $AC = 46.000$ euros. ¿Cuál es la ruta crítica del proyecto y su duración total?",
+    "answerOptions": [
+      {
+        "text": "A-B-C-E-F; 50 días",
+        "rationale": "La ruta A-B-C-E-F suma $5+10+20+10+5=50$ días, superando a la ruta A-B-D-E-F que solo suma $45$ días.",
+        "isCorrect": true
+      },
+      {
+        "text": "A-B-D-E-F; 45 días",
+        "rationale": "Esta ruta no es la crítica porque existe un camino más largo a través de la actividad C.",
+        "isCorrect": false
+      },
+      {
+        "text": "A-B-C-D-E-F; 65 días",
+        "rationale": "Las actividades C y D son paralelas según sus predecesoras, por lo que no se suman de forma secuencial.",
+        "isCorrect": false
+      },
+      {
+        "text": "A-B-C-E-F; 45 días",
+        "rationale": "La suma de las duraciones de las actividades en la ruta crítica es de $50$ días, no $45$.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Suma las duraciones de los caminos posibles desde el inicio hasta el fin."
+  },
+  {
+    "guid": "423b2bf2-2a42-4563-a998-21bfbb0d2c94",
+    "subjectId": "Ambit_1",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Basándose en el escenario de SITRAM, ¿cuál es la holgura total de la actividad D?",
+    "answerOptions": [
+      {
+        "text": "5 días",
+        "rationale": "La holgura se calcula restando la duración de la ruta que contiene D ($45$ días) de la duración de la ruta crítica ($50$ días).",
+        "isCorrect": true
+      },
+      {
+        "text": "0 días",
+        "rationale": "Solo las actividades en la ruta crítica tienen holgura cero, y D no pertenece a ella.",
+        "isCorrect": false
+      },
+      {
+        "text": "10 días",
+        "rationale": "Este valor no corresponde a la diferencia entre los caminos paralelos C y D.",
+        "isCorrect": false
+      },
+      {
+        "text": "-5 días",
+        "rationale": "La holgura negativa indica un retraso respecto a una restricción impuesta, lo cual no se menciona en los datos base.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Compara el camino más largo del proyecto con el camino que incluye a la actividad D."
+  },
+  {
+    "guid": "b8788426-bb49-4c0d-aca7-d62f4ac1d5a0",
+    "subjectId": "Ambit_1",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En el día $25$ del proyecto SITRAM, ¿cuál es el Índice de Desempeño del Costo ($CPI$) redondeado a cuatro decimales?",
+    "answerOptions": [
+      {
+        "text": "0,9130",
+        "rationale": "El $CPI$ se calcula como $EV / AC = 42.000 / 46.000 \\approx 0,9130$.",
+        "isCorrect": true
+      },
+      {
+        "text": "0,9767",
+        "rationale": "Este valor corresponde al $SPI$ ($EV / PV$), que mide la eficiencia del cronograma, no del costo.",
+        "isCorrect": false
+      },
+      {
+        "text": "1,0952",
+        "rationale": "Este valor es el inverso del $CPI$, lo cual no representa la métrica de eficiencia solicitada.",
+        "isCorrect": false
+      },
+      {
+        "text": "0,8750",
+        "rationale": "Este valor resultaría de una división incorrecta entre $PV$ y $AC$.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Divide el valor ganado por el costo real incurrido."
+  },
+  {
+    "guid": "63633b21-34e0-4c26-969a-5ea1c250230a",
+    "subjectId": "Ambit_1",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En el proyecto SITRAM, determine la Variación del Cronograma ($SV$) al momento de la revisión.",
+    "answerOptions": [
+      {
+        "text": "-1.000 euros",
+        "rationale": "La $SV$ se calcula como $EV - PV = 42.000 - 43.000 = -1.000$ euros.",
+        "isCorrect": true
+      },
+      {
+        "text": "-4.000 euros",
+        "rationale": "Este valor corresponde a la Variación del Costo ($CV = EV - AC$).",
+        "isCorrect": false
+      },
+      {
+        "text": "1.000 euros",
+        "rationale": "Un valor positivo indicaría un adelanto, pero el proyecto está retrasado respecto a lo planificado.",
+        "isCorrect": false
+      },
+      {
+        "text": "-3.000 euros",
+        "rationale": "Este valor es la diferencia entre $AC$ y $PV$, que no representa ninguna métrica estándar de valor ganado.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Reste el valor que debería haberse completado al valor que realmente se ha completado."
+  },
+  {
+    "guid": "9dbfe160-e947-4194-9e03-935f88abcdfd",
+    "subjectId": "Ambit_1",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Si las variaciones actuales de costo persisten en el proyecto SITRAM, ¿cuál sería la Estimación a la Conclusión ($EAC$)?",
+    "answerOptions": [
+      {
+        "text": "109.528,48 euros",
+        "rationale": "Bajo el supuesto de que el desempeño actual continúe, $EAC = BAC / CPI = 100.000 / 0,913043 \\approx 109.528,48$.",
+        "isCorrect": true
+      },
+      {
+        "text": "104.000,00 euros",
+        "rationale": "Este valor asume que el trabajo restante se realizará a la tasa presupuestada ($EAC = AC + BAC - EV$).",
+        "isCorrect": false
+      },
+      {
+        "text": "101.000,00 euros",
+        "rationale": "Este cálculo no considera el impacto de la ineficiencia de costos acumulada en el presupuesto total.",
+        "isCorrect": false
+      },
+      {
+        "text": "115.000,00 euros",
+        "rationale": "Este valor es una sobreestimación que no deriva de la aplicación estricta de las fórmulas de PMBOK.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Utilice la fórmula de proyección que divide el presupuesto total por el índice de eficiencia de costo."
+  },
+  {
+    "guid": "75ace21d-cedc-4179-b0d0-3182b33621c3",
+    "subjectId": "Ambit_1",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Señale la afirmación FALSA respecto al estado actual del proyecto SITRAM en el día $25$:",
+    "answerOptions": [
+      {
+        "text": "El proyecto está adelantado en el cronograma.",
+        "rationale": "El proyecto está retrasado, ya que el $SPI$ es inferior a $1,0$ y la $SV$ es negativa ($-1.000$).",
+        "isCorrect": true
+      },
+      {
+        "text": "El proyecto excede el presupuesto planificado.",
+        "rationale": "Esto es cierto, dado que el costo real ($46.000$) es superior al valor ganado ($42.000$).",
+        "isCorrect": false
+      },
+      {
+        "text": "La eficiencia del uso de los recursos es inferior al 92%.",
+        "rationale": "Es cierto, ya que el $CPI \\approx 0,9130$, lo cual es menor a $0,92$.",
+        "isCorrect": false
+      },
+      {
+        "text": "El valor del trabajo realizado es de 42.000 euros.",
+        "rationale": "Esto es correcto, pues se define como el $EV$ proporcionado en el escenario.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Evalúe los índices $SPI$ y $CPI$ para determinar si los valores son superiores o inferiores a la unidad."
+  },
+  {
+    "guid": "0112bcf7-2899-4e81-a35a-a310d188f25c",
+    "subjectId": "Ambit_1",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Para el control del alcance del proyecto SITRAM, el equipo utiliza una representación jerárquica del trabajo total. ¿Bajo qué siglas se conoce este artefacto en PMBOK v6?",
+    "answerOptions": [
+      {
+        "text": "WBS",
+        "rationale": "La $WBS$ (Work Breakdown Structure) o EDT es la subdivisión jerárquica del alcance total del proyecto.",
+        "isCorrect": true
+      },
+      {
+        "text": "RBS",
+        "rationale": "Se refiere a la estructura de desglose de riesgos o de recursos, no al alcance.",
+        "isCorrect": false
+      },
+      {
+        "text": "OBS",
+        "rationale": "Representa la estructura de desglose de la organización, que relaciona paquetes de trabajo con unidades organizativas.",
+        "isCorrect": false
+      },
+      {
+        "text": "SOW",
+        "rationale": "Es el enunciado del trabajo, una descripción narrativa de los productos o servicios a entregar.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en la estructura que descompone los entregables en componentes más pequeños."
+  },
+  {
+    "guid": "7763447a-d020-4c66-b720-e68a4e72a083",
+    "subjectId": "Ambit_1",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En la gestión de riesgos de SITRAM, el director del proyecto desea visualizar las categorías de riesgos. ¿Qué sigla identifica este esquema jerárquico?",
+    "answerOptions": [
+      {
+        "text": "RBS",
+        "rationale": "La $RBS$ (Risk Breakdown Structure) es la estructura jerárquica que identifica y categoriza los riesgos del proyecto.",
+        "isCorrect": true
+      },
+      {
+        "text": "WBS",
+        "rationale": "Esta sigla se reserva para la descomposición del trabajo y entregables del proyecto.",
+        "isCorrect": false
+      },
+      {
+        "text": "RAM",
+        "rationale": "Es la matriz de asignación de responsabilidades, que vincula la $OBS$ con la $WBS$.",
+        "isCorrect": false
+      },
+      {
+        "text": "BCWS",
+        "rationale": "Es un término antiguo de gestión de valor ganado que equivale al Valor Planificado ($PV$).",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considere la herramienta que organiza los riesgos por categorías como técnico, externo o de gestión."
+  },
+  {
+    "guid": "97f17ceb-95cb-4ccd-b6c7-b1649c4e286c",
+    "subjectId": "Ambit_1",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Durante la ejecución de SITRAM, se detecta que un requisito de seguridad del ENS no fue incluido. El director debe formalizar la solicitud de cambio. Señale la afirmación FALSA sobre el proceso de Control Integrado de Cambios:",
+    "answerOptions": [
+      {
+        "text": "Cualquier interesado puede aprobar un cambio en la línea base.",
+        "rationale": "Solo el comité de control de cambios ($CCB$) o el patrocinador/director autorizados pueden aprobar cambios en las líneas base.",
+        "isCorrect": true
+      },
+      {
+        "text": "Las solicitudes de cambio pueden ser verbales o escritas.",
+        "rationale": "Es correcto; aunque se recomienda que sean escritas, pueden nacer de forma verbal antes de documentarse.",
+        "isCorrect": false
+      },
+      {
+        "text": "Un cambio aprobado puede requerir ajustes en el presupuesto.",
+        "rationale": "Es cierto, ya que el impacto de un cambio suele afectar a costo, tiempo o recursos.",
+        "isCorrect": false
+      },
+      {
+        "text": "El registro de cambios documenta todas las solicitudes realizadas.",
+        "rationale": "Esto es correcto, es el documento donde se hace seguimiento del estado de cada solicitud.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en quién tiene la autoridad última sobre las versiones aprobadas del plan."
+  },
+  {
+    "guid": "a0d14910-f94f-475c-be1e-c92eebab7e2d",
+    "subjectId": "Ambit_1",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Para SITRAM, se requiere un nivel de eficiencia para el trabajo restante que permita cumplir con el presupuesto original ($BAC$). ¿Cómo se denomina este índice?",
+    "answerOptions": [
+      {
+        "text": "TCPI",
+        "rationale": "El $TCPI$ (To-Complete Performance Index) es la proyección calculada del desempeño del costo para el trabajo restante.",
+        "isCorrect": true
+      },
+      {
+        "text": "SPI",
+        "rationale": "Este índice mide la eficiencia lograda hasta la fecha, no la requerida para el futuro.",
+        "isCorrect": false
+      },
+      {
+        "text": "VAC",
+        "rationale": "Es la variación a la conclusión, que mide la diferencia monetaria entre el $BAC$ y la $EAC$.",
+        "isCorrect": false
+      },
+      {
+        "text": "ETC",
+        "rationale": "Representa el costo estimado para completar el trabajo restante, no un índice de eficiencia.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Se trata de una tasa entre el trabajo pendiente y los fondos disponibles."
+  },
+  {
+    "guid": "b508b088-cebb-4a54-8dbb-6b77fb805d4d",
+    "subjectId": "Ambit_1",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En el proceso de 'Cerrar el Proyecto o Fase' de SITRAM, ¿cuál de las siguientes acciones es necesaria para el cierre administrativo?",
+    "answerOptions": [
+      {
+        "text": "Recopilar las lecciones aprendidas y archivar la información.",
+        "rationale": "El archivo de registros y la actualización de lecciones aprendidas son actividades fundamentales del cierre administrativo.",
+        "isCorrect": true
+      },
+      {
+        "text": "Realizar el análisis de riesgos cuantitativo final.",
+        "rationale": "El análisis de riesgos es una actividad de planificación y monitoreo, no un requisito de cierre administrativo.",
+        "isCorrect": false
+      },
+      {
+        "text": "Aprobar la línea base para la medición del desempeño.",
+        "rationale": "Las líneas base se aprueban durante la planificación, mucho antes de llegar a la fase de cierre.",
+        "isCorrect": false
+      },
+      {
+        "text": "Definir los criterios de aceptación del producto.",
+        "rationale": "Los criterios de aceptación se definen en el enunciado del alcance durante la planificación.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considere las actividades que aseguran que el conocimiento del proyecto se preserve para la organización."
+  },
+  {
+    "guid": "588f3c0b-fa93-4e2d-ae14-f7b9bde35cc3",
+    "subjectId": "Ambit_1",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "El director de SITRAM utiliza una técnica para acortar la duración del cronograma mediante la adición de recursos. ¿Cómo se denomina específicamente esta técnica en PMBOK v6?",
+    "answerOptions": [
+      {
+        "text": "Intensificación",
+        "rationale": "La intensificación ('crashing') consiste en añadir recursos para acortar la duración, usualmente incrementando el costo.",
+        "isCorrect": true
+      },
+      {
+        "text": "Ejecución rápida",
+        "rationale": "La ejecución rápida ('fast tracking') consiste en realizar actividades en paralelo que normalmente serían secuenciales.",
+        "isCorrect": false
+      },
+      {
+        "text": "Nivelación de recursos",
+        "rationale": "Es una técnica de optimización que ajusta las fechas según la disponibilidad de recursos, no para acortar el plazo.",
+        "isCorrect": false
+      },
+      {
+        "text": "Análisis de red",
+        "rationale": "Es la técnica global para generar el modelo de programación, no una técnica específica de compresión.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en la técnica que busca reducir el tiempo sacrificando presupuesto (costo elevado)."
+  },
+  {
+    "guid": "0761880d-ec21-4288-801c-5acf0dad13ab",
+    "subjectId": "Ambit_1",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Señale la afirmación FALSA sobre las reservas en la gestión de costos de PMBOK v6:",
+    "answerOptions": [
+      {
+        "text": "La reserva de gestión se incluye en la línea base de costos.",
+        "rationale": "La línea base de costos incluye la reserva para contingencias, pero excluye explícitamente la reserva de gestión.",
+        "isCorrect": true
+      },
+      {
+        "text": "La reserva para contingencias cubre los 'conocidos-desconocidos'.",
+        "rationale": "Es correcto; se asigna para riesgos identificados y aceptados en el registro de riesgos.",
+        "isCorrect": false
+      },
+      {
+        "text": "El uso de reservas de gestión requiere un cambio en la línea base.",
+        "rationale": "Correcto; al usarla para trabajo no previsto, la cantidad se suma a la línea base mediante un control de cambios.",
+        "isCorrect": false
+      },
+      {
+        "text": "Las reservas para contingencias forman parte de los requisitos de financiamiento.",
+        "rationale": "Es cierto; tanto la línea base como las reservas de gestión integran el presupuesto total.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Recuerde qué componentes sumados forman la 'curva S' de la línea base."
+  },
+  {
+    "guid": "dc4568dd-4064-4ae0-a8ac-d17b1462db58",
+    "subjectId": "Ambit_1",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En SITRAM, el proceso de formalizar la aceptación de los entregables completados por el cliente se denomina:",
+    "answerOptions": [
+      {
+        "text": "Validar el Alcance",
+        "rationale": "Validar el Alcance es el proceso específico de formalizar la aceptación de los entregables ya verificados por calidad.",
+        "isCorrect": true
+      },
+      {
+        "text": "Controlar el Alcance",
+        "rationale": "Es el proceso de monitorear el estado del alcance y gestionar cambios a su línea base.",
+        "isCorrect": false
+      },
+      {
+        "text": "Controlar la Calidad",
+        "rationale": "Se ocupa de la corrección de los entregables y del cumplimiento de los requisitos técnicos, no de su aceptación formal.",
+        "isCorrect": false
+      },
+      {
+        "text": "Definir el Alcance",
+        "rationale": "Es un proceso de planificación donde se desarrolla la descripción detallada del proyecto y producto.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Diferencie entre la verificación técnica de calidad y la aceptación administrativa del interesado."
+  },
+  {
+    "guid": "ba885911-8ab7-4deb-a23b-07aed4d591e9",
+    "subjectId": "Ambit_1",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Para estimar la duración de la actividad C en SITRAM, se utilizó la fórmula de Distribución Beta basada en tres valores ($cO=15$, $cM=19$, $cP=29$). ¿Cuál es el valor esperado ($cE$) resultante?",
+    "answerOptions": [
+      {
+        "text": "20 días",
+        "rationale": "Usando la distribución Beta: $cE = (15 + 4 \\times 19 + 29) / 6 = (15 + 76 + 29) / 6 = 120 / 6 = 20$.",
+        "isCorrect": true
+      },
+      {
+        "text": "21 días",
+        "rationale": "Este valor se obtendría aplicando incorrectamente la distribución triangular: $(15+19+29)/3 = 21$.",
+        "isCorrect": false
+      },
+      {
+        "text": "19 días",
+        "rationale": "Este es el valor más probable ($cM$), no el promedio ponderado esperado.",
+        "isCorrect": false
+      },
+      {
+        "text": "22 días",
+        "rationale": "Cálculo erróneo que no sigue ninguna de las fórmulas estándar de estimación por tres valores.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Aplique la ponderación que da cuatro veces más peso al valor más probable y divide por seis."
+  },
+  {
+    "guid": "0933d7e9-82a6-4dc2-a1ff-224290ffb2e4",
+    "subjectId": "Ambit_1",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Según el RD 311/2022 (ENS), un sistema de información que requiere protección ante un perjuicio 'muy grave' sobre los activos o individuos en la dimensión de confidencialidad, se clasifica en dicha dimensión como de nivel:",
+    "answerOptions": [
+      {
+        "text": "ALTO",
+        "rationale": "El nivel ALTO se aplica cuando las consecuencias de un incidente suponen un perjuicio muy grave o irreparable.",
+        "isCorrect": true
+      },
+      {
+        "text": "MEDIO",
+        "rationale": "El nivel MEDIO se reserva para perjuicios calificados como graves, pero no muy graves.",
+        "isCorrect": false
+      },
+      {
+        "text": "BÁSICO",
+        "rationale": "El término BÁSICO se refiere a la categoría del sistema, no al nivel de una dimensión individual.",
+        "isCorrect": false
+      },
+      {
+        "text": "CRÍTICO",
+        "rationale": "El ENS utiliza la escala BAJO, MEDIO y ALTO; 'crítico' no es una denominación normativa de nivel.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Asocie la gravedad del daño (limitado, grave, muy grave) con la escala de tres niveles del anexo I."
+  },
+  {
+    "guid": "ed06c0ae-e8e4-438b-9c13-57cb5e891823",
+    "subjectId": "Ambit_1",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Señale la afirmación FALSA en relación a la determinación de la categoría de un sistema según el ENS:",
+    "answerOptions": [
+      {
+        "text": "Un sistema con todas las dimensiones en nivel BAJO es de categoría MEDIA.",
+        "rationale": "Si todas las dimensiones son de nivel BAJO, la categoría del sistema es BÁSICA.",
+        "isCorrect": true
+      },
+      {
+        "text": "La categoría ALTA se alcanza si al menos una dimensión tiene nivel ALTO.",
+        "rationale": "Esto es correcto según el principio de que el nivel superior de cualquier dimensión determina la categoría.",
+        "isCorrect": false
+      },
+      {
+        "text": "Existen tres categorías de seguridad: BÁSICA, MEDIA y ALTA.",
+        "rationale": "Es correcto, son los tres grados de la escala definida en el artículo 4 del Real Decreto.",
+        "isCorrect": false
+      },
+      {
+        "text": "La categoría MEDIA requiere que ninguna dimensión alcance el nivel ALTO.",
+        "rationale": "Es correcto; si alguna alcanzara el nivel ALTO, el sistema pasaría a ser de categoría ALTA.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Recuerde que la categoría final se rige por el nivel más exigente encontrado en las dimensiones evaluadas."
+  },
+  {
+    "guid": "42073f8b-3d04-43c5-8576-121f2123ab2a",
+    "subjectId": "Ambit_1",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "El artículo 30 del RD 311/2022 introduce un concepto para adaptar los requisitos del ENS a la realidad de colectivos específicos. ¿Cómo se denomina?",
+    "answerOptions": [
+      {
+        "text": "Perfil de cumplimiento específico",
+        "rationale": "El perfil de cumplimiento específico permite ajustar los requisitos para garantizar una adaptación eficaz y eficiente.",
+        "isCorrect": true
+      },
+      {
+        "text": "Marco operativo adaptado",
+        "rationale": "No es la terminología legal empleada por el Real Decreto para esta función de ajuste.",
+        "isCorrect": false
+      },
+      {
+        "text": "Instrucción Técnica de Adaptación",
+        "rationale": "Las ITS son normas de obligado cumplimiento, no el concepto de adaptación a colectivos que define el artículo 30.",
+        "isCorrect": false
+      },
+      {
+        "text": "Esquema de acreditación sectorial",
+        "rationale": "Aunque relacionado con la validación de terceros, no define la adaptación de requisitos a la realidad de una entidad.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Busque el término que permite racionalizar recursos sin menoscabo de la protección perseguida."
+  },
+  {
+    "guid": "5aa65047-1edb-41f5-9968-43b0c5d9a0eb",
+    "subjectId": "Ambit_1",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En el marco de la metodología Kanban, ¿cómo se define el tiempo total transcurrido desde que se solicita una tarea hasta que se entrega definitivamente?",
+    "answerOptions": [
+      {
+        "text": "Lead Time",
+        "rationale": "El Lead Time mide el ciclo completo desde la petición del cliente hasta la entrega del valor.",
+        "isCorrect": true
+      },
+      {
+        "text": "Cycle Time",
+        "rationale": "El Cycle Time mide únicamente el tiempo que la tarea está activamente en proceso ('in progress').",
+        "isCorrect": false
+      },
+      {
+        "text": "Throughput",
+        "rationale": "Es la cantidad de trabajo (unidades) completada en un periodo de tiempo determinado.",
+        "isCorrect": false
+      },
+      {
+        "text": "Velocity",
+        "rationale": "Es una métrica típica de Scrum que mide los puntos de historia completados en un Sprint.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Diferencie entre el tiempo de procesamiento interno y el tiempo de espera del cliente."
+  },
+  {
+    "guid": "593856fd-2e06-4e42-9398-9fb04f3bd33c",
+    "subjectId": "Ambit_1",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Señale la afirmación FALSA respecto a la aplicación de metodologías ágiles según el material proporcionado:",
+    "answerOptions": [
+      {
+        "text": "Kanban es una variante específica del framework Scrum.",
+        "rationale": "Kanban es un método de gestión del flujo, no una variante de Scrum; son enfoques diferentes aunque compatibles.",
+        "isCorrect": true
+      },
+      {
+        "text": "El pensamiento Lean busca maximizar el valor eliminando el desperdicio.",
+        "rationale": "Es correcto; es el principio fundamental derivado del sistema de producción de Toyota.",
+        "isCorrect": false
+      },
+      {
+        "text": "El Burn-up Chart muestra el trabajo total completado frente al alcance total.",
+        "rationale": "Es correcto; permite visualizar el progreso acumulado y los cambios en el alcance del proyecto.",
+        "isCorrect": false
+      },
+      {
+        "text": "En Scrum, el Sprint Backlog es propiedad del equipo de desarrollo.",
+        "rationale": "Es correcto; el equipo decide qué elementos del Product Backlog puede comprometer para el ciclo.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Cuidado con las 'trampas de examen' que confunden marcos iterativos con métodos de flujo."
+  },
+  {
+    "guid": "42a04038-1f8f-4fb9-a431-5143191f7150",
+    "subjectId": "Ambit_1",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Dentro de la agilidad, ¿qué artefacto se utiliza específicamente para realizar el seguimiento del trabajo que queda por completar en una iteración?",
+    "answerOptions": [
+      {
+        "text": "Burndown Chart",
+        "rationale": "El gráfico de trabajo pendiente (Burndown) muestra cuánto trabajo queda por hacer frente al tiempo restante.",
+        "isCorrect": true
+      },
+      {
+        "text": "Product Backlog",
+        "rationale": "Es la lista priorizada de todos los requisitos del producto, no una métrica de seguimiento de iteración.",
+        "isCorrect": false
+      },
+      {
+        "text": "Definition of Done",
+        "rationale": "Es un entendimiento compartido de lo que significa que el trabajo esté completado, no un gráfico de seguimiento.",
+        "isCorrect": false
+      },
+      {
+        "text": "Cumulative Flow Diagram",
+        "rationale": "Se usa principalmente en Kanban para visualizar el estado de las tareas y detectar cuellos de botella.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en la gráfica que desciende hacia cero a medida que el tiempo de la iteración avanza."
+  },
+  {
+    "guid": "76fd940f-6d18-46c3-8703-a1389f087ebb",
+    "subjectId": "Ambit_1",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "La normativa UNE 166002:2021 ha sido recientemente anulada y sustituida por un estándar internacional de gestión de la innovación. ¿De cuál se trata?",
+    "answerOptions": [
+      {
+        "text": "UNE-EN ISO 56001:2024",
+        "rationale": "La ISO 56001:2024 es el estándar internacional que sustituye a la norma española de gestión de la innovación.",
+        "isCorrect": true
+      },
+      {
+        "text": "UNE 166008:2012",
+        "rationale": "Esta norma sigue vigente pero se refiere específicamente a la transferencia de tecnología, no a sistemas de gestión.",
+        "isCorrect": false
+      },
+      {
+        "text": "ISO 9001:2015",
+        "rationale": "Es la norma de gestión de calidad, aunque las de innovación están alineadas con su estructura.",
+        "isCorrect": false
+      },
+      {
+        "text": "ISO 27001",
+        "rationale": "Es el estándar para la seguridad de la información, no para la gestión de la innovación.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Busque la norma que adopta la Estructura de Alto Nivel (HLS) en el ámbito de la innovación a nivel global."
+  },
+  {
+    "guid": "b7c467e9-ae60-4dea-bab2-7d33636ea878",
+    "subjectId": "Ambit_1",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Señale la afirmación FALSA respecto a la normativa UNE 166000 y sus derivadas:",
+    "answerOptions": [
+      {
+        "text": "La norma ISO 56001 mantiene la jerarquía de Visiòn antes que Intención.",
+        "rationale": "Es falso; la ISO 56001 introduce la jerarquía Intención > Política > Estrategia, sustituyendo la Visiòn de la UNE.",
+        "isCorrect": true
+      },
+      {
+        "text": "La UNE 166001:2006 se centra en la gestión de proyectos de R+D+i.",
+        "rationale": "Es correcto; define los requisitos para la planificación y ejecución de proyectos específicos.",
+        "isCorrect": false
+      },
+      {
+        "text": "La UNE 166006:2018 regula los sistemas de vigilancia e inteligencia.",
+        "rationale": "Es correcto; establece los requisitos para captar y analizar información externa para decisiones estratégicas.",
+        "isCorrect": false
+      },
+      {
+        "text": "Las normas de la familia 166000 son integrables con la ISO 9001.",
+        "rationale": "Es correcto; comparten una estructura común que facilita sistemas de gestión integrados.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Examine los cambios introducidos en la jerarquía de gestión por la nueva normativa internacional."
+  },
+  {
+    "guid": "39d0f42c-3553-4fa3-b875-782a33923e1d",
+    "subjectId": "Ambit_1",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En el proceso de innovación, ¿cómo se define la capacidad de conseguir resultados eficaces empleando el mínimo de recursos posible?",
+    "answerOptions": [
+      {
+        "text": "Eficiencia",
+        "rationale": "La eficiencia vincula la obtención de resultados (eficacia) con la optimización de los recursos utilizados.",
+        "isCorrect": true
+      },
+      {
+        "text": "Eficacia",
+        "rationale": "La eficacia se limita a medir la consecución de los objetivos o resultados deseados, sin mirar los recursos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Productividad",
+        "rationale": "Es la relación entre la cantidad de productos obtenidos y los recursos empleados, no necesariamente enfocada al valor innovador.",
+        "isCorrect": false
+      },
+      {
+        "text": "Disrupción",
+        "rationale": "Es un tipo de innovación que rompe con lo anterior, no una medida de uso de recursos.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Diferencie entre simplemente lograr un objetivo y lograrlo optimizando el gasto."
+  },
+  {
+    "guid": "d878381b-2b8f-47ea-aa0e-8a7b5fea883e",
+    "subjectId": "Ambit_1",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En la prospección de soluciones TIC para la administración, se exige el cumplimiento de estándares que aseguren que los sistemas puedan integrarse y comunicarse. ¿Qué sigla legal identifica este esquema?",
+    "answerOptions": [
+      {
+        "text": "ENI",
+        "rationale": "El ENI (Esquema Nacional de Interoperabilidad), regulado por el RD 4/2010, garantiza la comunicación entre administraciones.",
+        "isCorrect": true
+      },
+      {
+        "text": "ENS",
+        "rationale": "El ENS se ocupa de la seguridad y protección de la información, no estrictamente de la interoperabilidad.",
+        "isCorrect": false
+      },
+      {
+        "text": "RGPD",
+        "rationale": "Es el Reglamento General de Protección de Datos, centrado en la privacidad de las personas físicas.",
+        "isCorrect": false
+      },
+      {
+        "text": "EIF",
+        "rationale": "Es el Marco Europeo de Interoperabilidad, que inspira al ENI pero no es el real decreto español citado.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Recuerde el marco que desarrolla los artículos 156 y 157 de la Ley 40/2015 sobre criterios técnicos comunes."
+  },
+  {
+    "guid": "f4ab05bc-8ad6-4770-aba8-da94594d8fc7",
+    "subjectId": "Ambit_1",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Señale la afirmación FALSA sobre los riesgos de la transformación digital en las organizaciones:",
+    "answerOptions": [
+      {
+        "text": "La transformación digital elimina por completo el riesgo de ingeniería social.",
+        "rationale": "Falso; la digitalización suele aumentar la superficie de ataque para técnicas como el phishing o la ingeniería social.",
+        "isCorrect": true
+      },
+      {
+        "text": "El cumplimiento inadecuado del RGPD es un riesgo crítico.",
+        "rationale": "Es correcto; la gestión masiva de datos aumenta la exposición a sanciones por privacidad.",
+        "isCorrect": false
+      },
+      {
+        "text": "La resistencia al cambio es un factor que puede obstaculizar la innovación.",
+        "rationale": "Es correcto; el factor humano es a menudo la mayor barrera para la adopción tecnológica.",
+        "isCorrect": false
+      },
+      {
+        "text": "La falta de interoperabilidad genera silos de información.",
+        "rationale": "Es correcto; impide la visión integral del dato y la comunicación fluida entre sistemas.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considere si el aumento de tecnología reduce o transforma las vulnerabilidades humanas."
+  },
+  {
+    "guid": "ac241e53-df34-449a-8ad5-4f8e2bda7fab",
+    "subjectId": "Ambit_1",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Dentro de las herramientas del CCN-CERT, ¿qué plataforma se utiliza específicamente para realizar el 'Informe de Estado de Seguridad' y evaluar la adecuación al ENS?",
+    "answerOptions": [
+      {
+        "text": "INES",
+        "rationale": "INES es la herramienta del CCN para evaluar regularmente la seguridad y el cumplimiento normativo del ENS.",
+        "isCorrect": true
+      },
+      {
+        "text": "AMPARO",
+        "rationale": "AMPARO ayuda en la implantación y gestión de la conformidad, pero el informe de estado anual se asocia a INES.",
+        "isCorrect": false
+      },
+      {
+        "text": "PILAR",
+        "rationale": "PILAR es la herramienta específica para el Análisis y Gestión de Riesgos (Magerit).",
+        "isCorrect": false
+      },
+      {
+        "text": "CLARA",
+        "rationale": "CLARA se utiliza para auditorías de cumplimiento técnicas sobre sistemas operativos Windows.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Identifique la herramienta cuya sigla coincide con el propósito de generar informes de estado."
+  },
+  {
+    "guid": "5b53a4f0-59cc-43fc-a96b-2f745bb60a8a",
+    "subjectId": "Ambit_1",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Un gestor documental debe garantizar que la información no sea alterada de forma no autorizada. ¿Qué dimensión de seguridad del ENS se está priorizando?",
+    "answerOptions": [
+      {
+        "text": "Integridad",
+        "rationale": "La integridad es la propiedad que garantiza que la información sea precisa y no haya sido modificada sin autorización.",
+        "isCorrect": true
+      },
+      {
+        "text": "Confidencialidad",
+        "rationale": "La confidencialidad se refiere a que la información no sea accesible por personas no autorizadas.",
+        "isCorrect": false
+      },
+      {
+        "text": "Trazabilidad",
+        "rationale": "La trazabilidad permite conocer quién hizo qué y cuándo, pero no garantiza por sí misma la no-alteración.",
+        "isCorrect": false
+      },
+      {
+        "text": "Disponibilidad",
+        "rationale": "La disponibilidad asegura el acceso a la información cuando se requiera, independientemente de su estado.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en la dimensión que asegura la exactitud y completitud del dato."
+  },
+  {
+    "guid": "7c954685-3117-4917-92da-890053deefcd",
+    "subjectId": "Ambit_1",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Señale la afirmación FALSA respecto a las auditorías del ENS:",
+    "answerOptions": [
+      {
+        "text": "Los sistemas de categoría BÁSICA deben someterse a auditoría externa cada dos años.",
+        "rationale": "Los sistemas de categoría BÁSICA solo requieren una autoevaluación, no una auditoría externa obligatoria.",
+        "isCorrect": true
+      },
+      {
+        "text": "Los sistemas MEDIA y ALTA precisan auditoría para su certificación.",
+        "rationale": "Correcto; es el requisito establecido en el artículo 38 para estos niveles de criticidad.",
+        "isCorrect": false
+      },
+      {
+        "text": "La auditoría extraordinaria reinicia el còmputo del periodo bienal.",
+        "rationale": "Correcto; tras una modificación sustancial y su auditoría, los dos años cuentan desde ese momento.",
+        "isCorrect": false
+      },
+      {
+        "text": "El resultado de la autoevaluación en categoría BÁSICA debe estar documentado.",
+        "rationale": "Correcto; aunque sea interno, debe haber evidencias que soporten la declaración de conformidad.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Identifique el nivel de rigor exigido para el escalón más bajo de la categorización del ENS."
+  },
+  {
+    "guid": "ecd16992-2497-40bd-84fd-dff1bbe6a750",
+    "subjectId": "Ambit_1",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Dentro del anexo II del ENS, las medidas de seguridad se organizan en tres grupos. ¿Cuál de estos NO es uno de los grupos oficiales?",
+    "answerOptions": [
+      {
+        "text": "Marco de Gestión",
+        "rationale": "Los tres grupos son: Marco Organizativo [org], Marco Operacional [op] y Medidas de Protección [mp].",
+        "isCorrect": true
+      },
+      {
+        "text": "Marco Organizativo",
+        "rationale": "Es un grupo válido, que incluye medidas como la política de seguridad o la normativa.",
+        "isCorrect": false
+      },
+      {
+        "text": "Marco Operacional",
+        "rationale": "Es un grupo válido, que abarca la planificación, el control de acceso y la explotación.",
+        "isCorrect": false
+      },
+      {
+        "text": "Medidas de Protección",
+        "rationale": "Es un grupo válido, que detalla protecciones para instalaciones, personal, equipos y comunicaciones.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Recuerde las siglas [org], [op] y [mp] que categorizan todas las medidas del anexo."
+  }
+]

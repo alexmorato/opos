@@ -1,0 +1,622 @@
+[
+  {
+    "guid": "0774f8bc-817f-40d1-ba57-a442af034594",
+    "subjectId": "T42",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Cuál de las siguientes afirmaciones sobre la estructura de un bloque de blockchain es FALSA?",
+    "answerOptions": [
+      {
+        "text": "Cada bloque nuevo contiene el historial completo de todas las transacciones realizadas desde el bloque génesis.",
+        "rationale": "Los bloques nuevos solo contienen un paquete de transacciones recientes validadas, no el historial completo de la red.",
+        "isCorrect": true
+      },
+      {
+        "text": "El hash del bloque anterior permite enlazar criptográficamente los bloques formando una secuencia cronológica.",
+        "rationale": "Esta es la base de la integridad de la cadena, ya que cualquier cambio rompería el enlace con el siguiente bloque.",
+        "isCorrect": false
+      },
+      {
+        "text": "El árbol de Merkle se utiliza para generar una representación hash de los datos del bloque.",
+        "rationale": "Es un método eficiente para resumir todas las transacciones de un bloque en un único hash raíz.",
+        "isCorrect": false
+      },
+      {
+        "text": "El valor nonce es un número arbitrario utilizado en los procesos de minería para cumplir con la dificultad de la red.",
+        "rationale": "El nonce se varía repetidamente hasta encontrar un hash que cumpla con los requisitos específicos del protocolo.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considere qué información se almacena realmente dentro de cada incremento de datos de la cadena."
+  },
+  {
+    "guid": "f6263069-9bca-4a71-ac0d-cdb60510c0c2",
+    "subjectId": "T42",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Sobre el mecanismo de consenso Proof of Work (PoW), indique la afirmación FALSA:",
+    "answerOptions": [
+      {
+        "text": "La dificultad de la red determina el valor económico de la recompensa que recibe el minero.",
+        "rationale": "La dificultad dicta cuántos ceros debe tener el hash al principio, no el valor de la recompensa económica directamente.",
+        "isCorrect": true
+      },
+      {
+        "text": "Requiere que los mineros encuentren un nonce que produzca un hash con una cantidad específica de ceros iniciales.",
+        "rationale": "Este proceso de búsqueda es lo que consume la gran cantidad de energía característica de PoW.",
+        "isCorrect": false
+      },
+      {
+        "text": "La verificación de la solución encontrada por un minero es un proceso rápido y sencillo para el resto de los nodes.",
+        "rationale": "Aunque encontrar la solución es costoso, verificarla solo requiere un único cálculo de hash.",
+        "isCorrect": false
+      },
+      {
+        "text": "Bitcoin ajusta su dificultad periódicamente (cada 2016 bloques) para mantener un tiempo de creación de bloques constante.",
+        "rationale": "Este ajuste asegura que el tiempo medio de minado se mantenga cerca de los 10 minutos a pesar de los cambios en la potencia de cómputo.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Recuerde qué parámetro técnico se ve afectado por la cantidad de ceros requeridos en el hash."
+  },
+  {
+    "guid": "45692e3c-889a-4e54-ad57-3ae70da79adf",
+    "subjectId": "T42",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En relación con las arquitecturas P2P aplicadas a blockchain, ¿cuál de estas afirmaciones es FALSA?",
+    "answerOptions": [
+      {
+        "text": "El sistema requiere un servidor central de alta disponibilidad para sincronizar las copias del libro de registros entre los nodos.",
+        "rationale": "Blockchain es descentralizada; no existe un servidor central y los nodos se comunican directamente entre sí.",
+        "isCorrect": true
+      },
+      {
+        "text": "Cada nodo completo de la red mantiene una copia sincronizada y actualizada de toda la cadena de bloques.",
+        "rationale": "La redundancia total de los datos en todos los nodos garantiza la seguridad y disponibilidad del sistema.",
+        "isCorrect": false
+      },
+      {
+        "text": "La robustez de la red aumenta gracias a que la caída de un nodo no afecta al funcionamiento global del sistema.",
+        "rationale": "Al ser una red distribuida, no existe un punto único de fallo que pueda detener la operación.",
+        "isCorrect": false
+      },
+      {
+        "text": "En una red P2P, cada participante actúa simultáneamente como cliente y servidor.",
+        "rationale": "Esta es la definición técnica fundamental de una arquitectura de igual a igual (peer-to-peer).",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en si existe alguna jerarquía o autoridad central en la comunicación entre los participantes."
+  },
+  {
+    "guid": "1dbf27ce-0611-4e08-ada8-5503fdc26249",
+    "subjectId": "T42",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Cuál de las siguientes afirmaciones sobre la tipología de redes blockchain es FALSA?",
+    "answerOptions": [
+      {
+        "text": "En las blockchains de consorcio, cualquier usuario con conexión a internet puede validar transacciones de forma anónima.",
+        "rationale": "En las redes de consorcio, el consenso es mantenido por nodos preestablecidos de confianza, no por el público general.",
+        "isCorrect": true
+      },
+      {
+        "text": "Las blockchains privadas suelen utilizar algoritmos como Proof of Authority (PoA) para mayor eficiencia.",
+        "rationale": "Al haber confianza previa entre los participantes identificados, se pueden usar mecanismos menos costosos que PoW.",
+        "isCorrect": false
+      },
+      {
+        "text": "Hyperledger es un ejemplo representativo de una infraestructura para blockchains de tipo privado o permisionado.",
+        "rationale": "Se orienta a entornos corporativos donde el acceso y la generación de bloques están restringidos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Las blockchains públicas son resistentes a actores maliciosos mediante incentivos económicos y costes de computación.",
+        "rationale": "Mecanismos como PoW o PoS obligan a invertir recursos, dificultando ataques por parte de desconocidos.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considere quién tiene el control y la autoridad para validar en un modelo híbrido entre público y privado."
+  },
+  {
+    "guid": "0028ba1f-b1f8-4ffd-b949-bd5fef6975f9",
+    "subjectId": "T42",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Indique la afirmación FALSA sobre el mecanismo de consenso Proof of Stake (PoS):",
+    "answerOptions": [
+      {
+        "text": "La seguridad de la red en PoS se basa en la resolución de puzles criptográficos que consumen gran potencia computacional.",
+        "rationale": "Esa es la descripción de PoW; PoS se basa en la cantidad de activos bloqueados (stake) y no en el trabajo de cálculo.",
+        "isCorrect": true
+      },
+      {
+        "text": "El algoritmo selecciona a los validadores de forma ponderada según la cantidad de monedas que tengan bloqueadas.",
+        "rationale": "A mayor participación, mayores son las probabilidades (y el interés) de actuar correctamente para validar el siguiente bloque.",
+        "isCorrect": false
+      },
+      {
+        "text": "El concepto de 'slashing' implica una penalización económica para los validadores que actúen de forma maliciosa.",
+        "rationale": "Es un mecanismo de incentivo negativo que protege la integridad de la red eliminando fondos a los atacantes.",
+        "isCorrect": false
+      },
+      {
+        "text": "PoS ofrece una mayor velocidad de consenso y una eficiencia energética superior en comparación con PoW.",
+        "rationale": "Al eliminar la minería competitiva de alto consumo, la red opera de forma mucho más ágil y sostenible.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Diferencie entre el uso de energía externa (computación) y el uso de valor interno (activos) para garantizar la seguridad."
+  },
+  {
+    "guid": "8de7266d-e50e-4f42-b19a-ef3695fa9295",
+    "subjectId": "T42",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Sobre las características técnicas clave (DEDITO), señale la opción FALSA:",
+    "answerOptions": [
+      {
+        "text": "La inmutabilidad garantiza que los errores previos puedan borrarse del registro siempre que haya una auditoría legal que lo autorice.",
+        "rationale": "La inmutabilidad impide borrar datos; los errores se corrigen añadiendo una nueva transacción compensatoria, dejando rastro de ambas.",
+        "isCorrect": true
+      },
+      {
+        "text": "La tokenización permite representar activos físicos, como obras de arte o bienes inmuebles, mediante unidades de valor digitales.",
+        "rationale": "Es el proceso de convertir derechos sobre activos en tokens gestionables dentro de la blockchain.",
+        "isCorrect": false
+      },
+      {
+        "text": "La encriptación mediante firmas digitales asegura la autenticidad del emisor y evita la suplantación de identidad.",
+        "rationale": "Se utiliza criptografía de clave pública para que solo el propietario legítimo pueda autorizar movimientos.",
+        "isCorrect": false
+      },
+      {
+        "text": "La descentralización traslada la toma de decisiones de una entidad central a una red distribuida de nodos independientes.",
+        "rationale": "Esto elimina los intermediarios tradicionales y los puntos únicos de control o censura.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Reflexione sobre si la tecnología permite la edición o eliminación de datos históricos bajo alguna circunstancia."
+  },
+  {
+    "guid": "12cb2c11-4818-4c36-8831-c423eff0c10d",
+    "subjectId": "T42",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En el contexto de la gestión de identidades y casos de uso públicos, ¿cuál de estas afirmaciones es FALSA?",
+    "answerOptions": [
+      {
+        "text": "IdentiCAT es un modelo de identidad digital donde la Administración actúa como el único gestor y controlador de los datos de los ciudadanos.",
+        "rationale": "En IdentiCAT, el modelo es de identidad 'autosoberana', donde el ciudadano controla sus datos y la Administración solo los valida.",
+        "isCorrect": true
+      },
+      {
+        "text": "Barcelona Activa utiliza blockchain para que las empresas verifiquen de forma segura los certificados académicos de sus usuarios.",
+        "rationale": "Es una aplicación práctica para evitar la falsificación de currículos y agilizar la contratación.",
+        "isCorrect": false
+      },
+      {
+        "text": "La notarización digital en blockchain permite dejar constancia de la existencia de un documento mediante el guardado de su hash.",
+        "rationale": "El hash actúa como una huella digital inalterable que certifica que el documento no ha sido modificado desde su registro.",
+        "isCorrect": false
+      },
+      {
+        "text": "El uso de blockchain en licitaciones públicas busca mejorar la transparencia y el control anticorrupción.",
+        "rationale": "Al ser un registro auditable e inmutable, garantiza que los procesos de contratación no sean manipulados a posteriori.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en quién posee la 'soberanía' o el control de los datos en los nuevos modelos de identidad digital mencionados."
+  },
+  {
+    "guid": "92f7d894-0500-4719-9cac-eca4c0ed0f31",
+    "subjectId": "T42",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Sobre la resolución de conflictos y bloques huérfanos, indique la afirmación FALSA:",
+    "answerOptions": [
+      {
+        "text": "Cuando aparecen dos cadenas de igual longitud, los nodos deben esperar a que una autoridad central decida cuál es la válida.",
+        "rationale": "El conflicto se resuelve automáticamente mediante la regla de la 'cadena más larga' (mayor trabajo o bloques verificados) sin intervención central.",
+        "isCorrect": true
+      },
+      {
+        "text": "Un bloque huérfano es aquel que fue verificado pero que finalmente fue descartado al imponerse una cadena competidora más larga.",
+        "rationale": "Los bloques huérfanos ocurren durante bifurcaciones temporales de la red.",
+        "isCorrect": false
+      },
+      {
+        "text": "Idealmente, la red solo mantiene una única cadena principal consensuada por todos los participantes.",
+        "rationale": "El protocolo está diseñado para converger siempre hacia una única versión de la verdad histórica.",
+        "isCorrect": false
+      },
+      {
+        "text": "La cadena con más bloques verificados se convierte en la principal, obligando a los otros nodos a replicar sus datos.",
+        "rationale": "Es el mecanismo de consenso el que garantiza que todos los nodos terminen sincronizados en la misma secuencia.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Recuerde el principio de descentralización y cómo se resuelven las divergencias en la red de forma autónoma."
+  },
+  {
+    "guid": "0c1a4f5d-4b11-4cee-ae8f-78fba734245c",
+    "subjectId": "T42",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Cuál de las siguientes afirmaciones sobre normativas y conceptos avanzados es FALSA?",
+    "answerOptions": [
+      {
+        "text": "Las Zero-Knowledge Proofs (ZKP) son una exigencia legal obligatoria para todos los contratos inteligentes según la norma UNE-ISO 22739.",
+        "rationale": "ZKP es una tecnología avanzada para la privacidad, pero la norma UNE-ISO 22739 se centra en el vocabulario estándar, no en imponer ZKP.",
+        "isCorrect": true
+      },
+      {
+        "text": "El 'gas' en Ethereum es la unidad que mide el coste computacional necesario para ejecutar transacciones o contratos.",
+        "rationale": "Permite asignar un precio al trabajo que deben realizar los nodos para procesar el código.",
+        "isCorrect": false
+      },
+      {
+        "text": "Para cumplir con el RGPD, se recomienda aplicar el 'privacy by design' y evitar almacenar datos personales directamente en la cadena.",
+        "rationale": "Dada la inmutabilidad de la blockchain, almacenar datos personales directamente entraría en conflicto con el derecho al borrado.",
+        "isCorrect": false
+      },
+      {
+        "text": "La norma UNE 71307-1:2020 establece un marco de referencia para la gestión de identidades descentralizadas.",
+        "rationale": "Proporciona las pautas técnicas y organizativas para usar DLT en la identificación de usuarios.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Diferencie entre una norma de vocabulario/terminología y una imposición de una herramienta tecnológica específica."
+  },
+  {
+    "guid": "ecc3eb45-45fe-4e5c-9694-685c25b0d48a",
+    "subjectId": "T42",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Respecto a los casos de uso en salud y educación, señale la afirmación FALSA:",
+    "answerOptions": [
+      {
+        "text": "La blockchain permite que cualquier hospital del mundo acceda libremente a la historia clínica de un paciente sin necesidad de permisos.",
+        "rationale": "El acceso sigue siendo restringido y seguro; blockchain mejora el intercambio y la integridad, pero bajo control y permisos adecuados.",
+        "isCorrect": true
+      },
+      {
+        "text": "En educación, la tecnología facilita la verificación inmediata de títulos académicos sin recurrir a la institución emisora constantemente.",
+        "rationale": "El título se registra en la cadena y cualquier tercero autorizado puede validar su autenticidad criptográficamente.",
+        "isCorrect": false
+      },
+      {
+        "text": "La blockchain puede empoderar al paciente dándole un mayor control sobre quién accede a sus datos médicos.",
+        "rationale": "A través de claves y permisos descentralizados, el paciente gestiona la visibilidad de su historial.",
+        "isCorrect": false
+      },
+      {
+        "text": "Mejora la trazabilidad de los medicamentos en la cadena de suministro para combatir el fraude y las falsificaciones.",
+        "rationale": "Permite verificar el origen y la autenticidad de los fármacos en cada etapa logística.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considere si la transparencia de la blockchain implica una falta total de privacidad o control de acceso."
+  },
+  {
+    "guid": "71eb2374-10bd-4d0b-8ec6-0ca7b2d5a309",
+    "subjectId": "T42",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En cuanto a los algoritmos de hash y su función en la seguridad, ¿qué afirmación es FALSA?",
+    "answerOptions": [
+      {
+        "text": "Si se cambia un solo carácter en los datos de un bloque, el hash resultante mantendrá una estructura similar para facilitar el rastreo.",
+        "rationale": "Las funciones hash son altamente sensibles; un cambio mínimo produce un hash completamente diferente (efecto avalancha).",
+        "isCorrect": true
+      },
+      {
+        "text": "El hash de la cabecera del bloque anterior es lo que permite detectar si alguien ha intentado manipular bloques históricos.",
+        "rationale": "Si el bloque $n-1$ cambia, su hash cambia, invalidando el bloque $n$ y todos los sucesivos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Bitcoin utiliza específicamente el algoritmo de hash $SHA-256$.",
+        "rationale": "Es el estándar criptográfico elegido para su mecanismo de seguridad y minería.",
+        "isCorrect": false
+      },
+      {
+        "text": "Un hash es una representación de longitud fija de un conjunto de datos, independientemente del tamaño original de estos.",
+        "rationale": "Tanto si los datos son un bit como un terabyte, el hash siempre tendrá el mismo número de caracteres.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en cómo reacciona una función criptográfica ante la mínima alteración de la entrada."
+  },
+  {
+    "guid": "31e96580-a92b-42ef-a054-d6cb2e716b07",
+    "subjectId": "T42",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Sobre la relación entre DLT y Blockchain, indique la afirmación FALSA:",
+    "answerOptions": [
+      {
+        "text": "Todos los sistemas DLT son tipos de Blockchain, ya que siempre organizan los datos en bloques secuenciales.",
+        "rationale": "Es al revés: Blockchain es un tipo de DLT, pero existen otros tipos de DLT como DAG o TEMPO que no usan bloques.",
+        "isCorrect": true
+      },
+      {
+        "text": "DLT (Distributed Ledger Technology) es el concepto general de registros digitales distribuidos sin gestor centralizado.",
+        "rationale": "Es la tecnología paraguas que engloba a diferentes arquitecturas de libros compartidos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Blockchain se diferencia de otros DLT por enlazar sus datos mediante criptografía en una cadena lineal.",
+        "rationale": "Esta estructura de cadena de bloques es su característica distintiva frente a estructuras de grafos (DAG).",
+        "isCorrect": false
+      },
+      {
+        "text": "Ejemplos de DLT que no son estrictamente blockchain incluyen protocolos como Iota o Hashgraph.",
+        "rationale": "Estos utilizan Grafos Acíclicos Dirigidos (DAG) en lugar de una cadena secuencial de bloques.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Recuerde el diagrama del material donde se muestran los círculos de categorías tecnológicas."
+  },
+  {
+    "guid": "38b35567-3684-445e-96e8-5683e6ea9e81",
+    "subjectId": "T42",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Cuál de las siguientes afirmaciones sobre los Smart Contracts es FALSA?",
+    "answerOptions": [
+      {
+        "text": "Son acuerdos legales escritos en lenguaje natural que requieren la interpretación de un juez para su ejecución.",
+        "rationale": "Los smart contracts son programas de código informático que se ejecutan automáticamente cuando se cumplen condiciones predefinidas.",
+        "isCorrect": true
+      },
+      {
+        "text": "Su ejecución automática ayuda a eliminar intermediarios y reducir el riesgo de fraude en las transacciones.",
+        "rationale": "Al no depender de la voluntad humana tras su firma, garantizan el cumplimiento de lo pactado.",
+        "isCorrect": false
+      },
+      {
+        "text": "Se utilizan en el sector de seguros para agilizar de forma autónoma el proceso de reclamaciones y pagos.",
+        "rationale": "Por ejemplo, un retraso de vuelo podría disparar un pago automático si el contrato está conectado a la base de datos de la aerolínea.",
+        "isCorrect": false
+      },
+      {
+        "text": "Ethereum es una de las plataformas más conocidas para el desarrollo y despliegue de contratos inteligentes.",
+        "rationale": "Fue la primera gran red en permitir lógica programable compleja sobre su blockchain.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Reflexione sobre si estos contratos son leídos por personas o procesados por máquinas."
+  },
+  {
+    "guid": "2a628e99-3f93-4565-ad4a-23ddb87f29f4",
+    "subjectId": "T42",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En el funcionamiento de una transacción blockchain, ¿cuál de los siguientes pasos es FALSO?",
+    "answerOptions": [
+      {
+        "text": "Una vez que el minero encuentra el nonce, el bloque se añade a la cadena sin necesidad de ser comunicado a los demás nodos.",
+        "rationale": "Es fundamental difundir la solución a la red para que los demás nodos la verifiquen y actualicen sus propias copias.",
+        "isCorrect": true
+      },
+      {
+        "text": "Las transacciones nuevas se añaden primero a un pool temporal antes de ser agrupadas en un bloque.",
+        "rationale": "Este 'pool' (mempool) sirve de espera hasta que los mineros seleccionan las transacciones para el siguiente bloque.",
+        "isCorrect": false
+      },
+      {
+        "text": "El minero que resuelve el puzle criptográfico recibe una recompensa por su trabajo y el gasto energético realizado.",
+        "rationale": "Es el incentivo económico que mantiene la seguridad y la participación en redes PoW.",
+        "isCorrect": false
+      },
+      {
+        "text": "Todos los mineros compiten simultáneamente por resolver el mismo problema matemático para el nuevo bloque.",
+        "rationale": "Esta competencia asegura que ningún actor pueda predecir quién validará el siguiente bloque con facilidad.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en la importancia de la sincronización en una base de datos que está repartida por todo el mundo."
+  },
+  {
+    "guid": "7146a585-00aa-407a-8728-6d1b973bc516",
+    "subjectId": "T42",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Sobre la propiedad intelectual y el voto electrónico en blockchain, señale la opción FALSA:",
+    "answerOptions": [
+      {
+        "text": "El uso de blockchain para votaciones electrónicas permite que los votos puedan ser modificados por el administrador de la red en caso de error masivo.",
+        "rationale": "La inmutabilidad impide que cualquier voto registrado sea alterado, garantizando la integridad total del proceso electoral.",
+        "isCorrect": true
+      },
+      {
+        "text": "La tecnología permite registrar obras de autores para gestionar derechos de autor de manera más eficiente y segura.",
+        "rationale": "Funciona como un registro de propiedad intelectual digital que ofrece una prueba fehaciente de creación.",
+        "isCorrect": false
+      },
+      {
+        "text": "En las votaciones, la blockchain ayuda a garantizar tanto la transparencia del recuento como el anonimato del votante.",
+        "rationale": "Se pueden usar técnicas criptográficas para que el voto sea verificable sin revelar la identidad del emisor.",
+        "isCorrect": false
+      },
+      {
+        "text": "Facilita la monetización directa de las obras para los creadores al eliminar intermediarios en la distribución.",
+        "rationale": "Los autores pueden recibir micropagos directamente mediante tokens sin pasar por plataformas centralizadas tradicionales.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considere si la inmutabilidad de la red admite excepciones para los administradores en una red descentralizada."
+  },
+  {
+    "guid": "9630d50e-3bf7-4763-a872-67d6fe7e9759",
+    "subjectId": "T42",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Indique la afirmación FALSA sobre el 'bloque génesis':",
+    "answerOptions": [
+      {
+        "text": "El bloque génesis es idéntico a todos los demás bloques y contiene el hash de un bloque anterior ficticio.",
+        "rationale": "El bloque génesis es único porque es el primero de la cadena y no tiene un bloque anterior al que referenciar.",
+        "isCorrect": true
+      },
+      {
+        "text": "Es el punto de partida de cualquier red blockchain y está grabado en el software de los nodos.",
+        "rationale": "Sin este primer bloque, los nodos no tendrían una raíz común sobre la cual construir la cadena.",
+        "isCorrect": false
+      },
+      {
+        "text": "A partir de este bloque se genera la secuencia cronológica de toda la historia de la red.",
+        "rationale": "Todos los bloques subsiguientes se enlazan directa o indirectamente con él.",
+        "isCorrect": false
+      },
+      {
+        "text": "Se conoce como el 'bloque 0' o 'bloque 1' dependiendo de la implementación de la red específica.",
+        "rationale": "Es una convención de numeración, pero su función como origen es universal en blockchain.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en qué hace especial al primer eslabón de una cadena física."
+  },
+  {
+    "guid": "0306c805-581e-4544-a610-db7003bafd29",
+    "subjectId": "T42",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Respecto a la disponibilidad y robustez de la red, ¿cuál es la afirmación FALSA?",
+    "answerOptions": [
+      {
+        "text": "La redundancia de datos en blockchain es ineficiente porque requiere que todos los nodos tengan la misma información, lo que facilita el borrado masivo.",
+        "rationale": "La redundancia es una fortaleza: para perder los datos habría que destruir todas las copias globales simultáneamente, lo cual es casi imposible.",
+        "isCorrect": true
+      },
+      {
+        "text": "La ausencia de un servidor central evita que un ataque de denegación de servicio (DoS) tumbe toda la red.",
+        "rationale": "Al no haber un punto central, los atacantes tendrían que atacar a miles de nodos a la vez para ser efectivos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Si un nodo falla o se desconecta, el resto de la red continúa operando y preservando la integridad de los datos.",
+        "rationale": "La operatividad depende de la mayoría de la red, no de componentes individuales.",
+        "isCorrect": false
+      },
+      {
+        "text": "Cualquier nuevo nodo que se una a la red puede descargar la historia completa para recuperar el estado actual de la cadena.",
+        "rationale": "Esto asegura que la red pueda regenerarse y expandirse constantemente sin perder información.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Analice si el hecho de tener muchas copias iguales es un riesgo o una protección contra la pérdida de datos."
+  },
+  {
+    "guid": "124c75bd-a4f4-4e5f-93b7-4d6843e5a056",
+    "subjectId": "T42",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Sobre la transparencia y auditabilidad en blockchain, señale la opción FALSA:",
+    "answerOptions": [
+      {
+        "text": "En una blockchain pública, las transacciones son secretas y solo los mineros pueden auditar el origen de los fondos.",
+        "rationale": "En las blockchains públicas como Bitcoin o Ethereum, el registro es abierto y cualquiera puede auditar y verificar el historial.",
+        "isCorrect": true
+      },
+      {
+        "text": "La trazabilidad permite seguir el rastro de una transacción desde su origen hasta su destino final de forma precisa.",
+        "rationale": "Es una herramienta valiosa para auditorías financieras y cumplimiento normativo.",
+        "isCorrect": false
+      },
+      {
+        "text": "Incluso en las blockchains privadas, la información es transparente y verificable para todos los actores que tienen permiso de acceso.",
+        "rationale": "Aunque el acceso sea restringido, dentro de ese círculo la confianza se basa en la auditoría del registro compartido.",
+        "isCorrect": false
+      },
+      {
+        "text": "La auditoría se facilita porque los registros son inmutables y no han podido ser manipulados por terceros.",
+        "rationale": "El auditor tiene la certeza de que lo que ve es la realidad histórica exacta grabada en la cadena.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considere si el libro de registros de una red como Bitcoin es de acceso cerrado o abierto."
+  },
+  {
+    "guid": "e9c29678-cbf4-4cee-be6e-676d0ffe1406",
+    "subjectId": "T42",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En el contexto de la logística y cadena de suministro, indique la afirmación FALSA:",
+    "answerOptions": [
+      {
+        "text": "La blockchain sustituye la necesidad de inspecciones físicas en las aduanas gracias a que los datos digitales son siempre veraces por sí mismos.",
+        "rationale": "Blockchain garantiza que los datos no se alteran una vez registrados, pero no puede garantizar que el dato introducido inicialmente sea veraz (problema del 'oráculo').",
+        "isCorrect": true
+      },
+      {
+        "text": "Permite la digitalización de conocimientos de embarque y documentos de aduanas para navilleras y puertos.",
+        "rationale": "Reduce la burocracia en papel y agiliza el flujo de información en el comercio internacional.",
+        "isCorrect": false
+      },
+      {
+        "text": "Ayuda a verificar la autenticidad de productos de lujo evitando que artículos falsos entren en el mercado secundario.",
+        "rationale": "Al registrar cada cambio de manos, se crea un historial de propiedad verificable para el consumidor.",
+        "isCorrect": false
+      },
+      {
+        "text": "Mejora la transparencia desde el origen del producto hasta el consumidor final.",
+        "rationale": "Proporciona una visibilidad completa de la cadena de valor que antes estaba fragmentada en silos de datos.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Diferencie entre la integridad de los datos grabados y la veracidad de la realidad física que representan."
+  },
+  {
+    "guid": "7f9e9f04-a666-4615-b743-fc0c49edeb1d",
+    "subjectId": "T42",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Cuál de las siguientes afirmaciones sobre los nodos completos (full nodes) es FALSA?",
+    "answerOptions": [
+      {
+        "text": "Un nodo completo es aquel que posee el 51% del poder de cómputo de la red para poder validar bloques.",
+        "rationale": "Poseer el 51% es un tipo de ataque; un nodo completo simplemente es el que almacena toda la cadena y aplica las reglas de validación.",
+        "isCorrect": true
+      },
+      {
+        "text": "Los nodos completos son esenciales para garantizar que las transacciones sigan las reglas del protocolo sin confiar en terceros.",
+        "rationale": "Al verificar todo el historial, no dependen de la información de otros nodos para saber si una transacción es válida.",
+        "isCorrect": false
+      },
+      {
+        "text": "Cada vez que se genera un nuevo bloque, los nodos completos lo verifican antes de añadirlo a su copia local.",
+        "rationale": "Esto asegura que los bloques minados cumplan estrictamente con el consenso de la red.",
+        "isCorrect": false
+      },
+      {
+        "text": "El almacenamiento de toda la cadena de bloques por parte de los nodos completos permite la máxima descentralización.",
+        "rationale": "Cuantos más nodos independientes guarden la información, más difícil es censurar o destruir la red.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Recuerde la función de un nodo completo en cuanto a almacenamiento y validación de reglas."
+  }
+]

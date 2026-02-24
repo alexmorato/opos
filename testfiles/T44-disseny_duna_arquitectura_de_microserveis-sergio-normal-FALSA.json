@@ -1,0 +1,622 @@
+[
+  {
+    "guid": "b170ee8c-a5bc-400e-8f71-69a5354556d9",
+    "subjectId": "T44",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Cuál de las siguientes afirmaciones sobre el Enterprise Service Bus (ESB) en una arquitectura SOA es FALSA?",
+    "answerOptions": [
+      {
+        "text": "Es el componente central encargado de la orquestación y mediación entre servicios corporativos.",
+        "rationale": "En SOA, el ESB actúa efectivamente como el motor de integración y coordinación central.",
+        "isCorrect": false
+      },
+      {
+        "text": "Facilita la transformación de datos entre diferentes formatos como XML y JSON.",
+        "rationale": "Una de las funciones críticas del ESB es permitir que sistemas heterogéneos se entiendan traduciendo sus mensajes.",
+        "isCorrect": false
+      },
+      {
+        "text": "Se recomienda su uso en arquitecturas de microservicios para centralizar la lógica de negocio y el enrutamiento.",
+        "rationale": "En microservicios se prefiere un 'dumb pipe' (como un Message Broker) y evitar un ESB centralizado que pueda convertirse en un cuello de botella o punto único de fallo.",
+        "isCorrect": true
+      },
+      {
+        "text": "Permite la gestión de múltiples protocolos de comunicación como SOAP, REST y JMS.",
+        "rationale": "La capacidad multiprotocolo es fundamental para que el ESB integre sistemas antiguos con aplicaciones modernas.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Recuerda la diferencia de filosofía entre la centralización de SOA y la descentralización de los microservicios."
+  },
+  {
+    "guid": "ada0e421-9dd8-4349-9933-3a8f444a5153",
+    "subjectId": "T44",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En relación con la persistencia de datos en microservicios, ¿qué afirmación es FALSA?",
+    "answerOptions": [
+      {
+        "text": "Cada microservicio debe gestionar su propia base de datos de forma independiente.",
+        "rationale": "El principio de 'Database per Service' es clave para garantizar el bajo acoplamiento y el despliegue independiente.",
+        "isCorrect": false
+      },
+      {
+        "text": "El uso de una base de datos única y compartida por todos los microservicios es la práctica recomendada para asegurar la consistencia ácida (ACID).",
+        "rationale": "Compartir una base de datos crea un acoplamiento fuerte a nivel de esquema, lo cual contradice la independencia requerida en microservicios.",
+        "isCorrect": true
+      },
+      {
+        "text": "La consistencia de datos entre diferentes microservicios se suele gestionar mediante consistencia eventual.",
+        "rationale": "Debido a la distribución, los sistemas modernos aceptan que los datos se sincronicen tras un breve periodo de tiempo mediante eventos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Un microservicio no debe acceder directamente a las tablas o datos de otro microservicio.",
+        "rationale": "Cualquier intercambio de información debe realizarse a través de las APIs expuestas, nunca por acceso directo a la base de datos ajena.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piensa en qué sucede con la autonomía de los equipos si todos dependen de un mismo esquema de datos centralizado."
+  },
+  {
+    "guid": "9aaeeec9-d7f8-429b-b560-1703ebdac556",
+    "subjectId": "T44",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Sobre los protocolos SOAP y REST, ¿cuál de las siguientes opciones es FALSA?",
+    "answerOptions": [
+      {
+        "text": "SOAP es un protocolo basado estrictamente en el formato XML.",
+        "rationale": "SOAP define una estructura rígida de mensaje (Envelope, Body) que requiere obligatoriamente XML.",
+        "isCorrect": false
+      },
+      {
+        "text": "REST es un estilo arquitectónico que aprovecha los métodos nativos del protocolo HTTP como GET, POST y DELETE.",
+        "rationale": "REST no es un protocolo en sí, sino una forma de utilizar los estándares web existentes para la comunicación.",
+        "isCorrect": false
+      },
+      {
+        "text": "REST obliga al uso exclusivo del formato JSON para el intercambio de información.",
+        "rationale": "Aunque JSON es el más habitual, REST es flexible y puede utilizar XML, texto plano o formatos binarios.",
+        "isCorrect": true
+      },
+      {
+        "text": "SOAP permite el uso de estándares avanzados de seguridad y transaccionalidad mediante las extensiones WS-*.",
+        "rationale": "Estándares como WS-Security o WS-Transaction proporcionan capacidades robustas que SOAP ofrece de forma nativa frente a REST.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considera la flexibilidad que ofrece un estilo frente a la rigidez de un protocolo formal."
+  },
+  {
+    "guid": "3849e780-66e3-4e47-8df8-0a83ea5c5f23",
+    "subjectId": "T44",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Respecto a la resiliencia en microservicios, señale la afirmación FALSA sobre el patrón Circuit Breaker:",
+    "answerOptions": [
+      {
+        "text": "Su objetivo es evitar que un fallo en un servicio se propague en cascada a todo el sistema.",
+        "rationale": "Al cortar las peticiones a un servicio que falla, se protege la disponibilidad del resto de la arquitectura.",
+        "isCorrect": false
+      },
+      {
+        "text": "Cuando el circuito está 'abierto', las peticiones al servicio fallido se rechazan inmediatamente sin intentar realizar la conexión.",
+        "rationale": "Esta es la función principal del estado abierto para liberar recursos y evitar esperas innecesarias.",
+        "isCorrect": false
+      },
+      {
+        "text": "El patrón obliga al servicio cliente a reintentar la conexión indefinidamente hasta que el servicio destino responda correctamente.",
+        "rationale": "El Circuit Breaker precisamente detiene los reintentos automáticos masivos para permitir que el servicio afectado se recupere.",
+        "isCorrect": true
+      },
+      {
+        "text": "Permite definir una respuesta alternativa o degradada (fallback) mientras el servicio principal no está disponible.",
+        "rationale": "El fallback mejora la experiencia del usuario devolviendo datos cacheados o mensajes de error amigables.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Analiza si la intención del patrón es insistir en la conexión fallida o pausarla temporalmente."
+  },
+  {
+    "guid": "5bc57298-8eab-4614-8369-e3ed29565a75",
+    "subjectId": "T44",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Cuál de las siguientes afirmaciones sobre la seguridad en arquitecturas modernas es FALSA?",
+    "answerOptions": [
+      {
+        "text": "JWT (JSON Web Tokens) es un estándar para transmitir información de forma segura entre partes como un objeto JSON.",
+        "rationale": "Los tokens JWT están firmados digitalmente, lo que garantiza la integridad de la información que transportan.",
+        "isCorrect": false
+      },
+      {
+        "text": "OAuth2 es un protocolo diseñado principalmente para la autenticación de identidad de usuarios finales.",
+        "rationale": "OAuth2 es un framework de autorización; para la autenticación (identidad) se utiliza la capa adicional OpenID Connect.",
+        "isCorrect": true
+      },
+      {
+        "text": "mTLS (Mutual TLS) asegura que tanto el cliente como el servidor se autentiquen mutuamente mediante certificados.",
+        "rationale": "Es una práctica esencial en Service Mesh para garantizar comunicaciones seguras 'service-to-service'.",
+        "isCorrect": false
+      },
+      {
+        "text": "WS-Security es el estándar de seguridad preferente para servicios web basados en SOAP.",
+        "rationale": "Proporciona cifrado y firma digital a nivel de mensaje XML, independientemente del transporte.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Distingue entre el permiso para acceder a un recurso (autorización) y la verificación de quién es el usuario (autenticación)."
+  },
+  {
+    "guid": "f8e1e599-df90-4605-821b-a1e63096f41e",
+    "subjectId": "T44",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En el contexto de Domain-Driven Design (DDD) aplicado a microservicios, ¿qué afirmación es FALSA?",
+    "answerOptions": [
+      {
+        "text": "Un 'Bounded Context' define un límite lógico donde los términos y modelos tienen un significado específico.",
+        "rationale": "Este concepto ayuda a separar las responsabilidades del negocio evitando ambigüedades en el modelo.",
+        "isCorrect": false
+      },
+      {
+        "text": "Los microservicios deben diseñarse siguiendo las fronteras de los Bounded Contexts identificados en el negocio.",
+        "rationale": "Alinear la arquitectura técnica con el dominio del negocio es la base del diseño de microservicios robustos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Dentro de un sistema global, el término 'Cliente' debe tener exactamente la misma estructura de datos y lógica en todos los microservicios.",
+        "rationale": "En DDD, la entidad 'Cliente' puede ser distinta en el contexto de Facturación que en el contexto de Soporte, cada uno con su modelo propio.",
+        "isCorrect": true
+      },
+      {
+        "text": "El lenguaje ubicuo (Ubiquitous Language) debe ser compartido por desarrolladores y expertos de negocio dentro de un contexto.",
+        "rationale": "Esto garantiza que no haya errores de traducción entre los requisitos del negocio y la implementación del código.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Reflexiona sobre si un mismo concepto de negocio siempre significa lo mismo para departamentos diferentes (ej. Ventas vs Logística)."
+  },
+  {
+    "guid": "acd55d92-ae1f-4b20-bf9e-98ddf9caec6f",
+    "subjectId": "T44",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Sobre el API Manager y el API Gateway, ¿cuál de las siguientes opciones es FALSA?",
+    "answerOptions": [
+      {
+        "text": "El API Gateway actúa como punto de entrada único para las peticiones de los clientes hacia los microservicios.",
+        "rationale": "Centraliza funciones como el enrutamiento, la agregación de respuestas y la terminación SSL.",
+        "isCorrect": false
+      },
+      {
+        "text": "El API Manager se encarga del ciclo de vida de la API, incluyendo la publicación, el catálogo y la suscripción de desarrolladores.",
+        "rationale": "Es una herramienta de gobernanza que gestiona quién usa la API y bajo qué condiciones comerciales o técnicas.",
+        "isCorrect": false
+      },
+      {
+        "text": "El API Gateway es el componente encargado de almacenar de forma persistente la lógica de negocio de los microservicios.",
+        "rationale": "El Gateway debe ser ligero y centrarse en el tráfico; la lógica de negocio reside exclusivamente dentro de cada microservicio.",
+        "isCorrect": true
+      },
+      {
+        "text": "Ambos componentes pueden trabajar juntos para aplicar políticas de Rate Limiting (límite de peticiones).",
+        "rationale": "Es común que el Manager defina las cuotas y el Gateway las ejecute en tiempo real sobre el tráfico entrante.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Evalúa si un componente de red o gestión debería contener las reglas de negocio de la aplicación."
+  },
+  {
+    "guid": "05c6cfa0-0a28-473e-a9e0-1969ee087e90",
+    "subjectId": "T44",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Respecto a la comunicación asíncrona mediante Message Brokers, señale la afirmación FALSA:",
+    "answerOptions": [
+      {
+        "text": "Permite el desacoplamiento temporal entre el emisor y el receptor del mensaje.",
+        "rationale": "El emisor no necesita que el receptor esté disponible en el momento exacto de enviar la información.",
+        "isCorrect": false
+      },
+      {
+        "text": "Kafka y RabbitMQ son ejemplos de tecnologías utilizadas para implementar este tipo de comunicación.",
+        "rationale": "Son herramientas líderes para el manejo de colas de mensajes y streaming de eventos en sistemas distribuidos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Este modelo garantiza que todas las peticiones reciban una respuesta inmediata del servidor en el mismo hilo de ejecución.",
+        "rationale": "Esa es la descripción de la comunicación síncrona (como REST sobre HTTP), no de la asíncrona basada en eventos.",
+        "isCorrect": true
+      },
+      {
+        "text": "Es fundamental para implementar patrones de consistencia eventual como SAGA.",
+        "rationale": "Las sagas dependen de la propagación de eventos para coordinar transacciones distribuidas sin bloqueos.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Diferencia entre esperar a que alguien termine una tarea antes de seguir o dejar una nota en un buzón y continuar con otra cosa."
+  },
+  {
+    "guid": "ba91a642-fb87-4750-a8b7-0b6d551912b3",
+    "subjectId": "T44",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Sobre la gobernanza en SOA, ¿cuál de las siguientes afirmaciones es FALSA?",
+    "answerOptions": [
+      {
+        "text": "SOA requiere una gobernanza centralizada debido al énfasis en la reutilización de servicios corporativos.",
+        "rationale": "Para que los servicios sean compartidos por toda la organización, se necesitan normas de diseño y catálogos claros.",
+        "isCorrect": false
+      },
+      {
+        "text": "Históricamente, UDDI fue el estándar para el registro y descubrimiento de servicios SOAP.",
+        "rationale": "Aunque actualmente está en desuso a favor de portales de API, fue el componente de catálogo original de SOA.",
+        "isCorrect": false
+      },
+      {
+        "text": "La gobernanza en SOA evita el versionado de servicios para obligar a todos los clientes a usar siempre la última funcionalidad.",
+        "rationale": "El versionado es crítico en SOA para no romper la compatibilidad con aplicaciones antiguas (legacies) que consumen los servicios.",
+        "isCorrect": true
+      },
+      {
+        "text": "Establece políticas obligatorias sobre nomenclatura, seguridad y documentación mediante contratos formales.",
+        "rationale": "La formalidad del contrato (WSDL) garantiza que la interoperabilidad entre sistemas heterogéneos sea posible.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considera el impacto que tendría cambiar un servicio compartido por diez aplicaciones si no se permite mantener versiones anteriores."
+  },
+  {
+    "guid": "c06c0176-0bba-407b-90c9-fe589b9d34f2",
+    "subjectId": "T44",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En cuanto a los componentes de infraestructura para microservicios, ¿qué afirmación es FALSA?",
+    "answerOptions": [
+      {
+        "text": "Docker permite empaquetar un microservicio con todas sus dependencias en una unidad aislada.",
+        "rationale": "Los contenedores resuelven el problema de 'en mi máquina funciona' garantizando entornos idénticos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Kubernetes se encarga de la orquestación, el escalado automático y la autosanación (self-healing) de los contenedores.",
+        "rationale": "Es la plataforma estándar de facto para gestionar el despliegue y la operación de sistemas distribuidos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Service Discovery permite que los microservicios se localicen dinámicamente mediante direcciones IP estáticas configuradas manualmente.",
+        "rationale": "El Service Discovery (como Eureka o K8s DNS) gestiona el registro dinámico porque las IPs de los contenedores son efímeras y cambian.",
+        "isCorrect": true
+      },
+      {
+        "text": "Service Mesh proporciona una infraestructura para gestionar el tráfico, la seguridad (mTLS) y la observabilidad sin cambiar el código.",
+        "rationale": "Actúa mediante sidecars que interceptan las comunicaciones entre servicios para aplicar políticas de red.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piensa en si es viable escribir manualmente las direcciones IP en un entorno donde los servicios se crean y destruyen constantemente."
+  },
+  {
+    "guid": "dffd70a9-df80-4e17-b6f4-d5888049e975",
+    "subjectId": "T44",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Cuál de las siguientes afirmaciones sobre los formatos de datos XML y JSON es FALSA?",
+    "answerOptions": [
+      {
+        "text": "XML es más estructurado y pesado, siendo el formato obligatorio para el protocolo SOAP.",
+        "rationale": "Su naturaleza detallada lo hace ideal para contratos rígidos y validaciones estrictas (XSD).",
+        "isCorrect": false
+      },
+      {
+        "text": "JSON es un formato ligero, fácil de analizar (parsing) y muy utilizado en aplicaciones web y móviles.",
+        "rationale": "Su simplicidad y menor tamaño en red lo han convertido en el estándar para APIs REST modernas.",
+        "isCorrect": false
+      },
+      {
+        "text": "Cualquier mensaje en formato JSON puede ser validado nativamente por un servidor SOAP sin necesidad de adaptadores.",
+        "rationale": "SOAP requiere un sobre (envelope) XML; para procesar JSON, un servicio SOAP tradicional necesitaría una capa de transformación previa.",
+        "isCorrect": true
+      },
+      {
+        "text": "XML es muy adecuado para integraciones complejas en la Administración Pública debido a su capacidad de estructuración.",
+        "rationale": "Cumple con estándares de interoperabilidad (ENI) donde la rigidez del esquema es una ventaja para la fiabilidad.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Recuerda cuál es el formato de mensaje que define intrínsecamente al protocolo SOAP."
+  },
+  {
+    "guid": "e52a72f9-4efb-4d08-9e20-0fcbe0b5862d",
+    "subjectId": "T44",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Respecto a los principios de diseño de microservicios, señale la opción FALSA:",
+    "answerOptions": [
+      {
+        "text": "El principio de Responsabilidad Única (SRP) implica que cada microservicio debe encargarse de una sola función de negocio clara.",
+        "rationale": "Esto facilita el mantenimiento y permite que el servicio evolucione independientemente del resto.",
+        "isCorrect": false
+      },
+      {
+        "text": "Los microservicios deben tener un acoplamiento bajo y una alta cohesión.",
+        "rationale": "La alta cohesión asegura que lo que está dentro del servicio esté relacionado, y el bajo acoplamiento minimiza las dependencias externas.",
+        "isCorrect": false
+      },
+      {
+        "text": "El despliegue de microservicios debe realizarse de forma conjunta (all-in-one) para evitar inconsistencias de versiones en producción.",
+        "rationale": "Uno de los mayores beneficios de los microservicios es precisamente el despliegue independiente de cada componente.",
+        "isCorrect": true
+      },
+      {
+        "text": "La observabilidad es crítica e incluye logs centralizados, métricas y trazas distribuidas.",
+        "rationale": "Dado que las peticiones atraviesan múltiples servicios, se necesitan herramientas para rastrear dónde ocurre un error.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Analiza si el objetivo de los microservicios es poder actualizar una pequeña parte del sistema o tener que subir todo el bloque a la vez."
+  },
+  {
+    "guid": "683c6419-bb4d-4ad9-8c07-2bbcee74ffa1",
+    "subjectId": "T44",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Cuál de las siguientes afirmaciones sobre la arquitectura monolítica es FALSA?",
+    "answerOptions": [
+      {
+        "text": "Toda la funcionalidad (UI, lógica de negocio, acceso a datos) se concentra en un solo bloque de código.",
+        "rationale": "Esta es la definición clásica de un monolito, donde los componentes no están físicamente separados.",
+        "isCorrect": false
+      },
+      {
+        "text": "Presenta dificultades para escalar componentes individuales de forma independiente.",
+        "rationale": "Para escalar un monolito se debe replicar toda la aplicación, aunque solo una función pequeña tenga mucha carga.",
+        "isCorrect": false
+      },
+      {
+        "text": "Es la arquitectura ideal para entornos donde se requiere utilizar diferentes lenguajes de programación para cada funcionalidad.",
+        "rationale": "Un monolito generalmente está limitado a una única pila tecnológica (stack) para todo el proyecto.",
+        "isCorrect": true
+      },
+      {
+        "text": "Un fallo en un módulo del monolito puede llegar a tirar abajo toda la aplicación completa.",
+        "rationale": "Al compartir el mismo proceso y memoria, los errores graves suelen tener un impacto global.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piensa en si puedes escribir una parte de un único ejecutable en Java y otra en Python al mismo tiempo."
+  },
+  {
+    "guid": "d0e2051f-0cc7-405a-9c9e-d6515d690df2",
+    "subjectId": "T44",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Sobre el patrón 'Bulkhead' (Mamparos) en resiliencia, ¿qué afirmación es FALSA?",
+    "answerOptions": [
+      {
+        "text": "Se basa en la idea de compartimentar los recursos del sistema para evitar fallos totales.",
+        "rationale": "Al igual que en los barcos, si un compartimento se inunda, el resto mantiene el barco a flote.",
+        "isCorrect": false
+      },
+      {
+        "text": "Impide que un microservicio que consume excesivos recursos (ej. hilos de ejecución) afecte a la disponibilidad de otros servicios.",
+        "rationale": "Aísla las zonas críticas para que el sistema siga operativo de forma parcial.",
+        "isCorrect": false
+      },
+      {
+        "text": "Consiste en replicar la base de datos de un microservicio en múltiples servidores para mejorar la velocidad de lectura.",
+        "rationale": "Eso describe la replicación o el escalado de base de datos, no el patrón Bulkhead de aislamiento de fallos.",
+        "isCorrect": true
+      },
+      {
+        "text": "Puede implementarse limitando el número de conexiones simultáneas permitidas a un recurso específico.",
+        "rationale": "Establecer pools de conexiones separados es una forma técnica común de aplicar este aislamiento.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Recuerda la analogía de los barcos y si esta tiene que ver con la integridad del casco o con la velocidad del motor."
+  },
+  {
+    "guid": "4a23143f-5432-413f-9dd9-9424dff9e8ea",
+    "subjectId": "T44",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En relación con los estándares WS-*, ¿qué opción es FALSA?",
+    "answerOptions": [
+      {
+        "text": "WS-Policy se utiliza para declarar los requisitos y capacidades de un servicio web.",
+        "rationale": "Permite especificar condiciones como los algoritmos de cifrado requeridos por un endpoint SOAP.",
+        "isCorrect": false
+      },
+      {
+        "text": "WS-ReliableMessaging garantiza que los mensajes se entreguen correctamente incluso en caso de fallos temporales de red.",
+        "rationale": "Asegura la entrega 'al menos una vez' o 'exactamente una vez' entre dos puntos SOAP.",
+        "isCorrect": false
+      },
+      {
+        "text": "WS-Transaction permite gestionar transacciones distribuidas complejas a través de diferentes sistemas.",
+        "rationale": "Es clave para mantener la atomicidad en procesos de negocio que involucran múltiples servicios SOA.",
+        "isCorrect": false
+      },
+      {
+        "text": "WS-Security es el estándar que define cómo documentar APIs REST mediante el uso de anotaciones JSON.",
+        "rationale": "WS-Security es exclusivo de SOAP/XML; la documentación de APIs REST se gestiona con OpenAPI/Swagger.",
+        "isCorrect": true
+      }
+    ],
+    "hint": "Asocia el prefijo 'WS-' con la familia tecnológica a la que pertenece originalmente."
+  },
+  {
+    "guid": "347a76bb-a079-43a9-a480-46e16050e747",
+    "subjectId": "T44",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Qué afirmación sobre el diseño orientado a servicios (SOA) y su 'acoplamiento' es FALSA?",
+    "answerOptions": [
+      {
+        "text": "SOA busca el 'bajo acoplamiento' (loose coupling) para que los servicios dependan mínimamente entre sí.",
+        "rationale": "Esto permite que los cambios internos en un servicio no obliguen a modificar a todos sus consumidores.",
+        "isCorrect": false
+      },
+      {
+        "text": "Los contratos de servicio (WSDL) deben ser estables para facilitar la interoperabilidad a largo plazo.",
+        "rationale": "El contrato es la pieza central que garantiza que diferentes sistemas puedan seguir comunicándose.",
+        "isCorrect": false
+      },
+      {
+        "text": "El acoplamiento en SOA es 'fuerte' porque todos los servicios deben compartir obligatoriamente la misma lógica interna de código.",
+        "rationale": "SOA promueve la autonomía: cada servicio oculta su implementación interna y solo expone su interfaz.",
+        "isCorrect": true
+      },
+      {
+        "text": "El uso de estándares abiertos como HTTP y XML ayuda a reducir el acoplamiento tecnológico.",
+        "rationale": "Permite integrar un servicio escrito en .NET con un cliente escrito en Java sin problemas.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Reflexiona sobre si el objetivo de SOA es que todos los servicios sean iguales por dentro o que solo se entiendan por fuera."
+  },
+  {
+    "guid": "64357a91-6230-4537-9709-4cce2f7aa0c5",
+    "subjectId": "T44",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Sobre el protocolo JMS (Java Message Service), ¿cuál de las siguientes es FALSA?",
+    "answerOptions": [
+      {
+        "text": "Es una API estándar de Java para el envío y recepción de mensajes de forma fiable.",
+        "rationale": "Define un modelo común para interactuar con diferentes sistemas de mensajería empresarial.",
+        "isCorrect": false
+      },
+      {
+        "text": "Se utiliza habitualmente en entornos SOA clásicos junto con un bus de servicios (ESB).",
+        "rationale": "Facilita la integración asíncrona entre aplicaciones Java de gran escala.",
+        "isCorrect": false
+      },
+      {
+        "text": "Es un protocolo ligero diseñado específicamente para sustituir a HTTP en las comunicaciones de aplicaciones móviles.",
+        "rationale": "JMS es un estándar corporativo de Java, generalmente pesado para móviles, donde se prefieren protocolos como HTTP/REST o MQTT.",
+        "isCorrect": true
+      },
+      {
+        "text": "Soporta modelos de mensajería tanto de colas (punto a punto) como de temas (publicación/suscripción).",
+        "rationale": "Esta versatilidad permite adaptar la comunicación a las necesidades del flujo de datos.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considera el ámbito de uso de JMS (empresarial Java) frente a las necesidades de ligereza de un smartphone."
+  },
+  {
+    "guid": "9c360add-41d7-48d3-ac5d-c52618e4ea00",
+    "subjectId": "T44",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Respecto a OpenAPI y Swagger, señale la afirmación FALSA:",
+    "answerOptions": [
+      {
+        "text": "OpenAPI es la especificación formal y Swagger es el conjunto de herramientas que la implementan.",
+        "rationale": "Históricamente empezaron juntos, pero OpenAPI se convirtió en el estándar abierto independiente.",
+        "isCorrect": false
+      },
+      {
+        "text": "Permiten describir los endpoints, parámetros, formatos de respuesta y códigos de error de una API REST.",
+        "rationale": "Es la documentación técnica que permite a los desarrolladores entender cómo consumir el servicio.",
+        "isCorrect": false
+      },
+      {
+        "text": "Son equivalentes en el mundo REST a lo que representa el WSDL en el mundo SOAP.",
+        "rationale": "Ambos actúan como el 'contrato' que define cómo interactuar con el servicio web.",
+        "isCorrect": false
+      },
+      {
+        "text": "Obligan al desarrollador a escribir el código del servidor primero antes de poder definir la interfaz de la API.",
+        "rationale": "Existe el enfoque 'Design-First', donde se escribe la especificación OpenAPI antes que el código para acordar el contrato previamente.",
+        "isCorrect": true
+      }
+    ],
+    "hint": "Piensa si es posible pactar cómo será una puerta antes de construir la casa entera."
+  },
+  {
+    "guid": "c8030075-bd33-417a-866d-d9f7f09ffba1",
+    "subjectId": "T44",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En una arquitectura de microservicios, ¿qué afirmación sobre el 'Service Mesh' es FALSA?",
+    "answerOptions": [
+      {
+        "text": "Se encarga de gestionar la comunicación 'este-oeste' (tráfico entre servicios internos).",
+        "rationale": "A diferencia del API Gateway que mira hacia el exterior, el Mesh gestiona las llamadas internas.",
+        "isCorrect": false
+      },
+      {
+        "text": "Suele implementarse mediante un patrón 'sidecar' que acompaña a cada instancia del microservicio.",
+        "rationale": "El sidecar (como el proxy de Istio) maneja la red sin que el microservicio lo sepa.",
+        "isCorrect": false
+      },
+      {
+        "text": "Su función principal es sustituir por completo al API Gateway para la autenticación de usuarios externos.",
+        "rationale": "Aunque tienen funciones solapadas, el API Gateway sigue siendo preferible para la gestión de clientes externos y el Mesh para la red interna.",
+        "isCorrect": true
+      },
+      {
+        "text": "Facilita la implementación de políticas de seguridad, reintentos y observabilidad de forma centralizada.",
+        "rationale": "Permite aplicar reglas a miles de servicios sin tener que modificar el código de ninguno de ellos.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Distingue entre el componente que da la cara al usuario de internet y el que organiza el tráfico interno de la granja de servidores."
+  },
+  {
+    "guid": "ced6e3c3-a1c6-46cd-a7fc-2218dcaa579f",
+    "subjectId": "T44",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Cuál de las siguientes comparativas entre SOA y Microservicios es FALSA?",
+    "answerOptions": [
+      {
+        "text": "SOA se orienta a la integración corporativa, mientras que microservicios se orienta a la agilidad y escalabilidad técnica.",
+        "rationale": "Cada una responde a necesidades distintas de negocio y organización.",
+        "isCorrect": false
+      },
+      {
+        "text": "El tamaño de los servicios en SOA suele ser grande (procesos), mientras que en microservicios es pequeño (funciones).",
+        "rationale": "La granularidad es una de las diferencias más visibles entre ambas arquitecturas.",
+        "isCorrect": false
+      },
+      {
+        "text": "En SOA la gobernanza es descentralizada por equipos, mientras que en microservicios el control es rígidamente centralizado.",
+        "rationale": "Es justo al revés: SOA suele ser centralizado y corporativo, mientras que los microservicios fomentan la autonomía de los equipos.",
+        "isCorrect": true
+      },
+      {
+        "text": "SOA utiliza típicamente un ESB como pieza central, mientras que los microservicios prefieren APIs y Brokers de mensajería.",
+        "rationale": "Estas herramientas reflejan la filosofía de bus inteligente (SOA) frente a red inteligente con tuberías simples (Microservicios).",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Relaciona la palabra 'centralizado' con el componente ESB y la palabra 'autónomo' con los microservicios."
+  }
+]
