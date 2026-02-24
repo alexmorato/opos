@@ -1,0 +1,1242 @@
+[
+  {
+    "guid": "89c8a794-e9f7-49b9-b4a8-40f7e884fd11",
+    "subjectId": "T44",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "En el contexto de una arquitectura de microservicios, ¿cuál es la función primordial del patrón $Circuit$ $Breaker$?",
+    "answerOptions": [
+      {
+        "text": "Interrumpir temporalmente las llamadas a un servicio remoto tras detectar fallos repetidos para permitir su recuperación.",
+        "rationale": "Este patrón actúa como un interruptor que se abre ante fallos constantes para evitar el agotamiento de recursos y facilitar la resiliencia del sistema.",
+        "isCorrect": true
+      },
+      {
+        "text": "Balancear la carga entre diferentes instancias de un microservicio para evitar la saturación de un nodo específico.",
+        "rationale": "El balanceo de carga es una técnica de escalabilidad y disponibilidad, no un mecanismo de interrupción de flujo por fallos detectados.",
+        "isCorrect": false
+      },
+      {
+        "text": "Aislar los recursos críticos del sistema mediante mamparos para prevenir que un fallo se propague en cascada.",
+        "rationale": "Esta descripción corresponde al patrón $Bulkhead$, que se enfoca en el aislamiento de recursos más que en el monitoreo de llamadas externas.",
+        "isCorrect": false
+      },
+      {
+        "text": "Reintentar automáticamente las peticiones fallidas basándose en una estrategia de retroceso exponencial.",
+        "rationale": "Los reintentos ($Retries$) son complementarios, pero el $Circuit$ $Breaker$ busca precisamente detener las peticiones cuando el fallo es persistente.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Relaciona este concepto con un mecanismo de protección eléctrica que corta el flujo ante una sobrecarga."
+  },
+  {
+    "guid": "9e635bb2-bb72-4015-b7b5-a48cd074c5fd",
+    "subjectId": "T44",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Para gestionar transacciones de negocio que abarcan múltiples microservicios sin soporte para transacciones $ACID$ globales, ¿qué técnica se considera esencial?",
+    "answerOptions": [
+      {
+        "text": "Patrón SAGA, que coordina una secuencia de transacciones locales con acciones de compensación en caso de error.",
+        "rationale": "SAGA garantiza la consistencia eventual ejecutando transacciones locales y deshaciendo cambios previos si alguno de los pasos falla.",
+        "isCorrect": true
+      },
+      {
+        "text": "Protocolo $Two-Phase$ $Commit$ ($2PC$), para asegurar la atomicidad estricta de la operación en todas las bases de datos.",
+        "rationale": "Aunque es una técnica teórica, en microservicios se evita por su alto acoplamiento y falta de escalabilidad en sistemas distribuidos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Segregación de responsabilidades mediante $CQRS$, separando los modelos de lectura de los de escritura.",
+        "rationale": "CQRS optimiza el rendimiento y la escalabilidad de las consultas, pero no es el mecanismo principal para gestionar transacciones distribuidas.",
+        "isCorrect": false
+      },
+      {
+        "text": "Implementación de un bus de servicios empresarial ($ESB$) para centralizar la lógica de commit de los microservicios.",
+        "rationale": "El uso de un $ESB$ centralizado contradice la autonomía de los microservicios y no resuelve intrínsecamente la consistencia distribuida.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Este enfoque se basa en la consistencia eventual y el uso de transacciones compensatorias."
+  },
+  {
+    "guid": "7def2da8-097a-4425-9b86-1dbf423b9881",
+    "subjectId": "T44",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Qué característica define principalmente a la comunicación asíncrona mediante un $Message$ $Broker$ en entornos distribuidos?",
+    "answerOptions": [
+      {
+        "text": "El emisor del mensaje no requiere una respuesta inmediata para continuar con su ejecución.",
+        "rationale": "La asincronía permite el desacoplamiento temporal, donde el productor envía el mensaje y sigue con su proceso sin bloquearse.",
+        "isCorrect": true
+      },
+      {
+        "text": "La utilización obligatoria del protocolo $gRPC$ para garantizar la entrega de mensajes en tiempo real.",
+        "rationale": "$gRPC$ es típicamente síncrono y se basa en $HTTP/2$, mientras que la mensajería asíncrona usa protocolos como $AMQP$ o $MQTT$.",
+        "isCorrect": false
+      },
+      {
+        "text": "La dependencia directa del cliente respecto a la disponibilidad inmediata del servicio receptor.",
+        "rationale": "Precisamente la mensajería asíncrona elimina esta dependencia, permitiendo que el receptor procese el mensaje cuando esté disponible.",
+        "isCorrect": false
+      },
+      {
+        "text": "El uso exclusivo de formatos binarios como $Protocol$ $Buffers$ para la serialización de los eventos.",
+        "rationale": "Aunque es posible, la comunicación asíncrona puede utilizar diversos formatos, incluyendo $JSON$ o $XML$.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considere la relación entre el tiempo de envío y el tiempo de procesamiento."
+  },
+  {
+    "guid": "43166e3d-70c8-45d7-b4d7-0f877c56e461",
+    "subjectId": "T44",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Dentro de una arquitectura $SOA$, ¿cuál es el propósito fundamental del componente $Enterprise$ $Service$ $Bus$ ($ESB$)?",
+    "answerOptions": [
+      {
+        "text": "Actuar como mediador para facilitar la integración, transformación y ruteo de mensajes entre servicios heterogéneos.",
+        "rationale": "El $ESB$ centraliza la mediación y el soporte de protocolos, permitiendo que sistemas diversos se comuniquen sin conocer sus detalles internos.",
+        "isCorrect": true
+      },
+      {
+        "text": "Almacenar la lógica de negocio compleja para liberar a los servicios individuales de dicha responsabilidad.",
+        "rationale": "Las buenas prácticas de $SOA$ dictan que el $ESB$ no debe contener lógica de negocio, la cual debe residir en los servicios o motores de orquestación.",
+        "isCorrect": false
+      },
+      {
+        "text": "Gestionar el ciclo de vida completo de los microservicios, incluyendo su despliegue y escalado automático.",
+        "rationale": "El escalado y despliegue son funciones típicas de orquestadores de contenedores como $Kubernetes$, no de un $ESB$ tradicional.",
+        "isCorrect": false
+      },
+      {
+        "text": "Proporcionar una interfaz de usuario unificada para el consumo de todos los servicios corporativos.",
+        "rationale": "El $ESB$ es una infraestructura de backend; la interfaz de usuario se gestiona en la capa de presentación o mediante portales.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en él como un traductor y cartero inteligente dentro de la organización."
+  },
+  {
+    "guid": "a5e2107b-89be-4cb1-a41a-5ca75fb203e0",
+    "subjectId": "T44",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Qué diferencia fundamental existe entre un $API$ $Gateway$ y un $API$ $Manager$ según los estándares de diseño modernos?",
+    "answerOptions": [
+      {
+        "text": "El $Gateway$ gestiona el tráfico y la seguridad en tiempo de ejecución, mientras que el $Manager$ se enfoca en la gobernanza y publicación.",
+        "rationale": "El $Gateway$ es el componente de red que intercepta peticiones; el $Manager$ es la plataforma administrativa para el ciclo de vida de la $API$.",
+        "isCorrect": true
+      },
+      {
+        "text": "El $Gateway$ es exclusivo para arquitecturas de microservicios y el $Manager$ es exclusivo para arquitecturas $SOA$.",
+        "rationale": "Ambos componentes pueden coexistir y son utilizados indistintamente en diversos estilos arquitectónicos para gestionar interfaces expuestas.",
+        "isCorrect": false
+      },
+      {
+        "text": "El $Manager$ realiza la transformación de protocolos síncronos a asíncronos y el $Gateway$ solo permite tráfico $HTTP$.",
+        "rationale": "Las transformaciones de protocolos son funciones que suele ejecutar el $Gateway$ o un $ESB$, no el componente de gestión administrativa.",
+        "isCorrect": false
+      },
+      {
+        "text": "El $Gateway$ almacena los datos de los servicios y el $Manager$ solo las metadatas de las conexiones.",
+        "rationale": "Ninguno de los dos almacena los datos de negocio; los servicios mantienen sus propias bases de datos.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Uno opera en la 'línea de fuego' de las peticiones y el otro en el 'escritorio' del administrador."
+  },
+  {
+    "guid": "09fb1142-2bae-4818-a3f1-02a47e57dc51",
+    "subjectId": "T44",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Cuál es la principal ventaja de utilizar $gRPC$ sobre $REST$ para la comunicación interna entre microservicios?",
+    "answerOptions": [
+      {
+        "text": "Mayor eficiencia y menor latencia gracias al uso de $HTTP/2$ y la serialización binaria con $Protocol$ $Buffers$.",
+        "rationale": "$gRPC$ optimiza el rendimiento mediante una transmisión de datos más compacta y conexiones persistentes más eficientes que el $JSON$ sobre $HTTP/1.1$.",
+        "isCorrect": true
+      },
+      {
+        "text": "Facilidad de depuración al utilizar formatos de texto legibles por humanos en todas las transacciones.",
+        "rationale": "Al ser binario, $gRPC$ es más difícil de leer directamente que el $JSON$ de $REST$, lo que penaliza la depurabilidad manual.",
+        "isCorrect": false
+      },
+      {
+        "text": "Compatibilidad nativa y directa con todos los navegadores web del mercado sin necesidad de proxies.",
+        "rationale": "El soporte de $gRPC$ en navegadores es limitado y suele requerir soluciones como $gRPC-Web$, a diferencia de $REST$ que es universal.",
+        "isCorrect": false
+      },
+      {
+        "text": "Eliminación completa de la necesidad de definir contratos o esquemas de datos entre los servicios.",
+        "rationale": "Al contrario, $gRPC$ requiere la definición estricta de servicios y mensajes en archivos $.proto$.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en la diferencia entre enviar un libro de texto y un archivo comprimido especializado."
+  },
+  {
+    "guid": "96df60f8-4bb4-4f1c-90ed-35d30fcd3d88",
+    "subjectId": "T44",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "En el diseño de microservicios basado en $Domain-Driven$ $Design$ ($DDD$), ¿qué representa un $Bounded$ $Context$?",
+    "answerOptions": [
+      {
+        "text": "Un límite lógico dentro del cual un modelo de dominio específico tiene un significado unívoco y consistente.",
+        "rationale": "El $Bounded$ $Context$ define la frontera donde los términos y reglas del negocio son aplicables sin ambigüedad.",
+        "isCorrect": true
+      },
+      {
+        "text": "El conjunto de infraestructuras físicas donde se despliegan las instancias de un microservicio concreto.",
+        "rationale": "Este concepto se refiere a la topología de despliegue, no a la modelización funcional del dominio de negocio.",
+        "isCorrect": false
+      },
+      {
+        "text": "La arquitectura de red que restringe el acceso de los usuarios externos a la base de datos del servicio.",
+        "rationale": "Aunque implica límites, el $Bounded$ $Context$ es un concepto lógico-funcional, no una restricción de seguridad perimetral.",
+        "isCorrect": false
+      },
+      {
+        "text": "Un repositorio de código único donde se almacenan todos los servicios relacionados con un área funcional.",
+        "rationale": "Esto se refiere a la estrategia de $Monorepo$, que es independiente de cómo se definen los límites del dominio en $DDD$.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Se trata de establecer fronteras lingüísticas y conceptuales para evitar que un término signifique cosas distintas."
+  },
+  {
+    "guid": "97a93f16-4fd3-4a21-ba2c-92c5412b03bc",
+    "subjectId": "T44",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Qué función cumple el protocolo $mTLS$ ($mutual$ $TLS$) en una arquitectura de $Service$ $Mesh$?",
+    "answerOptions": [
+      {
+        "text": "Garantizar que tanto el cliente como el servidor se autentiquen mutuamente mediante certificados digitales en cada comunicación.",
+        "rationale": "$mTLS$ asegura la identidad de ambos extremos de la conexión, estableciendo un canal cifrado y verificado en redes de confianza cero.",
+        "isCorrect": true
+      },
+      {
+        "text": "Permitir el acceso anónimo a servicios públicos mientras se cifra el tráfico mediante una clave simétrica compartida.",
+        "rationale": "$mTLS$ requiere específicamente la identidad de ambos extremos, por lo que no es compatible con el acceso anónimo.",
+        "isCorrect": false
+      },
+      {
+        "text": "Optimizar el rendimiento de la red comprimiendo los paquetes $TCP$ antes de ser enviados por el bus de servicios.",
+        "rationale": "El objetivo de $mTLS$ es la seguridad y la autenticación, no la optimización del ancho de banda mediante compresión.",
+        "isCorrect": false
+      },
+      {
+        "text": "Gestionar la autorización basada en roles mediante la inspección de los campos de un token $JWT$.",
+        "rationale": "La inspección de tokens $JWT$ ocurre en la capa de aplicación/autorización, mientras que $mTLS$ opera en la capa de transporte/autenticación.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Es un proceso donde ambas partes deben presentar su 'identificación' antes de hablar."
+  },
+  {
+    "guid": "196b0c1b-aade-4f3e-a369-7e29ca35fde4",
+    "subjectId": "T44",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Cuál es el propósito principal del estándar $OpenAPI$ (anteriormente $Swagger$) en el desarrollo de $APIs$?",
+    "answerOptions": [
+      {
+        "text": "Proporcionar una descripción formal, legible por máquinas y humanos, de los endpoints, parámetros y respuestas de una $API$ $REST$.",
+        "rationale": "$OpenAPI$ actúa como el contrato que documenta y estandariza la interacción con el servicio para desarrolladores y herramientas automáticas.",
+        "isCorrect": true
+      },
+      {
+        "text": "Definir las reglas de orquestación de procesos de negocio que deben ejecutarse de forma secuencial.",
+        "rationale": "La orquestación de procesos se define mediante estándares como $BPEL$, no a través de especificaciones de interfaz de $API$.",
+        "isCorrect": false
+      },
+      {
+        "text": "Establecer el formato binario para el intercambio de mensajes de alta velocidad en redes internas.",
+        "rationale": "Los formatos binarios son dominio de tecnologías como $gRPC$ o $Avro$; $OpenAPI$ se asocia típicamente con $JSON$ y $YAML$.",
+        "isCorrect": false
+      },
+      {
+        "text": "Funcionar como un registro central de servicios para el descubrimiento dinámico de endpoints en tiempo de ejecución.",
+        "rationale": "Aunque ayuda a documentar, el descubrimiento dinámico es tarea de componentes de $Service$ $Discovery$ como $Consul$ o el propio $Kubernetes$.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Es la 'guía de uso' o contrato que explica cómo invocar correctamente un servicio."
+  },
+  {
+    "guid": "5e09d87f-70d1-45a7-89d2-68ff83ac2378",
+    "subjectId": "T44",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "En el ámbito de la observabilidad, ¿qué permite realizar el seguimiento de una petición a través de múltiples microservicios?",
+    "answerOptions": [
+      {
+        "text": "Trazas distribuidas ($Distributed$ $Tracing$), que vinculan las operaciones mediante un identificador de correlación único.",
+        "rationale": "Las trazas permiten reconstruir el camino completo de una solicitud, identificando cuellos de botella y fallos en la cadena de llamadas.",
+        "isCorrect": true
+      },
+      {
+        "text": "Agregación de logs centralizada, que almacena todos los eventos del sistema en un único repositorio de texto.",
+        "rationale": "Los logs proporcionan detalle local, pero sin una estrategia de trazas es muy difícil correlacionar eventos dispersos de una misma petición.",
+        "isCorrect": false
+      },
+      {
+        "text": "Métricas de rendimiento, que recolectan datos numéricos sobre el uso de recursos como la $CPU$ y la memoria.",
+        "rationale": "Las métricas informan sobre el estado de salud general, pero no ofrecen visibilidad sobre el flujo individual de las peticiones.",
+        "isCorrect": false
+      },
+      {
+        "text": "Sondeos de salud ($Health$ $Checks$), que verifican periódicamente si el proceso del microservicio está activo.",
+        "rationale": "Los $Health$ $Checks$ solo indican si un servicio puede recibir tráfico, no cómo ha procesado una solicitud específica.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Es como seguir las migas de pan de un usuario mientras salta de un servicio a otro."
+  },
+  {
+    "guid": "ffd52a66-9393-4b68-b278-9d441b286504",
+    "subjectId": "T44",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Con respecto a la migración progresiva hacia microservicios, describa el funcionamiento del patrón $Strangler$ $Fig$.",
+    "answerOptions": [
+      {
+        "text": "Sustitución gradual de las funcionalidades del monolito mediante la creación de nuevos microservicios que interceptan las peticiones externas.",
+        "rationale": "Este patrón permite una transición controlada, donde la nueva arquitectura 'estrangula' a la antigua hasta que esta última puede ser eliminada.",
+        "isCorrect": true
+      },
+      {
+        "text": "Descomposición total e inmediata de la base de código monolítica en servicios independientes antes de cualquier despliegue en producción.",
+        "rationale": "Esa aproximación ('Big Bang') es el riesgo que el patrón $Strangler$ $Fig$ intenta evitar mediante una estrategia incremental.",
+        "isCorrect": false
+      },
+      {
+        "text": "Encapsulación del sistema monolítico en un único contenedor para mejorar su escalabilidad sin modificar su estructura lógica interna.",
+        "rationale": "Esto sería una 'contenerización' simple ($Lift$ $and$ $Shift$), pero no constituye una migración a una arquitectura de microservicios.",
+        "isCorrect": false
+      },
+      {
+        "text": "Implementación de una capa de mediación centralizada que coordina las llamadas entre el código antiguo y los nuevos desarrollos.",
+        "rationale": "Aunque requiere mediación (proxy/gateway), su objetivo es la sustitución de la funcionalidad, no la coexistencia eterna mediante un mediador.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en una planta que crece alrededor de un árbol viejo hasta que ocupa su lugar por completo."
+  },
+  {
+    "guid": "c7ffd087-6a0b-414b-8e5c-c1f158f6eb88",
+    "subjectId": "T44",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "En una estrategia de despliegue $Blue/Green$, ¿cuál es el procedimiento correcto para la actualización de un sistema?",
+    "answerOptions": [
+      {
+        "text": "Mantenimiento de dos entornos idénticos, desplegando la nueva versión en el inactivo y conmutando el tráfico tras validar su estabilidad.",
+        "rationale": "Este método garantiza que siempre haya un entorno probado disponible y permite un retorno rápido ($rollback$) si la nueva versión falla.",
+        "isCorrect": true
+      },
+      {
+        "text": "Mantenimiento de un único entorno donde las instancias se actualizan secuencialmente para evitar la pérdida de servicio total.",
+        "rationale": "Este procedimiento se denomina despliegue progresivo ($Rolling$ $Update$) y no utiliza dos entornos paralelos como el $Blue/Green$.",
+        "isCorrect": false
+      },
+      {
+        "text": "Despliegue de la versión nueva para un porcentaje reducido de usuarios reales mientras el resto continúa en la versión estable.",
+        "rationale": "Esta descripción corresponde a un despliegue tipo $Canary$, cuyo enfoque es la validación con tráfico real controlado.",
+        "isCorrect": false
+      },
+      {
+        "text": "Ejecución de pruebas de carga en el entorno de producción durante las horas de menor actividad para asegurar la respuesta del sistema.",
+        "rationale": "Las pruebas de carga son parte del ciclo de calidad, pero no definen la estrategia de conmutación de tráfico del patrón $Blue/Green$.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "El núcleo de la estrategia es el uso de un duplicado exacto de la infraestructura para pruebas finales."
+  },
+  {
+    "guid": "2f042365-bcfc-49a8-9f64-d5b7c658e479",
+    "subjectId": "T44",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Al aplicar el despliegue tipo $Canary$ ($Canario$), ¿cuál es el objetivo primordial que se busca alcanzar?",
+    "answerOptions": [
+      {
+        "text": "Reducir el riesgo de introducir fallos en producción al exponer la nueva versión solo a un subconjunto pequeño de usuarios finales.",
+        "rationale": "El despliegue canario permite detectar problemas en condiciones reales con un radio de explosión limitado antes del despliegue total.",
+        "isCorrect": true
+      },
+      {
+        "text": "Asegurar que la infraestructura pueda soportar el doble de carga mediante la duplicación de todos los recursos disponibles.",
+        "rationale": "La duplicación de recursos es característica del $Blue/Green$, no del despliegue canario que suele ser más eficiente en uso de hardware.",
+        "isCorrect": false
+      },
+      {
+        "text": "Garantizar que el código fuente sea compatible con múltiples versiones de la base de datos de forma simultánea y permanente.",
+        "rationale": "Aunque requiere compatibilidad, el objetivo del canario no es la persistencia de versiones, sino la validación segura del despliegue.",
+        "isCorrect": false
+      },
+      {
+        "text": "Automatizar la corrección de errores en tiempo de ejecución mediante el uso de inteligencia artificial en el balanceador de carga.",
+        "rationale": "El despliegue canario es una técnica de gestión de tráfico, no un sistema autónomo de reparación de código.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considere la analogía histórica de los mineros que usaban aves para detectar gases tóxicos."
+  },
+  {
+    "guid": "643eb71b-c2b3-4c40-bbaf-122ef43ef014",
+    "subjectId": "T44",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Diferencie el concepto de Orquestación frente al de Coreografía en el contexto del patrón SAGA.",
+    "answerOptions": [
+      {
+        "text": "La orquestación utiliza un componente central que dirige la transacción, mientras que la coreografía se basa en el intercambio de eventos.",
+        "rationale": "En la orquestación hay un 'director' que sabe qué paso sigue; en la coreografía, los servicios reaccionan de forma autónoma a eventos.",
+        "isCorrect": true
+      },
+      {
+        "text": "La orquestación es obligatoria para sistemas asíncronos y la coreografía se aplica exclusivamente en comunicaciones síncronas.",
+        "rationale": "Ambos modelos pueden utilizar mecanismos asíncronos, siendo la coreografía especialmente común en arquitecturas orientadas a eventos ($EDA$).",
+        "isCorrect": false
+      },
+      {
+        "text": "La coreografía centraliza la lógica de compensación de errores, mientras que la orquestación distribuye dicha responsabilidad.",
+        "rationale": "Es al revés: el orquestador centraliza la decisión de compensar, mientras que en la coreografía cada servicio sabe cómo reaccionar.",
+        "isCorrect": false
+      },
+      {
+        "text": "La orquestación garantiza la consistencia fuerte de los datos y la coreografía solo permite alcanzar la consistencia eventual.",
+        "rationale": "Ambas modalidades de SAGA están diseñadas para gestionar la consistencia eventual en sistemas distribuidos.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en la diferencia entre un director de orquesta y un grupo de bailarines que conocen sus pasos tras una señal."
+  },
+  {
+    "guid": "0144b196-9df0-495c-ab8d-e9fe9c256d28",
+    "subjectId": "T44",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿En qué consiste la técnica de $Contract$ $Testing$ en una arquitectura de servicios distribuidos?",
+    "answerOptions": [
+      {
+        "text": "Validación de que los proveedores de servicios cumplen con las expectativas de formato y contenido definidas por sus consumidores.",
+        "rationale": "Las pruebas de contrato aseguran que los cambios en un servicio no rompan la compatibilidad con los clientes que dependen de su $API$.",
+        "isCorrect": true
+      },
+      {
+        "text": "Verificación exhaustiva de la lógica de negocio interna de un microservicio sin tener en cuenta sus conexiones externas.",
+        "rationale": "Esta descripción corresponde a las pruebas unitarias, que se centran en el aislamiento total del componente.",
+        "isCorrect": false
+      },
+      {
+        "text": "Simulación de fallos en la infraestructura de red para comprobar la capacidad de recuperación ante desastres del sistema.",
+        "rationale": "Eso es parte del $Chaos$ $Testing$, cuyo objetivo es la resiliencia y no la compatibilidad de interfaces de comunicación.",
+        "isCorrect": false
+      },
+      {
+        "text": "Auditoría legal de los acuerdos de nivel de servicio ($SLA$) firmados entre los proveedores de nube y la organización.",
+        "rationale": "El $Contract$ $Testing$ es una técnica de calidad de software técnica, no un proceso de revisión legal o administrativa.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Se trata de asegurar que el 'diálogo' entre dos partes siga las reglas acordadas previamente."
+  },
+  {
+    "guid": "517917db-9cea-4e57-a37d-cab2a5f3bd91",
+    "subjectId": "T44",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Según el modelo de referencia $OASIS$ para $SOA$, defina el concepto de 'Visibilidad' en la interacción de servicios.",
+    "answerOptions": [
+      {
+        "text": "Capacidad de los consumidores y proveedores de servicios para localizarse mutuamente e identificar los detalles del contrato de servicio.",
+        "rationale": "La visibilidad implica que el servicio sea descubrible y que sus capacidades y requisitos de acceso sean conocidos por los clientes potenciales.",
+        "isCorrect": true
+      },
+      {
+        "text": "Exposición pública de todo el código fuente del servicio para facilitar su auditoría por parte de terceros externos.",
+        "rationale": "$SOA$ enfatiza la encapsulación; el código interno no debe ser visible, solo su interfaz o contrato público.",
+        "isCorrect": false
+      },
+      {
+        "text": "Monitoreo en tiempo real de los logs de ejecución del servicio en un panel de control centralizado para el equipo de $DevOps$.",
+        "rationale": "Esto es observabilidad o monitoreo operativo, que es distinto del concepto arquitectónico de visibilidad de $OASIS$.",
+        "isCorrect": false
+      },
+      {
+        "text": "Uso obligatorio de protocolos de texto como $XML$ para asegurar que el contenido de los mensajes sea legible sin herramientas especiales.",
+        "rationale": "La visibilidad de $OASIS$ se refiere a la capacidad de descubrimiento y relación, no al formato de serialización de los datos.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Sin ella, un servicio podría existir pero nadie sabría cómo encontrarlo o usarlo."
+  },
+  {
+    "guid": "d67661fa-2f1b-4862-b215-8097830b4c11",
+    "subjectId": "T44",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "En el diseño de microservicios, ¿por qué se recomienda el patrón $Database$ $per$ $Service$ frente a una base de datos compartida?",
+    "answerOptions": [
+      {
+        "text": "Para garantizar la autonomía del servicio, el bajo acoplamiento y permitir que cada equipo elija la tecnología de persistencia adecuada.",
+        "rationale": "Tener bases de datos separadas evita que los servicios se acoplen a través del esquema de datos y permite un escalado independiente.",
+        "isCorrect": true
+      },
+      {
+        "text": "Para reducir los costes de licenciamiento al utilizar múltiples instancias de bases de datos de código abierto en lugar de una comercial.",
+        "rationale": "Aunque es posible, la motivación principal es arquitectónica (autonomía y acoplamiento) y no meramente económica o de licencias.",
+        "isCorrect": false
+      },
+      {
+        "text": "Para simplificar la gestión de la consistencia transaccional $ACID$ entre los diferentes módulos funcionales del sistema.",
+        "rationale": "Al contrario, este patrón complica la consistencia transaccional, obligando a usar técnicas de consistencia eventual como SAGA.",
+        "isCorrect": false
+      },
+      {
+        "text": "Para centralizar todas las consultas de reporte en un único punto de acceso optimizado para análisis de datos masivos.",
+        "rationale": "Este patrón distribuye los datos, lo que dificulta los reportes conjuntos, requiriendo a menudo patrones adicionales como $CQRS$ o $API$ $Composition$.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considere la propiedad de los datos y la libertad de evolución de cada componente."
+  },
+  {
+    "guid": "82adf500-98a7-477e-b80e-85353b210a39",
+    "subjectId": "T44",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Explique el papel fundamental de los $Pipelines$ $CI/CD$ en una arquitectura de microservicios según el material proporcionado.",
+    "answerOptions": [
+      {
+        "text": "Automatizar la compilación, pruebas y despliegue para permitir una alta frecuencia de entregas independientes sin errores humanos.",
+        "rationale": "La automatización es crítica para gestionar la complejidad de desplegar múltiples servicios pequeños de forma frecuente y segura.",
+        "isCorrect": true
+      },
+      {
+        "text": "Establecer una barrera de aprobación manual obligatoria para cada cambio de código con el fin de ralentizar el ciclo de vida del software.",
+        "rationale": "$CI/CD$ busca la agilidad y la automatización, no la introducción deliberada de cuellos de botella manuales en el proceso.",
+        "isCorrect": false
+      },
+      {
+        "text": "Unificar todas las bases de código de los diferentes microservicios en un único artefacto ejecutable para simplificar la operación.",
+        "rationale": "Esto sería volver a un monolito; $CI/CD$ en microservicios gestiona artefactos independientes para cada servicio.",
+        "isCorrect": false
+      },
+      {
+        "text": "Eliminar la necesidad de realizar pruebas de integración al garantizar que el código se compila correctamente en el entorno local.",
+        "rationale": "La compilación local es solo el primer paso; los pipelines automatizados precisamente refuerzan la ejecución de pruebas de integración y contrato.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Sin automatización, gestionar el despliegue de 50 servicios independientes sería una tarea imposible para un humano."
+  },
+  {
+    "guid": "c27fc571-dfb6-4715-ac72-1e874cafdf60",
+    "subjectId": "T44",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "En el contexto de la observabilidad, diferencie entre 'Métricas' y 'Logs'.",
+    "answerOptions": [
+      {
+        "text": "Las métricas son datos numéricos agregados sobre el rendimiento, mientras que los logs son registros textuales detallados de eventos discretos.",
+        "rationale": "Las métricas sirven para ver tendencias y alertas globales; los logs sirven para investigar la causa raíz de un fallo específico.",
+        "isCorrect": true
+      },
+      {
+        "text": "Los logs se generan solo cuando ocurre un error crítico y las métricas se recolectan constantemente durante el funcionamiento normal.",
+        "rationale": "Los logs pueden registrar cualquier evento informativo (no solo errores) y ambos procesos suelen ser continuos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Las métricas requieren un agente externo para su recolección y los logs son almacenados localmente por el propio microservicio.",
+        "rationale": "Ambos suelen requerir infraestructuras de agregación centralizada (como $Prometheus$ para métricas o $ELK$ para logs) para ser útiles.",
+        "isCorrect": false
+      },
+      {
+        "text": "Los logs permiten el seguimiento del flujo entre servicios y las métricas solo informan sobre la base de datos central.",
+        "rationale": "El seguimiento de flujos es tarea de las trazas distribuidas; las métricas cubren cualquier aspecto cuantificable del servicio e infraestructura.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Uno te dice 'cuánto' está sufriendo el sistema y el otro te cuenta la 'historia' de lo que pasó."
+  },
+  {
+    "guid": "e4059459-be02-49f6-9e55-566f0b005a5a",
+    "subjectId": "T44",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Cuál es la diferencia entre la gobernanza en tiempo de diseño ($Design-time$) y en tiempo de ejecución ($Runtime$) en $SOA$?",
+    "answerOptions": [
+      {
+        "text": "La de diseño se ocupa de estándares y contratos; la de ejecución se ocupa de monitorización, seguridad y cumplimiento de $SLAs$.",
+        "rationale": "La gobernanza de diseño asegura que el servicio esté 'bien hecho' antes de nacer; la de ejecución asegura que 'se porte bien' mientras opera.",
+        "isCorrect": true
+      },
+      {
+        "text": "La de diseño es responsabilidad exclusiva de los desarrolladores y la de ejecución es responsabilidad exclusiva del departamento de red.",
+        "rationale": "Ambas son parte de una estrategia corporativa de gobernanza que involucra a múltiples roles, no están aisladas por departamentos.",
+        "isCorrect": false
+      },
+      {
+        "text": "La gobernanza de diseño desaparece una vez el servicio entra en producción, siendo sustituida totalmente por la de ejecución.",
+        "rationale": "Ambas coexisten para gestionar el ciclo de vida completo y la evolución (versionado) del catálogo de servicios.",
+        "isCorrect": false
+      },
+      {
+        "text": "La de ejecución se basa en el código fuente y la de diseño se basa únicamente en el hardware utilizado.",
+        "rationale": "Esta distinción es incorrecta; el hardware es un detalle de infraestructura que no define los tipos de gobernanza arquitectónica en $SOA$.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en las reglas para construir un coche frente a las reglas para conducirlo por la ciudad."
+  },
+  {
+    "guid": "8414038e-e71f-4b72-b5b1-618dec1cbbba",
+    "subjectId": "T44",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Protocolo de autenticación y autorización que permite a un tercero acceder a recursos en nombre de un usuario sin compartir sus credenciales.",
+    "answerOptions": [
+      {
+        "text": "OAuth2",
+        "rationale": "OAuth2 es el estándar para la delegación de autorización ampliamente utilizado en arquitecturas de microservicios.",
+        "isCorrect": true
+      },
+      {
+        "text": "SAML",
+        "rationale": "Aunque es para identidad, SAML es un estándar basado en XML más común en entornos antiguos o corporativos tradicionales.",
+        "isCorrect": false
+      },
+      {
+        "text": "LDAP",
+        "rationale": "LDAP es un protocolo de acceso a directorios, no un marco de autorización para APIs modernas.",
+        "isCorrect": false
+      },
+      {
+        "text": "TLS",
+        "rationale": "TLS es un protocolo de cifrado de la capa de transporte, no de autorización de aplicaciones.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Es el estándar que usas cuando 'Inicias sesión con Google' en otra aplicación."
+  },
+  {
+    "guid": "8f4e0651-b03c-4c2a-ac55-466a873bc428",
+    "subjectId": "T44",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Tecnología que introduce una capa de infraestructura para gestionar la comunicación servicio a servicio, encargándose de la seguridad, observabilidad y tráfico sin modificar el código.",
+    "answerOptions": [
+      {
+        "text": "Service Mesh",
+        "rationale": "Un Service Mesh (como Istio) despliega proxies 'sidecar' para gestionar estas capacidades de forma transversal.",
+        "isCorrect": true
+      },
+      {
+        "text": "ESB",
+        "rationale": "El ESB es un bus centralizado que suele requerir lógica de mediación, a diferencia del enfoque distribuido del Service Mesh.",
+        "isCorrect": false
+      },
+      {
+        "text": "API Gateway",
+        "rationale": "El API Gateway gestiona principalmente el tráfico Norte-Sur (cliente-API), no el Este-Oeste (servicio-servicio) de forma nativa.",
+        "isCorrect": false
+      },
+      {
+        "text": "Docker",
+        "rationale": "Docker es una tecnología de contenerización, no una capa de gestión de red y comunicación entre servicios.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Utiliza proxies 'sidecar' para interceptar el tráfico entre contenedores."
+  },
+  {
+    "guid": "f4fa97d7-d160-4e53-8beb-2bb7248c9c1d",
+    "subjectId": "T44",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Formato de datos ligero basado en texto, que representa información mediante pares clave-valor y es el preferido en arquitecturas de microservicios por su facilidad de procesamiento.",
+    "answerOptions": [
+      {
+        "text": "JSON",
+        "rationale": "JSON es el estándar de facto para la serialización en APIs REST por su ligereza y compatibilidad con JavaScript.",
+        "isCorrect": true
+      },
+      {
+        "text": "XML",
+        "rationale": "Aunque es estándar, XML es más verboso y pesado de procesar que JSON, quedando relegado a SOAP o sistemas legados.",
+        "isCorrect": false
+      },
+      {
+        "text": "YAML",
+        "rationale": "YAML se usa principalmente para configuración, no como formato principal de intercambio de datos en el cuerpo de las APIs REST.",
+        "isCorrect": false
+      },
+      {
+        "text": "Protocol Buffers",
+        "rationale": "Es un formato binario, no basado en texto, lo que lo hace menos legible para humanos que el JSON.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Sus siglas significan JavaScript Object Notation."
+  },
+  {
+    "guid": "2c329a24-524d-454c-817e-10160b704135",
+    "subjectId": "T44",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Lenguaje basado en XML diseñado para definir y ejecutar procesos de negocio complejos que combinan múltiples servicios en una arquitectura SOA.",
+    "answerOptions": [
+      {
+        "text": "BPEL",
+        "rationale": "Business Process Execution Language es el estándar clásico para la orquestación de servicios SOAP en SOA.",
+        "isCorrect": true
+      },
+      {
+        "text": "WSDL",
+        "rationale": "WSDL describe la interfaz de un único servicio, pero no define la lógica de flujo de un proceso complejo.",
+        "isCorrect": false
+      },
+      {
+        "text": "YAML",
+        "rationale": "YAML es un formato de serialización, no un lenguaje de ejecución de procesos de negocio.",
+        "isCorrect": false
+      },
+      {
+        "text": "BPMN",
+        "rationale": "BPMN es una notación gráfica para modelado; BPEL es el lenguaje de ejecución técnica.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Es el motor que 'orquesta' la coreografía de servicios corporativos."
+  },
+  {
+    "guid": "f5d1f44b-cf33-4ca6-9ab7-4436842c3845",
+    "subjectId": "T44",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Mecanismo de seguridad donde el servidor y el cliente presentan certificados digitales para validarse mutuamente antes de establecer la comunicación cifrada.",
+    "answerOptions": [
+      {
+        "text": "mTLS",
+        "rationale": "El mutual TLS es fundamental en entornos de red Zero Trust para asegurar la identidad de todos los servicios internos.",
+        "isCorrect": true
+      },
+      {
+        "text": "JWT",
+        "rationale": "JWT es un token para transmitir reclamaciones de identidad, no un protocolo de negociación de certificados de transporte.",
+        "isCorrect": false
+      },
+      {
+        "text": "OAuth2",
+        "rationale": "OAuth2 se centra en la autorización de acceso a recursos, no en la autenticación mutua a nivel de socket de red.",
+        "isCorrect": false
+      },
+      {
+        "text": "HTTPS",
+        "rationale": "HTTPS es genérico; habitualmente solo el servidor se identifica, el mTLS especifica que ambos deben hacerlo.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Se asocia frecuentemente con la seguridad interna de un Service Mesh."
+  },
+  {
+    "guid": "e0586248-7093-4ca3-9d35-8666b97d9580",
+    "subjectId": "T44",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Contenedor estándar de credenciales en formato JSON que puede ser firmado digitalmente para asegurar que la información no ha sido alterada durante su transmisión.",
+    "answerOptions": [
+      {
+        "text": "JWT",
+        "rationale": "Los JSON Web Tokens permiten transmitir identidad y permisos de forma compacta y verificable entre servicios.",
+        "isCorrect": true
+      },
+      {
+        "text": "SAML",
+        "rationale": "SAML utiliza XML para el intercambio de datos de identidad, no JSON.",
+        "isCorrect": false
+      },
+      {
+        "text": "API Key",
+        "rationale": "Una API Key es una cadena simple, no estructurada y habitualmente no contiene información firmada sobre el usuario.",
+        "isCorrect": false
+      },
+      {
+        "text": "TLS",
+        "rationale": "TLS es el protocolo que protege el canal, pero no es el formato del token de identidad en sí.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Se compone de tres partes: Header, Payload y Signature, separadas por puntos."
+  },
+  {
+    "guid": "3ba50ece-2231-481a-9e41-b5110a8ced09",
+    "subjectId": "T44",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Plataforma de código abierto para la automatización del despliegue, escalado y gestión de aplicaciones contenidorizadas, líder en el mercado de orquestación.",
+    "answerOptions": [
+      {
+        "text": "Kubernetes",
+        "rationale": "Kubernetes (K8s) es el orquestador estándar para gestionar el ciclo de vida de microservicios en contenedores.",
+        "isCorrect": true
+      },
+      {
+        "text": "Docker",
+        "rationale": "Docker es la tecnología para crear y ejecutar contenedores individuales, no para orquestar clusters complejos por sí solo.",
+        "isCorrect": false
+      },
+      {
+        "text": "Terraform",
+        "rationale": "Terraform es una herramienta de Infraestructura como Código (IaC), no un orquestador de contenedores en tiempo de ejecución.",
+        "isCorrect": false
+      },
+      {
+        "text": "Ansible",
+        "rationale": "Ansible se utiliza principalmente para la automatización de la configuración y despliegue, no para la orquestación dinámica de servicios.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "A menudo se abrevia como K8s."
+  },
+  {
+    "guid": "4fe572b4-7138-4c5c-b223-3fb90ec6a656",
+    "subjectId": "T44",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Patrón que sugiere que un microservicio debe tener su propia lógica de almacenamiento y que ningún otro servicio debe acceder directamente a sus datos.",
+    "answerOptions": [
+      {
+        "text": "Database per Service",
+        "rationale": "Este patrón asegura el aislamiento y la independencia de escalado de los microservicios.",
+        "isCorrect": true
+      },
+      {
+        "text": "CQRS",
+        "rationale": "CQRS separa la lectura de la escritura, pero no define necesariamente la propiedad exclusiva de la base de datos por servicio.",
+        "isCorrect": false
+      },
+      {
+        "text": "Event Sourcing",
+        "rationale": "Event Sourcing almacena el estado como una serie de eventos, lo cual es una técnica de persistencia, no de aislamiento.",
+        "isCorrect": false
+      },
+      {
+        "text": "Shared Database",
+        "rationale": "Este es precisamente el antipatrón que los microservicios intentan evitar para mantener la independencia.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Es la base de la autonomía de datos en microservicios."
+  },
+  {
+    "guid": "235c501b-eb43-4848-9b9e-659aaef7dad1",
+    "subjectId": "T44",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Protocolo de comunicación de alto rendimiento desarrollado por Google que utiliza HTTP/2 para el transporte y Protocol Buffers para la serialización de datos.",
+    "answerOptions": [
+      {
+        "text": "gRPC",
+        "rationale": "gRPC es ideal para la comunicación interna entre servicios por su baja latencia y tipado estricto.",
+        "isCorrect": true
+      },
+      {
+        "text": "REST",
+        "rationale": "REST es un estilo arquitectónico que suele usar HTTP/1.1 y JSON, no está ligado intrínsecamente a Protocol Buffers.",
+        "isCorrect": false
+      },
+      {
+        "text": "SOAP",
+        "rationale": "SOAP utiliza XML y es generalmente más pesado y lento que gRPC.",
+        "isCorrect": false
+      },
+      {
+        "text": "GraphQL",
+        "rationale": "GraphQL es un lenguaje de consulta para APIs, no un protocolo de transporte binario de alto rendimiento.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Utiliza archivos .proto para definir el contrato del servicio."
+  },
+  {
+    "guid": "8e4a78ec-805b-4f24-9fa3-a75e6b4e0c42",
+    "subjectId": "T44",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Componente central de una arquitectura SOA que se encarga de la transformación de formatos, ruteo de mensajes y mediación entre sistemas heterogéneos.",
+    "answerOptions": [
+      {
+        "text": "ESB",
+        "rationale": "El Enterprise Service Bus es la pieza clave de integración en las arquitecturas SOA tradicionales.",
+        "isCorrect": true
+      },
+      {
+        "text": "API Gateway",
+        "rationale": "Aunque similar, el API Gateway está más orientado a la exposición de APIs externas y microservicios modernos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Message Broker",
+        "rationale": "Un broker (como RabbitMQ) se enfoca en el paso de mensajes, pero no suele incluir la lógica de transformación pesada de un ESB.",
+        "isCorrect": false
+      },
+      {
+        "text": "Load Balancer",
+        "rationale": "El balanceador solo distribuye tráfico, no realiza transformaciones de protocolos ni ruteo inteligente de mensajes.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Actúa como el 'sistema circulatorio' de la integración empresarial."
+  },
+  {
+    "guid": "5668936c-55b1-4a1f-86fb-641929d90f54",
+    "subjectId": "T44",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Identifique la afirmación FALSA con respecto a las características de los microservicios.",
+    "answerOptions": [
+      {
+        "text": "Cada microservicio debe poder desplegarse de forma independiente sin afectar al resto del sistema.",
+        "rationale": "Esta es una característica verdadera y fundamental de la arquitectura de microservicios para permitir la agilidad.",
+        "isCorrect": false
+      },
+      {
+        "text": "Los microservicios deben compartir una única base de datos central para asegurar la integridad transaccional ACID.",
+        "rationale": "Esto es falso; los microservicios promueven el patrón de base de datos por servicio para evitar el acoplamiento.",
+        "isCorrect": true
+      },
+      {
+        "text": "La comunicación entre servicios se realiza habitualmente mediante APIs ligeras como REST o gRPC.",
+        "rationale": "Es una afirmación correcta; se prefieren protocolos ligeros frente a los pesados de arquitecturas anteriores.",
+        "isCorrect": false
+      },
+      {
+        "text": "La arquitectura de microservicios favorece el poliglotismo tecnológico, permitiendo diferentes lenguajes según la necesidad.",
+        "rationale": "Verdadero; cada servicio puede optimizarse usando la tecnología más adecuada para su función específica.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en el principio de autonomía de datos."
+  },
+  {
+    "guid": "17c849ba-f0dc-452e-9080-f84e5706077d",
+    "subjectId": "T44",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Señale la opción FALSA en relación con la comparación entre SOA y Microservicios.",
+    "answerOptions": [
+      {
+        "text": "SOA tiende a utilizar un bus de servicios centralizado (ESB), mientras que los microservicios prefieren una comunicación más directa o coreografiada.",
+        "rationale": "Verdadero; SOA centraliza la integración y los microservicios la distribuyen.",
+        "isCorrect": false
+      },
+      {
+        "text": "Los microservicios son típicamente más pequeños y especializados que los servicios en una arquitectura SOA corporativa.",
+        "rationale": "Verdadero; la granularidad de los microservicios suele ser mucho más fina.",
+        "isCorrect": false
+      },
+      {
+        "text": "Ambas arquitecturas requieren obligatoriamente el uso de protocolos basados en XML como SOAP para garantizar la interoperabilidad.",
+        "rationale": "Falso; los microservicios usan predominantemente JSON/REST y SOA puede usar REST, no están limitados a XML.",
+        "isCorrect": true
+      },
+      {
+        "text": "SOA se enfoca más en la integración de sistemas heterogéneos y los microservicios en la agilidad y escalabilidad de aplicaciones modernas.",
+        "rationale": "Verdadero; los objetivos de negocio y contextos de aplicación suelen diferir en este aspecto.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Busque la restricción tecnológica que no se aplica a los microservicios modernos."
+  },
+  {
+    "guid": "480f4f84-1c40-4bde-be39-5ee53ad57a04",
+    "subjectId": "T44",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "De las siguientes afirmaciones sobre la seguridad en microservicios, identifique la FALSA.",
+    "answerOptions": [
+      {
+        "text": "Se recomienda el uso de claves API estáticas para la comunicación entre servicios internos debido a su alta escalabilidad y facilidad de rotación.",
+        "rationale": "Falso; el material indica explícitamente que NO deben usarse claves API estáticas internas porque no escalan y son menos seguras que JWT o mTLS.",
+        "isCorrect": true
+      },
+      {
+        "text": "JWT es el formato estándar para transmitir credenciales de usuario entre el API Gateway y los microservicios.",
+        "rationale": "Verdadero; JWT permite propagar la identidad de forma segura y verificable en sistemas distribuidos.",
+        "isCorrect": false
+      },
+      {
+        "text": "mTLS es una técnica eficaz para asegurar la comunicación servicio a servicio dentro de una red interna.",
+        "rationale": "Verdadero; proporciona tanto cifrado como autenticación mutua entre los componentes.",
+        "isCorrect": false
+      },
+      {
+        "text": "Las herramientas como HashiCorp Vault son útiles para la gestión segura de secretos y claves de acceso.",
+        "rationale": "Verdadero; la gestión centralizada y segura de secretos es una práctica recomendada en microservicios.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Hay un método de autenticación mencionado como 'no recomendado' para uso interno."
+  },
+  {
+    "guid": "51a0ce60-fcad-402f-8264-81e8f232c490",
+    "subjectId": "T44",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Identifique la afirmación FALSA sobre el patrón SAGA.",
+    "answerOptions": [
+      {
+        "text": "Una SAGA asegura la consistencia fuerte y el aislamiento total de los datos durante toda la ejecución de la transacción distribuida.",
+        "rationale": "Falso; SAGA garantiza la consistencia eventual, no la fuerte, y no proporciona aislamiento total como una transacción ACID tradicional.",
+        "isCorrect": true
+      },
+      {
+        "text": "Si una transacción local dentro de una SAGA falla, se deben ejecutar transacciones de compensación para deshacer los cambios previos.",
+        "rationale": "Verdadero; la compensación es el mecanismo clave para mantener la integridad en caso de errores.",
+        "isCorrect": false
+      },
+      {
+        "text": "En la modalidad de coreografía, los microservicios se comunican mediante eventos sin necesidad de un controlador central.",
+        "rationale": "Verdadero; la descentralización es la característica principal de la coreografía en SAGA.",
+        "isCorrect": false
+      },
+      {
+        "text": "La modalidad de orquestación utiliza un servicio central que dirige las peticiones a los participantes de la SAGA.",
+        "rationale": "Verdadero; el orquestador centraliza la lógica de flujo de la transacción distribuida.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Recuerde el tipo de consistencia que proporcionan los sistemas distribuidos sin transacciones globales."
+  },
+  {
+    "guid": "35cb155c-aa1f-4fe0-a534-251a486aab24",
+    "subjectId": "T44",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Indique cuál de las siguientes afirmaciones sobre las APIs REST es FALSA.",
+    "answerOptions": [
+      {
+        "text": "Las APIs REST son intrínsecamente 'con estado' ($stateful$), manteniendo la sesión del usuario en el servidor para optimizar las peticiones.",
+        "rationale": "Falso; uno de los principios fundamentales de REST es que sea 'sin estado' ($stateless$) para favorecer la escalabilidad.",
+        "isCorrect": true
+      },
+      {
+        "text": "Utilizan los verbos HTTP estándar como GET, POST, PUT y DELETE para realizar operaciones sobre los recursos.",
+        "rationale": "Verdadero; REST se basa en la semántica del protocolo HTTP para la manipulación de recursos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Los recursos se identifican mediante URLs únicas y la representación de los datos suele ser en formato JSON.",
+        "rationale": "Verdadero; es la forma convencional de estructurar servicios RESTful modernos.",
+        "isCorrect": false
+      },
+      {
+        "text": "REST se considera una aproximación más sencilla que SOAP al no requerir necesariamente contratos XML complejos.",
+        "rationale": "Verdadero; su simplicidad y el uso de JSON han facilitado su adopción masiva frente a SOAP.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Revise los principios básicos de escalabilidad de los sistemas web modernos."
+  },
+  {
+    "guid": "55acf481-00e5-4f3c-95c8-29c15d8164de",
+    "subjectId": "T44",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Identifique la afirmación FALSA con respecto a la resiliencia en microservicios.",
+    "answerOptions": [
+      {
+        "text": "El patrón $Bulkhead$ aísla recursos para prevenir que el fallo de un componente provoque un efecto dominó en todo el sistema.",
+        "rationale": "Verdadero; se basa en la compartimentación de barcos para evitar que se hundan por completo si hay una vía de agua local.",
+        "isCorrect": false
+      },
+      {
+        "text": "El uso de $Timeouts$ es opcional ya que los microservicios modernos tienen capacidad de espera infinita sin degradar el rendimiento.",
+        "rationale": "Falso; no usar $timeouts$ puede agotar los hilos de ejecución y recursos del sistema, causando caídas en cascada.",
+        "isCorrect": true
+      },
+      {
+        "text": "Los $Fallbacks$ permiten ofrecer respuestas alternativas o degradadas cuando un servicio dependiente no está disponible.",
+        "rationale": "Verdadero; permite mantener una funcionalidad mínima al usuario en lugar de mostrar un error total.",
+        "isCorrect": false
+      },
+      {
+        "text": "El $Chaos$ $Testing$ ayuda a verificar la resiliencia inyectando fallos controlados en el entorno de producción o preproducción.",
+        "rationale": "Verdadero; es una práctica avanzada para asegurar que el sistema sobrevive a imprevistos reales.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "¿Qué ocurre con una aplicación que espera eternamente por una respuesta que nunca llega?"
+  },
+  {
+    "guid": "81a0a57f-57fc-455c-9a42-2ad7a7c8a087",
+    "subjectId": "T44",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Sobre la gobernanza en la arquitectura del IMI, señale la opción FALSA.",
+    "answerOptions": [
+      {
+        "text": "Todas las APIs deben publicarse y consumirse exclusivamente a través del API Manager por motivos de seguridad y gestión.",
+        "rationale": "Verdadero; es una norma estricta del IMI para centralizar el control de las interfaces.",
+        "isCorrect": false
+      },
+      {
+        "text": "El uso del bus ($WMB$) se recomienda para todas las integraciones, priorizándolo sobre el uso de APIs REST siempre que sea posible.",
+        "rationale": "Falso; el bus solo se usa para integraciones que no pueden ser APIs o que requieren transformaciones complejas como con SAP.",
+        "isCorrect": true
+      },
+      {
+        "text": "Se dispone de instancias separadas de API Manager para servicios corporativos internos y para servicios accesibles desde Internet.",
+        "rationale": "Verdadero; la arquitectura de producción del IMI separa estos dos ámbitos por seguridad.",
+        "isCorrect": false
+      },
+      {
+        "text": "Todo intercambio de datos entre servicios debe realizarse mediante protocolos encriptados HTTPS.",
+        "rationale": "Verdadero; es un requisito fundamental de seguridad para proteger la información en tránsito.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Recuerde cuándo se debe usar el Bus de Mensajes según las directrices del IMI."
+  },
+  {
+    "guid": "6e38b693-2cf8-4c8e-81e9-a147e3cb9b0a",
+    "subjectId": "T44",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Identifique la afirmación FALSA sobre el estándar SOAP.",
+    "answerOptions": [
+      {
+        "text": "Los mensajes SOAP se estructuran habitualmente con un 'envelope', un 'header' y un 'body' en formato XML.",
+        "rationale": "Verdadero; es la estructura jerárquica obligatoria definida por el protocolo.",
+        "isCorrect": false
+      },
+      {
+        "text": "SOAP es dependiente exclusivamente del protocolo de transporte HTTP, no pudiendo funcionar sobre otros protocolos como SMTP o JMS.",
+        "rationale": "Falso; una de las ventajas de SOAP es su independencia del transporte, pudiendo viajar sobre diversos protocolos.",
+        "isCorrect": true
+      },
+      {
+        "text": "Utiliza WSDL como contrato público para describir las operaciones y los formatos de datos del servicio.",
+        "rationale": "Verdadero; el WSDL es el documento XML que define formalmente cómo interactuar con el servicio SOAP.",
+        "isCorrect": false
+      },
+      {
+        "text": "Incluye extensiones $WS-*$ para gestionar aspectos avanzados como seguridad ($WS-Security$) o transacciones distribuidas.",
+        "rationale": "Verdadero; estas extensiones le dan capacidades corporativas robustas que REST no tiene de forma nativa.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Revise la flexibilidad de SOAP respecto a los canales de envío de datos."
+  },
+  {
+    "guid": "bd4d8de9-fd81-43d8-8221-a4ff498bfbd2",
+    "subjectId": "T44",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Señale la afirmación FALSA sobre el registro de servicios UDDI.",
+    "answerOptions": [
+      {
+        "text": "UDDI es el estándar actual y más utilizado para el descubrimiento dinámico de microservicios en nubes públicas.",
+        "rationale": "Falso; el material indica que UDDI fue el primer intento pero hoy está en desuso, siendo sustituido por portales de API o Service Discovery modernos.",
+        "isCorrect": true
+      },
+      {
+        "text": "Su objetivo original era permitir catalogar y localizar servicios web de manera universal.",
+        "rationale": "Verdadero; fue diseñado como las 'páginas amarillas' de los servicios web en la era inicial de SOA.",
+        "isCorrect": false
+      },
+      {
+        "text": "Formaba parte del 'stack' clásico de servicios web junto con SOAP, XML y WSDL.",
+        "rationale": "Verdadero; era uno de los pilares técnicos previstos originalmente para la interoperabilidad universal.",
+        "isCorrect": false
+      },
+      {
+        "text": "Actualmente ha sido desplazado por soluciones de API Management y registros internos de plataformas de orquestación.",
+        "rationale": "Verdadero; la industria ha evolucionado hacia métodos de descubrimiento más integrados y eficientes.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Busque la vigencia actual de este estándar en el mundo real."
+  },
+  {
+    "guid": "3fc5ca95-566f-4634-8afc-5d0d1a6777bf",
+    "subjectId": "T44",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Indique cuál de las siguientes afirmaciones sobre la consistencia eventual es FALSA.",
+    "answerOptions": [
+      {
+        "text": "Garantiza que, tras un periodo de tiempo sin nuevas actualizaciones, todos los accesos al dato devolverán el último valor actualizado.",
+        "rationale": "Verdadero; es la definición clásica de consistencia eventual en sistemas distribuidos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Es el modelo de consistencia preferido en sistemas que requieren alta disponibilidad y escalabilidad masiva.",
+        "rationale": "Verdadero; permite que el sistema siga funcionando aunque algunos nodos no estén sincronizados inmediatamente.",
+        "isCorrect": false
+      },
+      {
+        "text": "Se puede implementar fácilmente en cualquier arquitectura mediante el uso de disparadores ($triggers$) en una base de datos central única.",
+        "rationale": "Falso; la consistencia eventual surge precisamente cuando los datos están distribuidos y no hay una base de datos central que controle todo.",
+        "isCorrect": true
+      },
+      {
+        "text": "Requiere que los desarrolladores gestionen la posibilidad de leer datos temporalmente obsoletos en la lógica de la aplicación.",
+        "rationale": "Verdadero; es el compromiso o 'trade-off' que se acepta para ganar en otros aspectos del sistema distribuido.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en la relación entre el almacenamiento distribuido y el control centralizado."
+  }
+]

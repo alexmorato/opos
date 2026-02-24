@@ -1,0 +1,1242 @@
+[
+  {
+    "guid": "a72ad727-93af-4b11-bede-6ce4d125963e",
+    "subjectId": "T43",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Cuál es el objetivo principal de la arquitectura cloud-native según la Cloud Native Computing Foundation (CNCF)?",
+    "answerOptions": [
+      {
+        "text": "Diseñar aplicaciones para ejecutarse específicamente en el núvol aprovechando el autoescalado y la resiliencia.",
+        "rationale": "El diseño nativo en la nube se centra en maximizar las ventajas de la computación distribuida, como la elasticidad y la recuperación automática de fallos.",
+        "isCorrect": true
+      },
+      {
+        "text": "Migrar aplicaciones monolíticas existentes a máquinas virtuales en centros de datos públicos para reducir costes.",
+        "rationale": "La migración directa de monolitos a máquinas virtuales se considera 'lift-and-shift', no una arquitectura puramente nativa en la nube.",
+        "isCorrect": false
+      },
+      {
+        "text": "Desarrollar software que dependa exclusivamente de una única plataforma de hardware para optimizar el rendimiento.",
+        "rationale": "Las aplicaciones cloud-native buscan la portabilidad y la independencia de la infraestructura física subyacente.",
+        "isCorrect": false
+      },
+      {
+        "text": "Sustituir todos los procesos de desarrollo manual por lenguajes de programación políglotas sin intervención humana.",
+        "rationale": "Aunque el desarrollo políglota es una ventaja de los microservicios, el objetivo principal es la escalabilidad y agilidad del sistema, no la eliminación de la intervención humana.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Recuerda los pilares mencionados por la CNCF sobre entornos dinámicos y escalables."
+  },
+  {
+    "guid": "002cfa37-1414-4ead-8720-f1fae5bc2efb",
+    "subjectId": "T43",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "En el contexto de la resiliencia en microservicios, ¿qué función cumple el patrón 'circuit breaker'?",
+    "answerOptions": [
+      {
+        "text": "Aislar componentes defectuosos para evitar que una falla en un servicio colapse la totalidad del sistema.",
+        "rationale": "Este patrón detecta fallos en la comunicación con un servicio y 'abre' el circuito para evitar llamadas repetidas que degraden el sistema completo.",
+        "isCorrect": true
+      },
+      {
+        "text": "Cifrar todas las comunicaciones entre microservicios mediante el uso de protocolos TLS de mutua autenticación.",
+        "rationale": "El cifrado mTLS es una función propia de un Service Mesh (como Istio), no del patrón de diseño circuit breaker.",
+        "isCorrect": false
+      },
+      {
+        "text": "Distribuir las peticiones de red equitativamente entre todas las instancias disponibles de un contenedor.",
+        "rationale": "La distribución de carga es responsabilidad de un balanceador de carga o el orquestador, no de la gestión de fallos de circuito.",
+        "isCorrect": false
+      },
+      {
+        "text": "Eliminar automáticamente los contenedores que han superado el límite de memoria asignado por el host.",
+        "rationale": "La gestión de límites de recursos es una tarea del orquestador de contenedores como Kubernetes.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Este concepto está inspirado en los sistemas eléctricos para evitar sobrecargas."
+  },
+  {
+    "guid": "2d0cfcd2-5d4c-438f-979a-d97e6877db42",
+    "subjectId": "T43",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Cuál es la diferencia fundamental entre un contenedor y una máquina virtual respecto a su arquitectura interna?",
+    "answerOptions": [
+      {
+        "text": "Los contenedores comparten el kernel del host, mientras que las máquinas virtuales incluyen un kernel completo propio.",
+        "rationale": "Esta característica hace que los contenedores sean mucho más ligeros y rápidos de iniciar que las máquinas virtuales tradicionales.",
+        "isCorrect": true
+      },
+      {
+        "text": "Los contenedores requieren un hipervisor de tipo 1 para gestionar los recursos del hardware físico directamente.",
+        "rationale": "Los hipervisores son característicos de la virtualización de servidores, mientras que los contenedores suelen usar motores como Docker o containerd.",
+        "isCorrect": false
+      },
+      {
+        "text": "Las máquinas virtuales permiten el aislamiento de aplicaciones, mientras que los contenedores no ofrecen seguridad entre procesos.",
+        "rationale": "Los contenedores ofrecen aislamiento mediante namespaces y cgroups, aunque compartan el kernel del sistema operativo.",
+        "isCorrect": false
+      },
+      {
+        "text": "Los contenedores solo pueden ejecutar código en lenguajes interpretados, mientras que las VMs soportan código compilado.",
+        "rationale": "Ambas tecnologías son agnósticas respecto al lenguaje de programación y pueden ejecutar cualquier binario compatible.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piensa en el elemento del sistema operativo que se encapsula o se comparte."
+  },
+  {
+    "guid": "507fce39-8f26-409b-bc3c-a588b72c640f",
+    "subjectId": "T43",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "En una arquitectura serverless, ¿cómo se gestionan los recursos de infraestructura durante la ejecución de una función?",
+    "answerOptions": [
+      {
+        "text": "El proveedor cloud abstrae los servidores, creando y destruyendo recursos de forma transparente según la demanda.",
+        "rationale": "El desarrollador se despreocupa de la gestión de servidores, delegando el aprovisionamiento dinámico íntegramente en la plataforma.",
+        "isCorrect": true
+      },
+      {
+        "text": "El desarrollador debe preconfigurar el número mínimo de instancias activas para evitar la latencia de arranque.",
+        "rationale": "Aunque se puede configurar (con costes), la esencia del serverless es la gestión automática y el pago por uso real.",
+        "isCorrect": false
+      },
+      {
+        "text": "La aplicación corre de forma ininterrumpida en un clúster de servidores dedicados gestionados por el usuario.",
+        "rationale": "Ese modelo corresponde a IaaS o PaaS tradicional, pero no al paradigma serverless o FaaS.",
+        "isCorrect": false
+      },
+      {
+        "text": "Las funciones deben ser programadas para gestionar manualmente el balanceo de carga entre nodos geográficos.",
+        "rationale": "El escalado horizontal y el balanceo son intrínsecos a la plataforma serverless y no requieren lógica en el código de la función.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "En este modelo, el servidor se vuelve 'invisible' para el equipo de desarrollo."
+  },
+  {
+    "guid": "bfdd00d8-6515-4349-8419-8f8b6b881d9a",
+    "subjectId": "T43",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Qué implicación técnica tiene el concepto de 'observabilidad' en sistemas distribuidos cloud-native?",
+    "answerOptions": [
+      {
+        "text": "Integrar logs centralizados, métricas en tiempo real y trazas distribuidas para diagnosticar el estado del sistema.",
+        "rationale": "La tríada de observabilidad permite entender el comportamiento interno del sistema a partir de las señales externas que emite.",
+        "isCorrect": true
+      },
+      {
+        "text": "Habilitar una interfaz gráfica de usuario para que los administradores de sistemas puedan ver los servidores físicos.",
+        "rationale": "La observabilidad va más allá del hardware físico, centrándose en el flujo de las peticiones a través de servicios lógicos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Implementar un sistema de videovigilancia en el centro de datos donde se aloja la infraestructura del núvol.",
+        "rationale": "La observabilidad en IT es un concepto de telemetría de datos de software, no de seguridad física.",
+        "isCorrect": false
+      },
+      {
+        "text": "Garantizar que el código fuente sea legible para cualquier desarrollador externo que audite la aplicación.",
+        "rationale": "La legibilidad del código es una buena práctica de ingeniería, pero no define la observabilidad de un sistema en ejecución.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Relaciónalo con los tres pilares de la telemetría mencionados en el material."
+  },
+  {
+    "guid": "8dbcff47-1a65-4698-be8f-249393804778",
+    "subjectId": "T43",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Cuál es la principal diferencia entre la escalabilidad y la elasticidad en un entorno cloud?",
+    "answerOptions": [
+      {
+        "text": "La escalabilidad es la capacidad de crecer ante la carga, mientras que la elasticidad es el automatismo para crecer o decrecer.",
+        "rationale": "La elasticidad añade la dimensión temporal y automática a la capacidad de escalado, ajustándose dinámicamente a la demanda.",
+        "isCorrect": true
+      },
+      {
+        "text": "La escalabilidad solo permite el crecimiento vertical, mientras que la elasticidad se refiere únicamente al crecimiento horitzontal.",
+        "rationale": "Ambos conceptos pueden aplicarse tanto vertical como horizontalmente, la diferencia radica en la automatización.",
+        "isCorrect": false
+      },
+      {
+        "text": "La elasticidad es una característica de las bases de datos SQL y la escalabilidad de las soluciones NoSQL.",
+        "rationale": "Son conceptos de arquitectura de sistemas generales, no limitados a tipos específicos de bases de datos.",
+        "isCorrect": false
+      },
+      {
+        "text": "La escalabilidad requiere intervención humana obligatoria y la elasticidad solo ocurre en nubes privadas.",
+        "rationale": "La escalabilidad puede ser manual, pero la elasticidad es especialmente común en nubes públicas y es siempre automática.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piensa en cuál de los dos términos implica una respuesta dinámica 'sin intervención'."
+  },
+  {
+    "guid": "b4dd433a-bccc-482f-9713-46aefe467641",
+    "subjectId": "T43",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "En el desarrollo de aplicaciones cloud-native, ¿qué papel desempeña la infraestructura como código (IaC)?",
+    "answerOptions": [
+      {
+        "text": "Permitir la definición de recursos como servidores o redes en archivos declarativos que pueden ser versionados.",
+        "rationale": "IaC aplica las mejores prácticas de desarrollo de software (control de versiones, CI/CD) a la gestión de la infraestructura física y lógica.",
+        "isCorrect": true
+      },
+      {
+        "text": "Generar automáticamente el código fuente de la lógica de negocio a partir de diagramas de arquitectura.",
+        "rationale": "Eso correspondería a herramientas de diseño Low-Code o Model-Driven Development, no a IaC.",
+        "isCorrect": false
+      },
+      {
+        "text": "Obligar a los administradores a escribir scripts en lenguaje ensamblador para configurar los routers del proveedor.",
+        "rationale": "IaC utiliza lenguajes de alto nivel (YAML, HCL) para abstraer la complejidad del hardware, no lenguajes de bajo nivel.",
+        "isCorrect": false
+      },
+      {
+        "text": "Sustituir el uso de APIs por comandos de consola manuales para garantizar la seguridad de los despliegues.",
+        "rationale": "IaC se basa precisamente en el uso extensivo de APIs de proveedores cloud para automatizar los cambios.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Busca la opción que mencione la gestión de recursos mediante archivos de configuración."
+  },
+  {
+    "guid": "0976edbf-bcf2-4255-ad5e-8b17504db003",
+    "subjectId": "T43",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Qué beneficio aporta el patrón de 'Service Discovery' en un ecosistema de microserveis?",
+    "answerOptions": [
+      {
+        "text": "Permitir que los servicios localicen dinámicamente las direcciones de otros servicios sin configuraciones manuales de IP.",
+        "rationale": "En entornos dinámicos donde los contenedores cambian de IP constantemente, un registro centralizado es vital para la comunicación.",
+        "isCorrect": true
+      },
+      {
+        "text": "Analizar el código fuente de la aplicación para detectar vulnerabilidades de seguridad antes del despliegue.",
+        "rationale": "El análisis de vulnerabilidades es parte del pipeline de CI/CD (DevSecOps), no del descubrimiento de servicios.",
+        "isCorrect": false
+      },
+      {
+        "text": "Identificar automáticamente qué desarrollador ha realizado un cambio en el repositorio de Git.",
+        "rationale": "Eso es una función básica de los sistemas de control de versiones como Git, no de la arquitectura de servicios.",
+        "isCorrect": false
+      },
+      {
+        "text": "Optimizar las consultas SQL mediante la creación automática de índices en las bases de datos distribuidas.",
+        "rationale": "El descubrimiento de servicios se encarga de la conectividad de red, no de la optimización del almacenamiento.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considera cómo se encuentran los servicios entre sí cuando sus IPs cambian frecuentemente."
+  },
+  {
+    "guid": "0527f8f9-ae30-49f4-ba7d-6f1ee99df92e",
+    "subjectId": "T43",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Según la metodología 'Twelve-Factor App', ¿cómo deben gestionarse las configuraciones de la aplicación?",
+    "answerOptions": [
+      {
+        "text": "Almacenarse en variables de entorno para mantener una separación estricta entre el código y la configuración.",
+        "rationale": "Esta práctica permite que el mismo código se despliegue en diferentes entornos (desarrollo, producción) sin cambios internos.",
+        "isCorrect": true
+      },
+      {
+        "text": "Incluirse dentro del código fuente como constantes para garantizar que nunca cambien durante la ejecución.",
+        "rationale": "Codificar configuraciones (hardcoding) viola el principio de portabilidad y separación de entornos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Guardarse en archivos XML dentro del contenedor que solo pueden ser modificados por el administrador del host.",
+        "rationale": "Depender de archivos locales dentro del contenedor dificulta el escalado y la gestión centralizada.",
+        "isCorrect": false
+      },
+      {
+        "text": "Distribuyéndose manualmente por correo electrónico a los nodos del clúster antes de cada despliegue.",
+        "rationale": "La distribución manual es contraria a los principios de automatización y CI/CD de las apps cloud-native.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Busca el factor que habla sobre la portabilidad entre entornos sin modificar el binario."
+  },
+  {
+    "guid": "4fb11aff-4622-49ca-88b8-9303bec9259f",
+    "subjectId": "T43",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿En qué consiste la técnica de despliegue denominada 'Canary Release'?",
+    "answerOptions": [
+      {
+        "text": "Desplegar una nueva versión solo a un pequeño subconjunto de usuarios para validar cambios antes de escalarlo a todos.",
+        "rationale": "Esta técnica minimiza el radio de impacto ante posibles errores en una nueva versión de software.",
+        "isCorrect": true
+      },
+      {
+        "text": "Mantener dos entornos idénticos (azul y verde) y conmutar el tráfico total de uno a otro instantáneamente.",
+        "rationale": "Eso define el despliegue 'Blue-Green', que es distinto a la exposición gradual del Canary Release.",
+        "isCorrect": false
+      },
+      {
+        "text": "Ejecutar todas las pruebas unitarias en el ordenador local del desarrollador antes de subir el código al repositorio.",
+        "rationale": "Las pruebas locales son una práctica de desarrollo, pero no constituyen una estrategia de despliegue en producción.",
+        "isCorrect": false
+      },
+      {
+        "text": "Desactivar temporalmente todos los microservicios durante la madrugada para actualizar la base de datos central.",
+        "rationale": "Las arquitecturas cloud-native buscan el despliegue sin tiempo de inactividad (zero-downtime), evitando paradas de servicio.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Esta técnica recibe su nombre por los pájaros usados en las minas para detectar gases peligrosos."
+  },
+  {
+    "guid": "274f0acd-2acc-40b6-ac4b-45e688d5e13e",
+    "subjectId": "T43",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Con respecto a la Integración Continua (CI), ¿cuál de los siguientes enunciados describe correctamente su proceso estándar?",
+    "answerOptions": [
+      {
+        "text": "Consiste en fusionar los cambios en el repositorio central regularmente, activando procesos automáticos que validan el software.",
+        "rationale": "La CI busca detectar errores de integración lo antes posible mediante la automatización de builds y tests.",
+        "isCorrect": true
+      },
+      {
+        "text": "Consiste en desplegar los cambios en el entorno de producción únicamente cuando el equipo de operaciones lo aprueba manualmente.",
+        "rationale": "La aprobación manual para producción es más propia de la Entrega Continua, mientras que la CI se detiene en la validación del código.",
+        "isCorrect": false
+      },
+      {
+        "text": "Consiste en desarrollar toda la lógica de negocio en una rama local aislada durante varios meses antes de compartirla con el equipo.",
+        "rationale": "El desarrollo prolongado en ramas aisladas es lo contrario a la integración continua y provoca conflictos complejos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Consiste en replicar manualmente la base de datos de producción en el entorno de desarrollo cada vez que se detecta un error.",
+        "rationale": "La CI se enfoca en el ciclo de vida del código y su validación, no en la replicación manual de datos de producción.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Busca la definición que resalta la automatización y la frecuencia de la integración del código."
+  },
+  {
+    "guid": "48ff359d-dccd-417f-b425-f466164d8ffb",
+    "subjectId": "T43",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Al implementar una estrategia de despliegue 'Blue-Green', ¿cuál es el procedimiento técnico que se sigue habitualmente?",
+    "answerOptions": [
+      {
+        "text": "Se mantienen dos entornos paralelos activos para desplegar nuevas versiones sin interrumpir el servicio y permitir rollbacks rápidos.",
+        "rationale": "Esta estrategia utiliza el entorno inactivo para el despliegue y luego redirige el tráfico mediante el balanceador.",
+        "isCorrect": true
+      },
+      {
+        "text": "Se actualizan las instancias de producción una a una de forma gradual hasta que todas ejecutan la nueva versión del software.",
+        "rationale": "Este procedimiento se conoce como 'Rolling Update', no como Blue-Green Deployment.",
+        "isCorrect": false
+      },
+      {
+        "text": "Se utiliza un entorno de pruebas compartido donde los desarrolladores validan sus cambios antes de enviarlos a integración.",
+        "rationale": "El uso de entornos de staging es una práctica común, pero el patrón Blue-Green se refiere específicamente a la conmutación en producción.",
+        "isCorrect": false
+      },
+      {
+        "text": "Se ejecutan procesos de depuración en tiempo real sobre el entorno de producción para identificar errores de concurrencia.",
+        "rationale": "La depuración en producción es una práctica de emergencia, no una estrategia de despliegue planificada.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Se basa en la existencia de dos infraestructuras idénticas donde solo una recibe tráfico real."
+  },
+  {
+    "guid": "1f08911f-8d83-496b-8f1b-0c7e2b22de7e",
+    "subjectId": "T43",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "En referencia a la escalabilidad horizontal en entornos de microserveis, ¿cuál de estas afirmaciones define mejor su aplicación?",
+    "answerOptions": [
+      {
+        "text": "Añadir más instancias del mismo servicio para distribuir la carga de trabajo entre múltiples contenedores o nodos del clúster.",
+        "rationale": "La escalabilidad horizontal permite un crecimiento casi ilimitado al añadir más unidades de ejecución en lugar de mejorar una sola.",
+        "isCorrect": true
+      },
+      {
+        "text": "Incrementar la capacidad de computación de un único servidor mediante la adición de más memoria RAM y núcleos de CPU.",
+        "rationale": "Esto describe la escalabilidad vertical (scale-up), que tiene límites físicos y suele requerir reinicios.",
+        "isCorrect": false
+      },
+      {
+        "text": "Optimizar el algoritmo de ordenación del código para que consuma menos ciclos de procesador durante su ejecución diaria.",
+        "rationale": "La optimización de código mejora la eficiencia, pero no es una técnica de escalabilidad de infraestructura por sí misma.",
+        "isCorrect": false
+      },
+      {
+        "text": "Reducir el número de servicios activos para concentrar todas las peticiones en una única base de datos centralizada.",
+        "rationale": "Esto sería una consolidación o involución hacia un monolito, no una estrategia de escalabilidad distribuida.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Imagina añadir más máquinas pequeñas en lugar de una máquina más grande."
+  },
+  {
+    "guid": "80955250-7152-4045-9b20-87a92396f434",
+    "subjectId": "T43",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Cuando se utiliza el patrón 'Sidecar' en arquitecturas de contenedores, ¿cómo interactúa el contenedor auxiliar con el principal?",
+    "answerOptions": [
+      {
+        "text": "Se despliega y escala junto al contenedor principal dentro de la misma unidad lógica, compartiendo red y sistema de ficheros.",
+        "rationale": "El sidecar permite extender funcionalidades (como logging o proxies) sin modificar el código de la aplicación principal.",
+        "isCorrect": true
+      },
+      {
+        "text": "Se ejecuta en un nodo físico diferente para garantizar que una falla en la aplicación principal no afecte al servicio de logs.",
+        "rationale": "El sidecar debe estar en el mismo Pod o unidad de despliegue para compartir recursos locales; de lo contrario, sería otro microservicio.",
+        "isCorrect": false
+      },
+      {
+        "text": "Se utiliza exclusivamente para compilar el código fuente antes de que el contenedor principal sea enviado al registro central.",
+        "rationale": "Esto se asocia más a procesos de 'Multi-stage builds' en Docker que al patrón de diseño sidecar en tiempo de ejecución.",
+        "isCorrect": false
+      },
+      {
+        "text": "Se encarga de reiniciar el servidor físico si detecta que el sistema operativo anfitrión ha quedado bloqueado.",
+        "rationale": "La salud del host es gestionada por agentes del sistema o del orquestador, no por un contenedor sidecar de aplicación.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "El sidecar es como un 'complemento' que viaja pegado a la aplicación principal."
+  },
+  {
+    "guid": "b211db2e-0b9b-479d-b48d-76efe7d6f408",
+    "subjectId": "T43",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Dentro del ciclo de vida de DevOps, ¿cuál es la finalidad técnica del Despliegue Continuo (CD) automatizado?",
+    "answerOptions": [
+      {
+        "text": "Garantizar que cualquier versión del software que pase las validaciones pueda ponerse en producción de forma fiable y rápida.",
+        "rationale": "El CD busca eliminar los cuellos de botella manuales en el paso a producción para acelerar la entrega de valor.",
+        "isCorrect": true
+      },
+      {
+        "text": "Garantizar que los desarrolladores no necesiten realizar pruebas unitarias ya que el sistema las genera automáticamente al final.",
+        "rationale": "Las pruebas deben ser escritas por los desarrolladores; la automatización solo se encarga de su ejecución masiva.",
+        "isCorrect": false
+      },
+      {
+        "text": "Garantizar que la infraestructura física se mantenga inalterable durante toda la vida útil de la aplicación en la nube.",
+        "rationale": "Cloud-native promueve la 'infraestructura efímera', donde los recursos se crean y destruyen constantemente.",
+        "isCorrect": false
+      },
+      {
+        "text": "Garantizar que todas las bases de datos de la organización utilicen el mismo esquema relacional para evitar duplicidad.",
+        "rationale": "Esto es contrario al principio de microservicios, donde cada servicio suele tener su propio almacén de datos independiente.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Se trata de la fase final del pipeline que lleva el código desde el commit hasta el usuario."
+  },
+  {
+    "guid": "65d94b44-b74a-4edf-8a21-8999cc0a47f5",
+    "subjectId": "T43",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "En el marco de la arquitectura de microserveis, ¿qué implica técnicamente el concepto de 'desacoplamiento'?",
+    "answerOptions": [
+      {
+        "text": "Construir sistemas con baja interdependencia donde cada componente puede escalar y evolucionar de manera independiente.",
+        "rationale": "El desacoplamiento reduce el impacto de los cambios y permite que los equipos trabajen de forma autónoma en diferentes servicios.",
+        "isCorrect": true
+      },
+      {
+        "text": "Construir sistemas donde todos los componentes comparten la misma memoria volátil para acelerar la comunicación interna.",
+        "rationale": "Compartir memoria crearía un acoplamiento fuerte y dificultaría enormemente el escalado horizontal distribuido.",
+        "isCorrect": false
+      },
+      {
+        "text": "Construir sistemas que requieran que todos los servicios se desplieguen simultáneamente para asegurar la consistencia total.",
+        "rationale": "La necesidad de despliegues coordinados ('big bang') es un síntoma de un sistema altamente acoplado.",
+        "isCorrect": false
+      },
+      {
+        "text": "Construir sistemas en los que una base de datos centralizada gestione todos los bloqueos de archivos de la aplicación.",
+        "rationale": "Una base de datos centralizada para bloqueos suele ser un cuello de botella y un punto único de fallo que aumenta el acoplamiento.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piensa en la libertad que tiene un servicio para cambiar sin afectar a los demás."
+  },
+  {
+    "guid": "3f354c49-8853-43f5-b439-32fb798a88b0",
+    "subjectId": "T43",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Al analizar el 'Tracing Distribuido' en una arquitectura de microserveis, ¿cuál es su principal utilidad práctica?",
+    "answerOptions": [
+      {
+        "text": "Seguir el recorrido de una petición a través de múltiples servicios para identificar cuellos de botella o latencias elevadas.",
+        "rationale": "El tracing es fundamental para depurar problemas de rendimiento en sistemas donde una sola operación toca decenas de servicios.",
+        "isCorrect": true
+      },
+      {
+        "text": "Seguir la evolución del uso de la CPU de un nodo físico durante un periodo de tiempo de varios meses seguidos.",
+        "rationale": "El seguimiento de recursos de hardware corresponde a la monitorización de métricas, no al tracing distribuido de peticiones.",
+        "isCorrect": false
+      },
+      {
+        "text": "Seguir la ubicación geográfica exacta de los usuarios finales que acceden a la aplicación mediante el GPS de sus dispositivos.",
+        "rationale": "La geolocalización de usuarios es una funcionalidad de negocio o analítica de marketing, no una técnica de observabilidad técnica.",
+        "isCorrect": false
+      },
+      {
+        "text": "Seguir la cantidad de líneas de código que cada programador ha escrito para medir su productividad semanal.",
+        "rationale": "Esto es una métrica de gestión de proyectos (a menudo controvertida) y no tiene relación con el tracing de sistemas distribuidos.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Es como un GPS para una petición web que viaja entre muchos servidores."
+  },
+  {
+    "guid": "f1c59069-319d-46c7-928f-9c9edd6b9ac1",
+    "subjectId": "T43",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "En relación a las arquitecturas serverless, ¿qué describe correctamente el fenómeno conocido como 'Cold Start'?",
+    "answerOptions": [
+      {
+        "text": "La latencia adicional que ocurre al invocar una función que no ha sido utilizada recientemente y debe ser instanciada.",
+        "rationale": "Este tiempo de arranque es un reto clave en serverless para aplicaciones que requieren respuestas en milisegundos.",
+        "isCorrect": true
+      },
+      {
+        "text": "La necesidad de enfriar los servidores físicos del centro de datos antes de ejecutar procesos de computación intensiva.",
+        "rationale": "El enfriamiento del hardware es responsabilidad del proveedor de infraestructura y es independiente del paradigma serverless.",
+        "isCorrect": false
+      },
+      {
+        "text": "El reinicio automático de un contenedor cuando el sistema detecta que se ha producido una excepción no controlada.",
+        "rationale": "Esto se denomina autorrecuperación o self-healing, y ocurre tanto en contenedores como en funciones.",
+        "isCorrect": false
+      },
+      {
+        "text": "El tiempo que tarda un desarrollador en empezar a programar una función desde que se crea el repositorio vacío.",
+        "rationale": "Aunque es un juego de palabras, 'cold start' es un término técnico de rendimiento de ejecución, no de productividad humana.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Se refiere al tiempo de 'calentamiento' de los recursos que estaban inactivos."
+  },
+  {
+    "guid": "64a12bc0-32a2-48d3-814f-4468c3c73b1c",
+    "subjectId": "T43",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Sobre la gestión de datos, ¿qué característica es típica de una arquitectura cloud-native basada en microserveis?",
+    "answerOptions": [
+      {
+        "text": "Se adopta el patrón de base de datos por servicio, donde cada componente gestiona su propio esquema e infraestructura de datos.",
+        "rationale": "Este enfoque evita el acoplamiento a nivel de base de datos y permite elegir la tecnología de almacenamiento más adecuada para cada tarea.",
+        "isCorrect": true
+      },
+      {
+        "text": "Se utiliza una única instancia de base de datos relacional para todos los servicios con el fin de garantizar la integridad referencial.",
+        "rationale": "Una base de datos única para todos los microservicios es un antipatrón que rompe la autonomía de los equipos y el escalado.",
+        "isCorrect": false
+      },
+      {
+        "text": "Se prohíbe el uso de bases de datos NoSQL para asegurar que todas las transacciones sigan estrictamente el modelo ACID.",
+        "rationale": "Las arquitecturas cloud-native suelen abrazar NoSQL por su escalabilidad horizontal, aceptando la consistencia eventual.",
+        "isCorrect": false
+      },
+      {
+        "text": "Se delega la persistencia de datos exclusivamente en la memoria caché volátil para eliminar la latencia de escritura en disco.",
+        "rationale": "La caché es complementaria; la persistencia duradera sigue siendo necesaria para la mayoría de aplicaciones de negocio.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considera cómo se evita que un cambio en los datos de un servicio rompa a otro servicio."
+  },
+  {
+    "guid": "cf165270-8d3c-4c71-874e-ef5d58e4e8b1",
+    "subjectId": "T43",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Cuál es la función de un Service Mesh (malla de servicios) en una comunicación entre microserveis?",
+    "answerOptions": [
+      {
+        "text": "Gestionar la comunicación, seguridad y observabilidad de forma transparente mediante proxies adjuntos a cada servicio.",
+        "rationale": "El Service Mesh extrae la lógica de red del código de la aplicación, facilitando tareas como el cifrado mTLS o el reintento de peticiones.",
+        "isCorrect": true
+      },
+      {
+        "text": "Sustituir al orquestador de contenedores en la tarea de asignar recursos de memoria y disco a las aplicaciones.",
+        "rationale": "El Service Mesh complementa al orquestador (como Kubernetes) centrándose en la capa de red (Capa 7), no en los recursos físicos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Optimizar el tamaño de las imágenes de los contenedores mediante la eliminación de capas redundantes de software.",
+        "rationale": "La optimización de imágenes es tarea de herramientas de build (Docker, Buildah) o de los desarrolladores en el Dockerfile.",
+        "isCorrect": false
+      },
+      {
+        "text": "Centralizar todo el código fuente de los microservicios en un único repositorio compartido para facilitar el despliegue.",
+        "rationale": "Esto describe un monorepo, que es una decisión de organización de código, no una tecnología de red como el Service Mesh.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Actúa como una capa de infraestructura dedicada a la interconectividad de servicios."
+  },
+  {
+    "guid": "0e6581cf-5727-4ba1-8c0d-1e7082bfb67d",
+    "subjectId": "T43",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Herramienta líder de orquestación de contenedores que automatiza el despliegue, escalado y gestión de aplicaciones declarativas.",
+    "answerOptions": [
+      {
+        "text": "KUBERNETES",
+        "rationale": "Es el estándar de facto para la orquestación de contenedores bajo el paraguas de la CNCF.",
+        "isCorrect": true
+      },
+      {
+        "text": "TERRAFORM",
+        "rationale": "Es una herramienta de infraestructura como código, no un orquestador de contenedores en tiempo de ejecución.",
+        "isCorrect": false
+      },
+      {
+        "text": "DOCKER",
+        "rationale": "Docker es un motor de contenedores; aunque tiene Swarm, el término líder en orquestación hoy es Kubernetes.",
+        "isCorrect": false
+      },
+      {
+        "text": "JENKINS",
+        "rationale": "Jenkins es una herramienta de automatización de CI/CD, no un orquestador de contenedores.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "A menudo se abrevia como K8s."
+  },
+  {
+    "guid": "d297601d-69ad-459f-91df-5d3aae291a7a",
+    "subjectId": "T43",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Gestor de paquetes para Kubernetes que permite definir, instalar y actualizar incluso las aplicaciones más complejas mediante 'charts'.",
+    "answerOptions": [
+      {
+        "text": "HELM",
+        "rationale": "Helm facilita la gestión de aplicaciones en Kubernetes mediante plantillas de manifiestos YAML.",
+        "isCorrect": true
+      },
+      {
+        "text": "ANSIBLE",
+        "rationale": "Ansible es una herramienta de gestión de configuración y automatización general, no específica para paquetes de Kubernetes.",
+        "isCorrect": false
+      },
+      {
+        "text": "HARBOR",
+        "rationale": "Harbor es un registro de contenedores (registry) para almacenar imágenes, no un gestor de paquetes.",
+        "isCorrect": false
+      },
+      {
+        "text": "NATS",
+        "rationale": "NATS es un sistema de mensajería para microservicios, no tiene relación con el empaquetado de manifiestos.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Se define como el 'apt' o 'yum' de Kubernetes."
+  },
+  {
+    "guid": "99de33fa-7612-4e5d-9a30-fc375c1bfb16",
+    "subjectId": "T43",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Proyecto de código abierto utilizado para definir, empaquetar y ejecutar aplicaciones dentro de contenedores portables.",
+    "answerOptions": [
+      {
+        "text": "DOCKER",
+        "rationale": "Docker popularizó la tecnología de contenedores y el uso de Dockerfiles para su creación.",
+        "isCorrect": true
+      },
+      {
+        "text": "ISTIO",
+        "rationale": "Istio es un Service Mesh, se usa para gestionar la red entre contenedores, no para crearlos.",
+        "isCorrect": false
+      },
+      {
+        "text": "PROMETHEUS",
+        "rationale": "Prometheus es un sistema de monitorización basado en métricas temporales.",
+        "isCorrect": false
+      },
+      {
+        "text": "PODMAN",
+        "rationale": "Aunque Podman también lo hace, Docker sigue siendo el proyecto más conocido para esta definición técnica según el texto.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Utiliza un archivo llamado Dockerfile para la configuración de imágenes."
+  },
+  {
+    "guid": "6fa639d0-329c-42a5-b797-5f9b81203c50",
+    "subjectId": "T43",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Motor de ejecución de contenedores ligero y de bajo nivel, diseñado específicamente para integrarse con Kubernetes bajo el estándar CRI.",
+    "answerOptions": [
+      {
+        "text": "CRI-O",
+        "rationale": "CRI-O es una alternativa ligera a Docker optimizada específicamente para funcionar como runtime en Kubernetes.",
+        "isCorrect": true
+      },
+      {
+        "text": "VIRT.X",
+        "rationale": "Vert.x es un toolkit reactivo para aplicaciones asíncronas, no un motor de ejecución de contenedores.",
+        "isCorrect": false
+      },
+      {
+        "text": "EXPRESS",
+        "rationale": "Express es un framework web para Node.js, no tiene relación con el runtime de contenedores.",
+        "isCorrect": false
+      },
+      {
+        "text": "FLASK",
+        "rationale": "Flask es un micro-framework web escrito en Python.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Su nombre incluye las siglas de Container Runtime Interface."
+  },
+  {
+    "guid": "05349fa5-64d8-4f3f-8263-49b5da469ab4",
+    "subjectId": "T43",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Herramienta de monitorización y alerta de código abierto que recolecta métricas en tiempo real mediante un modelo de 'pull'.",
+    "answerOptions": [
+      {
+        "text": "PROMETHEUS",
+        "rationale": "Es el estándar de facto para monitorizar entornos de Kubernetes y aplicaciones cloud-native.",
+        "isCorrect": true
+      },
+      {
+        "text": "JAEGER",
+        "rationale": "Jaeger se especializa en trazas distribuidas, no en la recolección de métricas de rendimiento generales.",
+        "isCorrect": false
+      },
+      {
+        "text": "GRAFANA",
+        "rationale": "Grafana es una herramienta de visualización de datos que suele consumir datos de Prometheus, pero no los recolecta ella misma.",
+        "isCorrect": false
+      },
+      {
+        "text": "KIBANA",
+        "rationale": "Kibana es la interfaz visual para los logs almacenados en Elasticsearch.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Es el estándar de monitorización dentro de la CNCF."
+  },
+  {
+    "guid": "230dd31b-bd5b-41bd-a13e-738c5acdb605",
+    "subjectId": "T43",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Implementación de Service Mesh que proporciona gestión de tráfico, políticas de seguridad y telemetría sin cambios en el código de la app.",
+    "answerOptions": [
+      {
+        "text": "ISTIO",
+        "rationale": "Istio es la solución de malla de servicios más extendida, utilizando Envoy como proxy sidecar.",
+        "isCorrect": true
+      },
+      {
+        "text": "LINKERD",
+        "rationale": "Aunque Linkerd también es un Service Mesh, Istio es la respuesta que encaja con la descripción de gestión avanzada de políticas mencionada habitualmente.",
+        "isCorrect": false
+      },
+      {
+        "text": "QUARKUS",
+        "rationale": "Quarkus es un framework de desarrollo para Java orientado a Kubernetes.",
+        "isCorrect": false
+      },
+      {
+        "text": "CONSUL",
+        "rationale": "Consul se centra principalmente en Service Discovery y gestión de configuración.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Utiliza un plano de control para gestionar proxies Envoy."
+  },
+  {
+    "guid": "57c47798-47eb-4b39-8e55-570bc0679b04",
+    "subjectId": "T43",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Framework de Java 'Supersonic Subatomic' optimizado para GraalVM y OpenJDK, diseñado para despliegues rápidos en contenedores y serverless.",
+    "answerOptions": [
+      {
+        "text": "QUARKUS",
+        "rationale": "Quarkus destaca por su bajísimo consumo de memoria y tiempo de arranque casi instantáneo.",
+        "isCorrect": true
+      },
+      {
+        "text": "SPRING BOOT",
+        "rationale": "Spring Boot es el framework tradicional adaptado al cloud, pero no fue diseñado específicamente desde cero para GraalVM como Quarkus.",
+        "isCorrect": false
+      },
+      {
+        "text": "DJANGO",
+        "rationale": "Django es un framework de alto nivel para el lenguaje Python.",
+        "isCorrect": false
+      },
+      {
+        "text": "MICRONAUT",
+        "rationale": "Aunque Micronaut comparte objetivos similares, el lema 'Supersonic Subatomic' es la marca de identidad de Quarkus.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Su lema destaca su velocidad 'supersónica' y tamaño 'subatómico'."
+  },
+  {
+    "guid": "0e026c2a-9994-4952-b951-8f67d5c03411",
+    "subjectId": "T43",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Plataforma de infraestructura como código que permite crear y versionar recursos en múltiples proveedores de núvol de forma declarativa.",
+    "answerOptions": [
+      {
+        "text": "TERRAFORM",
+        "rationale": "Terraform usa el lenguaje HCL para definir infraestructura en AWS, Azure, Google Cloud y más.",
+        "isCorrect": true
+      },
+      {
+        "text": "CLOUDFORMATION",
+        "rationale": "CloudFormation es exclusivo de AWS, mientras que la definición pide soporte para múltiples proveedores.",
+        "isCorrect": false
+      },
+      {
+        "text": "GITLAB CI",
+        "rationale": "GitLab CI es una herramienta para orquestar el pipeline de integración y despliegue.",
+        "isCorrect": false
+      },
+      {
+        "text": "ARGOCD",
+        "rationale": "ArgoCD es una herramienta de GitOps para desplegar aplicaciones en Kubernetes, no para aprovisionar infraestructura base.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Es un producto de HashiCorp muy popular por su agnosticismo de nube."
+  },
+  {
+    "guid": "2078d54b-7de4-4f89-8bce-9a1fcb4f8448",
+    "subjectId": "T43",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Sistema de mensajería distribuida y streaming de eventos capaz de procesar billones de eventos al día con baja latencia y alta tolerancia a fallos.",
+    "answerOptions": [
+      {
+        "text": "KAFKA",
+        "rationale": "Apache Kafka es el estándar para arquitecturas orientadas a eventos (Event-Driven) en entornos distribuidos.",
+        "isCorrect": true
+      },
+      {
+        "text": "REDIS",
+        "rationale": "Redis es principalmente un almacén de datos en memoria (caché), aunque tiene funciones de mensajería (Pub/Sub).",
+        "isCorrect": false
+      },
+      {
+        "text": "CASSANDRA",
+        "rationale": "Cassandra es una base de datos NoSQL distribuida, no un sistema de mensajería o streaming.",
+        "isCorrect": false
+      },
+      {
+        "text": "ELASTICSEARCH",
+        "rationale": "Elasticsearch es un motor de búsqueda y analítica distribuido.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Muy utilizado para comunicación asíncrona masiva entre microservicios."
+  },
+  {
+    "guid": "c6e8f9f8-6766-4a55-be46-c0da1cb15d98",
+    "subjectId": "T43",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Herramienta de código abierto para traza distribuida (tracing) que ayuda a monitorizar y solucionar problemas en microserveis complejos.",
+    "answerOptions": [
+      {
+        "text": "JAEGER",
+        "rationale": "Jaeger permite visualizar la propagación de contextos y latencias entre servicios.",
+        "isCorrect": true
+      },
+      {
+        "text": "GRAFANA",
+        "rationale": "Grafana visualiza datos, pero no es la herramienta que genera o recolecta las trazas en sí.",
+        "isCorrect": false
+      },
+      {
+        "text": "LOGSTASH",
+        "rationale": "Logstash forma parte de la pila ELK y se encarga del procesamiento de logs, no del tracing distribuido.",
+        "isCorrect": false
+      },
+      {
+        "text": "ZIPKIN",
+        "rationale": "Aunque Zipkin también es de tracing, Jaeger es la opción graduada por la CNCF más mencionada en el contexto moderno del texto.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Su icono es un perro de raza pastor alemán (en referencia al rastreo)."
+  },
+  {
+    "guid": "cc4b7504-b436-4d32-851e-369583d55419",
+    "subjectId": "T43",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Indique la afirmación FALSA respecto a las características fundamentales de los contenedores.",
+    "answerOptions": [
+      {
+        "text": "Los contenedores incluyen una copia completa del sistema operativo anfitrión, incluido el kernel, para garantizar el aislamiento total.",
+        "rationale": "Esta afirmación es falsa porque los contenedores comparten el kernel del host; precisamente por eso son más ligeros que las VMs.",
+        "isCorrect": true
+      },
+      {
+        "text": "Los contenedores son más ligeros que las máquinas virtuales porque no emulan el hardware físico.",
+        "rationale": "Esto es cierto, ya que los contenedores operan a nivel de sistema operativo compartiendo recursos del kernel.",
+        "isCorrect": false
+      },
+      {
+        "text": "La tecnología de contenedores permite una mayor densidad de aplicaciones sobre la misma máquina física que la virtualización tradicional.",
+        "rationale": "Esto es correcto, debido a que consumen menos memoria y CPU que las máquinas virtuales completas.",
+        "isCorrect": false
+      },
+      {
+        "text": "Un contenedor empaqueta la aplicación junto con todas sus dependencias, librerías y ficheros de configuración necesarios.",
+        "rationale": "Esto es una verdad fundamental que garantiza que el contenedor funcione igual en cualquier entorno.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Revisa la diferencia arquitectónica clave entre contenedores y máquinas virtuales."
+  },
+  {
+    "guid": "792c2142-6cdc-4114-8ff4-09f13735213d",
+    "subjectId": "T43",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Indique la afirmación FALSA sobre las arquitecturas serverless.",
+    "answerOptions": [
+      {
+        "text": "El modelo serverless elimina la necesidad de que existan servidores físicos en el centro de datos del proveedor cloud.",
+        "rationale": "Esta afirmación es falsa; los servidores siguen existiendo físicamente, pero están completamente abstraídos para el desarrollador.",
+        "isCorrect": true
+      },
+      {
+        "text": "En el modelo serverless, si una función no se utiliza, no consume recursos y el coste para el usuario es cero.",
+        "rationale": "Esto es correcto y define el modelo de pago por uso real del paradigma sin servidor.",
+        "isCorrect": false
+      },
+      {
+        "text": "Las funciones serverless suelen ser efímeras y se invocan como respuesta a eventos específicos como una petición HTTP.",
+        "rationale": "Esto es cierto, ya que están diseñadas para ejecutarse, realizar una tarea y finalizar.",
+        "isCorrect": false
+      },
+      {
+        "text": "Uno de los retos de serverless es la latencia de arranque de funciones inactivas, conocida como 'cold start'.",
+        "rationale": "Esto es una limitación técnica real y documentada de estas arquitecturas.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Recuerda el dicho común en IT: 'serverless solo significa que es el servidor de otra persona'."
+  },
+  {
+    "guid": "27ee9e4d-83ff-47bc-a850-22219337cfea",
+    "subjectId": "T43",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Identifique la opción FALSA en relación con el desarrollo de microserveis.",
+    "answerOptions": [
+      {
+        "text": "Todos los microservicios de una aplicación deben estar programados obligatoriamente en el mismo lenguaje para asegurar la interoperabilidad.",
+        "rationale": "Esta afirmación es falsa; una gran ventaja es que son políglotas y pueden usar diferentes tecnologías comunicándose vía APIs.",
+        "isCorrect": true
+      },
+      {
+        "text": "Cada microservicio se despliega de forma desacoplada y se ejecuta normalmente como un proceso separado.",
+        "rationale": "Esto es una característica definitoria de la arquitectura de microservicios.",
+        "isCorrect": false
+      },
+      {
+        "text": "Una falla en un microservicio no tiene por qué colapsar toda la aplicación si se implementan mecanismos de tolerancia a fallos.",
+        "rationale": "Esto es cierto y es uno de los beneficios clave frente a las arquitecturas monolíticas.",
+        "isCorrect": false
+      },
+      {
+        "text": "La comunicación entre microservicios se realiza habitualmente a través de APIs declarativas o sistemas de mensajería.",
+        "rationale": "Esto es correcto, permitiendo que los servicios interactúen manteniendo su independencia técnica.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piensa en la libertad tecnológica que ofrece el desacoplamiento."
+  },
+  {
+    "guid": "066c6061-10ce-435c-80c4-9c142293b5b9",
+    "subjectId": "T43",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Indique la afirmación FALSA sobre Kubernetes y la orquestación de contenedores.",
+    "answerOptions": [
+      {
+        "text": "Kubernetes es una herramienta propietaria de Amazon Web Services que no puede ejecutarse en otros proveedores de núvol.",
+        "rationale": "Esta afirmación es falsa; Kubernetes es un proyecto de código abierto liderado por la CNCF y es compatible con cualquier nube o entorno on-premise.",
+        "isCorrect": true
+      },
+      {
+        "text": "Kubernetes utiliza un modelo declarativo basado en manifiestos YAML para definir el estado deseado de las aplicaciones.",
+        "rationale": "Esto es cierto; el sistema trabaja continuamente para igualar el estado actual al estado definido en los manifiestos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Kubernetes permite realizar 'Rolling Updates', lo que significa que el cambio a una nueva versión de la app es gradual.",
+        "rationale": "Esto es correcto y permite actualizar aplicaciones sin tiempo de inactividad.",
+        "isCorrect": false
+      },
+      {
+        "text": "Kubernetes vigila la salud de los contenedores y es capaz de reemplazarlos automáticamente en caso de caída del nodo.",
+        "rationale": "Esto es una de las funciones principales de autorrecuperación (self-healing) del orquestador.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considera el origen y la portabilidad de Kubernetes como estándar abierto."
+  },
+  {
+    "guid": "422380f3-b149-4226-b684-fefcfbbbe3e4",
+    "subjectId": "T43",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Indique la afirmación FALSA respecto a la metodología 'Twelve-Factor App'.",
+    "answerOptions": [
+      {
+        "text": "La metodología Twelve-Factor aumenta significativamente el 'vendor lock-in' al depender de APIs específicas de un proveedor cloud.",
+        "rationale": "Esta afirmación es falsa; precisamente uno de los objetivos de estos factores es reducir el vendor lock-in y mejorar la portabilidad.",
+        "isCorrect": true
+      },
+      {
+        "text": "Promueve que las aplicaciones sean portables entre diferentes entornos de ejecución sin cambios en el código fuente.",
+        "rationale": "Esto es cierto y es uno de los beneficios fundamentales de seguir estos doce principios.",
+        "isCorrect": false
+      },
+      {
+        "text": "Facilita la escalabilidad horizontal, permitiendo multiplicar el número de instancias de la aplicación de forma sencilla.",
+        "rationale": "Esto es correcto, ya que obliga a diseñar aplicaciones sin estado (stateless) o que gestionen el estado de forma externa.",
+        "isCorrect": false
+      },
+      {
+        "text": "Está alineada con las recomendaciones de la CNCF para el desarrollo de aplicaciones de tipo Software as a Service (SaaS).",
+        "rationale": "Esto es una verdad técnica, ya que la metodología nació para optimizar aplicaciones en la nube moderna.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Busca el efecto que tienen estos principios sobre la capacidad de mover la app entre distintas nubes."
+  },
+  {
+    "guid": "1c42e43e-8ba6-4319-972a-b8227b28a50d",
+    "subjectId": "T43",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Identifique la afirmación FALSA sobre la observabilidad y monitorización cloud-native.",
+    "answerOptions": [
+      {
+        "text": "El uso exclusivo de registros (logs) centralizados es suficiente para garantizar la observabilidad total en sistemas distribuidos complejos.",
+        "rationale": "Esta afirmación es falsa; los logs son solo un pilar. Se necesitan también métricas y trazas para una observabilidad completa.",
+        "isCorrect": true
+      },
+      {
+        "text": "Las métricas permiten definir alertas basadas en el uso de recursos como CPU, memoria o latencia de red en tiempo real.",
+        "rationale": "Esto es correcto y es la base de la monitorización operativa de cualquier sistema en la nube.",
+        "isCorrect": false
+      },
+      {
+        "text": "La agregación de logs facilita la correlación de esdevenimientos que ocurren en diferentes microservicios simultáneamente.",
+        "rationale": "Esto es cierto y es por lo que se utilizan herramientas como la pila ELK (Elasticsearch, Logstash, Kibana).",
+        "isCorrect": false
+      },
+      {
+        "text": "Los dashboards o paneles de control ayudan a visualizar tendencias y detectar anomalías de forma proactiva.",
+        "rationale": "Esto es verdad; herramientas como Grafana son esenciales para dar sentido a los datos de telemetría recogidos.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Recuerda el concepto de la 'tríada de la observabilidad'."
+  },
+  {
+    "guid": "48934ef1-bb83-4c7d-b3fb-5840863d79e3",
+    "subjectId": "T43",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Indique la afirmación FALSA sobre los retos y desventajas del enfoque cloud-native.",
+    "answerOptions": [
+      {
+        "text": "La adopción de arquitecturas cloud-native reduce drásticamente la complejidad del sistema y simplifica la curva de aprendizaje.",
+        "rationale": "Esta afirmación es falsa; al contrario, pasar de un monolito a microservicios aumenta la complejidad y requiere nuevos conocimientos especializados.",
+        "isCorrect": true
+      },
+      {
+        "text": "La monitorización y depuración de errores son más difíciles en entornos distribuidos que en aplicaciones monolíticas.",
+        "rationale": "Esto es una realidad técnica debido a la dispersión de los componentes y la comunicación por red.",
+        "isCorrect": false
+      },
+      {
+        "text": "Una aplicación cloud-native presenta una mayor superficie de ataque, lo que exige incorporar prácticas de DevSecOps.",
+        "rationale": "Esto es cierto, ya que hay más componentes expuestos, APIs y tráfico interno que proteger.",
+        "isCorrect": false
+      },
+      {
+        "text": "El rendimiento puede verse penalizado ligeramente por las capas de abstracción adicionales como contenedores y red virtual.",
+        "rationale": "Esto es verdad, aunque suele ser una penalización aceptable a cambio de la flexibilidad y escalabilidad obtenidas.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considera si gestionar 50 servicios es más simple o más complejo que gestionar uno solo."
+  },
+  {
+    "guid": "b9dbf0b7-b593-4595-9cbe-da2d4a78a825",
+    "subjectId": "T43",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Identifique la opción FALSA respecto al itinerario recomendado por la CNCF.",
+    "answerOptions": [
+      {
+        "text": "La base de datos distribuida y el almacenamiento escalable deben ser el primer paso antes de la contenedorización.",
+        "rationale": "Esta afirmación es falsa; el primer paso recomendado por la CNCF es la contenedorización de la aplicación.",
+        "isCorrect": true
+      },
+      {
+        "text": "La integración y despliegue continuos (CI/CD) es el segundo paso clave para automatizar el ciclo de vida del software.",
+        "rationale": "Esto es correcto según el itinerario, permitiendo agilidad tras tener las apps en contenedores.",
+        "isCorrect": false
+      },
+      {
+        "text": "La observabilidad y el análisis de métricas son fundamentales para garantizar los niveles de servicio (SLA).",
+        "rationale": "Esto es cierto, ocupando una posición central en el camino hacia la madurez cloud-native.",
+        "isCorrect": false
+      },
+      {
+        "text": "El uso de Service Mesh se recomienda para gestionar el tráfico y la seguridad en entornos con muchos servicios distribuidos.",
+        "rationale": "Esto es correcto, situándose habitualmente en etapas más avanzadas del despliegue cloud-native.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Revisa el orden lógico de la tabla de la CNCF proporcionada en el texto."
+  },
+  {
+    "guid": "d5782638-c5f5-465a-9f70-3847e1688256",
+    "subjectId": "T43",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Indique la afirmación FALSA sobre el escalado de recursos en el núvol.",
+    "answerOptions": [
+      {
+        "text": "El escalado vertical es la técnica preferida en cloud-native porque permite un crecimiento infinito sin cambiar la arquitectura.",
+        "rationale": "Esta afirmación es falsa; el escalado vertical tiene límites físicos de hardware y cloud-native prefiere el escalado horizontal por su mayor flexibilidad.",
+        "isCorrect": true
+      },
+      {
+        "text": "El escalado horizontal implica añadir más instancias del servicio para afrontar picos de carga.",
+        "rationale": "Esto es cierto y es la base de la elasticidad en sistemas como Kubernetes.",
+        "isCorrect": false
+      },
+      {
+        "text": "La elasticidad permite que el sistema decrezca automáticamente cuando la demanda baja, optimizando así los costes.",
+        "rationale": "Esto es correcto y es una de las grandes ventajas económicas de la computación en la nube.",
+        "isCorrect": false
+      },
+      {
+        "text": "Un sistema escalable es aquel capaz de adaptarse a un aumento de la carga de trabajo, sea de forma manual o automática.",
+        "rationale": "Esta es la definición técnica general de escalabilidad.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piensa en las limitaciones físicas de hacer un servidor cada vez más grande."
+  },
+  {
+    "guid": "26c5767c-4487-43b2-b38e-9df051c01bc4",
+    "subjectId": "T43",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Identifique la afirmación FALSA sobre los frameworks cloud-native emergentes.",
+    "answerOptions": [
+      {
+        "text": "Frameworks como Quarkus o Micronaut aumentan el tiempo de arranque de las aplicaciones Java para asegurar una mejor conexión a la red.",
+        "rationale": "Esta afirmación es falsa; estos frameworks están diseñados precisamente para reducir drásticamente el tiempo de arranque (startup time).",
+        "isCorrect": true
+      },
+      {
+        "text": "Micronaut elimina el uso de reflexión en tiempo de ejecución para mejorar el rendimiento y el consumo de memoria.",
+        "rationale": "Esto es correcto y es una de sus principales innovaciones frente a frameworks tradicionales.",
+        "isCorrect": false
+      },
+      {
+        "text": "Eclipse Vert.x es un toolkit reactivo ideal para aplicaciones que necesitan gestionar multitud de conexiones concurrentes.",
+        "rationale": "Esto es cierto, ya que su modelo asíncrono lo hace muy eficiente para sistemas de alto rendimiento.",
+        "isCorrect": false
+      },
+      {
+        "text": "Serverless Framework es una herramienta que facilita el despliegue de aplicaciones basadas en funciones (FaaS) en múltiples nubes.",
+        "rationale": "Esto es correcto, actuando como una capa de abstracción sobre AWS Lambda, Azure Functions, etc.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considera qué característica es vital para que una aplicación funcione bien en entornos serverless."
+  }
+]
