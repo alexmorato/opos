@@ -1,0 +1,1242 @@
+[
+  {
+    "guid": "4c47b9cf-d787-462b-98ef-a46b8316773e",
+    "subjectId": "T40",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Dentro del marco del diseño conceptual de bases de datos, ¿cuál es la finalidad principal del Modelado Entidad-Relación según la propuesta original de Peter Chen?",
+    "answerOptions": [
+      {
+        "text": "Representar la estructura lógica de los datos mediante tablas y claves foráneas para su implementación inmediata en un SGBD relacional.",
+        "rationale": "El MER se sitúa en el nivel conceptual, abstrayéndose de la implementación lógica y física en tablas.",
+        "isCorrect": false
+      },
+      {
+        "text": "Capturar los elementos esenciales de un sistema y sus interconexiones de forma independiente a la tecnología de implementación física.",
+        "rationale": "El objetivo primordial es proporcionar una representación visual y lógica de la información sin las limitaciones de un SGBD particular.",
+        "isCorrect": true
+      },
+      {
+        "text": "Optimizar el rendimiento de las consultas mediante la normalización de las entidades y la definición de índices en el modelo conceptual.",
+        "rationale": "La optimización de consultas y definición de índices son tareas propias del diseño físico, no del modelo conceptual ER.",
+        "isCorrect": false
+      },
+      {
+        "text": "Definir exclusivamente el comportamiento dinámico y los procesos de transformación de los datos dentro del sistema de información.",
+        "rationale": "El MER se centra en la estructura estática de los datos, siendo una de sus limitaciones no reflejar procesos ni flujos temporales.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considere la distinción entre los niveles conceptual, lógico y físico en el ciclo de vida de una base de datos."
+  },
+  {
+    "guid": "d01a06a4-3972-4a08-95f5-7498401fb1fe",
+    "subjectId": "T40",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Qué característica define esencialmente a una entidad débil en un diagrama Entidad-Relación?",
+    "answerOptions": [
+      {
+        "text": "Su incapacidad para poseer atributos propios, dependiendo enteramente de los atributos de la entidad fuerte relacionada.",
+        "rationale": "Las entidades débiles pueden tener atributos propios, pero no los suficientes para identificarse de forma única.",
+        "isCorrect": false
+      },
+      {
+        "text": "La obligatoriedad de participar en una relación ternaria para poder ser representada gráficamente en el modelo.",
+        "rationale": "El grado de la relación no determina si una entidad es débil o fuerte, sino su capacidad de identificación.",
+        "isCorrect": false
+      },
+      {
+        "text": "Su dependencia de una entidad fuerte para su identificación única a través de una clave parcial y una relación identificativa.",
+        "rationale": "La identidad de una entidad débil se completa combinando su clave parcial con la clave de la entidad fuerte de la que depende.",
+        "isCorrect": true
+      },
+      {
+        "text": "La representación mediante un rombo de doble línea que indica una jerarquía de especialización descendente.",
+        "rationale": "Las entidades débiles se representan con un rectángulo doble, mientras que los rombos se reservan para las relaciones.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en la necesidad de una 'clave parcial' para distinguir instancias dentro del contexto de otra entidad."
+  },
+  {
+    "guid": "c23bcfdf-b91d-4a98-8696-868cc5ac0ad6",
+    "subjectId": "T40",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "En el contexto de los atributos en el MER, ¿cómo se define técnicamente un atributo derivado?",
+    "answerOptions": [
+      {
+        "text": "Es aquel que permite identificar de manera unívoca cada instancia de una entidad dentro del conjunto de entidades.",
+        "rationale": "Esta es la definición de un atributo clave o identificador, no de uno derivado.",
+        "isCorrect": false
+      },
+      {
+        "text": "Un atributo que se obtiene mediante un cálculo o deducción a partir de otros atributos ya presentes en el modelo.",
+        "rationale": "Los atributos derivados, como la edad calculada a partir de la fecha de nacimiento, no se almacenan necesariamente de forma estática.",
+        "isCorrect": true
+      },
+      {
+        "text": "Aquel que puede descomponerse en sub-atributos menores manteniendo su significado semántico independiente.",
+        "rationale": "Esta descripción corresponde a un atributo compuesto, como una dirección dividida en calle y ciudad.",
+        "isCorrect": false
+      },
+      {
+        "text": "Un atributo que admite múltiples valores para una sola instancia de una entidad determinada.",
+        "rationale": "Los atributos que admiten varios valores se denominan multivaluados y se representan con doble elipse.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Recuerde el ejemplo clásico de la edad y la fecha de nacimiento."
+  },
+  {
+    "guid": "92958bbe-23ac-49ed-a7da-a8a4035eea9b",
+    "subjectId": "T40",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Al realizar la transformación de una relación $N:M$ del modelo conceptual al modelo relacional, ¿cuál es el procedimiento normativo?",
+    "answerOptions": [
+      {
+        "text": "Se propaga la clave primaria de la entidad con participación total hacia la entidad con participación parcial como clave foránea.",
+        "rationale": "Esta regla suele aplicarse a relaciones $1:1$ o $1:N$, pero no resuelve la cardinalidad muchos a muchos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Se fusionan ambas entidades en una sola tabla para evitar la redundancia y mejorar la integridad referencial del sistema.",
+        "rationale": "La fusión de entidades provocaría una gran redundancia y violaría las formas normales en una relación $N:M$.",
+        "isCorrect": false
+      },
+      {
+        "text": "Se crea una tabla asociativa intermedia que contiene las claves primarias de ambas entidades como claves foráneas y parte de su clave primaria.",
+        "rationale": "Las relaciones muchos a muchos requieren siempre una tabla de enlace para gestionar las asociaciones múltiples entre registros.",
+        "isCorrect": true
+      },
+      {
+        "text": "Se añade un atributo multivaluado en cada una de las tablas originales que contenga una lista de los identificadores de la otra tabla.",
+        "rationale": "El modelo relacional estándar no permite atributos multivaluados (primera forma normal), requiriendo tablas separadas.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considere la necesidad de una estructura que actúe como 'puente' entre las dos entidades originales."
+  },
+  {
+    "guid": "bf265be7-3559-4a91-8cd2-a0af37551383",
+    "subjectId": "T40",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Qué implica una restricción de participación total en una relación entre dos entidades $A$ y $B$?",
+    "answerOptions": [
+      {
+        "text": "Que cada instancia de la entidad $A$ debe estar obligatoriamente relacionada con al menos una instancia de la entidad $B$.",
+        "rationale": "La participación total (denotada como $(1,N)$ o $(1,1)$) exige que no existan instancias de $A$ sin asociación en la relación.",
+        "isCorrect": true
+      },
+      {
+        "text": "Que todas las instancias de la entidad $B$ tienen la capacidad técnica de relacionarse con múltiples instancias de $A$ sin límite.",
+        "rationale": "La capacidad de relacionarse con múltiples instancias se refiere a la cardinalidad máxima, no a la participación (mínima).",
+        "isCorrect": false
+      },
+      {
+        "text": "Que la relación solo puede existir si ambas entidades son definidas como débiles y dependen de una tercera entidad fuerte.",
+        "rationale": "La participación total puede darse entre cualquier tipo de entidades, sean fuertes o débiles.",
+        "isCorrect": false
+      },
+      {
+        "text": "Que el número de instancias de $A$ debe ser matemáticamente equivalente al número de instancias de $B$ en todo momento.",
+        "rationale": "La participación total no obliga a una paridad numérica de registros, sino a la existencia de al menos un vínculo por cada registro.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Relacione el término 'total' con la cardinalidad mínima en la notación $(min, max)$."
+  },
+  {
+    "guid": "fea967f7-5907-49e5-b88c-4ff9d8b0db9b",
+    "subjectId": "T40",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "En el contexto de la especialización de entidades, ¿cuál es la diferencia fundamental entre una restricción disjunta ($D$) y una encabalgada ($S$)?",
+    "answerOptions": [
+      {
+        "text": "La restricción disjunta permite que una instancia de la superclase no pertenezca a ninguna subclase, mientras que la encabalgada lo obliga.",
+        "rationale": "Esa distinción corresponde a la diferencia entre especialización parcial y total, no a disjunta/encabalgada.",
+        "isCorrect": false
+      },
+      {
+        "text": "En la disjunta, una instancia de la superclase puede pertenecer a lo sumo a una subclase; en la encabalgada puede pertenecer a varias.",
+        "rationale": "La etiqueta $D$ (disjoint) impide la duplicidad de una instancia en varias subclases, mientras que $S$ (overlapping) la permite.",
+        "isCorrect": true
+      },
+      {
+        "text": "La restricción disjunta se utiliza exclusivamente en procesos ascendentes, mientras que la encabalgada se reserva para diseños descendentes.",
+        "rationale": "Ambos tipos de restricciones pueden aplicarse tanto en procesos de generalización como de especialización.",
+        "isCorrect": false
+      },
+      {
+        "text": "La disjunta implica herencia de atributos clave, mientras que la encabalgada solo permite heredar atributos de tipo descriptivo o normal.",
+        "rationale": "La herencia de propiedades (atributos e interrelaciones) es total independientemente del tipo de restricción de pertenencia.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense si un 'Empleado' puede ser simultáneamente 'Director' y 'Secretario' según el modelo."
+  },
+  {
+    "guid": "eeedec63-7ca5-4c63-92ff-32fd7dc7bc89",
+    "subjectId": "T40",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Cuando se define una agregación en un modelo ER, ¿cuál es el propósito técnico de esta abstracción?",
+    "answerOptions": [
+      {
+        "text": "Agrupar múltiples atributos simples en un único atributo compuesto para simplificar la representación gráfica del diagrama.",
+        "rationale": "La agrupación de atributos es una técnica de estructuración de atributos, no una agregación de entidades.",
+        "isCorrect": false
+      },
+      {
+        "text": "Permitir que una relación entre entidades sea tratada como una entidad de nivel superior para poder participar en otras relaciones.",
+        "rationale": "La agregación resuelve la limitación de que las relaciones no pueden conectarse directamente con otras relaciones.",
+        "isCorrect": true
+      },
+      {
+        "text": "Convertir una entidad débil en una entidad fuerte mediante la adición de atributos calculados y claves subrogadas externas.",
+        "rationale": "La agregación no cambia la naturaleza de la identificación de una entidad, sino que abstrae una interrelación completa.",
+        "isCorrect": false
+      },
+      {
+        "text": "Eliminar la necesidad de tablas intermedias en el modelo relacional al transformar relaciones de tipo muchos a muchos.",
+        "rationale": "La agregación a menudo resulta en la creación de tablas adicionales o entidades asociativas en la implementación lógica.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considere escenarios donde una acción (relación) debe ser supervisada o evaluada por otra entidad."
+  },
+  {
+    "guid": "8617d9df-971a-4a70-b583-1fd566e7481d",
+    "subjectId": "T40",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Cuál es la principal diferencia metodológica entre los procesos de generalización y especialización?",
+    "answerOptions": [
+      {
+        "text": "La generalización utiliza una notación de triángulo en el diagrama, mientras que la especialización emplea rectángulos anidados.",
+        "rationale": "Ambos procesos se representan con la misma simbología de triángulo para denotar la jerarquía IS-A.",
+        "isCorrect": false
+      },
+      {
+        "text": "La especialización es un proceso de diseño ascendente, mientras que la generalización es un proceso de diseño descendente.",
+        "rationale": "Es justo al revés: la especialización es descendente (top-down) y la generalización es ascendente (bottom-up).",
+        "isCorrect": false
+      },
+      {
+        "text": "La especialización deriva de un diseño descendente y la generalización de un proceso de síntesis ascendente de entidades con rasgos comunes.",
+        "rationale": "La especialización desglosa una entidad general, mientras que la generalización unifica entidades específicas preexistentes.",
+        "isCorrect": true
+      },
+      {
+        "text": "La generalización solo admite herencia de relaciones, mientras que la especialización permite heredar tanto atributos como relaciones.",
+        "rationale": "Ambas técnicas resultan en un esquema idéntico donde existe herencia completa de propiedades desde la superclase.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en la dirección del flujo de diseño: de lo general a lo particular o viceversa."
+  },
+  {
+    "guid": "d3676822-2c01-4041-96ed-317f1ae38610",
+    "subjectId": "T40",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "En la notación de Pota de Gall (Crow’s Foot), ¿qué indica el símbolo más alejado de la entidad en el extremo de una línea de relación?",
+    "answerOptions": [
+      {
+        "text": "Representa la cardinalidad máxima de la relación, indicando si es 'uno' o 'muchos' mediante una línea o una pata de gallo.",
+        "rationale": "El símbolo más cercano a la entidad es el que representa la cardinalidad máxima.",
+        "isCorrect": false
+      },
+      {
+        "text": "Indica la cardinalidad mínima de la relación, señalando si la participación es obligatoria (1) u opcional (0).",
+        "rationale": "En Crow's Foot, el símbolo interior (más alejado de la entidad) define la modalidad o participación mínima.",
+        "isCorrect": true
+      },
+      {
+        "text": "Muestra el nombre de la clave foránea que se utilizará para vincular las tablas en la implementación del modelo lógico.",
+        "rationale": "Las notaciones gráficas ER no suelen incluir nombres de claves foráneas en las líneas de relación.",
+        "isCorrect": false
+      },
+      {
+        "text": "Determina el orden de lectura semántica de la relación para facilitar la comprensión por parte de los usuarios de negocio.",
+        "rationale": "La posición de los símbolos de cardinalidad indica restricciones de integridad, no el flujo de lectura del verbo.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Distinga entre el símbolo de 'máximo' (extremo de la línea) y el de 'mínimo' (interior)."
+  },
+  {
+    "guid": "467f7918-4fec-4848-a537-1a7438dd77d2",
+    "subjectId": "T40",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Según el modelo Entidad-Relación, ¿qué representa el 'dominio' de un atributo?",
+    "answerOptions": [
+      {
+        "text": "El conjunto de todas las entidades que poseen ese atributo específico dentro del esquema global de la base de datos.",
+        "rationale": "El dominio se refiere a los valores del atributo, no a las entidades que lo contienen.",
+        "isCorrect": false
+      },
+      {
+        "text": "La restricción de integridad referencial que vincula un atributo clave con su correspondiente clave foránea en otra entidad.",
+        "rationale": "La integridad referencial es una restricción entre tablas, no la definición del conjunto de valores de un atributo.",
+        "isCorrect": false
+      },
+      {
+        "text": "El conjunto de valores legales o permitidos que puede tomar un atributo determinado para cualquier instancia de una entidad.",
+        "rationale": "Por ejemplo, el dominio de 'Edad' podría ser el conjunto de números enteros positivos en un rango razonable.",
+        "isCorrect": true
+      },
+      {
+        "text": "El espacio físico de almacenamiento asignado a un atributo en el sistema de gestión de bases de datos tras su implementación.",
+        "rationale": "El almacenamiento físico es un concepto del nivel interno, mientras que el dominio es una definición conceptual de tipos.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en el tipo de dato y las restricciones de valores que puede adoptar una variable."
+  },
+  {
+    "guid": "0db0b9d0-7a8e-4066-ad33-60aa543362d6",
+    "subjectId": "T40",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Se desea modelar un sistema donde un 'Departamento' tiene múltiples 'Empleados', y cada 'Empleado' pertenece a un único 'Departamento'. En la transformación al modelo relacional:",
+    "answerOptions": [
+      {
+        "text": "Se debe añadir el identificador del 'Empleado' como clave foránea en la tabla 'Departamento' para establecer el vínculo.",
+        "rationale": "Esto crearía una inconsistencia, ya que un departamento tiene muchos empleados y no podría almacenar múltiples IDs en un solo campo.",
+        "isCorrect": false
+      },
+      {
+        "text": "Se debe añadir el identificador del 'Departamento' como clave foránea en la tabla 'Empleado' para establecer el vínculo.",
+        "rationale": "En una relación $1:N$, la clave del lado '1' (Departamento) se propaga al lado 'N' (Empleado).",
+        "isCorrect": true
+      },
+      {
+        "text": "Es imperativo crear una tabla intermedia 'Pertenencia' que contenga las claves de 'Departamento' y 'Empleado' exclusivamente.",
+        "rationale": "Aunque es posible, no es normativo ni eficiente para una relación $1:N$, reservándose esta técnica para relaciones $N:M$.",
+        "isCorrect": false
+      },
+      {
+        "text": "Se deben fusionar ambas entidades en una tabla única 'Estructura' para garantizar que no existan departamentos sin empleados.",
+        "rationale": "La fusión de entidades con cardinalidad $1:N$ provocaría una redundancia masiva de los datos del departamento por cada empleado.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Recuerde la regla de propagación de claves en relaciones uno a muchos."
+  },
+  {
+    "guid": "36ea970c-af6d-4bb3-8a3f-d039740c8745",
+    "subjectId": "T40",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "En un diagrama Entidad-Relación bajo la notación de Chen, la presencia de una elipse con trazo punteado conectada a una entidad representa:",
+    "answerOptions": [
+      {
+        "text": "Un atributo que permite identificar de forma única a la entidad dentro de un conjunto de entidades débilmente relacionadas.",
+        "rationale": "Los atributos clave se representan con elipse y subrayado, no con trazo punteado.",
+        "isCorrect": false
+      },
+      {
+        "text": "Un atributo cuyo valor no es obligatorio y puede permanecer como nulo en la mayoría de las instancias de la entidad.",
+        "rationale": "La opcionalidad no suele tener una representación gráfica estándar mediante líneas punteadas en la notación Chen clásica.",
+        "isCorrect": false
+      },
+      {
+        "text": "Un atributo derivado, cuyo valor se calcula a partir de otros datos y no requiere almacenamiento estático persistente.",
+        "rationale": "La notación Chen especifica el uso de elipses de trazo discontinuo o punteado para atributos derivados.",
+        "isCorrect": true
+      },
+      {
+        "text": "Un atributo multivaluado que permite almacenar una colección de valores del mismo dominio para una única instancia.",
+        "rationale": "Los atributos multivaluados se representan mediante una doble elipse, no con trazo punteado.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considere atributos que son el resultado de funciones o cálculos temporales."
+  },
+  {
+    "guid": "1a889ebe-9fc8-4b8e-a3c7-c2a128d9d311",
+    "subjectId": "T40",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Al definir una especialización de tipo 'Total' y 'Disjunta' ($T, D$) para la entidad 'Vehículo' con subclases 'Coche' y 'Moto', se garantiza que:",
+    "answerOptions": [
+      {
+        "text": "Todo vehículo registrado debe ser obligatoriamente un coche o una moto, pero nunca ambas categorías simultáneamente.",
+        "rationale": "La totalidad ($T$) obliga a pertenecer a una subclase y la disjunción ($D$) impide pertenecer a más de una.",
+        "isCorrect": true
+      },
+      {
+        "text": "Existen vehículos que podrían no estar clasificados en ninguna subclase, aunque ningún vehículo puede ser coche y moto a la vez.",
+        "rationale": "Esta descripción corresponde a una especialización parcial y disjunta ($P, D$).",
+        "isCorrect": false
+      },
+      {
+        "text": "Un vehículo puede ser clasificado como coche y moto al mismo tiempo, siempre que se registren todos los datos técnicos de ambos.",
+        "rationale": "La condición 'disjunta' prohíbe explícitamente la pertenencia múltiple a subclases.",
+        "isCorrect": false
+      },
+      {
+        "text": "La entidad 'Vehículo' no posee atributos propios, delegando toda la información a las entidades 'Coche' y 'Moto' por herencia inversa.",
+        "rationale": "La herencia es siempre de superclase a subclase, y la superclase puede (y suele) tener atributos comunes.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Combine los conceptos de obligatoriedad de pertenencia y exclusividad de categoría."
+  },
+  {
+    "guid": "ad2f13fb-4f8a-471d-8f94-c85076c6ca9b",
+    "subjectId": "T40",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "La notación $(0, 1)$ en el extremo de una relación que conecta la entidad $A$ con la entidad $B$ indica semánticamente que:",
+    "answerOptions": [
+      {
+        "text": "Una instancia de $B$ puede estar relacionada con ninguna o con un máximo de una instancia de la entidad $A$.",
+        "rationale": "La notación en un extremo describe la participación de la entidad de ese mismo lado en la relación con la otra.",
+        "isCorrect": false
+      },
+      {
+        "text": "Una instancia de $A$ se relaciona opcionalmente con una instancia de $B$, existiendo un límite máximo de una asociación.",
+        "rationale": "El 0 indica participación parcial (opcional) y el 1 indica que la cardinalidad máxima es la unidad.",
+        "isCorrect": true
+      },
+      {
+        "text": "Existen al menos cero y como máximo una instancia de la entidad $A$ por cada registro existente en la base de datos global.",
+        "rationale": "La cardinalidad describe asociaciones entre entidades específicas, no una restricción sobre el total de registros de la tabla.",
+        "isCorrect": false
+      },
+      {
+        "text": "La relación es de tipo uno a muchos, pero la participación de la entidad $A$ es obligatoria en todos los casos registrados.",
+        "rationale": "Una participación obligatoria requeriría un valor mínimo de 1, no de 0.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Analice los valores como cardinalidad mínima y cardinalidad máxima respectivamente."
+  },
+  {
+    "guid": "f1f61062-e986-4e3b-8d64-45e004a68698",
+    "subjectId": "T40",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Cuál de las siguientes afirmaciones describe correctamente una limitación intrínseca del Modelo Entidad-Relación?",
+    "answerOptions": [
+      {
+        "text": "Es dependiente de un sistema de gestión de bases de datos específico, lo que dificulta la migración entre distintas tecnologías.",
+        "rationale": "Al contrario, una de sus mayores ventajas es su total independencia tecnológica del SGBD.",
+        "isCorrect": false
+      },
+      {
+        "text": "No permite representar relaciones que involucren a más de dos entidades simultáneamente, limitándose a vínculos binarios.",
+        "rationale": "El MER soporta relaciones ternarias y n-arias mediante la definición del grado de la relación.",
+        "isCorrect": false
+      },
+      {
+        "text": "Carece de mecanismos para representar la evolución temporal de los datos o los procesos que modifican el estado del sistema.",
+        "rationale": "El MER es un modelo estático que describe la estructura de la información, no su comportamiento dinámico.",
+        "isCorrect": true
+      },
+      {
+        "text": "Impone una estructura jerárquica rígida que impide la definición de relaciones transversales entre entidades de distinto tipo.",
+        "rationale": "El modelo permite cualquier tipo de asociación semántica (1:1, 1:N, N:M) sin imponer una jerarquía arborescente.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en qué aspectos del mundo real (como el tiempo o las acciones) no se dibujan en un diagrama ER."
+  },
+  {
+    "guid": "45c32e33-a6a7-4d43-a0c9-c89cd513eb7f",
+    "subjectId": "T40",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "En el paso del modelo conceptual al relacional, una entidad débil cuya identificación depende de una entidad fuerte se transforma en:",
+    "answerOptions": [
+      {
+        "text": "Una vista lógica que combina los atributos de ambas entidades mediante una operación de unión o intersección de conjuntos.",
+        "rationale": "Las entidades se transforman en tablas base persistentes, no en objetos temporales como las vistas.",
+        "isCorrect": false
+      },
+      {
+        "text": "Una tabla cuya clave primaria está compuesta por su propia clave parcial y la clave primaria de la entidad fuerte relacionada.",
+        "rationale": "Para garantizar la unicidad de la entidad débil, se requiere 'heredar' el identificador de la entidad fuerte.",
+        "isCorrect": true
+      },
+      {
+        "text": "Un atributo multivaluado dentro de la tabla de la entidad fuerte, eliminando la necesidad de crear una tabla independiente.",
+        "rationale": "Esto violaría la primera forma normal y perdería la capacidad de asignar atributos propios a la entidad débil.",
+        "isCorrect": false
+      },
+      {
+        "text": "Una restricción de tipo 'Check' que valida que el valor de la clave parcial no se repita para distintos dueños de la entidad fuerte.",
+        "rationale": "Las restricciones de validación no sustituyen la estructura de almacenamiento necesaria para una entidad.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considere cómo se garantiza la unicidad de un registro que no tiene un ID global único."
+  },
+  {
+    "guid": "cd547063-9e91-44e1-8d70-2cd26e985acf",
+    "subjectId": "T40",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "El concepto de 'Grado de una Relación' en el modelo Entidad-Relación hace referencia a:",
+    "answerOptions": [
+      {
+        "text": "El número máximo de instancias de una entidad que pueden asociarse con una única instancia de otra entidad relacionada.",
+        "rationale": "Eso describe la cardinalidad máxima, no el grado de la relación.",
+        "isCorrect": false
+      },
+      {
+        "text": "La cantidad de entidades distintas que participan en una relación determinada (binaria, ternaria, etc.).",
+        "rationale": "El grado indica cuántos conjuntos de entidades están interconectados por el mismo rombo de relación.",
+        "isCorrect": true
+      },
+      {
+        "text": "El nivel de profundidad alcanzado en una jerarquía de especialización o generalización de tipos de entidad.",
+        "rationale": "La profundidad de la jerarquía es un concepto de especialización, no el grado de una relación asociativa.",
+        "isCorrect": false
+      },
+      {
+        "text": "La prioridad de ejecución de las restricciones de integridad referencial definidas sobre una relación en el SGBD.",
+        "rationale": "Las prioridades de ejecución son conceptos de nivel físico o de implementación de triggers/constraints.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en cuántas líneas 'salen' del rombo que representa la relación."
+  },
+  {
+    "guid": "1fce5031-a3e5-407e-a59c-c010a8e17f03",
+    "subjectId": "T40",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Durante el proceso de diseño conceptual, si se detecta que varias entidades comparten atributos idénticos (ej: DNI, Nombre) y participan en interrelaciones similares, se recomienda aplicar:",
+    "answerOptions": [
+      {
+        "text": "Un proceso de agregación para encapsular estas entidades en una única unidad lógica que simplifique el acceso a los datos.",
+        "rationale": "La agregación se usa para tratar relaciones como entidades, no para unificar entidades con atributos comunes.",
+        "isCorrect": false
+      },
+      {
+        "text": "Una generalización para sintetizar estas entidades en una superclase común que contenga los atributos y relaciones compartidos.",
+        "rationale": "La generalización es el proceso ascendente ideal para abstraer características comunes de entidades específicas.",
+        "isCorrect": true
+      },
+      {
+        "text": "Una normalización de primer nivel para separar los atributos comunes en tablas de catálogos independientes y transversales.",
+        "rationale": "La normalización es un proceso de diseño lógico relacional, no una herramienta de abstracción conceptual ER.",
+        "isCorrect": false
+      },
+      {
+        "text": "Un desdoblamiento de atributos para asegurar que cada entidad mantenga su independencia semántica y evitar el acoplamiento.",
+        "rationale": "Mantener atributos repetidos en múltiples entidades genera redundancia y dificulta el mantenimiento del modelo.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Busque un mecanismo que permita 'subir' de nivel para encontrar un concepto más amplio."
+  },
+  {
+    "guid": "7921a955-c727-44cf-9ae9-013472176a92",
+    "subjectId": "T40",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Cuál es la representación gráfica estándar de un atributo multivaluado en la notación original de Chen?",
+    "answerOptions": [
+      {
+        "text": "Una elipse de trazo discontinuo conectada por una línea simple al rectángulo de la entidad correspondiente.",
+        "rationale": "El trazo discontinuo se reserva para los atributos derivados.",
+        "isCorrect": false
+      },
+      {
+        "text": "Una doble elipse que encierra el nombre del atributo, indicando que puede contener múltiples valores para una instancia.",
+        "rationale": "La doble línea en la elipse es el estándar para identificar atributos multivaluados como 'Teléfono'.",
+        "isCorrect": true
+      },
+      {
+        "text": "Un rectángulo anidado dentro de la elipse que especifica la cardinalidad máxima de valores permitidos para el campo.",
+        "rationale": "No se utilizan rectángulos dentro de elipses en la notación Chen estándar para definir atributos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Una elipse simple con un asterisco ($*$) al final del nombre del atributo para denotar una colección de datos.",
+        "rationale": "El uso de asteriscos es común en otras notaciones o lenguajes de programación, pero no en Chen.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Recuerde que las características 'especiales' de los componentes suelen duplicar sus líneas de contorno."
+  },
+  {
+    "guid": "b38f081c-0080-404c-8826-9080602c780d",
+    "subjectId": "T40",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "En la notación UML aplicada al modelado de datos, las entidades y las relaciones se representan respectivamente como:",
+    "answerOptions": [
+      {
+        "text": "Nodos y Arcos dentro de un diagrama de flujo que describe la secuencia de persistencia de la información.",
+        "rationale": "Los diagramas de flujo modelan procesos, no la estructura estática de los datos en UML.",
+        "isCorrect": false
+      },
+      {
+        "text": "Tablas y Restricciones de Clave Primaria dentro de un esquema físico orientado a la implementación en bases de datos NoSQL.",
+        "rationale": "UML es un lenguaje de modelado, no un esquema físico de base de datos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Clases y Asociaciones, donde la cardinalidad se expresa mediante intervalos de multiplicidad como $0..*$ o $1..1$.",
+        "rationale": "En UML, las entidades se mapean a clases y los vínculos a asociaciones con sus respectivas multiplicidades.",
+        "isCorrect": true
+      },
+      {
+        "text": "Rectángulos de bordes redondeados y Líneas con flechas que indican la dirección de la herencia de propiedades.",
+        "rationale": "Aunque las líneas con flechas existen en UML, representan generalización/herencia, no relaciones asociativas generales.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Relacione los componentes del MER con los componentes básicos de un Diagrama de Clases."
+  },
+  {
+    "guid": "cedd58d1-2f04-4efd-bfaf-e059cbf0c618",
+    "subjectId": "T40",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Proporcione el nombre técnico del componente que representa un 'objeto del mundo real con existencia independiente':",
+    "answerOptions": [
+      {
+        "text": "Entidad",
+        "rationale": "Es el objeto o concepto principal sobre el que se almacena información.",
+        "isCorrect": true
+      },
+      {
+        "text": "Atributo",
+        "rationale": "Describe una propiedad de la entidad, no al objeto en sí mismo.",
+        "isCorrect": false
+      },
+      {
+        "text": "Relación",
+        "rationale": "Representa una asociación entre objetos, no un objeto independiente.",
+        "isCorrect": false
+      },
+      {
+        "text": "Instancia",
+        "rationale": "Es un valor particular u ocurrencia de una entidad, no el tipo conceptual.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Es el sustantivo básico sobre el que se construye el modelo."
+  },
+  {
+    "guid": "5ec60ede-7da7-4a12-b0b1-3b702b01cfae",
+    "subjectId": "T40",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Indique el término que define el 'conjunto de valores permitidos para un atributo determinado':",
+    "answerOptions": [
+      {
+        "text": "Dominio",
+        "rationale": "Define el rango o tipo de valores que un atributo puede adoptar legalmente.",
+        "isCorrect": true
+      },
+      {
+        "text": "Cardinalidad",
+        "rationale": "Se refiere al número de instancias relacionadas, no a los valores del atributo.",
+        "isCorrect": false
+      },
+      {
+        "text": "Tupla",
+        "rationale": "Es un término del modelo relacional equivalente a una fila o registro.",
+        "isCorrect": false
+      },
+      {
+        "text": "Esquema",
+        "rationale": "Es la definición global de la estructura de la base de datos.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Concepto similar al tipo de dato en programación."
+  },
+  {
+    "guid": "4d150e02-13ab-46ec-b110-e724df8e4107",
+    "subjectId": "T40",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Cómo se denomina la participación de una entidad en una relación si todas sus instancias deben estar vinculadas a la otra entidad?",
+    "answerOptions": [
+      {
+        "text": "Total",
+        "rationale": "Indica obligatoriedad de participación para cada registro de la entidad.",
+        "isCorrect": true
+      },
+      {
+        "text": "Parcial",
+        "rationale": "Permite que algunas instancias no participen en la relación.",
+        "isCorrect": false
+      },
+      {
+        "text": "Binaria",
+        "rationale": "Se refiere al número de entidades que participan, no a la obligatoriedad.",
+        "isCorrect": false
+      },
+      {
+        "text": "N-aria",
+        "rationale": "Describe una relación que involucra más de tres entidades.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Sinónimo de obligatoria."
+  },
+  {
+    "guid": "b5be52ea-ed26-4ae2-8545-b35d114ed8e8",
+    "subjectId": "T40",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Qué símbolo se utiliza en la notación de Chen para representar las asociaciones entre entidades?",
+    "answerOptions": [
+      {
+        "text": "Rombo",
+        "rationale": "Es el estándar para representar relaciones semánticas entre rectángulos (entidades).",
+        "isCorrect": true
+      },
+      {
+        "text": "Elipse",
+        "rationale": "Se utiliza para representar los atributos de las entidades.",
+        "isCorrect": false
+      },
+      {
+        "text": "Círculo",
+        "rationale": "No es un símbolo estándar en la notación Chen original para relaciones.",
+        "isCorrect": false
+      },
+      {
+        "text": "Triángulo",
+        "rationale": "Se reserva para jerarquías de especialización y generalización.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Forma geométrica de cuatro lados iguales inclinada."
+  },
+  {
+    "guid": "14b1c5e9-c69a-4901-b0c6-668ed47bcecc",
+    "subjectId": "T40",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Qué elemento gráfico representa a una entidad que no puede identificarse por sus propios atributos?",
+    "answerOptions": [
+      {
+        "text": "Doble rectángulo",
+        "rationale": "Representa una entidad débil que depende de una fuerte para su identificación.",
+        "isCorrect": true
+      },
+      {
+        "text": "Doble elipse",
+        "rationale": "Representa un atributo multivaluado, no una entidad.",
+        "isCorrect": false
+      },
+      {
+        "text": "Doble rombo",
+        "rationale": "Representa una relación identificativa en algunos modelos, no la entidad.",
+        "isCorrect": false
+      },
+      {
+        "text": "Rectángulo punteado",
+        "rationale": "No forma parte de la simbología estándar para entidades débiles.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considere la duplicidad de líneas en el contenedor principal del objeto."
+  },
+  {
+    "guid": "91baf18e-ccf3-4ea1-a88f-adfa0965381f",
+    "subjectId": "T40",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Qué convención gráfica se emplea en Chen para señalar que un atributo es la clave primaria?",
+    "answerOptions": [
+      {
+        "text": "Subrayado",
+        "rationale": "Es la marca distintiva dentro de la elipse para identificar el atributo clave.",
+        "isCorrect": true
+      },
+      {
+        "text": "Negrita",
+        "rationale": "No es una convención formal de la notación gráfica clásica de Chen.",
+        "isCorrect": false
+      },
+      {
+        "text": "Asterisco",
+        "rationale": "Se usa en otras notaciones, pero no es el estándar académico de Chen.",
+        "isCorrect": false
+      },
+      {
+        "text": "Color rojo",
+        "rationale": "El modelo conceptual es independiente del formato visual o color.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Una línea debajo del nombre del atributo."
+  },
+  {
+    "guid": "87e661f6-02d6-4059-9a00-6a6de5b6c874",
+    "subjectId": "T40",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Qué etiqueta se añade al triángulo de especialización si una instancia solo puede pertenecer a una subclase?",
+    "answerOptions": [
+      {
+        "text": "D",
+        "rationale": "Significa 'Disjunta', indicando exclusividad entre las subclases.",
+        "isCorrect": true
+      },
+      {
+        "text": "S",
+        "rationale": "Significa 'Solapada' (o encabalgada), permitiendo pertenencia múltiple.",
+        "isCorrect": false
+      },
+      {
+        "text": "T",
+        "rationale": "Indica totalidad, no exclusividad de pertenencia.",
+        "isCorrect": false
+      },
+      {
+        "text": "P",
+        "rationale": "Indica parcialidad, refiriéndose a la obligatoriedad de pertenencia.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Letra inicial de 'Disjoint'."
+  },
+  {
+    "guid": "d3370c5b-59e4-49bd-93d0-ab1a345bddce",
+    "subjectId": "T40",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Cuál es el nombre de la notación profesional que utiliza símbolos como líneas y círculos para la cardinalidad?",
+    "answerOptions": [
+      {
+        "text": "Crow’s Foot",
+        "rationale": "Traducido como 'Pata de gallo', es el estándar industrial más común.",
+        "isCorrect": true
+      },
+      {
+        "text": "Chen",
+        "rationale": "Utiliza rombos y números ($1, N$) explícitos, no patas de gallo.",
+        "isCorrect": false
+      },
+      {
+        "text": "UML",
+        "rationale": "Utiliza multiplicidades numéricas en diagramas de clases.",
+        "isCorrect": false
+      },
+      {
+        "text": "Merise",
+        "rationale": "Es otra metodología, pero no se caracteriza por la pata de gallo.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Se asemeja a la extremidad de un ave."
+  },
+  {
+    "guid": "3630331f-15a1-4548-83cc-b1bd31d9386f",
+    "subjectId": "T40",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Qué concepto técnico se asocia a la elipse con línea discontinua en un diagrama ER?",
+    "answerOptions": [
+      {
+        "text": "Atributo derivado",
+        "rationale": "Representa datos calculados a partir de otros atributos existentes.",
+        "isCorrect": true
+      },
+      {
+        "text": "Atributo compuesto",
+        "rationale": "Se representa con una elipse de la que cuelgan otras elipses.",
+        "isCorrect": false
+      },
+      {
+        "text": "Atributo opcional",
+        "rationale": "No tiene representación estándar por trazo discontinuo en Chen.",
+        "isCorrect": false
+      },
+      {
+        "text": "Clave ajena",
+        "rationale": "Las claves ajenas no se representan en el modelo conceptual ER.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en un atributo que no se guarda, sino que se 'deduce'."
+  },
+  {
+    "guid": "2f10cbc3-4069-4893-8ccf-2c6ce6af358c",
+    "subjectId": "T40",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Qué marca se utiliza para indicar que una jerarquía obliga a todas las instancias de la superclase a estar en una subclase?",
+    "answerOptions": [
+      {
+        "text": "T",
+        "rationale": "Significa 'Total', representando una restricción de cobertura completa.",
+        "isCorrect": true
+      },
+      {
+        "text": "P",
+        "rationale": "Significa 'Parcial', permitiendo instancias solo en la superclase.",
+        "isCorrect": false
+      },
+      {
+        "text": "D",
+        "rationale": "Se refiere a la exclusividad (disjunción), no a la cobertura.",
+        "isCorrect": false
+      },
+      {
+        "text": "C",
+        "rationale": "No es una etiqueta estándar para definir la totalidad de la jerarquía.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Letra inicial de 'Total'."
+  },
+  {
+    "guid": "78430bb8-d467-4bb1-87da-4304c5294d47",
+    "subjectId": "T40",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Identifique la afirmación FALSA respecto a las características generales del Modelo Entidad-Relación:",
+    "answerOptions": [
+      {
+        "text": "El MER es independiente del SGBD que se utilizará para su implementación física posterior.",
+        "rationale": "Esta afirmación es verdadera; la independencia tecnológica es un pilar del MER.",
+        "isCorrect": false
+      },
+      {
+        "text": "Sirve como base teórica y conceptual para la comunicación entre técnicos y usuarios de negocio.",
+        "rationale": "Esta afirmación es verdadera; el MER actúa como puente de comunicación semántica.",
+        "isCorrect": false
+      },
+      {
+        "text": "Permite expresar todas las restricciones de integridad y reglas de negocio complejas de forma nativa.",
+        "rationale": "Esta es la afirmación falsa; el MER tiene limitaciones para expresar ciertas restricciones complejas.",
+        "isCorrect": true
+      },
+      {
+        "text": "Representa las entidades significativas y sus interrelaciones dentro de un sistema de información.",
+        "rationale": "Esta afirmación es verdadera; es la definición fundamental del propósito del modelo.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Recuerde que no todo lo que ocurre en un negocio se puede dibujar con rombos y rectángulos."
+  },
+  {
+    "guid": "42cba400-ab8b-4324-85e5-79ca12a4ca74",
+    "subjectId": "T40",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Identifique la afirmación FALSA sobre los atributos en un modelo Entidad-Relación:",
+    "answerOptions": [
+      {
+        "text": "Un atributo compuesto se puede dividir en sub-atributos que tienen un significado por sí mismos.",
+        "rationale": "Esta afirmación es verdadera; es la definición exacta de un atributo compuesto.",
+        "isCorrect": false
+      },
+      {
+        "text": "Los atributos multivaluados pueden contener múltiples valores del mismo tipo para una sola entidad.",
+        "rationale": "Esta afirmación es verdadera; por ejemplo, una lista de correos electrónicos personales.",
+        "isCorrect": false
+      },
+      {
+        "text": "El valor nulo es matemáticamente equivalente al valor cero o a una cadena de texto vacía.",
+        "rationale": "Esta es la afirmación falsa; el valor nulo indica ausencia de valor o información desconocida, no cero.",
+        "isCorrect": true
+      },
+      {
+        "text": "Cada atributo tiene asociado un dominio que define el conjunto de valores legales que puede tomar.",
+        "rationale": "Esta afirmación es verdadera; el dominio restringe los valores válidos para el atributo.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considere la diferencia semántica entre 'desconocido' y 'cantidad cero'."
+  },
+  {
+    "guid": "f446a618-d540-49f2-8ed2-17f40aac4376",
+    "subjectId": "T40",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Identifique la afirmación FALSA en relación con las cardinalidades y participaciones:",
+    "answerOptions": [
+      {
+        "text": "En una relación $1:N$, cada registro de la entidad $B$ solo puede relacionarse con un único registro de $A$.",
+        "rationale": "Esta afirmación es verdadera; define el límite del lado 'uno' en una relación $1:N$.",
+        "isCorrect": false
+      },
+      {
+        "text": "La cardinalidad mínima de cero ($0$) indica que la participación de la entidad en la relación es opcional.",
+        "rationale": "Esta afirmación es verdadera; se conoce como participación parcial.",
+        "isCorrect": false
+      },
+      {
+        "text": "Las relaciones molts a molts ($N:M$) se implementan directamente mediante claves foráneas en las tablas originales.",
+        "rationale": "Esta es la afirmación falsa; las relaciones $N:M$ requieren obligatoriamente una tabla intermedia.",
+        "isCorrect": true
+      },
+      {
+        "text": "La notación $(min, max)$ permite expresar de forma explícita las restricciones de participación y cardinalidad.",
+        "rationale": "Esta afirmación es verdadera; es una forma precisa de representar ambas restricciones.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en la estructura necesaria para evitar la redundancia en relaciones complejas."
+  },
+  {
+    "guid": "6efb3718-e6e7-484c-9ce4-d4dfb0eaece8",
+    "subjectId": "T40",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Identifique la afirmación FALSA sobre las jerarquías de especialización y generalización:",
+    "answerOptions": [
+      {
+        "text": "La especialización es un proceso descendente que parte de una superclase hacia subclases más específicas.",
+        "rationale": "Esta afirmación es verdadera; es el enfoque 'top-down' del diseño de jerarquías.",
+        "isCorrect": false
+      },
+      {
+        "text": "La herencia de propiedades implica que las subclases reciben automáticamente los atributos de la superclase.",
+        "rationale": "Esta afirmación es verdadera; la herencia es el mecanismo clave de estas jerarquías.",
+        "isCorrect": false
+      },
+      {
+        "text": "En una especialización parcial, toda instancia de la superclase debe pertenecer a alguna de sus subclases.",
+        "rationale": "Esta es la afirmación falsa; en la parcial, algunas instancias pueden no pertenecer a ninguna subclase.",
+        "isCorrect": true
+      },
+      {
+        "text": "El producto resultante de un proceso de especialización y uno de generalización es estructuralmente idéntico.",
+        "rationale": "Esta afirmación es verdadera; solo difiere el proceso mental y de diseño para llegar a él.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Diferencie entre los términos 'Total' y 'Parcial' en el contexto de cobertura."
+  },
+  {
+    "guid": "189aa1ae-7a80-42a5-b60e-434abd6f4fc0",
+    "subjectId": "T40",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Identifique la afirmación FALSA sobre la transformación del MER al Modelo Relacional:",
+    "answerOptions": [
+      {
+        "text": "Una entidad fuerte se traduce directamente en una tabla con sus atributos y su clave primaria.",
+        "rationale": "Esta afirmación es verdadera; es la regla básica de transformación para entidades regulares.",
+        "isCorrect": false
+      },
+      {
+        "text": "Una relación $1:1$ solo puede implementarse creando siempre una tabla asociativa adicional entre las dos entidades.",
+        "rationale": "Esta es la afirmación falsa; se suele implementar propagando la clave de una entidad a la otra.",
+        "isCorrect": true
+      },
+      {
+        "text": "Las entidades débiles requieren incluir la clave de su entidad fuerte para formar su propia clave primaria.",
+        "rationale": "Esta afirmación es verdadera; es necesario para mantener la identificación única.",
+        "isCorrect": false
+      },
+      {
+        "text": "En las relaciones $1:N$, la clave primaria del lado '1' se coloca como clave foránea en la tabla del lado 'N'.",
+        "rationale": "Esta afirmación es verdadera; es la forma estándar de representar la asociación jerárquica.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considere la eficiencia y la cantidad de tablas necesarias para relaciones sencillas."
+  },
+  {
+    "guid": "152775b9-0baf-41f5-83a7-e8a45286563d",
+    "subjectId": "T40",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Identifique la afirmación FALSA sobre la notación de Pota de Gall (Crow’s Foot):",
+    "answerOptions": [
+      {
+        "text": "Las relaciones se representan mediante líneas directas entre las entidades sin utilizar rombos intermedios.",
+        "rationale": "Esta afirmación es verdadera; a diferencia de Chen, Crow's Foot no usa rombos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Los atributos de las entidades se escriben dentro del rectángulo que representa a la entidad.",
+        "rationale": "Esta afirmación es verdadera; es una representación más compacta que las elipses de Chen.",
+        "isCorrect": false
+      },
+      {
+        "text": "La cardinalidad 'muchos' se representa mediante un círculo situado justo antes de la pata de gallo.",
+        "rationale": "Esta es la afirmación falsa; el círculo representa la cardinalidad mínima 'cero', no la máxima 'muchos'.",
+        "isCorrect": true
+      },
+      {
+        "text": "Utiliza una barra vertical para indicar una cardinalidad de 'uno' y un símbolo ramificado para 'muchos'.",
+        "rationale": "Esta afirmación es verdadera; de ahí deriva su nombre popular.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Diferencie entre el símbolo de modalidad (mínimo) y el de multiplicidad (máximo)."
+  },
+  {
+    "guid": "c1b89f1c-a739-4109-a65a-3e441769026b",
+    "subjectId": "T40",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Identifique la afirmación FALSA sobre el concepto de agregación:",
+    "answerOptions": [
+      {
+        "text": "La agregación permite que una relación se comporte como una entidad para participar en otra relación.",
+        "rationale": "Esta afirmación es verdadera; es la definición conceptual de esta abstracción.",
+        "isCorrect": false
+      },
+      {
+        "text": "Se representa gráficamente rodeando las entidades y relaciones afectadas por un rectángulo.",
+        "rationale": "Esta afirmación es verdadera; el rectángulo indica que el conjunto actúa como una sola unidad.",
+        "isCorrect": false
+      },
+      {
+        "text": "Es la técnica más frecuente y sencilla utilizada en el diseño de cualquier base de datos relacional básica.",
+        "rationale": "Esta es la afirmación falsa; la agregación es menos frecuente que la especialización y se usa en casos complejos.",
+        "isCorrect": true
+      },
+      {
+        "text": "Facilita la representación de relaciones complejas que de otro modo serían difíciles de modelar.",
+        "rationale": "Esta afirmación es verdadera; aporta una visión más completa y potente al MER.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en la frecuencia de uso de este componente avanzado en comparación con las entidades normales."
+  },
+  {
+    "guid": "fe02c428-7491-4822-ae41-c2b4a637ccba",
+    "subjectId": "T40",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Identifique la afirmación FALSA sobre las entidades y sus tipos:",
+    "answerOptions": [
+      {
+        "text": "Las entidades pueden representar conceptos intangibles como un 'Curso' o una 'Comanda'.",
+        "rationale": "Esta afirmación es verdadera; las entidades no tienen por qué ser objetos físicos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Una entidad fuerte se caracteriza por ser identificable por sí misma a través de sus propios atributos.",
+        "rationale": "Esta afirmación es verdadera; posee una clave primaria independiente.",
+        "isCorrect": false
+      },
+      {
+        "text": "Dos instancias de una misma entidad pueden ser indistinguibles si todos sus atributos tienen el mismo valor.",
+        "rationale": "Esta es la afirmación falsa; por definición, cada instancia debe ser distinguible de las demás de forma única.",
+        "isCorrect": true
+      },
+      {
+        "text": "En el diseño de bases de datos, lo que se modelan son tipos de entidad y no instancias concretas.",
+        "rationale": "Esta afirmación es verdadera; el esquema define la estructura para todas las futuras instancias.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Recuerde el requisito esencial de 'unicidad' para cada elemento de la base de datos."
+  },
+  {
+    "guid": "b90aa630-abc7-4952-9ba9-d9943862cbee",
+    "subjectId": "T40",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Identifique la afirmación FALSA sobre los tipos de relaciones según su grado:",
+    "answerOptions": [
+      {
+        "text": "Una relación binaria es aquella en la que participan exactamente dos conjuntos de entidades.",
+        "rationale": "Esta afirmación es verdadera; es el tipo de relación más común en el modelado.",
+        "isCorrect": false
+      },
+      {
+        "text": "Las relaciones ternarias involucran a tres entidades y no pueden descomponerse siempre en relaciones binarias sin pérdida semántica.",
+        "rationale": "Esta afirmación es verdadera; representan asociaciones complejas entre tres conceptos.",
+        "isCorrect": false
+      },
+      {
+        "text": "El grado de una relación se define por el número máximo de instancias que pueden participar de una entidad $A$ en $B$.",
+        "rationale": "Esta es la afirmación falsa; eso es la cardinalidad, no el grado (que cuenta entidades).",
+        "isCorrect": true
+      },
+      {
+        "text": "Una relación n-aria es aquella cuyo grado es superior a tres, involucrando múltiples entidades simultáneamente.",
+        "rationale": "Esta afirmación es verdadera; aunque son menos comunes, el modelo las permite.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Diferencie entre contar 'cuántas entidades' y contar 'cuántas ocurrencias'."
+  },
+  {
+    "guid": "2a9ff5ac-79ea-41f0-b7df-0d8b60329e72",
+    "subjectId": "T40",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Identifique la afirmación FALSA sobre el lenguaje UML aplicado al diseño de datos:",
+    "answerOptions": [
+      {
+        "text": "UML utiliza diagramas de clases para representar los elementos que en el MER serían entidades.",
+        "rationale": "Esta afirmación es verdadera; es la correspondencia estándar entre ambos modelos.",
+        "isCorrect": false
+      },
+      {
+        "text": "La cardinalidad en UML se indica mediante números exactos en los extremos de la relación, sin usar intervalos.",
+        "rationale": "Esta es la afirmación falsa; UML utiliza intervalos de multiplicidad como $1..1$ o $0..*$.",
+        "isCorrect": true
+      },
+      {
+        "text": "UML permite representar tanto la estructura estática como el comportamiento dinámico de un sistema.",
+        "rationale": "Esta afirmación es verdadera; es un lenguaje de modelado mucho más amplio que el MER.",
+        "isCorrect": false
+      },
+      {
+        "text": "Las asociaciones en UML equivalen funcionalmente a las relaciones en un diagrama Entidad-Relación.",
+        "rationale": "Esta afirmación es verdadera; sirven para conectar las clases o entidades del modelo.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en cómo se escriben las cantidades de participación en los extremos de una línea en UML."
+  }
+]
