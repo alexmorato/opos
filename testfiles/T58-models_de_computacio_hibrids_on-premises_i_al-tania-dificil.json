@@ -1,467 +1,1242 @@
 [
   {
-    "guid": "c433bb89-ab64-4fac-b939-3859872401fa",
+    "guid": "ca3944af-2395-40b4-a961-cd02da1b463a",
     "subjectId": "T58",
     "origin": "notebooklm",
     "type": "test",
     "difficulty": 3,
-    "question": "¿Cuál es la premisa fundamental del modelo de responsabilidad compartida cuando una administración pública contrata servicios en la nube?",
+    "question": "Según el estándar $NIST$ $SP$ $800-145$, ¿cuál es la condición sine qua non para que una infraestructura se considere nube híbrida?",
     "answerOptions": [
       {
-        "text": "La responsabilidad se delega totalmente en el proveedor para garantizar el cumplimiento normativo.",
-        "rationale": "Delegar totalmente la responsabilidad es incompatible con el marco legal del ENS y el RGPD, donde el cliente mantiene siempre ciertas obligaciones.",
-        "isCorrect": false
-      },
-      {
-        "text": "La responsabilidad se distribuye entre cliente y proveedor según el modelo de servicio (IaaS, PaaS o SaaS).",
-        "rationale": "El alcance de la gestión técnica y de seguridad del cliente varía dependiendo de si se contrata infraestructura, plataforma o software.",
+        "text": "La composición de dos o más infraestructuras de nube distintas que permanecen como entidades únicas pero vinculadas por tecnología estandarizada.",
+        "rationale": "El NIST define la nube híbrida como la unión de nubes (públicas, privadas o comunitarias) que mantienen su identidad pero permiten la portabilidad de datos y aplicaciones.",
         "isCorrect": true
       },
       {
-        "text": "El proveedor es el único responsable de la seguridad física y lógica, mientras que el cliente solo gestiona el pago por uso.",
-        "rationale": "Esta visión ignora que el cliente debe configurar la seguridad lógica, las identidades y proteger sus propios datos en la mayoría de los modelos.",
+        "text": "La migración total de los servicios críticos desde el centro de datos local hacia un proveedor de servicios de nube pública certificado.",
+        "rationale": "La migración total no define un modelo híbrido, sino un modelo de nube pública pura; la hibridación requiere la coexistencia de ambos entornos.",
         "isCorrect": false
       },
       {
-        "text": "La administración pública es la única responsable legal, independientemente de los fallos técnicos del proveedor.",
-        "rationale": "Aunque la administración tiene responsabilidad frente al ciudadano, el proveedor asume responsabilidades contractuales y técnicas sobre la infraestructura gestionada.",
+        "text": "La utilización exclusiva de servicios $SaaS$ para la gestión administrativa y de servicios $IaaS$ para el desarrollo de aplicaciones internas.",
+        "rationale": "Aunque es una combinación posible, el estándar no limita la hibridación a tipos específicos de servicios, sino a la conexión de infraestructuras de nube.",
+        "isCorrect": false
+      },
+      {
+        "text": "La implementación de una red privada virtual que conecte el hardware físico local con una instancia de servidor virtualizado externamente.",
+        "rationale": "Una simple conexión VPN es un componente de conectividad, pero no constituye por sí sola la arquitectura integrada y orquestada que define el modelo híbrido.",
         "isCorrect": false
       }
     ],
-    "hint": "Piense en cómo el tipo de contrato influye en qué partes del stack tecnológico controla cada entidad."
+    "hint": "Considere la relación entre la identidad de las nubes participantes y su capacidad de interconexión."
   },
   {
-    "guid": "b5c82cc4-cd81-458d-b4ae-3d4267d96ee0",
+    "guid": "11f82276-5f78-4a63-95d4-6dd0f3f3f268",
     "subjectId": "T58",
     "origin": "notebooklm",
     "type": "test",
     "difficulty": 3,
-    "question": "En un modelo de Infraestructura como Servicio (IaaS), ¿quién es el responsable de aplicar parches de seguridad al sistema operativo de las máquinas virtuales?",
+    "question": "En el contexto del 'Núvol Sobirà' del Ayuntamiento de Barcelona, ¿qué implicación técnica tiene el uso de $OpenStack$?",
     "answerOptions": [
       {
-        "text": "El proveedor de servicios en la nube.",
-        "rationale": "En IaaS, el proveedor solo llega hasta el hipervisor; el contenido de la máquina virtual es responsabilidad del usuario.",
-        "isCorrect": false
-      },
-      {
-        "text": "El desarrollador del software de virtualización.",
-        "rationale": "El desarrollador proporciona el software, pero no gestiona las instancias operativas desplegadas por el cliente.",
-        "isCorrect": false
-      },
-      {
-        "text": "El cliente o la administración pública.",
-        "rationale": "Puesto que el cliente tiene acceso total a la instancia del sistema operativo, recae sobre él su mantenimiento, actualización y securización.",
+        "text": "Proporcionar una plataforma de infraestructura como servicio ($IaaS$) privada gestionada bajo control público.",
+        "rationale": "OpenStack se utiliza en este caso para desplegar una nube privada que permite al Ayuntamiento mantener la soberanía y control sobre su infraestructura básica.",
         "isCorrect": true
       },
       {
-        "text": "Es una responsabilidad compartida al $50\\%$ mediante herramientas de automatización del proveedor.",
-        "rationale": "Aunque el proveedor ofrezca herramientas, la responsabilidad de ejecución y decisión sobre el parcheo es exclusivamente del cliente en IaaS.",
+        "text": "Actuar como el único orquestador de microservicios para todas las aplicaciones móviles de la ciudadanía.",
+        "rationale": "OpenStack es una herramienta de infraestructura ($IaaS$), no un orquestador de microservicios, función que suele recaer en Kubernetes o plataformas PaaS.",
+        "isCorrect": false
+      },
+      {
+        "text": "Sustituir la necesidad de firewalls físicos mediante una capa de software definida por red de nivel de aplicación.",
+        "rationale": "Si bien permite SDN, su propósito principal en el modelo sobirà es la gestión integral de recursos de cómputo, almacenamiento y red como servicio.",
+        "isCorrect": false
+      },
+      {
+        "text": "Garantizar que el $100\\%$ de los datos residan físicamente en las dependencias municipales del Ayuntamiento.",
+        "rationale": "El modelo mencionado utiliza centros de datos externos (Sant Boi y Cerdanyola) operados por T-Systems, aunque la propiedad y control sean públicos.",
         "isCorrect": false
       }
     ],
-    "hint": "Considere quién tiene el control de acceso administrativo al entorno de ejecución."
+    "hint": "Relacione la tecnología mencionada con el nivel de la pirámide de servicios cloud ($IaaS, PaaS, SaaS$)."
   },
   {
-    "guid": "6f7e67e2-e3c0-4b36-a7c2-58aaceb7132f",
+    "guid": "f6df1643-e900-4d7e-9fd4-e380287bc597",
     "subjectId": "T58",
     "origin": "notebooklm",
     "type": "test",
     "difficulty": 3,
-    "question": "Dentro del modelo PaaS (Plataforma como Servicio), ¿qué elemento es responsabilidad exclusiva del proveedor de la nube?",
+    "question": "Al diseñar la capa de red en un modelo híbrido, ¿qué normativa o estándar regula específicamente la seguridad en redes de comunicación?",
     "answerOptions": [
       {
-        "text": "El código de la aplicación desarrollada por la administración.",
-        "rationale": "El código y su lógica de negocio son siempre propiedad y responsabilidad del cliente que desarrolla la solución.",
-        "isCorrect": false
-      },
-      {
-        "text": "La gestión de los datos y los usuarios finales.",
-        "rationale": "El control de acceso y la integridad de la información introducida dependen de las políticas del cliente.",
-        "isCorrect": false
-      },
-      {
-        "text": "El entorno de ejecución (runtime), el middleware y el sistema operativo subyacente.",
-        "rationale": "En PaaS, el cliente se abstrae de la gestión del servidor y el sistema operativo, siendo estas capas gestionadas por el proveedor.",
+        "text": "$ISO/IEC$ $27033$.",
+        "rationale": "Esta norma internacional se centra específicamente en la seguridad de las redes, siendo fundamental para garantizar la confidencialidad en entornos híbridos.",
         "isCorrect": true
       },
       {
-        "text": "La configuración de los cortafuegos de aplicación (WAF).",
-        "rationale": "Aunque el proveedor ofrezca la plataforma, la configuración específica de las reglas de seguridad de la app suele recaer en el cliente.",
+        "text": "$ISO/IEC$ $27018$.",
+        "rationale": "La norma 27018 se enfoca en la protección de datos personales ($PII$) en nubes públicas, no específicamente en la arquitectura de red.",
+        "isCorrect": false
+      },
+      {
+        "text": "$RD$ $4/2010$.",
+        "rationale": "Este Real Decreto regula el Esquema Nacional de Interoperabilidad ($ENI$), centrado en el intercambio de datos, no en la seguridad física de la red.",
+        "isCorrect": false
+      },
+      {
+        "text": "$ISO/IEC$ $27017$.",
+        "rationale": "Aunque está relacionada con la nube, la 27017 ofrece guías sobre controles de seguridad específicos para servicios en la nube en general.",
         "isCorrect": false
       }
     ],
-    "hint": "Piense en la capa que se sitúa entre el hardware y la aplicación final."
+    "hint": "Busque el estándar que se menciona explícitamente vinculado a la seguridad en redes y comunicaciones."
   },
   {
-    "guid": "3345c55d-a936-46b2-aee8-6460457dbd0b",
+    "guid": "a894aa4e-2dcc-4e84-a58b-144cc6f40fa6",
     "subjectId": "T58",
     "origin": "notebooklm",
     "type": "test",
     "difficulty": 3,
-    "question": "En el contexto del Ayuntamiento de Barcelona y su 'Núvol Sobirà' (IaaS sobre OpenStack), ¿cuál es la implicación respecto a la propiedad y operación?",
+    "question": "¿Qué componente de la arquitectura híbrida es responsable de evitar el 'vendor lock-in' mediante el uso de contenedores?",
     "answerOptions": [
       {
-        "text": "El Ayuntamiento es el propietario de los servidores, aunque la operación la realiza un tercero.",
-        "rationale": "Este modelo busca el control público sobre la infraestructura física mientras se externaliza la gestión técnica especializada.",
+        "text": "La capa de aplicaciones y servicios lógicos mediante el uso de $Docker$ y $Kubernetes$.",
+        "rationale": "Los contenedores encapsulan la aplicación y sus dependencias, permitiendo mover cargas de trabajo entre diferentes proveedores o entornos locales con facilidad.",
         "isCorrect": true
       },
       {
-        "text": "T-Systems es el propietario legal del hardware por contrato de renting.",
-        "rationale": "El material fuente indica explícitamente que el Ayuntamiento mantiene la propiedad de los servidores que alojan este entorno.",
+        "text": "La capa de infraestructura física a través de sistemas de virtualización de hardware propietario.",
+        "rationale": "La virtualización tradicional a menudo genera dependencia del hipervisor específico, a diferencia de la portabilidad que ofrecen los contenedores.",
         "isCorrect": false
       },
       {
-        "text": "La responsabilidad de la seguridad física recae en el Ayuntamiento al ser los servidores de su propiedad.",
-        "rationale": "La seguridad física de los centros de datos (como los de Sant Boi) es gestionada por el proveedor que opera la instalación.",
+        "text": "La capa de datos mediante el uso de sistemas de almacenamiento físico $SAN$ o $NAS$.",
+        "rationale": "El almacenamiento físico está ligado al hardware y no facilita por sí mismo la movilidad de las aplicaciones entre nubes.",
         "isCorrect": false
       },
       {
-        "text": "Al ser un 'Núvol Sobirà', el proveedor no tiene ninguna responsabilidad sobre la disponibilidad del servicio.",
-        "rationale": "Incluso en nubes privadas, los acuerdos de nivel de servicio (SLA) definen responsabilidades del operador sobre la disponibilidad.",
+        "text": "La capa de gestión mediante herramientas exclusivas del proveedor de nube pública.",
+        "rationale": "El uso de herramientas exclusivas de un proveedor suele aumentar la dependencia en lugar de facilitar la portabilidad.",
         "isCorrect": false
       }
     ],
-    "hint": "Recuerde la distinción entre quién compra el equipo y quién lo maneja en el CPD."
+    "hint": "Piense en la tecnología que permite 'empaquetar' una aplicación para que funcione igual en cualquier servidor."
   },
   {
-    "guid": "f8cc4151-689c-4fff-be64-13625b586804",
+    "guid": "1cbb6120-923b-4309-86df-100f4e682635",
     "subjectId": "T58",
     "origin": "notebooklm",
     "type": "test",
     "difficulty": 3,
-    "question": "Cuando una administración utiliza un software como servicio (SaaS), ¿cuál es la principal tarea de seguridad que permanece en el lado del cliente?",
+    "question": "En un modelo de infraestructura híbrida, ¿cuál es la función principal de tecnologías como $Azure$ $Arc$ o $Google$ $Anthos$?",
     "answerOptions": [
       {
-        "text": "La encriptación de los discos duros en el centro de datos del proveedor.",
-        "rationale": "La seguridad física y del hardware de almacenamiento es responsabilidad íntegra del proveedor de SaaS.",
-        "isCorrect": false
-      },
-      {
-        "text": "La configuración de identidades, permisos de acceso y protección de datos sensibles.",
-        "rationale": "Aunque el software sea externo, decidir quién accede y qué datos se introducen es una responsabilidad indelegable del cliente.",
+        "text": "Permitir la gestión y el gobierno unificado de recursos locales y en la nube desde una consola única.",
+        "rationale": "Estas herramientas actúan como planos de control híbridos, extendiendo la gestión de la nube a servidores on-premises o de otros proveedores.",
         "isCorrect": true
       },
       {
-        "text": "La actualización de las versiones del software para corregir bugs.",
-        "rationale": "El mantenimiento evolutivo y correctivo del código es el valor principal que aporta el proveedor en el modelo SaaS.",
+        "text": "Establecer túneles de comunicación cifrados punto a punto entre el centro de datos y el proveedor cloud.",
+        "rationale": "Esa es la función de una VPN o enlaces dedicados, no de herramientas de gestión y gobernanza de recursos.",
         "isCorrect": false
       },
       {
-        "text": "La gestión de la red física y el balanceo de carga.",
-        "rationale": "Estas funciones de infraestructura son transparentes para el cliente de SaaS y las gestiona el proveedor.",
+        "text": "Realizar copias de seguridad incrementales de las bases de datos locales hacia almacenamiento de objetos.",
+        "rationale": "Aunque pueden integrarse con servicios de backup, su propósito principal es la administración centralizada de la infraestructura y servicios.",
+        "isCorrect": false
+      },
+      {
+        "text": "Garantizar que el software de los terminales de usuario final esté siempre actualizado a la última versión.",
+        "rationale": "Estas herramientas se enfocan en la infraestructura de backend (servidores, clusters de contenedores), no en la gestión de dispositivos finales.",
         "isCorrect": false
       }
     ],
-    "hint": "Enfóquese en la capa de usuario y de información, no en la tecnológica."
+    "hint": "Estas herramientas se asocian habitualmente con la 'gestión unificada' y el control multicloud."
   },
   {
-    "guid": "53b493db-0095-448b-b12c-1902ce5ccb46",
+    "guid": "6e404724-9457-44c4-8017-ea0b249ccd35",
     "subjectId": "T58",
     "origin": "notebooklm",
     "type": "test",
     "difficulty": 3,
-    "question": "Según el RD $311/2022$ (ENS), ¿qué requisito de auditoría debe cumplir un sistema híbrido que trate datos de categoría alta?",
+    "question": "Según el Esquema Nacional de Seguridad ($ENS$), ¿qué periodicidad mínima se recomienda para realizar auto-evaluaciones de los sistemas?",
     "answerOptions": [
       {
-        "text": "Basta con una autoevaluación firmada por el responsable de seguridad del proveedor.",
-        "rationale": "La autoevaluación solo es válida para sistemas de categoría básica; categorías superiores requieren auditorías externas.",
-        "isCorrect": false
-      },
-      {
-        "text": "Debe someterse a una auditoría extraordinaria cada $5$ años.",
-        "rationale": "El periodo estándar para las auditorías de cumplimiento del ENS es más frecuente para garantizar la seguridad continua.",
-        "isCorrect": false
-      },
-      {
-        "text": "Tanto la parte local como la del proveedor deben estar auditadas y certificadas según el nivel correspondiente.",
-        "rationale": "En un modelo híbrido, la seguridad es un continuo y todas las piezas que conforman el sistema deben cumplir con el ENS.",
+        "text": "Cada $2$ años.",
+        "rationale": "El $CCN-CERT$ recomienda realizar autoevaluaciones al menos cada dos años para asegurar que las medidas de seguridad siguen siendo proporcionales al riesgo.",
         "isCorrect": true
       },
       {
-        "text": "Solo la infraestructura local requiere certificación, ya que el proveedor cloud tiene sus propias normas internacionales.",
-        "rationale": "Para trabajar con la administración española, los proveedores de nube deben acreditar específicamente el cumplimiento del ENS.",
+        "text": "Cada $6$ meses.",
+        "rationale": "Aunque es una buena práctica, el mínimo regulado o recomendado por los marcos de cumplimiento suele ser de carácter bienal.",
+        "isCorrect": false
+      },
+      {
+        "text": "Anualmente.",
+        "rationale": "Muchas normativas exigen revisiones anuales, pero para el caso específico mencionado en el material fuente respecto al $ENS$, se citan los dos años.",
+        "isCorrect": false
+      },
+      {
+        "text": "Cada $5$ años.",
+        "rationale": "Cinco años es un periodo excesivo para entornos tecnológicos cambiantes y no cumpliría con las directrices de seguridad vigentes.",
         "isCorrect": false
       }
     ],
-    "hint": "Piense en el principio de seguridad integral en entornos distribuidos."
+    "hint": "Es un intervalo de tiempo que coincide con la validez típica de muchas certificaciones de seguridad."
   },
   {
-    "guid": "1dfbe162-85ca-4a22-8010-21717d177d8d",
+    "guid": "60f17c77-78d0-4ca6-906a-d66d303bd9ef",
     "subjectId": "T58",
     "origin": "notebooklm",
     "type": "test",
     "difficulty": 3,
-    "question": "En la gestión de identidades de una nube híbrida, ¿cuál es el riesgo de responsabilidad si no se utiliza una gestión federada (SSO)?",
+    "question": "¿Qué requisito técnico impone el Esquema Nacional de Interoperabilidad ($ENI$) para la transferencia de datos entre administraciones?",
     "answerOptions": [
       {
-        "text": "El proveedor cloud asume la responsabilidad legal de todas las contraseñas filtradas.",
-        "rationale": "El proveedor no puede ser responsable de las credenciales si el cliente no utiliza mecanismos de gestión segura centralizada.",
-        "isCorrect": false
-      },
-      {
-        "text": "La fragmentación de identidades dificulta la traza de accesos y el cumplimiento del principio de mínimo privilegio.",
-        "rationale": "Sin una gestión unificada, el cliente pierde el control sobre quién accede a qué en los distintos entornos, aumentando el riesgo de seguridad.",
+        "text": "El uso obligatorio de estándares abiertos como $XML, JSON$ o $PDF/A$.",
+        "rationale": "El Real Decreto $4/2010$ obliga al uso de estándares abiertos para garantizar que la información sea legible y procesable por cualquier sistema.",
         "isCorrect": true
       },
       {
-        "text": "Se produce una duplicidad de costes que el ENS prohíbe explícitamente.",
-        "rationale": "El ENS no prohíbe la duplicidad de costes, sino que exige medidas de seguridad proporcionales al riesgo.",
+        "text": "El cifrado de la información mediante algoritmos propietarios desarrollados por la propia administración.",
+        "rationale": "El uso de algoritmos propietarios contradice el principio de interoperabilidad y seguridad basada en estándares abiertos y contrastados.",
         "isCorrect": false
       },
       {
-        "text": "El cliente pierde la propiedad de los datos de usuario al almacenarlos en el directorio del proveedor.",
-        "rationale": "La propiedad de los datos no cambia por el lugar de almacenamiento, pero el control se vuelve más complejo.",
+        "text": "La migración de todas las bases de datos de carácter tributario a un entorno de nube pública internacional.",
+        "rationale": "El $ENI$ no impone la ubicación física de las bases de datos, sino las condiciones técnicas para que los sistemas puedan comunicarse entre sí.",
+        "isCorrect": false
+      },
+      {
+        "text": "La prohibición de utilizar servicios de bus de integración ($ESB$) por motivos de latencia de red.",
+        "rationale": "Los $ESB$ son herramientas comunes y permitidas para la integración, siempre que respeten los estándares de comunicación definidos.",
         "isCorrect": false
       }
     ],
-    "hint": "Reflexione sobre la visibilidad y el control del administrador de sistemas sobre los usuarios."
+    "hint": "El $ENI$ se centra en cómo asegurar que sistemas de diferentes fabricantes o eras tecnológicas 'hablen' el mismo idioma."
   },
   {
-    "guid": "8e3e4ae9-04a3-496a-a930-d7bc368683f5",
+    "guid": "d3ab1c7c-2305-44df-a4f5-164a231ba64a",
     "subjectId": "T58",
     "origin": "notebooklm",
     "type": "test",
     "difficulty": 3,
-    "question": "Ante una caída del servicio debido a un fallo en el hipervisor del proveedor en un modelo IaaS, ¿quién es responsable de la recuperación del servicio?",
+    "question": "En el modelo de responsabilidad compartida, ¿de qué es responsable exclusivamente el cliente si contrata un servicio $IaaS$?",
     "answerOptions": [
       {
-        "text": "El cliente, que debe restaurar las copias de seguridad manualmente.",
-        "rationale": "Si el fallo es del hipervisor (infraestructura), la reparación de esa capa corresponde al proveedor.",
-        "isCorrect": false
-      },
-      {
-        "text": "El proveedor debe restaurar la infraestructura, pero el cliente es responsable de la disponibilidad de su aplicación.",
-        "rationale": "Existe un reparto: el proveedor arregla el 'suelo' (infra), pero el cliente debe asegurar que su app vuelve a funcionar correctamente.",
+        "text": "Gestión del sistema operativo, las aplicaciones y la configuración de seguridad lógica.",
+        "rationale": "En $IaaS$, el proveedor solo entrega el 'hierro' virtualizado; todo lo que se instale encima (SO, middleware, apps) es responsabilidad del cliente.",
         "isCorrect": true
       },
       {
-        "text": "El proveedor es responsable de indemnizar al cliente por el $100\\%$ de las pérdidas de datos.",
-        "rationale": "La indemnización depende del SLA, y raramente cubre la pérdida de datos si el cliente no configuró backups.",
+        "text": "Mantenimiento físico del hardware del servidor y sustitución de discos defectuosos.",
+        "rationale": "El mantenimiento físico es responsabilidad exclusiva del proveedor cloud en cualquier modelo de servicio ($IaaS, PaaS, SaaS$).",
         "isCorrect": false
       },
       {
-        "text": "La responsabilidad es nula al considerarse un evento de 'fuerza mayor' en nubes públicas.",
-        "rationale": "Un fallo técnico no suele considerarse fuerza mayor y está sujeto a las responsabilidades contractuales del servicio.",
+        "text": "Actualización de los parches de seguridad del hipervisor que gestiona las máquinas virtuales.",
+        "rationale": "El hipervisor forma parte de la infraestructura que gestiona el proveedor; el cliente no tiene acceso a esa capa en un modelo $IaaS$ estándar.",
+        "isCorrect": false
+      },
+      {
+        "text": "Garantizar la seguridad perimetral y el acceso físico al centro de datos donde reside la información.",
+        "rationale": "La seguridad física del centro de datos es siempre responsabilidad del proveedor del servicio de nube.",
         "isCorrect": false
       }
     ],
-    "hint": "Diferencie entre la reparación de la herramienta y la continuidad del negocio que se apoya en ella."
+    "hint": "Piense en el nivel más bajo de servicio donde el usuario tiene control total sobre el 'interior' de la máquina virtual."
   },
   {
-    "guid": "d82374dd-4008-46be-ae35-66fd33031136",
+    "guid": "f0908208-605e-4888-bc59-694ed3dcf2c9",
     "subjectId": "T58",
     "origin": "notebooklm",
     "type": "test",
     "difficulty": 3,
-    "question": "¿Qué capa técnica asegura que la comunicación entre el entorno local y el cloud cumpla con el Esquema Nacional de Seguridad (ENS)?",
+    "question": "¿Cuál es la principal diferencia entre los modelos $PaaS$ y $SaaS$ respecto al desarrollo de software?",
     "answerOptions": [
       {
-        "text": "Capa de orquestación.",
-        "rationale": "La orquestación se encarga del despliegue y gestión de recursos, no primariamente del cifrado de las comunicaciones.",
-        "isCorrect": false
-      },
-      {
-        "text": "Capa de red y conectividad segura.",
-        "rationale": "Esta capa utiliza VPNs IPsec o enlaces dedicados para garantizar que el tránsito de datos sea privado, cifrado y conforme al ENS.",
+        "text": "En $PaaS$ el cliente desarrolla sus propias aplicaciones, mientras que en $SaaS$ utiliza software ya finalizado.",
+        "rationale": "El $PaaS$ ofrece herramientas para crear apps; el $SaaS$ es el producto final listo para ser consumido por el usuario.",
         "isCorrect": true
       },
       {
-        "text": "Capa de aplicaciones.",
-        "rationale": "La capa de aplicación reside sobre la red, pero la seguridad del canal de transporte es responsabilidad de la capa de conectividad.",
+        "text": "En $SaaS$ el cliente tiene mayor control sobre el código fuente que en un entorno $PaaS$.",
+        "rationale": "Es al revés: en $SaaS$ el código está totalmente gestionado por el proveedor y el cliente apenas tiene opciones de configuración.",
         "isCorrect": false
       },
       {
-        "text": "Capa de datos e integración.",
-        "rationale": "Aunque gestiona la estructura de los datos, la seguridad del transporte físico/lógico entre sitios depende de la red.",
+        "text": "El modelo $PaaS$ no requiere preocuparse por la seguridad de los datos, a diferencia del $SaaS$.",
+        "rationale": "En ambos modelos la seguridad de los datos suele ser una responsabilidad compartida o del cliente, dependiendo del contrato.",
+        "isCorrect": false
+      },
+      {
+        "text": "Los servicios $PaaS$ se acceden únicamente mediante terminal de comandos, mientras que $SaaS$ usa navegador.",
+        "rationale": "Ambos pueden usar interfaces web o $APIs$; el método de acceso no es el factor diferenciador de los modelos de servicio.",
         "isCorrect": false
       }
     ],
-    "hint": "Piense en el túnel por el que viajan los bits entre el centro de datos local y el proveedor."
+    "hint": "Uno es una 'caja de herramientas' para programadores y el otro es una 'aplicación terminada'."
   },
   {
-    "guid": "c218eb09-43d9-4af2-9cf9-4a2fdea05ac9",
+    "guid": "c7f093c9-fce6-4c9f-8d5c-d528e77ddf7e",
     "subjectId": "T58",
     "origin": "notebooklm",
     "type": "test",
     "difficulty": 3,
-    "question": "En el uso de FaaS (Function as a Service), ¿qué aspecto de la seguridad es gestionado exclusivamente por el proveedor?",
+    "question": "¿Qué concepto técnico define la capacidad de añadir recursos de nube de forma temporal para absorber picos de demanda en infraestructuras locales?",
     "answerOptions": [
       {
-        "text": "La lógica interna de la función y las vulnerabilidades del código.",
-        "rationale": "El desarrollador (cliente) siempre es responsable del código que escribe y de su comportamiento.",
-        "isCorrect": false
-      },
-      {
-        "text": "El aprovisionamiento de servidores y la escala automática según la demanda.",
-        "rationale": "En serverless, el cliente se despreocupa totalmente de la infraestructura; el proveedor escala los recursos necesarios para ejecutar la función.",
+        "text": "Elasticidad.",
+        "rationale": "La elasticidad permite ajustar los recursos a la demanda real, permitiendo que la infraestructura crezca o decrezca de forma dinámica.",
         "isCorrect": true
       },
       {
-        "text": "La gestión de los secretos y claves API utilizados por la función.",
-        "rationale": "Aunque el proveedor de herramientas, el cliente debe configurar qué claves usa su función de forma segura.",
+        "text": "Redundancia.",
+        "rationale": "La redundancia se refiere a la duplicidad de componentes para evitar fallos, no a la variación dinámica de la capacidad de cómputo.",
         "isCorrect": false
       },
       {
-        "text": "El cumplimiento normativo de los datos procesados por la función.",
-        "rationale": "El cliente es el responsable de asegurar que el tratamiento de datos que realiza su función cumple con el RGPD.",
+        "text": "Persistencia.",
+        "rationale": "La persistencia se refiere a la capacidad de los datos de sobrevivir tras el cierre de un proceso o sesión, sin relación con el escalado.",
+        "isCorrect": false
+      },
+      {
+        "text": "Convergencia.",
+        "rationale": "La convergencia es la integración de almacenamiento, red y cómputo en un solo chasis, pero no define el escalado temporal hacia la nube.",
         "isCorrect": false
       }
     ],
-    "hint": "Este modelo se conoce como 'serverless' porque oculta una parte específica de la gestión técnica."
+    "hint": "Es la característica 'estirable' de la computación en la nube."
   },
   {
-    "guid": "34118579-f093-4996-a6af-0ea3f75271f8",
+    "guid": "7707024a-1e31-45cc-9339-24f7c83c061d",
     "subjectId": "T58",
     "origin": "notebooklm",
     "type": "test",
     "difficulty": 3,
-    "question": "¿Cuál es el propósito principal de exigir 'Reversibilidad y Portabilidad' en los contratos de nube híbrida de las AAPP?",
+    "question": "Con respecto a la implementación de estrategias de integración de datos en entornos híbridos, ¿cuál de los siguientes procesos describe correctamente la función de un $API$ $Gateway$?",
     "answerOptions": [
       {
-        "text": "Evitar el 'vendor lock-in' y permitir la recuperación de datos al finalizar el servicio.",
-        "rationale": "Es un requisito legal que garantiza que la administración no quede atrapada por un proveedor y pueda migrar sus servicios.",
+        "text": "Actuar como un punto de entrada único que gestiona, autentica y enruta las peticiones entre los servicios externos y las aplicaciones internas.",
+        "rationale": "El $API$ $Gateway$ centraliza el acceso a los recursos distribuidos, garantizando que las comunicaciones sean seguras y sigan las políticas de gobierno establecidas.",
         "isCorrect": true
       },
       {
-        "text": "Reducir el coste de la suscripción mensual mediante la competencia directa.",
-        "rationale": "Aunque favorece la competencia, su fin primordial es la soberanía sobre los datos y la continuidad del servicio público.",
+        "text": "Funcionar como un sistema de almacenamiento persistente que replica de forma síncrona los datos entre la base de datos local y la base de datos cloud.",
+        "rationale": "La replicación de datos es tarea de los motores de base de datos o de herramientas de ETL, no de un gateway orientado a interfaces de aplicación.",
         "isCorrect": false
       },
       {
-        "text": "Permitir que el proveedor cambie de tecnología sin avisar al cliente.",
-        "rationale": "Al contrario, busca que el cliente mantenga el control ante cambios o ceses de actividad del proveedor.",
+        "text": "Realizar la transformación física del hardware local para que sea compatible con los protocolos propietarios de los proveedores de nube pública.",
+        "rationale": "Los gateways operan a nivel lógico y de red; no realizan modificaciones en el hardware físico ni se encargan de su compatibilidad eléctrica o mecánica.",
         "isCorrect": false
       },
       {
-        "text": "Garantizar que el software sea siempre de código abierto.",
-        "rationale": "La portabilidad se puede lograr con estándares abiertos sin que todo el software sea necesariamente Open Source.",
+        "text": "Proveer una conexión de red dedicada mediante fibra óptica que elimina por completo el uso de internet para el tráfico de gestión administrativa.",
+        "rationale": "Esa descripción corresponde a servicios como Direct Connect o ExpressRoute, que operan en capas inferiores a la gestión de APIs.",
         "isCorrect": false
       }
     ],
-    "hint": "Piense en la libertad de movimiento de los activos públicos al terminar una concesión."
+    "hint": "Considere este componente como el 'conserje' que decide quién entra y a dónde va cada petición web."
   },
   {
-    "guid": "5f7fe26d-3002-4639-bfe7-5d5dc6750bf1",
+    "guid": "1697d976-974f-4922-9500-c219c2eb41b5",
     "subjectId": "T58",
     "origin": "notebooklm",
     "type": "test",
     "difficulty": 3,
-    "question": "En un entorno híbrido, ¿quién es el responsable de configurar el SIEM (Security Information and Event Management) para detectar ataques dirigidos?",
+    "question": "En el marco de la gestión de identidades en un modelo híbrido, ¿cuál es el procedimiento estándar para permitir el acceso sin duplicar credenciales?",
     "answerOptions": [
       {
-        "text": "El proveedor de la nube, ya que es quien tiene los logs de infraestructura.",
-        "rationale": "El proveedor da los logs, pero la inteligencia de detección y la configuración del SIEM recae en el cliente.",
-        "isCorrect": false
-      },
-      {
-        "text": "El cliente o administración pública.",
-        "rationale": "La monitorización de la seguridad de sus activos y la respuesta ante incidentes específicos es una responsabilidad del cliente.",
+        "text": "Configurar un sistema de identidad federada mediante protocolos como $SAML$ o $OAuth2$ para habilitar el inicio de sesión único entre entornos.",
+        "rationale": "La federación permite que un usuario se autentique en su dominio local (ej. Active Directory) y acceda a recursos en la nube sin volver a introducir su contraseña.",
         "isCorrect": true
       },
       {
-        "text": "La Agencia Española de Protección de Datos (AEPD).",
-        "rationale": "La AEPD supervisa el cumplimiento del RGPD, pero no gestiona sistemas de seguridad técnica de las administraciones.",
+        "text": "Establecer una política de contraseñas idénticas en todos los sistemas para que el usuario pueda recordarlas y utilizarlas en cualquier plataforma.",
+        "rationale": "Esta práctica es insegura y no constituye una integración técnica; la duplicidad manual de credenciales aumenta el riesgo de brechas de seguridad.",
         "isCorrect": false
       },
       {
-        "text": "Es una función automatizada que no requiere configuración manual.",
-        "rationale": "Los SIEM requieren reglas de correlación y ajuste continuo para ser efectivos y evitar falsos positivos.",
+        "text": "Implementar un proceso de exportación semanal de ficheros de usuarios en formato texto plano para sincronizar manualmente las altas y las bajas.",
+        "rationale": "La gestión manual y en texto plano es ineficiente, propensa a errores y viola los principios básicos de seguridad y protección de datos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Deshabilitar todos los controles de acceso en la nube pública para facilitar que los empleados locales accedan sin restricciones burocráticas.",
+        "rationale": "Eliminar controles de acceso es una negligencia grave que expone los recursos a cualquier atacante, contraviniendo normativas como el ENS o RGPD.",
         "isCorrect": false
       }
     ],
-    "hint": "Recuerde quién debe realizar la vigilancia continua según el ENS."
+    "hint": "Piense en el concepto de 'Single Sign-On' ($SSO$) aplicado a través de diferentes organizaciones tecnológicas."
   },
   {
-    "guid": "e0a199d0-f7bb-4933-8af0-93e8c7905c7b",
+    "guid": "5d78d13d-1eac-4edb-ba9a-043e1508a348",
     "subjectId": "T58",
     "origin": "notebooklm",
     "type": "test",
     "difficulty": 3,
-    "question": "Si una administración pública contrata un servicio de Backup as a Service (BaaS), ¿qué responsabilidad mantiene respecto a sus datos?",
+    "question": "Respecto a la metodología de auditoría en sistemas híbridos bajo el $ENS$, ¿cuál de las siguientes afirmaciones describe mejor el alcance necesario?",
     "answerOptions": [
       {
-        "text": "Ninguna, el proveedor garantiza que los datos son siempre recuperables.",
-        "rationale": "El proveedor ofrece el servicio, pero el cliente debe verificar que las copias se realizan y son válidas.",
-        "isCorrect": false
-      },
-      {
-        "text": "Definir la política de retención, la frecuencia de las copias y realizar pruebas de restauración.",
-        "rationale": "El cliente es quien conoce las necesidades del negocio y debe asegurar que el servicio de backup cumple con sus RTO y RPO.",
+        "text": "La auditoría debe abarcar tanto los sistemas on-premises como los servicios en la nube, verificando la certificación del proveedor cloud contratado.",
+        "rationale": "Un entorno híbrido es una unidad lógica; por tanto, la seguridad debe auditarse en ambos extremos de la conexión para garantizar el cumplimiento global.",
         "isCorrect": true
       },
       {
-        "text": "La gestión de la integridad física de las cintas o discos de backup.",
-        "rationale": "Esta es la responsabilidad técnica que se delega precisamente al contratar un servicio BaaS.",
+        "text": "La auditoría debe centrarse exclusivamente en el centro de datos local, asumiendo que el proveedor cloud es intrínsecamente seguro por su tamaño.",
+        "rationale": "La seguridad no se presupone; el ENS exige verificar que el proveedor cumple con el nivel requerido (Básico, Medio o Alto) mediante evidencias sólidas.",
         "isCorrect": false
       },
       {
-        "text": "El pago de los derechos de autor de los datos almacenados.",
-        "rationale": "Esto no es una responsabilidad técnica de seguridad relacionada con el modelo de servicio BaaS.",
+        "text": "La auditoría solo es obligatoria para las aplicaciones que tratan datos de categoría baja, quedando las de categoría alta exentas de revisión técnica.",
+        "rationale": "Al contrario, cuanto mayor es la categoría del sistema (Media o Alta), más estrictos y frecuentes son los requisitos de auditoría externa obligatoria.",
+        "isCorrect": false
+      },
+      {
+        "text": "La auditoría debe realizarse únicamente sobre la capa física de los servidores, ignorando los aspectos lógicos como el cifrado o la gestión de logs.",
+        "rationale": "El ENS requiere una revisión integral que incluye dimensiones de confidencialidad, integridad, disponibilidad, autenticidad y trazabilidad.",
         "isCorrect": false
       }
     ],
-    "hint": "Piense en la diferencia entre tener la herramienta y saber usarla para cumplir los objetivos del sistema."
+    "hint": "Recuerde que en una arquitectura integrada, la cadena de seguridad es tan fuerte como su eslabón más débil."
   },
   {
-    "guid": "ce75e352-57bc-42be-9ed4-25c8c30c6d7a",
+    "guid": "3843d1a5-b182-429a-8559-0d8220ad71f7",
     "subjectId": "T58",
     "origin": "notebooklm",
     "type": "test",
     "difficulty": 3,
-    "question": "En la capa de orquestación y gestión unificada (ej. Azure Arc o Anthos), ¿cuál es el beneficio principal para la gobernanza del cliente?",
+    "question": "En el proceso de despliegue de aplicaciones mediante contenedores, ¿cuál es la ventaja metodológica fundamental para el equipo de desarrollo?",
     "answerOptions": [
       {
-        "text": "Permite que el proveedor gestione también los servidores locales del cliente.",
-        "rationale": "Aunque facilita la visibilidad, la responsabilidad de gestión de los equipos locales sigue siendo del cliente.",
-        "isCorrect": false
-      },
-      {
-        "text": "Centraliza el monitorizaje y la aplicación de políticas de seguridad en entornos heterogéneos.",
-        "rationale": "Ayuda al cliente a mantener el control y la coherencia de seguridad tanto en su CPD como en las distintas nubes.",
+        "text": "Garantizar la inmutabilidad del entorno de ejecución, asegurando que la aplicación funcione igual en desarrollo, preproducción y producción.",
+        "rationale": "Los contenedores eliminan el problema de 'en mi máquina funciona', al empaquetar todo lo necesario para la ejecución de la app de forma estandarizada.",
         "isCorrect": true
       },
       {
-        "text": "Elimina la necesidad de cumplir con el ENS en la parte pública.",
-        "rationale": "La herramienta ayuda al cumplimiento, pero no exime de ninguna obligación normativa.",
+        "text": "Aumentar el consumo de recursos de hardware mediante la ejecución de un sistema operativo completo para cada pequeña función del software.",
+        "rationale": "Esta es una característica de las máquinas virtuales tradicionales; los contenedores son ligeros porque comparten el núcleo del sistema operativo anfitrión.",
         "isCorrect": false
       },
       {
-        "text": "Garantiza que el coste del servicio sea siempre el mínimo posible.",
-        "rationale": "Ayuda a la visibilidad de costes, pero no garantiza por sí misma el ahorro si no hay una gestión activa.",
+        "text": "Eliminar la necesidad de realizar pruebas de seguridad en el código fuente, ya que el contenedor protege la aplicación de cualquier ataque externo.",
+        "rationale": "El contenedor es un entorno de ejecución, no un sustituto de las prácticas de desarrollo seguro ($DevSecOps$) o del análisis de vulnerabilidades del código.",
+        "isCorrect": false
+      },
+      {
+        "text": "Reducir la velocidad de los despliegues al obligar a los administradores de sistemas a configurar manualmente cada librería en el servidor de destino.",
+        "rationale": "Los contenedores aceleran el despliegue precisamente porque automatizan la gestión de librerías y dependencias dentro de la propia imagen.",
         "isCorrect": false
       }
     ],
-    "hint": "Piense en la dificultad de vigilar dos sitios distintos con herramientas diferentes."
+    "hint": "Piense en la 'portabilidad' y en la consistencia entre diferentes servidores."
   },
   {
-    "guid": "cbbe00de-7a87-41a1-be6d-9696fac0ace6",
+    "guid": "f5faafae-c08f-48ae-bbb1-7361498f952a",
     "subjectId": "T58",
     "origin": "notebooklm",
     "type": "test",
     "difficulty": 3,
-    "question": "¿Qué implicación tiene el RGPD sobre el proveedor de nube cuando actúa como 'Encargado del Tratamiento'?",
+    "question": "¿Cómo se gestiona el proceso de reversibilidad en un contrato de servicios cloud para una Administración Pública según la normativa técnica?",
     "answerOptions": [
       {
-        "text": "El proveedor puede decidir el uso de los datos para sus propios análisis de mercado.",
-        "rationale": "Como encargado, solo puede tratar los datos según las instrucciones documentadas del responsable (la administración).",
-        "isCorrect": false
-      },
-      {
-        "text": "El proveedor debe aplicar las medidas técnicas y organizativas acordadas para proteger los datos.",
-        "rationale": "Es la obligación principal del encargado bajo el RGPD para asistir al responsable en la seguridad del tratamiento.",
+        "text": "Definiendo contractualmente la obligación del proveedor de devolver los datos en formatos estándar y facilitar la migración a otro sistema.",
+        "rationale": "La reversibilidad es un requisito del ENS para evitar que la administración quede 'atrapada' y no pueda recuperar su información o cambiar de proveedor.",
         "isCorrect": true
       },
       {
-        "text": "La responsabilidad ante una brecha de datos es únicamente del proveedor.",
-        "rationale": "La responsabilidad suele ser solidaria o repartida, y la administración siempre responde ante el ciudadano como Responsable del Tratamiento.",
+        "text": "Aceptando que los datos pasen a ser propiedad legal del proveedor de nube a cambio de una reducción significativa en los costes de mantenimiento.",
+        "rationale": "Los datos de la administración son siempre propiedad pública y su custodia no puede delegarse de forma que se pierda el derecho de propiedad o acceso.",
         "isCorrect": false
       },
       {
-        "text": "El proveedor no tiene ninguna obligación si los datos están cifrados.",
-        "rationale": "Incluso con datos cifrados, el proveedor tiene obligaciones de seguridad, confidencialidad y disponibilidad como encargado.",
+        "text": "Limitando el acceso a las copias de seguridad de modo que solo puedan ser restauradas en el hardware específico del proveedor original contratado.",
+        "rationale": "Esta restricción crearía un 'vendor lock-in' técnico, lo cual es precisamente lo que las cláusulas de reversibilidad pretenden evitar.",
+        "isCorrect": false
+      },
+      {
+        "text": "Estableciendo que la administración debe pagar el valor total del hardware utilizado por el proveedor si decide rescindir el contrato antes de cinco años.",
+        "rationale": "La reversibilidad se centra en la portabilidad de datos y servicios, no en la compra forzosa de activos físicos del proveedor cloud.",
         "isCorrect": false
       }
     ],
-    "hint": "Considere la jerarquía legal entre quien posee los datos y quien los custodia tecnológicamente."
+    "hint": "Se trata de un derecho para asegurar que la salida del servicio es técnicamente viable."
+  },
+  {
+    "guid": "4abd309b-142a-477c-b8a9-398accf320aa",
+    "subjectId": "T58",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "En la monitorización de un modelo híbrido, ¿cuál es el objetivo primordial de implementar un sistema de gestión centralizada de logs?",
+    "answerOptions": [
+      {
+        "text": "Garantizar la trazabilidad completa de las acciones de los usuarios y detectar anomalías de seguridad mediante la correlación de eventos distribuidos.",
+        "rationale": "Centralizar los logs permite observar qué ocurre en toda la infraestructura híbrida desde un único punto, facilitando la respuesta ante incidentes.",
+        "isCorrect": true
+      },
+      {
+        "text": "Reducir el espacio de almacenamiento local eliminando los registros de los servidores on-premises una vez que se han enviado a la consola cloud.",
+        "rationale": "El objetivo no es el ahorro de espacio, sino la seguridad y el cumplimiento normativo; los registros deben conservarse durante periodos definidos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Permitir que cualquier ciudadano pueda consultar en tiempo real las direcciones IP de acceso a los servidores internos por transparencia administrativa.",
+        "rationale": "La transparencia no ampara la publicación de datos técnicos que comprometan la seguridad de los sistemas; el acceso a los logs debe estar muy restringido.",
+        "isCorrect": false
+      },
+      {
+        "text": "Sustituir a los administradores de sistemas mediante algoritmos que corrigen automáticamente los errores de sintaxis en el código de las aplicaciones.",
+        "rationale": "La gestión de logs monitoriza eventos de ejecución y seguridad, no es una herramienta de corrección automática de código fuente para desarrolladores.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en la 'trazabilidad' y el análisis post-incidente."
+  },
+  {
+    "guid": "51b51864-accf-4e0e-ab25-6818559483c8",
+    "subjectId": "T58",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Cuál es la metodología recomendada para gestionar el escalado de recursos en un escenario de 'Cloud Bursting'?",
+    "answerOptions": [
+      {
+        "text": "Utilizar herramientas de orquestación que detecten automáticamente el umbral de carga local y desplieguen instancias adicionales en la nube pública.",
+        "rationale": "El escalado híbrido eficiente requiere automatización para mover cargas al cloud solo cuando la capacidad on-premises es insuficiente.",
+        "isCorrect": true
+      },
+      {
+        "text": "Realizar una compra de emergencia de servidores físicos cada vez que el uso de la $CPU$ supere el $80\\%$ de la capacidad total instalada en el centro de datos.",
+        "rationale": "Esta es la metodología tradicional (CapEx) que carece de la agilidad y eficiencia de costes que ofrece el modelo de nube híbrida.",
+        "isCorrect": false
+      },
+      {
+        "text": "Solicitar a los usuarios que reduzcan su actividad en el portal ciudadano durante las horas de mayor afluencia para evitar el colapso de los sistemas.",
+        "rationale": "Limitar el servicio al ciudadano no es una solución tecnológica válida para una administración que busca la disponibilidad y la eficacia.",
+        "isCorrect": false
+      },
+      {
+        "text": "Mantener permanentemente encendidos el triple de recursos necesarios en la nube pública para prevenir cualquier posible pico de demanda imprevisto.",
+        "rationale": "Esto genera un gasto innecesario (OpEx) y desaprovecha la ventaja de la elasticidad, que consiste en pagar solo por lo que se usa en cada momento.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Se busca la automatización para responder a la demanda sin intervención humana constante."
+  },
+  {
+    "guid": "57e21b0e-49ab-473f-8c28-0661b9c180b6",
+    "subjectId": "T58",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "En la capa de integración de datos, ¿qué función cumple un bus de servicios empresariales ($ESB$) en una arquitectura híbrida?",
+    "answerOptions": [
+      {
+        "text": "Facilitar la comunicación entre aplicaciones heterogéneas mediante la transformación de protocolos y el enrutamiento inteligente de mensajes.",
+        "rationale": "El $ESB$ actúa como un intermediario que permite que aplicaciones que hablan diferentes 'idiomas' técnicos puedan intercambiar datos de forma coherente.",
+        "isCorrect": true
+      },
+      {
+        "text": "Proporcionar energía eléctrica ininterrumpida a los racks de servidores locales en caso de un corte en el suministro de la red pública general.",
+        "rationale": "Esa es la función de un $SAI$ (Sistema de Alimentación Ininterrumpida) o $UPS$, no de un componente lógico de integración de software.",
+        "isCorrect": false
+      },
+      {
+        "text": "Almacenar de forma física las cintas de backup en una ubicación remota para cumplir con el plan de recuperación ante desastres naturales.",
+        "rationale": "La gestión de soportes físicos de backup es un proceso logístico y de almacenamiento, ajeno a la lógica de integración de aplicaciones de un $ESB$.",
+        "isCorrect": false
+      },
+      {
+        "text": "Cifrar el hardware de los portátiles de los empleados municipales para evitar el acceso a la información en caso de pérdida o robo del dispositivo.",
+        "rationale": "El cifrado de disco (como BitLocker) es una medida de seguridad de puesto final, no un servicio de infraestructura para la integración de datos.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Visualícelo como una 'autopista de datos' con traductores en cada salida."
+  },
+  {
+    "guid": "5f901dfe-6e1f-4c20-89d9-24b768d07014",
+    "subjectId": "T58",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Respecto a la gobernanza de datos en entornos híbridos, ¿cuál es el proceso para asegurar el cumplimiento del $RGPD$ cuando se usan nubes públicas?",
+    "answerOptions": [
+      {
+        "text": "Realizar un Análisis de Impacto en la Protección de Datos ($AIPD$) y asegurar que el proveedor garantiza la residencia de datos en el espacio europeo.",
+        "rationale": "El cumplimiento normativo exige evaluar los riesgos para la privacidad y verificar que no hay transferencias internacionales de datos sin las garantías adecuadas.",
+        "isCorrect": true
+      },
+      {
+        "text": "Delegar toda la responsabilidad legal en el proveedor cloud mediante una cláusula que exima a la administración de cualquier sanción económica.",
+        "rationale": "La responsabilidad ante el ciudadano y la autoridad de control sigue siendo de la administración pública como responsable del tratamiento de los datos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Publicar todos los datos personales en un portal de datos abiertos para que la ciudadanía pueda verificar por sí misma la veracidad de la información.",
+        "rationale": "Publicar datos personales sin base legal vulnera gravemente el principio de confidencialidad y proporcionalidad del $RGPD$.",
+        "isCorrect": false
+      },
+      {
+        "text": "Almacenar las claves de cifrado en el propio servidor del proveedor cloud para facilitar que este pueda recuperar los datos en caso de olvido del cliente.",
+        "rationale": "Esto compromete la soberanía de los datos; el cliente debe mantener el control de las claves para asegurar que el proveedor no pueda acceder al contenido.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considere la ubicación física de los servidores y el análisis de riesgos previo."
+  },
+  {
+    "guid": "3ecea40d-ba95-4885-a2f2-0a8823ba2fcc",
+    "subjectId": "T58",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "En el contexto de la alta disponibilidad, ¿qué procedimiento describe mejor el uso de un balanceador de carga híbrido?",
+    "answerOptions": [
+      {
+        "text": "Distribuir el tráfico entrante entre servidores locales y servidores en la nube para optimizar el tiempo de respuesta y evitar la saturación.",
+        "rationale": "Un balanceador híbrido permite utilizar recursos de ambos entornos simultáneamente, mejorando la resiliencia del servicio ante caídas locales.",
+        "isCorrect": true
+      },
+      {
+        "text": "Duplicar físicamente todos los cables de red en el centro de datos local para que si uno se rompe, el otro asuma toda la carga de trabajo.",
+        "rationale": "Esto es redundancia a nivel de capa física (capa 1), pero no describe la lógica de balanceo de carga de aplicaciones entre entornos on-prem y cloud.",
+        "isCorrect": false
+      },
+      {
+        "text": "Asignar manualmente a cada empleado un servidor específico del que debe colgarse cada mañana para no sobrecargar el servidor principal del edificio.",
+        "rationale": "El balanceo debe ser dinámico y transparente para el usuario; la asignación manual es ineficiente y no escala ante variaciones de carga.",
+        "isCorrect": false
+      },
+      {
+        "text": "Interrumpir el servicio de internet durante los periodos de mantenimiento para asegurar que el servidor no reciba peticiones mientras se actualiza.",
+        "rationale": "El balanceo busca precisamente evitar la interrupción del servicio dirigiendo el tráfico a nodos que no estén en mantenimiento.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en un 'director de tráfico' que reparte coches entre una carretera nacional y una autopista según la congestión."
+  },
+  {
+    "guid": "65ce4de3-dc90-44c7-918b-37f57deb8aa0",
+    "subjectId": "T58",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Infraestructura como servicio basada en código abierto, utilizada por el Ayuntamiento de Barcelona para gestionar su nube privada soberana.",
+    "answerOptions": [
+      {
+        "text": "OpenStack",
+        "rationale": "Es el estándar de facto para construir nubes privadas $IaaS$ de forma abierta y bajo control propio.",
+        "isCorrect": true
+      },
+      {
+        "text": "Kubernetes",
+        "rationale": "Es un orquestador de contenedores, no una plataforma completa de infraestructura básica ($IaaS$).",
+        "isCorrect": false
+      },
+      {
+        "text": "vSphere",
+        "rationale": "Es una plataforma de virtualización propietaria de VMware, no una solución de nube abierta soberana.",
+        "isCorrect": false
+      },
+      {
+        "text": "OpenShift",
+        "rationale": "Es una plataforma $PaaS$ basada en contenedores, aunque puede correr sobre una infraestructura $IaaS$.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Es la base del 'Núvol Sobirà' para la gestión de máquinas virtuales y almacenamiento."
+  },
+  {
+    "guid": "0bbe0f54-e912-4a33-a260-ee78b1ac3b4a",
+    "subjectId": "T58",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Herramienta de Microsoft que permite gestionar recursos tanto on-premises como en múltiples nubes desde un único plano de control.",
+    "answerOptions": [
+      {
+        "text": "Azure Arc",
+        "rationale": "Permite extender la gestión de Azure a cualquier infraestructura, incluyendo servidores locales y otras nubes públicas.",
+        "isCorrect": true
+      },
+      {
+        "text": "ExpressRoute",
+        "rationale": "Es un servicio de conectividad privada de alta velocidad, no una herramienta de gestión y gobernanza.",
+        "isCorrect": false
+      },
+      {
+        "text": "Active Directory",
+        "rationale": "Es un servicio de directorio para gestión de identidades, no una herramienta de gestión de recursos híbridos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Sentinel",
+        "rationale": "Es un $SIEM$ cloud nativo para análisis de seguridad, no una herramienta de gestión de infraestructura general.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Su nombre sugiere un 'arco' que conecta diferentes nubes."
+  },
+  {
+    "guid": "4351fa7e-25f3-4831-adab-c229bfb63982",
+    "subjectId": "T58",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Plataforma de contenedores empresarial basada en $Kubernetes$ que utiliza el Ayuntamiento de Barcelona para sus aplicaciones web municipales.",
+    "answerOptions": [
+      {
+        "text": "OpenShift",
+        "rationale": "Es la distribución de Kubernetes de Red Hat utilizada para el modelo $PaaS$ municipal sobre infraestructura privada.",
+        "isCorrect": true
+      },
+      {
+        "text": "Docker",
+        "rationale": "Es la tecnología de contenedores subyacente, pero no la plataforma de orquestación completa mencionada para las apps.",
+        "isCorrect": false
+      },
+      {
+        "text": "Anthos",
+        "rationale": "Es la solución de Google para entornos híbridos, similar a OpenShift pero de un proveedor diferente.",
+        "isCorrect": false
+      },
+      {
+        "text": "CloudFoundry",
+        "rationale": "Es otra tecnología $PaaS$, pero no es la que se especifica en el material fuente para el caso de Barcelona.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Es un producto de Red Hat muy común en entornos gubernamentales por su seguridad."
+  },
+  {
+    "guid": "a0bec220-ea1c-4f99-b7e9-57b9a987f5c2",
+    "subjectId": "T58",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Estándar de interoperabilidad en la Administración Pública española que obliga al uso de formatos abiertos para garantizar la portabilidad de datos.",
+    "answerOptions": [
+      {
+        "text": "ENI",
+        "rationale": "El Esquema Nacional de Interoperabilidad define las reglas para el intercambio seguro y eficaz de datos entre administraciones.",
+        "isCorrect": true
+      },
+      {
+        "text": "ENS",
+        "rationale": "El Esquema Nacional de Seguridad se enfoca en la protección de la información y sistemas, no en la interoperabilidad de datos.",
+        "isCorrect": false
+      },
+      {
+        "text": "RGPD",
+        "rationale": "Es el reglamento europeo de protección de datos personales, no una norma técnica de interoperabilidad.",
+        "isCorrect": false
+      },
+      {
+        "text": "LOPDGDD",
+        "rationale": "Es la ley orgánica española que adapta el RGPD, centrada en derechos digitales y privacidad.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Sus siglas derivan de Interoperabilidad."
+  },
+  {
+    "guid": "1088d701-b900-4415-b1bf-027f2b863844",
+    "subjectId": "T58",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Modelo de servicio donde el proveedor ofrece solo la infraestructura básica: capacidad de procesamiento, almacenamiento y red.",
+    "answerOptions": [
+      {
+        "text": "IaaS",
+        "rationale": "Infrastructure as a Service es la base de la pirámide cloud donde el cliente gestiona todo desde el sistema operativo.",
+        "isCorrect": true
+      },
+      {
+        "text": "PaaS",
+        "rationale": "Platform as a Service añade capas de software (bases de datos, runtime) sobre la infraestructura básica.",
+        "isCorrect": false
+      },
+      {
+        "text": "SaaS",
+        "rationale": "Software as a Service ofrece la aplicación final sin que el cliente gestione ninguna infraestructura.",
+        "isCorrect": false
+      },
+      {
+        "text": "FaaS",
+        "rationale": "Function as a Service se centra en la ejecución de código sin servidores (serverless), un nivel más abstracto que el IaaS.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "A veces se denomina también $HaaS$ (Hardware as a Service)."
+  },
+  {
+    "guid": "85815585-2a16-4eda-bf07-9827651dc3a3",
+    "subjectId": "T58",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Sistema que permite la recolección, almacenamiento y análisis de eventos de seguridad de múltiples fuentes de forma centralizada.",
+    "answerOptions": [
+      {
+        "text": "SIEM",
+        "rationale": "Security Information and Event Management es la herramienta clave para la monitorización de seguridad en entornos híbridos.",
+        "isCorrect": true
+      },
+      {
+        "text": "DLP",
+        "rationale": "Data Loss Prevention se encarga de evitar la fuga de información sensible, no de la gestión de eventos de logs generales.",
+        "isCorrect": false
+      },
+      {
+        "text": "IDS",
+        "rationale": "Intrusion Detection System detecta intentos de acceso no autorizados, pero no centraliza todos los eventos del sistema.",
+        "isCorrect": false
+      },
+      {
+        "text": "CASB",
+        "rationale": "Cloud Access Security Broker actúa como intermediario de seguridad entre usuarios y aplicaciones cloud, pero no es un SIEM.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Es fundamental para cumplir con la dimensión de trazabilidad del $ENS$."
+  },
+  {
+    "guid": "2e424766-5d16-4fff-8105-02ee60c8d629",
+    "subjectId": "T58",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Protocolo estándar utilizado para la federación de identidades y habilitar el $Single$ $Sign-On$ ($SSO$) en aplicaciones web.",
+    "answerOptions": [
+      {
+        "text": "SAML",
+        "rationale": "Security Assertion Markup Language es el estándar basado en $XML$ más usado para intercambiar datos de autenticación.",
+        "isCorrect": true
+      },
+      {
+        "text": "IPsec",
+        "rationale": "Es un conjunto de protocolos para asegurar las comunicaciones de red mediante cifrado, no para gestión de identidades.",
+        "isCorrect": false
+      },
+      {
+        "text": "SNMP",
+        "rationale": "Protocolo simple de gestión de red utilizado para monitorizar dispositivos, no para autenticación de usuarios.",
+        "isCorrect": false
+      },
+      {
+        "text": "MQTT",
+        "rationale": "Protocolo de mensajería ligero para $IoT$, sin relación con la federación de identidades corporativas.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Utiliza aserciones $XML$ para comunicar la identidad entre un proveedor de identidad y un proveedor de servicios."
+  },
+  {
+    "guid": "f0bae230-6eb2-421e-b37d-54d8e8d01066",
+    "subjectId": "T58",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Norma internacional que proporciona directrices y controles específicos de seguridad para los servicios de computación en la nube.",
+    "answerOptions": [
+      {
+        "text": "ISO/IEC 27017",
+        "rationale": "Complementa a la $ISO$ $27001$ con controles específicos orientados a la seguridad en el cloud.",
+        "isCorrect": true
+      },
+      {
+        "text": "ISO/IEC 27001",
+        "rationale": "Es la norma general para los Sistemas de Gestión de Seguridad de la Información ($SGSI$), no específica de nube.",
+        "isCorrect": false
+      },
+      {
+        "text": "ISO/IEC 27033",
+        "rationale": "Es la norma dedicada a la seguridad en redes de comunicaciones.",
+        "isCorrect": false
+      },
+      {
+        "text": "ISO/IEC 20000",
+        "rationale": "Es el estándar para la Gestión de Servicios de TI ($ITSM$), no enfocado específicamente en seguridad cloud.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "A menudo se cita junto a la $27018$ (privacidad) como pilares de la seguridad en la nube."
+  },
+  {
+    "guid": "609ff4ab-1145-4dba-a149-471341ed9d4b",
+    "subjectId": "T58",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Tecnología de conexión dedicada y privada entre el centro de datos local y la nube de $Amazon$ $Web$ $Services$ ($AWS$).",
+    "answerOptions": [
+      {
+        "text": "Direct Connect",
+        "rationale": "Es el servicio de AWS que permite establecer una conexión de red dedicada desde las instalaciones del cliente.",
+        "isCorrect": true
+      },
+      {
+        "text": "ExpressRoute",
+        "rationale": "Es el servicio equivalente a Direct Connect pero para la nube de Microsoft Azure.",
+        "isCorrect": false
+      },
+      {
+        "text": "VPN IPsec",
+        "rationale": "Es una conexión segura sobre internet público, no un enlace dedicado y privado físicamente.",
+        "isCorrect": false
+      },
+      {
+        "text": "Cloud WAN",
+        "rationale": "Es un servicio de red global gestionada, no necesariamente un enlace dedicado punto a punto.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "El material cita este servicio y su equivalente de Azure como ejemplos de conectividad segura."
+  },
+  {
+    "guid": "f7dfcc44-a3ce-4cf4-af41-19cd4a7fbc16",
+    "subjectId": "T58",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Marco de referencia que define una matriz de controles específicos para evaluar la seguridad de los proveedores de servicios cloud.",
+    "answerOptions": [
+      {
+        "text": "CSA CCM",
+        "rationale": "La Cloud Controls Matrix de la Cloud Security Alliance es el estándar para auditar la seguridad en la nube.",
+        "isCorrect": true
+      },
+      {
+        "text": "NIST 800-53",
+        "rationale": "Es un catálogo de controles de seguridad para sistemas federales de EE.UU., no exclusivo de la Cloud Security Alliance.",
+        "isCorrect": false
+      },
+      {
+        "text": "OWASP",
+        "rationale": "Se centra en la seguridad de aplicaciones web, no es una matriz de controles para proveedores de servicios cloud.",
+        "isCorrect": false
+      },
+      {
+        "text": "ITIL",
+        "rationale": "Es un marco de buenas prácticas para la gestión de servicios de TI, no un estándar de seguridad cloud.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Sus siglas corresponden a Cloud Security Alliance y Cloud Controls Matrix."
+  },
+  {
+    "guid": "fc34930e-6af4-46ac-b849-8df27b0f8f00",
+    "subjectId": "T58",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Indique cuál de las siguientes afirmaciones sobre el modelo de Infraestructura como Servicio ($IaaS$) es FALSA:",
+    "answerOptions": [
+      {
+        "text": "El proveedor del servicio es el responsable de aplicar los parches de seguridad en el sistema operativo instalado por el cliente.",
+        "rationale": "En $IaaS$, la gestión y el parcheado del sistema operativo son responsabilidad exclusiva del cliente, no del proveedor.",
+        "isCorrect": true
+      },
+      {
+        "text": "Permite al cliente escalar de forma automática la capacidad de cómputo en función de la demanda real del servicio.",
+        "rationale": "Esta es una afirmación verdadera; la escalabilidad automática es una de las ventajas fundamentales de la infraestructura cloud.",
+        "isCorrect": false
+      },
+      {
+        "text": "El cliente tiene control total sobre la configuración de las redes virtuales y las reglas del firewall del sistema.",
+        "rationale": "Esta es una afirmación verdadera; el modelo $IaaS$ otorga al cliente el control lógico de la red y su seguridad perimetral virtual.",
+        "isCorrect": false
+      },
+      {
+        "text": "Incluye la virtualización de recursos de hardware como la $CPU$, la memoria $RAM$ y los sistemas de almacenamiento.",
+        "rationale": "Esta es una afirmación verdadera; el $IaaS$ se basa precisamente en ofrecer estos recursos físicos de forma virtualizada.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Recuerde el límite de la responsabilidad compartida: donde termina el hardware virtual y empieza el software."
+  },
+  {
+    "guid": "ed104455-e361-41b3-a752-4d8d93c19df0",
+    "subjectId": "T58",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Respecto a la seguridad en entornos híbridos y el $ENS$, identifique la opción FALSA:",
+    "answerOptions": [
+      {
+        "text": "La certificación del proveedor en el nivel ENS Alto exime a la administración de realizar auditorías sobre su propia configuración local.",
+        "rationale": "Es falso; aunque el proveedor esté certificado, la administración debe auditar su propia infraestructura local y la integración con la nube.",
+        "isCorrect": true
+      },
+      {
+        "text": "Es obligatorio gestionar los riesgos y aplicar medidas proporcionales a la clasificación del sistema (Básico, Medio o Alto).",
+        "rationale": "Esta afirmación es verdadera y constituye el núcleo de la metodología de cumplimiento del Esquema Nacional de Seguridad.",
+        "isCorrect": false
+      },
+      {
+        "text": "Las comunicaciones entre el entorno local y el cloud deben estar cifradas para cumplir con los requisitos de confidencialidad.",
+        "rationale": "Esta afirmación es verdadera; el $RD$ $311/2022$ exige proteger la información en tránsito entre diferentes entornos.",
+        "isCorrect": false
+      },
+      {
+        "text": "El responsable del sistema debe garantizar que los logs de acceso se conservan durante el tiempo mínimo exigido por la normativa.",
+        "rationale": "Esta afirmación es verdadera; la trazabilidad es una dimensión obligatoria del $ENS$ que requiere la retención de registros de actividad.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Ninguna certificación externa sustituye la responsabilidad de la administración sobre sus propios componentes."
+  },
+  {
+    "guid": "51b38930-4e5d-4c7e-b48a-c7d1444652c8",
+    "subjectId": "T58",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Sobre las características de la computación híbrida, señale la opción que NO es técnicamente correcta:",
+    "answerOptions": [
+      {
+        "text": "La nube híbrida requiere que el $100\\%$ de los datos maestros residan siempre en la infraestructura del proveedor público para garantizar la interoperabilidad.",
+        "rationale": "Es falso; de hecho, en muchos modelos híbridos de AAPP, los datos maestros (padrón, tributos) se mantienen localmente por seguridad o soberanía.",
+        "isCorrect": true
+      },
+      {
+        "text": "La portabilidad de aplicaciones permite mover componentes de software entre entornos locales y cloud sin reescribir todo el código.",
+        "rationale": "Esta afirmación es verdadera; es una de las ventajas de usar estándares como contenedores en arquitecturas híbridas.",
+        "isCorrect": false
+      },
+      {
+        "text": "La gestión unificada permite monitorizar la salud de los sistemas locales y en la nube desde un panel de control centralizado.",
+        "rationale": "Esta afirmación es verdadera; herramientas como Azure Arc o Grafana permiten esta visión holística de la infraestructura mixta.",
+        "isCorrect": false
+      },
+      {
+        "text": "La coexistencia de servicios implica que algunos procesos críticos operen en local mientras otros secundarios lo hacen en la nube.",
+        "rationale": "Esta afirmación es verdadera; define el modelo de despliegue donde se decide la ubicación según el riesgo o la necesidad técnica.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en la ubicación más lógica para los datos sensibles de la ciudadanía."
+  },
+  {
+    "guid": "683ba165-e4a6-46c4-a57e-ed814ada3e90",
+    "subjectId": "T58",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Identifique la afirmación FALSA en relación con el modelo de Software como Servicio ($SaaS$):",
+    "answerOptions": [
+      {
+        "text": "El cliente es el responsable exclusivo de aplicar las actualizaciones de seguridad y parches funcionales en el código de la aplicación.",
+        "rationale": "Es falso; en $SaaS$, el proveedor se encarga de todo el mantenimiento del software, incluyendo parches y actualizaciones de versión.",
+        "isCorrect": true
+      },
+      {
+        "text": "El acceso a la aplicación se realiza habitualmente a través de un navegador web sin necesidad de instalar software en el equipo local.",
+        "rationale": "Esta es una afirmación verdadera; el modelo $SaaS$ se basa en la entrega de software a través de internet y protocolos web estándar.",
+        "isCorrect": false
+      },
+      {
+        "text": "El modelo de pago suele ser por suscripción, transformando los costes de capital ($CapEx$) en costes operativos ($OpEx$).",
+        "rationale": "Esta es una afirmación verdadera; se paga por el uso o por número de usuarios, eliminando la inversión inicial en licencias perpetuas.",
+        "isCorrect": false
+      },
+      {
+        "text": "El cliente mantiene la responsabilidad sobre la gestión de los usuarios y los permisos de acceso a la información dentro de la aplicación.",
+        "rationale": "Esta es una afirmación verdadera; aunque el software sea gestionado por el proveedor, quién accede a qué datos sigue siendo decisión del cliente.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "En $SaaS$, el cliente es un mero 'usuario' de una aplicación que ya funciona."
+  },
+  {
+    "guid": "aa069e0f-3a60-40cc-abe4-cbe34da82287",
+    "subjectId": "T58",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Sobre la conectividad segura en modelos híbridos, señale cuál de las siguientes opciones es FALSA:",
+    "answerOptions": [
+      {
+        "text": "Las conexiones mediante $VPN$ $IPsec$ garantizan una latencia cero y un ancho de banda superior al de los enlaces dedicados físicos.",
+        "rationale": "Es falso; las VPN sobre internet público suelen tener mayor latencia y menor estabilidad que los enlaces dedicados como ExpressRoute.",
+        "isCorrect": true
+      },
+      {
+        "text": "El uso de redes privadas virtuales permite cifrar el tráfico de datos que circula a través de la infraestructura de internet público.",
+        "rationale": "Esta es una afirmación verdadera; el cifrado es la función principal de la VPN para asegurar la confidencialidad en el transporte.",
+        "isCorrect": false
+      },
+      {
+        "text": "Los enlaces dedicados ofrecen una conexión más predecible y segura al no compartir el medio físico con el tráfico general de internet.",
+        "rationale": "Esta es una afirmación verdadera; servicios como Direct Connect proporcionan una ruta privada hacia el proveedor de nube.",
+        "isCorrect": false
+      },
+      {
+        "text": "La arquitectura de red debe ser redundante para evitar que el fallo de una única línea de comunicación deje al sistema híbrido inoperativo.",
+        "rationale": "Esta es una afirmación verdadera; la disponibilidad del sistema híbrido depende críticamente de la resiliencia de su conectividad.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Compare el rendimiento de una conexión sobre internet con una línea de fibra dedicada exclusivamente."
+  },
+  {
+    "guid": "0346f6e9-4c50-48f3-907b-287191a87b5c",
+    "subjectId": "T58",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "En relación con el 'Núvol Sobirà' y el modelo $IaaS$ privado de Barcelona, indique la opción FALSA:",
+    "answerOptions": [
+      {
+        "text": "El Ayuntamiento cede la propiedad legal de los servidores físicos a T-Systems como parte del acuerdo de gestión externa.",
+        "rationale": "Es falso; el material especifica que el Ayuntamiento mantiene la propiedad de los servidores, aunque sean operados por un tercero.",
+        "isCorrect": true
+      },
+      {
+        "text": "La infraestructura se ubica físicamente en centros de datos locales situados en Cataluña (Sant Boi y Cerdanyola).",
+        "rationale": "Esta afirmación es verdadera; la proximidad física es un requisito clave para el control y cumplimiento del modelo soberano.",
+        "isCorrect": false
+      },
+      {
+        "text": "Permite el despliegue de máquinas virtuales y servicios de backup bajo un modelo de gestión y evolución controlada públicamente.",
+        "rationale": "Esta afirmación es verdadera; el modelo ofrece las ventajas del cloud pero con gobernanza pública directa sobre los activos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Se utiliza preferentemente para entornos de desarrollo, preproducción y servicios internos compartidos.",
+        "rationale": "Esta afirmación es verdadera; son los casos de uso típicos definidos para esta infraestructura privada soberana.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "La soberanía técnica suele implicar que el hardware sigue siendo 'tuyo'."
+  },
+  {
+    "guid": "64601a32-c8d9-45bd-9f16-b438323ef54a",
+    "subjectId": "T58",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Sobre el modelo de responsabilidad compartida en $PaaS$, señale la afirmación FALSA:",
+    "answerOptions": [
+      {
+        "text": "El proveedor de servicios es el responsable de garantizar que el código fuente de la aplicación desarrollada por el cliente no tenga vulnerabilidades.",
+        "rationale": "Es falso; el proveedor protege la plataforma ($SO, Middleware$), pero la seguridad intrínseca de la aplicación que sube el cliente es responsabilidad de este último.",
+        "isCorrect": true
+      },
+      {
+        "text": "El cliente es el responsable de configurar correctamente los permisos de acceso de los usuarios a las bases de datos de la plataforma.",
+        "rationale": "Esta es una afirmación verdadera; la gestión de accesos y el gobierno de los datos recaen en el cliente.",
+        "isCorrect": false
+      },
+      {
+        "text": "El proveedor gestiona la actualización y el mantenimiento del sistema operativo subyacente y de las herramientas de desarrollo.",
+        "rationale": "Esta es una afirmación verdadera; es la esencia del $PaaS$: liberar al cliente de la administración del sistema operativo.",
+        "isCorrect": false
+      },
+      {
+        "text": "La seguridad física de la infraestructura donde corre la plataforma es responsabilidad íntegra del proveedor cloud.",
+        "rationale": "Esta es una afirmación verdadera; en todos los modelos cloud, el cliente se desentiende de la seguridad física del CPD.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "El proveedor te da la 'plataforma' segura, pero tú debes escribir 'software' seguro."
+  },
+  {
+    "guid": "486e8747-f26c-4cfb-8893-5b848514931d",
+    "subjectId": "T58",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Identifique la opción FALSA respecto a la integración de datos y el $ENI$:",
+    "answerOptions": [
+      {
+        "text": "La normativa obliga a utilizar exclusivamente bases de datos relacionales con licencias propietarias para asegurar la integridad de los datos.",
+        "rationale": "Es falso; el $ENI$ promueve el uso de estándares abiertos y no impone un modelo de base de datos ni licencias propietarias específicas.",
+        "isCorrect": true
+      },
+      {
+        "text": "Se deben utilizar diccionarios de datos comunes para facilitar que la información sea entendida por diferentes administraciones.",
+        "rationale": "Esta es una afirmación verdadera; la interoperabilidad semántica es un pilar del Esquema Nacional de Interoperabilidad.",
+        "isCorrect": false
+      },
+      {
+        "text": "El intercambio de documentos electrónicos debe realizarse preferentemente a través de la Red SARA u otros medios seguros equivalentes.",
+        "rationale": "Esta es una afirmación verdadera; se busca el uso de redes de comunicaciones protegidas dentro del ámbito de la administración.",
+        "isCorrect": false
+      },
+      {
+        "text": "La interoperabilidad técnica incluye la definición de interfaces de aplicación ($APIs$) que sigan estándares públicos y accesibles.",
+        "rationale": "Esta es una afirmación verdadera; las $APIs$ abiertas son fundamentales para la conexión de sistemas heterogéneos en el modelo híbrido.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "El $ENI$ lucha contra las barreras técnicas y el software que no se 'entiende' con otros."
+  },
+  {
+    "guid": "9968c8eb-50e2-4404-9bb9-3a05c287acba",
+    "subjectId": "T58",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Sobre la portabilidad y el uso de contenedores en la nube híbrida, indique qué afirmación es FALSA:",
+    "answerOptions": [
+      {
+        "text": "Un contenedor incluye su propio núcleo ($kernel$) del sistema operativo, lo que le permite ser totalmente independiente del host donde se ejecuta.",
+        "rationale": "Es falso; los contenedores comparten el núcleo del sistema operativo anfitrión, a diferencia de las máquinas virtuales que incluyen el suyo propio.",
+        "isCorrect": true
+      },
+      {
+        "text": "Los contenedores facilitan el movimiento de cargas de trabajo entre el centro de datos local y la nube pública sin cambios significativos.",
+        "rationale": "Esta es una afirmación verdadera; la portabilidad es la mayor ventaja competitiva de la tecnología de contenedores.",
+        "isCorrect": false
+      },
+      {
+        "text": "Herramientas como $Kubernetes$ permiten orquestar y gestionar el ciclo de vida de miles de contenedores de forma automatizada.",
+        "rationale": "Esta es una afirmación verdadera; $Kubernetes$ es el estándar para el despliegue y escalado de aplicaciones basadas en contenedores.",
+        "isCorrect": false
+      },
+      {
+        "text": "La contenerización ayuda a reducir el conflicto de dependencias entre diferentes aplicaciones que comparten un mismo servidor físico.",
+        "rationale": "Esta es una afirmación verdadera; cada contenedor tiene sus propias librerías aisladas, evitando el 'infierno de las dependencias'.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en la diferencia fundamental de arquitectura entre una Máquina Virtual y un Contenedor."
+  },
+  {
+    "guid": "03f1ff7e-3a6d-4f5f-948b-dc5a9b25181c",
+    "subjectId": "T58",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Identifique la opción FALSA en relación con el modelo de Función como Servicio ($FaaS$) o 'serverless':",
+    "answerOptions": [
+      {
+        "text": "En el modelo $FaaS$, el cliente debe reservar y pagar por una cantidad fija de memoria $RAM$ y $CPU$ aunque no se esté ejecutando ningún código.",
+        "rationale": "Es falso; en serverless solo se paga por el tiempo de ejecución real del código (milisegundos) y no por recursos reservados en reposo.",
+        "isCorrect": true
+      },
+      {
+        "text": "Permite desplegar pequeños módulos o funcionalidades de una aplicación que se ejecutan solo cuando ocurre un evento específico.",
+        "rationale": "Esta es una afirmación verdadera; las funciones se activan por disparadores ($triggers$) como una petición HTTP o la subida de un archivo.",
+        "isCorrect": false
+      },
+      {
+        "text": "Libera completamente al desarrollador de la gestión, parcheado o actualización de los servidores donde corre el código.",
+        "rationale": "Esta es una afirmación verdadera; la infraestructura es totalmente transparente para el usuario en el modelo $FaaS$.",
+        "isCorrect": false
+      },
+      {
+        "text": "Es un modelo ideal para construir microservicios que requieren una alta escalabilidad y un consumo de recursos muy dinámico.",
+        "rationale": "Esta es una afirmación verdadera; su capacidad de escalar de cero a miles de instancias instantáneamente lo hace perfecto para estas arquitecturas.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "La clave del 'serverless' es la eficiencia económica y la abstracción total del servidor."
   }
 ]
