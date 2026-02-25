@@ -1,0 +1,622 @@
+[
+  {
+    "guid": "d9099e03-d0bf-41e1-81e1-32bae139512d",
+    "subjectId": "T59",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Cuál es la arquitectura que define un centro de datos donde la computación, la red y el almacenamiento están completamente virtualizados y se entregan como un servicio automatizado?",
+    "answerOptions": [
+      {
+        "text": "SDDC",
+        "rationale": "Esta arquitectura representa la evolución hacia la abstracción total del hardware mediante capas de software para la gestión de recursos.",
+        "isCorrect": true
+      },
+      {
+        "text": "HCI",
+        "rationale": "Aunque integra recursos, se refiere específicamente a la arquitectura física de nodos que combinan computación y almacenamiento.",
+        "isCorrect": false
+      },
+      {
+        "text": "IaaS",
+        "rationale": "Es el modelo de servicio resultante, pero no la arquitectura de infraestructura subyacente que permite dicha entrega.",
+        "isCorrect": false
+      },
+      {
+        "text": "PaaS",
+        "rationale": "Se centra en la plataforma para desarrollo de aplicaciones, abstrayendo el sistema operativo y no solo la infraestructura física.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considere el concepto que engloba la virtualización de todos los pilares del CPD."
+  },
+  {
+    "guid": "57e5a66b-5cdf-43dd-a23d-b13811e1ead8",
+    "subjectId": "T59",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "En el contexto de la virtualización de servidores, ¿qué característica define específicamente a un hipervisor de $Tipos\\ 1$?",
+    "answerOptions": [
+      {
+        "text": "Se ejecuta directamente sobre el hardware físico sin necesidad de un sistema operativo anfitrión previo.",
+        "rationale": "Los hipervisores 'bare-metal' actúan como la capa base de control del hardware, maximizando la eficiencia de los recursos.",
+        "isCorrect": true
+      },
+      {
+        "text": "Requiere un sistema operativo host como Windows o Linux para gestionar los controladores de los dispositivos físicos.",
+        "rationale": "Esta es la descripción de un hipervisor de tipo 2 o 'hosted', que presenta mayor sobrecarga de rendimiento.",
+        "isCorrect": false
+      },
+      {
+        "text": "Permite que el sistema operativo invitado colabore activamente con el hipervisor mediante instrucciones modificadas.",
+        "rationale": "Esto describe la técnica de paravirtualización, que es independiente de si el hipervisor es de tipo 1 o tipo 2.",
+        "isCorrect": false
+      },
+      {
+        "text": "Utiliza exclusivamente el anillo $0$ de la CPU para la ejecución de todas las instrucciones del sistema invitado.",
+        "rationale": "La virtualización eficiente suele requerir anillos específicos o soporte de hardware para el aislamiento del kernel.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en la relación directa entre el software de control y el silicio."
+  },
+  {
+    "guid": "c3ad0b31-9f84-4099-ab1c-711b16d0f57d",
+    "subjectId": "T59",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Dentro del modelo SDN, ¿cuál es la función primordial del Plano de Control?",
+    "answerOptions": [
+      {
+        "text": "Determinar la lógica de circulación del tráfico y centralizar las decisiones de encaminamiento mediante software.",
+        "rationale": "El plano de control actúa como el cerebro del sistema, separando la inteligencia de la capacidad de conmutación física.",
+        "isCorrect": true
+      },
+      {
+        "text": "Transferir los paquetes de datos entre interfaces físicas siguiendo las tablas de reenvío configuradas previamente.",
+        "rationale": "Esta función corresponde al Plano de Datos o de Infraestructura, donde ocurre el movimiento real de los bits.",
+        "isCorrect": false
+      },
+      {
+        "text": "Exponer interfaces programables hacia las aplicaciones de negocio para definir políticas de calidad de servicio.",
+        "rationale": "Esta es la función de las Northbound APIs, que comunican la capa de aplicación con el controlador.",
+        "isCorrect": false
+      },
+      {
+        "text": "Virtualizar funciones de red específicas como firewalls o balanceadores de carga mediante software en servidores estándar.",
+        "rationale": "Esto define el concepto de NFV (Network Functions Virtualization), no el plano de control del SDN.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Identifique dónde reside la 'inteligencia' de la red según la arquitectura SDN."
+  },
+  {
+    "guid": "05cd0d02-6cc6-4bb0-b7c0-7d189421d1c1",
+    "subjectId": "T59",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Al implementar una estrategia de almacenamiento definido por software (SDS), ¿cuál es el beneficio directo del Thin Provisioning?",
+    "answerOptions": [
+      {
+        "text": "Optimizar el uso real de los recursos permitiendo asignar lógicamente más espacio del que existe físicamente.",
+        "rationale": "Esta técnica permite el sobre-aprovisionamiento lógico, consumiendo espacio físico solo cuando se escriben datos reales.",
+        "isCorrect": true
+      },
+      {
+        "text": "Garantizar que el espacio asignado a una máquina virtual esté reservado físicamente de forma íntegra desde su creación.",
+        "rationale": "Esto se conoce como 'Thick Provisioning', lo cual evita la fragmentación pero infrautiliza el almacenamiento.",
+        "isCorrect": false
+      },
+      {
+        "text": "Realizar copias de seguridad instantáneas del estado de los metadatos para permitir reversiones rápidas del sistema.",
+        "rationale": "Esta funcionalidad se describe como 'Snapshots', no como una técnica de aprovisionamiento de capacidad.",
+        "isCorrect": false
+      },
+      {
+        "text": "Separar físicamente los discos de estado sólido de los discos mecánicos en cabinas independientes para mejorar el IOPS.",
+        "rationale": "El SDS busca abstraer el hardware, no necesariamente dictar una separación física de tecnologías de disco.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en la diferencia entre el espacio prometido a una VM y el espacio ocupado en el disco duro."
+  },
+  {
+    "guid": "d68efd5d-09f3-4ba5-bc98-37225460b278",
+    "subjectId": "T59",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "En el despliegue de infraestructuras modernas, ¿qué metodología permite la gestión de recursos mediante archivos de configuración en lugar de intervenciones manuales?",
+    "answerOptions": [
+      {
+        "text": "IaC",
+        "rationale": "La Infraestructura como Código utiliza lenguajes como YAML o JSON para automatizar el despliegue de forma consistente y auditable.",
+        "isCorrect": true
+      },
+      {
+        "text": "HCI",
+        "rationale": "Es una arquitectura física de convergencia, no una metodología de gestión basada en desarrollo de software.",
+        "isCorrect": false
+      },
+      {
+        "text": "VDI",
+        "rationale": "Se refiere a la entrega de escritorios virtuales a usuarios finales, no a la gestión automatizada de la infraestructura.",
+        "isCorrect": false
+      },
+      {
+        "text": "Todas las anteriores son correctas.",
+        "rationale": "Aunque son conceptos de SDDC, solo uno se refiere específicamente a la automatización mediante archivos de código.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Busque las siglas relacionadas con el tratamiento de la infraestructura como si fuera software."
+  },
+  {
+    "guid": "4c55ea1d-a92b-454d-873e-b2571c799415",
+    "subjectId": "T59",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Desde el punto de vista de la gestión y orquestación en un SDDC, ¿qué proceso asegura que los recursos se desplieguen sin intervención manual constante?",
+    "answerOptions": [
+      {
+        "text": "Automatización mediante flujos de trabajo programados y políticas predefinidas.",
+        "rationale": "La orquestación coordina múltiples tareas automatizadas para cumplir con un flujo operativo completo de extremo a extremo.",
+        "isCorrect": true
+      },
+      {
+        "text": "Monitorización predictiva basada en algoritmos de aprendizaje automático para la detección de errores.",
+        "rationale": "Esto se refiere a la gestión inteligente y observabilidad, no al despliegue operativo de recursos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Consolidación de servidores físicos para aumentar el ratio de utilización de las CPU y memorias.",
+        "rationale": "La consolidación es un objetivo de eficiencia de la virtualización, no el proceso de despliegue automatizado.",
+        "isCorrect": false
+      },
+      {
+        "text": "Migración en vivo de cargas de trabajo entre nodos físicos para equilibrar la temperatura del CPD.",
+        "rationale": "Esta es una funcionalidad de disponibilidad (vMotion), no el núcleo de la orquestación de servicios.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Enfoque su respuesta en la capacidad de auto-gestión del centro de datos."
+  },
+  {
+    "guid": "62e5ecb7-987a-485f-b533-9bbb5367cafd",
+    "subjectId": "T59",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Para cumplir con el principio de seguridad Zero Trust en un entorno SDN, ¿qué tecnología es fundamental para aislar el tráfico entre máquinas virtuales en el mismo segmento de red?",
+    "answerOptions": [
+      {
+        "text": "Microsegmentación",
+        "rationale": "Permite aplicar reglas de firewall granulares a nivel de interfaz de red virtual, independientemente de la topología física.",
+        "isCorrect": true
+      },
+      {
+        "text": "VLAN",
+        "rationale": "Aunque segmentan redes, no permiten el nivel de granularidad necesario para políticas individuales por cada VM dentro de un mismo segmento.",
+        "isCorrect": false
+      },
+      {
+        "text": "VPN",
+        "rationale": "Se orienta a la conectividad segura sobre redes públicas, no al control de tráfico interno (este-oeste) del centro de datos.",
+        "isCorrect": false
+      },
+      {
+        "text": "NAT",
+        "rationale": "Es una técnica de traducción de direcciones para conservar IPs o enmascarar redes, no una herramienta de aislamiento de seguridad interna.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considere la técnica que permite aplicar políticas de seguridad 'a medida' para cada flujo de datos."
+  },
+  {
+    "guid": "1c441512-5e15-42e3-8ac8-dd31edf066e3",
+    "subjectId": "T59",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "En el contexto de la virtualización de almacenamiento, ¿qué plataforma de código abierto permite gestionar Object Storage, Block Storage y File Systems de forma distribuida?",
+    "answerOptions": [
+      {
+        "text": "Ceph",
+        "rationale": "Es una de las soluciones SDS más versátiles y utilizadas en entornos de nube abierta como OpenStack.",
+        "isCorrect": true
+      },
+      {
+        "text": "vSAN",
+        "rationale": "Es una solución propietaria de VMware integrada en el kernel de ESXi, no es de código abierto.",
+        "isCorrect": false
+      },
+      {
+        "text": "iSCSI",
+        "rationale": "No es una plataforma, sino un protocolo de red para el transporte de comandos SCSI sobre redes TCP/IP.",
+        "isCorrect": false
+      },
+      {
+        "text": "NFS",
+        "rationale": "Es un protocolo para compartir sistemas de archivos en red, no una plataforma de almacenamiento distribuido completo.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Nombre un software emblemático para el almacenamiento distribuido y escalable."
+  },
+  {
+    "guid": "486be44e-e223-4790-af39-ed2a13cba85b",
+    "subjectId": "T59",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Al analizar la arquitectura de un hipervisor de $Tipos\\ 3$ (Híbrido), ¿cuál es su particularidad técnica principal?",
+    "answerOptions": [
+      {
+        "text": "Tanto el sistema operativo anfitrión como el hipervisor interactúan directamente con el hardware físico.",
+        "rationale": "Esta arquitectura combina características de los Tipos 1 y 2 para optimizar el acceso a recursos específicos.",
+        "isCorrect": true
+      },
+      {
+        "text": "El hipervisor se encapsula dentro de una máquina virtual maestra que gestiona el resto de nodos de computación.",
+        "rationale": "Esto describiría una estructura de gestión jerárquica o virtualización anidada, no un hipervisor híbrido.",
+        "isCorrect": false
+      },
+      {
+        "text": "No existe separación lógica entre el kernel del invitado y el kernel del anfitrión, compartiendo el mismo espacio de usuario.",
+        "rationale": "Esta es la base del funcionamiento de los contenedores (aislamiento de procesos), no de la virtualización de hardware.",
+        "isCorrect": false
+      },
+      {
+        "text": "Ninguna de las anteriores es correcta.",
+        "rationale": "La definición de hipervisor híbrido está contemplada en las clasificaciones técnicas de virtualización de servidores.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considere una solución que no es ni puramente bare-metal ni puramente alojada."
+  },
+  {
+    "guid": "3cd56913-0412-41f2-b68f-ef7a905e309e",
+    "subjectId": "T59",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Qué tecnología de virtualización de red permite la creación de funciones de red mediante software que tradicionalmente requerirían hardware dedicado?",
+    "answerOptions": [
+      {
+        "text": "NFV",
+        "rationale": "La virtualización de funciones de red traslada capacidades como routing o balanceo a entornos virtualizados sobre hardware comercial.",
+        "isCorrect": true
+      },
+      {
+        "text": "SDN",
+        "rationale": "SDN se centra en la separación del control y los datos, mientras que NFV se centra en la función del servicio.",
+        "isCorrect": false
+      },
+      {
+        "text": "HCI",
+        "rationale": "Se refiere a la convergencia de cómputo y almacenamiento en un solo nodo, no específicamente a funciones de red.",
+        "isCorrect": false
+      },
+      {
+        "text": "SDC",
+        "rationale": "Es la sigla para la virtualización de la capacidad de cálculo o procesamiento (Software Defined Compute).",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Diferencie entre quién decide por dónde va el tráfico y qué se hace con ese tráfico."
+  },
+  {
+    "guid": "99c5b411-963f-4175-b0e4-6c036487fe1d",
+    "subjectId": "T59",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "En la implementación de SDN, ¿cuál es la función de las 'Southbound APIs'?",
+    "answerOptions": [
+      {
+        "text": "Comunicar el Controlador SDN con los dispositivos de infraestructura física o virtual para enviar reglas de flujo.",
+        "rationale": "Estas APIs permiten al controlador programar el comportamiento de los switches y routers del plano de datos.",
+        "isCorrect": true
+      },
+      {
+        "text": "Facilitar la integración entre el panel de control del usuario y las aplicaciones de orquestación de la nube.",
+        "rationale": "Esa función de comunicación 'hacia arriba' corresponde a las Northbound APIs.",
+        "isCorrect": false
+      },
+      {
+        "text": "Gestionar la replicación de datos entre diferentes nodos de almacenamiento para garantizar la resiliencia.",
+        "rationale": "La gestión de almacenamiento no forma parte del modelo de capas estándar de SDN.",
+        "isCorrect": false
+      },
+      {
+        "text": "Establecer la conexión segura entre el CPD local y los proveedores de nube pública mediante túneles cifrados.",
+        "rationale": "Esta es una función de conectividad híbrida o VPN, no una API interna del modelo SDN.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en la comunicación descendente hacia el hardware."
+  },
+  {
+    "guid": "a319c68c-23bc-44a2-a6ef-9f01778d052f",
+    "subjectId": "T59",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "La técnica de 'Paravirtualización' requiere una condición específica que no es necesaria en la 'Virtualización Nativa'. ¿Cuál es?",
+    "answerOptions": [
+      {
+        "text": "La modificación del Sistema Operativo invitado para que colabore activamente con el hipervisor.",
+        "rationale": "Al conocer que está virtualizado, el SO invitado evita instrucciones costosas y utiliza llamadas directas (hypercalls) más eficientes.",
+        "isCorrect": true
+      },
+      {
+        "text": "El uso exclusivo de procesadores que no posean extensiones de virtualización por hardware como Intel VT-x.",
+        "rationale": "La paravirtualización puede convivir con soporte de hardware, pero su esencia es la modificación del software invitado.",
+        "isCorrect": false
+      },
+      {
+        "text": "La instalación de un sistema operativo anfitrión antes de cargar el software de control de las máquinas virtuales.",
+        "rationale": "Esto define la virtualización alojada (Tipo 2), no una técnica de traducción de instrucciones específica.",
+        "isCorrect": false
+      },
+      {
+        "text": "El aislamiento total del kernel del invitado respecto a cualquier instrucción del hardware subyacente.",
+        "rationale": "En la paravirtualización hay colaboración, no un aislamiento ciego donde el invitado ignora su estado virtual.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considere qué componente debe ser 'consciente' de que no está sobre hardware real."
+  },
+  {
+    "guid": "c5a98ebc-2f76-4ee1-8e12-d20dbdee9383",
+    "subjectId": "T59",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Cuál de los siguientes es un objetivo primordial de la consolidación de recursos mediante virtualización?",
+    "answerOptions": [
+      {
+        "text": "Reducir el número de servidores físicos aumentando la tasa de utilización de CPU y RAM.",
+        "rationale": "La consolidación permite aprovechar la capacidad ociosa de los servidores físicos tradicionales mediante la ejecución de múltiples VMs.",
+        "isCorrect": true
+      },
+      {
+        "text": "Aumentar el CAPEX mediante la adquisición de hardware específico para cada aplicación crítica.",
+        "rationale": "La virtualización busca precisamente lo contrario: reducir la inversión inicial en hardware propietario y costoso.",
+        "isCorrect": false
+      },
+      {
+        "text": "Eliminar la necesidad de realizar copias de seguridad externas al CPD principal.",
+        "rationale": "La virtualización facilita el DR, pero en ningún caso elimina la necesidad de backups y almacenamiento externo.",
+        "isCorrect": false
+      },
+      {
+        "text": "Garantizar que cada servidor físico ejecute únicamente un sistema operativo para maximizar la seguridad.",
+        "rationale": "Este era el modelo tradicional '1 server - 1 app' que la virtualización viene a transformar para mejorar la eficiencia.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en el ahorro de espacio y energía en el centro de datos."
+  },
+  {
+    "guid": "006a55c2-2fcd-4d28-bf7b-2976e8e716c3",
+    "subjectId": "T59",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Señale la afirmación FALSA respecto a la tecnología VDI (Virtual Desktop Infrastructure):",
+    "answerOptions": [
+      {
+        "text": "La VDI es un componente básico e imprescindible para definir cualquier arquitectura SDDC.",
+        "rationale": "El material indica que la VDI no es un componente básico, sino una aplicación directa o un tipo concreto de VM.",
+        "isCorrect": true
+      },
+      {
+        "text": "En una solución VDI, el entorno de escritorio del usuario se ejecuta de forma centralizada en el centro de datos.",
+        "rationale": "Esta afirmación es verdadera; el procesamiento se realiza en el servidor y solo se envía la imagen al cliente.",
+        "isCorrect": false
+      },
+      {
+        "text": "Permite la gestión centralizada de las imágenes de sistema operativo y aplicaciones para los usuarios finales.",
+        "rationale": "Esta es una de las grandes ventajas operativas de la VDI, simplificando el mantenimiento de los puestos de trabajo.",
+        "isCorrect": false
+      },
+      {
+        "text": "Una sesión de VDI es, técnicamente, un tipo concreto de máquina virtual orientada al entorno de usuario.",
+        "rationale": "Es correcto; utiliza la misma tecnología de hipervisor para aislar y entregar el escritorio.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Diferencie entre la base tecnológica de un SDDC y los servicios que se pueden montar sobre ella."
+  },
+  {
+    "guid": "3a26e855-781a-42c0-bb42-8e1e519fef4e",
+    "subjectId": "T59",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Qué protocolo permite que los servidores accedan a dispositivos de almacenamiento remotos a nivel de bloque como si fueran discos locales a través de una red IP?",
+    "answerOptions": [
+      {
+        "text": "iSCSI",
+        "rationale": "Es el estándar para transportar comandos SCSI sobre TCP/IP, permitiendo la creación de SANs sobre redes Ethernet estándar.",
+        "isCorrect": true
+      },
+      {
+        "text": "NFS",
+        "rationale": "NFS opera a nivel de archivo (NAS), no a nivel de bloque, permitiendo compartir carpetas en lugar de discos crudos.",
+        "isCorrect": false
+      },
+      {
+        "text": "SMB",
+        "rationale": "Es un protocolo de red para compartir archivos e impresoras, común en entornos Windows, operando a nivel de sistema de ficheros.",
+        "isCorrect": false
+      },
+      {
+        "text": "vMotion",
+        "rationale": "No es un protocolo de almacenamiento, sino una tecnología de migración en vivo de máquinas virtuales.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Busque las siglas de 'Internet Small Computer System Interface'."
+  },
+  {
+    "guid": "5ae84434-a142-448d-91f5-c62ea01352ed",
+    "subjectId": "T59",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "En un entorno de alta disponibilidad, ¿qué tecnología permite trasladar una máquina virtual encendida de un servidor físico a otro sin interrupción del servicio?",
+    "answerOptions": [
+      {
+        "text": "Live Migration",
+        "rationale": "También conocida comercialmente como vMotion, permite mover el estado de la memoria y el procesamiento entre hosts sin caída.",
+        "isCorrect": true
+      },
+      {
+        "text": "Thin Provisioning",
+        "rationale": "Se refiere a la optimización de almacenamiento, no al movimiento de cargas de trabajo activas.",
+        "isCorrect": false
+      },
+      {
+        "text": "Replicación",
+        "rationale": "La replicación copia datos de forma periódica para recuperación ante desastres, pero no implica movimiento del proceso en vivo.",
+        "isCorrect": false
+      },
+      {
+        "text": "Snapshots",
+        "rationale": "Capturan el estado de la VM en un momento dado para pruebas, pero no facilitan el traslado entre servidores físicos.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Recuerde el término genérico para la migración 'en caliente'."
+  },
+  {
+    "guid": "a5b9a8c1-08fd-4170-943a-5a4bbbe57ac6",
+    "subjectId": "T59",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Cuál es la principal ventaja de utilizar contenedores frente a máquinas virtuales en un SDDC?",
+    "answerOptions": [
+      {
+        "text": "Son más ligeros y portables al no incluir un sistema operativo completo por cada instancia.",
+        "rationale": "Los contenedores comparten el kernel del host, lo que reduce drásticamente el consumo de recursos y el tiempo de arranque.",
+        "isCorrect": true
+      },
+      {
+        "text": "Ofrecen un aislamiento de seguridad superior al incluir un hipervisor de tipo 1 dedicado.",
+        "rationale": "Las VMs ofrecen mayor aislamiento gracias al hipervisor; los contenedores tienen un aislamiento a nivel de proceso de SO.",
+        "isCorrect": false
+      },
+      {
+        "text": "Permiten ejecutar aplicaciones legacy de sistemas operativos diferentes al del anfitrión con total compatibilidad.",
+        "rationale": "Las VMs son mejores para SO legacy; los contenedores suelen requerir que la aplicación sea compatible con el kernel del host.",
+        "isCorrect": false
+      },
+      {
+        "text": "Todas las anteriores son correctas.",
+        "rationale": "Solo la ligereza y portabilidad son ventajas intrínsecas del modelo de contenedores sobre la virtualización completa.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en la eficiencia del empaquetado y el uso del kernel."
+  },
+  {
+    "guid": "a5addb3c-f016-42e1-9c6c-4ca92a2520ae",
+    "subjectId": "T59",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Identifique la afirmación FALSA en relación con el almacenamiento definido por software (SDS):",
+    "answerOptions": [
+      {
+        "text": "El SDS obliga a utilizar cabinas de almacenamiento de un fabricante específico para poder gestionar la capa de control.",
+        "rationale": "Al contrario, el SDS busca la independencia del hardware, permitiendo usar discos estándar y servidores genéricos (commodity hardware).",
+        "isCorrect": true
+      },
+      {
+        "text": "La capa de control del SDS es la encargada de gestionar las políticas, la replicación y la inteligencia del sistema.",
+        "rationale": "Esta es la definición correcta del plano de gestión del almacenamiento definido por software.",
+        "isCorrect": false
+      },
+      {
+        "text": "Permite escalar el almacenamiento de manera horizontal añadiendo nuevos nodos al pool dinámico de recursos.",
+        "rationale": "La escalabilidad horizontal es una característica clave que diferencia al SDS de las cabinas tradicionales de escalado vertical.",
+        "isCorrect": false
+      },
+      {
+        "text": "La clonación permite crear una copia exacta y puntual de un disco virtual en un momento determinado.",
+        "rationale": "Es una función estándar y verdadera dentro de la gestión de volúmenes en infraestructuras virtualizadas.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Cuestione la necesidad de depender de marcas de hardware cerradas."
+  },
+  {
+    "guid": "db8fde0f-2709-4dd2-ab81-c2d970c4dbb4",
+    "subjectId": "T59",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Dentro de la arquitectura SDDC, ¿qué componente es considerado el 'Cerebro' que aplica políticas y coordina el despliegue de recursos?",
+    "answerOptions": [
+      {
+        "text": "Capa de gestión y orquestación",
+        "rationale": "Es la capa superior que une SDC, SDS y SDN para ofrecer una visión unificada y automatizada del centro de datos.",
+        "isCorrect": true
+      },
+      {
+        "text": "Hipervisor de tipo 1",
+        "rationale": "El hipervisor gestiona el hardware local de un servidor, pero no coordina la totalidad de la red o el almacenamiento del SDDC.",
+        "isCorrect": false
+      },
+      {
+        "text": "Data Plane",
+        "rationale": "El plano de datos es puramente ejecutor, es donde se mueve el tráfico, no donde reside la lógica de orquestación.",
+        "isCorrect": false
+      },
+      {
+        "text": "VM Image",
+        "rationale": "Es simplemente una plantilla o fotografía digital de un sistema, no una capa de lógica o gestión activa.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en la capa que se sitúa por encima de la virtualización individual de recursos."
+  },
+  {
+    "guid": "208dbe39-2190-468d-808e-09b871109563",
+    "subjectId": "T59",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Señale la afirmación FALSA sobre la virtualización completa o nativa:",
+    "answerOptions": [
+      {
+        "text": "El sistema operativo invitado es plenamente consciente de que se ejecuta sobre un hipervisor y colabora con él.",
+        "rationale": "Esa descripción corresponde a la paravirtualización; en la virtualización completa, el SO invitado cree que está en hardware real.",
+        "isCorrect": true
+      },
+      {
+        "text": "Requiere un hipervisor robusto capaz de realizar la traducción de instrucciones de hardware en tiempo real.",
+        "rationale": "Es una afirmación verdadera; el hipervisor debe mediar todas las peticiones críticas del invitado hacia el hardware.",
+        "isCorrect": false
+      },
+      {
+        "text": "Permite un máximo aislamiento y compatibilidad con una gran variedad de sistemas operativos sin modificarlos.",
+        "rationale": "Es correcto; al no requerir cambios en el kernel del invitado, es la opción más versátil para sistemas diversos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Puede presentar una mayor sobrecarga (overhead) que la paravirtualización debido a la traducción constante de instrucciones.",
+        "rationale": "Es cierto; la mediación constante del hipervisor consume ciclos de CPU adicionales comparado con el modelo colaborativo.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Recuerde el grado de 'consciencia' del sistema operativo invitado en cada técnica."
+  }
+]
