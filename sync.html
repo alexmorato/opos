@@ -471,6 +471,13 @@
     <button class="btn-menu-historial" id="menuHistorialBtn">
       📋 Historial
     </button>
+    <hr class="menu-separator">
+    <button class="btn-menu-tornar" id="menuGuardarSesionBtn">
+      💾 Guardar sessió en fitxer
+    </button>
+    <button class="btn-menu-historial" id="menuCargarSesionBtn">
+      📂 Carregar fitxer sessió
+    </button>
   </div>
 
   <!-- Modal Firebase Site ID -->
@@ -598,6 +605,8 @@
     const fullscreenBtn = document.getElementById('fullscreenBtn');
     const menuIndexBtn = document.getElementById('menuIndexBtn');
     const menuHistorialBtn = document.getElementById('menuHistorialBtn');
+    const menuGuardarSesionBtn = document.getElementById('menuGuardarSesionBtn');
+    const menuCargarSesionBtn = document.getElementById('menuCargarSesionBtn');
 
     // Toggle menú
     menuBtn.addEventListener('click', () => {
@@ -649,6 +658,88 @@
     menuHistorialBtn.addEventListener('click', () => {
       window.location.href = 'historialErrors.html';
     });
+
+    // Botón guardar sesión en fichero
+    menuGuardarSesionBtn.addEventListener('click', () => {
+      menuPanel.classList.remove('visible');
+      guardarSesionEnFichero();
+    });
+
+    // Botón cargar fichero sesión
+    menuCargarSesionBtn.addEventListener('click', () => {
+      menuPanel.classList.remove('visible');
+      cargarSesionDesdeFichero();
+    });
+
+    // Guardar sesión en fichero JSON
+    function guardarSesionEnFichero() {
+      // Guardar toda la sesión local (fallos, contestades, interacciones)
+      const sesionParaGuardar = {
+        historialFallos: window.sesionLocal.historialFallos,
+        historialContestades: window.sesionLocal.historialContestades,
+        interaccionesApi: window.sesionLocal.interaccionesApi
+      };
+      const jsonStr = JSON.stringify(sesionParaGuardar, null, 2);
+      const blob = new Blob([jsonStr], { type: 'application/json' });
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      const timestamp = new Date().toISOString().replace(/[:.]/g, '-').slice(0, -5);
+      const username = window.username || 'usuari';
+      a.download = `sessio-${username}-${timestamp}.json`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(a.href);
+      if (window.toast && typeof window.toast.showToast === 'function') {
+        toast.showToast('Sessió guardada en fitxer JSON!');
+      }
+    }
+
+    // Cargar sesión desde fichero JSON
+    function cargarSesionDesdeFichero() {
+      // Mostrar alerta de sobrescribir
+      const confirmacion = confirm('⚠️ Això sobrescriurà la sessió actual del navegador. Vols continuar?');
+      if (!confirmacion) return;
+      // Crear input file
+      const input = document.createElement('input');
+      input.type = 'file';
+      input.accept = 'application/json';
+      input.style.display = 'none';
+      input.onchange = function(event) {
+        const file = event.target.files[0];
+        if (!file) return;
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          try {
+            const data = JSON.parse(e.target.result);
+            if (!data || typeof data !== 'object') throw new Error('El fitxer no conté una sessió vàlida.');
+            // Validar estructura mínima
+            if (!Array.isArray(data.historialFallos) || typeof data.historialContestades !== 'object' || typeof data.interaccionesApi !== 'object') {
+              throw new Error('El fitxer no conté una sessió vàlida.');
+            }
+            // Sobrescribir localStorage
+            localStorage.setItem(LS_KEYS.HISTORIAL_FALLOS, JSON.stringify(data.historialFallos));
+            localStorage.setItem(LS_KEYS.HISTORIAL_CONTESTADES, JSON.stringify(data.historialContestades));
+            localStorage.setItem(LS_KEYS.INTERACCIONES_API, JSON.stringify(data.interaccionesApi));
+            // Actualizar variables globales
+            window.sesionLocal.historialFallos = data.historialFallos;
+            window.sesionLocal.historialContestades = data.historialContestades;
+            window.sesionLocal.interaccionesApi = data.interaccionesApi;
+            window.mostrarResumenLocal();
+            if (window.toast && typeof window.toast.showToast === 'function') {
+              toast.showToast('Sessió carregada i sobrescrita!');
+            }
+          } catch (err) {
+            console.error('Error al carregar sessió:', err);
+            alert('Error: El fitxer no conté una sessió vàlida.');
+          }
+        };
+        reader.readAsText(file);
+      };
+      document.body.appendChild(input);
+      input.click();
+      document.body.removeChild(input);
+    }
   </script>
 
   <script type="module">
@@ -665,17 +756,17 @@
     window.firebaseUploadBytes = uploadBytes;
     window.firebaseGetDownloadURL = getDownloadURL;
     
-    let sesionLocal = {
+    window.sesionLocal = {
       historialFallos: [],
       historialContestades: {},
       interaccionesApi: {}
     };
-    let sesionServidor = {
+    window.sesionServidor = {
       historialFallos: [],
       historialContestades: {},
       interaccionesApi: {}
     };
-    let sesionMerge = {
+    window.sesionMerge = {
       historialFallos: [],
       historialContestades: {},
       interaccionesApi: {}
@@ -786,23 +877,23 @@
       }
     }
 
-    function mostrarResumenLocal() {
+    window.mostrarResumenLocal = function mostrarResumenLocal() {
       if (typeof showLoadingSpinner === 'function') showLoadingSpinner('Carregant sessió local...');
 
       // Historial Fallos
-      const resumenFallos = calcularResumenFallos(sesionLocal.historialFallos);
+      const resumenFallos = calcularResumenFallos(window.sesionLocal.historialFallos);
       document.getElementById('localFallosPreguntas').textContent = resumenFallos.preguntas;
       document.getElementById('localFallosUltima').textContent = resumenFallos.ultima;
       document.getElementById('localFallosTotal').textContent = resumenFallos.totalErrores;
       document.getElementById('localFallosTemes').textContent = resumenFallos.temasUnicos;
 
       // Historial Contestades
-      const resumenContestades = calcularResumenContestades(sesionLocal.historialContestades);
+      const resumenContestades = calcularResumenContestades(window.sesionLocal.historialContestades);
       document.getElementById('localContestadesPreguntas').textContent = resumenContestades.preguntas;
       document.getElementById('localContestadesTotal').textContent = resumenContestades.totalRespuestas;
 
       // Interacciones API
-      const resumenApi = calcularResumenApi(sesionLocal.interaccionesApi, true);
+      const resumenApi = calcularResumenApi(window.sesionLocal.interaccionesApi, true);
       document.getElementById('localApiData').textContent = resumenApi.fecha;
       document.getElementById('localApiRestantes').textContent = resumenApi.restantes;
 

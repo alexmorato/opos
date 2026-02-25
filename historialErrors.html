@@ -1330,7 +1330,7 @@
       const numSeleccionadas = guidsSeleccionados.length > 0 ? guidsSeleccionados.length : total;
 
       if (numSeleccionadas > 0) {
-        if (confirm(`Segur que vols ⚠️ esborrar ${numSeleccionadas} de ${total} ⚠️ l\'historial de fallos? Aquesta acció no es pot desfer.`)) {
+        if (confirm(`Segur que vols ⚠️ esborrar ${numSeleccionadas} de ${total} ⚠️ l'historial de fallos? Aquesta acció no es pot desfer.`)) {
           if (guidsSeleccionados.length > 0 && guidsSeleccionados.length < total) {
             // Borrar solo las seleccionadas: conservar las que NO están en guidsSeleccionados
             historialFallos = historialFallos.filter(p => !guidsSeleccionados.includes(p.guid));
@@ -1340,10 +1340,11 @@
           }
           guardarHistorial();
           actualizarUI();
-          
           if (window.toast && typeof window.toast.showToast === 'function') {
             toast.showToast(`✅ S'han esborrat ${numSeleccionadas} pregunta${numSeleccionadas > 1 ? 'es' : ''}`);
           }
+          // Recargar la página tras borrar
+          setTimeout(() => { window.location.reload(); }, 600);
         }
       }
     }
