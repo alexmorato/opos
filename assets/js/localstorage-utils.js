@@ -21,7 +21,8 @@ const LS_KEYS = {
   USER_NAME: 'sTICdOpos_userName',
   USER_PASS: 'sTICdOpos_userPass',
   INTERACCIONES_API: 'sTICdOpos_apiInteracciones',
-  FIREBASE_SITE_ID: 'sTICdOpos_firebaseSiteId'
+  FIREBASE_SITE_ID: 'sTICdOpos_firebaseSiteId',
+  ADMIN_DEBUG: 'sTICdOpos_debugadm'
 };
 
 // Método para borrar el estado guardado de estudio

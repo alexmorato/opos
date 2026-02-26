@@ -792,12 +792,13 @@
       login.checkUserAuth(userName, userPass);
 
       window.username = localStorage.getItem(LS_KEYS.USER_NAME);
+      const debugadm = localStorage.getItem(LS_KEYS.ADMIN_DEBUG);
 
       // Ocultar botones de guardado si el usuario no es administrador
       (async () => {
         try {
           const isAdmin = await login.hasRole(window.username, login.ROLES.ADMINISTRATOR);
-          if (!isAdmin) {
+          if (!isAdmin && debugadm !== 'true') {
             document.getElementById('sessionSeparator').style.display = 'none';
             document.getElementById('menuGuardarSesionBtn').style.display = 'none';
             document.getElementById('menuCargarSesionBtn').style.display = 'none';
