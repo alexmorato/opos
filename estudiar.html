@@ -524,8 +524,8 @@
       <div class="historial-buttons">
         <button class="historial-btn" onclick="copiarHistorial()">📋 Copia</button>
         <button class="historial-btn" onclick="baixarHistorial()">💾 Baixa</button>
-        <button class="historial-btn" onclick="guardarDubte()">❓ Guardar dubte</button>
-        <button class="historial-btn remove-btn" onclick="borrarUltimoError()">⬅️ Esborrar últim</button>
+        <button class="historial-btn" onclick="guardarDubte()">❓ Guardar dubte "G"</button>
+        <button class="historial-btn remove-btn" onclick="borrarUltimoError()">⬅️ Esborrar últim "U"</button>
       </div>
       <textarea class="historial-textarea" id="historialFallos" readonly placeholder="Aquí apareixeran les preguntes fallades..."></textarea>
     </div>
@@ -643,11 +643,16 @@
           // Guardar dubte con tecla G
           guardarDubte();
           e.preventDefault();
+        } else if (e.key === 'u' || e.key === 'U') {
+          // Borrar último error con tecla U
+          borrarUltimoError();
+          e.preventDefault();
         } else if (e.key === 'r' || e.key === 'R') {
           // Reportar pregunta con tecla R
           reportarPregunta();
           e.preventDefault();
         } else if ((e.key === 'e' || e.key === 'E')) {
+          // Eliminar acertada del historial con tecla E
           eliminarDelHistorial();
           e.preventDefault();
         } else if (e.key === 'Backspace') {
