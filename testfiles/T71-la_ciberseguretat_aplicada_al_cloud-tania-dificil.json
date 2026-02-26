@@ -1,0 +1,932 @@
+[
+  {
+    "guid": "22eed2b5-016f-499a-ae03-0631fa66301c",
+    "subjectId": "T71",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Cuál es el propósito principal de la computación confidencial (Confidential Computing) en la arquitectura de seguridad en la nube?",
+    "answerOptions": [
+      {
+        "text": "Aislar los datos mediante entornos de ejecución de confianza para protegerlos mientras están siendo procesados.",
+        "rationale": "La computación confidencial utiliza tecnologías como TEE para asegurar que los datos no sean visibles ni siquiera para el proveedor durante su procesamiento.",
+        "isCorrect": true
+      },
+      {
+        "text": "Implementar algoritmos de cifrado asimétrico para asegurar la integridad de los datos durante su transferencia por la red.",
+        "rationale": "Esta función corresponde a la protección de datos en tránsito, no al concepto específico de computación confidencial.",
+        "isCorrect": false
+      },
+      {
+        "text": "Establecer perímetros lógicos de red basados en microsegmentación para evitar el movimiento lateral de atacantes.",
+        "rationale": "La microsegmentación es una técnica de seguridad de red, mientras que la computación confidencial se centra en el hardware de la CPU.",
+        "isCorrect": false
+      },
+      {
+        "text": "Garantizar la disponibilidad de los servicios mediante la replicación automática de claves en módulos HSM geodistribuidos.",
+        "rationale": "La replicación de claves mejora la resiliencia y disponibilidad, pero no define la computación confidencial.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Relaciona este concepto con el estado del dato cuando está activo en la memoria y la CPU."
+  },
+  {
+    "guid": "072182d8-d203-4ac6-bd98-b15c59ae1fc3",
+    "subjectId": "T71",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "En el modelo de responsabilidad compartida para un servicio de plataforma como servicio (PaaS), ¿qué elemento recae bajo la gestión directa del cliente?",
+    "answerOptions": [
+      {
+        "text": "El código fuente y la configuración lógica de las aplicaciones desplegadas.",
+        "rationale": "En PaaS, el proveedor gestiona el runtime y el SO, mientras que el cliente es responsable de su propia aplicación y datos.",
+        "isCorrect": true
+      },
+      {
+        "text": "La actualización y parcheado de seguridad del sistema operativo base.",
+        "rationale": "El parcheado del sistema operativo es responsabilidad del proveedor en PaaS, a diferencia del modelo IaaS.",
+        "isCorrect": false
+      },
+      {
+        "text": "La seguridad física de la infraestructura y el aislamiento del hipervisor.",
+        "rationale": "La infraestructura física y la capa de virtualización son siempre responsabilidad del proveedor de servicios cloud.",
+        "isCorrect": false
+      },
+      {
+        "text": "El mantenimiento y escalabilidad del middleware y los entornos de ejecución.",
+        "rationale": "El proveedor de PaaS se encarga de ofrecer un runtime gestionado y escalable para el cliente.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considera qué componentes del 'stack' tecnológico quedan expuestos para que el desarrollador interactúe con ellos."
+  },
+  {
+    "guid": "b73fb1f6-f386-4407-b6e0-3ed76b05e690",
+    "subjectId": "T71",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Dentro de un enfoque Zero Trust aplicado a entornos cloud, ¿cuál es la premisa fundamental respecto a la confianza en las entidades?",
+    "answerOptions": [
+      {
+        "text": "Validar continuamente la identidad y el contexto antes de conceder acceso a cualquier recurso.",
+        "rationale": "Zero Trust asume que ninguna entidad es fiable por defecto y requiere verificación constante de identidad y permisos.",
+        "isCorrect": true
+      },
+      {
+        "text": "Considerar fiables únicamente a los usuarios que se conecten desde la red interna de la organización.",
+        "rationale": "Este es el modelo tradicional de perímetro, que Zero Trust descarta al no confiar en la ubicación de la red.",
+        "isCorrect": false
+      },
+      {
+        "text": "Delegar la validación de la confianza exclusivamente en los certificados de dispositivo del proveedor cloud.",
+        "rationale": "La confianza no debe basarse en un solo factor; Zero Trust analiza múltiples señales de contexto e identidad.",
+        "isCorrect": false
+      },
+      {
+        "text": "Permitir el acceso irrestricto a los servicios internos una vez superada la autenticación multifactor inicial.",
+        "rationale": "Zero Trust requiere validación continua y aplica el mínimo privilegio, no permite acceso total tras un único login.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piensa en el cambio de paradigma que supone eliminar la distinción entre red interna 'segura' y externa."
+  },
+  {
+    "guid": "31da3226-1097-4a21-bf54-731d88788ba6",
+    "subjectId": "T71",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Bajo las directrices de ENISA 2023, ¿cuál es el vector de ataque principal en incidentes reportados en servicios de Software as a Service (SaaS)?",
+    "answerOptions": [
+      {
+        "text": "El robo de credenciales corporativas mediante técnicas de phishing.",
+        "rationale": "Según ENISA, el 40% de los incidentes en SaaS provienen de phishing sobre cuentas corporativas.",
+        "isCorrect": true
+      },
+      {
+        "text": "La explotación de vulnerabilidades de día cero en el hipervisor del proveedor.",
+        "rationale": "Aunque es un riesgo teórico grave, estadísticamente el phishing es mucho más prevalente en entornos SaaS.",
+        "isCorrect": false
+      },
+      {
+        "text": "La denegación de servicio distribuida dirigida a las capas de red del datacenter.",
+        "rationale": "Los ataques DDoS afectan a la disponibilidad, pero el acceso a datos en SaaS suele ser vía robo de identidad.",
+        "isCorrect": false
+      },
+      {
+        "text": "La manipulación física de los soportes de almacenamiento en el centro de datos.",
+        "rationale": "La seguridad física de los proveedores cloud suele ser extremadamente alta, siendo el vector humano el más débil.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Busca la amenaza que explota directamente la identidad del usuario final."
+  },
+  {
+    "guid": "b8c38d76-8d75-4b81-8512-d987968b294b",
+    "subjectId": "T71",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "En el contexto de la tríada CID, ¿qué impacto específico tendría la pérdida de integridad en un sistema de salud pública alojado en la nube?",
+    "answerOptions": [
+      {
+        "text": "La alteración de los registros clínicos históricos de los ciudadanos, haciéndolos poco fiables.",
+        "rationale": "La integridad se refiere a que los datos no sean modificados de forma no autorizada, afectando a su veracidad.",
+        "isCorrect": true
+      },
+      {
+        "text": "La imposibilidad de acceder a la sede electrónica para solicitar una cita médica.",
+        "rationale": "La inaccessibilidad es un problema de disponibilidad, no necesariamente de integridad de los datos.",
+        "isCorrect": false
+      },
+      {
+        "text": "La filtración de datos fiscales de los pacientes a terceras personas no autorizadas.",
+        "rationale": "La filtración o acceso no autorizado afecta a la confidencialidad de la información.",
+        "isCorrect": false
+      },
+      {
+        "text": "La interrupción del suministro eléctrico del centro de datos que aloja la aplicación.",
+        "rationale": "Este evento causaría una caída del servicio, impactando nuevamente en la disponibilidad.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Céntrate en la exactitud y la consistencia de la información almacenada."
+  },
+  {
+    "guid": "55ce332e-0fbc-4879-a550-ba88a6fbb3ff",
+    "subjectId": "T71",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Qué implica la adopción de una estrategia Bring Your Own Key (BYOK) en la gestión de datos cifrados en la nube?",
+    "answerOptions": [
+      {
+        "text": "Que el cliente genera y gestiona sus propias claves criptográficas para el cifrado de datos.",
+        "rationale": "BYOK permite al cliente mantener el control sobre el ciclo de vida de las claves, aunque el cifrado lo realice el proveedor.",
+        "isCorrect": true
+      },
+      {
+        "text": "Que el proveedor genera las claves y las almacena en un HSM al que el cliente no tiene acceso.",
+        "rationale": "Eso sería cifrado gestionado por el proveedor; BYOK requiere que la clave origen sea del cliente.",
+        "isCorrect": false
+      },
+      {
+        "text": "Que todas las comunicaciones entre cliente y nube deben realizarse sin utilizar protocolos estándar.",
+        "rationale": "BYOK no afecta a los protocolos de transporte, sino a la gestión de las claves de cifrado en reposo.",
+        "isCorrect": false
+      },
+      {
+        "text": "Que el cliente debe cifrar los datos localmente antes de subirlos, sin usar herramientas del proveedor.",
+        "rationale": "Esto se conoce como Client-Side Encryption; BYOK suele integrarse con los servicios nativos de cifrado del cloud.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Se trata de la soberanía del cliente sobre el material criptográfico maestro."
+  },
+  {
+    "guid": "8ab1f7e8-e5f0-4404-bd15-9c5e4a1158dc",
+    "subjectId": "T71",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Cuál es la función principal del esquema de certificación de la Directiva NIS2 en relación con los proveedores de servicios cloud?",
+    "answerOptions": [
+      {
+        "text": "Reforzar la ciberresiliencia de la cadena de suministro en sectores esenciales.",
+        "rationale": "La NIS2 incluye a los proveedores de nube como entidades esenciales y pone foco en la seguridad de la cadena de suministro.",
+        "isCorrect": true
+      },
+      {
+        "text": "Establecer un régimen sancionador exclusivo para empresas tecnológicas fuera de la UE.",
+        "rationale": "La NIS2 aplica a entidades que operan en la UE, independientemente de su origen, y no es exclusivo para el cloud.",
+        "isCorrect": false
+      },
+      {
+        "text": "Definir los algoritmos de hashing que deben usarse obligatoriamente en todas las bases de datos.",
+        "rationale": "La normativa establece marcos de gestión de riesgos y obligaciones, no detalles técnicos de implementación tan específicos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Sustituir íntegramente al Esquema Nacional de Seguridad (ENS) en el ámbito estatal.",
+        "rationale": "La NIS2 es una directiva europea que convive y se traspone en marcos nacionales como el ENS.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considera el alcance de la directiva sobre las infraestructuras que dan soporte a servicios críticos."
+  },
+  {
+    "guid": "79f76e54-ad28-483a-81c6-76183c948cd9",
+    "subjectId": "T71",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "En relación con el proceso de gestión de incidentes en el cloud, seleccione la descripción técnica que define correctamente la fase de detección y análisis.",
+    "answerOptions": [
+      {
+        "text": "Consiste en la utilización de logs centralizados y snapshots de recursos para reconstruir la actividad sospechosa.",
+        "rationale": "En el cloud, la visibilidad depende de la agregación de logs y el análisis de estados mediante snapshots para la investigación forense.",
+        "isCorrect": true
+      },
+      {
+        "text": "Consiste en la definición de planes de respuesta específicos y la realización de simulacros periódicos de seguridad.",
+        "rationale": "Esta descripción corresponde a la fase de preparación, que es anterior a la detección de un incidente real.",
+        "isCorrect": false
+      },
+      {
+        "text": "Consiste en el aislamiento de los recursos comprometidos para evitar la propagación del ataque a otras zonas.",
+        "rationale": "El aislamiento es la actividad central de la fase de contención, cuyo objetivo es limitar el daño del incidente.",
+        "isCorrect": false
+      },
+      {
+        "text": "Consiste en la restauración de los servicios mediante el uso de copias de seguridad en regiones geográficas distintas.",
+        "rationale": "La restauración y vuelta a la normalidad forman parte de la fase de recuperación del servicio.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en las acciones necesarias para confirmar que una anomalía es realmente un incidente de seguridad."
+  },
+  {
+    "guid": "8da41d1d-0c82-4ccd-885d-667a1a1b7c0c",
+    "subjectId": "T71",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Respecto a la metodología DevSecOps en entornos de nube, ¿cómo se debe realizar la integración de los controles de seguridad en el ciclo de vida del software?",
+    "answerOptions": [
+      {
+        "text": "Incorporando comprobaciones de seguridad automatizadas en cada etapa del pipeline de integración y despliegue continuo.",
+        "rationale": "DevSecOps busca integrar la seguridad de forma nativa y automática en el ciclo CI/CD para detectar riesgos tempranamente.",
+        "isCorrect": true
+      },
+      {
+        "text": "Realizando una auditoría técnica completa únicamente cuando el software ha sido desplegado en el entorno de producción.",
+        "rationale": "Esto representa el modelo tradicional de seguridad 'al final', que es contrario a la agilidad y filosofía de DevSecOps.",
+        "isCorrect": false
+      },
+      {
+        "text": "Delegando la responsabilidad de la seguridad exclusivamente en el equipo de operaciones tras la fase de desarrollo.",
+        "rationale": "DevSecOps promueve la responsabilidad compartida entre desarrolladores, seguridad y operaciones durante todo el proceso.",
+        "isCorrect": false
+      },
+      {
+        "text": "Estableciendo revisiones manuales de código por parte de un comité externo antes de cada commit en el repositorio.",
+        "rationale": "Las revisiones manuales externas rompen la automatización necesaria en entornos cloud y no escalan eficientemente.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "La clave está en la automatización y el desplazamiento de la seguridad hacia la izquierda (shift-left)."
+  },
+  {
+    "guid": "9407ed7d-607f-4ffa-9420-644d933d6eb1",
+    "subjectId": "T71",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Cómo debe abordarse la gestión de vulnerabilidades en un modelo IaaS para garantizar una postura de seguridad robusta?",
+    "answerOptions": [
+      {
+        "text": "Implementando un programa de actualización regular de sistemas operativos y aplicaciones bajo la gestión del cliente.",
+        "rationale": "En IaaS, el cliente es responsable de todo lo que corre sobre el hipervisor, incluyendo parches de SO y apps.",
+        "isCorrect": true
+      },
+      {
+        "text": "Implementando un sistema de filtrado de tráfico perimetral gestionado de forma automática por el proveedor cloud.",
+        "rationale": "Aunque el proveedor ofrece firewalls, la gestión de vulnerabilidades internas de la VM sigue siendo tarea del cliente.",
+        "isCorrect": false
+      },
+      {
+        "text": "Asumiendo que el proveedor actualizará automáticamente las librerías del software base al detectar fallos críticos.",
+        "rationale": "En IaaS el proveedor no tiene acceso al interior de las máquinas virtuales del cliente por razones de privacidad y diseño.",
+        "isCorrect": false
+      },
+      {
+        "text": "Externalizando la monitorización de los registros de acceso físico a las instalaciones donde reside el hardware.",
+        "rationale": "La seguridad física es responsabilidad del proveedor y no soluciona las vulnerabilidades de software del cliente.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Recuerde quién tiene el control administrativo sobre el sistema operativo en una infraestructura alquilada."
+  },
+  {
+    "guid": "4baf08bb-d782-4475-bdd1-844ed990393d",
+    "subjectId": "T71",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Al definir una estrategia de monitorización continua en entornos multicloud, ¿cuál es el requisito técnico esencial para obtener visibilidad integral?",
+    "answerOptions": [
+      {
+        "text": "Centralizar y correlacionar los eventos de seguridad de todos los proveedores en una plataforma común de análisis.",
+        "rationale": "La monitorización centralizada permite agregar logs dispersos para detectar amenazas transversales y evitar silos de información.",
+        "isCorrect": true
+      },
+      {
+        "text": "Configurar alertas independientes en cada consola nativa de los proveedores para evitar la duplicidad de registros.",
+        "rationale": "Las alertas aisladas dificultan la correlación de eventos complejos que pueden afectar a múltiples nubes simultáneamente.",
+        "isCorrect": false
+      },
+      {
+        "text": "Establecer túneles de comunicación cifrados entre los centros de datos privados sin supervisar el tráfico interno.",
+        "rationale": "El cifrado es necesario, pero la monitorización requiere inspeccionar o analizar metadatos del tráfico para detectar anomalías.",
+        "isCorrect": false
+      },
+      {
+        "text": "Limitar la recolección de logs únicamente a los servicios que gestionan datos de carácter personal.",
+        "rationale": "Una visibilidad completa requiere monitorizar toda la infraestructura, ya que ataques en servicios 'no sensibles' pueden escalar.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considere la dificultad de gestionar múltiples paneles de control distintos en una infraestructura compleja."
+  },
+  {
+    "guid": "f9e80430-1e69-4b8d-9957-151ae3586e98",
+    "subjectId": "T71",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "En el establecimiento de una línea base (baseline) de seguridad para nubes híbridas, ¿qué metodología asegura la consistencia de las políticas?",
+    "answerOptions": [
+      {
+        "text": "Definir las configuraciones mediante plantillas de Infraestructura como Código que se desplieguen de forma automatizada.",
+        "rationale": "La IaC garantiza que las políticas de seguridad se apliquen de forma idéntica y repetible en cualquier entorno.",
+        "isCorrect": true
+      },
+      {
+        "text": "Definir los controles de seguridad manualmente en cada interfaz de gestión para adaptarse a las particularidades locales.",
+        "rationale": "La gestión manual induce a errores humanos y genera divergencias en las políticas de seguridad entre distintos entornos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Aplicar las normativas de seguridad más estrictas solo en el nodo privado para compensar la debilidad del cloud público.",
+        "rationale": "La seguridad debe ser homogénea; un eslabón débil en cualquier nube compromete la postura global de la organización.",
+        "isCorrect": false
+      },
+      {
+        "text": "Delegar la creación de las políticas de seguridad en los equipos de desarrollo de cada unidad de negocio independiente.",
+        "rationale": "Sin una gobernanza centralizada, las políticas serán inconsistentes y difíciles de auditar por el departamento de seguridad.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en cómo se pueden replicar entornos exactos sin intervención manual."
+  },
+  {
+    "guid": "dd364206-fbc0-4eb9-af97-d2f994f144c7",
+    "subjectId": "T71",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Dentro de la gestión de identidades (IAM), ¿qué práctica técnica minimiza el riesgo de compromiso por privilegios excesivos?",
+    "answerOptions": [
+      {
+        "text": "Asignar permisos basados en roles y grupos siguiendo estrictamente el principio de mínimo privilegio.",
+        "rationale": "El uso de roles y el mínimo privilegio asegura que cada entidad tenga solo los permisos necesarios para su función.",
+        "isCorrect": true
+      },
+      {
+        "text": "Asignar cuentas individuales con permisos de administrador para facilitar las tareas de soporte técnico remoto.",
+        "rationale": "Las cuentas con privilegios excesivos aumentan drásticamente el impacto de un robo de credenciales o error humano.",
+        "isCorrect": false
+      },
+      {
+        "text": "Mantener las claves de acceso a las APIs en archivos de configuración locales para agilizar el desarrollo de software.",
+        "rationale": "Escribir secretos en código o archivos planos es una vulnerabilidad crítica que facilita el robo de identidades de servicio.",
+        "isCorrect": false
+      },
+      {
+        "text": "Utilizar la misma identidad de servicio para todas las aplicaciones de un entorno con el fin de simplificar la trazabilidad.",
+        "rationale": "Compartir identidades impide el aislamiento de recursos y dificulta identificar la causa raíz en caso de incidente.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considere cómo estructurar los permisos para que sean manejables y seguros a la vez."
+  },
+  {
+    "guid": "a0a83ef4-97e1-4c85-aa8e-e3d805c0a9f5",
+    "subjectId": "T71",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Cuál es el procedimiento recomendado para gestionar el ciclo de vida de las claves criptográficas según las buenas prácticas de gobernanza cloud?",
+    "answerOptions": [
+      {
+        "text": "Almacenar las claves en servicios de gestión de claves o HSM y realizar rotaciones periódicas controladas.",
+        "rationale": "El uso de HSM y la rotación de claves limitan el tiempo de exposición si una clave llegara a verse comprometida.",
+        "isCorrect": true
+      },
+      {
+        "text": "Almacenar las claves en el mismo volumen de almacenamiento que los datos cifrados para optimizar el rendimiento.",
+        "rationale": "Guardar la clave junto a los datos es equivalente a dejar la llave en la cerradura, anulando la protección del cifrado.",
+        "isCorrect": false
+      },
+      {
+        "text": "Mantener la misma clave maestra durante toda la vigencia del contrato con el proveedor para asegurar la compatibilidad.",
+        "rationale": "No rotar las claves aumenta el riesgo acumulado y contraviene la mayoría de los estándares internacionales de seguridad.",
+        "isCorrect": false
+      },
+      {
+        "text": "Permitir que cualquier usuario con acceso de lectura a los datos pueda también visualizar las claves de descifrado.",
+        "rationale": "La separación de deberes exige que el acceso a las claves esté mucho más restringido que el acceso a los datos cifrados.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en la necesidad de renovar periódicamente los secretos técnicos."
+  },
+  {
+    "guid": "6d4b4180-74f4-44f4-a59b-1179b87ab464",
+    "subjectId": "T71",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "En el marco de la Directiva NIS2, ¿qué obligación técnica se impone a las entidades respecto a la comunicación de incidentes significativos?",
+    "answerOptions": [
+      {
+        "text": "Notificar el incidente a las autoridades competentes dentro de los plazos establecidos para garantizar la respuesta coordinada.",
+        "rationale": "La NIS2 y el RGPD exigen notificaciones en plazos estrictos (como 72 horas) para gestionar el impacto y proteger a los afectados.",
+        "isCorrect": true
+      },
+      {
+        "text": "Notificar el incidente únicamente si se ha confirmado una exfiltración de datos superior a un terabyte de información.",
+        "rationale": "La obligación de notificar depende de la importancia y el impacto del incidente, no solo del volumen bruto de datos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Mantener el incidente bajo estricta confidencialidad interna para evitar daños reputacionales a la administración pública.",
+        "rationale": "Ocultar incidentes obligatorios de notificación conlleva sanciones legales graves bajo el marco regulatorio actual.",
+        "isCorrect": false
+      },
+      {
+        "text": "Publicar todos los detalles técnicos y logs del incidente en el portal de transparencia antes de realizar la investigación.",
+        "rationale": "La comunicación debe ser controlada y seguir canales oficiales; publicar detalles técnicos prematuramente puede ayudar a otros atacantes.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Se trata de un requerimiento de transparencia hacia los reguladores."
+  },
+  {
+    "guid": "635a0a17-3c4a-4b70-a61f-520e177a8fb4",
+    "subjectId": "T71",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Qué herramienta técnica permite obtener visibilidad sobre el uso de aplicaciones en la nube no autorizadas por el departamento de IT (Shadow IT) y aplicar políticas de DLP?",
+    "answerOptions": [
+      {
+        "text": "CASB",
+        "rationale": "Los Cloud Access Security Brokers actúan como intermediarios para monitorizar el uso del cloud y aplicar políticas de seguridad.",
+        "isCorrect": true
+      },
+      {
+        "text": "NGFW",
+        "rationale": "Aunque inspeccionan tráfico, los CASB están específicamente diseñados para el contexto profundo de aplicaciones SaaS y Shadow IT.",
+        "isCorrect": false
+      },
+      {
+        "text": "EDR",
+        "rationale": "Los EDR se centran en la actividad del dispositivo final (endpoint), no específicamente en el uso de aplicaciones externas en la nube.",
+        "isCorrect": false
+      },
+      {
+        "text": "WAF",
+        "rationale": "El WAF protege las aplicaciones propias de ataques web, pero no controla el uso que los empleados hacen de apps de terceros.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Esta herramienta funciona como un 'broker' entre el usuario y los servicios cloud externos."
+  },
+  {
+    "guid": "3c3c0aba-eda7-409b-a55e-28ca044e315b",
+    "subjectId": "T71",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Qué tecnología se encarga de escanear de forma continua la configuración de los recursos cloud para detectar errores de despliegue y asegurar el cumplimiento de normativas?",
+    "answerOptions": [
+      {
+        "text": "CSPM",
+        "rationale": "Cloud Security Posture Management automatiza la detección de configuraciones erróneas y el cumplimiento de benchmarks como CIS.",
+        "isCorrect": true
+      },
+      {
+        "text": "CWPP",
+        "rationale": "CWPP se centra en la protección de la carga de trabajo (workload) interna, mientras que CSPM analiza la configuración de la plataforma.",
+        "isCorrect": false
+      },
+      {
+        "text": "SIEM",
+        "rationale": "El SIEM centraliza logs para detección de amenazas, pero no está especializado en auditar configuraciones de recursos cloud de forma nativa.",
+        "isCorrect": false
+      },
+      {
+        "text": "IDS",
+        "rationale": "Los sistemas de detección de intrusiones analizan el tráfico o actividad sospechosa, no la postura de configuración de los servicios.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Sus siglas significan gestión de la postura de seguridad en la nube."
+  },
+  {
+    "guid": "141b5f76-0c6b-4a90-9beb-da472cdbd1de",
+    "subjectId": "T71",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Qué solución técnica se despliega específicamente para filtrar ataques de aplicación, como la inyección SQL o el Cross-Site Scripting (XSS), en servicios web alojados en el cloud?",
+    "answerOptions": [
+      {
+        "text": "WAF",
+        "rationale": "El Web Application Firewall está diseñado para inspeccionar el tráfico HTTP/S y bloquear ataques dirigidos a la lógica de la aplicación.",
+        "isCorrect": true
+      },
+      {
+        "text": "SASE",
+        "rationale": "SASE es un marco arquitectónico completo de red y seguridad, no una herramienta específica para ataques de capa 7.",
+        "isCorrect": false
+      },
+      {
+        "text": "HSM",
+        "rationale": "El Hardware Security Module es un dispositivo físico o virtual para la gestión de claves criptográficas, no para filtrar tráfico web.",
+        "isCorrect": false
+      },
+      {
+        "text": "IAM",
+        "rationale": "IAM gestiona identidades y accesos, pero no tiene capacidad de inspección de contenido para bloquear ataques de inyección.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Se ubica en la capa de aplicación del modelo OSI."
+  },
+  {
+    "guid": "778d145a-7fd0-4c41-ae39-ad3789b0d57b",
+    "subjectId": "T71",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Qué plataforma permite orquestar y automatizar la respuesta ante incidentes de seguridad, ejecutando acciones de mitigación de forma rápida ante alertas repetitivas?",
+    "answerOptions": [
+      {
+        "text": "SOAR",
+        "rationale": "SOAR combina orquestación y respuesta automatizada para agilizar la labor de los centros de operaciones de seguridad (SOC).",
+        "isCorrect": true
+      },
+      {
+        "text": "SIEM",
+        "rationale": "El SIEM detecta las alertas, pero es el SOAR el que ejecuta las acciones automatizadas de respuesta sobre otras herramientas.",
+        "isCorrect": false
+      },
+      {
+        "text": "ZTNA",
+        "rationale": "Zero Trust Network Access es un método de acceso seguro, no una plataforma de orquestación de respuesta a incidentes.",
+        "isCorrect": false
+      },
+      {
+        "text": "BYOK",
+        "rationale": "BYOK es un modelo de gestión de claves, no una herramienta de automatización operativa de seguridad.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Sus siglas incluyen las palabras 'Orchestration', 'Automation' y 'Response'."
+  },
+  {
+    "guid": "cc671697-8454-4b8f-b8e0-52c5baa5d7f0",
+    "subjectId": "T71",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Qué tecnología proporciona protección específica para cargas de trabajo, incluyendo máquinas virtuales, contenedores y funciones serverless, detectando malware y vulnerabilidades internas?",
+    "answerOptions": [
+      {
+        "text": "CWPP",
+        "rationale": "Cloud Workload Protection Platforms están diseñadas para proteger la integridad de los procesos y datos dentro de cualquier tipo de workload.",
+        "isCorrect": true
+      },
+      {
+        "text": "CASB",
+        "rationale": "Los CASB protegen el acceso a aplicaciones SaaS, no el contenido o ejecución de los workloads propios del cliente.",
+        "isCorrect": false
+      },
+      {
+        "text": "SD-WAN",
+        "rationale": "SD-WAN es una tecnología de conectividad de red, no un sistema de protección de cargas de trabajo de computación.",
+        "isCorrect": false
+      },
+      {
+        "text": "VPN",
+        "rationale": "Una VPN asegura el canal de comunicación, pero no protege el servidor o contenedor contra ataques internos o malware.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Se enfoca en la protección del 'Workload' o carga de trabajo."
+  },
+  {
+    "guid": "469fbe51-4681-4eed-9616-7514629a7cac",
+    "subjectId": "T71",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Qué modelo arquitectónico unifica funciones de red y de seguridad (como SWG, CASB y ZTNA) en un único servicio distribuido globalmente desde la nube?",
+    "answerOptions": [
+      {
+        "text": "SASE",
+        "rationale": "Secure Access Service Edge integra capacidades de red y seguridad para dar soporte a las necesidades de acceso dinámico y seguro.",
+        "isCorrect": true
+      },
+      {
+        "text": "IaaS",
+        "rationale": "IaaS es un modelo de servicio cloud (infraestructura), no una arquitectura de convergencia de seguridad y red.",
+        "isCorrect": false
+      },
+      {
+        "text": "TLS",
+        "rationale": "TLS es un protocolo de cifrado para comunicaciones, no una plataforma integral de servicios de seguridad.",
+        "isCorrect": false
+      },
+      {
+        "text": "IPSec",
+        "rationale": "IPSec es un conjunto de protocolos para establecer túneles seguros en la capa de red, una pieza que podría formar parte de SASE.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Es la convergencia de la WAN con funciones de seguridad cloud."
+  },
+  {
+    "guid": "0fb9f576-0bd1-4d46-84ea-4a7ff588d38a",
+    "subjectId": "T71",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "¿Qué herramienta es esencial para centralizar y correlacionar grandes volúmenes de logs procedentes de diversos entornos cloud con el fin de detectar indicadores de compromiso?",
+    "answerOptions": [
+      {
+        "text": "SIEM",
+        "rationale": "El Security Information and Event Management es la pieza central para la visibilidad y detección basada en el análisis de registros.",
+        "isCorrect": true
+      },
+      {
+        "text": "EDR",
+        "rationale": "El EDR analiza eventos a nivel de sistema operativo en el endpoint, pero no correlaciona toda la infraestructura cloud.",
+        "isCorrect": false
+      },
+      {
+        "text": "VPC",
+        "rationale": "Virtual Private Cloud es una red aislada en la nube, no una herramienta de análisis de seguridad.",
+        "isCorrect": false
+      },
+      {
+        "text": "DLP",
+        "rationale": "Data Loss Prevention se encarga de evitar la fuga de datos sensibles, no de la correlación general de eventos de seguridad.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Se encarga de la gestión de información y eventos de seguridad."
+  },
+  {
+    "guid": "f4cc061f-2829-49a2-8e83-97d22d6814c5",
+    "subjectId": "T71",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Señale la afirmación FALSA respecto a las responsabilidades del cliente en un modelo de Infraestructura como Servicio (IaaS).",
+    "answerOptions": [
+      {
+        "text": "El cliente es responsable del mantenimiento físico de los servidores y del hardware de red.",
+        "rationale": "Esta afirmación es falsa porque el mantenimiento del hardware y las instalaciones físicas es responsabilidad exclusiva del proveedor cloud.",
+        "isCorrect": true
+      },
+      {
+        "text": "El cliente debe gestionar el parcheado y las actualizaciones de seguridad del sistema operativo invitado.",
+        "rationale": "Esta afirmación es verdadera; el cliente tiene control total sobre el SO y debe asegurar su mantenimiento.",
+        "isCorrect": false
+      },
+      {
+        "text": "La configuración de los firewalls virtuales y de las listas de control de acceso a la red recae sobre el cliente.",
+        "rationale": "Esta afirmación es verdadera; el cliente define las reglas de tráfico permitidas para sus instancias.",
+        "isCorrect": false
+      },
+      {
+        "text": "La gestión de las identidades y los permisos de acceso a los recursos cloud es responsabilidad del cliente.",
+        "rationale": "Esta afirmación es verdadera; el cliente configura quién puede interactuar con sus activos mediante el servicio de IAM.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en qué parte de la infraestructura 'desaparece' de la vista del cliente al contratar la nube."
+  },
+  {
+    "guid": "67c7828a-76fe-4a97-abe7-d277f178c77c",
+    "subjectId": "T71",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Identifique la opción FALSA en relación con los componentes típicos de una arquitectura SASE (Secure Access Service Edge).",
+    "answerOptions": [
+      {
+        "text": "Incluye obligatoriamente la gestión de la refrigeración y el suministro eléctrico de los datacenters locales.",
+        "rationale": "Esta afirmación es falsa porque SASE es un modelo de servicios en la nube; la infraestructura física local no forma parte del marco SASE.",
+        "isCorrect": true
+      },
+      {
+        "text": "Integra capacidades de Cloud Access Security Broker (CASB) para el control de aplicaciones SaaS.",
+        "rationale": "Esta afirmación es verdadera; CASB es uno de los pilares fundamentales que convergen en la arquitectura SASE.",
+        "isCorrect": false
+      },
+      {
+        "text": "Proporciona acceso a la red basado en principios de confianza cero mediante ZTNA.",
+        "rationale": "Esta afirmación es verdadera; el acceso remoto seguro mediante Zero Trust es un componente clave de SASE.",
+        "isCorrect": false
+      },
+      {
+        "text": "Utiliza tecnologías SD-WAN para optimizar y asegurar la conectividad entre las sedes y el cloud.",
+        "rationale": "Esta afirmación es verdadera; la parte de red de SASE se apoya habitualmente en soluciones SD-WAN.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "SASE se centra en servicios lógicos de seguridad y red entregados desde la nube."
+  },
+  {
+    "guid": "2e16b3cc-676e-4de8-b575-70a23207fef3",
+    "subjectId": "T71",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Señale la opción FALSA respecto a las medidas de protección de la confidencialidad de los datos en entornos cloud.",
+    "answerOptions": [
+      {
+        "text": "El cifrado de datos en tránsito es suficiente para garantizar la privacidad ante una filtración de un disco físico.",
+        "rationale": "Esta afirmación es falsa porque el cifrado en tránsito solo protege los datos mientras viajan; se requiere cifrado 'at rest' para proteger datos en discos.",
+        "isCorrect": true
+      },
+      {
+        "text": "La autenticación multifactor (MFA) ayuda a prevenir el acceso indebido por robo de credenciales.",
+        "rationale": "Esta afirmación es verdadera; MFA añade una capa crítica de seguridad más allá de la contraseña.",
+        "isCorrect": false
+      },
+      {
+        "text": "El uso de Hardware Security Modules (HSM) permite un almacenamiento seguro de las claves de cifrado.",
+        "rationale": "Esta afirmación es verdadera; los HSM proporcionan un entorno físico seguro para operaciones criptográficas.",
+        "isCorrect": false
+      },
+      {
+        "text": "Los servicios de CASB permiten monitorizar y cifrar información sensible que se sube a nubes públicas.",
+        "rationale": "Esta afirmación es verdadera; los CASB ofrecen capacidades de DLP y cifrado para asegurar la confidencialidad en el SaaS.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Distinga entre la protección de la información en movimiento y la información almacenada."
+  },
+  {
+    "guid": "a2e94295-1ba7-4853-ab77-541ed769ffff",
+    "subjectId": "T71",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Identifique la afirmación FALSA sobre el impacto de las amenazas de disponibilidad en el sector público.",
+    "answerOptions": [
+      {
+        "text": "Un ataque de denegación de servicio (DDoS) compromete la veracidad y exactitud de los censos de población.",
+        "rationale": "Esta afirmación es falsa porque un DDoS afecta a la accesibilidad (disponibilidad), mientras que la veracidad de los datos es un problema de integridad.",
+        "isCorrect": true
+      },
+      {
+        "text": "La caída de un proveedor cloud puede provocar la inaccessibilidad de la sede electrónica de un ayuntamiento.",
+        "rationale": "Esta afirmación es verdadera; la dependencia del proveedor hace que sus interrupciones afecten directamente al servicio al ciudadano.",
+        "isCorrect": false
+      },
+      {
+        "text": "El ransomware puede bloquear el acceso a sistemas críticos de registro, impidiendo la realización de trámites.",
+        "rationale": "Esta afirmación es verdadera; al cifrar los sistemas, el ransomware impide que el servicio esté disponible para su uso.",
+        "isCorrect": false
+      },
+      {
+        "text": "La falta de arquitecturas redundantes multi-región aumenta el riesgo de interrupción prolongada de servicios públicos.",
+        "rationale": "Esta afirmación es verdadera; la redundancia geográfica es una medida clave para garantizar la alta disponibilidad.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Recuerde la distinción entre que un servicio 'no funcione' y que los datos 'estén mal'."
+  },
+  {
+    "guid": "4e93e4f1-6d0d-4034-a35d-183e3334b95d",
+    "subjectId": "T71",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Señale la opción FALSA respecto a la fase de preparación en la respuesta a incidentes en la nube.",
+    "answerOptions": [
+      {
+        "text": "Incluye el aislamiento inmediato de las máquinas virtuales afectadas tras la detección de una anomalía.",
+        "rationale": "Esta afirmación es falsa porque el aislamiento es una acción de la fase de contención, no de la fase de preparación.",
+        "isCorrect": true
+      },
+      {
+        "text": "Requiere la formación específica del equipo de respuesta en las herramientas de logging del proveedor.",
+        "rationale": "Esta afirmación es verdadera; la capacitación previa es un pilar fundamental de la fase de preparación.",
+        "isCorrect": false
+      },
+      {
+        "text": "Implica la creación de playbooks detallados según el tipo de amenaza (phishing, ransomware, etc.).",
+        "rationale": "Esta afirmación es verdadera; disponer de guías de actuación predefinidas es parte de estar preparado.",
+        "isCorrect": false
+      },
+      {
+        "text": "Consiste en configurar previamente las herramientas de monitorización y realizar simulacros de incidentes.",
+        "rationale": "Esta afirmación es verdadera; la preparación se basa en tener listos los medios técnicos y humanos antes de que ocurra el ataque.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "La preparación ocurre antes de que se detecte cualquier evento sospechoso."
+  },
+  {
+    "guid": "2846ac05-28b8-481d-a49c-be8926e22e45",
+    "subjectId": "T71",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Identifique la afirmación FALSA sobre el marco normativo y estándares de seguridad cloud.",
+    "answerOptions": [
+      {
+        "text": "La norma ISO/IEC 27001 es un estándar técnico que regula exclusivamente el cifrado de datos en tránsito.",
+        "rationale": "Esta afirmación es falsa porque ISO 27001 es un marco de gestión de seguridad de la información (SGSI) global, no limitado a una técnica específica.",
+        "isCorrect": true
+      },
+      {
+        "text": "El RGPD obliga a formalizar un contrato de encargo de tratamiento con el proveedor de servicios cloud.",
+        "rationale": "Esta afirmación es verdadera; es un requisito legal para asegurar que el proveedor cumple con la protección de datos.",
+        "isCorrect": false
+      },
+      {
+        "text": "La ISO/IEC 27018 proporciona guías específicas para la protección de datos personales en nubes públicas.",
+        "rationale": "Esta afirmación es verdadera; es el estándar de referencia para la privacidad en el contexto de proveedores cloud.",
+        "isCorrect": false
+      },
+      {
+        "text": "El Esquema Nacional de Seguridad (ENS) define requisitos mínimos de seguridad para la administración pública española.",
+        "rationale": "Esta afirmación es verdadera; el ENS es de obligado cumplimiento para los sistemas de las AAPP en España.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en la naturaleza generalista de los sistemas de gestión de seguridad."
+  },
+  {
+    "guid": "2eeb95e7-307e-4bb3-972e-fa5aab8c4c55",
+    "subjectId": "T71",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Señale la afirmación FALSA sobre las buenas prácticas en entornos multicloud e híbridos.",
+    "answerOptions": [
+      {
+        "text": "Se recomienda utilizar herramientas de seguridad aisladas y exclusivas para cada proveedor con el fin de maximizar la especialización.",
+        "rationale": "Esta afirmación es falsa; las buenas prácticas sugieren estandarizar herramientas para evitar silos y simplificar la gestión y correlación.",
+        "isCorrect": true
+      },
+      {
+        "text": "Es fundamental mantener un inventario actualizado de todos los activos para evitar la aparición de Shadow IT.",
+        "rationale": "Esta afirmación es verdadera; no se puede proteger lo que no se sabe que existe en las distintas nubes.",
+        "isCorrect": false
+      },
+      {
+        "text": "La automatización mediante pipelines DevSecOps es indispensable para aplicar políticas de forma masiva y repetible.",
+        "rationale": "Esta afirmación es verdadera; la complejidad del multicloud hace inviable la gestión manual de la seguridad.",
+        "isCorrect": false
+      },
+      {
+        "text": "Debe asegurarse la protección de los movimientos de datos entre entornos mediante túneles TLS o redes VPN.",
+        "rationale": "Esta afirmación es verdadera; el tráfico entre distintas nubes o hacia el on-premise debe estar cifrado.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considere qué estrategia facilita la visibilidad y el control centralizado en un entorno complejo."
+  },
+  {
+    "guid": "95376c96-ea22-49ac-bbe9-93a640ec5cef",
+    "subjectId": "T71",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 3,
+    "question": "Identifique la opción FALSA respecto a las tendencias actuales y el contexto geopolítico de la ciberseguridad cloud.",
+    "answerOptions": [
+      {
+        "text": "La inteligencia artificial se utiliza exclusivamente por los defensores, ya que los atacantes no disponen de capacidad de computación suficiente.",
+        "rationale": "Esta afirmación es falsa; los atacantes utilizan IA para sofisticar el phishing y automatizar ataques, a menudo usando la propia potencia del cloud.",
+        "isCorrect": true
+      },
+      {
+        "text": "Se ha observado un incremento de ataques DDoS contra infraestructuras críticas y administraciones públicas europeas.",
+        "rationale": "Esta afirmación es verdadera; el contexto geopolítico ha convertido al sector público en un objetivo prioritario de este tipo de ataques.",
+        "isCorrect": false
+      },
+      {
+        "text": "La soberanía de datos se ha convertido en una preocupación estratégica para las instituciones de la Unión Europea.",
+        "rationale": "Esta afirmación es verdadera; se busca garantizar que los datos de ciudadanos europeos se gestionen bajo normativas propias.",
+        "isCorrect": false
+      },
+      {
+        "text": "El sector sanitario es uno de los objetivos preferentes de los ataques de ransomware en el ámbito cloud.",
+        "rationale": "Esta afirmación es verdadera; la criticidad de los datos de salud hace que este sector sea muy vulnerable a la extorsión.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "La tecnología de vanguardia suele estar disponible para ambos bandos en el conflicto cibernético."
+  }
+]
