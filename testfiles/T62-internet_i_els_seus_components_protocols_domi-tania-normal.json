@@ -1,777 +1,932 @@
 [
   {
-    "guid": "0f4e3e58-f5cf-4886-bf23-3750726efab5",
+    "guid": "a73279f1-4b35-4fee-b15a-3edb19942288",
     "subjectId": "T62",
     "origin": "notebooklm",
     "type": "test",
     "difficulty": 2,
-    "question": "¿Cuál es la característica principal que define a un operador de nivel Tier 1 en la arquitectura jerárquica de Internet?",
+    "question": "¿Cuál es la característica fundamental que define la interconexión entre operadores de nivel Tier 1 en el backbone de Internet?",
     "answerOptions": [
       {
-        "text": "Son operadores globales que no pagan por el tráfico que intercambian entre sí y forman el backbone de Internet.",
-        "rationale": "Las redes Tier 1 se caracterizan por estar interconectadas sin coste de tránsito y poseer infraestructuras de fibra en múltiples continentes.",
+        "text": "La interconexión obligatoria con todos los demás operadores Tier 1 sin mediar pago por intercambio de tráfico.",
+        "rationale": "Los operadores Tier 1 forman el núcleo de Internet y se conectan entre sí mediante acuerdos de peering libre de costes para garantizar la conectividad global.",
         "isCorrect": true
       },
       {
-        "text": "Son proveedores regionales que ofrecen conectividad directa a los usuarios finales (ISP).",
-        "rationale": "Esta descripción corresponde más adecuadamente a los operadores Tier 3, que son los proveedores de servicios locales.",
+        "text": "La dependencia técnica de puntos neutros regionales para alcanzar segmentos de red situados en otros continentes.",
+        "rationale": "Los Tier 1 disponen de infraestructura propia transcontinental y no dependen de terceros para alcanzar la tabla de rutas global.",
         "isCorrect": false
       },
       {
-        "text": "Requieren obligatoriamente la contratación de una conexión de tránsito con un operador Tier 2 para alcanzar toda la red.",
-        "rationale": "Los operadores Tier 1 son los únicos que no requieren comprar tránsito de niveles superiores para tener visibilidad total de las rutas.",
+        "text": "El uso exclusivo de conexiones de tránsito pagado hacia operadores de nivel inferior para expandir su alcance comercial.",
+        "rationale": "El tránsito es una relación cliente-proveedor donde el inferior paga al superior, no al revés.",
         "isCorrect": false
       },
       {
-        "text": "Utilizan exclusivamente protocolos de capa 2 para la interconexión de sus sistemas autónomos.",
-        "rationale": "La interconexión de Internet se basa en protocolos de capa 3 como BGP para la gestión de sistemas autónomos.",
+        "text": "La limitación de su infraestructura física a un único continente, delegando el tráfico internacional en cables submarinos de terceros.",
+        "rationale": "Una condición para ser Tier 1 es poseer redes que abarquen al menos dos continentes.",
         "isCorrect": false
       }
     ],
-    "hint": "Piense en la independencia financiera y el alcance geográfico de los grandes 'carriers' globales."
+    "hint": "Considere la relación de igualdad y la ausencia de costes entre los actores que dominan el núcleo troncal."
   },
   {
-    "guid": "6a6918d6-8fbd-47f5-bbf7-0d64f8749cfb",
+    "guid": "8716ca7b-8b10-45a6-8b45-9176d1e8b714",
     "subjectId": "T62",
     "origin": "notebooklm",
     "type": "test",
     "difficulty": 2,
-    "question": "En el contexto de la seguridad perimetral, ¿qué función cumple específicamente un Proxy Inverso (Reverse Proxy)?",
+    "question": "En el contexto del protocolo DNS, ¿qué diferencia técnica fundamental existe entre el uso de los puertos sobre UDP y TCP?",
     "answerOptions": [
       {
-        "text": "Se sitúa ante los servidores internos para gestionar el tráfico entrante, ocultando la identidad de estos a los clientes externos.",
-        "rationale": "El proxy inverso actúa en nombre de los servidores en una DMZ, proporcionando una capa de seguridad y balanceo de carga.",
+        "text": "UDP se utiliza para consultas de resolución estándar mientras que TCP se reserva para transferencias de zona y respuestas extensas.",
+        "rationale": "El puerto $53$ UDP es más eficiente para consultas cortas, pero TCP garantiza la integridad en transferencias de bases de datos completas o respuestas que superan el tamaño máximo de datagrama.",
         "isCorrect": true
       },
       {
-        "text": "Permite que múltiples clientes de una red privada accedan a Internet compartiendo una única dirección IP pública.",
-        "rationale": "Esta es la función principal de un Proxy convencional (forward proxy) o de la tecnología NAT/PAT.",
+        "text": "UDP gestiona la seguridad mediante DNSSEC mientras que TCP se encarga de la resolución recursiva entre servidores raíz.",
+        "rationale": "DNSSEC utiliza firmas criptográficas que pueden viajar sobre ambos protocolos, y la recursividad no es exclusiva de TCP.",
         "isCorrect": false
       },
       {
-        "text": "Realiza el filtrado de paquetes exclusivamente a nivel de la capa de Red (OSI 3) mediante tablas de estado.",
-        "rationale": "Los proxies operan típicamente en la capa de Aplicación (OSI 7), permitiendo un análisis profundo del contenido.",
+        "text": "TCP se emplea únicamente para la comunicación con el resolver local mientras que UDP se utiliza para consultas externas a la WAN.",
+        "rationale": "Tanto el resolver como los servidores externos pueden utilizar ambos protocolos según el tamaño del paquete de respuesta.",
         "isCorrect": false
       },
       {
-        "text": "Es un dispositivo físico que traduce protocolos de capa de enlace entre redes Ethernet y Token Ring.",
-        "rationale": "La traducción de protocolos de enlace es función de puentes (bridges) o pasarelas de enlace, no de un proxy inverso.",
+        "text": "UDP garantiza la entrega de la actualización de registros dinámicos mientras que TCP se encarga del almacenamiento en caché del navegador.",
+        "rationale": "UDP no garantiza la entrega al ser no orientado a conexión, y el almacenamiento en caché es una función del software cliente, no del protocolo de transporte.",
         "isCorrect": false
       }
     ],
-    "hint": "Analice la dirección del flujo de peticiones y quién es el destinatario final de la conexión."
+    "hint": "Piense en la fiabilidad requerida para mover grandes volúmenes de datos frente a la rapidez de una pregunta puntual."
   },
   {
-    "guid": "91826d2c-d828-4b6c-ad90-984f349aa0e1",
+    "guid": "c70622a9-cb0d-4ec6-9c67-57f272f558d0",
     "subjectId": "T62",
     "origin": "notebooklm",
     "type": "test",
     "difficulty": 2,
-    "question": "Respecto al protocolo DNS, ¿cuándo se utiliza obligatoriamente el puerto 53 sobre el protocolo de transporte TCP en lugar de UDP?",
+    "question": "Para que una organización como el IMI obtenga independencia de proveedor en su conectividad, ¿qué requisitos técnicos debe cumplir ante el RIPE NCC?",
     "answerOptions": [
       {
-        "text": "Para las transferencias de zona entre servidores de nombres o cuando la respuesta excede el tamaño máximo permitido por UDP.",
-        "rationale": "TCP garantiza la entrega fiable necesaria para transferencias de bases de datos de zona completas y mensajes de gran tamaño.",
+        "text": "Constituirse como Local Internet Registry (LIR), obtener un Sistema Autónomo (AS) propio y anunciar sus rangos mediante BGP.",
+        "rationale": "Esta estructura permite a la entidad gestionar sus propias IPs y establecer peering con múltiples proveedores de forma simultánea e independiente.",
         "isCorrect": true
       },
       {
-        "text": "Para todas las consultas estándar que realizan los navegadores web para agilizar la carga de la caché.",
-        "rationale": "Las consultas estándar de resolución suelen utilizar UDP por su menor latencia y sobrecarga de red.",
+        "text": "Contratar un direccionamiento estático público asignado por un ISP de nivel Tier 2 y configurar un balanceador de carga local.",
+        "rationale": "El direccionamiento asignado por un ISP vincula a la organización a ese proveedor; si se cambia de ISP, se pierden las IPs.",
         "isCorrect": false
       },
       {
-        "text": "Únicamente cuando se utilizan extensiones de seguridad DNSSEC para el intercambio de claves públicas.",
-        "rationale": "Aunque DNSSEC aumenta el tamaño del mensaje, no obliga al uso de TCP a menos que se superen los límites de tamaño de datagrama.",
+        "text": "Implementar un sistema de NAT dinámico sobre una conexión de fibra óptica de un Tier 3 y registrar un dominio de segundo nivel.",
+        "rationale": "El NAT y los dominios no proporcionan independencia de enrutamiento a nivel de infraestructura de red global.",
         "isCorrect": false
       },
       {
-        "text": "Para la comunicación exclusiva entre el cliente (resolver) y el servidor DNS de primer nivel (Root).",
-        "rationale": "La comunicación con los servidores raíz también puede realizarse sobre UDP, dependiendo del tamaño de la respuesta.",
+        "text": "Desplegar una arquitectura de proxy inverso en una DMZ y solicitar la validación de sus certificados TLS a una autoridad externa.",
+        "rationale": "Estas son medidas de seguridad de capa de aplicación y no afectan a la autonomía de la red en la capa de red (Capa $3$).",
         "isCorrect": false
       }
     ],
-    "hint": "Recuerde las diferencias fundamentales entre transporte fiable y transporte no orientado a conexión en el intercambio de grandes volúmenes de datos."
+    "hint": "Recuerde los elementos necesarios para hablar directamente con el protocolo de enrutamiento dinámico de Internet."
   },
   {
-    "guid": "4377ef33-07dd-4624-b56a-1ca13b09a8d6",
+    "guid": "189cfb76-c0de-4e13-b259-9b234eba296a",
     "subjectId": "T62",
     "origin": "notebooklm",
     "type": "test",
     "difficulty": 2,
-    "question": "En la gestión de direcciones IP, ¿cuál es la principal diferencia entre NAT Dinámico y PAT (Port Address Translation)?",
+    "question": "¿Cuál es la función técnica específica de un Servidor Proxy Inverso dentro de una arquitectura de red segmentada con DMZ?",
     "answerOptions": [
       {
-        "text": "PAT permite que múltiples direcciones privadas compartan una única dirección pública diferenciándolas por el número de puerto.",
-        "rationale": "PAT, también llamado NAT con sobrecarga, optimiza el uso de IPs públicas mediante el mapeo de puertos de transporte.",
+        "text": "Actuar en nombre de los servidores internos para ocultar su identidad y gestionar el tráfico entrante desde redes externas.",
+        "rationale": "A diferencia del proxy directo, el inverso protege a los servidores de la organización interceptando las peticiones de los clientes externos.",
         "isCorrect": true
       },
       {
-        "text": "El NAT Dinámico mapea permanentemente una dirección IP privada a una dirección IP pública fija.",
-        "rationale": "La asignación fija de una IP privada a una pública se denomina NAT Estático, no Dinámico.",
+        "text": "Proporcionar anonimato a los clientes internos cuando acceden a recursos de la red pública para evitar el rastreo de IPs privadas.",
+        "rationale": "Esta es la función de un proxy directo o convencional, que actúa en el camino de salida hacia Internet.",
         "isCorrect": false
       },
       {
-        "text": "PAT solo puede utilizarse con direcciones IPv6 debido a la estructura de sus cabeceras de extensión.",
-        "rationale": "PAT es una técnica ampliamente utilizada en IPv4 para mitigar el agotamiento de direcciones.",
+        "text": "Resolver las equivalencias entre direcciones MAC y direcciones IP para optimizar el tráfico de capa $2$ en el conmutador.",
+        "rationale": "Esa tarea corresponde al protocolo ARP, que opera en niveles inferiores al proxy (Capa $7$).",
         "isCorrect": false
       },
       {
-        "text": "El NAT Dinámico utiliza una tabla de equivalencias MAC-IP para realizar la traducción en la capa 2 del modelo OSI.",
-        "rationale": "NAT y PAT operan en la capa de red (OSI 3) y transporte (OSI 4), no en la capa de enlace.",
+        "text": "Filtrar paquetes de datos basándose exclusivamente en el estado de la conexión y las cabeceras de transporte TCP/UDP.",
+        "rationale": "Esa es la descripción de un firewall de inspección de estado, no de un intermediario de aplicación como el proxy.",
         "isCorrect": false
       }
     ],
-    "hint": "Piense en el recurso (IP o puerto) que se utiliza para distinguir las conexiones de los diferentes hosts internos."
+    "hint": "Reflexione sobre la dirección del tráfico: de afuera hacia adentro de la organización."
   },
   {
-    "guid": "5a326899-e160-46c3-a8dd-d22a8050d099",
+    "guid": "4b631c55-b5c6-480e-9dfa-9cc3594d3b2a",
     "subjectId": "T62",
     "origin": "notebooklm",
     "type": "test",
     "difficulty": 2,
-    "question": "Sobre el protocolo SMTP, ¿cuál es su función principal dentro de la arquitectura de correo electrónico?",
+    "question": "En el direccionamiento IPv4, ¿qué diferencia técnica existe entre la asignación de una dirección IP y una dirección MAC?",
     "answerOptions": [
       {
-        "text": "Se encarga de la transmisión y el reenvío de mensajes entre servidores de correo (MTA).",
-        "rationale": "SMTP es el estándar para el envío y transferencia de correo entre servidores, operando sobre TCP.",
+        "text": "La IP es un identificador lógico y jerárquico asignado a una interfaz, mientras que la MAC es un identificador físico e invariante del hardware.",
+        "rationale": "Las IPs pueden cambiar según la red donde se conecte el dispositivo, pero la MAC de $48$ bits viene grabada de fábrica en la tarjeta de red.",
         "isCorrect": true
       },
       {
-        "text": "Permite al usuario descargar los mensajes del servidor y eliminarlos automáticamente de la bandeja de entrada remota.",
-        "rationale": "La descarga y eliminación del servidor es la función característica del protocolo POP3.",
+        "text": "La IP utiliza $48$ bits para definir el fabricante, mientras que la MAC emplea $32$ bits para el enrutamiento global en el backbone.",
+        "rationale": "Los tamaños están invertidos: IPv4 tiene $32$ bits y la MAC tiene $48$ bits.",
         "isCorrect": false
       },
       {
-        "text": "Sincroniza el estado de los mensajes (leídos, borrados) entre el cliente y el servidor sin necesidad de descargarlos.",
-        "rationale": "La gestión avanzada de carpetas y estados en el servidor es propia del protocolo IMAP.",
+        "text": "La IP se asigna obligatoriamente de forma manual mediante configuración estática, mientras que la MAC se obtiene vía DHCP.",
+        "rationale": "La IP puede ser dinámica vía DHCP, pero la MAC no se asigna por red, es intrínseca al dispositivo.",
         "isCorrect": false
       },
       {
-        "text": "Se utiliza exclusivamente para el cifrado punto a punto de los cuerpos de los mensajes mediante RSA.",
-        "rationale": "SMTP es un protocolo de transferencia; el cifrado suele gestionarse mediante extensiones STARTTLS o S/MIME.",
+        "text": "La IP identifica unívocamente al sistema final completo, mientras que la MAC identifica únicamente la aplicación de red en ejecución.",
+        "rationale": "La IP se asocia a interfaces de red (un sistema puede tener varias), y la MAC identifica el hardware, no el software.",
         "isCorrect": false
       }
     ],
-    "hint": "Diferencie entre protocolos de envío/transferencia y protocolos de acceso a buzón de usuario."
+    "hint": "Piense en cuál de los dos identificadores depende de la ubicación geográfica o lógica en la red."
   },
   {
-    "guid": "15614c17-94f7-4263-84a0-8f33977fe009",
+    "guid": "1aa4dcf6-68c1-473e-bec7-63b934680d2e",
     "subjectId": "T62",
     "origin": "notebooklm",
     "type": "test",
     "difficulty": 2,
-    "question": "Una dirección MAC consta de $48$ bits. ¿Cómo se divide habitualmente este identificador físico?",
+    "question": "¿Cómo se define técnicamente un Fully Qualified Domain Name (FQDN) absoluto en la jerarquía DNS?",
     "answerOptions": [
       {
-        "text": "Los primeros $24$ bits corresponden al fabricante y los últimos $24$ bits son asignados por el organismo de estandarización.",
-        "rationale": "Esta estructura permite identificar de forma única tanto al fabricante de la interfaz de red como al dispositivo específico.",
+        "text": "Es el nombre completo que incluye todos los niveles jerárquicos hasta la raíz y finaliza con un punto.",
+        "rationale": "El punto final representa el nivel raíz del árbol DNS, permitiendo una resolución sin ambigüedades desde cualquier contexto.",
         "isCorrect": true
       },
       {
-        "text": "Los primeros $32$ bits identifican la red local y los últimos $16$ bits identifican al host dentro de la LAN.",
-        "rationale": "Esta división es más característica de las máscaras de subred en direccionamiento IPv4 de clase B.",
+        "text": "Es el nombre que identifica únicamente al host local dentro de una red de área local sin especificar el dominio superior.",
+        "rationale": "Eso define un nombre de host relativo, que requiere un sufijo de búsqueda para ser resuelto fuera de su LAN.",
         "isCorrect": false
       },
       {
-        "text": "Se divide en $6$ bloques de $8$ bits, donde cada bloque representa el nivel jerárquico del switch al que está conectado.",
-        "rationale": "La dirección MAC es un identificador plano e invariante vinculado al hardware, no a la topología de la red.",
+        "text": "Es la dirección IP pública asociada a un nombre de dominio tras haber sido procesada por un servidor de nombres de nivel TLD.",
+        "rationale": "El FQDN es una cadena de texto (nombre), no una dirección numérica resultante de la resolución.",
         "isCorrect": false
       },
       {
-        "text": "Los primeros $24$ bits son asignados aleatoriamente por el protocolo DHCP cada vez que el dispositivo se conecta.",
-        "rationale": "La dirección MAC es física y persistente; DHCP asigna direcciones IP, que son identificadores lógicos.",
+        "text": "Es la etiqueta de primer nivel asignada por ICANN que define la naturaleza comercial o geográfica de una entidad en la red.",
+        "rationale": "Eso describe un TLD (Top Level Domain), que es solo una parte componente del FQDN completo.",
         "isCorrect": false
       }
     ],
-    "hint": "Recuerde que una parte de la dirección es el OUI (Organizationally Unique Identifier) y la otra es el identificador del dispositivo."
+    "hint": "Busque el elemento sintáctico que ancla el nombre al origen de toda la estructura jerárquica."
   },
   {
-    "guid": "900cf6ac-6190-4b58-bc87-b47b1f3de1d2",
+    "guid": "b689b2e2-7bca-4ec7-a565-b727c8f772fd",
     "subjectId": "T62",
     "origin": "notebooklm",
     "type": "test",
     "difficulty": 2,
-    "question": "Dentro del software DNS, ¿qué componente es responsable de lanzar peticiones a otros servidores si no dispone de la respuesta localmente?",
+    "question": "En el protocolo SMTP, ¿cuál es el propósito técnico principal cuando se comunica entre servidores de correo?",
     "answerOptions": [
       {
-        "text": "El Resolver (Resolutor).",
-        "rationale": "El resolver es el cliente DNS o la parte del servidor encargada de realizar la búsqueda recursiva o iterativa en la jerarquía.",
+        "text": "Facilitar la transmisión y el reenvío de mensajes de correo electrónico entre distintos agentes de transferencia de mensajes.",
+        "rationale": "SMTP es el protocolo estándar para empujar el correo desde el cliente al servidor y entre servidores hasta el destino final.",
         "isCorrect": true
       },
       {
-        "text": "El Servidor de nombres (Name Server).",
-        "rationale": "El servidor de nombres almacena la base de datos de zona, pero es el resolver quien gestiona la obtención de datos externos.",
+        "text": "Permitir la descarga masiva de mensajes desde el servidor hacia el cliente local eliminando la copia original del nodo central.",
+        "rationale": "Esa es la función específica del protocolo POP3, diseñado para la recuperación de mensajes, no para el envío.",
         "isCorrect": false
       },
       {
-        "text": "El Gateway DNS.",
-        "rationale": "No existe un dispositivo estándar denominado 'Gateway DNS' con funciones de resolución recursiva en la arquitectura TCP/IP.",
+        "text": "Sincronizar el estado de lectura y las carpetas de usuario entre múltiples dispositivos sin necesidad de descargar los adjuntos.",
+        "rationale": "Esta funcionalidad es característica de IMAP, que permite la gestión remota del buzón en el servidor.",
         "isCorrect": false
       },
       {
-        "text": "El Proxy DNSSEC.",
-        "rationale": "DNSSEC se refiere a las extensiones de seguridad para validar respuestas, no a la función de resolución básica.",
+        "text": "Proporcionar un mecanismo de resolución de nombres para localizar la dirección física MAC del servidor de correo de destino.",
+        "rationale": "SMTP opera en la capa de aplicación sobre TCP; no se encarga de la resolución de nombres ni de direcciones físicas.",
         "isCorrect": false
       }
     ],
-    "hint": "Piense en la parte del software que 'resuelve' las dudas consultando a terceros."
+    "hint": "Céntrese en el flujo de salida y el movimiento de datos entre nodos intermedios de mensajería."
   },
   {
-    "guid": "718a0717-8b81-41cd-842e-7343b2c790d1",
+    "guid": "1b739c90-0cd1-4d9f-bc43-5d5032054c56",
     "subjectId": "T62",
     "origin": "notebooklm",
     "type": "test",
     "difficulty": 2,
-    "question": "¿Cuál es la función de un IXP (Internet eXchange Point) como ESPANIX o CATNIX?",
+    "question": "Con respecto a la arquitectura de red Tier, analice el proceso de intercambio de tráfico mediante acuerdos de peering público:",
     "answerOptions": [
       {
-        "text": "Facilitar una infraestructura física neutral para que diferentes ISP intercambien tráfico mediante conexiones de peering.",
-        "rationale": "Los IXP permiten el intercambio de datos local o regional de forma eficiente sin depender de tránsitos internacionales costosos.",
+        "text": "El intercambio de tráfico mediante peering público requiere el uso de una infraestructura física compartida denominada IXP.",
+        "rationale": "Los IXP (como CATNIX) permiten que múltiples ISPs conecten sus routers a un switch común para intercambiar tráfico de forma eficiente.",
         "isCorrect": true
       },
       {
-        "text": "Asignar de forma centralizada bloques de direcciones IPv4 e IPv6 a los usuarios finales en Europa.",
-        "rationale": "La asignación de recursos IP es responsabilidad de los RIR (como RIPE NCC) y los LIR.",
+        "text": "El intercambio de tráfico mediante peering público requiere el pago de una cuota de tránsito proporcional al volumen de datos.",
+        "rationale": "El peering se caracteriza precisamente por ser un intercambio de tráfico sin costes de facturación por volumen entre las partes.",
         "isCorrect": false
       },
       {
-        "text": "Actuar como servidor raíz (Root Server) para la resolución de dominios de primer nivel territoriales.",
-        "rationale": "Los IXP son puntos de interconexión de tráfico, no servidores raíz de la jerarquía DNS.",
+        "text": "El intercambio de tráfico mediante peering público requiere la contratación de un enlace punto a punto dedicado entre dos ISPs.",
+        "rationale": "Esta descripción corresponde al peering privado, no al público que se realiza en nodos neutros compartidos.",
         "isCorrect": false
       },
       {
-        "text": "Proporcionar exclusivamente conexiones de tránsito pagado entre operadores de Tier 3 y Tier 1.",
-        "rationale": "La función principal de un IXP es fomentar el peering (intercambio gratuito o de bajo coste), no el tránsito comercial.",
+        "text": "El intercambio de tráfico mediante peering público requiere la autorización previa del operador Tier 1 que domina la región local.",
+        "rationale": "El peering es un acuerdo bilateral o multilateral autónomo que no necesita la intervención ni permiso de un nivel superior.",
         "isCorrect": false
       }
     ],
-    "hint": "Considere los beneficios de interconectar redes en un punto neutro local."
+    "hint": "Identifique la infraestructura central donde coinciden múltiples proveedores para optimizar sus rutas regionales."
   },
   {
-    "guid": "b8e285b6-f090-4572-b604-42fa798a8c70",
+    "guid": "68d3056f-ac15-43cf-8203-3ccbe52339fc",
     "subjectId": "T62",
     "origin": "notebooklm",
     "type": "test",
     "difficulty": 2,
-    "question": "En el direccionamiento IP, ¿a qué se refiere el término 'Interfaz'?",
+    "question": "Sobre la fase de establecimiento de una conexión segura mediante SSL/TLS, analice el procedimiento del handshake:",
     "answerOptions": [
       {
-        "text": "A la conexión física de un sistema a una red; un sistema puede tener múltiples interfaces y, por tanto, múltiples direcciones IP.",
-        "rationale": "Las direcciones IP se asocian a cada punto de conexión a la red (tarjeta de red, Wi-Fi), no al equipo de forma global.",
+        "text": "El handshake SSL asegura la autenticación del servidor mediante criptografía de clave pública antes de transferir datos cifrados.",
+        "rationale": "Durante esta fase inicial se utilizan algoritmos como RSA para verificar la identidad y acordar las claves simétricas de la sesión.",
         "isCorrect": true
       },
       {
-        "text": "Al software de usuario que permite configurar manualmente la puerta de enlace predeterminada.",
-        "rationale": "Aunque existe la interfaz de usuario, en el contexto de redes TCP/IP, se refiere al punto de conexión de red.",
+        "text": "El handshake SSL asegura la integridad del mensaje mediante el uso de protocolos de transporte no orientados a la conexión.",
+        "rationale": "SSL/TLS se apoya obligatoriamente en TCP, que es un protocolo orientado a la conexión, para garantizar la entrega ordenada.",
         "isCorrect": false
       },
       {
-        "text": "A la dirección MAC única que identifica al procesador central de un servidor web.",
-        "rationale": "La MAC identifica a la tarjeta de red, y la interfaz es la entidad lógica/física que permite la comunicación.",
+        "text": "El handshake SSL asegura la disponibilidad del servicio mediante la distribución de la carga entre múltiples nodos de la DMZ.",
+        "rationale": "El handshake es un proceso criptográfico de sesión, no un mecanismo de balanceo de carga o disponibilidad de red.",
         "isCorrect": false
       },
       {
-        "text": "Al protocolo de resolución de nombres que traduce FQDN en direcciones de 32 bits.",
-        "rationale": "La traducción de nombres es función del protocolo DNS, no de la interfaz de red.",
+        "text": "El handshake SSL asegura la confidencialidad absoluta mediante el cambio dinámico de la dirección IP durante la negociación.",
+        "rationale": "La seguridad se basa en el cifrado de los datos, no en la modificación de los parámetros de direccionamiento de capa de red.",
         "isCorrect": false
       }
     ],
-    "hint": "Piense en un ordenador que está conectado simultáneamente por cable Ethernet y por Wi-Fi."
+    "hint": "Considere la importancia de la identidad y el intercambio de secretos antes de iniciar la transmisión masiva."
   },
   {
-    "guid": "9a666052-2c53-4c7a-a98e-b90d72a3d1dc",
+    "guid": "c52afbd5-d80c-4bdc-bd22-bb6a9afcdbe1",
     "subjectId": "T62",
     "origin": "notebooklm",
     "type": "test",
     "difficulty": 2,
-    "question": "¿Qué garantiza el uso del protocolo DNSSEC?",
+    "question": "En relación con los mecanismos de traducción de direcciones de red, analice el funcionamiento técnico de PAT (Port Address Translation):",
     "answerOptions": [
       {
-        "text": "La integridad y autenticidad de las respuestas de los servidores de nombres mediante firmas digitales.",
-        "rationale": "DNSSEC evita ataques de envenenamiento de caché validando criptográficamente que la respuesta no ha sido manipulada.",
+        "text": "PAT permite que múltiples hosts internos compartan una única dirección IP pública diferenciándolos por su número de puerto.",
+        "rationale": "Esta técnica optimiza el uso de IPs públicas permitiendo que miles de conexiones privadas salgan al exterior bajo una misma interfaz.",
         "isCorrect": true
       },
       {
-        "text": "La confidencialidad total de las consultas DNS para que no puedan ser leídas por terceros en la red.",
-        "rationale": "DNSSEC no cifra las consultas (confidencialidad); para ello se utilizan protocolos como DNS over HTTPS (DoH) o DNS over TLS (DoT).",
+        "text": "PAT permite que una dirección IP privada se asocie de forma permanente y estática a una única dirección IP pública de reserva.",
+        "rationale": "Esa es la definición de NAT estático ($1:1$), que no utiliza la diferenciación por puertos para el ahorro de direcciones.",
         "isCorrect": false
       },
       {
-        "text": "La asignación automática de una dirección IPv6 cada vez que se resuelve un nombre de dominio.",
-        "rationale": "La resolución de registros AAAA (IPv6) es una función estándar de DNS que no depende de DNSSEC.",
+        "text": "PAT permite que el servidor DNS distribuya las consultas entrantes entre diversos servidores finales basándose en la carga.",
+        "rationale": "Esa función corresponde a un balanceador de carga o a registros DNS múltiples, no a la traducción de direcciones de red.",
         "isCorrect": false
       },
       {
-        "text": "El bloqueo de acceso a páginas web que no dispongan de un certificado SSL/TLS válido.",
-        "rationale": "El bloqueo de sitios por falta de SSL es una función del navegador o del firewall de aplicación, no de DNSSEC.",
+        "text": "PAT permite que la dirección física MAC sea traducida dinámicamente a una dirección lógica IPv6 para asegurar el anonimato.",
+        "rationale": "PAT trabaja con direcciones IP y puertos TCP/UDP, no realiza traducciones entre direcciones físicas y lógicas de distintas versiones.",
         "isCorrect": false
       }
     ],
-    "hint": "Diferencie entre asegurar que la información es 'cierta' (no modificada) y asegurar que la información es 'secreta'."
+    "hint": "Piense en cómo un router doméstico gestiona que varios móviles y ordenadores naveguen a la vez con una sola IP."
   },
   {
-    "guid": "a544fea4-e92c-42f6-ac07-7383bf9d6234",
+    "guid": "f054df9e-292c-48b7-83ce-5e7b6aec4128",
     "subjectId": "T62",
     "origin": "notebooklm",
     "type": "test",
     "difficulty": 2,
-    "question": "Si el Ayuntamiento de Barcelona desea mantener su direccionamiento IP propio aunque cambie de proveedor de servicios, ¿qué debe ser según RIPE NCC?",
+    "question": "Sobre la resolución de nombres en una arquitectura jerárquica distribuida, analice el papel del software DNS 'resolver':",
     "answerOptions": [
       {
-        "text": "Debe constituirse como LIR (Local Internet Registry) y disponer de un número de Sistema Autónomo (AS).",
-        "rationale": "Ser LIR y poseer un AS (como el $60314$) permite anunciar rangos de IP propios a través de BGP a múltiples proveedores.",
+        "text": "El resolver se encarga de lanzar peticiones a otros servidores de nombres si no dispone de la respuesta en su base local.",
+        "rationale": "Es el componente cliente del sistema DNS que actúa como intermediario para completar la búsqueda recursiva o iterativa.",
         "isCorrect": true
       },
       {
-        "text": "Debe contratar un servicio de NAT Dinámico con un operador Tier 1 de forma exclusiva.",
-        "rationale": "NAT Dinámico no proporciona independencia de direccionamiento, ya que se depende de las IPs del proveedor.",
+        "text": "El resolver se encarga de almacenar permanentemente todas las direcciones MAC de la red local para evitar el uso de protocolos ARP.",
+        "rationale": "El resolver DNS trabaja con nombres y direcciones IP; la gestión de MACs es ajena a sus funciones de capa de aplicación.",
         "isCorrect": false
       },
       {
-        "text": "Debe registrar todos sus equipos finales en la base de datos central de la ICANN.",
-        "rationale": "ICANN gestiona nombres de dominio y parámetros de alto nivel, pero no el registro de equipos individuales de una organización.",
+        "text": "El resolver se encarga de asignar automáticamente direcciones IP dinámicas a los clientes que se conectan por primera vez.",
+        "rationale": "Esa es la función del servidor DHCP, no de un componente del sistema de nombres de dominio.",
         "isCorrect": false
       },
       {
-        "text": "Debe migrar todas sus interfaces a un direccionamiento MAC estático gestionado por IANA.",
-        "rationale": "Las direcciones MAC son físicas y no tienen relación con la independencia de enrutamiento en Internet.",
+        "text": "El resolver se encarga de cifrar el tráfico de la capa de aplicación mediante certificados validados por una autoridad raíz global.",
+        "rationale": "El cifrado es competencia de SSL/TLS (o DNSSEC para integridad de DNS), no de la lógica de resolución de nombres per se.",
         "isCorrect": false
       }
     ],
-    "hint": "Considere la figura necesaria para gestionar directamente recursos IP ante el organismo regional europeo."
+    "hint": "Imagine al agente que debe 'preguntar a otros' cuando no conoce la respuesta en su propia tabla."
   },
   {
-    "guid": "dc68d8b9-86b9-4cf7-b207-a378e66cdc0e",
+    "guid": "ef993e69-2e6b-4b68-8a54-7e4866133e25",
     "subjectId": "T62",
     "origin": "notebooklm",
     "type": "test",
     "difficulty": 2,
-    "question": "¿Cuál es la función del protocolo ARP (Address Resolution Protocol) en una red local?",
+    "question": "Analice el impacto técnico de la implementación de DNSSEC en la infraestructura de resolución de nombres de una organización:",
     "answerOptions": [
       {
-        "text": "Resolver y mantener una tabla de equivalencias entre direcciones IP y direcciones MAC.",
-        "rationale": "ARP es esencial para que los datagramas IP puedan encapsularse en tramas de capa de enlace (Ethernet) dirigidas al hardware correcto.",
+        "text": "DNSSEC permite validar criptográficamente que las respuestas recibidas no han sido manipuladas mediante firmas digitales.",
+        "rationale": "DNSSEC garantiza la integridad y autenticidad de los datos DNS, evitando ataques de envenenamiento de caché (cache poisoning).",
         "isCorrect": true
       },
       {
-        "text": "Asignar automáticamente máscaras de subred y puertas de enlace a los dispositivos que inician sesión.",
-        "rationale": "La configuración automática de parámetros de red es responsabilidad del protocolo DHCP.",
+        "text": "DNSSEC permite cifrar el contenido de las consultas DNS para que ningún nodo intermedio pueda conocer el dominio visitado.",
+        "rationale": "DNSSEC firma los datos para verificar su origen, pero no los cifra; el contenido de la consulta sigue siendo visible (a diferencia de DoH/DoT).",
         "isCorrect": false
       },
       {
-        "text": "Traducir nombres de host relativos en nombres de dominio absolutos (FQDN).",
-        "rationale": "La gestión de nombres de host y dominios es competencia del sistema DNS.",
+        "text": "DNSSEC permite acelerar el tiempo de respuesta del servidor mediante la eliminación de los niveles jerárquicos de la raíz.",
+        "rationale": "DNSSEC añade carga computacional debido a la verificación de firmas, lo que suele incrementar ligeramente la latencia, no reducirla.",
         "isCorrect": false
       },
       {
-        "text": "Garantizar que el tráfico de datos en la capa de transporte sea orientado a conexión y fiable.",
-        "rationale": "La fiabilidad y orientación a conexión en el transporte son características de TCP, no de ARP.",
+        "text": "DNSSEC permite sustituir el uso del protocolo TCP por UDP en transferencias de zona para mejorar la seguridad del sistema.",
+        "rationale": "La seguridad no depende de cambiar el protocolo de transporte, y las transferencias de zona siguen requiriendo la fiabilidad de TCP.",
         "isCorrect": false
       }
     ],
-    "hint": "Este protocolo actúa como puente entre la capa de Red (OSI 3) y la capa de Enlace (OSI 2)."
+    "hint": "Céntrese en la verificación de que la información no ha sido alterada durante el trayecto."
   },
   {
-    "guid": "961b7365-7486-4204-8fe6-2971e41807fc",
+    "guid": "8486f371-1808-4554-becb-92deb77aef4a",
     "subjectId": "T62",
     "origin": "notebooklm",
     "type": "test",
     "difficulty": 2,
-    "question": "En la jerarquía de dominios, ¿qué entidad es responsable de la administración de los dominios territoriales (ccTLD) por delegación de la ICANN?",
+    "question": "Analice el procedimiento técnico para la resolución de direcciones mediante el protocolo ARP en una red local IPv4:",
     "answerOptions": [
       {
-        "text": "Cada estado o autoridad nacional designada que posea un dominio de primer nivel registrado.",
-        "rationale": "ICANN delega la gestión de los ccTLD (como .es o .cat) a organizaciones nacionales o regionales específicas.",
+        "text": "ARP resuelve la equivalencia entre la dirección IP y la dirección MAC manteniendo una tabla de mapeo en los nodos.",
+        "rationale": "Este protocolo es esencial para que los paquetes de capa de red puedan ser encapsulados en tramas de la capa de enlace de datos.",
         "isCorrect": true
       },
       {
-        "text": "El centro de coordinación RIPE NCC, de forma exclusiva para todo el mundo.",
-        "rationale": "RIPE NCC gestiona recursos numéricos (IP, AS) en su región, pero no la administración global de todos los ccTLD.",
+        "text": "ARP resuelve la equivalencia entre el nombre de host absoluto y la dirección IP pública mediante consultas al nivel TLD.",
+        "rationale": "Esa descripción corresponde al funcionamiento del sistema DNS, no al protocolo ARP de nivel de enlace/red.",
         "isCorrect": false
       },
       {
-        "text": "Únicamente la autoridad IANA, que mantiene el control directo de todos los registros de segundo nivel.",
-        "rationale": "IANA asigna los TLD, pero la gestión de los registros de segundo nivel se delega a los registros nacionales o genéricos.",
+        "text": "ARP resuelve la equivalencia entre los puertos TCP de origen y los puertos UDP de destino para permitir el paso por el firewall.",
+        "rationale": "ARP no gestiona puertos de transporte, se limita a la asociación de identificadores de hardware y red.",
         "isCorrect": false
       },
       {
-        "text": "Los proveedores Tier 3 (ISP) mediante contratos de peering privado.",
-        "rationale": "Los ISP son clientes o revendedores de dominios, no las autoridades administrativas delegadas para los ccTLD.",
+        "text": "ARP resuelve la equivalencia entre el Sistema Autónomo (AS) y el Local Internet Registry (LIR) para establecer sesiones BGP.",
+        "rationale": "ARP es un protocolo local de capa $2$/$3$; el enrutamiento entre AS se gestiona mediante protocolos de pasarela externa.",
         "isCorrect": false
       }
     ],
-    "hint": "Piense en quién tiene la competencia sobre el sufijo '.es' en España o '.cat' en Cataluña."
+    "hint": "Piense en el puente necesario entre la identidad lógica de la red y la identidad física del silicio."
   },
   {
-    "guid": "e67e2d65-7535-47c2-b621-adce04587130",
+    "guid": "5074f952-46cb-4821-88f2-1b91e1aff1b8",
     "subjectId": "T62",
     "origin": "notebooklm",
     "type": "test",
     "difficulty": 2,
-    "question": "Sobre el protocolo SIP (Session Initiation Protocol), ¿cuál es su uso principal y qué puertos suele utilizar?",
+    "question": "En relación con los modelos de servicio de Internet, analice el comportamiento técnico del protocolo IMAP frente al protocolo POP3:",
     "answerOptions": [
       {
-        "text": "Se usa para señalización en ToIP y suele utilizar el puerto $5060$ tanto en TCP como en UDP.",
-        "rationale": "SIP gestiona el establecimiento y liberación de sesiones multimedia, siendo el estándar en telefonía sobre IP.",
+        "text": "IMAP permite visualizar los mensajes en el servidor descargándolos únicamente cuando el usuario lo solicita explícitamente.",
+        "rationale": "Esto facilita el acceso desde múltiples dispositivos manteniendo el estado de los correos sincronizado en el servidor central.",
         "isCorrect": true
       },
       {
-        "text": "Se usa para la transferencia segura de archivos y utiliza el puerto $22$ sobre SSH.",
-        "rationale": "La transferencia segura de archivos sobre SSH es función de SFTP o SCP, no de SIP.",
+        "text": "IMAP permite el envío de correos electrónicos de forma unidireccional utilizando el puerto $110$ sobre el protocolo UDP.",
+        "rationale": "El envío es función de SMTP, IMAP usa TCP y el puerto $110$ es el estándar de POP3.",
         "isCorrect": false
       },
       {
-        "text": "Es el protocolo de gestión de impresoras en redes Windows y usa el puerto $445$.",
-        "rationale": "La gestión de recursos compartidos en Windows utiliza SMB/CIFS, no SIP.",
+        "text": "IMAP permite la eliminación automática de los correos del servidor inmediatamente después de que el cliente finalice la conexión.",
+        "rationale": "Ese comportamiento es el predeterminado de POP3, lo que dificulta la gestión del correo desde varios terminales.",
         "isCorrect": false
       },
       {
-        "text": "Permite el control remoto de terminales UNIX a través del puerto $23$ sin cifrado.",
-        "rationale": "El acceso remoto no cifrado es propio de Telnet, que utiliza el puerto $23$.",
+        "text": "IMAP permite la resolución de nombres de dominio mediante el uso de registros MX almacenados en la base de datos BIND.",
+        "rationale": "IMAP es un protocolo de acceso a buzones, no interviene en la resolución de nombres ni en la gestión de registros DNS.",
         "isCorrect": false
       }
     ],
-    "hint": "Relacione este protocolo con los servicios de voz y videoconferencia actuales."
+    "hint": "Considere cuál de los dos es más apto para el uso actual en móviles, tablets y ordenadores de forma simultánea."
   },
   {
-    "guid": "295cd900-faec-4288-9dc9-44e30250275d",
+    "guid": "8dd76c9f-1461-4997-8980-32af2c786751",
     "subjectId": "T62",
     "origin": "notebooklm",
     "type": "test",
     "difficulty": 2,
-    "question": "Un FQDN (Fully Qualified Domain Name) absoluto se caracteriza por:",
+    "question": "Sobre la topología y extensión de las redes de datos, analice la clasificación técnica de una red de tipo MAN:",
     "answerOptions": [
       {
-        "text": "Incluir todos los niveles jerárquicos del árbol DNS hasta la raíz, terminando generalmente en un punto.",
-        "rationale": "El punto final representa la raíz del DNS y asegura que el nombre sea interpretado de forma unívoca sin ambigüedades.",
+        "text": "Una red MAN conecta diversas LAN situadas en un entorno metropolitano con un alcance típico de entre $5$ y $50$ km.",
+        "rationale": "Se sitúa en un punto intermedio entre la red local (LAN) y la red de área extensa (WAN) en términos de cobertura geográfica.",
         "isCorrect": true
       },
       {
-        "text": "Ser un nombre parcial que depende del sufijo de búsqueda configurado en el sistema operativo.",
-        "rationale": "Un nombre parcial que depende del contexto se denomina nombre de dominio relativo.",
+        "text": "Una red MAN conecta dispositivos periféricos de uso personal mediante enlaces de radio de muy corto alcance como Bluetooth.",
+        "rationale": "Esta descripción corresponde a una PAN (Personal Area Network), no a una red metropolitana.",
         "isCorrect": false
       },
       {
-        "text": "Contener únicamente el nombre del host (máquina) sin hacer referencia al dominio de primer nivel.",
-        "rationale": "El nombre del host solo es una parte del FQDN; el FQDN completo requiere toda la ruta jerárquica.",
+        "text": "Una red MAN conecta múltiples continentes a través de infraestructuras de fibra óptica submarina gestionadas por Tier 1.",
+        "rationale": "Ese es el concepto de una WAN de alcance global o el propio backbone de Internet.",
         "isCorrect": false
       },
       {
-        "text": "Estar compuesto exclusivamente por la dirección IP estática del servidor web.",
-        "rationale": "Un FQDN es una representación alfanumérica basada en nombres, no una dirección IP.",
+        "text": "Una red MAN conecta exclusivamente los componentes internos de un procesador mediante buses de datos de alta velocidad.",
+        "rationale": "Esto se refiere a la arquitectura interna de un computador, muy lejos del concepto de red de comunicaciones externa.",
         "isCorrect": false
       }
     ],
-    "hint": "Piense en la diferencia entre escribir 'pc01' y 'pc01.inf.bcn.cat.'."
+    "hint": "Piense en la red que podría dar servicio de fibra óptica a toda una ciudad y sus alrededores."
   },
   {
-    "guid": "280d1d53-fb88-4a2f-b300-de6985337f2b",
+    "guid": "700638c3-855e-46da-bd8b-cb778d82ee91",
     "subjectId": "T62",
     "origin": "notebooklm",
     "type": "test",
     "difficulty": 2,
-    "question": "¿En qué capa del modelo OSI opera un Switch (conmutador) convencional y qué información utiliza para reenviar datos?",
+    "question": "Dispositivo que opera en la capa $3$ del modelo OSI y cuya función principal es el encaminamiento de paquetes entre diferentes redes:",
     "answerOptions": [
       {
-        "text": "Capa de Enlace (OSI 2) y utiliza las direcciones MAC de destino.",
-        "rationale": "Los switches de capa 2 construyen tablas de direcciones MAC para conmutar tramas entre sus puertos de forma eficiente.",
+        "text": "ROUTER",
+        "rationale": "Es el elemento clave que utiliza tablas de enrutamiento para decidir el siguiente salto de los paquetes IP.",
         "isCorrect": true
       },
       {
-        "text": "Capa de Red (OSI 3) y utiliza las direcciones IP de origen.",
-        "rationale": "Los dispositivos que encaminan basándose en direcciones IP son los routers o switches de capa 3.",
+        "text": "SWITCH",
+        "rationale": "Aunque existen de capa $3$, su función básica es la interconexión de equipos en la misma red local (Capa $2$).",
         "isCorrect": false
       },
       {
-        "text": "Capa de Transporte (OSI 4) y utiliza los números de puerto TCP.",
-        "rationale": "El filtrado o reenvío basado en puertos es propio de firewalls o balanceadores de carga, no de switches básicos.",
+        "text": "HUB",
+        "rationale": "Es un dispositivo de capa física ($1$) que simplemente replica señales eléctricas sin inteligencia de red.",
         "isCorrect": false
       },
       {
-        "text": "Capa Física (OSI 1) y simplemente replica la señal eléctrica por todos sus puertos.",
-        "rationale": "La replicación de señal sin lógica de direccionamiento es la función de un Hub (concentrador), no de un switch.",
+        "text": "BRIDGE",
+        "rationale": "Interconecta segmentos de red a nivel de capa de enlace ($2$), no realiza enrutamiento de paquetes IP.",
         "isCorrect": false
       }
     ],
-    "hint": "Considere la unidad de datos que maneja (trama) y el identificador físico que lee."
+    "hint": "Es el 'director de tráfico' que une subredes distintas basándose en direcciones lógicas."
   },
   {
-    "guid": "f86edad1-3831-4303-8727-0bf8068873d6",
+    "guid": "c741dba1-cce1-4e2b-9308-070a5633f45f",
     "subjectId": "T62",
     "origin": "notebooklm",
     "type": "test",
     "difficulty": 2,
-    "question": "En el contexto de la jerarquía Tier, ¿qué diferencia a una conexión de 'Tránsito' de una de 'Peering'?",
+    "question": "Intermediario de capa $7$ que actúa en representación de un cliente para control de acceso, registro de tráfico y gestión de caché web:",
     "answerOptions": [
       {
-        "text": "El tránsito es una relación comercial pagada para acceder a toda la red, mientras que el peering es un intercambio de tráfico gratuito entre dos redes.",
-        "rationale": "En el peering, las partes solo intercambian tráfico destinado a sus propios clientes, mientras que el tránsito da acceso a 'todo Internet'.",
+        "text": "PROXY",
+        "rationale": "Se sitúa entre el cliente e Internet, permitiendo aplicar políticas de seguridad y mejorar el rendimiento mediante caché.",
         "isCorrect": true
       },
       {
-        "text": "El tránsito solo ocurre entre operadores del mismo nivel, mientras que el peering es de nivel superior a inferior.",
-        "rationale": "Es al revés: el peering suele ser entre iguales y el tránsito es de un proveedor (superior) a un cliente (inferior).",
+        "text": "GATEWAY",
+        "rationale": "Suele referirse a la puerta de enlace de capa $3$ o pasarela entre protocolos distintos, no necesariamente con caché de aplicación.",
         "isCorrect": false
       },
       {
-        "text": "El peering requiere el uso obligatorio de cables de cobre, mientras que el tránsito se realiza por fibra óptica.",
-        "rationale": "El tipo de conexión física (medio) es independiente del acuerdo lógico de intercambio de tráfico.",
+        "text": "FIREWALL",
+        "rationale": "Su función principal es el filtrado de tráfico por reglas de seguridad, no actúa típicamente como intermediario de recursos con caché.",
         "isCorrect": false
       },
       {
-        "text": "El tránsito utiliza el protocolo UDP y el peering utiliza el protocolo TCP para mayor seguridad.",
-        "rationale": "Ambos acuerdos utilizan protocolos de enrutamiento (principalmente BGP sobre TCP) para anunciar las rutas.",
+        "text": "MODEM",
+        "rationale": "Es un dispositivo de capa física encargado de la modulación y demodulación de señales para el acceso al medio.",
         "isCorrect": false
       }
     ],
-    "hint": "Analice la relación de costes y el alcance de las rutas que se anuncian en cada caso."
+    "hint": "Este componente es común en empresas para restringir la navegación y acelerar la carga de páginas repetidas."
   },
   {
-    "guid": "801c05e7-c497-4a4a-8b68-a2d74bf6b5b1",
+    "guid": "4999b68d-4503-431a-ada3-87d14307aca7",
     "subjectId": "T62",
     "origin": "notebooklm",
     "type": "test",
     "difficulty": 2,
-    "question": "Respecto a los tipos de redes por su extensión, ¿cuál es el rango de cobertura típico de una red MAN (Metropolitana)?",
+    "question": "Dispositivo o software encargado de bloquear el acceso no autorizado a una red, pudiendo realizar filtrado en capas $3, 4$ y $7$:",
     "answerOptions": [
       {
-        "text": "Entre $5$ y $50$ km aproximadamente.",
-        "rationale": "Las redes MAN están diseñadas para cubrir áreas del tamaño de una ciudad o un campus extenso, conectando varias LAN.",
+        "text": "FIREWALL",
+        "rationale": "Es la barrera de seguridad perimetral que permite o deniega el paso de tráfico basándose en una política de seguridad.",
         "isCorrect": true
       },
       {
-        "text": "Menos de $100$ metros, limitada a un edificio.",
-        "rationale": "Una red con cobertura limitada a un edificio o área pequeña se clasifica como LAN.",
+        "text": "IDS",
+        "rationale": "Es un sistema de detección de intrusiones que monitoriza y alerta, pero no siempre bloquea el tráfico de forma activa como el firewall.",
         "isCorrect": false
       },
       {
-        "text": "Superior a los $500$ km, interconectando países o continentes.",
-        "rationale": "Las redes que cubren grandes distancias geográficas son las WAN (Wide Area Network).",
+        "text": "NAT",
+        "rationale": "Es una técnica de traducción de direcciones que puede proporcionar seguridad por ocultación, pero no es un dispositivo de filtrado per se.",
         "isCorrect": false
       },
       {
-        "text": "Exactamente $1$ km, por limitaciones físicas de la fibra óptica monomodo.",
-        "rationale": "La fibra óptica puede cubrir distancias mucho mayores; la definición de MAN se basa en el propósito geográfico, no en un límite estricto de fibra.",
+        "text": "REPEATER",
+        "rationale": "Es un dispositivo de capa $1$ que regenera la señal para extender el alcance del medio físico.",
         "isCorrect": false
       }
     ],
-    "hint": "Sitúe esta red entre una oficina local (LAN) y una red de área extensa (WAN)."
+    "hint": "Piense en el 'muro' que separa la red interna confiable de la red externa insegura."
   },
   {
-    "guid": "280f1915-328c-43a8-bce7-a0c9ef9e877e",
+    "guid": "7b59862b-9342-43ed-98ba-68f6f7804dc0",
     "subjectId": "T62",
     "origin": "notebooklm",
     "type": "test",
     "difficulty": 2,
-    "question": "¿Qué protocolo se utiliza habitualmente para la compartición de archivos e impresoras en entornos de red de Microsoft Windows?",
+    "question": "Protocolo de señalización utilizado en redes de telefonía sobre IP (ToIP) para el establecimiento, gestión y liberación de sesiones:",
     "answerOptions": [
       {
-        "text": "SMB (Server Message Block).",
-        "rationale": "SMB es un protocolo cliente-servidor o peer-to-peer utilizado por Windows para el acceso compartido a recursos de red.",
+        "text": "SIP",
+        "rationale": "Es el estándar más extendido para voz sobre IP, trabajando normalmente sobre los puertos $5060$ TCP/UDP.",
         "isCorrect": true
       },
       {
-        "text": "FTP (File Transfer Protocol).",
-        "rationale": "FTP es un estándar para transferencia de archivos, pero no proporciona la integración nativa de red para impresoras y recursos de Windows.",
+        "text": "HTTP",
+        "rationale": "Es el protocolo de transferencia de hipertexto para la web, no está diseñado para el control de sesiones de voz en tiempo real.",
         "isCorrect": false
       },
       {
-        "text": "SSH (Secure Shell).",
-        "rationale": "SSH se utiliza principalmente para acceso remoto seguro y túneles, no para la compartición nativa de archivos en red local Windows.",
+        "text": "SNMP",
+        "rationale": "Es el protocolo simple de gestión de red utilizado para monitorizar dispositivos, no para señalización de llamadas.",
         "isCorrect": false
       },
       {
-        "text": "SMTP (Simple Mail Transfer Protocol).",
-        "rationale": "SMTP es el protocolo dedicado al intercambio de correo electrónico entre servidores.",
+        "text": "DHCP",
+        "rationale": "Se encarga de la configuración dinámica de hosts (IPs, DNS, etc.), no de la señalización de voz.",
         "isCorrect": false
       }
     ],
-    "hint": "Piense en el protocolo que permite 'mapear' unidades de red en el Explorador de archivos."
+    "hint": "Son las siglas de Session Initiation Protocol."
   },
   {
-    "guid": "2cdcd021-2ba6-409c-8a14-cc0465c65570",
+    "guid": "49e71c70-7ea3-4117-bf60-5e5ef9912efb",
     "subjectId": "T62",
     "origin": "notebooklm",
     "type": "test",
     "difficulty": 2,
-    "question": "En una conexión SSL/TLS, ¿qué sucede durante la fase de 'handshake'?",
+    "question": "Protocolo criptográfico que permite el acceso remoto a máquinas a través de una red de manera segura, sustituyendo al inseguro Telnet:",
     "answerOptions": [
       {
-        "text": "Se negocia la autenticación del servidor y se establece la clave simétrica para el cifrado de los datos mediante criptografía de clave pública.",
-        "rationale": "El handshake utiliza algoritmos como RSA para acordar de forma segura cómo se cifrará el resto de la sesión.",
+        "text": "SSH",
+        "rationale": "Secure Shell proporciona un canal cifrado para la administración remota de sistemas a través de redes inseguras.",
         "isCorrect": true
       },
       {
-        "text": "Se realiza la transferencia masiva de los datos de la aplicación comprimidos en tramas de capa 2.",
-        "rationale": "La transferencia de datos es la fase posterior al handshake; el handshake es solo la negociación inicial.",
+        "text": "FTP",
+        "rationale": "Es un protocolo para la transferencia de archivos que, en su versión original, no cifra las credenciales ni los datos.",
         "isCorrect": false
       },
       {
-        "text": "Se comprueba físicamente la integridad del cable de red para evitar interferencias electromagnéticas.",
-        "rationale": "SSL/TLS es un protocolo de capas superiores que asume que el medio físico funciona correctamente.",
+        "text": "SMB",
+        "rationale": "Es un protocolo de compartición de recursos (archivos/impresoras) en entornos Windows, no orientado específicamente al acceso remoto seguro.",
         "isCorrect": false
       },
       {
-        "text": "El servidor DNS actualiza sus tablas de zona para incluir la nueva dirección IP del cliente.",
-        "rationale": "SSL/TLS no interviene en la actualización de registros DNS, solo en la seguridad de la conexión establecida.",
+        "text": "ICMP",
+        "rationale": "Protocolo de mensajes de control de Internet usado para diagnóstico (como el comando ping), no para acceso remoto.",
         "isCorrect": false
       }
     ],
-    "hint": "Es la fase de 'saludo' donde se establecen las reglas de seguridad antes de hablar."
+    "hint": "Casi todos los administradores de sistemas Unix lo utilizan para gestionar servidores mediante línea de comandos."
   },
   {
-    "guid": "6b4aa928-003e-433e-b6ba-edeb7da89818",
+    "guid": "742e4ff5-0b41-46d1-8014-1183007c1378",
     "subjectId": "T62",
     "origin": "notebooklm",
     "type": "test",
     "difficulty": 2,
-    "question": "Según el material, ¿cuál es el número de Sistema Autónomo (AS) asignado al IMI - Ajuntament de Barcelona?",
+    "question": "Software de servidor de nombres más extendido en sistemas UNIX para la implementación del servicio DNS:",
     "answerOptions": [
       {
-        "text": "$60314$",
-        "rationale": "Este es el identificador único utilizado por el Ayuntamiento de Barcelona para gestionar su propio enrutamiento BGP en Internet.",
+        "text": "BIND",
+        "rationale": "Berkeley Internet Name Domain es el estándar de facto para servidores DNS en entornos de código abierto.",
         "isCorrect": true
       },
       {
-        "text": "$21215$",
-        "rationale": "Este número parece una confusión con el inicio de su rango de direcciones IP públicas ($212.15...$).",
+        "text": "APACHE",
+        "rationale": "Es un servidor web muy popular, pero no se encarga de la resolución de nombres DNS.",
         "isCorrect": false
       },
       {
-        "text": "$80443$",
-        "rationale": "Este valor parece una combinación de los puertos estándar HTTP ($80$) y HTTPS ($443$).",
+        "text": "POSTFIX",
+        "rationale": "Es un agente de transferencia de correo (MTA) para SMTP, no un servidor DNS.",
         "isCorrect": false
       },
       {
-        "text": "$192168$",
-        "rationale": "Este número se asemeja al rango de direcciones IP privadas más común ($192.168.x.x$).",
+        "text": "SQUID",
+        "rationale": "Es un software popular para la implementación de servidores Proxy y caché, no para DNS.",
         "isCorrect": false
       }
     ],
-    "hint": "Se trata de un número de cinco cifras que comienza por $60$."
+    "hint": "Su nombre son las siglas de Berkeley Internet Name Domain."
   },
   {
-    "guid": "ee9d46e3-cf35-431e-8a4e-f7c1013ebe8b",
+    "guid": "eb878276-60d3-45d8-807c-062256f52a7b",
     "subjectId": "T62",
     "origin": "notebooklm",
     "type": "test",
     "difficulty": 2,
-    "question": "¿Qué dispositivo permite interconectar redes que utilizan arquitecturas o protocolos diferentes, actuando como una pasarela?",
+    "question": "Protocolo utilizado para compartir archivos, impresoras y comunicaciones entre nodos en redes de sistemas operativos Microsoft Windows:",
     "answerOptions": [
       {
-        "text": "Gateway.",
-        "rationale": "El gateway o pasarela realiza la traducción necesaria para que dispositivos en redes heterogéneas puedan comunicarse.",
+        "text": "SMB",
+        "rationale": "Server Message Block es el protocolo de red para compartir recursos en redes locales de Windows.",
         "isCorrect": true
       },
       {
-        "text": "Switch.",
-        "rationale": "El switch conecta equipos dentro de la misma arquitectura de red (típicamente Ethernet) en la capa 2.",
+        "text": "NFS",
+        "rationale": "Network File System es el estándar equivalente para compartir archivos pero en sistemas de tipo UNIX/Linux.",
         "isCorrect": false
       },
       {
-        "text": "Hub.",
-        "rationale": "El hub es un repetidor multipuerto que no entiende de protocolos ni arquitecturas, solo de señales eléctricas.",
+        "text": "LDAP",
+        "rationale": "Protocolo ligero de acceso a directorios usado para autenticación, no para compartir archivos e impresoras directamente.",
         "isCorrect": false
       },
       {
-        "text": "Patch Panel.",
-        "rationale": "Un patch panel es un elemento pasivo de cableado estructural, no realiza ninguna función lógica de comunicación.",
+        "text": "RIP",
+        "rationale": "Es un protocolo de enrutamiento interno (IGP) de capa de red, nada tiene que ver con la compartición de recursos.",
         "isCorrect": false
       }
     ],
-    "hint": "Piense en el término inglés que significa 'puerta de entrada' o 'pasarela'."
+    "hint": "Antiguamente también conocido como CIFS."
   },
   {
-    "guid": "59c505b1-9c1a-4ccc-82b8-1310d5ccf8ef",
+    "guid": "bebab6d9-89de-4959-bcb7-5eb444b06f23",
     "subjectId": "T62",
     "origin": "notebooklm",
     "type": "test",
     "difficulty": 2,
-    "question": "¿Cuál es la principal ventaja de utilizar el protocolo IMAP frente a POP3?",
+    "question": "Identifique la afirmación FALSA con respecto a los operadores Tier 1 de la arquitectura de Internet:",
     "answerOptions": [
       {
-        "text": "Permite acceder y gestionar los mensajes directamente en el servidor, facilitando la sincronización entre múltiples dispositivos.",
-        "rationale": "IMAP mantiene los correos en el servidor, permitiendo ver el mismo estado del buzón desde un móvil, web o PC.",
+        "text": "Los operadores Tier 1 pagan cuotas de tránsito a los operadores regionales Tier 2 para alcanzar destinos locales específicos.",
+        "rationale": "Es falso: los Tier 1 no pagan tránsito a nadie; son los niveles inferiores quienes les pagan a ellos o establecen peering gratuito.",
         "isCorrect": true
       },
       {
-        "text": "Es un protocolo mucho más rápido ya que utiliza UDP en lugar del pesado TCP.",
-        "rationale": "Tanto IMAP como POP3 utilizan TCP para garantizar que no se pierdan datos de los correos electrónicos.",
+        "text": "Los operadores Tier 1 forman el backbone o red troncal de Internet gracias a su infraestructura de fibra óptica transcontinental.",
+        "rationale": "Esta afirmación es correcta y define la base física de la red global de redes.",
         "isCorrect": false
       },
       {
-        "text": "No requiere autenticación de usuario, lo que simplifica la configuración de los clientes de correo.",
-        "rationale": "Ambos protocolos requieren obligatoriamente credenciales para acceder al buzón privado del usuario.",
+        "text": "Es una condición necesaria que todas las redes clasificadas como Tier 1 estén interconectadas entre sí.",
+        "rationale": "Esta es una verdad técnica: si un Tier 1 no estuviera conectado a otro, no podría garantizar el acceso a toda la tabla de Internet.",
         "isCorrect": false
       },
       {
-        "text": "Elimina automáticamente los virus del servidor antes de que el usuario abra el mensaje.",
-        "rationale": "La limpieza de virus es una función del software antivirus del servidor, no una característica intrínseca del protocolo IMAP.",
+        "text": "Ejemplos reales de operadores Tier 1 incluyen a grandes corporaciones globales como AT&T, Verizon o Telefónica (TIWS).",
+        "rationale": "Esta afirmación es correcta y coincide con los ejemplos proporcionados en la documentación técnica oficial.",
         "isCorrect": false
       }
     ],
-    "hint": "Piense en la necesidad actual de consultar el correo desde varios dispositivos a la vez."
+    "hint": "Recuerde quién ostenta la posición de superioridad económica y técnica en la jerarquía de enrutamiento."
   },
   {
-    "guid": "20d54328-f0eb-40a5-b6bb-b9c44c8daab2",
+    "guid": "6f6d2548-d656-417d-a2f7-77861c6e981b",
     "subjectId": "T62",
     "origin": "notebooklm",
     "type": "test",
     "difficulty": 2,
-    "question": "Sobre la jerarquía de dominios de primer nivel (TLD), ¿qué diferencia a .com de .es?",
+    "question": "Identifique la afirmación FALSA sobre el funcionamiento del sistema DNS:",
     "answerOptions": [
       {
-        "text": ".com es un TLD genérico (gTLD) orientado a organizaciones comerciales y .es es un TLD territorial (ccTLD) asignado a España.",
-        "rationale": "Los dominios territoriales identifican países o territorios, mientras que los genéricos se basan en el propósito de la entidad.",
+        "text": "El registro de dominios es gestionado de forma descentralizada por cada país sin supervisión de organismos internacionales como ICANN.",
+        "rationale": "Es falso: ICANN y IANA supervisan la asignación de TLDs y delegan la gestión, manteniendo un control centralizado de la raíz.",
         "isCorrect": true
       },
       {
-        "text": ".com solo permite caracteres ASCII y .es obliga al uso de caracteres internacionales (IDN).",
-        "rationale": "Ambos tipos de dominios admiten hoy en día caracteres internacionales bajo ciertas normativas.",
+        "text": "Un único nombre de dominio puede corresponder a múltiples direcciones IP con el objetivo de realizar balanceo de carga.",
+        "rationale": "Esta afirmación es correcta; es una técnica común para distribuir el tráfico entre varios servidores.",
         "isCorrect": false
       },
       {
-        "text": ".es es administrado directamente por la ICANN en EE.UU., mientras que .com es administrado por la ONU.",
-        "rationale": "ICANN supervisa ambos, pero delega la gestión de .es a una autoridad nacional española.",
+        "text": "Los navegadores utilizan sistemas de caché local para agilizar el proceso de resolución y evitar consultas redundantes a la red.",
+        "rationale": "Es una afirmación verdadera; la caché de DNS es fundamental para el rendimiento de la navegación web.",
         "isCorrect": false
       },
       {
-        "text": ".com es de pago y .es es siempre gratuito para los ciudadanos residentes.",
-        "rationale": "El registro de casi todos los TLD (incluyendo .es) conlleva una tasa de mantenimiento pagada a un registrador.",
+        "text": "El protocolo DNS utiliza el puerto $53$ sobre UDP para consultas normales y sobre TCP para transferencias de zona.",
+        "rationale": "Esta afirmación es técnicamente correcta según los estándares de protocolos de Internet.",
         "isCorrect": false
       }
     ],
-    "hint": "Considere la clasificación entre dominios con propósito global frente a dominios vinculados a una geografía específica."
+    "hint": "Piense en si existe o no una autoridad última que coordina los nombres y números en Internet."
   },
   {
-    "guid": "6b9cdaa6-78a7-459e-b3a4-93b9fc04d93d",
+    "guid": "4aafc6c0-65e4-4933-8cff-f229983bf71f",
     "subjectId": "T62",
     "origin": "notebooklm",
     "type": "test",
     "difficulty": 2,
-    "question": "¿Qué función cumple un balanceador de carga en la capa 7 del modelo OSI?",
+    "question": "Identifique la afirmación FALSA en relación con el direccionamiento IP y NAT:",
     "answerOptions": [
       {
-        "text": "Distribuye el tráfico basándose en el análisis del contenido de la petición, como la URL o las cabeceras HTTP.",
-        "rationale": "Al operar en la capa de aplicación, el balanceador puede tomar decisiones inteligentes según el tipo de contenido solicitado.",
+        "text": "Las direcciones IP privadas son únicas a nivel global y pueden ser enrutadas directamente a través del backbone de Internet.",
+        "rationale": "Es falso: las IPs privadas no son únicas globalmente y no se pueden enrutar en Internet; requieren NAT para salir al exterior.",
         "isCorrect": true
       },
       {
-        "text": "Reparte los paquetes de forma aleatoria basándose únicamente en la dirección IP de origen.",
-        "rationale": "El balanceo basado solo en IP es típico de la capa 4 (Transporte), no de la capa 7.",
+        "text": "El NAT estático establece una correspondencia fija de uno a uno entre una dirección IP privada y una dirección IP pública.",
+        "rationale": "Esta es una descripción correcta de la modalidad estática del protocolo NAT.",
         "isCorrect": false
       },
       {
-        "text": "Modifica la velocidad de los ventiladores de los servidores para equilibrar el consumo eléctrico.",
-        "rationale": "El balanceo de carga se refiere a la carga computacional o de red, no a la gestión física de hardware o energía.",
+        "text": "Un sistema final puede tener varias direcciones IP si dispone de múltiples interfaces físicas o lógicas de red.",
+        "rationale": "Es correcto; la dirección IP está asociada a la interfaz, no al dispositivo físico como un todo.",
         "isCorrect": false
       },
       {
-        "text": "Traduce automáticamente todas las peticiones IPv4 a IPv6 para evitar latencias.",
-        "rationale": "La traducción de protocolos es función de pasarelas de transición, no es la tarea principal de un balanceador de carga.",
+        "text": "Las direcciones públicas son gestionadas por organismos regionales como RIPE NCC en el caso del territorio europeo.",
+        "rationale": "Esta afirmación es verdadera; RIPE es el RIR encargado de la gestión en nuestra región geográfica.",
         "isCorrect": false
       }
     ],
-    "hint": "A diferencia de la capa 4, la capa 7 permite al dispositivo 'leer' lo que el usuario está pidiendo exactamente."
+    "hint": "Reflexione sobre la razón por la que existen rangos de direcciones como $192.168.x.x$ en casi todas las casas."
+  },
+  {
+    "guid": "95d33c0e-b765-481a-b881-c9a58fdf3392",
+    "subjectId": "T62",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Identifique la afirmación FALSA respecto a los componentes físicos y lógicos de Internet:",
+    "answerOptions": [
+      {
+        "text": "El protocolo IP se define como un protocolo orientado a la conexión que garantiza la entrega fiable de todos los datagramas.",
+        "rationale": "Es falso: IP es un protocolo 'best-effort' no orientado a la conexión; la fiabilidad la aporta el protocolo TCP en una capa superior.",
+        "isCorrect": true
+      },
+      {
+        "text": "El backbone de Internet está compuesto principalmente por enlaces de fibra óptica de alta capacidad que conectan centros de datos.",
+        "rationale": "Esta afirmación es correcta y describe la infraestructura física principal de la red global.",
+        "isCorrect": false
+      },
+      {
+        "text": "Los sistemas finales, también llamados hosts, incluyen tanto a los clientes que solicitan servicios como a los servidores que los proveen.",
+        "rationale": "Esta es una definición verdadera y estándar en la arquitectura cliente-servidor de Internet.",
+        "isCorrect": false
+      },
+      {
+        "text": "Las redes de acceso son las encargadas de conectar el dispositivo del usuario final con el primer router del núcleo de la red.",
+        "rationale": "Es correcto; representa la 'última milla' de la conectividad (ADSL, Fibra, $5$G, etc.).",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Diferencie entre las responsabilidades de la Capa de Red (IP) y la Capa de Transporte (TCP)."
+  },
+  {
+    "guid": "73b43d9a-a674-47d1-9051-7774157c3866",
+    "subjectId": "T62",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Identifique la afirmación FALSA sobre el direccionamiento MAC:",
+    "answerOptions": [
+      {
+        "text": "La dirección MAC es un identificador lógico que el administrador de red puede modificar dinámicamente mediante el protocolo DHCP.",
+        "rationale": "Es falso: la MAC es física y viene de fábrica; es la dirección IP la que se asigna lógicamente y puede ser dinámica vía DHCP.",
+        "isCorrect": true
+      },
+      {
+        "text": "Una dirección MAC se compone de $48$ bits, donde los primeros $24$ suelen identificar al fabricante del hardware.",
+        "rationale": "Esta afirmación es correcta y describe la estructura del Identificador Único de Organización (OUI).",
+        "isCorrect": false
+      },
+      {
+        "text": "El protocolo ARP es el encargado de encontrar la dirección MAC que corresponde a una dirección IP determinada en la red local.",
+        "rationale": "Esta afirmación es verdadera y describe la función principal del protocolo Address Resolution Protocol.",
+        "isCorrect": false
+      },
+      {
+        "text": "La dirección MAC es independiente del protocolo de red utilizado y no cambia aunque el dispositivo se mueva a otra red física.",
+        "rationale": "Es correcto; al ser un identificador de hardware, permanece constante a diferencia de la dirección IP.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en cuál de las dos direcciones está 'quemada' en el hardware de la tarjeta de red."
+  },
+  {
+    "guid": "15ff9cd6-f0cc-4ec9-a98e-950864ad29c4",
+    "subjectId": "T62",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Identifique la afirmación FALSA sobre la seguridad y los certificados en la web:",
+    "answerOptions": [
+      {
+        "text": "El protocolo HTTP por sí solo garantiza la integridad de los datos transmitidos aunque no proporcione confidencialidad.",
+        "rationale": "Es falso: HTTP es un protocolo de texto plano sin ninguna garantía de integridad ni confidencialidad; ambas las aporta HTTPS vía TLS/SSL.",
+        "isCorrect": true
+      },
+      {
+        "text": "HTTPS utiliza el puerto $443$ sobre el protocolo de transporte TCP para asegurar las comunicaciones web.",
+        "rationale": "Esta afirmación es correcta y representa el estándar actual de navegación segura.",
+        "isCorrect": false
+      },
+      {
+        "text": "Un certificado SSL garantiza que la comunicación entre el navegador y el servidor no podrá ser leída ni manipulada por terceros.",
+        "rationale": "Esta afirmación es correcta, ya que resume los objetivos de confidencialidad e integridad del cifrado SSL/TLS.",
+        "isCorrect": false
+      },
+      {
+        "text": "La fase de handshake en una conexión segura permite la autenticación del servidor y, opcionalmente, la del cliente.",
+        "rationale": "Esta afirmación es verdadera y describe el proceso inicial de negociación de seguridad.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considere si un atacante podría modificar un paquete HTTP sin que el receptor se diera cuenta."
+  },
+  {
+    "guid": "4cfb947e-7d7d-4f74-8911-57d7ea621d2c",
+    "subjectId": "T62",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Identifique la afirmación FALSA sobre la gestión de dominios de primer nivel (TLD):",
+    "answerOptions": [
+      {
+        "text": "Los dominios .cat son dominios territoriales (ccTLD) asignados exclusivamente por la ONU según la lista oficial de estados.",
+        "rationale": "Es falso: el .cat es un dominio genérico de comunidad (gTLD) basado en la lengua y cultura, no un ccTLD de estado soberano.",
+        "isCorrect": true
+      },
+      {
+        "text": "Los dominios de primer nivel territoriales o ccTLD están compuestos generalmente por dos letras, como .es, .fr o .it.",
+        "rationale": "Esta afirmación es correcta y sigue el estándar ISO $3166-1$ de códigos de país.",
+        "isCorrect": false
+      },
+      {
+        "text": "La IANA es la autoridad encargada de la asignación técnica de los dominios de primer nivel bajo la supervisión de ICANN.",
+        "rationale": "Es correcto; IANA es el departamento operativo de ICANN que gestiona estas funciones críticas de Internet.",
+        "isCorrect": false
+      },
+      {
+        "text": "Existen dominios genéricos (gTLD) de tres o más letras destinados a organizaciones (.org), educación (.edu) o información (.info).",
+        "rationale": "Esta afirmación es verdadera y describe una parte fundamental del espacio de nombres de dominio global.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Diferencie entre dominios vinculados a un estado independiente y aquellos vinculados a una cultura o propósito."
+  },
+  {
+    "guid": "e10187ab-23b4-4dd3-852e-27f61c0a50d5",
+    "subjectId": "T62",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Identifique la afirmación FALSA sobre el equipamiento de red y sus funciones:",
+    "answerOptions": [
+      {
+        "text": "Un switch es un dispositivo de capa $3$ que interconecta redes de diferentes organizaciones mediante protocolos de enrutamiento dinámico.",
+        "rationale": "Es falso: un switch estándar es un dispositivo de capa $2$ para red local; la interconexión de redes externas es función de un router.",
+        "isCorrect": true
+      },
+      {
+        "text": "Un balanceador de carga puede operar en capa $4$ si decide el destino según el tráfico o en capa $7$ si analiza el contenido.",
+        "rationale": "Esta afirmación es correcta y describe los dos modos principales de funcionamiento de estos dispositivos.",
+        "isCorrect": false
+      },
+      {
+        "text": "El Gateway o pasarela es el dispositivo que permite la comunicación entre redes que utilizan protocolos o arquitecturas distintas.",
+        "rationale": "Esta es la definición clásica y verdadera de una puerta de enlace a nivel funcional.",
+        "isCorrect": false
+      },
+      {
+        "text": "Un Firewall puede implementarse tanto mediante hardware dedicado como mediante software instalado en un sistema operativo.",
+        "rationale": "Esta afirmación es verdadera; existen firewalls físicos (appliances) y soluciones basadas en software (iptables, etc.).",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considere el nivel del modelo OSI donde operan habitualmente los conmutadores de red local."
   }
 ]

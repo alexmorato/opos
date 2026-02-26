@@ -1,467 +1,932 @@
 [
   {
-    "guid": "ceca70e0-8520-4d14-bf68-9e6a7a84f832",
+    "guid": "84e38733-dc55-40a4-87cd-06c1da544367",
     "subjectId": "T61",
     "origin": "notebooklm",
     "type": "test",
     "difficulty": 2,
-    "question": "¿Qué identifica de forma única la ràdio de un punto de acceso (AP) dentro de una celda WiFi?",
+    "question": "¿Cuál es la función principal del mecanismo CSMA/CA en el estándar IEEE $802.11$?",
     "answerOptions": [
       {
-        "text": "SSID",
-        "rationale": "El SSID es el nombre lógico de la red que puede ser compartido por múltiples puntos de acceso en un ESS.",
+        "text": "Gestionar el acceso al medio mediante la escucha del canal y la prevención de colisiones antes de la transmisión.",
+        "rationale": "CSMA/CA utiliza la detección de portadora y algoritmos de retroceso para minimizar colisiones en redes inalámbricas donde no es posible detectarlas simultáneamente.",
+        "isCorrect": true
+      },
+      {
+        "text": "Detectar colisiones en tiempo real durante la transmisión de datos para detener el envío de tramas corruptas.",
+        "rationale": "La detección de colisiones (CD) es característica de Ethernet cableado, pero es técnicamente inviable en transmisiones por radio.",
         "isCorrect": false
       },
+      {
+        "text": "Asignar slots de tiempo fijos a cada estación cliente para garantizar una latencia determinista en la red.",
+        "rationale": "El acceso determinista por división de tiempo no es el principio básico de CSMA/CA, que es de naturaleza contendiente.",
+        "isCorrect": false
+      },
+      {
+        "text": "Optimizar la potencia de transmisión de los puntos de acceso mediante el ajuste dinámico de la ganancia de antena.",
+        "rationale": "Esta función corresponde a algoritmos de Radio Resource Management (RRM) y no al protocolo de acceso al medio.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considere la imposibilidad técnica de escuchar y transmitir simultáneamente en la misma frecuencia de radio."
+  },
+  {
+    "guid": "28d61502-f645-4b5c-8fa9-89147f94c245",
+    "subjectId": "T61",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En el contexto de WPA3-Personal, ¿qué mejora introduce el protocolo SAE (Simultaneous Authentication of Equals) frente a WPA2?",
+    "answerOptions": [
+      {
+        "text": "Establece un intercambio de claves resistente a ataques de diccionario offline mediante un acuerdo de claves basado en criptografía de curva elíptica.",
+        "rationale": "SAE elimina la vulnerabilidad del intercambio de cuatro vías de WPA2, impidiendo que una captura de tráfico permita descifrar la clave mediante fuerza bruta offline.",
+        "isCorrect": true
+      },
+      {
+        "text": "Implementa una rotación dinámica de la clave maestra de sesión cada vez que un dispositivo realiza un proceso de roaming entre APs.",
+        "rationale": "Aunque el roaming implica nuevos intercambios, la mejora fundamental de SAE reside en la resistencia del proceso de autenticación inicial.",
+        "isCorrect": false
+      },
+      {
+        "text": "Sustituye el cifrado AES-CCMP por un algoritmo de flujo simétrico basado exclusivamente en hardware dedicado para mayor velocidad.",
+        "rationale": "WPA3 sigue utilizando cifrados robustos como AES; el cambio principal en SAE es el método de autenticación y establecimiento de clave.",
+        "isCorrect": false
+      },
+      {
+        "text": "Permite la autenticación de usuarios mediante certificados digitales X.509 sin necesidad de un servidor RADIUS externo.",
+        "rationale": "La autenticación por certificados es propia de la variante Enterprise ($802.1X$), mientras que SAE es la mejora para la variante Personal.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en la protección contra ataques que intentan adivinar contraseñas a partir de paquetes capturados."
+  },
+  {
+    "guid": "e47a6ab0-c4d6-4c78-9d89-73f9f8cd7dfb",
+    "subjectId": "T61",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Qué tecnología introducida en WiFi 6 permite dividir un único canal inalámbrico en múltiples subcanales denominados RU para dar servicio a varios usuarios simultáneamente?",
+    "answerOptions": [
+      {
+        "text": "OFDMA (Orthogonal Frequency-Division Multiple Access).",
+        "rationale": "OFDMA permite la subdivisión del espectro en Resource Units (RU), optimizando el uso del canal para paquetes pequeños y múltiples clientes.",
+        "isCorrect": true
+      },
+      {
+        "text": "MU-MIMO (Multiple User - Multiple Input Multiple Output).",
+        "rationale": "MU-MIMO utiliza la separación espacial mediante antenas, no la subdivisión de frecuencias del canal en subportadoras para usuarios distintos.",
+        "isCorrect": false
+      },
+      {
+        "text": "BSS Coloring (Basic Service Set Coloring).",
+        "rationale": "El coloreado de BSS se utiliza para identificar interferencias de redes vecinas y mejorar la reutilización espacial, no para subdividir el canal.",
+        "isCorrect": false
+      },
+      {
+        "text": "TWT (Target Wake Time).",
+        "rationale": "TWT es un mecanismo de programación de sueño y vigilia para mejorar la eficiencia energética, no una técnica de acceso múltiple por frecuencia.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Se trata de un método de acceso compartido al espectro derivado de las redes celulares $4G$ y $5G$."
+  },
+  {
+    "guid": "7388edd6-6b00-4ad1-9f8d-9585bc4fffe3",
+    "subjectId": "T61",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Al diseñar una red WiFi que requiere alimentar puntos de acceso de alto rendimiento con consumos picos de hasta $50\\text{W}$, ¿qué estándar PoE debe soportar el switch (PSE)?",
+    "answerOptions": [
+      {
+        "text": "IEEE $802.3bt$ (PoE++).",
+        "rationale": "El estándar $802.3bt$ permite suministrar potencias de hasta $60\\text{W}$ (Tipo 3) o $90\\text{W}$ (Tipo 4), cubriendo requerimientos superiores a los $30\\text{W}$.",
+        "isCorrect": true
+      },
+      {
+        "text": "IEEE $802.3at$ (PoE+).",
+        "rationale": "El estándar $802.3at$ está limitado a un máximo de $30\\text{W}$ por puerto, insuficiente para el requerimiento de $50\\text{W}$.",
+        "isCorrect": false
+      },
+      {
+        "text": "IEEE $802.3af$ (PoE).",
+        "rationale": "Este estándar es el más antiguo y solo suministra hasta $15.4\\text{W}$, lo que no cubriría las necesidades del AP descrito.",
+        "isCorrect": false
+      },
+      {
+        "text": "IEEE $802.11w$ (PMF).",
+        "rationale": "$802.11w$ es un estándar de seguridad para tramas de gestión inalámbrica y no tiene relación con el suministro eléctrico por cable.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Busque la evolución del estándar de alimentación que utiliza los cuatro pares del cable Ethernet."
+  },
+  {
+    "guid": "323a5953-6437-4182-9505-4e00efb75930",
+    "subjectId": "T61",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Cuál es la principal ventaja competitiva de la banda de $6\\text{ GHz}$ introducida con WiFi 6E frente a las bandas tradicionales?",
+    "answerOptions": [
+      {
+        "text": "Disponibilidad de un espectro continuo de $1200\\text{ MHz}$ que permite hasta siete canales de $160\\text{ MHz}$ sin solapamiento.",
+        "rationale": "La banda de $6\\text{ GHz}$ ofrece una amplitud significativamente mayor que las bandas de $2.4$ y $5\\text{ GHz}$, eliminando la congestión y permitiendo canales muy anchos.",
+        "isCorrect": true
+      },
+      {
+        "text": "Mayor capacidad de penetración en obstáculos físicos como muros de hormigón debido al aumento de la frecuencia de onda.",
+        "rationale": "Al contrario, el aumento de frecuencia reduce la capacidad de penetración y el alcance efectivo de la señal inalámbrica.",
+        "isCorrect": false
+      },
+      {
+        "text": "Compatibilidad retroactiva total con dispositivos basados en los estándares $802.11b$ y $802.11g$ para proteger la inversión.",
+        "rationale": "La banda de $6\\text{ GHz}$ es de uso exclusivo para tecnologías WiFi 6 o superiores, evitando la degradación por dispositivos antiguos.",
+        "isCorrect": false
+      },
+      {
+        "text": "Reducción de la latencia mediante el uso exclusivo de antenas direccionales en todos los terminales de usuario.",
+        "rationale": "La mejora de latencia proviene de la falta de congestión y protocolos más eficientes, no de la obligatoriedad de antenas direccionales.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considere la cantidad total de espectro disponible en comparación con la banda de $5\\text{ GHz}$."
+  },
+  {
+    "guid": "8b0a838a-5e2c-4f61-9029-9ca49f11c76a",
+    "subjectId": "T61",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En una arquitectura basada en controladora (WLC), ¿qué función cumple el protocolo CAPWAP?",
+    "answerOptions": [
+      {
+        "text": "Establecer túneles para encapsular el tráfico de gestión y de datos entre los puntos de acceso y la controladora central.",
+        "rationale": "CAPWAP permite la gestión centralizada y el transporte de datos desde los AP 'ligeros' hacia la controladora para su procesado y conmutación.",
+        "isCorrect": true
+      },
+      {
+        "text": "Realizar el balanceo de carga de los clientes entre diferentes bandas de frecuencia en función de la señal recibida.",
+        "rationale": "Esta es una funcionalidad de Band Steering que puede gestionarse vía CAPWAP, pero no es la definición del protocolo en sí.",
+        "isCorrect": false
+      },
+      {
+        "text": "Garantizar el cifrado punto a punto entre el dispositivo cliente y el servidor de contenidos en Internet.",
+        "rationale": "CAPWAP solo opera en el segmento de red entre el AP y la WLC; no llega al dispositivo cliente ni al servidor externo.",
+        "isCorrect": false
+      },
+      {
+        "text": "Negociar los parámetros de calidad de servicio (QoS) mediante el marcado de etiquetas DSCP en la capa de transporte.",
+        "rationale": "La QoS es una función de red que CAPWAP puede transportar, pero su propósito principal es el control y aprovisionamiento de APs.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Es el 'lenguaje' que permite a un AP ligero comunicarse con su cerebro central."
+  },
+  {
+    "guid": "54b4c656-e868-4d34-9a68-c658699d9771",
+    "subjectId": "T61",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "¿Qué innovación técnica fundamental define al estándar WiFi 7 ($802.11be$) para mejorar el rendimiento agregado?",
+    "answerOptions": [
+      {
+        "text": "Multi-Link Operation (MLO), que permite utilizar simultáneamente varias bandas y canales para una única conexión de datos.",
+        "rationale": "MLO permite agregar capacidad o redundancia transmitiendo datos por $2.4$, $5$ y $6\\text{ GHz}$ al mismo tiempo hacia un solo cliente.",
+        "isCorrect": true
+      },
+      {
+        "text": "Introducción de canales de $160\\text{ MHz}$ por primera vez en entornos de alta densidad de usuarios.",
+        "rationale": "Los canales de $160\\text{ MHz}$ ya estaban disponibles en WiFi 5 y WiFi 6; WiFi 7 introduce canales de hasta $320\\text{ MHz}$.",
+        "isCorrect": false
+      },
+      {
+        "text": "Sustitución completa del acceso CSMA/CA por una estructura de acceso fijo por prioridad para tráfico crítico.",
+        "rationale": "WiFi 7 mantiene la compatibilidad con CSMA/CA, aunque introduce optimizaciones sobre cómo se accede al espectro.",
+        "isCorrect": false
+      },
+      {
+        "text": "Obligatoriedad de utilizar bandas de frecuencia por encima de los $60\\text{ GHz}$ para comunicaciones de corto alcance.",
+        "rationale": "Las bandas de $60\\text{ GHz}$ pertenecen a otros estándares como $802.11ad/ay$ (WiGig), no son la base de WiFi 7.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en la capacidad de un dispositivo para estar conectado a varias frecuencias de radio a la vez."
+  },
+  {
+    "guid": "7d1fadf5-f3e6-4fc2-b955-213b5683d165",
+    "subjectId": "T61",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Durante el proceso de roaming de un cliente inalámbrico, el protocolo $802.11k$ facilita la transición mediante:",
+    "answerOptions": [
+      {
+        "text": "La provisión al cliente de una lista de puntos de acceso vecinos optimizada para reducir el tiempo de escaneo activo.",
+        "rationale": "802.11k ayuda al cliente a conocer qué APs hay cerca para que no tenga que escanear todos los canales de todas las bandas.",
+        "isCorrect": true
+      },
+      {
+        "text": "La provisión al cliente de una lista de puntos de acceso remotos optimizada para reducir el tiempo de escaneo pasivo.",
+        "rationale": "La lista es de APs vecinos, no remotos, y el objetivo principal es acelerar el proceso de selección del próximo punto de conexión.",
+        "isCorrect": false
+      },
+      {
+        "text": "La provisión al cliente de una lista de puntos de acceso adyacentes optimizada para reducir el tiempo de escaneo selectivo.",
+        "rationale": "Aunque similar, el concepto técnico preciso es 'Neighbor Report' para evitar el escaneo completo de todo el espectro inalámbrico.",
+        "isCorrect": false
+      },
+      {
+        "text": "La provisión al cliente de una lista de puntos de acceso candidatos optimizada para reducir el tiempo de escaneo reactivo.",
+        "rationale": "El protocolo define el intercambio de información sobre el entorno de radio para una decisión de roaming más ágil y eficiente.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Este protocolo ayuda al dispositivo a saber 'a dónde mirar' antes de perder la señal actual."
+  },
+  {
+    "guid": "7ecb40c3-9c66-4e66-b97a-1e080ca80808",
+    "subjectId": "T61",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En el despliegue de una red WiFi, la realización de un 'Site Survey' de tipo pasivo consiste fundamentalmente en:",
+    "answerOptions": [
+      {
+        "text": "Recorrer la instalación capturando las emisiones de radio de todos los APs existentes para medir niveles de señal y ruido.",
+        "rationale": "El estudio pasivo escucha el entorno sin asociarse a ningún AP, permitiendo ver la cobertura de múltiples fuentes simultáneamente.",
+        "isCorrect": true
+      },
+      {
+        "text": "Recorrer la instalación capturando las emisiones de radio de todos los APs instalados para medir niveles de señal y carga.",
+        "rationale": "La carga de tráfico es difícil de medir con precisión en un estudio pasivo, que se centra principalmente en la capa física de radio.",
+        "isCorrect": false
+      },
+      {
+        "text": "Recorrer la instalación capturando las emisiones de radio de todos los APs presentes para medir niveles de señal y latencia.",
+        "rationale": "La latencia requiere una conexión activa para enviar y recibir paquetes, algo que no ocurre en un escaneo puramente pasivo.",
+        "isCorrect": false
+      },
+      {
+        "text": "Recorrer la instalación capturando las emisiones de radio de todos los APs detectados para medir niveles de señal y velocidad.",
+        "rationale": "La velocidad de transmisión efectiva (throughput) solo se puede medir mediante un 'Site Survey' activo con asociación de datos.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Diferencie entre simplemente escuchar el espectro y interactuar directamente con la infraestructura."
+  },
+  {
+    "guid": "144539d2-3e7a-4987-bac7-e5b1f12eacbf",
+    "subjectId": "T61",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "La técnica de 'BSS Coloring' en redes de alta densidad tiene como objetivo metodológico principal:",
+    "answerOptions": [
+      {
+        "text": "Permitir que un dispositivo ignore transmisiones de redes vecinas en el mismo canal si el identificador de color es distinto.",
+        "rationale": "Al asignar un 'color' a cada BSS, los dispositivos pueden diferenciar si el canal está ocupado por su propia red o por otra lejana.",
+        "isCorrect": true
+      },
+      {
+        "text": "Permitir que un dispositivo ignore transmisiones de redes ajenas en el mismo canal si el identificador de color es distante.",
+        "rationale": "El término técnico se basa en la diferenciación por identificadores numéricos insertados en la cabecera PHY para optimizar el reúso.",
+        "isCorrect": false
+      },
+      {
+        "text": "Permitir que un dispositivo ignore transmisiones de redes externas en el mismo canal si el identificador de color es dispar.",
+        "rationale": "Esta técnica busca reducir la contención innecesaria (CCI) permitiendo transmisiones simultáneas cuando la interferencia es mínima.",
+        "isCorrect": false
+      },
+      {
+        "text": "Permitir que un dispositivo ignore transmisiones de redes paralelas en el mismo canal si el identificador de color es divergente.",
+        "rationale": "El objetivo es aumentar la eficiencia en escenarios donde muchos APs deben compartir obligatoriamente los mismos canales de radio.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en cómo evitar que su router espere a que termine de hablar el router del vecino si este está lejos."
+  },
+  {
+    "guid": "46075a66-f485-4c9b-b2ea-cd5aec5f8e29",
+    "subjectId": "T61",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "El mecanismo Target Wake Time (TWT) en entornos de Internet de las Cosas (IoT) funciona mediante:",
+    "answerOptions": [
+      {
+        "text": "La negociación de periodos específicos en los que el cliente se activará para transmitir, permaneciendo en bajo consumo el resto del tiempo.",
+        "rationale": "TWT permite que el AP y el cliente acuerden un horario exacto, minimizando la contención y maximizando la duración de la batería.",
+        "isCorrect": true
+      },
+      {
+        "text": "La negociación de periodos específicos en los que el cliente se encenderá para transmitir, permaneciendo en bajo consumo el resto del tiempo.",
+        "rationale": "Aunque es correcto, la clave es el acuerdo previo entre AP y STA para evitar que el cliente tenga que escuchar cada baliza (beacon).",
+        "isCorrect": false
+      },
+      {
+        "text": "La negociación de periodos específicos en los que el cliente se despertará para transmitir, permaneciendo en bajo consumo el resto del tiempo.",
+        "rationale": "Es una técnica de planificación que elimina la necesidad de que los dispositivos estén constantemente pendientes del medio inalámbrico.",
+        "isCorrect": false
+      },
+      {
+        "text": "La negociación de periodos específicos en los que el cliente se habilitará para transmitir, permaneciendo en bajo consumo el resto del tiempo.",
+        "rationale": "Mejora drásticamente la eficiencia en redes con miles de sensores que solo necesitan enviar datos de forma muy esporádica.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Se trata de sustituir el acceso aleatorio por una agenda compartida entre el AP y el dispositivo."
+  },
+  {
+    "guid": "62b0eac1-768b-4396-b29b-97a67f458605",
+    "subjectId": "T61",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En el diseño de celdas inalámbricas, la gestión de los 'Data Rates' básicos permite:",
+    "answerOptions": [
+      {
+        "text": "Desconectar clientes con señal débil al obligarles a utilizar velocidades de transmisión mínimas más elevadas.",
+        "rationale": "Al eliminar las velocidades bajas (como $1$ o $6\\text{ Mbps}$), se reduce el tamaño efectivo de la celda y se mejora la eficiencia global.",
+        "isCorrect": true
+      },
+      {
+        "text": "Desconectar clientes con señal baja al obligarles a utilizar velocidades de transmisión mínimas más exigentes.",
+        "rationale": "Subir los 'rates' básicos obliga a los clientes a estar más cerca del AP para poder modular a esa velocidad superior.",
+        "isCorrect": false
+      },
+      {
+        "text": "Desconectar clientes con señal pobre al obligarles a utilizar velocidades de transmisión mínimas más restringidas.",
+        "rationale": "Esta práctica es común en entornos de alta densidad para evitar que clientes lejanos consuman demasiado tiempo de aire (airtime).",
+        "isCorrect": false
+      },
+      {
+        "text": "Desconectar clientes con señal escasa al obligarles a utilizar velocidades de transmisión mínimas más selectivas.",
+        "rationale": "El ajuste de velocidades mínimas es una herramienta clave para forzar el roaming y optimizar la capacidad agregada de la red.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considere qué ocurre con un dispositivo que habla muy despacio en una sala llena de gente."
+  },
+  {
+    "guid": "f48ec519-73c2-4cb1-8d95-b3ef4a2cdb37",
+    "subjectId": "T61",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "El protocolo Fast Transition definido en $802.11r$ mejora la experiencia de usuario mediante:",
+    "answerOptions": [
+      {
+        "text": "El almacenamiento previo de claves de cifrado en los APs vecinos para evitar el intercambio completo de claves durante el reasociado.",
+        "rationale": "802.11r permite que el handshake de seguridad se realice antes o durante el cambio de AP, reduciendo el salto a milisegundos.",
+        "isCorrect": true
+      },
+      {
+        "text": "El almacenamiento previo de claves de cifrado en los APs cercanos para evitar el intercambio completo de claves durante el reasociado.",
+        "rationale": "Es crítico para aplicaciones de tiempo real como voz sobre WiFi (VoWiFi), donde cortes de más de $100\\text{ms}$ son perceptibles.",
+        "isCorrect": false
+      },
+      {
+        "text": "El almacenamiento previo de claves de cifrado en los APs contiguos para evitar el intercambio completo de claves durante el reasociado.",
+        "rationale": "El protocolo permite que parte de la autenticación se resuelva antes de que el cliente rompa la conexión con su AP actual.",
+        "isCorrect": false
+      },
+      {
+        "text": "El almacenamiento previo de claves de cifrado en los APs anexos para evitar el intercambio completo de claves durante el reasociado.",
+        "rationale": "Reduce significativamente el tiempo de interrupción en redes empresariales con autenticación robusta tipo $802.1X$.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piense en cómo agilizar un proceso burocrático de seguridad cuando el tiempo es crítico."
+  },
+  {
+    "guid": "5066a3ae-4c9c-4d13-aaf4-e07b84c1681c",
+    "subjectId": "T61",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "La funcionalidad de 'Band Steering' en infraestructuras WiFi modernas actúa:",
+    "answerOptions": [
+      {
+        "text": "Detectando clientes con capacidad de $5\\text{/ }6\\text{ GHz}$ y retrasando la respuesta en $2.4\\text{ GHz}$ para forzar la conexión a bandas más rápidas.",
+        "rationale": "El AP 'engaña' brevemente al cliente en $2.4\\text{ GHz}$ para que este prefiera la banda de $5$ o $6\\text{ GHz}$, menos saturada.",
+        "isCorrect": true
+      },
+      {
+        "text": "Detectando clientes con capacidad de $5\\text{/ }6\\text{ GHz}$ y denegando la respuesta en $2.4\\text{ GHz}$ para forzar la conexión a bandas más rápidas.",
+        "rationale": "No se suele denegar permanentemente sino retardar, para permitir que los clientes solo compatibles con $2.4\\text{ GHz}$ acaben conectando.",
+        "isCorrect": false
+      },
+      {
+        "text": "Detectando clientes con capacidad de $5\\text{/ }6\\text{ GHz}$ y omitiendo la respuesta en $2.4\\text{ GHz}$ para forzar la conexión a bandas más rápidas.",
+        "rationale": "Es una técnica de gestión de tráfico que busca equilibrar la carga entre radios y mejorar el rendimiento individual de los clientes.",
+        "isCorrect": false
+      },
+      {
+        "text": "Detectando clientes con capacidad de $5\\text{/ }6\\text{ GHz}$ y bloqueando la respuesta en $2.4\\text{ GHz}$ para forzar la conexión a bandas más rápidas.",
+        "rationale": "El objetivo es maximizar el uso de los canales más anchos y limpios disponibles en las frecuencias superiores.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Es un empujón invisible para que los dispositivos usen la 'autopista' en lugar de la 'carretera comarcal'."
+  },
+  {
+    "guid": "ee8dcae3-6698-46a1-ae55-0c38a3e3889a",
+    "subjectId": "T61",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "En el contexto de calidad de servicio (QoS) en WiFi, el estándar $802.11e$ introduce el concepto de:",
+    "answerOptions": [
+      {
+        "text": "Categorías de acceso que permiten priorizar tramas de voz y vídeo sobre el tráfico de datos convencional mediante tiempos de espera variables.",
+        "rationale": "WMM (Wi-Fi Multimedia) define colas con diferentes prioridades para garantizar que el tráfico en tiempo real no sufra retardos.",
+        "isCorrect": true
+      },
+      {
+        "text": "Categorías de acceso que permiten priorizar tramas de voz y vídeo sobre el tráfico de datos convencional mediante tiempos de espera distintos.",
+        "rationale": "Se basa en modificar los parámetros del protocolo DCF para que los servicios críticos tengan más probabilidades de ganar el acceso al medio.",
+        "isCorrect": false
+      },
+      {
+        "text": "Categorías de acceso que permiten priorizar tramas de voz y vídeo sobre el tráfico de datos convencional mediante tiempos de espera diversos.",
+        "rationale": "Esta priorización es esencial para evitar el 'jitter' y la latencia excesiva en aplicaciones interactivas.",
+        "isCorrect": false
+      },
+      {
+        "text": "Categorías de acceso que permiten priorizar tramas de voz y vídeo sobre el tráfico de datos convencional mediante tiempos de espera desiguales.",
+        "rationale": "Permite un trato diferenciado del tráfico dentro de la misma frecuencia de radio compartida por múltiples dispositivos.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considere cómo dar preferencia a una ambulancia en un semáforo frente al resto de vehículos."
+  },
+  {
+    "guid": "355a9856-b9a6-480a-961c-0e79f73c15d0",
+    "subjectId": "T61",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Identificador único de $48$ bits que corresponde a la dirección MAC de la interfaz de radio del punto de acceso.",
+    "answerOptions": [
       {
         "text": "BSSID",
-        "rationale": "El BSSID es la dirección MAC física de la radio del AP que identifica de forma unívoca a esa celda específica.",
+        "rationale": "El Basic Service Set Identifier es la dirección física de la radio del AP que diferencia una celda de otra aunque tengan el mismo nombre.",
         "isCorrect": true
       },
       {
-        "text": "ESS",
-        "rationale": "El ESS representa el conjunto de varios BSS que comparten el mismo nombre de red para permitir el roaming.",
+        "text": "SSID",
+        "rationale": "El SSID es el nombre lógico de la red y no es un identificador de hardware único.",
         "isCorrect": false
       },
       {
-        "text": "IP Estática",
-        "rationale": "La dirección IP identifica al dispositivo en la capa de red, pero no identifica la interfaz de radio física en la capa de enlace inalámbrica.",
+        "text": "ESSID",
+        "rationale": "Es el identificador del conjunto de servicios extendidos, generalmente coincidente con el SSID en redes con múltiples APs.",
+        "isCorrect": false
+      },
+      {
+        "text": "BSS",
+        "rationale": "El BSS es el concepto de la celda en sí (AP + clientes), no el identificador de hardware.",
         "isCorrect": false
       }
     ],
-    "hint": "Se trata de un identificador de nivel de capa 2 basado en la dirección física del hardware."
+    "hint": "Se trata de una dirección física a nivel de capa $2$ de enlace de datos."
   },
   {
-    "guid": "5ac4b99d-287b-4739-aadf-240c05217e2f",
+    "guid": "0b1f8d76-b34d-4013-b0be-ebb06903ec36",
     "subjectId": "T61",
     "origin": "notebooklm",
     "type": "test",
     "difficulty": 2,
-    "question": "Respecto a las bandas de frecuencia, ¿cuál es una diferencia fundamental entre el estándar $802.11ac$ (Wi-Fi 5) y el $802.11ax$ (Wi-Fi 6)?",
+    "question": "Protocolo utilizado para que los dispositivos PSE y PD negocien dinámicamente la potencia eléctrica requerida a través del cable de red.",
     "answerOptions": [
       {
-        "text": "Wi-Fi 5 opera exclusivamente en la banda de $5\\ GHz$, mientras que Wi-Fi 6 vuelve a operar en $2.4\\ GHz$ y $5\\ GHz$.",
-        "rationale": "Wi-Fi 5 se diseñó solo para $5\\ GHz$, mientras que Wi-Fi 6 es un estándar de alta eficiencia que recupera y mejora la banda de $2.4\\ GHz$.",
+        "text": "LLDP-MED",
+        "rationale": "LLDP-MED es una extensión de LLDP que permite una gestión precisa y granular de la energía en dispositivos PoE.",
         "isCorrect": true
       },
       {
-        "text": "Wi-Fi 5 introdujo la banda de $6\\ GHz$, mientras que Wi-Fi 6 la estandarizó para todos los dispositivos.",
-        "rationale": "La banda de $6\\ GHz$ es una extensión específica introducida con Wi-Fi 6E, no con Wi-Fi 5.",
+        "text": "CDP",
+        "rationale": "Aunque es un protocolo de descubrimiento similar, LLDP-MED es el estándar abierto utilizado para la negociación de energía detallada.",
         "isCorrect": false
       },
       {
-        "text": "Wi-Fi 6 elimina el uso de canales de $160\\ MHz$ para evitar interferencias, limitándose a $80\\ MHz$.",
-        "rationale": "Ambos estándares soportan canales de hasta $160\\ MHz$, y Wi-Fi 7 los amplía hasta $320\\ MHz$.",
+        "text": "LACP",
+        "rationale": "LACP se utiliza para la agregación de enlaces físicos (EtherChannel), no para la gestión de energía.",
         "isCorrect": false
       },
       {
-        "text": "Wi-Fi 5 utiliza canales no solapados en $2.4\\ GHz$, mientras que Wi-Fi 6 solo usa canales solapados.",
-        "rationale": "El uso de canales no solapados (1, 6, 11) es una propiedad de la planificación de la banda de $2.4\\ GHz$ independiente del estándar.",
+        "text": "SNMP",
+        "rationale": "SNMP se usa para monitorización y gestión, pero no es el protocolo de negociación directa de potencia entre switch y AP.",
         "isCorrect": false
       }
     ],
-    "hint": "Recuerda qué estándar se centró únicamente en la banda con menos interferencias para aplicaciones de alta velocidad."
+    "hint": "Es una extensión de un protocolo de descubrimiento de capa $2$ orientado a dispositivos finales."
   },
   {
-    "guid": "77d6daa5-8b7f-4a45-be0f-3a5218ffa078",
+    "guid": "d81f6fd2-7d8d-478a-936f-67c7a7a26ae4",
     "subjectId": "T61",
     "origin": "notebooklm",
     "type": "test",
     "difficulty": 2,
-    "question": "¿Qué tecnología de Wi-Fi 6 permite dividir un canal en subcanales llamados Unidades de Recurso (RU) para atender a múltiples clientes simultáneamente?",
+    "question": "Tecnología que permite a un punto de acceso enviar flujos de datos independientes a múltiples clientes de forma simultánea aprovechando la separación espacial.",
     "answerOptions": [
       {
         "text": "MU-MIMO",
-        "rationale": "MU-MIMO utiliza la separación espacial mediante múltiples antenas, pero no divide el espectro de frecuencia en subcanales.",
-        "isCorrect": false
-      },
-      {
-        "text": "OFDMA",
-        "rationale": "OFDMA divide el canal en el dominio de la frecuencia para aumentar la eficiencia y reducir la latencia al servir a varios usuarios a la vez.",
+        "rationale": "Multi-User MIMO permite que el AP use sus múltiples antenas para 'hablar' con varios dispositivos a la vez en el mismo instante de tiempo.",
         "isCorrect": true
       },
       {
-        "text": "BSS Coloring",
-        "rationale": "Esta técnica se utiliza para la reutilización espacial y la identificación de interferencias de redes vecinas, no para dividir el canal entre clientes.",
+        "text": "OFDMA",
+        "rationale": "OFDMA divide el espectro en frecuencia, no utiliza la separación espacial de las antenas para usuarios distintos.",
         "isCorrect": false
       },
       {
-        "text": "Beamforming",
-        "rationale": "El beamforming es una técnica de enfoque de la señal hacia un cliente específico para mejorar la cobertura y SNR.",
+        "text": "MRC",
+        "rationale": "Maximal Ratio Combining es una técnica para mejorar la recepción, no para transmitir a múltiples usuarios simultáneamente.",
+        "isCorrect": false
+      },
+      {
+        "text": "DSSS",
+        "rationale": "Direct Sequence Spread Spectrum es una técnica de modulación antigua usada en WiFi original ($802.11b$).",
         "isCorrect": false
       }
     ],
-    "hint": "Esta técnica proviene de la telefonía móvil 4G y se basa en la multiplexación por división de frecuencias."
+    "hint": "Sus siglas indican que múltiples usuarios reciben datos al mismo tiempo gracias a múltiples antenas."
   },
   {
-    "guid": "51c12815-d9ce-4a33-8d5c-c5d34ad613e7",
+    "guid": "270de31f-de78-4c12-8237-fc88fde84052",
     "subjectId": "T61",
     "origin": "notebooklm",
     "type": "test",
     "difficulty": 2,
-    "question": "En un entorno corporativo con aplicaciones de voz crítica (VoWiFi), ¿qué protocolo es responsable de realizar la 'Fast Transition' para reducir la latencia durante el roaming?",
+    "question": "Extensión obligatoria en WPA3 que protege las tramas de gestión para evitar ataques de desautenticación forzada.",
     "answerOptions": [
       {
-        "text": "802.11k",
-        "rationale": "El protocolo 802.11k proporciona listas de vecinos al cliente, pero no gestiona la autenticación rápida del cambio.",
+        "text": "PMF",
+        "rationale": "Protected Management Frames ($802.11w$) cifra las tramas de control, impidiendo que un atacante desconecte a los usuarios legítimos.",
+        "isCorrect": true
+      },
+      {
+        "text": "TKIP",
+        "rationale": "TKIP es un protocolo de cifrado antiguo y vulnerable utilizado en WPA que ha sido totalmente superado.",
         "isCorrect": false
       },
       {
+        "text": "SAE",
+        "rationale": "SAE es el método de intercambio de claves, mientras que PMF es lo que protege específicamente las tramas de gestión tras la conexión.",
+        "isCorrect": false
+      },
+      {
+        "text": "EAP",
+        "rationale": "Extensible Authentication Protocol es un marco para la autenticación, no una técnica de protección de tramas de gestión.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Sus siglas en inglés significan 'Tramas de Gestión Protegidas'."
+  },
+  {
+    "guid": "7dcdf6c2-2c57-4088-9f79-5a555b57a46e",
+    "subjectId": "T61",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Sistema diseñado para monitorizar el espectro radioeléctrico y alertar sobre la presencia de puntos de acceso no autorizados o ataques en curso.",
+    "answerOptions": [
+      {
+        "text": "WIPS",
+        "rationale": "Un Wireless Intrusion Prevention System detecta y puede mitigar amenazas como APs maliciosos (rogue) o ataques de denegación de servicio.",
+        "isCorrect": true
+      },
+      {
+        "text": "SIEM",
+        "rationale": "Un SIEM centraliza logs de toda la infraestructura, pero no es el sistema especializado en la detección de intrusiones WiFi por radio.",
+        "isCorrect": false
+      },
+      {
+        "text": "WLC",
+        "rationale": "La controladora gestiona los APs, pero la función específica de seguridad e inspección del aire recae en el módulo WIDS/WIPS.",
+        "isCorrect": false
+      },
+      {
+        "text": "RADIUS",
+        "rationale": "RADIUS gestiona la autenticación de usuarios, no la seguridad física del espectro radioeléctrico.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Se centra en la 'prevención' de intrusiones específicamente en el ámbito inalámbrico."
+  },
+  {
+    "guid": "14d63bd0-327b-459c-b3d8-5dff89fc77ae",
+    "subjectId": "T61",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 2,
+    "question": "Protocolo que permite a los APs informar a los dispositivos móviles sobre las capacidades de carga y los servicios disponibles de los nodos vecinos.",
+    "answerOptions": [
+      {
         "text": "802.11v",
-        "rationale": "802.11v ayuda a la gestión de la red sugiriendo transiciones al cliente, pero la ejecución rápida depende de otro estándar.",
+        "rationale": "802.11v (Wireless Network Management) permite que la red dirija a los clientes hacia el AP más óptimo basándose en carga y estado.",
+        "isCorrect": true
+      },
+      {
+        "text": "802.11k",
+        "rationale": "802.11k proporciona la lista de vecinos, pero $802.11v$ es el que permite realizar una gestión activa y sugerencias de transición.",
         "isCorrect": false
       },
       {
         "text": "802.11r",
-        "rationale": "802.11r permite que el intercambio de claves se realice antes del cambio de AP, reduciendo drásticamente el tiempo de desconexión.",
-        "isCorrect": true
+        "rationale": "802.11r se centra en la velocidad de la transición (handshake), no en la gestión o sugerencia de a qué AP conectar.",
+        "isCorrect": false
       },
       {
-        "text": "802.11w",
-        "rationale": "Este estándar se encarga de proteger las tramas de gestión (PMF), no de acelerar el roaming.",
+        "text": "802.11u",
+        "rationale": "802.11u se utiliza para la interconexión con redes externas y es la base de tecnologías como Hotspot $2.0$.",
         "isCorrect": false
       }
     ],
-    "hint": "Es la letra que suele asociarse con 'Roaming' rápido en la tríada de protocolos de movilidad."
+    "hint": "Es el protocolo de gestión que permite a la red 'sugerir' al cliente que se mueva a otro AP."
   },
   {
-    "guid": "d8e3d319-f09e-4eca-aa26-a64eae8c0fda",
+    "guid": "1bc17e59-1d21-4998-9c89-8a7eb848408e",
     "subjectId": "T61",
     "origin": "notebooklm",
     "type": "test",
     "difficulty": 2,
-    "question": "Un punto de acceso de alto rendimiento requiere una potencia de $55\\ W$ para funcionar. ¿Qué estándar PoE debe soportar el switch (PSE) para alimentarlo?",
-    "answerOptions": [
-      {
-        "text": "802.3af (PoE)",
-        "rationale": "Este estándar solo suministra hasta unos $15.4\\ W$, insuficientes para este caso.",
-        "isCorrect": false
-      },
-      {
-        "text": "802.3at (PoE+)",
-        "rationale": "El estándar PoE+ llega hasta los $30\\ W$ por puerto, lo cual queda por debajo de los $55\\ W$ requeridos.",
-        "isCorrect": false
-      },
-      {
-        "text": "802.3bt (PoE++)",
-        "rationale": "El estándar 802.3bt está diseñado para dispositivos de alta potencia, permitiendo rangos de $60\\ W$ hasta $90\\ W$.",
-        "isCorrect": true
-      },
-      {
-        "text": "LLDP-MED",
-        "rationale": "LLDP-MED es un protocolo de descubrimiento y negociación de parámetros, no un estándar de suministro de potencia física.",
-        "isCorrect": false
-      }
-    ],
-    "hint": "Busca el estándar más reciente que permite alimentar dispositivos como cámaras domo o puntos de acceso WiFi 7."
-  },
-  {
-    "guid": "4a2335e5-b69d-4ea6-a2bb-60daaa6ca297",
-    "subjectId": "T61",
-    "origin": "notebooklm",
-    "type": "test",
-    "difficulty": 2,
-    "question": "¿Qué mecanismo de seguridad introduce WPA3-Personal para sustituir el intercambio PSK y protegerse contra ataques de fuerza bruta fuera de línea?",
+    "question": "Algoritmo de cifrado de bloque altamente seguro utilizado por defecto en el estándar WPA2 y versiones posteriores.",
     "answerOptions": [
       {
         "text": "AES-CCMP",
-        "rationale": "AES-CCMP es el protocolo de cifrado utilizado ya en WPA2, no el mecanismo de autenticación.",
-        "isCorrect": false
-      },
-      {
-        "text": "SAE (Simultaneous Authentication of Equals)",
-        "rationale": "SAE establece una clave segura mediante un intercambio que impide que un atacante pruebe contraseñas capturando el tráfico inicial.",
+        "rationale": "AES (Advanced Encryption Standard) con CCMP es el estándar de la industria que garantiza confidencialidad e integridad en redes WiFi modernas.",
         "isCorrect": true
       },
       {
-        "text": "802.1X/RADIUS",
-        "rationale": "Este es el mecanismo para WPA3-Enterprise basado en certificados o credenciales de usuario, no el estándar de uso personal.",
+        "text": "RC4",
+        "rationale": "RC4 era el algoritmo utilizado en WEP y TKIP, pero se considera inseguro debido a diversas vulnerabilidades criptográficas.",
         "isCorrect": false
       },
       {
-        "text": "Portal Captivo",
-        "rationale": "El portal captivo es una medida de control de acceso para invitados, no un protocolo de seguridad de cifrado de capa 2.",
+        "text": "DES",
+        "rationale": "Data Encryption Standard es un algoritmo antiguo ya superado por AES en prácticamente todas las aplicaciones de red.",
+        "isCorrect": false
+      },
+      {
+        "text": "3DES",
+        "rationale": "Triple DES es una evolución de DES, pero no es el algoritmo estándar definido para el cifrado en redes IEEE $802.11$.",
         "isCorrect": false
       }
     ],
-    "hint": "Se basa en un intercambio de claves Dragonfly que garantiza que ambas partes conocen la contraseña sin enviarla directamente."
+    "hint": "Es el estándar de cifrado simétrico adoptado por el gobierno de EE.UU. y la WiFi Alliance."
   },
   {
-    "guid": "cad4f8fe-2edf-404b-8a80-8e1bcda94c3c",
+    "guid": "2a4343be-926d-4e31-b43d-012cce0f0cb8",
     "subjectId": "T61",
     "origin": "notebooklm",
     "type": "test",
     "difficulty": 2,
-    "question": "Sobre la banda de $6\\ GHz$ utilizada en Wi-Fi 6E y Wi-Fi 7, ¿cuál es el ancho de banda total disponible para canales en esta frecuencia?",
+    "question": "Indique cuál de las siguientes afirmaciones sobre WiFi 6 ($802.11ax$) es FALSA:",
     "answerOptions": [
       {
-        "text": "$83.5\\ MHz$",
-        "rationale": "Este es el ancho de banda extremadamente limitado disponible en la banda de $2.4\\ GHz$.",
-        "isCorrect": false
-      },
-      {
-        "text": "$665\\ MHz$",
-        "rationale": "Este valor se aproxima al espacio fragmentado disponible en la banda de $5\\ GHz$.",
-        "isCorrect": false
-      },
-      {
-        "text": "$1200\\ MHz$",
-        "rationale": "La banda de $6\\ GHz$ ofrece una expansión masiva de $1.2\\ GHz$ de espectro, permitiendo muchos más canales de $160$ y $320\\ MHz$.",
+        "text": "El estándar WiFi 6 solo opera en la banda de $5\\text{ GHz}$ para maximizar la velocidad, abandonando la banda de $2.4\\text{ GHz}$.",
+        "rationale": "WiFi 6 opera tanto en $2.4$ como en $5\\text{ GHz}$ (y $6\\text{ GHz}$ en su variante 6E); fue WiFi 5 ($802.11ac$) el que fue exclusivo de $5\\text{ GHz}$.",
         "isCorrect": true
       },
       {
-        "text": "$320\\ MHz$",
-        "rationale": "Este es el ancho de canal máximo de Wi-Fi 7, no el total de la banda disponible.",
+        "text": "Introduce OFDMA para mejorar la eficiencia y reducir la latencia en entornos con alta densidad de dispositivos.",
+        "rationale": "Esta es una característica verídica y central de WiFi 6 para gestionar mejor múltiples conexiones simultáneas.",
+        "isCorrect": false
+      },
+      {
+        "text": "Utiliza TWT (Target Wake Time) para mejorar la eficiencia energética de dispositivos IoT alimentados por batería.",
+        "rationale": "TWT es una función real de WiFi 6 que permite programar las comunicaciones para ahorrar energía.",
+        "isCorrect": false
+      },
+      {
+        "text": "Mejora el rendimiento en exteriores y entornos con interferencias gracias al uso de BSS Coloring.",
+        "rationale": "BSS Coloring es una tecnología de WiFi 6 diseñada precisamente para optimizar la reutilización del espectro.",
         "isCorrect": false
       }
     ],
-    "hint": "Es casi el doble de lo que suman las bandas de $2.4$ y $5\\ GHz$ juntas."
+    "hint": "Recuerde qué estándar anterior restringió su operación únicamente a la banda de frecuencia más alta."
   },
   {
-    "guid": "edc51943-05ed-4016-9526-573ddc288449",
+    "guid": "29964b6e-4ca0-4840-b41f-7ac9721dfa91",
     "subjectId": "T61",
     "origin": "notebooklm",
     "type": "test",
     "difficulty": 2,
-    "question": "En el diseño de una red inalámbrica, ¿cuál es el propósito de activar la función 'Band Steering'?",
+    "question": "Señale la afirmación FALSA en relación con el despliegue de Power over Ethernet (PoE) para puntos de acceso:",
     "answerOptions": [
       {
-        "text": "Forzar a todos los clientes a usar la banda de $2.4\\ GHz$ para maximizar el alcance.",
-        "rationale": "El objetivo suele ser el contrario: alejar a los clientes de la banda más saturada y lenta.",
-        "isCorrect": false
-      },
-      {
-        "text": "Orientar dinámicamente las antenas del AP hacia la ubicación del cliente.",
-        "rationale": "Esa técnica se denomina Beamforming, no Band Steering.",
-        "isCorrect": false
-      },
-      {
-        "text": "Promover que los dispositivos capaces de usar $5\\ GHz$ o $6\\ GHz$ se conecten a estas bandas en lugar de a $2.4\\ GHz$.",
-        "rationale": "El Band Steering equilibra la carga y mejora el rendimiento global desplazando clientes a bandas menos congestionadas.",
+        "text": "La distancia máxima recomendada para alimentar un dispositivo mediante PoE puede superar los $250$ metros sin necesidad de extensores.",
+        "rationale": "PoE sigue las limitaciones físicas de Ethernet, que restringe la distancia máxima del enlace a $100$ metros sobre cable de cobre estándar.",
         "isCorrect": true
       },
       {
-        "text": "Limitar el número de SSIDs que se emiten por cada radio del AP.",
-        "rationale": "La limitación de SSIDs es una buena práctica para reducir el consumo de aire (overhead), pero es distinta al steering.",
+        "text": "El término PD (Powered Device) se refiere al dispositivo que recibe la energía, como un punto de acceso o una cámara IP.",
+        "rationale": "Esta es la terminología correcta definida en los estándares IEEE $802.3af/at/bt$.",
+        "isCorrect": false
+      },
+      {
+        "text": "Un switch que cumple el estándar $802.3bt$ es capaz de suministrar más energía que uno basado en $802.3at$.",
+        "rationale": "Es cierto, ya que $802.3bt$ (PoE++) llega hasta $90\\text{W}$ frente a los $30\\text{W}$ de $802.3at$ (PoE+).",
+        "isCorrect": false
+      },
+      {
+        "text": "Es necesario calcular el 'PoE Budget' total del switch para asegurar que puede alimentar todos los APs conectados simultáneamente.",
+        "rationale": "Esta es una práctica de diseño obligatoria para evitar sobrecargas y reinicios inesperados de los puntos de acceso.",
         "isCorrect": false
       }
     ],
-    "hint": "Piensa en cómo mejorar la experiencia de usuario moviéndolos a la banda 'más rápida' de forma automática."
+    "hint": "Recuerde las limitaciones de longitud típicas de los cables de red de par trenzado."
   },
   {
-    "guid": "30a2da22-546f-477e-b523-4c0fa471f903",
+    "guid": "4cbbcd80-00e6-4244-b50d-eadd477c17f3",
     "subjectId": "T61",
     "origin": "notebooklm",
     "type": "test",
     "difficulty": 2,
-    "question": "¿Cuál de las siguientes afirmaciones sobre las redes Mesh (malla) es correcta?",
+    "question": "Respecto a la banda de $2.4\\text{ GHz}$ y sus canales, ¿qué afirmación es FALSA?",
     "answerOptions": [
       {
-        "text": "Requieren que todos los nodos estén conectados físicamente mediante cable Ethernet al switch central.",
-        "rationale": "La principal ventaja de Mesh es precisamente que permite interconectar nodos de forma inalámbrica mediante backhaul rádio.",
-        "isCorrect": false
-      },
-      {
-        "text": "Es una topología rígida donde si un nodo falla, toda la red deja de funcionar.",
-        "rationale": "Las redes Mesh son autoformantes y autoreparables, buscando rutas alternativas si un nodo se cae.",
-        "isCorrect": false
-      },
-      {
-        "text": "Permiten extender la cobertura mediante interconexiones inalámbricas entre los propios puntos de acceso.",
-        "rationale": "Esta es la definición de Mesh: los APs actúan como repetidores inteligentes que crean una malla de cobertura sin necesidad de cables en todos los puntos.",
+        "text": "En Europa, el estándar permite el uso de hasta $14$ canales no solapados para evitar cualquier tipo de interferencia adyacente.",
+        "rationale": "Solo existen $3$ canales que no se solapan entre sí ($1, 6$ y $11$) con un ancho de $20\\text{ MHz}$ en la banda de $2.4\\text{ GHz}$.",
         "isCorrect": true
       },
       {
-        "text": "Utilizan el protocolo 802.11b para garantizar la máxima compatibilidad con dispositivos antiguos.",
-        "rationale": "Aunque pueden ser compatibles, el uso de estándares antiguos en el backhaul penalizaría gravemente el rendimiento de la malla.",
+        "text": "Esta banda es más susceptible a interferencias de hornos microondas y dispositivos Bluetooth que las bandas de $5$ o $6\\text{ GHz}$.",
+        "rationale": "Cierto, la banda de $2.4\\text{ GHz}$ es una banda ISM (Industrial, Scientific and Medical) muy congestionada por diversos dispositivos.",
+        "isCorrect": false
+      },
+      {
+        "text": "La señal en $2.4\\text{ GHz}$ tiene un mayor alcance y mejor penetración en obstáculos que la señal de $5\\text{ GHz}$.",
+        "rationale": "Es correcto; a menor frecuencia, mayor es la longitud de onda y mejor es la capacidad de atravesar materiales físicos.",
+        "isCorrect": false
+      },
+      {
+        "text": "El uso de canales de $40\\text{ MHz}$ en esta banda no se recomienda en entornos con muchos APs debido al solapamiento masivo.",
+        "rationale": "Es una buena práctica de diseño, ya que un canal de $40\\text{ MHz}$ ocupa casi todo el espectro disponible en $2.4\\text{ GHz}$.",
         "isCorrect": false
       }
     ],
-    "hint": "Considera la flexibilidad de instalación en edificios donde no es posible tirar cableado estructurado."
+    "hint": "Considere cuántos canales realmente 'caben' sin tocarse en un espacio de apenas $83\\text{ MHz}$."
   },
   {
-    "guid": "6c6a9d6d-9ca2-49b6-9b20-ff7c7bd58d36",
+    "guid": "c7496a59-95be-4523-9c87-ba57f0096b70",
     "subjectId": "T61",
     "origin": "notebooklm",
     "type": "test",
     "difficulty": 2,
-    "question": "¿Qué tecnología introducida en Wi-Fi 6 (802.11ax) permite a los dispositivos IoT negociar periodos de sueño para ahorrar batería?",
+    "question": "En cuanto a las arquitecturas de red WiFi, identifique la premisa FALSA:",
     "answerOptions": [
       {
-        "text": "BSS Coloring",
-        "rationale": "Se usa para identificar transmisiones de otras redes, no para la gestión de energía del cliente.",
-        "isCorrect": false
-      },
-      {
-        "text": "Target Wake Time (TWT)",
-        "rationale": "TWT permite programar cuándo el dispositivo debe despertar para transmitir datos, reduciendo el consumo de energía.",
+        "text": "En una red de tipo Mesh, todos los puntos de acceso deben estar obligatoriamente conectados por cable a la red troncal.",
+        "rationale": "La esencia de las redes Mesh es precisamente la interconexión inalámbrica (backhaul) entre nodos para extender cobertura donde no hay cable.",
         "isCorrect": true
       },
       {
-        "text": "CSMA/CA",
-        "rationale": "Es el mecanismo de acceso al medio para evitar colisiones, común a todos los estándares Wi-Fi.",
+        "text": "El modo infraestructura requiere de un punto de acceso central que gestione las comunicaciones de los clientes asociados.",
+        "rationale": "Esta es la definición del modo de operación más común y estándar en redes corporativas y domésticas.",
         "isCorrect": false
       },
       {
-        "text": "DCA (Dynamic Channel Assignment)",
-        "rationale": "Es una función de la controladora para asignar canales a los APs, no una función de ahorro de energía del cliente.",
+        "text": "Una arquitectura Ad-hoc (IBSS) permite la comunicación directa entre dispositivos sin necesidad de un AP.",
+        "rationale": "Correcto; el modo Ad-hoc es una comunicación punto a punto entre estaciones inalámbricas.",
+        "isCorrect": false
+      },
+      {
+        "text": "La topología de bridge punto a multipunto se utiliza para interconectar varias sedes físicas mediante antenas direccionables.",
+        "rationale": "Es una aplicación común para extender redes LAN entre edificios cercanos sin necesidad de fibra óptica propia.",
         "isCorrect": false
       }
     ],
-    "hint": "Sus siglas en inglés significan literalmente 'Tiempo de Despertar Objetivo'."
+    "hint": "Piense en la principal ventaja de una red en 'malla' frente a una red cableada tradicional."
   },
   {
-    "guid": "1d3773e7-0d8d-44d7-9704-2df447a8fc96",
+    "guid": "3d0c6b7b-cf9a-4961-9271-1d48be2c9cc6",
     "subjectId": "T61",
     "origin": "notebooklm",
     "type": "test",
     "difficulty": 2,
-    "question": "¿Qué función cumple el protocolo 802.11w (PMF) en la seguridad de una red Wi-Fi?",
+    "question": "Sobre la seguridad WPA3, indique cuál de las siguientes afirmaciones es FALSA:",
     "answerOptions": [
       {
-        "text": "Cifra los datos del usuario utilizando algoritmos de $256\\ bits$.",
-        "rationale": "El cifrado de datos es responsabilidad de WPA2/WPA3 (AES), no específicamente del estándar 802.11w.",
-        "isCorrect": false
-      },
-      {
-        "text": "Protege las tramas de gestión para evitar ataques de desautenticación malintencionados.",
-        "rationale": "PMF cifra las tramas de control y gestión, impidiendo que un atacante desconecte a los usuarios enviando paquetes falsos de 'deauth'.",
+        "text": "WPA3 permite el uso del cifrado dinámico de claves mediante TKIP para mantener la compatibilidad con dispositivos de la era WiFi 3.",
+        "rationale": "WPA3 prohíbe algoritmos obsoletos e inseguros como TKIP o WEP; requiere cifrados modernos como AES-CCMP o GCMP.",
         "isCorrect": true
       },
       {
-        "text": "Permite la creación de múltiples VLANs sobre un mismo punto de acceso.",
-        "rationale": "La segmentación de red mediante VLANs se realiza en el AP/Switch, no mediante el protocolo 802.11w.",
+        "text": "El uso de tramas de gestión protegidas (PMF) es un requisito obligatorio para obtener la certificación WPA3.",
+        "rationale": "Cierto, la protección de las tramas de control es una de las piedras angulares de la seguridad mejorada en WPA3.",
         "isCorrect": false
       },
       {
-        "text": "Es el protocolo que gestiona la potencia PoE suministrada por el switch.",
-        "rationale": "Esa función corresponde a estándares como 802.3af/at/bt.",
+        "text": "WPA3-Enterprise puede utilizar cifrado de $192$ bits para ofrecer una seguridad superior en entornos gubernamentales o críticos.",
+        "rationale": "Es una opción del estándar para aumentar la robustez criptográfica en implementaciones de alta seguridad.",
+        "isCorrect": false
+      },
+      {
+        "text": "OWE (Enhanced Open) proporciona cifrado en redes públicas abiertas sin necesidad de que el usuario introduzca una contraseña.",
+        "rationale": "Correcto; OWE cifra el tráfico inalámbrico en hotspots abiertos evitando el sniffado trivial de datos.",
         "isCorrect": false
       }
     ],
-    "hint": "Es obligatorio en WPA3 y su objetivo es que nadie pueda 'expulsarte' de la red mediante software de ataque sencillo."
+    "hint": "Piense en si un estándar moderno permitiría el uso de protocolos que ya se consideran rotos o vulnerables."
   },
   {
-    "guid": "878430f9-a419-432b-a427-77a41c487af4",
+    "guid": "33bc1330-5745-4309-9506-f65df9dd30f6",
     "subjectId": "T61",
     "origin": "notebooklm",
     "type": "test",
     "difficulty": 2,
-    "question": "En Wi-Fi 7 (802.11be), ¿qué mejora fundamental aporta la funcionalidad Multi-Link Operation (MLO)?",
+    "question": "¿Cuál de estas afirmaciones sobre el roaming inalámbrico es FALSA?",
     "answerOptions": [
       {
-        "text": "Permite que un dispositivo se conecte simultáneamente a través de varias bandas (p.ej. $5\\ GHz$ y $6\\ GHz$).",
-        "rationale": "MLO permite usar múltiples enlaces en diferentes bandas para aumentar el rendimiento y reducir la latencia de forma conjunta.",
+        "text": "La decisión final de cambiar de un punto de acceso a otro es tomada exclusivamente por la controladora de red (WLC) para optimizar el balanceo.",
+        "rationale": "En el estándar $802.11$, la decisión de roaming es siempre del cliente (STA), aunque la red pueda 'ayudar' o 'sugerir' el cambio.",
         "isCorrect": true
       },
       {
-        "text": "Permite conectar hasta 1024 dispositivos a un solo punto de acceso de forma concurrente.",
-        "rationale": "Aunque Wi-Fi 7 mejora la densidad, MLO se refiere específicamente a la agregación de enlaces de radio, no al número de clientes.",
+        "text": "Un 'sticky client' es un dispositivo que permanece conectado a un AP lejano con señal pobre a pesar de tener un AP mejor cerca.",
+        "rationale": "Esta es una definición exacta de un problema común en redes inalámbricas mal optimizadas.",
         "isCorrect": false
       },
       {
-        "text": "Facilita la conexión entre APs de distintos fabricantes en una red Mesh.",
-        "rationale": "MLO es una técnica de transmisión cliente-AP, no un estándar de interoperabilidad Mesh multicontenidor.",
+        "text": "El roaming de capa $3$ permite mantener la dirección IP del cliente aunque este se desplace a un AP en una subred diferente.",
+        "rationale": "Es una función avanzada de las infraestructuras WiFi para evitar que se corten sesiones de aplicaciones críticas.",
         "isCorrect": false
       },
       {
-        "text": "Aumenta la potencia de transmisión rádio por encima de los límites legales de la ETSI.",
-        "rationale": "Los estándares Wi-Fi deben cumplir siempre las regulaciones de potencia (EIRP) de cada región.",
+        "text": "Para que exista roaming, todos los puntos de acceso deben compartir el mismo Service Set Identifier (SSID).",
+        "rationale": "Es un requisito básico; el dispositivo cliente busca el mismo nombre de red para intentar la transición sin interrupción.",
         "isCorrect": false
       }
     ],
-    "hint": "Es comparable a la agregación de portadoras en redes móviles, usando varios caminos de frecuencia a la vez."
+    "hint": "Considere quién tiene el 'mando' a la hora de decidir cuándo saltar a una señal de radio más fuerte."
   },
   {
-    "guid": "ffaf28b8-8129-4425-b913-57e8023441da",
+    "guid": "92aba5a5-43c1-4a57-a90b-c7380d4bffdb",
     "subjectId": "T61",
     "origin": "notebooklm",
     "type": "test",
     "difficulty": 2,
-    "question": "¿Cuál es la función principal del mecanismo RTS/CTS en redes inalámbricas?",
+    "question": "Sobre el uso de canales DFS (Dynamic Frequency Selection) en la banda de $5\\text{ GHz}$, señale la opción FALSA:",
     "answerOptions": [
       {
-        "text": "Aumentar la velocidad de transmisión de datos brutos.",
-        "rationale": "De hecho, RTS/CTS introduce overhead (sobrecarga) y puede reducir ligeramente la velocidad máxima teórica.",
-        "isCorrect": false
-      },
-      {
-        "text": "Mitigar el problema del 'nodo oculto' y reducir las colisiones.",
-        "rationale": "Al reservar el canal antes de transmitir, evita que dos clientes que no se ven entre sí transmitan al mismo tiempo hacia el AP.",
+        "text": "Los canales DFS pueden utilizarse libremente en exteriores sin ninguna restricción, ya que los radares operan en frecuencias distintas.",
+        "rationale": "Los canales DFS están obligados por ley a monitorizar la presencia de radares; si detectan uno, el AP debe abandonar el canal inmediatamente.",
         "isCorrect": true
       },
       {
-        "text": "Cifrar las contraseñas durante el intercambio inicial del saludo de 4 vías.",
-        "rationale": "RTS/CTS es un mecanismo de control de acceso al medio, no un protocolo de seguridad criptográfica.",
+        "text": "Si un punto de acceso detecta una señal de radar en su canal DFS, debe dejar de transmitir en dicho canal de forma inmediata.",
+        "rationale": "Es el comportamiento mandatorio por normativa para evitar interferencias con sistemas críticos como los meteorológicos o militares.",
         "isCorrect": false
       },
       {
-        "text": "Gestionar la asignación dinámica de direcciones IP mediante DHCP.",
-        "rationale": "DHCP opera en la capa de aplicación/red, mientras que RTS/CTS es propio de la capa MAC (enlace).",
+        "text": "El uso de canales DFS permite aumentar el número de canales disponibles de $20\\text{ MHz}$ en la banda de $5\\text{ GHz}$.",
+        "rationale": "Cierto, sin DFS la cantidad de canales aprovechables en $5\\text{ GHz}$ se reduciría drásticamente.",
+        "isCorrect": false
+      },
+      {
+        "text": "Un AP que inicia su operación en un canal DFS debe realizar una escucha previa (Channel Availability Check) antes de emitir su SSID.",
+        "rationale": "Es un requisito legal que suele durar $60$ segundos (o más en ciertos canales) antes de habilitar la radio.",
         "isCorrect": false
       }
     ],
-    "hint": "Se basa en una reserva previa del canal mediante mensajes de 'Petición para enviar' y 'Listo para enviar'."
+    "hint": "Recuerde por qué se llama 'Selección Dinámica de Frecuencia' y con qué sistemas debe convivir."
   },
   {
-    "guid": "2a2d0468-944f-40fa-8a07-101b4c4a3190",
+    "guid": "0ec0ce57-2da6-4ed1-8a02-d4ab27b7bafe",
     "subjectId": "T61",
     "origin": "notebooklm",
     "type": "test",
     "difficulty": 2,
-    "question": "Para una implementación de alta densidad en una oficina, ¿qué recomendación de diseño es la más adecuada respecto al uso de SSIDs?",
+    "question": "Identifique la afirmación FALSA sobre el estándar WiFi 5 ($802.11ac$):",
     "answerOptions": [
       {
-        "text": "Crear un SSID distinto para cada departamento para facilitar la gestión.",
-        "rationale": "Tener demasiados SSIDs (p.ej. más de 4-6) consume mucho tiempo de aire en balizas (beacons), degradando el rendimiento.",
-        "isCorrect": false
-      },
-      {
-        "text": "Limitar el número de SSIDs por radio (idealmente $\\le 4$) y usar VLANs para segmentar el tráfico.",
-        "rationale": "Es más eficiente emitir pocos nombres de red y redirigir el tráfico a diferentes redes virtuales mediante autenticación o mapeo.",
+        "text": "Fue la primera versión en introducir la técnica de OFDMA para mejorar la eficiencia del espectro en frecuencia.",
+        "rationale": "OFDMA es la novedad estrella de WiFi 6 ($802.11ax$); WiFi 5 utilizaba OFDM tradicional sobre canales más anchos.",
         "isCorrect": true
       },
       {
-        "text": "Ocultar todos los SSIDs para evitar que los vecinos intenten conectarse.",
-        "rationale": "El SSID oculto no aporta seguridad real y puede causar problemas de conectividad en algunos clientes.",
+        "text": "Soporta anchos de canal de hasta $160\\text{ MHz}$ para alcanzar velocidades superiores al Gigabit por segundo.",
+        "rationale": "Correcto; aunque el estándar permite $160\\text{ MHz}$, su uso práctico fue limitado hasta la llegada de WiFi 6.",
         "isCorrect": false
       },
       {
-        "text": "Activar el mismo SSID en $2.4\\ GHz$ y $5\\ GHz$ pero con diferentes contraseñas.",
-        "rationale": "Esto dificultaría el roaming y el band steering; se recomienda misma contraseña y seguridad en ambas bandas.",
+        "text": "Solo está definido para operar en la banda de $5\\text{ GHz}$, no existiendo dispositivos WiFi 5 nativos para $2.4\\text{ GHz}$.",
+        "rationale": "Es cierto; los equipos que dicen ser WiFi 5 en $2.4\\text{ GHz}$ realmente usan el estándar anterior ($802.11n$) en esa banda.",
+        "isCorrect": false
+      },
+      {
+        "text": "Introdujo MU-MIMO en el enlace de bajada (Downlink) para transmitir a varios clientes simultáneamente.",
+        "rationale": "Esta funcionalidad fue parte de la 'Wave 2' del estándar $802.11ac$ y supuso una mejora importante de capacidad.",
         "isCorrect": false
       }
     ],
-    "hint": "Recuerda que cada nombre de red 'anunciado' resta tiempo de transmisión disponible para los datos reales."
-  },
-  {
-    "guid": "b1a59373-5056-448a-aaf4-b8387e5f3bfc",
-    "subjectId": "T61",
-    "origin": "notebooklm",
-    "type": "test",
-    "difficulty": 2,
-    "question": "En el contexto de un Site Survey pasivo, ¿qué parámetros son los más críticos para evaluar la calidad de la cobertura para servicios de voz?",
-    "answerOptions": [
-      {
-        "text": "El número de saltos en la red Mesh.",
-        "rationale": "Aunque es relevante en Mesh, no es el parámetro de medición de señal física en un estudio pasivo estándar.",
-        "isCorrect": false
-      },
-      {
-        "text": "La velocidad de descarga obtenida en un test de velocidad (Speedtest).",
-        "rationale": "Eso sería parte de un survey activo, no pasivo, ya que requiere asociación y transmisión de tráfico de datos.",
-        "isCorrect": false
-      },
-      {
-        "text": "RSSI (Nivel de señal) $\\ge -65\\ dBm$ y SNR (Relación señal-ruido) $\\ge 25\\ dB$.",
-        "rationale": "Estos son los umbrales estándar para garantizar que la voz no tenga cortes y el ruido ambiente no degrade la comunicación.",
-        "isCorrect": true
-      },
-      {
-        "text": "El estándar PoE utilizado por los puntos de acceso.",
-        "rationale": "El PoE afecta a la alimentación del hardware, pero no es una métrica de propagación de radio captada en un survey pasivo.",
-        "isCorrect": false
-      }
-    ],
-    "hint": "Debes fijarte en la potencia con la que llega la señal y cuánto 'limpia' está respecto al ruido de fondo."
+    "hint": "Busque la tecnología que WiFi 6 'prestó' de las redes móviles para gestionar mejor a muchos usuarios."
   }
 ]

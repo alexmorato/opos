@@ -1,0 +1,622 @@
+[
+  {
+    "guid": "17a4328b-3194-4283-bb00-cf94c263cc2f",
+    "subjectId": "T55",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "¿Cuál de las siguientes afirmaciones sobre las arquitecturas de almacenamiento es FALSA?",
+    "answerOptions": [
+      {
+        "text": "Una red SAN (Storage Area Network) opera a nivel de archivos, permitiendo que el servidor gestione el sistema de ficheros de forma remota.",
+        "rationale": "Las SAN operan a nivel de bloques; es el NAS el que trabaja a nivel de archivos mediante protocolos como SMB o NFS.",
+        "isCorrect": true
+      },
+      {
+        "text": "El almacenamiento DAS consiste en discos conectados directamente a un servidor, lo que ofrece rapidez pero limita la capacidad de compartir recursos.",
+        "rationale": "Esta es una descripción precisa de DAS, destacando su conexión punto a punto y falta de escalabilidad compartida.",
+        "isCorrect": false
+      },
+      {
+        "text": "Una red SAN es independiente de la LAN corporativa y utiliza habitualmente protocolos como Fibre Channel o iSCSI.",
+        "rationale": "Separar el tráfico de almacenamiento de la red general es un principio fundamental para garantizar el rendimiento y la baja latencia.",
+        "isCorrect": false
+      },
+      {
+        "text": "En una SAN, el servidor ve las LUNs (Logical Unit Numbers) como si fueran discos locales crudos.",
+        "rationale": "Esta es la característica definitoria del almacenamiento por bloques, permitiendo al host crear su propio sistema de archivos.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Recuerda la distinción fundamental entre el acceso por bloques y el acceso por ficheros."
+  },
+  {
+    "guid": "1b925bd0-de1e-4283-8adc-4e4713ee2509",
+    "subjectId": "T55",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "Sobre los componentes de una SAN, ¿cuál de estas declaraciones es FALSA?",
+    "answerOptions": [
+      {
+        "text": "El WWNN (World Wide Node Name) se utiliza para identificar de forma exclusiva cada puerto físico de una tarjeta HBA.",
+        "rationale": "El WWNN identifica el nodo o dispositivo completo, mientras que el WWPN (World Wide Port Name) es el que identifica cada puerto físico individual.",
+        "isCorrect": true
+      },
+      {
+        "text": "Las tarjetas HBA (Host Bus Adapter) son los controladores que permiten a los servidores conectarse a la infraestructura de la SAN.",
+        "rationale": "Las HBA actúan como la interfaz física y lógica necesaria para que el servidor se comunique con el tejido de la SAN.",
+        "isCorrect": false
+      },
+      {
+        "text": "Los switches en una SAN de Fibre Channel son dispositivos especializados, distintos de los switches Ethernet convencionales.",
+        "rationale": "FC requiere hardware específico diseñado para su protocolo y gestión de crédito de búfer, a diferencia de iSCSI que puede usar Ethernet.",
+        "isCorrect": false
+      },
+      {
+        "text": "Una cabina de almacenamiento suele contener controladores redundantes y memoria caché para acelerar las operaciones de E/S.",
+        "rationale": "La redundancia y la caché son elementos críticos en las cabinas corporativas para asegurar la alta disponibilidad y el rendimiento.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Presta atención a la diferencia entre la identificación del dispositivo global y la de sus conexiones físicas individuales."
+  },
+  {
+    "guid": "0e3a9f9b-ae8d-4a42-8010-d7482fc24102",
+    "subjectId": "T55",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "En relación con los protocolos de red SAN, señala la afirmación FALSA:",
+    "answerOptions": [
+      {
+        "text": "iSCSI es generalmente más costoso y complejo de implementar que Fibre Channel debido al uso de comandos SCSI encapsulados.",
+        "rationale": "iSCSI es precisamente la opción más económica y sencilla porque permite reutilizar la infraestructura Ethernet existente.",
+        "isCorrect": true
+      },
+      {
+        "text": "Fibre Channel es el estándar tradicional para entornos de alto rendimiento, soportando velocidades de hasta $128$ Gbps.",
+        "rationale": "FC es conocido por su baja latencia y alta fiabilidad en centros de datos exigentes, con una hoja de ruta de velocidad constante.",
+        "isCorrect": false
+      },
+      {
+        "text": "El protocolo RoCE (RDMA over Converged Ethernet) permite transportar protocolos de memoria remota sobre redes Ethernet modernas.",
+        "rationale": "RoCE busca eficiencia al reducir la carga de la CPU y la latencia mediante el acceso directo a memoria a través de Ethernet.",
+        "isCorrect": false
+      },
+      {
+        "text": "InfiniBand es una arquitectura de red de muy alta velocidad utilizada principalmente en entornos de computación de alto rendimiento (HPC).",
+        "rationale": "InfiniBand ofrece latencias extremadamente bajas que superan a menudo a las redes tradicionales en clústeres de supercomputación.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considera qué tecnología aprovecha el hardware de red estándar para reducir costes."
+  },
+  {
+    "guid": "2c2497ba-01e1-478b-b1e2-9449c4c2fa23",
+    "subjectId": "T55",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "Sobre la seguridad y topología en entornos SAN, ¿qué afirmación es FALSA?",
+    "answerOptions": [
+      {
+        "text": "El Multipath (MPIO) es un mecanismo de seguridad que impide que un servidor acceda a LUNs que no le pertenecen.",
+        "rationale": "El MPIO se encarga de la redundancia y el reparto de carga entre múltiples caminos físicos, no de la restricción de acceso (que es función del LUN Masking).",
+        "isCorrect": true
+      },
+      {
+        "text": "El Zoning se aplica a nivel del switch de Fibre Channel para segmentar la red y controlar la comunicación entre nodos.",
+        "rationale": "La zonificación es la técnica fundamental en los switches FC para definir qué iniciadores pueden ver a qué destinos.",
+        "isCorrect": false
+      },
+      {
+        "text": "El LUN Masking es una técnica aplicada directamente en la cabina de discos para autorizar el acceso de servidores específicos a volúmenes concretos.",
+        "rationale": "Esta capa de control asegura que, aunque un servidor vea la cabina a través de la red, solo pueda montar los volúmenes permitidos.",
+        "isCorrect": false
+      },
+      {
+        "text": "La topología Switched Fabric es la más utilizada actualmente por ser altamente escalable y tolerante a fallos.",
+        "rationale": "A diferencia del punto a punto o el anillo (FC-AL), el tejido conmutado permite interconexiones masivas y dinámicas.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Diferencia entre las herramientas destinadas a la disponibilidad y las destinadas al control de acceso."
+  },
+  {
+    "guid": "91d1c84e-9211-4472-8ef4-dee958af7e49",
+    "subjectId": "T55",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "Respecto a los niveles de RAID y su funcionamiento, indica la opción FALSA:",
+    "answerOptions": [
+      {
+        "text": "El RAID 5 es la configuración más recomendada actualmente para su uso con discos de muy alta capacidad (varios Terabytes) debido a su rapidez de reconstrucción.",
+        "rationale": "RAID 5 está desaconsejado con discos grandes porque el tiempo de reconstrucción es tan largo que aumenta el riesgo de un segundo fallo fatal.",
+        "isCorrect": true
+      },
+      {
+        "text": "RAID 0 (Stripe) no ofrece ninguna tolerancia a fallos; si un disco falla, se pierden todos los datos del conjunto.",
+        "rationale": "El objetivo de RAID 0 es puramente el rendimiento mediante la distribución de datos sin redundancia alguna.",
+        "isCorrect": false
+      },
+      {
+        "text": "RAID 1 (Mirroring) duplica exactamente los datos en dos discos, ofreciendo una capacidad útil del $50\\%$ del total de los discos.",
+        "rationale": "Este nivel prioriza la disponibilidad y la integridad creando una réplica exacta, lo que reduce a la mitad el espacio disponible.",
+        "isCorrect": false
+      },
+      {
+        "text": "El uso de 'hot spares' permite sustituir automáticamente un disco averiado sin necesidad de intervención humana inmediata.",
+        "rationale": "Los discos de repuesto en caliente son esenciales para iniciar la reconstrucción del RAID tan pronto como se detecta un fallo.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Reflexiona sobre los riesgos de seguridad en arreglos de discos de gran tamaño cuando solo se dispone de un bloque de paridad."
+  },
+  {
+    "guid": "7ace3f89-0580-4e61-9871-438a295888df",
+    "subjectId": "T55",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "¿Cuál de las siguientes afirmaciones sobre RAID 3 y RAID 4 es FALSA?",
+    "answerOptions": [
+      {
+        "text": "Ambos niveles son el estándar actual en la mayoría de las cabinas SAN modernas debido a su alta eficiencia en escrituras aleatorias.",
+        "rationale": "Tanto RAID 3 como RAID 4 están en desuso frente a RAID 5, principalmente por el cuello de botella que supone tener un disco de paridad dedicado.",
+        "isCorrect": true
+      },
+      {
+        "text": "RAID 3 realiza el striping a nivel de byte, mientras que RAID 4 lo realiza a nivel de bloque.",
+        "rationale": "Esta es la distinción técnica clave entre ambos; RAID 4 es más eficiente en lecturas al trabajar con fragmentos de datos más grandes.",
+        "isCorrect": false
+      },
+      {
+        "text": "En RAID 4, el disco de paridad puede convertirse en un cuello de botella ya que debe actualizarse en cada operación de escritura.",
+        "rationale": "Al centralizar toda la paridad en una única unidad física, la velocidad de escritura queda limitada por el rendimiento de ese disco.",
+        "isCorrect": false
+      },
+      {
+        "text": "Para implementar RAID 3 o RAID 4 se requiere un mínimo de 3 discos físicos.",
+        "rationale": "Se necesitan al menos dos discos para los datos y un tercero dedicado exclusivamente a almacenar la información de paridad.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piensa en el estado actual de estos niveles frente a las soluciones de paridad distribuida."
+  },
+  {
+    "guid": "5871744b-c7a7-447f-8c28-96ed727a07a2",
+    "subjectId": "T55",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "Sobre la redundancia avanzada en RAID 6 y RAID 10, señala la afirmación FALSA:",
+    "answerOptions": [
+      {
+        "text": "El RAID 10 requiere un mínimo de 2 discos para su implementación, igual que el RAID 1.",
+        "rationale": "RAID 10 (1+0) requiere un mínimo de 4 discos, ya que combina grupos de espejos (mínimo 2) distribuidos en un stripe (mínimo otros 2).",
+        "isCorrect": true
+      },
+      {
+        "text": "RAID 6 utiliza doble paridad distribuida, lo que le permite sobrevivir al fallo simultáneo de hasta dos discos.",
+        "rationale": "La doble paridad añade una capa extra de seguridad crucial para arreglos de discos de gran densidad.",
+        "isCorrect": false
+      },
+      {
+        "text": "RAID 10 es altamente recomendado para bases de datos y entornos con una carga intensiva de operaciones de escritura.",
+        "rationale": "Al no tener que calcular paridad (es solo espejo y distribución), ofrece un rendimiento superior en entornos de alta transaccionalidad.",
+        "isCorrect": false
+      },
+      {
+        "text": "En un RAID 6, la capacidad útil se calcula generalmente como $(n-2)$ veces la capacidad del disco más pequeño.",
+        "rationale": "Dado que se reservan dos bloques para paridad por cada franja, se pierde el equivalente al espacio de dos discos.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Revisa los requisitos mínimos de hardware para las configuraciones anidadas o de paridad doble."
+  },
+  {
+    "guid": "3e9d84ce-73cc-48f8-8a6c-eb3d5ca83e34",
+    "subjectId": "T55",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "En relación con la implementación de RAID por Hardware vs. Software, indica la opción FALSA:",
+    "answerOptions": [
+      {
+        "text": "El RAID por Software es generalmente más rápido que el RAID por Hardware porque utiliza la memoria RAM de alta velocidad del servidor.",
+        "rationale": "El RAID por Hardware suele ser superior en rendimiento al descargar las tareas de cálculo de paridad y gestión de la CPU principal a un procesador dedicado.",
+        "isCorrect": true
+      },
+      {
+        "text": "El RAID por Hardware utiliza una tarjeta controladora dedicada que dispone de su propio procesador y, frecuentemente, caché protegida por batería.",
+        "rationale": "Estas características permiten garantizar la integridad de los datos incluso ante cortes de energía repentinos.",
+        "isCorrect": false
+      },
+      {
+        "text": "El RAID por Software se gestiona a través del sistema operativo, mediante herramientas como LVM en Linux o Storage Spaces en Windows.",
+        "rationale": "Esta implementación depende totalmente de los recursos del host y del software lógico del sistema operativo.",
+        "isCorrect": false
+      },
+      {
+        "text": "Una ventaja del RAID por Software es que es más económico, al no requerir la adquisición de tarjetas controladoras especializadas.",
+        "rationale": "Su bajo coste lo hace atractivo para entornos donde el rendimiento extremo no es la prioridad número uno.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considera qué método consume recursos del sistema principal y cuál utiliza componentes dedicados."
+  },
+  {
+    "guid": "7cdd9cae-1f9e-43be-b1b0-a24c92c3dd28",
+    "subjectId": "T55",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "Sobre las políticas de copia de seguridad (backups), señala la afirmación FALSA:",
+    "answerOptions": [
+      {
+        "text": "Para restaurar una copia incremental, solo se necesita la última copia incremental realizada y la copia completa original.",
+        "rationale": "Las copias incrementales requieren la última completa y todas las incrementales intermedias realizadas hasta el punto de restauración.",
+        "isCorrect": true
+      },
+      {
+        "text": "La copia diferencial guarda todos los cambios realizados desde la última copia completa, independientemente de si hubo diferenciales previas.",
+        "rationale": "Esta es la definición de diferencial, lo que facilita la restauración al necesitar solo dos archivos: el completo y el último diferencial.",
+        "isCorrect": false
+      },
+      {
+        "text": "Las copias incrementales suelen ser más rápidas de realizar y ocupan menos espacio que las copias diferenciales.",
+        "rationale": "Al copiar solo los cambios desde la última vez que se ejecutó cualquier backup, el volumen de datos movido es el mínimo posible.",
+        "isCorrect": false
+      },
+      {
+        "text": "Una copia completa (Full Backup) contiene la totalidad de los datos seleccionados, sirviendo de base para los demás tipos de copia.",
+        "rationale": "Sin una copia completa inicial, los métodos incrementales o diferenciales no tienen un punto de referencia para calcular los cambios.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Piensa en la 'cadena de dependencias' necesaria para reconstruir los datos en caso de desastre."
+  },
+  {
+    "guid": "7188de8f-2bb2-4638-9d74-cae4ff820ef2",
+    "subjectId": "T55",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "En el contexto de la virtualización de almacenamiento, ¿cuál de estas declaraciones es FALSA?",
+    "answerOptions": [
+      {
+        "text": "vSAN es una tecnología que requiere obligatoriamente una cabina física externa para crear un pool de almacenamiento centralizado.",
+        "rationale": "vSAN (Software-Defined Storage) crea almacenamiento compartido utilizando los discos locales de los propios servidores, sin necesidad de cabinas externas tradicionales.",
+        "isCorrect": true
+      },
+      {
+        "text": "El 'Thin Provisioning' permite asignar a un servidor un volumen de, por ejemplo, $1$ TB, aunque físicamente solo ocupe el espacio que realmente tiene datos.",
+        "rationale": "Esta técnica optimiza el uso del almacenamiento físico al no reservar espacio vacío de forma inmediata.",
+        "isCorrect": false
+      },
+      {
+        "text": "El 'Auto-tiering' es una función de la cabina que mueve automáticamente los datos más usados (calientes) a discos SSD y los menos usados (fríos) a HDD.",
+        "rationale": "Es una gestión inteligente de los niveles de disco para maximizar el rendimiento donde más se necesita y ahorrar costes en datos inactivos.",
+        "isCorrect": false
+      },
+      {
+        "text": "La virtualización de servidores permite la migración en caliente de máquinas virtuales gracias a que el almacenamiento es accesible desde múltiples hosts (SAN).",
+        "rationale": "La SAN compartida es el prerrequisito para tecnologías como vMotion, permitiendo que el host cambie mientras los datos permanecen estables.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considera el concepto de 'Almacenamiento Definido por Software' frente al almacenamiento tradicional de red."
+  },
+  {
+    "guid": "0a5e9ea5-84b2-408d-a24f-e368a3cd71dd",
+    "subjectId": "T55",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "Respecto a la terminología de redes FC (Fibre Channel), indica la afirmación FALSA:",
+    "answerOptions": [
+      {
+        "text": "El protocolo FCP se utiliza para encapsular comandos NVMe nativos para su transporte a través de Ethernet estándar.",
+        "rationale": "FCP (Fibre Channel Protocol) encapsula específicamente comandos SCSI sobre infraestructura Fibre Channel, no NVMe sobre Ethernet estándar.",
+        "isCorrect": true
+      },
+      {
+        "text": "El WWPN es esencial para configurar políticas de seguridad como la zonificación en los switches de la SAN.",
+        "rationale": "Identificar el puerto único del host permite al switch aplicar reglas de filtrado de tráfico precisas.",
+        "isCorrect": false
+      },
+      {
+        "text": "Una red SAN 'Fabric' se refiere a la infraestructura física y lógica que interconecta todos los elementos de la red de almacenamiento.",
+        "rationale": "Es el término que engloba el conjunto de switches, cables y protocolos que permiten la comunicación multidireccional.",
+        "isCorrect": false
+      },
+      {
+        "text": "Fibre Channel es una red dedicada que, por diseño, aísla el tráfico de datos del tráfico de la red de área local (LAN).",
+        "rationale": "Este aislamiento es lo que previene la congestión y garantiza la baja latencia necesaria para aplicaciones críticas.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Relaciona el protocolo FCP con su arquitectura de transporte y el tipo de comandos que encapsula."
+  },
+  {
+    "guid": "f9eea7b0-f0c6-4aba-a390-62115526bf20",
+    "subjectId": "T55",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "¿Cuál de las siguientes comparaciones entre RAID 10 y RAID 01 es FALSA?",
+    "answerOptions": [
+      {
+        "text": "RAID 01 es más tolerante a fallos que RAID 10 porque puede perder un disco de cada subgrupo de stripe sin quedar inoperativo.",
+        "rationale": "RAID 10 es más robusto; en RAID 01, si falla un solo disco, todo el conjunto de stripe se pierde y solo queda un espejo, siendo más vulnerable a un segundo fallo.",
+        "isCorrect": true
+      },
+      {
+        "text": "RAID 10 también se conoce como 'mirror de stripes', mientras que RAID 01 es un 'stripe de mirrors'.",
+        "rationale": "Aunque suenen parecidos, el orden de las operaciones (espejo primero o distribución primero) altera significativamente la resiliencia.",
+        "isCorrect": false
+      },
+      {
+        "text": "Ambos niveles requieren un mínimo de 4 discos para su configuración inicial.",
+        "rationale": "Al combinar dos técnicas básicas (0 y 1), se necesita duplicar el número mínimo de discos de cada una.",
+        "isCorrect": false
+      },
+      {
+        "text": "Tanto RAID 10 como RAID 01 ofrecen una capacidad de almacenamiento efectiva de exactamente el $50\\%$ del total bruto.",
+        "rationale": "Debido al componente de mirroring (RAID 1), la mitad del espacio se consume siempre en la redundancia.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Analiza qué sucede en cada nivel si falla un disco y qué queda operativo para proteger los datos."
+  },
+  {
+    "guid": "95a1827f-6fe9-4282-9941-4371f2337d43",
+    "subjectId": "T55",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "Sobre el acceso a datos en NAS y SAN, ¿cuál de estas declaraciones es FALSA?",
+    "answerOptions": [
+      {
+        "text": "En una arquitectura NAS, es el servidor el que decide el sistema de archivos (NTFS, EXT4) que se aplica sobre la LUN.",
+        "rationale": "En el NAS, el sistema de archivos lo gestiona el propio dispositivo NAS; es en la SAN donde el servidor host gestiona el sistema de archivos sobre el bloque crudo.",
+        "isCorrect": true
+      },
+      {
+        "text": "El almacenamiento NAS es ideal para compartir carpetas y archivos entre múltiples usuarios de una red utilizando SMB o NFS.",
+        "rationale": "Su diseño está optimizado para la gestión de ficheros y la facilidad de acceso multiusuario a través de protocolos de red estándar.",
+        "isCorrect": false
+      },
+      {
+        "text": "La latencia en el acceso a datos suele ser superior en un NAS que en una SAN configurada con Fibre Channel.",
+        "rationale": "La sobrecarga de los protocolos de red (TCP/IP) y el nivel de archivos hacen que el NAS sea intrínsecamente algo más lento.",
+        "isCorrect": false
+      },
+      {
+        "text": "Un dispositivo NAS se conecta habitualmente a la LAN corporativa y se identifica mediante una dirección IP.",
+        "rationale": "El NAS se comporta como un nodo más en la red Ethernet, facilitando su integración sin hardware de red especializado.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Identifica qué dispositivo tiene la responsabilidad de estructurar los datos (ficheros frente a bloques)."
+  },
+  {
+    "guid": "3d97aab1-8b27-43c7-ab6d-94b90609d491",
+    "subjectId": "T55",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "En cuanto a la tecnología iSCSI, indica la afirmación que es FALSA:",
+    "answerOptions": [
+      {
+        "text": "iSCSI requiere obligatoriamente el uso de cables de fibra óptica para alcanzar latencias competitivas con Fibre Channel.",
+        "rationale": "iSCSI funciona sobre cables de cobre Ethernet estándar (Cat6/7), aunque también puede usar fibra, no es un requisito obligatorio del protocolo.",
+        "isCorrect": true
+      },
+      {
+        "text": "iSCSI encapsula comandos SCSI dentro de paquetes TCP/IP para su transporte por redes Ethernet.",
+        "rationale": "Este mecanismo permite que el tráfico de almacenamiento se encamine a través de infraestructuras de red convencionales.",
+        "isCorrect": false
+      },
+      {
+        "text": "El rendimiento de iSCSI puede verse afectado por la carga de procesamiento necesaria para gestionar la pila de protocolos TCP/IP.",
+        "rationale": "A diferencia de FC, iSCSI consume ciclos de CPU del host para la encapsulación, a menos que se usen tarjetas con descarga (offload).",
+        "isCorrect": false
+      },
+      {
+        "text": "Es una solución ideal para entornos de virtualización de tamaño medio debido a su buena relación coste-rendimiento.",
+        "rationale": "Su flexibilidad y bajo coste lo convierten en la opción preferida para muchas PYMES y laboratorios.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considera la flexibilidad de medios físicos que ofrece Ethernet."
+  },
+  {
+    "guid": "a8745b30-3087-44f3-8c81-f10a42aa666a",
+    "subjectId": "T55",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "Sobre la redundancia y disponibilidad de hardware en cabinas, señala la afirmación FALSA:",
+    "answerOptions": [
+      {
+        "text": "Los puertos front-end de una cabina se utilizan exclusivamente para conectar los discos físicos internos a la controladora.",
+        "rationale": "Los puertos front-end son para la conexión con los servidores (hosts); los puertos para conectar los discos internos se denominan back-end.",
+        "isCorrect": true
+      },
+      {
+        "text": "La presencia de controladores redundantes permite que la cabina siga funcionando aunque falle una de sus unidades de procesamiento.",
+        "rationale": "Esta arquitectura de 'alta disponibilidad' es estándar en el almacenamiento empresarial para evitar puntos únicos de fallo.",
+        "isCorrect": false
+      },
+      {
+        "text": "La memoria caché de escritura mejora el rendimiento al confirmar la operación al servidor antes de que los datos se graben físicamente en el disco.",
+        "rationale": "Este método, conocido como write-back, acelera notablemente la percepción de velocidad desde el punto de vista de la aplicación.",
+        "isCorrect": false
+      },
+      {
+        "text": "Las cabinas modernas pueden mezclar diferentes tipos de discos, como SSD, NVMe y HDD, en el mismo chasis físico.",
+        "rationale": "La hibridación permite equilibrar coste y rendimiento dentro de un único sistema gestionado centralmente.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Diferencia entre las interfaces orientadas al cliente (servidores) y las orientadas al almacenamiento interno."
+  },
+  {
+    "guid": "d0f65983-cf15-407b-8b3c-959589579d89",
+    "subjectId": "T55",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "Respecto al RAID 5, indica cuál de las siguientes afirmaciones es FALSA:",
+    "answerOptions": [
+      {
+        "text": "En un RAID 5, si fallan dos discos simultáneamente, el sistema puede seguir funcionando en modo degradado sin pérdida de datos.",
+        "rationale": "RAID 5 solo tiene tolerancia al fallo de UN disco; si fallan dos, se produce una pérdida total de datos. Es el RAID 6 el que tolera dos fallos.",
+        "isCorrect": true
+      },
+      {
+        "text": "RAID 5 distribuye tanto los datos como la información de paridad entre todos los discos del conjunto.",
+        "rationale": "La paridad distribuida elimina el cuello de botella que existía en niveles anteriores con discos de paridad dedicados.",
+        "isCorrect": false
+      },
+      {
+        "text": "Para configurar un RAID 5 se requiere un mínimo de 3 discos.",
+        "rationale": "Se necesita espacio para los datos distribuidos y al menos una unidad equivalente para la paridad repartida.",
+        "isCorrect": false
+      },
+      {
+        "text": "El rendimiento de lectura en RAID 5 es excelente, similar al de un RAID 0 con el mismo número de discos.",
+        "rationale": "Como los datos están repartidos, las peticiones de lectura pueden procesarse en paralelo desde múltiples ejes.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Compara la capacidad de supervivencia de fallos entre los distintos niveles de paridad."
+  },
+  {
+    "guid": "e074aedb-f592-416d-8a76-ef684d2c0ad8",
+    "subjectId": "T55",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "Sobre la tecnología de Multipath (MPIO), señala la opción FALSA:",
+    "answerOptions": [
+      {
+        "text": "MPIO requiere que el servidor tenga instalada una única tarjeta HBA para poder gestionar los diferentes caminos lógicos.",
+        "rationale": "Para que el MPIO sea realmente efectivo y proporcione tolerancia a fallos de hardware, se recomiendan al menos DOS tarjetas HBA o puertos físicos independientes.",
+        "isCorrect": true
+      },
+      {
+        "text": "Una de las funciones del MPIO es evitar que el sistema operativo vea el mismo disco varias veces cuando hay múltiples conexiones físicas.",
+        "rationale": "El software de multipath agrega los caminos físicos en un único dispositivo lógico para evitar confusiones en el sistema de archivos.",
+        "isCorrect": false
+      },
+      {
+        "text": "El balanceo de carga (load balancing) es un beneficio directo de tener configurado correctamente el MPIO.",
+        "rationale": "MPIO puede distribuir las solicitudes de entrada/salida entre todos los cables activos para mejorar el rendimiento total.",
+        "isCorrect": false
+      },
+      {
+        "text": "Si un switch de la SAN falla, el MPIO permite que el tráfico se redirija automáticamente por un switch alternativo sin interrumpir el servicio.",
+        "rationale": "Esta capacidad de conmutación por error (failover) garantiza que el almacenamiento permanezca accesible ante fallos de red.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Considera qué hardware es necesario para evitar que un solo fallo de tarjeta deje al servidor sin acceso."
+  },
+  {
+    "guid": "85cdac7f-28eb-4db0-96cc-46b4647ac10d",
+    "subjectId": "T55",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "En relación con el 'Thin Provisioning' y la eficiencia, ¿qué afirmación es FALSA?",
+    "answerOptions": [
+      {
+        "text": "El Thin Provisioning mejora significativamente la velocidad de reconstrucción de un RAID 5 cuando falla un disco físico.",
+        "rationale": "El Thin Provisioning es una técnica de asignación de espacio lógico; no afecta directamente a los algoritmos de reconstrucción de paridad del nivel RAID físico.",
+        "isCorrect": true
+      },
+      {
+        "text": "El uso de Thin Provisioning permite el 'over-provisioning', es decir, asignar más espacio total a los servidores del que realmente existe físicamente en la cabina.",
+        "rationale": "Esta flexibilidad permite optimizar la compra de discos, adquiriendo capacidad solo a medida que el uso real aumenta.",
+        "isCorrect": false
+      },
+      {
+        "text": "Un riesgo del Thin Provisioning es que si todos los servidores llenan su espacio asignado a la vez, la cabina puede quedarse sin espacio físico real.",
+        "rationale": "La monitorización del espacio físico 'back-end' es crítica para evitar interrupciones cuando se trabaja con aprovisionamiento ligero.",
+        "isCorrect": false
+      },
+      {
+        "text": "Esta tecnología es especialmente útil en entornos de virtualización donde muchas máquinas virtuales tienen asignados discos grandes que apenas utilizan.",
+        "rationale": "Maximiza la eficiencia al evitar que gigabytes de espacio 'en blanco' queden bloqueados e inutilizados.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Diferencia entre la gestión lógica de volúmenes y el funcionamiento interno de la redundancia física."
+  },
+  {
+    "guid": "ec3b5657-26ef-408d-b0db-3aef1e742ab5",
+    "subjectId": "T55",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "¿Cuál de las siguientes afirmaciones sobre las instantáneas (Snapshots) y clones es FALSA?",
+    "answerOptions": [
+      {
+        "text": "Un Snapshot es una copia completa y físicamente independiente de los datos que no depende del volumen original para su restauración.",
+        "rationale": "Los snapshots suelen ser punteros a los bloques de datos originales en un momento dado; si el volumen original se destruye físicamente, el snapshot suele perderse. Los clones son los que suelen ser independientes.",
+        "isCorrect": true
+      },
+      {
+        "text": "Los Snapshots permiten realizar recuperaciones rápidas de datos ante borrados accidentales o corrupciones de software.",
+        "rationale": "Al guardar el estado de los bloques en un instante preciso, permiten 'volver atrás en el tiempo' casi instantáneamente.",
+        "isCorrect": false
+      },
+      {
+        "text": "La clonación de volúmenes permite crear una copia idéntica de una LUN para entornos de prueba sin afectar a la producción.",
+        "rationale": "Es una herramienta valiosa para desarrolladores que necesitan trabajar con datos reales sin riesgo de alterar el sistema principal.",
+        "isCorrect": false
+      },
+      {
+        "text": "Las cabinas modernas permiten programar la creación de Snapshots de forma automática varias veces al día.",
+        "rationale": "La automatización de snapshots es una línea de defensa fundamental en la protección de datos moderna.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Reflexiona sobre cómo se almacenan internamente los snapshots (punteros vs. datos completos)."
+  },
+  {
+    "guid": "2150e1c4-acf3-4c73-aa21-672436e44fb7",
+    "subjectId": "T55",
+    "origin": "notebooklm",
+    "type": "test",
+    "difficulty": 1,
+    "question": "Sobre la jerarquización de datos (Auto-tiering), señala la opción FALSA:",
+    "answerOptions": [
+      {
+        "text": "El Auto-tiering requiere que el administrador mueva manualmente los archivos de un disco a otro cada vez que cambia su frecuencia de uso.",
+        "rationale": "La principal ventaja del 'Auto'-tiering es que el sistema realiza el movimiento de bloques entre niveles (SSD/HDD) de forma automática y transparente.",
+        "isCorrect": true
+      },
+      {
+        "text": "Permite optimizar la inversión en almacenamiento al utilizar discos SSD caros solo para los datos que realmente requieren alto rendimiento.",
+        "rationale": "Es una estrategia de coste-eficiencia que utiliza medios lentos y baratos para los datos que rara vez se consultan.",
+        "isCorrect": false
+      },
+      {
+        "text": "El sistema analiza los patrones de acceso para identificar qué bloques de datos son 'calientes' (muy consultados).",
+        "rationale": "Este análisis continuo es la base para decidir qué información debe residir en el nivel de almacenamiento más rápido.",
+        "isCorrect": false
+      },
+      {
+        "text": "El proceso de movimiento de datos entre niveles suele realizarse a nivel de bloques, de forma invisible para el servidor host.",
+        "rationale": "Al operar por debajo del sistema de archivos, el servidor no percibe que los datos físicos han cambiado de ubicación.",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Fíjate en el prefijo del término para determinar si la intervención humana es necesaria en el proceso diario."
+  }
+]
