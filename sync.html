@@ -484,7 +484,7 @@
     <button class="btn-menu-historial" id="menuHistorialBtn">
       📋 Historial
     </button>
-    <hr class="menu-separator">
+    <hr class="menu-separator" id="sessionSeparator" style="border: 1px solid #27304a; margin: 10px 0;">
     <button class="btn-menu-tornar" id="menuGuardarSesionBtn">
       💾 Guardar sessió en fitxer
     </button>
@@ -792,6 +792,23 @@
       login.checkUserAuth(userName, userPass);
 
       window.username = localStorage.getItem(LS_KEYS.USER_NAME);
+
+      // Ocultar botones de guardado si el usuario no es administrador
+      (async () => {
+        try {
+          const isAdmin = await login.hasRole(window.username, login.ROLES.ADMINISTRATOR);
+          if (!isAdmin) {
+            document.getElementById('sessionSeparator').style.display = 'none';
+            document.getElementById('menuGuardarSesionBtn').style.display = 'none';
+            document.getElementById('menuCargarSesionBtn').style.display = 'none';
+          }
+        } catch (e) {
+          // Si hay error, ocultar por defecto
+            document.getElementById('sessionSeparator').style.display = 'none';
+            document.getElementById('menuGuardarSesionBtn').style.display = 'none';
+            document.getElementById('menuCargarSesionBtn').style.display = 'none';
+        }
+      })();
 
       if (!window.username) {
         toast.showToast('Error: No hi ha usuari definit');
