@@ -1469,6 +1469,11 @@
      * Avanzar a la siguiente pregunta
      */
     function nextQuestion() {
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+          event: "next_question"
+      });
+
       if (currentQuestion < preguntes.length - 1) {
         currentQuestion++;
         showQuestion(currentQuestion);
