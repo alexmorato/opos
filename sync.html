@@ -594,13 +594,13 @@
 
     <!-- Botón Descargar del Servidor -->
     <div class="btn-row">
-      <button class="main-btn" id="btnDescargar" onclick="descargarDelServidor()">☁️⬇️ Descarregar Sessió del Servidor</button>
+      <button class="main-btn" id="btnDescargarSyncSession" onclick="descargarDelServidor()">☁️⬇️ Descarregar Sessió del Servidor</button>
     </div>
 
     <!-- Botones de Guardado -->
     <div class="btn-row hidden" id="botonesGuardar">
       <button class="main-btn" id="btnGuardarLocal" onclick="guardarMergeEnLocal()">💾⬅️ Guardar merge en Local</button>
-      <button class="main-btn" id="btnGuardarServidor" onclick="guardarMergeEnServidor()">☁️⬆️ Guardar merge al Servidor</button>
+      <button class="main-btn" id="btnGuardarServidorSyncSession" onclick="guardarMergeEnServidor()">☁️⬆️ Guardar merge al Servidor</button>
     </div>
 
     <!-- Botón Guardar Local en Servidor -->
@@ -998,7 +998,7 @@
     // ========================================
 
     window.descargarDelServidor = async function() {
-      document.getElementById('btnDescargar').disabled = true;
+      document.getElementById('btnDescargarSyncSession').disabled = true;
       
       if (typeof showLoadingSpinner === 'function') showLoadingSpinner('Descarregant del servidor...');
 
@@ -1064,7 +1064,7 @@
         }
       } finally {
         if (typeof hideLoadingSpinner === 'function') hideLoadingSpinner();
-        document.getElementById('btnDescargar').disabled = false;
+        document.getElementById('btnDescargarSyncSession').disabled = false;
       }
     };
 
@@ -1173,7 +1173,7 @@
     }
 
     function mostrarBotonesGuardar() {
-      document.getElementById('btnDescargar').classList.add('hidden');
+      document.getElementById('btnDescargarSyncSession').classList.add('hidden');
       document.getElementById('botonesGuardar').classList.remove('hidden');
       document.getElementById('botonSobreescribir').classList.remove('hidden');
     }
@@ -1199,7 +1199,7 @@
     };
 
     window.guardarMergeEnServidor = async function() {
-      document.getElementById('btnGuardarServidor').disabled = true;
+      document.getElementById('btnGuardarServidorSyncSession').disabled = true;
       
       if (typeof showLoadingSpinner === 'function') showLoadingSpinner('Pujant merge al servidor...');
 
@@ -1225,7 +1225,7 @@
         toast.showToast('Error pujant al servidor');
       } finally {
         if (typeof hideLoadingSpinner === 'function') hideLoadingSpinner();
-        document.getElementById('btnGuardarServidor').disabled = false;
+        document.getElementById('btnGuardarServidorSyncSession').disabled = false;
       }
     };
 
