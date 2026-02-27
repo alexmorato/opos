@@ -172,6 +172,7 @@
     <textarea id="inputJson" placeholder="Pega aquí el JSON..."></textarea>
     <div class="actions">
       <button class="btn" id="convertBtn">Convertir</button>
+      <button class="btn" id="convertAndStudyBtn">🔥 Convertir i estudiar</button>
     </div>
     <div class="actions">
       <button class="btn secondary" id="copyBtn" disabled>📋 Copiar JSON</button>
@@ -343,7 +344,7 @@
     }
 
     // Conversión principal
-    document.getElementById('convertBtn').onclick = function() {
+    function convertirJson() {
       const input = document.getElementById('inputJson').value.trim();
       const msgBox = document.getElementById('msgBox');
       msgBox.textContent = '';
@@ -356,7 +357,7 @@
         document.getElementById('outputJson').value = '';
         document.getElementById('copyBtn').disabled = true;
         document.getElementById('estudiarBtn').disabled = true;
-        return;
+        return null;
       }
       // Parámetros
       const temaSel = document.getElementById('temaSelect');
@@ -393,6 +394,23 @@
       document.getElementById('copyBtn').disabled = false;
       document.getElementById('estudiarBtn').disabled = false;
       msgBox.textContent = 'Conversión realizada correctamente.';
+      return output;
+    }
+
+    document.getElementById('convertBtn').onclick = function() {
+      convertirJson();
+    };
+
+    document.getElementById('convertAndStudyBtn').onclick = function() {
+      const output = convertirJson();
+      if (!output) return;
+      try {
+        if (typeof borrarEstudioEnProgreso === 'function') borrarEstudioEnProgreso();
+        localStorage.setItem(LS_KEYS.PREGUNTES, output);
+        window.location.href = 'estudiar.html';
+      } catch (e) {
+        document.getElementById('msgBox').textContent = 'Error al guardar preguntas: ' + e.message;
+      }
     };
 
     // Copiar al portapapeles
