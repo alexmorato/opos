@@ -6,7 +6,123 @@
   <title>Rueda Aleatoria (Canvas)</title>
   <style>
     :root { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; }
-    body { margin: 0; padding: 20px; background: #f6f7fb; color: #111; }
+    body {
+      font-family: system-ui, sans-serif;
+      background: #0b1020;
+      color: #e7ecff;
+      margin: 0;
+      padding: 20px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+        /* Menú hamburguesa y panel */
+        .menu-btn {
+          position: fixed;
+          top: 20px;
+          right: 20px;
+          width: 50px;
+          height: 50px;
+          background: #2aebad;
+          border: none;
+          border-radius: 10px;
+          cursor: pointer;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          gap: 6px;
+          z-index: 1000;
+          transition: all 0.3s;
+          box-shadow: 0 4px 12px rgba(42, 235, 173, 0.3);
+        }
+        .menu-btn:hover {
+          background: #21c08d;
+          transform: scale(1.05);
+        }
+        .menu-btn span {
+          width: 28px;
+          height: 3px;
+          background: #032217;
+          border-radius: 2px;
+          transition: all 0.3s;
+        }
+        .menu-panel {
+          position: fixed;
+          top: 20px;
+          right: 20px;
+          background: #141a2a;
+          border: 2px solid #27304a;
+          border-radius: 12px;
+          padding: 15px;
+          display: none;
+          flex-direction: column;
+          gap: 10px;
+          z-index: 1001;
+          box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+          min-width: 180px;
+        }
+        .menu-panel.visible {
+          display: flex;
+          animation: slideIn 0.3s ease-out;
+        }
+        @keyframes slideIn {
+          from { opacity: 0; transform: translateY(-10px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+        .menu-close-btn {
+          width: 100%;
+          padding: 12px;
+          background: #2aebad;
+          border: none;
+          border-radius: 8px;
+          cursor: pointer;
+          font-size: 1.1rem;
+          font-weight: bold;
+          color: #032217;
+          transition: all 0.2s;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 8px;
+        }
+        .menu-close-btn:hover {
+          background: #21c08d;
+          transform: translateY(-1px);
+        }
+        .btn-fullscreen {
+          width: 100%;
+          padding: 12px;
+          background: #2a5f8a;
+          border: none;
+          border-radius: 8px;
+          cursor: pointer;
+          font-size: 1rem;
+          font-weight: 600;
+          color: #e7ecff;
+          transition: all 0.2s;
+        }
+        .btn-fullscreen:hover {
+          background: #3a7faa;
+          transform: translateY(-1px);
+        }
+        .btn-menu-tornar {
+          width: 100%;
+          padding: 12px;
+          background: #27304a;
+          border: none;
+          border-radius: 8px;
+          cursor: pointer;
+          font-size: 1rem;
+          font-weight: 600;
+          color: #e7ecff;
+          transition: all 0.2s;
+        }
+        .btn-menu-tornar:hover {
+          background: #3a4a6a;
+          transform: translateY(-1px);
+        }
     .wrap { max-width: 1000px; margin: 0 auto; display: grid; gap: 16px; grid-template-columns: 1fr; }
     @media (min-width: 900px){ .wrap { grid-template-columns: 520px 1fr; align-items: start; } }
     .card { background: #fff; border-radius: 16px; box-shadow: 0 8px 30px rgba(0,0,0,.08); padding: 16px; }
@@ -59,6 +175,17 @@
   </style>
 </head>
 <body>
+  <!-- Menú hamburguesa -->
+  <button class="menu-btn" id="menuBtn" aria-label="Menú">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+  <div class="menu-panel" id="menuPanel">
+    <button class="menu-close-btn" id="closeBtn">Tancar</button>
+    <button class="btn-fullscreen" id="fullscreenBtn">FullScreen</button>
+    <button class="btn-menu-tornar" id="menuBtnTornar">Menú</button>
+  </div>
   <div class="wrap">
     <div class="card">
       <div class="wheelBox">
@@ -161,6 +288,31 @@ Ambit_2.
   </div>
 
   <script>
+        // Menú hamburguesa
+        const menuBtn = document.getElementById('menuBtn');
+        const menuPanel = document.getElementById('menuPanel');
+        const closeBtn = document.getElementById('closeBtn');
+        const fullscreenBtn = document.getElementById('fullscreenBtn');
+        const menuBtnTornar = document.getElementById('menuBtnTornar');
+
+        menuBtn.addEventListener('click', () => {
+          menuPanel.classList.toggle('visible');
+        });
+        closeBtn.addEventListener('click', () => {
+          menuPanel.classList.remove('visible');
+        });
+        fullscreenBtn.addEventListener('click', () => {
+          menuPanel.classList.remove('visible');
+          if (document.fullscreenElement) {
+            document.exitFullscreen();
+          } else {
+            document.documentElement.requestFullscreen();
+          }
+        });
+        menuBtnTornar.addEventListener('click', () => {
+          menuPanel.classList.remove('visible');
+          window.location.href = 'menu.html';
+        });
     // ---------- Util: entero aleatorio uniforme [0, n) usando crypto (sin sesgo) ----------
 
     // ---------- Sonido CLI ----------
