@@ -1,0 +1,347 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Rueda Aleatoria (Canvas)</title>
+  <style>
+    :root { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; }
+    body { margin: 0; padding: 20px; background: #f6f7fb; color: #111; }
+    .wrap { max-width: 1000px; margin: 0 auto; display: grid; gap: 16px; grid-template-columns: 1fr; }
+    @media (min-width: 900px){ .wrap { grid-template-columns: 520px 1fr; align-items: start; } }
+    .card { background: #fff; border-radius: 16px; box-shadow: 0 8px 30px rgba(0,0,0,.08); padding: 16px; }
+    .wheelBox { position: relative; width: 100%; aspect-ratio: 1 / 1; }
+    canvas { width: 100%; height: 100%; display: block; border-radius: 16px; background: #fff; }
+    .pointer {
+      position: absolute;
+      top: 6px; left: 50%;
+      width: 0; height: 0;
+      transform: translateX(-50%);
+      border-left: 14px solid transparent;
+      border-right: 14px solid transparent;
+      border-top: 26px solid #111;
+      filter: drop-shadow(0 3px 4px rgba(0,0,0,.25));
+      pointer-events: none;
+    }
+    .hub {
+      position:absolute; inset: 50% auto auto 50%;
+      transform: translate(-50%,-50%);
+      width: 72px; height: 72px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 30%, #fff, #d9dde7);
+      box-shadow: inset 0 2px 10px rgba(0,0,0,.15), 0 6px 16px rgba(0,0,0,.10);
+      display:flex; align-items:center; justify-content:center;
+      font-weight: 800;
+      pointer-events:none;
+      user-select:none;
+    }
+    .row { display:flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+    button {
+      appearance: none; border: 0; border-radius: 12px;
+      padding: 10px 14px; font-weight: 700; cursor: pointer;
+      background: #3369e8; color: #fff;
+      box-shadow: 0 6px 16px rgba(51,105,232,.25);
+    }
+    button:disabled { opacity: .55; cursor: not-allowed; }
+    button.secondary { background:#111; box-shadow: 0 6px 16px rgba(0,0,0,.18); }
+    textarea {
+      width: 100%; min-height: 220px; resize: vertical;
+      border-radius: 12px; border: 1px solid #e4e6ee;
+      padding: 10px; font-size: 14px; line-height: 1.3;
+    }
+    .hint { font-size: 12px; opacity: .75; margin-top: 8px; }
+    .result {
+      margin-top: 10px; padding: 10px 12px;
+      border-radius: 12px; background:#f1f4ff; border: 1px solid #d8e2ff;
+      font-weight: 700;
+    }
+    .tiny { font-size: 12px; opacity: .75; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="card">
+      <div class="wheelBox">
+        <div class="pointer" aria-hidden="true"></div>
+        <canvas id="wheel" width="700" height="700" aria-label="Rueda"></canvas>
+        <div class="hub" aria-hidden="true">SPIN</div>
+      </div>
+      <div class="row" style="margin-top:12px">
+        <button id="spinBtn">Girar</button>
+        <button id="shuffleBtn" class="secondary">Mezclar colores</button>
+        <span class="tiny">Tip: también puedes hacer click en la rueda</span>
+      </div>
+      <div id="result" class="result" style="display:none"></div>
+      <div class="hint">El ganador se elige con <code>crypto.getRandomValues()</code> (aleatoriedad segura). La animación solo “cae” en ese segmento.</div>
+    </div>
+
+    <div class="card">
+      <h3 style="margin:0 0 10px 0">Opciones (una por línea)</h3>
+      <textarea id="items">
+Barcelona
+Madrid
+Valencia
+Sevilla
+Bilbao
+Zaragoza
+Málaga
+      </textarea>
+      <div class="row" style="margin-top:10px">
+        <button id="applyBtn">Aplicar</button>
+        <span class="tiny">Vacíos se ignoran. Mínimo 2 opciones.</span>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // ---------- Util: entero aleatorio uniforme [0, n) usando crypto (sin sesgo) ----------
+    function cryptoRandomInt(n) {
+      if (!Number.isInteger(n) || n <= 0) throw new Error("n inválido");
+      const max = 0x100000000; // 2^32
+      const limit = max - (max % n); // rejection sampling para evitar sesgo
+      const buf = new Uint32Array(1);
+      while (true) {
+        crypto.getRandomValues(buf);
+        const x = buf[0];
+        if (x < limit) return x % n;
+      }
+    }
+
+    // ---------- Color helper (paleta agradable sin librerías) ----------
+    function makePalette(count) {
+      // Genera colores HSL espaciados
+      const colors = [];
+      for (let i = 0; i < count; i++) {
+        const hue = Math.round((360 * i) / count);
+        colors.push(`hsl(${hue} 75% 55%)`);
+      }
+      return colors;
+    }
+
+    // ---------- Rueda (Canvas) ----------
+    const canvas = document.getElementById("wheel");
+    const ctx = canvas.getContext("2d");
+
+    const spinBtn = document.getElementById("spinBtn");
+    const shuffleBtn = document.getElementById("shuffleBtn");
+    const applyBtn = document.getElementById("applyBtn");
+    const itemsTa = document.getElementById("items");
+    const resultBox = document.getElementById("result");
+
+    let items = [];
+    let colors = [];
+
+    // Ángulo actual (radianes). 0 = “arriba”. Rotamos la rueda, el puntero está fijo arriba.
+    let angle = 0;
+
+    // Animación
+    let spinning = false;
+    let startAngle = 0;
+    let targetAngle = 0;
+    let startTime = 0;
+    let durationMs = 5200; // tiempo total de giro
+
+    function parseItems() {
+      const lines = itemsTa.value.split("\n")
+        .map(s => s.trim())
+        .filter(Boolean);
+      // Deduplicación opcional: si no la quieres, elimina este bloque
+      items = lines;
+      if (items.length < 2) {
+        alert("Pon al menos 2 opciones (una por línea).");
+        return false;
+      }
+      colors = makePalette(items.length);
+      drawWheel();
+      hideResult();
+      return true;
+    }
+
+    function hideResult() {
+      resultBox.style.display = "none";
+      resultBox.textContent = "";
+    }
+
+    function showResult(text) {
+      resultBox.textContent = "Ganador: " + text;
+      resultBox.style.display = "block";
+    }
+
+    function drawWheel() {
+      const W = canvas.width, H = canvas.height;
+      const cx = W / 2, cy = H / 2;
+      const r = Math.min(W, H) * 0.46;
+
+      ctx.clearRect(0, 0, W, H);
+
+      // Fondo
+      ctx.save();
+      ctx.beginPath();
+      ctx.arc(cx, cy, r + 18, 0, Math.PI * 2);
+      ctx.fillStyle = "#fff";
+      ctx.fill();
+      ctx.restore();
+
+      const n = items.length;
+      const slice = (Math.PI * 2) / n;
+
+      // Rotamos para que el “centro” de un segmento pueda caer en el puntero de arriba.
+      // El puntero apunta hacia abajo (triángulo arriba). El ángulo de “arriba” en canvas es -PI/2.
+      const baseRotation = -Math.PI / 2;
+
+      for (let i = 0; i < n; i++) {
+        const a0 = baseRotation + angle + i * slice;
+        const a1 = a0 + slice;
+
+        // Segmento
+        ctx.beginPath();
+        ctx.moveTo(cx, cy);
+        ctx.arc(cx, cy, r, a0, a1);
+        ctx.closePath();
+        ctx.fillStyle = colors[i % colors.length];
+        ctx.fill();
+
+        // Borde de segmento
+        ctx.strokeStyle = "rgba(255,255,255,.9)";
+        ctx.lineWidth = 2;
+        ctx.stroke();
+
+        // Texto
+        const mid = (a0 + a1) / 2;
+        ctx.save();
+        ctx.translate(cx, cy);
+        ctx.rotate(mid);
+
+        // Texto alineado hacia fuera
+        ctx.textAlign = "right";
+        ctx.textBaseline = "middle";
+        ctx.fillStyle = "white";
+        ctx.font = "800 12px system-ui, -apple-system, Segoe UI, Roboto, Arial";
+
+        const label = items[i];
+        const maxLen = 22;
+        const text = label.length > maxLen ? label.slice(0, maxLen - 1) + "…" : label;
+
+        ctx.fillText(text, r - 14, 0);
+        ctx.restore();
+      }
+
+      // Aro exterior
+      ctx.beginPath();
+      ctx.arc(cx, cy, r, 0, Math.PI * 2);
+      ctx.lineWidth = 6;
+      ctx.strokeStyle = "rgba(0,0,0,.15)";
+      ctx.stroke();
+    }
+
+    function easeOutCubic(t) {
+      return 1 - Math.pow(1 - t, 3);
+    }
+
+    function currentIndexAtPointer() {
+      // Determina qué segmento está en el puntero (arriba).
+      // El puntero está en -PI/2 (arriba). Dado angle, calculamos desplazamiento.
+      const n = items.length;
+      const slice = (Math.PI * 2) / n;
+
+      // Normaliza ángulo a [0, 2pi)
+      let a = angle % (Math.PI * 2);
+      if (a < 0) a += Math.PI * 2;
+
+      // En drawWheel usamos baseRotation = -PI/2 y sumamos angle.
+      // El segmento i ocupa [baseRotation+angle+i*slice, baseRotation+angle+(i+1)*slice).
+      // Queremos el i tal que el puntero (baseRotation) cae dentro si "desrotamos" por angle:
+      // Equivalente a localizar el ángulo relativo: (-angle) en [i*slice, (i+1)*slice)
+      let rel = (-a) % (Math.PI * 2);
+      if (rel < 0) rel += Math.PI * 2;
+
+      const idx = Math.floor(rel / slice);
+      // Asegura rango
+      return (idx + n) % n;
+    }
+
+    function spin() {
+      if (spinning) return;
+      if (items.length < 2) {
+        if (!parseItems()) return;
+      }
+
+      hideResult();
+      spinning = true;
+      spinBtn.disabled = true;
+      shuffleBtn.disabled = true;
+      applyBtn.disabled = true;
+
+      // Elegimos el ganador con crypto (uniforme).
+      const winnerIndex = cryptoRandomInt(items.length);
+
+      // Calculamos un ángulo final que deje el centro del segmento ganador bajo el puntero.
+      const n = items.length;
+      const slice = (Math.PI * 2) / n;
+
+      // Centro del segmento ganador en el sistema relativo (0..2pi)
+      const center = (winnerIndex + 0.5) * slice;
+
+      // Queremos que rel = (-angleFinal mod 2pi) ≈ center  => angleFinal ≈ -center (mod 2pi)
+      // Añadimos varias vueltas completas para dramatismo.
+      const spins = 6 + cryptoRandomInt(5); // 6..10 vueltas (también con crypto)
+      const finalBase = -(center); // ángulo equivalente
+      const final = finalBase + spins * Math.PI * 2;
+
+      startAngle = angle;
+      targetAngle = final;
+      startTime = performance.now();
+
+      // Duración también puede variar un poco (opcional)
+      durationMs = 4800 + cryptoRandomInt(1800); // 4.8s..6.6s
+
+      requestAnimationFrame(tick);
+
+      function tick(now) {
+        const t = Math.min(1, (now - startTime) / durationMs);
+        const e = easeOutCubic(t);
+        angle = startAngle + (targetAngle - startAngle) * e;
+        drawWheel();
+
+        if (t < 1) {
+          requestAnimationFrame(tick);
+        } else {
+          // Ajuste final para evitar acumulación flotante
+          angle = targetAngle;
+          drawWheel();
+
+          spinning = false;
+          spinBtn.disabled = false;
+          shuffleBtn.disabled = false;
+          applyBtn.disabled = false;
+
+          // El índice bajo el puntero debería coincidir con winnerIndex
+          const idx = currentIndexAtPointer();
+          showResult(items[idx] ?? items[winnerIndex]);
+        }
+      }
+    }
+
+    // Eventos
+    spinBtn.addEventListener("click", spin);
+    canvas.addEventListener("click", spin);
+
+    applyBtn.addEventListener("click", () => {
+      parseItems();
+    });
+
+    shuffleBtn.addEventListener("click", () => {
+      if (items.length < 2) {
+        if (!parseItems()) return;
+      }
+      // “Mezclar colores”: rotamos la paleta de forma aleatoria con crypto
+      const k = cryptoRandomInt(colors.length);
+      colors = colors.slice(k).concat(colors.slice(0, k));
+      drawWheel();
+    });
+
+    // Inicial
+    parseItems();
+  </script>
+</body>
+</html>
