@@ -162,6 +162,27 @@ Ambit_2.
 
   <script>
     // ---------- Util: entero aleatorio uniforme [0, n) usando crypto (sin sesgo) ----------
+
+    // ---------- Sonido CLI ----------
+    // Genera un sonido breve tipo "cli" usando Web Audio API
+    function playCli() {
+      try {
+        const ctx = playCli.ctx || (playCli.ctx = new (window.AudioContext || window.webkitAudioContext)());
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.type = "sine";
+        osc.frequency.value = 700;
+        gain.gain.value = 0.08;
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+        osc.start();
+        osc.stop(ctx.currentTime + 0.06);
+        osc.onended = () => {
+          gain.disconnect();
+          osc.disconnect();
+        };
+      } catch (e) { /* ignore */ }
+    }
     function cryptoRandomInt(n) {
       if (!Number.isInteger(n) || n <= 0) throw new Error("n inválido");
       const max = 0x100000000; // 2^32
@@ -350,25 +371,45 @@ Ambit_2.
       const center = (winnerIndex + 0.5) * slice;
 
       // Queremos que rel = (-angleFinal mod 2pi) ≈ center  => angleFinal ≈ -center (mod 2pi)
-      // Añadimos varias vueltas completas para dramatismo.
-      const spins = 6 + cryptoRandomInt(5); // 6..10 vueltas (también con crypto)
-      const finalBase = -(center); // ángulo equivalente
+      // Menos vueltas y más duración para suavidad
+      const spins = 3 + cryptoRandomInt(3); // 3..5 vueltas
+      const finalBase = -(center);
       const final = finalBase + spins * Math.PI * 2;
 
       startAngle = angle;
       targetAngle = final;
       startTime = performance.now();
 
-      // Duración también puede variar un poco (opcional)
-      durationMs = 4800 + cryptoRandomInt(1800); // 4.8s..6.6s
+      // Duración más larga y desaceleración final
+      durationMs = 6500 + cryptoRandomInt(1200); // 6.5s..7.7s
+
+      // Sonido cli: cada vez que el puntero pasa a un nuevo segmento, pero no más de 1 cada 80ms
+      let lastSegment = currentIndexAtPointer();
+      let lastCliTime = 0;
 
       requestAnimationFrame(tick);
 
       function tick(now) {
-        const t = Math.min(1, (now - startTime) / durationMs);
-        const e = easeOutCubic(t);
+        // Desaceleración extra al final
+        let t = Math.min(1, (now - startTime) / durationMs);
+        // Al final, desacelera más
+        let e = easeOutCubic(t);
+        if (t > 0.85) {
+          e = easeOutCubic(0.85) + (e - easeOutCubic(0.85)) * 0.5;
+        }
         angle = startAngle + (targetAngle - startAngle) * e;
         drawWheel();
+
+        // Detecta cambio de segmento bajo el puntero
+        const seg = currentIndexAtPointer();
+        if (seg !== lastSegment) {
+          // Limita frecuencia de sonido
+          if (now - lastCliTime > 80) {
+            playCli();
+            lastCliTime = now;
+          }
+          lastSegment = seg;
+        }
 
         if (t < 1) {
           requestAnimationFrame(tick);
