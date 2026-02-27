@@ -374,7 +374,7 @@
         (q.options_bad || []).forEach(opt => {
           answerOptions.push({ text: opt, isCorrect: false, rationale: '' });
         });
-        return {
+        const result = {
           guid: generateGUID(),
           subjectId,
           difficulty,
@@ -383,6 +383,10 @@
           question: q.question,
           answerOptions
         };
+        if (typeof q.hint === 'string' && q.hint.trim() !== '') {
+          result.hint = q.hint;
+        }
+        return result;
       });
       const output = JSON.stringify(questions, null, 2);
       document.getElementById('outputJson').value = output;
